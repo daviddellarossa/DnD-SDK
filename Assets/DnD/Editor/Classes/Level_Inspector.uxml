@@ -1,0 +1,16 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:SliderInt label="Level" value="1" high-value="20" name="siLevelNum" low-value="1" binding-path="LevelNum" show-input-field="true" />
+    <engine:SliderInt label="Proficiency Bonus" value="2" high-value="6" name="siProficiencyBonus" binding-path="ProficiencyBonus" low-value="2" show-input-field="true" />
+    <editor:PropertyField name="pfClassFeatures" binding-path="ClassFeatures" style="display: flex;" />
+    <engine:VisualElement name="veClassFeaturesToolbar" style="flex-grow: 1; flex-direction: row; align-items: center; align-content: auto; justify-content: flex-end;">
+        <engine:Button text="+" name="btnAddItem" />
+        <engine:Button text="-" name="btnRemoveItem" parse-escape-sequences="true" />
+    </engine:VisualElement>
+    <engine:VisualElement name="veClassFeatureTraits" style="flex-grow: 1; display: flex;">
+        <editor:PropertyField name="pfClassFeatureTraits" binding-path="Class Feature Traits" style="display: flex;" />
+        <engine:VisualElement name="veClassFeatureTraitsToolbar" style="flex-grow: 1; flex-direction: row; align-items: center; align-content: auto; justify-content: flex-end;">
+            <engine:Button text="+" name="btnAddItem" />
+            <engine:Button text="-" name="btnRemoveItem" parse-escape-sequences="true" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

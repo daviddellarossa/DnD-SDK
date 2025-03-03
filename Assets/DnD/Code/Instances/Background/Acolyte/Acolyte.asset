@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b07ac9e01a0e34e8e1069255b4c930, type: 3}
+  m_Name: Acolyte
+  m_EditorClassIdentifier: 
+  Name: Acolyte
+  Abilities: 030000000400000005000000
+  SkillProficiencies:
+  - {fileID: 11400000, guid: 2ec62fec9d6ba674083e60c0d103d927, type: 2}
+  - {fileID: 11400000, guid: 5f6c86d2b248ebb4990b935fb1945f97, type: 2}
+  StartingEquipment:
+  - {fileID: 11400000, guid: 0734c2ac59b5d624c913ff10a37035ff, type: 2}
+  - {fileID: 11400000, guid: 33dff5e6e468cab419b79d36c79f997d, type: 2}
+  Feat: {fileID: 11400000, guid: a44a1d478646fd9478cd36ad58c3ae6a, type: 2}
+  Note: Tool proficiency still not shown in the UI. TODO.

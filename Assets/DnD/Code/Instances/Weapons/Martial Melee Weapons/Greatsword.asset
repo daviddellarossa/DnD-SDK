@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6864924407352625329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 037e71a86e645a242b3e1e815ad68008, type: 3}
+  m_Name: Heavy_e24e6da3-982d-444b-b8ee-05a8367daf35
+  m_EditorClassIdentifier: 
+  Name: Heavy
+--- !u!114 &-5550167576592556270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36493f1abb9fc004589c959707dc588f, type: 3}
+  m_Name: Graze_40bdd3f3-3f8b-46df-9387-14b57671d2f1
+  m_EditorClassIdentifier: 
+  Name: Graze
+--- !u!114 &-226206031976920529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
+  m_Name: TwoHanded_b3c68ebb-77f8-4439-9ae4-6b35484ca4f6
+  m_EditorClassIdentifier: 
+  Name: TwoHanded
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
+  m_Name: Greatsword
+  m_EditorClassIdentifier: 
+  Name: Greatsword
+  Type: {fileID: 11400000, guid: 6cbb43571004771418247b615afb5f92, type: 2}
+  NumOfDamageDice: 2
+  DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
+  DamageType: {fileID: 11400000, guid: 9437bf1f986d56941b00734a2f0ec3ca, type: 2}
+  Properties:
+  - {fileID: -6864924407352625329}
+  - {fileID: -226206031976920529}
+  MasteryProperty: {fileID: -5550167576592556270}
+  Weight: 3
+  Cost: 0

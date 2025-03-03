@@ -1,0 +1,5 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:Label text="Label" binding-path="Name" />
+    <engine:EnumField label="Enum" value="Center" type="UnityEngine.TextAlignment, UnityEngine.TextRenderingModule" binding-path="DamageType" data-source-type="DamageType, Assembly-CSharp" />
+    <engine:Slider label="Percent" value="0" high-value="1" binding-path="Percent" />
+</engine:UXML>

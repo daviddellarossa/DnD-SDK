@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4422736056870238884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ebc4527f34bae1489fdaafed1f5dafc, type: 3}
+  m_Name: Finesse_df6909dc-9fe7-4c13-8eb1-65560a53443e
+  m_EditorClassIdentifier: 
+  Name: Finesse
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
+  m_Name: Dagger
+  m_EditorClassIdentifier: 
+  Name: Dagger
+  Type: {fileID: 11400000, guid: 712d16048f4015d40b1aa5a890212796, type: 2}
+  NumOfDamageDice: 1
+  DamageDie: {fileID: 11400000, guid: e23ede8f2cf0b9b49b31d2e95b0a3d15, type: 2}
+  DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
+  Properties:
+  - {fileID: -4422736056870238884}
+  - {fileID: 3944751484460023727}
+  - {fileID: 8565721424813173519}
+  MasteryProperty: {fileID: 7738633226283227414}
+  Weight: 1
+  Cost: 2
+--- !u!114 &3944751484460023727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 972175a1f99609d41a0057c11c6bff3b, type: 3}
+  m_Name: Light_6d246a4e-1344-4790-b925-3f4cd95f6596
+  m_EditorClassIdentifier: 
+  Name: Light
+--- !u!114 &7738633226283227414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736285003def7cc46b8f45a9970c9ed2, type: 3}
+  m_Name: Nick_d7f0895c-8a53-4f3a-b893-8465f8425dad
+  m_EditorClassIdentifier: 
+  Name: Nick
+--- !u!114 &8565721424813173519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 160fc646e2c4724418aa23deca8abc00, type: 3}
+  m_Name: Thrown_d5b293df-2262-4009-a696-8e82b501700b
+  m_EditorClassIdentifier: 
+  Name: Thrown
+  MinRange: 6
+  MaxRange: 18
+  Range:
+    Min: 6
+    Max: 18

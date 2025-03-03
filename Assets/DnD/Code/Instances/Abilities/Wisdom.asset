@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ff5d5761f0a0342b7404468e2e8445, type: 3}
+  m_Name: Wisdom
+  m_EditorClassIdentifier: 
+  Name: Wisdom
+  AbilityType: 4
+  SkillList:
+  - {fileID: 11400000, guid: 6e66807c4ae635c4cb57330fdcffc001, type: 2}
+  - {fileID: 11400000, guid: 2ec62fec9d6ba674083e60c0d103d927, type: 2}
+  - {fileID: 11400000, guid: db25edc5bad30104897f911b4101f6b7, type: 2}
+  - {fileID: 11400000, guid: a956dad4fbc185145bccff87c2460ca9, type: 2}
+  - {fileID: 11400000, guid: cb1465541ac074a44b35ca4df178ef6e, type: 2}

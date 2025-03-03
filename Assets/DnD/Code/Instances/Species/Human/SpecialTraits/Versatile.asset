@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2298edb0b712f784f9fd3b5a7213da5b, type: 3}
+  m_Name: Versatile
+  m_EditorClassIdentifier: 
+  Name: SpecialTrait
+  TraitTypes:
+  - {fileID: 8050328805917265852}
+--- !u!114 &8050328805917265852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e21a61ba77ced42b1e1a3ae3782687, type: 3}
+  m_Name: HasFeatByCategory_32facb2e-586b-4ac9-93ae-d86e00231512
+  m_EditorClassIdentifier: Assembly-CSharp:Game.Characters.Species.SpecialTraits:SpecialTrait
+  Name: HasFeatByCategory
+  FeatCategory: {fileID: 11400000, guid: 7e0159afbf9cb7841b02b5dcc7be702f, type: 2}

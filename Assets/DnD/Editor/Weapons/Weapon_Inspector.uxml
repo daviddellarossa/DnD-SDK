@@ -1,0 +1,23 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <engine:TextField label="Name" placeholder-text="filler text" name="Name" select-word-by-double-click="true" binding-path="Name" />
+    <editor:PropertyField name="pfWeaponType" label="Weapon Type" data-source-type="Assets.Scripts.Game.Weapons.WeaponType, Assembly-CSharp" binding-path="Type" />
+    <engine:IntegerField label="Number of Damage Dice" value="1" name="ifNumOfDamageDice" binding-path="NumOfDamageDice" />
+    <editor:PropertyField name="pfDie" data-source-type="Assets.Scripts.Game.Die, Assembly-CSharp" label="Die" binding-path="DamageDie" />
+    <editor:PropertyField data-source-type="DamageType, Assembly-CSharp" name="pfDamageType" label="Damage Type" binding-path="DamageType" />
+    <engine:VisualElement name="veProperties" style="flex-grow: 1;">
+        <editor:PropertyField name="pfProperties" binding-path="Properties" label="Properties" style="display: flex;" />
+        <engine:VisualElement name="veToolbarForProperties" style="flex-grow: 1; flex-direction: row; align-items: center; align-content: auto; justify-content: flex-end;">
+            <engine:Button text="+" name="btnAddItem" />
+            <engine:Button text="-" name="btnRemoveItem" parse-escape-sequences="true" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+    <engine:VisualElement name="veMasteryProperty" style="flex-grow: 1; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px;">
+        <editor:PropertyField name="pfMasteryProperty" binding-path="MasteryProperty" label="Mastery Property" style="border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-left-color: rgba(56, 56, 56, 0); border-right-color: rgba(56, 56, 56, 0); border-top-color: rgba(56, 56, 56, 0); border-bottom-color: rgba(56, 56, 56, 0);" />
+        <engine:VisualElement name="veToolbarForMasteryProperties" style="flex-grow: 1; flex-direction: row; align-items: center; align-content: auto; justify-content: flex-end;">
+            <engine:Button text="+" name="btnAddItem" />
+            <engine:Button text="-" name="btnRemoveItem" parse-escape-sequences="true" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+    <engine:FloatField label="Weight" value="0" name="ffWeight" binding-path="Weight" />
+    <engine:FloatField label="Cost" value="0" name="ffCost" binding-path="Cost" />
+</engine:UXML>

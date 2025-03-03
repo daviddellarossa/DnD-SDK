@@ -1,0 +1,56 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <engine:Template name="ItemSection_Control" src="project://database/Assets/DnD/Editor/Starting%20Equipment/ItemSection_Control.uxml?fileID=9197481963319205126&amp;guid=656fcd75e273eba4ead641dc4b003a64&amp;type=3#ItemSection_Control" />
+    <engine:VisualElement name="veItems" style="flex-grow: 1;">
+        <engine:ListView name="lvItems" binding-path="Items" allow-add="false" show-add-remove-footer="true" />
+    </engine:VisualElement>
+    <engine:VisualElement name="veToolbar" style="flex-grow: 1; flex-direction: row; align-items: center; align-content: auto; justify-content: flex-end; display: none;">
+        <engine:Button text="+" name="btnAddItem" />
+        <engine:Button text="-" name="btnRemoveItem" parse-escape-sequences="true" />
+    </engine:VisualElement>
+    <engine:VisualElement name="veShieldsSection" style="flex-grow: 1; flex-direction: column; justify-content: flex-start; align-items: stretch;">
+        <engine:Label text="Shields" name="lblShieldsSection" />
+        <engine:VisualElement name="veShield" style="flex-grow: 1; align-items: flex-end; flex-direction: row; justify-content: flex-end;">
+            <engine:Instance template="ItemSection_Control" name="tcShield" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+    <engine:VisualElement name="veArmoursSection" style="flex-grow: 1; flex-direction: column;">
+        <engine:Label text="Armours" name="lblArmoursSection" />
+        <engine:VisualElement name="veLightArmour" style="flex-grow: 1; flex-direction: row; justify-content: flex-end;">
+            <engine:Label text="Light" name="lblLightArmour" />
+            <engine:Instance template="ItemSection_Control" name="tcLightArmour" />
+        </engine:VisualElement>
+        <engine:VisualElement name="veMediumArmour" style="flex-grow: 1; flex-direction: row; justify-content: flex-end;">
+            <engine:Label text="Medium" name="lblMediumArmour" />
+            <engine:Instance template="ItemSection_Control" name="tcMediumArmour" style="min-width: auto;" />
+        </engine:VisualElement>
+        <engine:VisualElement name="veHeavyArmour" style="flex-grow: 1; flex-direction: row; justify-content: flex-end;">
+            <engine:Label text="Heavy" name="lblHeavyArmour" />
+            <engine:Instance template="ItemSection_Control" name="tcHeavyArmour" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+    <engine:VisualElement name="veWeaponsSection" style="flex-grow: 1;">
+        <engine:Label text="Weapons" name="lblWeaponsSection" />
+        <engine:VisualElement name="veSimpleMeleeWeapon" style="flex-grow: 1; flex-direction: row; justify-content: flex-end;">
+            <engine:Label text="Simple Melee" name="lblSimpleMeleeWeapon" selectable="true" />
+            <engine:Instance template="ItemSection_Control" name="tcSimpleMeleeWeapon" />
+        </engine:VisualElement>
+        <engine:VisualElement name="veSimpleRangedWeapon" style="flex-grow: 1; flex-direction: row; justify-content: flex-end;">
+            <engine:Label text="Simple Ranged" name="lblSimpleRangedWeapon" />
+            <engine:Instance template="ItemSection_Control" name="tcSimpleRangedWeapon" />
+        </engine:VisualElement>
+        <engine:VisualElement name="veMartialMeleeWeapon" style="flex-grow: 1; flex-direction: row; justify-content: flex-end;">
+            <engine:Label text="Martial Melee" name="lblMartialMeleeWeapon" />
+            <engine:Instance template="ItemSection_Control" name="tcMartialMeleeWeapon" />
+        </engine:VisualElement>
+        <engine:VisualElement name="veMartialRangedWeapon" style="flex-grow: 1; flex-direction: row; justify-content: flex-end;">
+            <engine:Label text="Martial Ranged" name="lblMartialRangedWeapon" />
+            <engine:Instance template="ItemSection_Control" name="tcMartialRangedWeapon" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+    <engine:VisualElement name="veCoinValueSection" style="flex-grow: 1;">
+        <engine:Label text="Currency" name="lblCoinValueSection" />
+        <engine:VisualElement name="veCoinValue" style="flex-grow: 1; align-items: flex-end; flex-direction: row; justify-content: flex-end;">
+            <engine:Instance template="ItemSection_Control" name="tcCoinValue" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

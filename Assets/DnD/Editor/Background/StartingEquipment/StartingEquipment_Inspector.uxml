@@ -1,0 +1,16 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <engine:Template name="ItemSection_Control" src="project://database/Assets/DnD/Editor/Background/Starting%20Equipment/ItemSection_Control.uxml?fileID=9197481963319205126&amp;guid=656fcd75e273eba4ead641dc4b003a64&amp;type=3#ItemSection_Control" />
+    <engine:VisualElement name="veItems" style="flex-grow: 1;">
+        <engine:ListView name="lvItems" binding-path="Items" allow-add="false" show-add-remove-footer="true" />
+    </engine:VisualElement>
+    <engine:VisualElement name="veToolbar" style="flex-grow: 1; flex-direction: row; align-items: center; align-content: auto; justify-content: flex-end; display: none;">
+        <engine:Button text="+" name="btnAddItem" />
+        <engine:Button text="-" name="btnRemoveItem" parse-escape-sequences="true" />
+    </engine:VisualElement>
+    <engine:VisualElement name="veIEquipmentSection" style="flex-grow: 1; flex-direction: column; justify-content: flex-start; align-items: stretch;">
+        <engine:Label text="Equipment" name="lblIEquipmentSection" />
+        <engine:VisualElement name="veIEquipment" style="flex-grow: 1; align-items: flex-end; flex-direction: row; justify-content: flex-end;">
+            <engine:Instance template="ItemSection_Control" name="tcIEquipment" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

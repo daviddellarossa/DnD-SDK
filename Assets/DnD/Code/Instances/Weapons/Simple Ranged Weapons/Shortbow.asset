@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
+  m_Name: Shortbow
+  m_EditorClassIdentifier: 
+  Name: Shortbow
+  Type: {fileID: 11400000, guid: 7108f690870fd21498ed54fd60cb39f9, type: 2}
+  NumOfDamageDice: 1
+  DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
+  DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
+  Properties:
+  - {fileID: 3390684706084713655}
+  - {fileID: 5540142395476618696}
+  MasteryProperty: {fileID: 5077409609342244395}
+  Weight: 1
+  Cost: 0
+--- !u!114 &3390684706084713655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8954e8761f4789b49a5fe892e72beeff, type: 3}
+  m_Name: Ammunition_7ba6408a-e412-4aee-b896-a036a2e87835
+  m_EditorClassIdentifier: 
+  Name: Ammunition
+  Range:
+    Min: 24
+    Max: 96
+  Type: {fileID: 11400000, guid: 612c1eb866674e645abef579e0e27517, type: 2}
+--- !u!114 &5077409609342244395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1de63446a39c28145a8b4eea8f194a7e, type: 3}
+  m_Name: Vex_5fd40cba-81a5-4860-924c-572e8300754e
+  m_EditorClassIdentifier: 
+  Name: Vex
+--- !u!114 &5540142395476618696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
+  m_Name: TwoHanded_d4440b5c-bd97-47ed-adda-174c50d76627
+  m_EditorClassIdentifier: 
+  Name: TwoHanded

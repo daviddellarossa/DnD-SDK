@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
+  m_Name: Barbarian_Level_11
+  m_EditorClassIdentifier: 
+  LevelNum: 11
+  ProficiencyBonus: 4
+  ClassFeatures:
+  - {fileID: 6515739049897089661}
+  ClassFeatureTraits:
+    rid: 1838690267888877635
+  references:
+    version: 2
+    RefIds:
+    - rid: 1838690267888877635
+      type: {class: BarbarianFP, ns: Assets.Scripts.Game.Characters.Classes.Barbarian.FeatureProperties, asm: Assembly-CSharp}
+      data:
+        rages: 4
+        rageDamage: 3
+        weaponMastery: 4
+--- !u!114 &6515739049897089661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa57055ac3c046c0b4982ce6d95db8a1, type: 3}
+  m_Name: RelentlessRage
+  m_EditorClassIdentifier: 
+  Name: 

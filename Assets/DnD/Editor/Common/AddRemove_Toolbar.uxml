@@ -1,0 +1,6 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" xsi:noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <engine:VisualElement name="veToolbar" style="flex-grow: 1; flex-direction: row; align-items: center; align-content: auto; justify-content: flex-end; display: flex;">
+        <engine:Button text="+" name="btnAddItem" />
+        <engine:Button text="-" name="btnRemoveItem" parse-escape-sequences="true" />
+    </engine:VisualElement>
+</engine:UXML>

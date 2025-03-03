@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8990247360697357028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1de63446a39c28145a8b4eea8f194a7e, type: 3}
+  m_Name: Vex_1403922b-17e6-4c8e-84fc-0894b2ce761d
+  m_EditorClassIdentifier: 
+  Name: Vex
+--- !u!114 &-5158425801851994602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ebc4527f34bae1489fdaafed1f5dafc, type: 3}
+  m_Name: Finesse_33dc990e-38f6-4a17-a7b3-dd74e9389144
+  m_EditorClassIdentifier: 
+  Name: Finesse
+--- !u!114 &-893391912103610834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 972175a1f99609d41a0057c11c6bff3b, type: 3}
+  m_Name: Light_b07a5154-89e3-42fe-b6c9-4a315fd695b2
+  m_EditorClassIdentifier: 
+  Name: Light
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
+  m_Name: Shortsword
+  m_EditorClassIdentifier: 
+  Name: Shortsword
+  Type: {fileID: 11400000, guid: 6cbb43571004771418247b615afb5f92, type: 2}
+  NumOfDamageDice: 1
+  DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
+  DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
+  Properties:
+  - {fileID: -5158425801851994602}
+  - {fileID: -893391912103610834}
+  MasteryProperty: {fileID: -8990247360697357028}
+  Weight: 1
+  Cost: 0

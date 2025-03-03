@@ -1,0 +1,7 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:DropdownField label="Trait Types" name="ddfTraitTypes" />
+    <engine:VisualElement name="veToolbar" style="flex-grow: 1; flex-direction: row; align-items: center; justify-content: flex-end;">
+        <engine:Button text="Cancel" name="btnCancel" />
+        <engine:Button text="OK" name="btnOK" parse-escape-sequences="true" />
+    </engine:VisualElement>
+</engine:UXML>
