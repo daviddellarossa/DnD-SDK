@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Acolyte's Option B
   m_EditorClassIdentifier: 
   Items:
-  - rid: 1838690288169648192
+  - rid: 1838690288441491514
   references:
     version: 2
     RefIds:
-    - rid: 1838690288169648192
-      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Characters.Backgrounds, asm: GameCore}
+    - rid: 1838690288441491514
+      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Characters.Backgrounds, asm: DnD}
       data:
         Item: {fileID: 11400000, guid: c64a0b74a569770469b6d878c4bf373c, type: 2}
         Amount: 50

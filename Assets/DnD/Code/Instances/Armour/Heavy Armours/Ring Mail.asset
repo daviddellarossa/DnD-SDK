@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b5371e7252f88488ddec75394374ad, type: 3}
   m_Name: Ring Mail
   m_EditorClassIdentifier: 
-  Name: RingMail
+  Name: Ring Mail
   Type: {fileID: 11400000, guid: 0bd9bf2a9928c81479562e2e60c9b196, type: 2}
   ArmourClass: 14
   AddDexModifier: 0

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2907cc55a1c84c5499a945cb946d6555, type: 3}
   m_Name: Heavy Armour Type
   m_EditorClassIdentifier: 
-  Name: HeavyArmour
+  Name: Heavy Armour Type
   TimeInMinutesToDon: 10
   TimeInMinutesToDoff: 5

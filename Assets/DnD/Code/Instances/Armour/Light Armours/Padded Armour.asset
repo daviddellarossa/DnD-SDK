@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b5371e7252f88488ddec75394374ad, type: 3}
   m_Name: Padded Armour
   m_EditorClassIdentifier: 
-  Name: PaddedArmour
+  Name: Padded Armour
   Type: {fileID: 11400000, guid: e83fe3e584742c440b5752c93e3cb0c6, type: 2}
   ArmourClass: 11
   AddDexModifier: 1
