@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Assets.Scripts.Game.Characters.Species;
-using Game.Characters.Species.SpecialTraits;
+using DnD.Code.Scripts.Characters.Species.SpecialTraits;
 using UnityEngine;
 
 namespace DnD.Code.Scripts.Characters.Species

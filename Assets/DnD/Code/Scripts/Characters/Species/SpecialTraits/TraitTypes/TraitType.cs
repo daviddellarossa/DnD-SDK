@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace Game.Characters.Species.SpecialTraits.TraitTypes
+namespace DnD.Code.Scripts.Characters.Species.SpecialTraits.TraitTypes
 {
     public class TraitType : ScriptableObject
     {

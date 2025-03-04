@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using Assets.Scripts.Game.Characters.Species;
-using DnD.Code.Scripts.Armour;
 using DnD.Code.Scripts.Characters.Species;
 using NUnit.Framework;
 using UnityEditor;

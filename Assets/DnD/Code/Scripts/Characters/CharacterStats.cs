@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using Assets.Scripts.Game.Characters.Species.SpecialTraits.TraitTypes;
 using DnD.Code.Scripts.Armour;
 using DnD.Code.Scripts.Characters.Abilities;
 using DnD.Code.Scripts.Characters.Backgrounds;
@@ -8,10 +7,10 @@ using DnD.Code.Scripts.Characters.Classes;
 using DnD.Code.Scripts.Characters.Feats;
 using DnD.Code.Scripts.Characters.Languages;
 using DnD.Code.Scripts.Characters.Species;
+using DnD.Code.Scripts.Characters.Species.SpecialTraits.TraitTypes;
 using DnD.Code.Scripts.Equipment;
 using DnD.Code.Scripts.Equipment.Coins;
 using DnD.Code.Scripts.Tools;
-using Game.Characters.Species.SpecialTraits.TraitTypes;
 using UnityEngine;
 
 namespace DnD.Code.Scripts.Characters

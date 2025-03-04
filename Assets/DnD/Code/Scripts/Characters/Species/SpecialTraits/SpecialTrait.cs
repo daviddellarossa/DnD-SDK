@@ -1,8 +1,8 @@
-using Game.Characters.Species.SpecialTraits.TraitTypes;
 using System.Collections.Generic;
+using DnD.Code.Scripts.Characters.Species.SpecialTraits.TraitTypes;
 using UnityEngine;
 
-namespace Game.Characters.Species.SpecialTraits
+namespace DnD.Code.Scripts.Characters.Species.SpecialTraits
 {
     [CreateAssetMenu(fileName = "NewSpecialTrait", menuName = "Game Entities/Character/Species/SpecialTrait")]
     public class SpecialTrait : ScriptableObject

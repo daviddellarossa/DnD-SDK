@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2298edb0b712f784f9fd3b5a7213da5b, type: 3}
   m_Name: Versatile
   m_EditorClassIdentifier: 
-  Name: SpecialTrait
+  Name: Versatile
   TraitTypes:
   - {fileID: 8050328805917265852}
 --- !u!114 &8050328805917265852

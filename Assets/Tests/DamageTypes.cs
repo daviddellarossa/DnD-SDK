@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Linq;
-using Assets.Scripts.Game.Characters.Species;
 using DnD.Code.Scripts.Combat;
 using NUnit.Framework;
 using UnityEditor;

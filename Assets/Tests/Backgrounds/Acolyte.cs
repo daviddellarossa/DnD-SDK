@@ -3,6 +3,7 @@ using System.Linq;
 using DnD.Code.Scripts.Characters.Abilities;
 using DnD.Code.Scripts.Characters.Backgrounds;
 using NUnit.Framework;
+using Tests;
 using UnityEditor;
 using UnityEditor.VersionControl;
 using UnityEngine;
@@ -20,7 +21,7 @@ public class Acolyte
             .Select(AssetDatabase.GUIDToAssetPath)
             .Select(AssetDatabase.LoadAssetAtPath<Background>)
             .Where(asset => asset != null)
-            .SingleOrDefault(asset => asset.name == "Acolyte");
+            .SingleOrDefault(asset => asset.name == Helper.Backgrounds.Acolyte);
     }
 
     [Test]
@@ -104,24 +105,24 @@ public class Acolyte
         {
             get
             {
-                yield return new TestCaseData("Acrobatics").Returns(false);
-                yield return new TestCaseData("AnimalHandling").Returns(false);
-                yield return new TestCaseData("Arcana").Returns(false);
-                yield return new TestCaseData("Athletics").Returns(false);
-                yield return new TestCaseData("Deception").Returns(false);
-                yield return new TestCaseData("History").Returns(false);
-                yield return new TestCaseData("Insight").Returns(true);
-                yield return new TestCaseData("Intimidation").Returns(false);
-                yield return new TestCaseData("Investigation").Returns(false);
-                yield return new TestCaseData("Medicine").Returns(false);
-                yield return new TestCaseData("Nature").Returns(false);
-                yield return new TestCaseData("Perception").Returns(false);
-                yield return new TestCaseData("Performance").Returns(false);
-                yield return new TestCaseData("Persuasion").Returns(false);
-                yield return new TestCaseData("Religion").Returns(true);
-                yield return new TestCaseData("SleightOfHand").Returns(false);
-                yield return new TestCaseData("Stealth").Returns(false);
-                yield return new TestCaseData("Survival").Returns(false);
+                yield return new TestCaseData(Helper.Skills.Acrobatics).Returns(false);
+                yield return new TestCaseData(Helper.Skills.AnimalHandling).Returns(false);
+                yield return new TestCaseData(Helper.Skills.Arcana).Returns(false);
+                yield return new TestCaseData(Helper.Skills.Athletics).Returns(false);
+                yield return new TestCaseData(Helper.Skills.Deception).Returns(false);
+                yield return new TestCaseData(Helper.Skills.History).Returns(false);
+                yield return new TestCaseData(Helper.Skills.Insight).Returns(true);
+                yield return new TestCaseData(Helper.Skills.Intimidation).Returns(false);
+                yield return new TestCaseData(Helper.Skills.Investigation).Returns(false);
+                yield return new TestCaseData(Helper.Skills.Medicine).Returns(false);
+                yield return new TestCaseData(Helper.Skills.Nature).Returns(false);
+                yield return new TestCaseData(Helper.Skills.Perception).Returns(false);
+                yield return new TestCaseData(Helper.Skills.Performance).Returns(false);
+                yield return new TestCaseData(Helper.Skills.Persuasion).Returns(false);
+                yield return new TestCaseData(Helper.Skills.Religion).Returns(true);
+                yield return new TestCaseData(Helper.Skills.SleightOfHand).Returns(false);
+                yield return new TestCaseData(Helper.Skills.Stealth).Returns(false);
+                yield return new TestCaseData(Helper.Skills.Survival).Returns(false);
             }
         }
 

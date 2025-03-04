@@ -283,11 +283,37 @@ namespace Tests
 
         }
 
-        public static class HumanSpecialTraits
+        public static class SpecialTraits
         {
             public const string Resourceful = "Resourceful";
             public const string Skillful = "Skillful";
             public const string Versatile = "Versatile";
+        }
+
+        public static class TypeTraits
+        {
+            public const string DamageResistance = "Damage Resistance";
+            public const string HasFeatByCategory = "HasFeatByCategory";
+            public const string HeroicInspiration = "Heroic Inspiration";
+            public const string Proficiency = "Proficiency";
+            public const string SpeedBoost = "Speed Boost";
+
+        }
+
+        public static class FeatCategories
+        {
+            public const string BarbarianFeat = "Barbarian Feat";
+            public const string EpicBoon = "Epic Boon";
+            public const string FightingStyle = "Fighting Style";
+            public const string General = "General";
+            public const string Origin = "Origin";
+
+        }
+
+        public static class Backgrounds
+        {
+            public const string Acolyte = "Acolyte";
+
         }
     }
 }

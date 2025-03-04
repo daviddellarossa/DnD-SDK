@@ -1,4 +1,3 @@
-using Assets.Scripts.Game.Characters;
 using UnityEngine;
 
 namespace DnD.Code.Scripts.Characters
