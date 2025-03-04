@@ -74,9 +74,9 @@ public class Acolyte
                         ("Acolyte's Calligrapher's supplies", 1),
                         ("Acolyte's prayers book", 1),
                         ("Acolyte's Holy symbol", 1),
-                        ("Acolyte's Parchment", 1),
+                        ("Acolyte's Parchment", 10),
                         ("Acolyte's Robe", 1),
-                        ("Gold Piece", 8)
+                        ("GoldPiece", 8)
                     });
                 yield return new TestCaseData(
                     "Acolyte's Option B", 
