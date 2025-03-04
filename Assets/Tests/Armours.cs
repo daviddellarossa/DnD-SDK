@@ -69,8 +69,8 @@ namespace Tests
                 {
                     yield return new TestCaseData(
                         new ArmourModel(
-                        "Chain Mail",
-                        "Heavy Armour Type",
+                            Helper.Armour.ChainMail,
+                        Helper.ArmourType.HeavyArmour,
                         16,
                         false,
                         false,
@@ -82,8 +82,8 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                        "Plate Armour",
-                        "Heavy Armour Type",
+                            Helper.Armour.PlateArmour,
+                        Helper.ArmourType.HeavyArmour,
                         18,
                         false,
                         false,
@@ -95,8 +95,8 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                        "Ring Mail",
-                        "Heavy Armour Type",
+                            Helper.Armour.RingMail,
+                        Helper.ArmourType.HeavyArmour,
                         14,
                         false,
                         false,
@@ -108,8 +108,8 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                        "Splint Armour",
-                        "Heavy Armour Type",
+                            Helper.Armour.SplintArmour,
+                        Helper.ArmourType.HeavyArmour,
                         17,
                         false,
                         false,
@@ -122,8 +122,8 @@ namespace Tests
 
                     yield return new TestCaseData(
                         new ArmourModel(
-                        "Leather Armour",
-                        "Light Armour Type",
+                            Helper.Armour.LeatherArmour,
+                        Helper.ArmourType.LightArmour,
                         11,
                         true,
                         false,
@@ -135,8 +135,8 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                        "Padded Armour",
-                        "Light Armour Type",
+                            Helper.Armour.PaddedArmour,
+                        Helper.ArmourType.LightArmour,
                         11,
                         true,
                         false,
@@ -148,8 +148,8 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                        "Studded Leather Armour",
-                        "Light Armour Type",
+                            Helper.Armour.StuddedLeatherArmour,
+                        Helper.ArmourType.LightArmour,
                         12,
                         true,
                         false,
@@ -162,8 +162,8 @@ namespace Tests
 
                     yield return new TestCaseData(
                         new ArmourModel(
-                        "Breastplate",
-                        "Medium Armour Type",
+                            Helper.Armour.Breastplate,
+                        Helper.ArmourType.MediumArmour,
                         14,
                         true,
                         true,
@@ -175,8 +175,8 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                        "Chain Shirt",
-                        "Medium Armour Type",
+                            Helper.Armour.ChainShirt,
+                        Helper.ArmourType.MediumArmour,
                         13,
                         true,
                         true,
@@ -188,8 +188,8 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                        "Half Plate Armour",
-                        "Medium Armour Type",
+                            Helper.Armour.HalfPlateArmour,
+                        Helper.ArmourType.MediumArmour,
                         15,
                         true,
                         true,
@@ -201,8 +201,8 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                        "Hide Armour",
-                        "Medium Armour Type",
+                            Helper.Armour.HideArmour,
+                        Helper.ArmourType.MediumArmour,
                         12,
                         true,
                         true,
@@ -214,8 +214,8 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                        "Scale Mail",
-                        "Medium Armour Type",
+                            Helper.Armour.ScaleMail,
+                            Helper.ArmourType.MediumArmour,
                         14,
                         true,
                         true,
@@ -234,8 +234,8 @@ namespace Tests
                 {
                     yield return new TestCaseData(
                         new ShieldModel(
-                        "Shield", 
-                        "Shield Type",
+                        Helper.Armour.Shield, 
+                        Helper.ArmourType.Shield,
                         2,
                         3.0f,
                         0

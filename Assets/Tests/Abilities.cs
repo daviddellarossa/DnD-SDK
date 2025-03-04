@@ -42,57 +42,57 @@ namespace Tests
                 get
                 {
                     yield return new TestCaseData(
-                        "Charisma",
+                        Helper.Abilities.Charisma,
                         AbilityEnum.Charisma,
                         new string[]
                         {
-                            "Deception",
-                            "Intimidation",
-                            "Performance",
-                            "Persuasion",
+                            Helper.Skills.Deception,
+                            Helper.Skills.Intimidation,
+                            Helper.Skills.Performance,
+                            Helper.Skills.Persuasion,
                         });
                     yield return new TestCaseData(
-                        "Constitution",
+                        Helper.Abilities.Constitution,
                         AbilityEnum.Constitution,
                         new string[] {}
                         );
                     yield return new TestCaseData(
-                        "Dexterity",
+                        Helper.Abilities.Dexterity,
                         AbilityEnum.Dexterity,
                         new string[]
                         {
-                            "Acrobatics",
-                            "SleightOfHand",
-                            "Stealth",
+                            Helper.Skills.Acrobatics,
+                            Helper.Skills.SleightOfHand,
+                            Helper.Skills.Stealth,
                         });
                     yield return new TestCaseData(
-                        "Intelligence",
+                        Helper.Abilities.Intelligence,
                         AbilityEnum.Intelligence,
                         new string[]
                         {
-                            "Arcana",
-                            "History",
-                            "Investigation",
-                            "Nature",
-                            "Religion",
+                            Helper.Skills.Arcana,
+                            Helper.Skills.History,
+                            Helper.Skills.Investigation,
+                            Helper.Skills.Nature,
+                            Helper.Skills.Religion,
                         });
                     yield return new TestCaseData(
-                        "Strength",
+                        Helper.Abilities.Strength,
                         AbilityEnum.Strength,
                         new string[]
                         {
-                            "Athletics",
+                            Helper.Skills.Athletics,
                         });
                     yield return new TestCaseData(
-                        "Wisdom",
+                        Helper.Abilities.Wisdom,
                         AbilityEnum.Wisdom,
                         new string[]
                         {
-                            "AnimalHandling",
-                            "Insight",
-                            "Medicine",
-                            "Perception",
-                            "Survival",
+                            Helper.Skills.AnimalHandling,
+                            Helper.Skills.Insight,
+                            Helper.Skills.Medicine,
+                            Helper.Skills.Perception,
+                            Helper.Skills.Survival,
                         });
                 }
             }

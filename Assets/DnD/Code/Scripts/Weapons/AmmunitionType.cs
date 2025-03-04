@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Game.Character;
+﻿using DnD.Code.Scripts.Characters.Storage;
 using UnityEngine;
 
 namespace DnD.Code.Scripts.Weapons

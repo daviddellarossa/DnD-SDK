@@ -40,59 +40,59 @@ namespace Tests
                 {
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            "Aberration"
+                            Helper.CreatureTypes.Aberration
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            "Beast"
+                            Helper.CreatureTypes.Beast
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            "Celestial"
+                            Helper.CreatureTypes.Celestial
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            "Construct"
+                            Helper.CreatureTypes.Construct
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            "Dragon"
+                            Helper.CreatureTypes.Dragon
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            "Elemental"
+                            Helper.CreatureTypes.Elemental
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            "Fey"
+                            Helper.CreatureTypes.Fey
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            "Fiend"
+                            Helper.CreatureTypes.Fiend
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            "Giant"
+                            Helper.CreatureTypes.Giant
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            "Humanoid"
+                            Helper.CreatureTypes.Humanoid
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            "Monstrosity"
+                            Helper.CreatureTypes.Monstrosity
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            "Ooze"
+                            Helper.CreatureTypes.Ooze
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            "Plant"
+                            Helper.CreatureTypes.Plant
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            "Undead"
+                            Helper.CreatureTypes.Undead
                         ));
                 }
             }

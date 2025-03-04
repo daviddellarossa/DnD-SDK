@@ -41,92 +41,92 @@ namespace Tests
                 {
                     yield return new TestCaseData(
                         new SkillModel(
-                            "Acrobatics",
+                            Helper.Skills.Acrobatics,
                             AbilityEnum.Dexterity
                         ));
                     yield return new TestCaseData(
                         new SkillModel(
-                            "AnimalHandling",
+                            Helper.Skills.AnimalHandling,
                             AbilityEnum.Wisdom
                         ));
                     yield return new TestCaseData(
                         new SkillModel(
-                            "Arcana",
+                            Helper.Skills.Arcana,
                             AbilityEnum.Intelligence
                         ));
                     yield return new TestCaseData(
                         new SkillModel(
-                            "Athletics",
+                            Helper.Skills.Athletics,
                             AbilityEnum.Strength
                         ));
                     yield return new TestCaseData(
                         new SkillModel(
-                            "Deception",
+                            Helper.Skills.Deception,
                             AbilityEnum.Charisma
                         ));
                     yield return new TestCaseData(
                         new SkillModel(
-                            "History",
+                            Helper.Skills.History,
                             AbilityEnum.Intelligence
                         ));
                     yield return new TestCaseData(
                         new SkillModel(
-                            "Insight",
+                            Helper.Skills.Insight,
                             AbilityEnum.Wisdom
                         ));
                     yield return new TestCaseData(
                         new SkillModel(
-                            "Intimidation",
+                            Helper.Skills.Intimidation,
                             AbilityEnum.Charisma
                         ));
                     yield return new TestCaseData(
                         new SkillModel(
-                            "Investigation",
+                            Helper.Skills.Investigation,
                             AbilityEnum.Intelligence
                         ));
                     yield return new TestCaseData(
                         new SkillModel(
-                            "Medicine",
+                            Helper.Skills.Medicine,
                             AbilityEnum.Wisdom
                         ));
                     yield return new TestCaseData(
                         new SkillModel(
-                            "Nature",
+                            Helper.Skills.Nature,
                             AbilityEnum.Intelligence
                         ));
                     yield return new TestCaseData(
                         new SkillModel(
-                            "Perception",
+                            Helper.Skills.Perception,
                             AbilityEnum.Wisdom
                         ));
                     yield return new TestCaseData(
                         new SkillModel(
-                            "Performance",
+                            Helper.Skills.Performance,
                             AbilityEnum.Charisma
                         ));
                     yield return new TestCaseData(
                         new SkillModel(
-                            "Persuasion",
+                            Helper.Skills.Persuasion,
                             AbilityEnum.Charisma
                         ));
                     yield return new TestCaseData(
                         new SkillModel(
-                            "Religion",
+                            Helper.Skills.Religion,
                             AbilityEnum.Intelligence
                         ));
                     yield return new TestCaseData(
                         new SkillModel(
-                            "SleightOfHand",
+                            Helper.Skills.SleightOfHand,
                             AbilityEnum.Dexterity
                         ));
                     yield return new TestCaseData(
                         new SkillModel(
-                            "Stealth",
+                            Helper.Skills.Stealth,
                             AbilityEnum.Dexterity
                         ));
                     yield return new TestCaseData(
                         new SkillModel(
-                            "Survival",
+                            Helper.Skills.Survival,
                             AbilityEnum.Wisdom
                         ));
                 }

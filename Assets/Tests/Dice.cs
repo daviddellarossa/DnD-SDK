@@ -39,42 +39,42 @@ namespace Tests
                 {
                     yield return new TestCaseData(
                         new DiceModel(
-                            "D3",
+                            Helper.Dice.D3,
                             3
                         ));
                     yield return new TestCaseData(
                         new DiceModel(
-                            "D4",
+                            Helper.Dice.D4,
                             4
                         ));
                     yield return new TestCaseData(
                         new DiceModel(
-                            "D6",
+                            Helper.Dice.D6,
                             6
                         ));
                     yield return new TestCaseData(
                         new DiceModel(
-                            "D8",
+                            Helper.Dice.D8,
                             8
                         ));
                     yield return new TestCaseData(
                         new DiceModel(
-                            "D10",
+                            Helper.Dice.D10,
                             10
                         ));
                     yield return new TestCaseData(
                         new DiceModel(
-                            "D12",
+                            Helper.Dice.D12,
                             12
                         ));
                     yield return new TestCaseData(
                         new DiceModel(
-                            "D20",
+                            Helper.Dice.D20,
                             20
                         ));
                     yield return new TestCaseData(
                         new DiceModel(
-                            "D100",
+                            Helper.Dice.D100,
                             100
                         ));
                 }

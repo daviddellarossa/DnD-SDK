@@ -72,75 +72,75 @@ namespace Tests
                 {
                     yield return new TestCaseData(
                         new LanguageOriginModel(
-                            "Aberrations"
+                            Helper.LanguageOrigins.Aberrations
                         ));
                     yield return new TestCaseData(
                         new LanguageOriginModel(
-                            "Celestials"
+                            Helper.LanguageOrigins.Celestials
                         ));
                     yield return new TestCaseData(
                         new LanguageOriginModel(
-                            "Demons of the Abyss"
+                            Helper.LanguageOrigins.DemonsOfTheAbyss
                         ));
                     yield return new TestCaseData(
                         new LanguageOriginModel(
-                            "Devils of the Nine Hells"
+                            Helper.LanguageOrigins.DevilsOfTheNineHells
                         ));
                     yield return new TestCaseData(
                         new LanguageOriginModel(
-                            "Dragons"
+                            Helper.LanguageOrigins.Dragons
                         ));
                     yield return new TestCaseData(
                         new LanguageOriginModel(
-                            "Druidic circles"
+                            Helper.LanguageOrigins.DruidicCircles
                         ));
                     yield return new TestCaseData(
                         new LanguageOriginModel(
-                            "Dwarves"
+                            Helper.LanguageOrigins.Dwarves
                         ));
                     yield return new TestCaseData(
                         new LanguageOriginModel(
-                            "Elementals"
+                            Helper.LanguageOrigins.Elementals
                         ));
                     yield return new TestCaseData(
                         new LanguageOriginModel(
-                            "Elves"
+                            Helper.LanguageOrigins.Elves
                         ));
                     yield return new TestCaseData(
                         new LanguageOriginModel(
-                            "Giants"
+                            Helper.LanguageOrigins.Giants
                         ));
                     yield return new TestCaseData(
                         new LanguageOriginModel(
-                            "Gnomes"
+                            Helper.LanguageOrigins.Gnomes
                         ));
                     yield return new TestCaseData(
                         new LanguageOriginModel(
-                            "Goblinoids"
+                            Helper.LanguageOrigins.Goblinoids
                         ));
                     yield return new TestCaseData(
                         new LanguageOriginModel(
-                            "Halflings"
+                            Helper.LanguageOrigins.Halflings
                         ));
                     yield return new TestCaseData(
                         new LanguageOriginModel(
-                            "Orcs"
+                            Helper.LanguageOrigins.Orcs
                         ));
                     yield return new TestCaseData(
                         new LanguageOriginModel(
-                            "Sigil"
+                            Helper.LanguageOrigins.Sigil
                         ));
                     yield return new TestCaseData(
                         new LanguageOriginModel(
-                            "The Feywild"
+                            Helper.LanguageOrigins.TheFeywild
                         ));
                     yield return new TestCaseData(
                         new LanguageOriginModel(
-                            "The Underdark"
+                            Helper.LanguageOrigins.TheUnderdark
                         ));
                     yield return new TestCaseData(
                         new LanguageOriginModel(
-                            "Various criminal guilds"
+                            Helper.LanguageOrigins.VariousCriminalGuilds
                         ));
                 }
             }
@@ -151,48 +151,48 @@ namespace Tests
                 {
                     yield return new TestCaseData(
                         new LanguageModel(
-                            "Abyssal",
-                            "Demons of the Abyss"
+                            Helper.Languages.Abyssal,
+                            Helper.LanguageOrigins.DemonsOfTheAbyss
                         ));
                     yield return new TestCaseData(
                         new LanguageModel(
-                            "Celestial",
-                            "Celestials"
+                            Helper.Languages.Celestial,
+                            Helper.LanguageOrigins.Celestials
                         ));
                     yield return new TestCaseData(
                         new LanguageModel(
-                            "Deep speech",
-                            "Aberrations"
+                            Helper.Languages.DeepSpeech,
+                            Helper.LanguageOrigins.Aberrations
                         ));
                     yield return new TestCaseData(
                         new LanguageModel(
-                            "Druidic",
-                            "Druidic circles"
+                            Helper.Languages.Druidic,
+                            Helper.LanguageOrigins.DruidicCircles
                         ));
                     yield return new TestCaseData(
                         new LanguageModel(
-                            "Infernal",
-                            "Devils of the Nine Hells"
+                            Helper.Languages.Infernal,
+                            Helper.LanguageOrigins.DevilsOfTheNineHells
                         ));
                     yield return new TestCaseData(
                         new LanguageModel(
-                            "Primordial",
-                            "Elementals"
+                            Helper.Languages.Primordial,
+                            Helper.LanguageOrigins.Elementals
                         ));
                     yield return new TestCaseData(
                         new LanguageModel(
-                            "Sylvan",
-                            "The Feywild"
+                            Helper.Languages.Sylvan,
+                            Helper.LanguageOrigins.TheFeywild
                         ));
                     yield return new TestCaseData(
                         new LanguageModel(
-                            "Thieves' cant",
-                            "Various criminal guilds"
+                            Helper.Languages.ThievesCant,
+                            Helper.LanguageOrigins.VariousCriminalGuilds
                         ));
                     yield return new TestCaseData(
                         new LanguageModel(
-                            "Undercommon",
-                            "The Underdark"
+                            Helper.Languages.Undercommon,
+                            Helper.LanguageOrigins.TheUnderdark
                         ));
                 }
             }
@@ -203,53 +203,53 @@ namespace Tests
                 {
                     yield return new TestCaseData(
                         new LanguageModel(
-                            "Common",
-                            "Sigil"
+                            Helper.Languages.Common,
+                            Helper.LanguageOrigins.Sigil
                         ));
                     yield return new TestCaseData(
                         new LanguageModel(
-                            "Common sign",
-                            "Sigil"
+                            Helper.Languages.CommonSign,
+                            Helper.LanguageOrigins.Sigil
                         ));
                     yield return new TestCaseData(
                         new LanguageModel(
-                            "Draconic",
-                            "Dragons"
+                            Helper.Languages.Draconic,
+                            Helper.LanguageOrigins.Dragons
                         ));
                     yield return new TestCaseData(
                         new LanguageModel(
-                            "Dwarvish",
-                            "Dwarves"
+                            Helper.Languages.Dwarvish,
+                            Helper.LanguageOrigins.Dwarves
                         ));
                     yield return new TestCaseData(
                         new LanguageModel(
-                            "Elvish",
-                            "Elves"
+                            Helper.Languages.Elvish,
+                            Helper.LanguageOrigins.Elves
                         ));
                     yield return new TestCaseData(
                         new LanguageModel(
-                            "Giant",
-                            "Giants"
+                            Helper.Languages.Giant,
+                            Helper.LanguageOrigins.Giants
                         ));
                     yield return new TestCaseData(
                         new LanguageModel(
-                            "Gnomish",
-                            "Gnomes"
+                            Helper.Languages.Gnomish,
+                            Helper.LanguageOrigins.Gnomes
                         ));
                     yield return new TestCaseData(
                         new LanguageModel(
-                            "Goblin",
-                            "Goblinoids"
+                            Helper.Languages.Goblin,
+                            Helper.LanguageOrigins.Goblinoids
                         ));
                     yield return new TestCaseData(
                         new LanguageModel(
-                            "Halfling",
-                            "Halflings"
+                            Helper.Languages.Halfling,
+                            Helper.LanguageOrigins.Halflings
                         ));
                     yield return new TestCaseData(
                         new LanguageModel(
-                            "Orc",
-                            "Orcs"
+                            Helper.Languages.Orc,
+                            Helper.LanguageOrigins.Orcs
                         ));
                 }
             }

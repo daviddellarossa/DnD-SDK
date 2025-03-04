@@ -39,55 +39,55 @@ namespace Tests
                 {
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            "Acid"
+                            Helper.DamageType.Acid
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            "Bludgeoning"
+                            Helper.DamageType.Bludgeoning
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            "Cold"
+                            Helper.DamageType.Cold
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            "Fire"
+                            Helper.DamageType.Fire
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            "Force"
+                            Helper.DamageType.Force
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            "Lightning"
+                            Helper.DamageType.Lightning
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            "Necrotic"
+                            Helper.DamageType.Necrotic
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            "Piercing"
+                            Helper.DamageType.Piercing
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            "Poison"
+                            Helper.DamageType.Poison
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            "Psychic"
+                            Helper.DamageType.Psychic
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            "Radiant"
+                            Helper.DamageType.Radiant
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            "Slashing"
+                            Helper.DamageType.Slashing
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            "Thunder"
+                            Helper.DamageType.Thunder
                         ));
                 }
             }
