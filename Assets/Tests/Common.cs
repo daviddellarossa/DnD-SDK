@@ -250,5 +250,44 @@ namespace Tests
             public const string Shortbow = "Shortbow";
             public const string Sling = "Sling";
         }
+
+        public static class Species
+        {
+            // public const string Aasimar = "Aasimar";
+            // public const string Dragonborn = "Dragonborn";
+            // public const string Dwarf = "Dwarf";
+            // public const string Elf = "Elf";
+            // public const string Gnome = "Gnome";
+            // public const string Goliath = "Goliath";
+            // public const string Halfling = "Halfling";
+            public const string Human = "Human";
+            // public const string Orc = "Orc";
+            // public const string Tiefling = "Tiefling";
+
+        }
+
+        public static class Classes
+        {
+            public const string Barbarian = "Barbarian";
+            // public const string Bard = "Bard";
+            // public const string Cleric = "Cleric";
+            // public const string Druid = "Druid";
+            // public const string Fighter = "Fighter";
+            // public const string Monk = "Monk";
+            // public const string Paladin = "Paladin";
+            // public const string Ranger = "Ranger";
+            // public const string Rogue = "Rogue";
+            // public const string Sorcerer = "Sorcerer";
+            // public const string Warlock = "Warlock";
+            // public const string Wizard = "Wizard";
+
+        }
+
+        public static class HumanSpecialTraits
+        {
+            public const string Resourceful = "Resourceful";
+            public const string Skillful = "Skillful";
+            public const string Versatile = "Versatile";
+        }
     }
 }

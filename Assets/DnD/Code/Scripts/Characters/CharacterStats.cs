@@ -7,6 +7,7 @@ using DnD.Code.Scripts.Characters.Backgrounds;
 using DnD.Code.Scripts.Characters.Classes;
 using DnD.Code.Scripts.Characters.Feats;
 using DnD.Code.Scripts.Characters.Languages;
+using DnD.Code.Scripts.Characters.Species;
 using DnD.Code.Scripts.Equipment;
 using DnD.Code.Scripts.Equipment.Coins;
 using DnD.Code.Scripts.Tools;
@@ -30,7 +31,7 @@ namespace DnD.Code.Scripts.Characters
         public SubClass SubClass;
 
         [SerializeReference]
-        public Assets.Scripts.Game.Characters.Species.Species Species;
+        public Species.Species Species;
 
         public int Level = 1;
 
@@ -66,7 +67,7 @@ namespace DnD.Code.Scripts.Characters
 
         public int Speed;
 
-        public Assets.Scripts.Game.Characters.Species.Size Size;
+        public Size Size;
 
         public List<TraitType> SpeciesTraits = new List<TraitType>();
 

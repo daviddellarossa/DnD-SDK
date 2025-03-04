@@ -1,9 +1,10 @@
-using Game.Characters.Species.SpecialTraits;
 using System;
 using System.Collections.Generic;
+using Assets.Scripts.Game.Characters.Species;
+using Game.Characters.Species.SpecialTraits;
 using UnityEngine;
 
-namespace Assets.Scripts.Game.Characters.Species
+namespace DnD.Code.Scripts.Characters.Species
 {
     [CreateAssetMenu(fileName = "NewSpecies", menuName = "Game Entities/Character/Species/Species")]
     public class Species : ScriptableObject
