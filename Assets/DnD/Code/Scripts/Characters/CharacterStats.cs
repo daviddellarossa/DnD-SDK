@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
-using Assets.Scripts.Game.Characters.Languages;
 using Assets.Scripts.Game.Characters.Species.SpecialTraits.TraitTypes;
 using DnD.Code.Scripts.Armour;
 using DnD.Code.Scripts.Characters.Abilities;
 using DnD.Code.Scripts.Characters.Backgrounds;
 using DnD.Code.Scripts.Characters.Classes;
+using DnD.Code.Scripts.Characters.Feats;
+using DnD.Code.Scripts.Characters.Languages;
 using DnD.Code.Scripts.Equipment;
 using DnD.Code.Scripts.Equipment.Coins;
 using DnD.Code.Scripts.Tools;
@@ -57,7 +58,7 @@ namespace DnD.Code.Scripts.Characters
 
         public HashSet<ITool> ToolProficiencies; //TODO: Not sure about this ITool
 
-        public List<Assets.Scripts.Game.Characters.Feats.Feat> Feats = new List<Assets.Scripts.Game.Characters.Feats.Feat>();
+        public List<Feat> Feats = new List<Feat>();
 
         public List<IEquipment> Equipment = new List<IEquipment>();
 

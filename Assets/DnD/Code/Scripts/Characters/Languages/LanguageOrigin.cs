@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Game.Characters.Languages
+namespace DnD.Code.Scripts.Characters.Languages
 {
     [CreateAssetMenu(fileName = "NewLanguageOrigin", menuName = "Game Entities/Character/Languages/Origin/Language Origin")]
     public class LanguageOrigin : ScriptableObject

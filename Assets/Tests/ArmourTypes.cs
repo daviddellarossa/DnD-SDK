@@ -31,9 +31,13 @@ namespace Tests
         }
 
         [TestCaseSource(typeof(AbilitiesData), nameof(AbilitiesData.ArmourTypeTestCases))]
-        public bool TestAllArmourTypes(string name)
+        public void TestAllArmourTypes(ArmourTypeModel armourTypeModel)
         {
-            return _armourTypes.Any(ability => ability.name == name);
+            var armourType = _armourTypes.SingleOrDefault(ability => ability.name == armourTypeModel.Name);
+            
+            Assert.IsNotNull(armourType);
+            Assert.AreEqual(armourType.TimeInMinutesToDoff, armourTypeModel.TimeInMinutesToDoff);
+            Assert.AreEqual(armourType.TimeInMinutesToDon, armourTypeModel.TimeInMinutesToDon);
         }
         
         [TestCaseSource(typeof(AbilitiesData), nameof(AbilitiesData.ShieldTypeTestCases))]
@@ -48,9 +52,24 @@ namespace Tests
             {
                 get
                 {
-                    yield return new TestCaseData("Heavy Armour Type").Returns(true);
-                    yield return new TestCaseData("Light Armour Type").Returns(true);
-                    yield return new TestCaseData("Medium Armour Type").Returns(true);
+                    yield return new TestCaseData(
+                        new ArmourTypeModel(
+                        "Heavy Armour Type",
+                        10,
+                        5
+                        ));
+                    yield return new TestCaseData(
+                        new ArmourTypeModel(
+                        "Light Armour Type",
+                        1,
+                        1
+                        ));
+                    yield return new TestCaseData(
+                        new ArmourTypeModel(
+                        "Medium Armour Type",
+                        5,
+                        1
+                        ));
                 }
             }
             
@@ -60,6 +79,20 @@ namespace Tests
                 {
                     yield return new TestCaseData("Shield Type").Returns(true);
                 }
+            }
+        }
+
+        public class ArmourTypeModel
+        {
+            public string Name { get; set; }
+            public int TimeInMinutesToDon { get; set; }
+            public int TimeInMinutesToDoff { get; set; }
+
+            public ArmourTypeModel(string name, int timeInMinutesToDon, int timeInMinutesToDoff)
+            {
+                this.Name = name;
+                this.TimeInMinutesToDon = timeInMinutesToDon;
+                this.TimeInMinutesToDoff = timeInMinutesToDoff;
             }
         }
     }

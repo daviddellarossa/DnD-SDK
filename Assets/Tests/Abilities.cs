@@ -22,9 +22,17 @@ namespace Tests
         }
 
         [TestCaseSource(typeof(AbilitiesData), nameof(AbilitiesData.TestCases))]
-        public bool TestAllAbilities(string name)
+        public void TestAllAbilities(string name, AbilityEnum abilityEnum, string[] skillNames)
         {
-            return _abilities.Any(ability => ability.name == name);
+            var ability = _abilities.SingleOrDefault(ability => ability.name == name && ability.AbilityType == abilityEnum);
+            Assert.IsNotNull(ability);
+            
+            Assert.AreEqual(ability.SkillList.Count, skillNames.Length);
+
+            foreach (var skillName in skillNames)
+            {
+                Assert.IsTrue(ability.SkillList.Any(skill => skill.name == skillName));
+            }
         }
 
         private class AbilitiesData
@@ -33,12 +41,59 @@ namespace Tests
             {
                 get
                 {
-                    yield return new TestCaseData("Charisma").Returns(true);
-                    yield return new TestCaseData("Constitution").Returns(true);
-                    yield return new TestCaseData("Dexterity").Returns(true);
-                    yield return new TestCaseData("Intelligence").Returns(true);
-                    yield return new TestCaseData("Strength").Returns(true);
-                    yield return new TestCaseData("Wisdom").Returns(true);
+                    yield return new TestCaseData(
+                        "Charisma",
+                        AbilityEnum.Charisma,
+                        new string[]
+                        {
+                            "Deception",
+                            "Intimidation",
+                            "Performance",
+                            "Persuasion",
+                        });
+                    yield return new TestCaseData(
+                        "Constitution",
+                        AbilityEnum.Constitution,
+                        new string[] {}
+                        );
+                    yield return new TestCaseData(
+                        "Dexterity",
+                        AbilityEnum.Dexterity,
+                        new string[]
+                        {
+                            "Acrobatics",
+                            "SleightOfHand",
+                            "Stealth",
+                        });
+                    yield return new TestCaseData(
+                        "Intelligence",
+                        AbilityEnum.Intelligence,
+                        new string[]
+                        {
+                            "Arcana",
+                            "History",
+                            "Investigation",
+                            "Nature",
+                            "Religion",
+                        });
+                    yield return new TestCaseData(
+                        "Strength",
+                        AbilityEnum.Strength,
+                        new string[]
+                        {
+                            "Athletics",
+                        });
+                    yield return new TestCaseData(
+                        "Wisdom",
+                        AbilityEnum.Wisdom,
+                        new string[]
+                        {
+                            "AnimalHandling",
+                            "Insight",
+                            "Medicine",
+                            "Perception",
+                            "Survival",
+                        });
                 }
             }
         }

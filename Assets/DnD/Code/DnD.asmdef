@@ -1,6 +1,6 @@
 {
     "name": "DnD",
-    "rootNamespace": "DnD.Code",
+    "rootNamespace": "",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

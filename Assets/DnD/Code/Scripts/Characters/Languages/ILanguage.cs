@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Assets.Scripts.Game.Characters.Languages
+﻿namespace DnD.Code.Scripts.Characters.Languages
 {
     public interface ILanguage
     {

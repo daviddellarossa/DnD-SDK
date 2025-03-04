@@ -32,15 +32,33 @@ namespace Tests
         }
 
         [TestCaseSource(typeof(AbilitiesData), nameof(AbilitiesData.ArmoursTestCases))]
-        public bool TestAllArmours(string name, string armourTypeName)
+        public void TestAllArmours(ArmourModel expected)
         {
-            return _armours.Any(armour => armour.name == name && armour.Type.name == armourTypeName);
+            var armour = _armours.SingleOrDefault(armour => armour.name == expected.Name);
+            
+            Assert.That(armour, Is.Not.Null);
+            Assert.That(armour.Type.name, Is.EqualTo(expected.Type));
+            Assert.That(armour.ArmourClass, Is.EqualTo(expected.ArmourClass));
+            Assert.That(armour.AddDexModifier, Is.EqualTo(expected.AddDexModifier));
+            Assert.That(armour.CapDexModifier, Is.EqualTo(expected.CapDexModifier));
+            Assert.That(armour.MaxDexModifier, Is.EqualTo(expected.MaxDexModifier));
+            Assert.That(armour.HasDisadvantageOnDexterityChecks, Is.EqualTo(expected.HasDisadvantageOnDexterityChecks));
+            Assert.That(armour.Strength, Is.EqualTo(expected.Strength));
+            Assert.That(armour.Weight, Is.EqualTo(expected.Weight));
+            Assert.That(armour.Cost, Is.EqualTo(expected.Cost));
+
         }
         
         [TestCaseSource(typeof(AbilitiesData), nameof(AbilitiesData.ShieldsTestCases))]
-        public bool TestAllShields(string name, string shieldTypeName)
+        public void TestAllShields(ShieldModel expected)
         {
-            return _shields.Any(shield => shield.name == name && shield.Type.name == shieldTypeName);
+            var shield = _shields.SingleOrDefault(shield => shield.name == expected.Name);
+            
+            Assert.That(shield, Is.Not.Null);
+            Assert.That(shield.Type.name, Is.EqualTo(expected.Type));
+            Assert.That(shield.IncrementArmourClassBy, Is.EqualTo(expected.IncrementArmourClassBy));
+            Assert.That(shield.Weight, Is.EqualTo(expected.Weight));
+            Assert.That(shield.Cost, Is.EqualTo(expected.Cost));
         }
         
         private class AbilitiesData
@@ -49,20 +67,164 @@ namespace Tests
             {
                 get
                 {
-                    yield return new TestCaseData("Chain Mail", "Heavy Armour Type").Returns(true);
-                    yield return new TestCaseData("Plate Armour", "Heavy Armour Type").Returns(true);
-                    yield return new TestCaseData("Ring Mail", "Heavy Armour Type").Returns(true);
-                    yield return new TestCaseData("Splint Armour", "Heavy Armour Type").Returns(true);
+                    yield return new TestCaseData(
+                        new ArmourModel(
+                        "Chain Mail",
+                        "Heavy Armour Type",
+                        16,
+                        false,
+                        false,
+                        0,
+                        true,
+                        13,
+                        27.0f,
+                        1
+                        ));
+                    yield return new TestCaseData(
+                        new ArmourModel(
+                        "Plate Armour",
+                        "Heavy Armour Type",
+                        18,
+                        false,
+                        false,
+                        0,
+                        true,
+                        15,
+                        32.5f,
+                        0
+                        ));
+                    yield return new TestCaseData(
+                        new ArmourModel(
+                        "Ring Mail",
+                        "Heavy Armour Type",
+                        14,
+                        false,
+                        false,
+                        0,
+                        true,
+                        0,
+                        20.0f,
+                        0
+                        ));
+                    yield return new TestCaseData(
+                        new ArmourModel(
+                        "Splint Armour",
+                        "Heavy Armour Type",
+                        17,
+                        false,
+                        false,
+                        0,
+                        true,
+                        15,
+                        30.0f,
+                        0
+                        ));
 
-                    yield return new TestCaseData("Leather Armour", "Light Armour Type").Returns(true);
-                    yield return new TestCaseData("Padded Armour", "Light Armour Type").Returns(true);
-                    yield return new TestCaseData("Studded Leather Armour", "Light Armour Type").Returns(true);
+                    yield return new TestCaseData(
+                        new ArmourModel(
+                        "Leather Armour",
+                        "Light Armour Type",
+                        11,
+                        true,
+                        false,
+                        0,
+                        true,
+                        0,
+                        5.0f,
+                        0
+                        ));
+                    yield return new TestCaseData(
+                        new ArmourModel(
+                        "Padded Armour",
+                        "Light Armour Type",
+                        11,
+                        true,
+                        false,
+                        0,
+                        true,
+                        0,
+                        4.0f,
+                        0
+                        ));
+                    yield return new TestCaseData(
+                        new ArmourModel(
+                        "Studded Leather Armour",
+                        "Light Armour Type",
+                        12,
+                        true,
+                        false,
+                        0,
+                        false,
+                        0,
+                        6.5f,
+                        0
+                        ));
 
-                    yield return new TestCaseData("Breastplate", "Medium Armour Type").Returns(true);
-                    yield return new TestCaseData("Chain Shirt", "Medium Armour Type").Returns(true);
-                    yield return new TestCaseData("Half Plate Armour", "Medium Armour Type").Returns(true);
-                    yield return new TestCaseData("Hide Armour", "Medium Armour Type").Returns(true);
-                    yield return new TestCaseData("Scale Mail", "Medium Armour Type").Returns(true);
+                    yield return new TestCaseData(
+                        new ArmourModel(
+                        "Breastplate",
+                        "Medium Armour Type",
+                        14,
+                        true,
+                        true,
+                        2,
+                        false,
+                        0,
+                        10.0f,
+                        0
+                        ));
+                    yield return new TestCaseData(
+                        new ArmourModel(
+                        "Chain Shirt",
+                        "Medium Armour Type",
+                        13,
+                        true,
+                        true,
+                        2,
+                        false,
+                        0,
+                        5.0f,
+                        0
+                        ));
+                    yield return new TestCaseData(
+                        new ArmourModel(
+                        "Half Plate Armour",
+                        "Medium Armour Type",
+                        15,
+                        true,
+                        true,
+                        2,
+                        true,
+                        0,
+                        20.0f,
+                        0
+                        ));
+                    yield return new TestCaseData(
+                        new ArmourModel(
+                        "Hide Armour",
+                        "Medium Armour Type",
+                        12,
+                        true,
+                        true,
+                        2,
+                        false,
+                        0,
+                        6.0f,
+                        0
+                        ));
+                    yield return new TestCaseData(
+                        new ArmourModel(
+                        "Scale Mail",
+                        "Medium Armour Type",
+                        14,
+                        true,
+                        true,
+                        2,
+                        true,
+                        0,
+                        22.5f,
+                        0
+                        ));
                 }
             }
             
@@ -70,8 +232,78 @@ namespace Tests
             {
                 get
                 {
-                    yield return new TestCaseData("Shield", "Shield Type").Returns(true);
+                    yield return new TestCaseData(
+                        new ShieldModel(
+                        "Shield", 
+                        "Shield Type",
+                        2,
+                        3.0f,
+                        0
+                        ));
                 }
+            }
+        }
+
+        public class ArmourModel
+        {
+            public string Name { get; set; }
+            public string Type { get; set; }
+            public int ArmourClass { get; set; }
+            public bool AddDexModifier { get; set; }
+            public bool CapDexModifier { get; set; }
+            public int MaxDexModifier { get; set; }
+            public bool HasDisadvantageOnDexterityChecks { get; set; }
+            public int Strength { get; set; }
+            public float Weight { get; set; }
+            public int Cost { get; set; }
+
+            public  ArmourModel(
+                string name,
+                string type,
+                int armourClass,
+                bool addDexModifier,
+                bool capDexModifier,
+                int maxDexModifier,
+                bool hasDisadvantageOnDexterityChecks,
+                int strength,
+                float weight,
+                int cost
+                )
+            {
+                Name = name;
+                Type = type;
+                ArmourClass = armourClass;
+                AddDexModifier = addDexModifier;
+                CapDexModifier = capDexModifier;
+                MaxDexModifier = maxDexModifier;
+                HasDisadvantageOnDexterityChecks = hasDisadvantageOnDexterityChecks;
+                Strength = strength;
+                Weight = weight;
+                Cost = cost;
+            }
+        }
+
+        public class ShieldModel
+        {
+            public string Name { get; set; }
+            public string Type { get; set; }
+            public int IncrementArmourClassBy { get; set; }
+            public float Weight { get; set; }
+            public int Cost { get; set; }
+
+            public ShieldModel(
+                string name,
+                string type,
+                int incrementArmourClassBy,
+                float weight,
+                int cost
+                )
+            {
+                this.Name = name;
+                this.Type = type;
+                this.IncrementArmourClassBy = incrementArmourClassBy;
+                this.Weight = weight;
+                this.Cost = cost;
             }
         }
     }

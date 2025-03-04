@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Game.Characters.Feats
+namespace DnD.Code.Scripts.Characters.Feats
 {
     [CreateAssetMenu(fileName = "NewFeat", menuName = "Game Entities/Character/Feats/Feat")]
     public class Feat : ScriptableObject

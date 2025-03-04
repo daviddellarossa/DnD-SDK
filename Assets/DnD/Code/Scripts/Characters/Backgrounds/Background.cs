@@ -1,5 +1,5 @@
-﻿using Assets.Scripts.Game.Characters.Feats;
-using DnD.Code.Scripts.Characters.Abilities;
+﻿using DnD.Code.Scripts.Characters.Abilities;
+using DnD.Code.Scripts.Characters.Feats;
 using DnD.Code.Scripts.Tools;
 using UnityEngine;
 
