@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Thrown_e2f3c1a0-c851-4dc0-8646-37ebc46c4d72
   m_EditorClassIdentifier: 
   Name: Thrown
-  MinRange: 6
-  MaxRange: 18
   Range:
     Min: 6
     Max: 18
@@ -66,4 +64,4 @@ MonoBehaviour:
   - {fileID: -6279522555979567417}
   MasteryProperty: {fileID: -6255686738767904484}
   Weight: 1
-  Cost: 5
+  Cost: 500

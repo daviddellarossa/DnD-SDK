@@ -41,14 +41,14 @@ MonoBehaviour:
   Name: Blowgun
   Type: {fileID: 11400000, guid: 70d957474b21eec428dd7e72880ef6d9, type: 2}
   NumOfDamageDice: 1
-  DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
+  DamageDie: {fileID: 11400000, guid: 11278b0b14da46a51a9ed8754a0274ff, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
   - {fileID: 497100773485309524}
   - {fileID: -5877926206141845855}
   MasteryProperty: {fileID: -8894855429443324012}
   Weight: 0.5
-  Cost: 0
+  Cost: 1000
 --- !u!114 &497100773485309524
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -35,8 +35,8 @@ MonoBehaviour:
   - {fileID: 3944751484460023727}
   - {fileID: 8565721424813173519}
   MasteryProperty: {fileID: 7738633226283227414}
-  Weight: 1
-  Cost: 2
+  Weight: 0.5
+  Cost: 200
 --- !u!114 &3944751484460023727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,8 +76,6 @@ MonoBehaviour:
   m_Name: Thrown_d5b293df-2262-4009-a696-8e82b501700b
   m_EditorClassIdentifier: 
   Name: Thrown
-  MinRange: 6
-  MaxRange: 18
   Range:
     Min: 6
     Max: 18

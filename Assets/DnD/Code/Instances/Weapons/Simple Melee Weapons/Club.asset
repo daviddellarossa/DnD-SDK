@@ -35,7 +35,7 @@ MonoBehaviour:
   - {fileID: 220667685178244304}
   MasteryProperty: {fileID: -3626688997776304770}
   Weight: 1
-  Cost: 1
+  Cost: 100
 --- !u!114 &220667685178244304
 MonoBehaviour:
   m_ObjectHideFlags: 0

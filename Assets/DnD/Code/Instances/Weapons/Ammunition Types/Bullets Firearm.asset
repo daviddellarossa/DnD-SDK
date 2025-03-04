@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29f1d9f2e27d8fa48a844072ad94c781, type: 3}
-  m_Name: Bullets_Firearm
+  m_Name: Bullets Firearm
   m_EditorClassIdentifier: 
   Name: Bullets, Firearm
   Amount: 10

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Versatile_18df9a0b-1452-4776-9902-a0baf6f2c7f3
   m_EditorClassIdentifier: 
   Name: Versatile
-  DieType: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
   NumberOfDice: 1
+  DieType: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
   - {fileID: -3051746668024413865}
   MasteryProperty: {fileID: 6865712345017587681}
   Weight: 2
-  Cost: 2
+  Cost: 200
 --- !u!114 &6865712345017587681
 MonoBehaviour:
   m_ObjectHideFlags: 0

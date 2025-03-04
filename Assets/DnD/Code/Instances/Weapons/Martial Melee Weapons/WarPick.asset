@@ -26,7 +26,7 @@ MonoBehaviour:
   m_Name: WarPick
   m_EditorClassIdentifier: 
   Name: War Pick
-  Type: {fileID: 0}
+  Type: {fileID: 11400000, guid: 6cbb43571004771418247b615afb5f92, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
@@ -34,7 +34,7 @@ MonoBehaviour:
   - {fileID: 6896124352456999896}
   MasteryProperty: {fileID: -4771670262653605514}
   Weight: 1
-  Cost: 0
+  Cost: 500
 --- !u!114 &6896124352456999896
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -22,8 +22,8 @@ MonoBehaviour:
   - {fileID: 6587809991131636839}
   - {fileID: 8221266212281156239}
   MasteryProperty: {fileID: 3870513391782384259}
-  Weight: 1
-  Cost: 0
+  Weight: 2.5
+  Cost: 2500
 --- !u!114 &3870513391782384259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
   m_Name: TwoHanded_e464207a-82c5-4792-b224-a20283d3b934
   m_EditorClassIdentifier: 
-  Name: TwoHanded
+  Name: Two Handed
 --- !u!114 &8418792699064036436
 MonoBehaviour:
   m_ObjectHideFlags: 0

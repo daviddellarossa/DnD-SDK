@@ -22,7 +22,7 @@ MonoBehaviour:
   - {fileID: 4033120559844772975}
   MasteryProperty: {fileID: 6146353204237613046}
   Weight: 1
-  Cost: 2
+  Cost: 200
 --- !u!114 &4033120559844772975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,9 +35,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160fc646e2c4724418aa23deca8abc00, type: 3}
   m_Name: Thrown_81e49ff9-af17-450b-b23b-fd6fd4dc80b7
   m_EditorClassIdentifier: 
-  Name: Thrown_81e49ff9-af17-450b-b23b-fd6fd4dc80b7
-  MinRange: 6
-  MaxRange: 18
+  Name: Thrown
   Range:
     Min: 6
     Max: 18
@@ -66,4 +64,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 972175a1f99609d41a0057c11c6bff3b, type: 3}
   m_Name: Light_632b78e8-0a61-4dfe-9a6e-ce952b1c7f43
   m_EditorClassIdentifier: 
-  Name: Light_632b78e8-0a61-4dfe-9a6e-ce952b1c7f43
+  Name: Light
