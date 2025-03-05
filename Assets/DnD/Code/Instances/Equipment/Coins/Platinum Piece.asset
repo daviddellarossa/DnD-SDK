@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3eccccb37ea76d947bef9627378a17cb, type: 3}
-  m_Name: ElectrumPiece
+  m_Name: Platinum Piece
   m_EditorClassIdentifier: 
-  Name: Electrum Piece
-  Abbreviation: EP
-  Value: 50
+  Name: Platinum Piece
+  Abbreviation: PP
+  Value: 1000

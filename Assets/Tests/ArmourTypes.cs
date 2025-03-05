@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using DnD.Code.Scripts.Armour;
 using DnD.Code.Scripts.Characters.Abilities;
+using DnD.Code.Scripts.Common;
 using NUnit.Framework;
 using UnityEditor;
 
@@ -54,19 +55,19 @@ namespace Tests
                 {
                     yield return new TestCaseData(
                         new ArmourTypeModel(
-                        Helper.ArmourType.HeavyArmour,
+                        NameHelper.ArmourType.HeavyArmour,
                         10,
                         5
                         ));
                     yield return new TestCaseData(
                         new ArmourTypeModel(
-                        Helper.ArmourType.LightArmour,
+                        NameHelper.ArmourType.LightArmour,
                         1,
                         1
                         ));
                     yield return new TestCaseData(
                         new ArmourTypeModel(
-                        Helper.ArmourType.MediumArmour,
+                        NameHelper.ArmourType.MediumArmour,
                         5,
                         1
                         ));
@@ -77,7 +78,7 @@ namespace Tests
             {
                 get
                 {
-                    yield return new TestCaseData(Helper.ArmourType.Shield).Returns(true);
+                    yield return new TestCaseData(NameHelper.ArmourType.Shield).Returns(true);
                 }
             }
         }

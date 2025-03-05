@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using DnD.Code.Scripts.Items;
 using UnityEngine;
 
-namespace DnD.Code.Scripts.Items
+namespace DnD.Code.Scripts.Equipment
 {
 [CreateAssetMenu(fileName = "NewStartingEquipment", menuName = "Game Entities/Character/Classes/Starting Equipment")]
     public class StartingEquipment : ScriptableObject

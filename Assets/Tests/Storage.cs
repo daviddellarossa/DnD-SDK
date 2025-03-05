@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Linq;
+using DnD.Code.Scripts.Common;
 using NUnit.Framework;
 using UnityEditor;
 
@@ -38,15 +39,15 @@ namespace Tests
                 {
                     yield return new TestCaseData(
                         new StorageModel(
-                            Helper.Storage.Case
+                            NameHelper.Storage.Case
                         ));
                     yield return new TestCaseData(
                         new StorageModel(
-                            Helper.Storage.Pouch
+                            NameHelper.Storage.Pouch
                         ));
                     yield return new TestCaseData(
                         new StorageModel(
-                            Helper.Storage.Quiver
+                            NameHelper.Storage.Quiver
                         ));
                 }
             }

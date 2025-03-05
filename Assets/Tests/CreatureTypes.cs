@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Linq;
 using DnD.Code.Scripts.Characters.Species;
+using DnD.Code.Scripts.Common;
 using NUnit.Framework;
 using UnityEditor;
 
@@ -38,59 +39,59 @@ namespace Tests
                 {
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            Helper.CreatureTypes.Aberration
+                            NameHelper.CreatureTypes.Aberration
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            Helper.CreatureTypes.Beast
+                            NameHelper.CreatureTypes.Beast
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            Helper.CreatureTypes.Celestial
+                            NameHelper.CreatureTypes.Celestial
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            Helper.CreatureTypes.Construct
+                            NameHelper.CreatureTypes.Construct
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            Helper.CreatureTypes.Dragon
+                            NameHelper.CreatureTypes.Dragon
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            Helper.CreatureTypes.Elemental
+                            NameHelper.CreatureTypes.Elemental
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            Helper.CreatureTypes.Fey
+                            NameHelper.CreatureTypes.Fey
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            Helper.CreatureTypes.Fiend
+                            NameHelper.CreatureTypes.Fiend
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            Helper.CreatureTypes.Giant
+                            NameHelper.CreatureTypes.Giant
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            Helper.CreatureTypes.Humanoid
+                            NameHelper.CreatureTypes.Humanoid
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            Helper.CreatureTypes.Monstrosity
+                            NameHelper.CreatureTypes.Monstrosity
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            Helper.CreatureTypes.Ooze
+                            NameHelper.CreatureTypes.Ooze
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            Helper.CreatureTypes.Plant
+                            NameHelper.CreatureTypes.Plant
                         ));
                     yield return new TestCaseData(
                         new CreatureTypeModel(
-                            Helper.CreatureTypes.Undead
+                            NameHelper.CreatureTypes.Undead
                         ));
                 }
             }

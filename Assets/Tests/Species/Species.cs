@@ -3,6 +3,7 @@ using System.Linq;
 using DnD.Code.Scripts.Characters.Abilities;
 using DnD.Code.Scripts.Characters.Species;
 using DnD.Code.Scripts.Characters.Species.SpecialTraits.TraitTypes;
+using DnD.Code.Scripts.Common;
 using NUnit.Framework;
 using UnityEditor;
 
@@ -90,36 +91,36 @@ namespace Tests.Species
                 {
                     yield return new TestCaseData(
                         new Species.SpeciesModel(
-                            Helper.Species.Human,
+                            NameHelper.Species.Human,
                             null,
-                            Helper.CreatureTypes.Humanoid,
+                            NameHelper.CreatureTypes.Humanoid,
                             Size.Small | Size.Medium,
                             9.144f,
                             new Species.SpecialTraitModel[]
                             {
                                 new Species.SpecialTraitModel(
-                                    Helper.SpecialTraits.Resourceful,
+                                    NameHelper.SpecialTraits.Resourceful,
                                     new Species.TraitTypeModel[]
                                     {
                                         new Species.HeroicInspirationModel(
-                                            Helper.TypeTraits.HeroicInspiration,
+                                            NameHelper.TypeTraits.HeroicInspiration,
                                             false)
                                     }),
                                 new Species.SpecialTraitModel(
-                                    Helper.SpecialTraits.Skillful,
+                                    NameHelper.SpecialTraits.Skillful,
                                     new Species.TraitTypeModel[]
                                     {
                                         new Species.ProficiencyModel(
-                                            Helper.TypeTraits.Proficiency,
+                                            NameHelper.TypeTraits.Proficiency,
                                             null)
                                     }),
                                 new Species.SpecialTraitModel(
-                                    Helper.SpecialTraits.Versatile,
+                                    NameHelper.SpecialTraits.Versatile,
                                     new Species.TraitTypeModel[]
                                     {
                                         new Species.HasFeatByCategoryModel(
-                                            Helper.TypeTraits.HasFeatByCategory,
-                                            Helper.FeatCategories.Origin)
+                                            NameHelper.TypeTraits.HasFeatByCategory,
+                                            NameHelper.FeatCategories.Origin)
                                     }),
                             }));
                 }

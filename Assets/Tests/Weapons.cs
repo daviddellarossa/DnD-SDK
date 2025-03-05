@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Linq;
 using DnD.Code.Scripts.Characters.Languages;
+using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Weapons;
 using NUnit.Framework;
 using UnityEditor;
@@ -86,7 +87,7 @@ namespace Tests
                         new AmmunitionTypeModel(
                             "Arrows",
                             20,
-                            Helper.Storage.Quiver,
+                            NameHelper.Storage.Quiver,
                             0.5f,
                             1.0f
                         ));
@@ -94,7 +95,7 @@ namespace Tests
                         new AmmunitionTypeModel(
                             "Bolts",
                             20,
-                            Helper.Storage.Case,
+                            NameHelper.Storage.Case,
                             0.75f,
                             1.0f
                         ));
@@ -102,7 +103,7 @@ namespace Tests
                         new AmmunitionTypeModel(
                             "Bullets Firearm",
                             10,
-                            Helper.Storage.Pouch,
+                            NameHelper.Storage.Pouch,
                             1.0f,
                             3.0f
                         ));
@@ -110,7 +111,7 @@ namespace Tests
                         new AmmunitionTypeModel(
                             "Bullets Sling",
                             20,
-                            Helper.Storage.Pouch,
+                            NameHelper.Storage.Pouch,
                             0.75f,
                             4.0f
                         ));
@@ -118,7 +119,7 @@ namespace Tests
                         new AmmunitionTypeModel(
                             "Needles",
                             50,
-                            Helper.Storage.Pouch,
+                            NameHelper.Storage.Pouch,
                             0.5f,
                             1.0f
                         ));
@@ -131,19 +132,19 @@ namespace Tests
                 {
                     yield return new TestCaseData(
                         new WeaponTypeModel(
-                            Helper.WeaponType.MartialMeleeWeapon
+                            NameHelper.WeaponType.MartialMeleeWeapon
                         ));
                     yield return new TestCaseData(
                         new WeaponTypeModel(
-                            Helper.WeaponType.MartialRangedWeapon
+                            NameHelper.WeaponType.MartialRangedWeapon
                         ));
                     yield return new TestCaseData(
                         new WeaponTypeModel(
-                            Helper.WeaponType.SimpleMeleeWeapon
+                            NameHelper.WeaponType.SimpleMeleeWeapon
                         ));
                     yield return new TestCaseData(
                         new WeaponTypeModel(
-                            Helper.WeaponType.SimpleRangedWeapon
+                            NameHelper.WeaponType.SimpleRangedWeapon
                         ));
                 }
             }
@@ -155,286 +156,286 @@ namespace Tests
                     // MartialMeleeWeapon
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Battleaxe,
-                            Helper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.Weapons.Battleaxe,
+                            NameHelper.WeaponType.MartialMeleeWeapon,
                             1,
-                             Helper.Dice.D8,
-                            Helper.DamageType.Slashing,
+                             NameHelper.Dice.D8,
+                            NameHelper.DamageType.Slashing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Versatile
+                                NameHelper.WeaponProperty.Versatile
                             },
-                            Helper.MasteryProperty.Topple,
+                            NameHelper.MasteryProperty.Topple,
                             2.0f,
                             1000.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Flail,
-                            Helper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.Weapons.Flail,
+                            NameHelper.WeaponType.MartialMeleeWeapon,
                             1,
-                            Helper.Dice.D8,
-                            Helper.DamageType.Bludgeoning,
+                            NameHelper.Dice.D8,
+                            NameHelper.DamageType.Bludgeoning,
                             new string[]
                             {
                                 
                             },
-                            Helper.MasteryProperty.Sap,
+                            NameHelper.MasteryProperty.Sap,
                             1.0f,
                             1000.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Glaive,
-                            Helper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.Weapons.Glaive,
+                            NameHelper.WeaponType.MartialMeleeWeapon,
                             1,
-                            Helper.Dice.D10,
-                            Helper.DamageType.Slashing,
+                            NameHelper.Dice.D10,
+                            NameHelper.DamageType.Slashing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Heavy,
-                                Helper.WeaponProperty.Reach,
-                                Helper.WeaponProperty.TwoHanded
+                                NameHelper.WeaponProperty.Heavy,
+                                NameHelper.WeaponProperty.Reach,
+                                NameHelper.WeaponProperty.TwoHanded
                             },
-                            Helper.MasteryProperty.Graze,
+                            NameHelper.MasteryProperty.Graze,
                             3.0f,
                             2000.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Greataxe,
-                            Helper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.Weapons.Greataxe,
+                            NameHelper.WeaponType.MartialMeleeWeapon,
                             1,
-                            Helper.Dice.D12,
-                            Helper.DamageType.Slashing,
+                            NameHelper.Dice.D12,
+                            NameHelper.DamageType.Slashing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Heavy,
-                                Helper.WeaponProperty.TwoHanded
+                                NameHelper.WeaponProperty.Heavy,
+                                NameHelper.WeaponProperty.TwoHanded
                             },
-                            Helper.MasteryProperty.Cleave,
+                            NameHelper.MasteryProperty.Cleave,
                             3.5f,
                             3000.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Greatsword,
-                            Helper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.Weapons.Greatsword,
+                            NameHelper.WeaponType.MartialMeleeWeapon,
                             2,
-                            Helper.Dice.D6,
-                            Helper.DamageType.Slashing,
+                            NameHelper.Dice.D6,
+                            NameHelper.DamageType.Slashing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Heavy,
-                                Helper.WeaponProperty.TwoHanded
+                                NameHelper.WeaponProperty.Heavy,
+                                NameHelper.WeaponProperty.TwoHanded
                             },
-                            Helper.MasteryProperty.Graze,
+                            NameHelper.MasteryProperty.Graze,
                             3.0f,
                             5000.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Halberd,
-                            Helper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.Weapons.Halberd,
+                            NameHelper.WeaponType.MartialMeleeWeapon,
                             1,
-                            Helper.Dice.D10,
-                            Helper.DamageType.Slashing,
+                            NameHelper.Dice.D10,
+                            NameHelper.DamageType.Slashing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Heavy,
-                                Helper.WeaponProperty.Reach,
-                                Helper.WeaponProperty.TwoHanded
+                                NameHelper.WeaponProperty.Heavy,
+                                NameHelper.WeaponProperty.Reach,
+                                NameHelper.WeaponProperty.TwoHanded
                             },
-                            Helper.MasteryProperty.Cleave,
+                            NameHelper.MasteryProperty.Cleave,
                             3.0f,
                             2000.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Lance,
-                            Helper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.Weapons.Lance,
+                            NameHelper.WeaponType.MartialMeleeWeapon,
                             1,
-                            Helper.Dice.D10,
-                            Helper.DamageType.Piercing,
+                            NameHelper.Dice.D10,
+                            NameHelper.DamageType.Piercing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Heavy,
-                                Helper.WeaponProperty.Reach,
-                                Helper.WeaponProperty.TwoHanded
+                                NameHelper.WeaponProperty.Heavy,
+                                NameHelper.WeaponProperty.Reach,
+                                NameHelper.WeaponProperty.TwoHanded
                             },
-                            Helper.MasteryProperty.Topple,
+                            NameHelper.MasteryProperty.Topple,
                             3.0f,
                             1000.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Longsword,
-                            Helper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.Weapons.Longsword,
+                            NameHelper.WeaponType.MartialMeleeWeapon,
                             1,
-                            Helper.Dice.D8,
-                            Helper.DamageType.Slashing,
+                            NameHelper.Dice.D8,
+                            NameHelper.DamageType.Slashing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Versatile
+                                NameHelper.WeaponProperty.Versatile
                             },
-                            Helper.MasteryProperty.Sap,
+                            NameHelper.MasteryProperty.Sap,
                             1.5f,
                             1500.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Maul,
-                            Helper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.Weapons.Maul,
+                            NameHelper.WeaponType.MartialMeleeWeapon,
                             2,
-                            Helper.Dice.D6,
-                            Helper.DamageType.Bludgeoning,
+                            NameHelper.Dice.D6,
+                            NameHelper.DamageType.Bludgeoning,
                             new string[]
                             {
-                                Helper.WeaponProperty.Heavy,
-                                Helper.WeaponProperty.TwoHanded
+                                NameHelper.WeaponProperty.Heavy,
+                                NameHelper.WeaponProperty.TwoHanded
                             },
-                            Helper.MasteryProperty.Topple,
+                            NameHelper.MasteryProperty.Topple,
                             5.0f,
                             1000.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Morningstar,
-                            Helper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.Weapons.Morningstar,
+                            NameHelper.WeaponType.MartialMeleeWeapon,
                             1,
-                            Helper.Dice.D8,
-                            Helper.DamageType.Piercing,
+                            NameHelper.Dice.D8,
+                            NameHelper.DamageType.Piercing,
                             new string[]
                             {
                                 
                             },
-                            Helper.MasteryProperty.Sap,
+                            NameHelper.MasteryProperty.Sap,
                             2.0f,
                             1500.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Pike,
-                            Helper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.Weapons.Pike,
+                            NameHelper.WeaponType.MartialMeleeWeapon,
                             1,
-                            Helper.Dice.D10,
-                            Helper.DamageType.Piercing,
+                            NameHelper.Dice.D10,
+                            NameHelper.DamageType.Piercing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Heavy,
-                                Helper.WeaponProperty.Reach,
-                                Helper.WeaponProperty.TwoHanded
+                                NameHelper.WeaponProperty.Heavy,
+                                NameHelper.WeaponProperty.Reach,
+                                NameHelper.WeaponProperty.TwoHanded
                             },
-                            Helper.MasteryProperty.Push,
+                            NameHelper.MasteryProperty.Push,
                             9.0f,
                             500.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Rapier,
-                            Helper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.Weapons.Rapier,
+                            NameHelper.WeaponType.MartialMeleeWeapon,
                             1,
-                            Helper.Dice.D8,
-                            Helper.DamageType.Piercing,
+                            NameHelper.Dice.D8,
+                            NameHelper.DamageType.Piercing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Finesse
+                                NameHelper.WeaponProperty.Finesse
                             },
-                            Helper.MasteryProperty.Vex,
+                            NameHelper.MasteryProperty.Vex,
                             1.0f,
                             2500.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Scimitar,
-                            Helper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.Weapons.Scimitar,
+                            NameHelper.WeaponType.MartialMeleeWeapon,
                             1,
-                            Helper.Dice.D6,
-                            Helper.DamageType.Slashing,
+                            NameHelper.Dice.D6,
+                            NameHelper.DamageType.Slashing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Finesse,
-                                Helper.WeaponProperty.Light
+                                NameHelper.WeaponProperty.Finesse,
+                                NameHelper.WeaponProperty.Light
                             },
-                            Helper.MasteryProperty.Nick,
+                            NameHelper.MasteryProperty.Nick,
                             1.5f,
                             2500.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Shortsword,
-                            Helper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.Weapons.Shortsword,
+                            NameHelper.WeaponType.MartialMeleeWeapon,
                             1,
-                            Helper.Dice.D6,
-                            Helper.DamageType.Piercing,
+                            NameHelper.Dice.D6,
+                            NameHelper.DamageType.Piercing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Finesse,
-                                Helper.WeaponProperty.Light
+                                NameHelper.WeaponProperty.Finesse,
+                                NameHelper.WeaponProperty.Light
                             },
-                            Helper.MasteryProperty.Vex,
+                            NameHelper.MasteryProperty.Vex,
                             1.0f,
                             1000.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Trident,
-                            Helper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.Weapons.Trident,
+                            NameHelper.WeaponType.MartialMeleeWeapon,
                             1,
-                            Helper.Dice.D8,
-                            Helper.DamageType.Piercing,
+                            NameHelper.Dice.D8,
+                            NameHelper.DamageType.Piercing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Thrown,
-                                Helper.WeaponProperty.Versatile
+                                NameHelper.WeaponProperty.Thrown,
+                                NameHelper.WeaponProperty.Versatile
                             },
-                            Helper.MasteryProperty.Topple,
+                            NameHelper.MasteryProperty.Topple,
                             2.0f,
                             500.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Warhammer,
-                            Helper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.Weapons.Warhammer,
+                            NameHelper.WeaponType.MartialMeleeWeapon,
                             1,
-                            Helper.Dice.D8,
-                            Helper.DamageType.Bludgeoning,
+                            NameHelper.Dice.D8,
+                            NameHelper.DamageType.Bludgeoning,
                             new string[]
                             {
-                                Helper.WeaponProperty.Versatile
+                                NameHelper.WeaponProperty.Versatile
                             },
-                            Helper.MasteryProperty.Push,
+                            NameHelper.MasteryProperty.Push,
                             2.5f,
                             1500.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.WarPick,
-                            Helper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.Weapons.WarPick,
+                            NameHelper.WeaponType.MartialMeleeWeapon,
                             1,
-                            Helper.Dice.D8,
-                            Helper.DamageType.Piercing,
+                            NameHelper.Dice.D8,
+                            NameHelper.DamageType.Piercing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Versatile
+                                NameHelper.WeaponProperty.Versatile
                             },
-                            Helper.MasteryProperty.Sap,
+                            NameHelper.MasteryProperty.Sap,
                             1.0f,
                             500.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Whip,
-                            Helper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.Weapons.Whip,
+                            NameHelper.WeaponType.MartialMeleeWeapon,
                             1,
-                            Helper.Dice.D4,
-                            Helper.DamageType.Slashing,
+                            NameHelper.Dice.D4,
+                            NameHelper.DamageType.Slashing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Finesse,
-                                Helper.WeaponProperty.Reach
+                                NameHelper.WeaponProperty.Finesse,
+                                NameHelper.WeaponProperty.Reach
                             },
-                            Helper.MasteryProperty.Slow,
+                            NameHelper.MasteryProperty.Slow,
                             1.5f,
                             200.0f
                         ));
@@ -442,102 +443,102 @@ namespace Tests
                     // MartialRangedWeapon
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Blowgun,
-                            Helper.WeaponType.MartialRangedWeapon,
+                            NameHelper.Weapons.Blowgun,
+                            NameHelper.WeaponType.MartialRangedWeapon,
                             1,
-                            Helper.Dice.D1,
-                            Helper.DamageType.Piercing,
+                            NameHelper.Dice.D1,
+                            NameHelper.DamageType.Piercing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Ammunition,
-                                Helper.WeaponProperty.Loading
+                                NameHelper.WeaponProperty.Ammunition,
+                                NameHelper.WeaponProperty.Loading
                             },
-                            Helper.MasteryProperty.Vex,
+                            NameHelper.MasteryProperty.Vex,
                             0.5f,
                             1000.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.HandCrossbow,
-                            Helper.WeaponType.MartialRangedWeapon,
+                            NameHelper.Weapons.HandCrossbow,
+                            NameHelper.WeaponType.MartialRangedWeapon,
                             1,
-                            Helper.Dice.D6,
-                            Helper.DamageType.Piercing,
+                            NameHelper.Dice.D6,
+                            NameHelper.DamageType.Piercing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Ammunition,
-                                Helper.WeaponProperty.Loading,
-                                Helper.WeaponProperty.Light
+                                NameHelper.WeaponProperty.Ammunition,
+                                NameHelper.WeaponProperty.Loading,
+                                NameHelper.WeaponProperty.Light
                             },
-                            Helper.MasteryProperty.Vex,
+                            NameHelper.MasteryProperty.Vex,
                             1.5f,
                             7500.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.HeavyCrossbow,
-                            Helper.WeaponType.MartialRangedWeapon,
+                            NameHelper.Weapons.HeavyCrossbow,
+                            NameHelper.WeaponType.MartialRangedWeapon,
                             1,
-                            Helper.Dice.D10,
-                            Helper.DamageType.Piercing,
+                            NameHelper.Dice.D10,
+                            NameHelper.DamageType.Piercing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Ammunition,
-                                Helper.WeaponProperty.Loading,
-                                Helper.WeaponProperty.Heavy,
-                                Helper.WeaponProperty.TwoHanded
+                                NameHelper.WeaponProperty.Ammunition,
+                                NameHelper.WeaponProperty.Loading,
+                                NameHelper.WeaponProperty.Heavy,
+                                NameHelper.WeaponProperty.TwoHanded
                             },
-                            Helper.MasteryProperty.Push,
+                            NameHelper.MasteryProperty.Push,
                             9.0f,
                             5000.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Longbow,
-                            Helper.WeaponType.MartialRangedWeapon,
+                            NameHelper.Weapons.Longbow,
+                            NameHelper.WeaponType.MartialRangedWeapon,
                             1,
-                            Helper.Dice.D8,
-                            Helper.DamageType.Piercing,
+                            NameHelper.Dice.D8,
+                            NameHelper.DamageType.Piercing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Ammunition,
-                                Helper.WeaponProperty.Heavy,
-                                Helper.WeaponProperty.TwoHanded
+                                NameHelper.WeaponProperty.Ammunition,
+                                NameHelper.WeaponProperty.Heavy,
+                                NameHelper.WeaponProperty.TwoHanded
                             },
-                            Helper.MasteryProperty.Slow,
+                            NameHelper.MasteryProperty.Slow,
                             1.0f,
                             5000.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Musket,
-                            Helper.WeaponType.MartialRangedWeapon,
+                            NameHelper.Weapons.Musket,
+                            NameHelper.WeaponType.MartialRangedWeapon,
                             1,
-                            Helper.Dice.D12,
-                            Helper.DamageType.Piercing,
+                            NameHelper.Dice.D12,
+                            NameHelper.DamageType.Piercing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Ammunition,
-                                Helper.WeaponProperty.Loading,
-                                Helper.WeaponProperty.TwoHanded
+                                NameHelper.WeaponProperty.Ammunition,
+                                NameHelper.WeaponProperty.Loading,
+                                NameHelper.WeaponProperty.TwoHanded
                             },
-                            Helper.MasteryProperty.Slow,
+                            NameHelper.MasteryProperty.Slow,
                             5.0f,
                             50000.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Pistol,
-                            Helper.WeaponType.MartialRangedWeapon,
+                            NameHelper.Weapons.Pistol,
+                            NameHelper.WeaponType.MartialRangedWeapon,
                             1,
-                            Helper.Dice.D10,
-                            Helper.DamageType.Piercing,
+                            NameHelper.Dice.D10,
+                            NameHelper.DamageType.Piercing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Ammunition,
-                                Helper.WeaponProperty.Loading
+                                NameHelper.WeaponProperty.Ammunition,
+                                NameHelper.WeaponProperty.Loading
                             },
-                            Helper.MasteryProperty.Vex,
+                            NameHelper.MasteryProperty.Vex,
                             1.5f,
                             25000.0f
                         ));
@@ -545,156 +546,156 @@ namespace Tests
                     // SimpleMeleeWeapon
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Club,
-                            Helper.WeaponType.SimpleMeleeWeapon,
+                            NameHelper.Weapons.Club,
+                            NameHelper.WeaponType.SimpleMeleeWeapon,
                             1,
-                            Helper.Dice.D4,
-                            Helper.DamageType.Bludgeoning,
+                            NameHelper.Dice.D4,
+                            NameHelper.DamageType.Bludgeoning,
                             new string[]
                             {
-                                Helper.WeaponProperty.Light
+                                NameHelper.WeaponProperty.Light
                             },
-                            Helper.MasteryProperty.Slow,
+                            NameHelper.MasteryProperty.Slow,
                             1.0f,
                             100.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Dagger,
-                            Helper.WeaponType.SimpleMeleeWeapon,
+                            NameHelper.Weapons.Dagger,
+                            NameHelper.WeaponType.SimpleMeleeWeapon,
                             1,
-                            Helper.Dice.D4,
-                            Helper.DamageType.Piercing,
+                            NameHelper.Dice.D4,
+                            NameHelper.DamageType.Piercing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Finesse,
-                                Helper.WeaponProperty.Light,
-                                Helper.WeaponProperty.Thrown
+                                NameHelper.WeaponProperty.Finesse,
+                                NameHelper.WeaponProperty.Light,
+                                NameHelper.WeaponProperty.Thrown
                             },
-                            Helper.MasteryProperty.Nick,
+                            NameHelper.MasteryProperty.Nick,
                             0.5f,
                             200.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Greatclub,
-                            Helper.WeaponType.SimpleMeleeWeapon,
+                            NameHelper.Weapons.Greatclub,
+                            NameHelper.WeaponType.SimpleMeleeWeapon,
                             1,
-                            Helper.Dice.D8,
-                            Helper.DamageType.Bludgeoning,
+                            NameHelper.Dice.D8,
+                            NameHelper.DamageType.Bludgeoning,
                             new string[]
                             {
-                                Helper.WeaponProperty.TwoHanded
+                                NameHelper.WeaponProperty.TwoHanded
                             },
-                            Helper.MasteryProperty.Push,
+                            NameHelper.MasteryProperty.Push,
                             5.0f,
                             200.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Handaxe,
-                            Helper.WeaponType.SimpleMeleeWeapon,
+                            NameHelper.Weapons.Handaxe,
+                            NameHelper.WeaponType.SimpleMeleeWeapon,
                             1,
-                            Helper.Dice.D6,
-                            Helper.DamageType.Slashing,
+                            NameHelper.Dice.D6,
+                            NameHelper.DamageType.Slashing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Light,
-                                Helper.WeaponProperty.Thrown
+                                NameHelper.WeaponProperty.Light,
+                                NameHelper.WeaponProperty.Thrown
                             },
-                            Helper.MasteryProperty.Vex,
+                            NameHelper.MasteryProperty.Vex,
                             1.0f,
                             500.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Javelin,
-                            Helper.WeaponType.SimpleMeleeWeapon,
+                            NameHelper.Weapons.Javelin,
+                            NameHelper.WeaponType.SimpleMeleeWeapon,
                             1,
-                            Helper.Dice.D6,
-                            Helper.DamageType.Piercing,
+                            NameHelper.Dice.D6,
+                            NameHelper.DamageType.Piercing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Thrown
+                                NameHelper.WeaponProperty.Thrown
                             },
-                            Helper.MasteryProperty.Slow,
+                            NameHelper.MasteryProperty.Slow,
                             1.0f,
                             500.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.LightHammer,
-                            Helper.WeaponType.SimpleMeleeWeapon,
+                            NameHelper.Weapons.LightHammer,
+                            NameHelper.WeaponType.SimpleMeleeWeapon,
                             1,
-                            Helper.Dice.D4,
-                            Helper.DamageType.Bludgeoning,
+                            NameHelper.Dice.D4,
+                            NameHelper.DamageType.Bludgeoning,
                             new string[]
                             {
-                                Helper.WeaponProperty.Light,
-                                Helper.WeaponProperty.Thrown
+                                NameHelper.WeaponProperty.Light,
+                                NameHelper.WeaponProperty.Thrown
                             },
-                            Helper.MasteryProperty.Nick,
+                            NameHelper.MasteryProperty.Nick,
                             1.0f,
                             200.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Mace,
-                            Helper.WeaponType.SimpleMeleeWeapon,
+                            NameHelper.Weapons.Mace,
+                            NameHelper.WeaponType.SimpleMeleeWeapon,
                             1,
-                            Helper.Dice.D6,
-                            Helper.DamageType.Bludgeoning,
+                            NameHelper.Dice.D6,
+                            NameHelper.DamageType.Bludgeoning,
                             new string[]
                             {
                                 
                             },
-                            Helper.MasteryProperty.Sap,
+                            NameHelper.MasteryProperty.Sap,
                             2.0f,
                             500.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Quarterstaff,
-                            Helper.WeaponType.SimpleMeleeWeapon,
+                            NameHelper.Weapons.Quarterstaff,
+                            NameHelper.WeaponType.SimpleMeleeWeapon,
                             1,
-                            Helper.Dice.D6,
-                            Helper.DamageType.Bludgeoning,
+                            NameHelper.Dice.D6,
+                            NameHelper.DamageType.Bludgeoning,
                             new string[]
                             {
-                                Helper.WeaponProperty.Versatile
+                                NameHelper.WeaponProperty.Versatile
                             },
-                            Helper.MasteryProperty.Topple,
+                            NameHelper.MasteryProperty.Topple,
                             2.0f,
                             200.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Sickle,
-                            Helper.WeaponType.SimpleMeleeWeapon,
+                            NameHelper.Weapons.Sickle,
+                            NameHelper.WeaponType.SimpleMeleeWeapon,
                             1,
-                            Helper.Dice.D4,
-                            Helper.DamageType.Slashing,
+                            NameHelper.Dice.D4,
+                            NameHelper.DamageType.Slashing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Light
+                                NameHelper.WeaponProperty.Light
                             },
-                            Helper.MasteryProperty.Nick,
+                            NameHelper.MasteryProperty.Nick,
                             1.0f,
                             100.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Spear,
-                            Helper.WeaponType.SimpleMeleeWeapon,
+                            NameHelper.Weapons.Spear,
+                            NameHelper.WeaponType.SimpleMeleeWeapon,
                             1,
-                            Helper.Dice.D6,
-                            Helper.DamageType.Piercing,
+                            NameHelper.Dice.D6,
+                            NameHelper.DamageType.Piercing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Thrown,
-                                Helper.WeaponProperty.Versatile
+                                NameHelper.WeaponProperty.Thrown,
+                                NameHelper.WeaponProperty.Versatile
                             },
-                            Helper.MasteryProperty.Sap,
+                            NameHelper.MasteryProperty.Sap,
                             1.5f,
                             100.0f
                         ));
@@ -702,65 +703,65 @@ namespace Tests
                     // SimpleRangedWeapon
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Dart,
-                            Helper.WeaponType.SimpleRangedWeapon,
+                            NameHelper.Weapons.Dart,
+                            NameHelper.WeaponType.SimpleRangedWeapon,
                             1,
-                            Helper.Dice.D4,
-                            Helper.DamageType.Piercing,
+                            NameHelper.Dice.D4,
+                            NameHelper.DamageType.Piercing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Finesse,
-                                Helper.WeaponProperty.Thrown
+                                NameHelper.WeaponProperty.Finesse,
+                                NameHelper.WeaponProperty.Thrown
                             },
-                            Helper.MasteryProperty.Vex,
+                            NameHelper.MasteryProperty.Vex,
                             0.125f,
                             500.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.LightCrossbow,
-                            Helper.WeaponType.SimpleRangedWeapon,
+                            NameHelper.Weapons.LightCrossbow,
+                            NameHelper.WeaponType.SimpleRangedWeapon,
                             1,
-                            Helper.Dice.D8,
-                            Helper.DamageType.Piercing,
+                            NameHelper.Dice.D8,
+                            NameHelper.DamageType.Piercing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Ammunition,
-                                Helper.WeaponProperty.Loading,
-                                Helper.WeaponProperty.TwoHanded
+                                NameHelper.WeaponProperty.Ammunition,
+                                NameHelper.WeaponProperty.Loading,
+                                NameHelper.WeaponProperty.TwoHanded
                             },
-                            Helper.MasteryProperty.Slow,
+                            NameHelper.MasteryProperty.Slow,
                             2.5f,
                             2500.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Shortbow,
-                            Helper.WeaponType.SimpleRangedWeapon,
+                            NameHelper.Weapons.Shortbow,
+                            NameHelper.WeaponType.SimpleRangedWeapon,
                             1,
-                            Helper.Dice.D6,
-                            Helper.DamageType.Piercing,
+                            NameHelper.Dice.D6,
+                            NameHelper.DamageType.Piercing,
                             new string[]
                             {
-                                Helper.WeaponProperty.Ammunition,
-                                Helper.WeaponProperty.TwoHanded
+                                NameHelper.WeaponProperty.Ammunition,
+                                NameHelper.WeaponProperty.TwoHanded
                             },
-                            Helper.MasteryProperty.Vex,
+                            NameHelper.MasteryProperty.Vex,
                             1.0f,
                             2500.0f
                         ));
                     yield return new TestCaseData(
                         new WeaponModel(
-                            Helper.Weapons.Sling,
-                            Helper.WeaponType.SimpleRangedWeapon,
+                            NameHelper.Weapons.Sling,
+                            NameHelper.WeaponType.SimpleRangedWeapon,
                             1,
-                            Helper.Dice.D4,
-                            Helper.DamageType.Bludgeoning,
+                            NameHelper.Dice.D4,
+                            NameHelper.DamageType.Bludgeoning,
                             new string[]
                             {
-                                Helper.WeaponProperty.Ammunition,
+                                NameHelper.WeaponProperty.Ammunition,
                             },
-                            Helper.MasteryProperty.Slow,
+                            NameHelper.MasteryProperty.Slow,
                             0f,
                             100.0f
                         ));

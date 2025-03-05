@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using DnD.Code.Scripts.Armour;
 using DnD.Code.Scripts.Characters.Abilities;
+using DnD.Code.Scripts.Common;
 using NUnit.Framework;
 using UnityEditor;
 
@@ -69,8 +70,8 @@ namespace Tests
                 {
                     yield return new TestCaseData(
                         new ArmourModel(
-                            Helper.Armour.ChainMail,
-                        Helper.ArmourType.HeavyArmour,
+                            NameHelper.Armour.ChainMail,
+                        NameHelper.ArmourType.HeavyArmour,
                         16,
                         false,
                         false,
@@ -82,8 +83,8 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                            Helper.Armour.PlateArmour,
-                        Helper.ArmourType.HeavyArmour,
+                            NameHelper.Armour.PlateArmour,
+                        NameHelper.ArmourType.HeavyArmour,
                         18,
                         false,
                         false,
@@ -95,8 +96,8 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                            Helper.Armour.RingMail,
-                        Helper.ArmourType.HeavyArmour,
+                            NameHelper.Armour.RingMail,
+                        NameHelper.ArmourType.HeavyArmour,
                         14,
                         false,
                         false,
@@ -108,8 +109,8 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                            Helper.Armour.SplintArmour,
-                        Helper.ArmourType.HeavyArmour,
+                            NameHelper.Armour.SplintArmour,
+                        NameHelper.ArmourType.HeavyArmour,
                         17,
                         false,
                         false,
@@ -122,8 +123,8 @@ namespace Tests
 
                     yield return new TestCaseData(
                         new ArmourModel(
-                            Helper.Armour.LeatherArmour,
-                        Helper.ArmourType.LightArmour,
+                            NameHelper.Armour.LeatherArmour,
+                        NameHelper.ArmourType.LightArmour,
                         11,
                         true,
                         false,
@@ -135,8 +136,8 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                            Helper.Armour.PaddedArmour,
-                        Helper.ArmourType.LightArmour,
+                            NameHelper.Armour.PaddedArmour,
+                        NameHelper.ArmourType.LightArmour,
                         11,
                         true,
                         false,
@@ -148,8 +149,8 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                            Helper.Armour.StuddedLeatherArmour,
-                        Helper.ArmourType.LightArmour,
+                            NameHelper.Armour.StuddedLeatherArmour,
+                        NameHelper.ArmourType.LightArmour,
                         12,
                         true,
                         false,
@@ -162,8 +163,8 @@ namespace Tests
 
                     yield return new TestCaseData(
                         new ArmourModel(
-                            Helper.Armour.Breastplate,
-                        Helper.ArmourType.MediumArmour,
+                            NameHelper.Armour.Breastplate,
+                        NameHelper.ArmourType.MediumArmour,
                         14,
                         true,
                         true,
@@ -175,8 +176,8 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                            Helper.Armour.ChainShirt,
-                        Helper.ArmourType.MediumArmour,
+                            NameHelper.Armour.ChainShirt,
+                        NameHelper.ArmourType.MediumArmour,
                         13,
                         true,
                         true,
@@ -188,8 +189,8 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                            Helper.Armour.HalfPlateArmour,
-                        Helper.ArmourType.MediumArmour,
+                            NameHelper.Armour.HalfPlateArmour,
+                        NameHelper.ArmourType.MediumArmour,
                         15,
                         true,
                         true,
@@ -201,8 +202,8 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                            Helper.Armour.HideArmour,
-                        Helper.ArmourType.MediumArmour,
+                            NameHelper.Armour.HideArmour,
+                        NameHelper.ArmourType.MediumArmour,
                         12,
                         true,
                         true,
@@ -214,8 +215,8 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                            Helper.Armour.ScaleMail,
-                            Helper.ArmourType.MediumArmour,
+                            NameHelper.Armour.ScaleMail,
+                            NameHelper.ArmourType.MediumArmour,
                         14,
                         true,
                         true,
@@ -234,8 +235,8 @@ namespace Tests
                 {
                     yield return new TestCaseData(
                         new ShieldModel(
-                        Helper.Armour.Shield, 
-                        Helper.ArmourType.Shield,
+                        NameHelper.Armour.Shield, 
+                        NameHelper.ArmourType.Shield,
                         2,
                         3.0f,
                         0

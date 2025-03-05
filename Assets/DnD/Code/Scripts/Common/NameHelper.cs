@@ -1,7 +1,6 @@
-namespace Tests
+namespace DnD.Code.Scripts.Common
 {
-    public static class
-        Helper
+    public static class NameHelper
     {
         public static class Abilities
         {
@@ -313,6 +312,66 @@ namespace Tests
         public static class Backgrounds
         {
             public const string Acolyte = "Acolyte";
+
+        }
+
+        public static class CoinValues
+        {
+            public const string CopperPiece = "Copper Piece";
+            public const string ElectrumPiece = "Electrum Piece";
+            public const string GoldPiece = "Gold Piece";
+            public const string PlatinumPiece = "Platinum Piece";
+            public const string SilverPiece = "Silver Piece";
+
+        }
+
+        public static class StartingEquipmentOptions
+        {
+            public const string OptionA = "Option A";
+            public const string OptionB = "Option B";
+
+        }
+
+        public static class ClassFeatures_Barbarian
+        {
+            public const string AbilityScoreImprovement = "Ability Score Improvement";
+            public const string AnimalSpeaker = "Animal Speaker";
+            public const string AspectOfTheWilds = "Aspect Of The Wilds";
+            public const string BarbarianSubclass = "Barbarian Subclass";
+            public const string BatteringRoots = "Battering Roots";
+            public const string BranchesOfTheTree = "Branches Of The Tree";
+            public const string BrutalStrike = "Brutal Strike";
+            public const string DangerSense = "Danger Sense";
+            public const string DivineFury = "Divine Fury";
+            public const string EpicBoon = "Epic Boon";
+            public const string ExtraAttack = "Extra Attack";
+            public const string FanaticalFocus = "Fanatical Focus";
+            public const string FastMovement = "Fast Movement";
+            public const string FeralInstinct = "Feral Instinct";
+            public const string Frenzy = "Frenzy";
+            public const string ImprovedBrutalStrike = "Improved Brutal Strike";
+            public const string IndomitableMight = "Indomitable Might";
+            public const string InstinctivePounce = "Instinctive Pounce";
+            public const string IntimidatingPresence = "Intimidating Presence";
+            public const string MindlessRage = "Mindless Rage";
+            public const string NatureSpeaker = "Nature Speaker";
+            public const string PersistentRage = "Persistent Rage";
+            public const string PowerOfTheWilds = "Power Of The Wilds";
+            public const string PrimalChampion = "Primal Champion";
+            public const string PrimalKnowledge = "Primal Knowledge";
+            public const string Rage = "Rage";
+            public const string RageOfTheGods = "Rage Of The Gods";
+            public const string RageOfTheWilds = "Rage Of The Wilds";
+            public const string RecklessAttack = "Reckless Attack";
+            public const string RelentlessRage = "Relentless Rage";
+            public const string Retaliation = "Retaliation";
+            public const string SubclassFeature = "Subclass Feature";
+            public const string TravelAlongTheTree = "Travel Along The Tree";
+            public const string UnarmouredDefense = "Unarmoured Defense";
+            public const string VitalityOfTheTree = "Vitality Of The Tree";
+            public const string WarriorOfTheGods = "Warrior Of The Gods";
+            public const string WeaponMastery = "Weapon Mastery";
+            public const string ZealousPresence = "Zealous Presence";
 
         }
     }

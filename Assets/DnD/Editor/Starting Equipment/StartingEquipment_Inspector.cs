@@ -7,6 +7,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System;
 using DnD.Code.Scripts.Armour;
+using DnD.Code.Scripts.Equipment;
 using DnD.Code.Scripts.Equipment.Coins;
 using DnD.Code.Scripts.Items;
 using DnD.Code.Scripts.Weapons;

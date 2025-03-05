@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Linq;
 using DnD.Code.Scripts.Combat;
+using DnD.Code.Scripts.Common;
 using NUnit.Framework;
 using UnityEditor;
 
@@ -38,55 +39,55 @@ namespace Tests
                 {
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            Helper.DamageType.Acid
+                            NameHelper.DamageType.Acid
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            Helper.DamageType.Bludgeoning
+                            NameHelper.DamageType.Bludgeoning
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            Helper.DamageType.Cold
+                            NameHelper.DamageType.Cold
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            Helper.DamageType.Fire
+                            NameHelper.DamageType.Fire
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            Helper.DamageType.Force
+                            NameHelper.DamageType.Force
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            Helper.DamageType.Lightning
+                            NameHelper.DamageType.Lightning
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            Helper.DamageType.Necrotic
+                            NameHelper.DamageType.Necrotic
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            Helper.DamageType.Piercing
+                            NameHelper.DamageType.Piercing
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            Helper.DamageType.Poison
+                            NameHelper.DamageType.Poison
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            Helper.DamageType.Psychic
+                            NameHelper.DamageType.Psychic
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            Helper.DamageType.Radiant
+                            NameHelper.DamageType.Radiant
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            Helper.DamageType.Slashing
+                            NameHelper.DamageType.Slashing
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            Helper.DamageType.Thunder
+                            NameHelper.DamageType.Thunder
                         ));
                 }
             }

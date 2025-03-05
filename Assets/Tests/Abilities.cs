@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Linq;
 using DnD.Code.Scripts.Characters.Abilities;
+using DnD.Code.Scripts.Common;
 using NUnit.Framework;
 using UnityEditor;
 
@@ -42,57 +43,57 @@ namespace Tests
                 get
                 {
                     yield return new TestCaseData(
-                        Helper.Abilities.Charisma,
+                        NameHelper.Abilities.Charisma,
                         AbilityEnum.Charisma,
                         new string[]
                         {
-                            Helper.Skills.Deception,
-                            Helper.Skills.Intimidation,
-                            Helper.Skills.Performance,
-                            Helper.Skills.Persuasion,
+                            NameHelper.Skills.Deception,
+                            NameHelper.Skills.Intimidation,
+                            NameHelper.Skills.Performance,
+                            NameHelper.Skills.Persuasion,
                         });
                     yield return new TestCaseData(
-                        Helper.Abilities.Constitution,
+                        NameHelper.Abilities.Constitution,
                         AbilityEnum.Constitution,
                         new string[] {}
                         );
                     yield return new TestCaseData(
-                        Helper.Abilities.Dexterity,
+                        NameHelper.Abilities.Dexterity,
                         AbilityEnum.Dexterity,
                         new string[]
                         {
-                            Helper.Skills.Acrobatics,
-                            Helper.Skills.SleightOfHand,
-                            Helper.Skills.Stealth,
+                            NameHelper.Skills.Acrobatics,
+                            NameHelper.Skills.SleightOfHand,
+                            NameHelper.Skills.Stealth,
                         });
                     yield return new TestCaseData(
-                        Helper.Abilities.Intelligence,
+                        NameHelper.Abilities.Intelligence,
                         AbilityEnum.Intelligence,
                         new string[]
                         {
-                            Helper.Skills.Arcana,
-                            Helper.Skills.History,
-                            Helper.Skills.Investigation,
-                            Helper.Skills.Nature,
-                            Helper.Skills.Religion,
+                            NameHelper.Skills.Arcana,
+                            NameHelper.Skills.History,
+                            NameHelper.Skills.Investigation,
+                            NameHelper.Skills.Nature,
+                            NameHelper.Skills.Religion,
                         });
                     yield return new TestCaseData(
-                        Helper.Abilities.Strength,
+                        NameHelper.Abilities.Strength,
                         AbilityEnum.Strength,
                         new string[]
                         {
-                            Helper.Skills.Athletics,
+                            NameHelper.Skills.Athletics,
                         });
                     yield return new TestCaseData(
-                        Helper.Abilities.Wisdom,
+                        NameHelper.Abilities.Wisdom,
                         AbilityEnum.Wisdom,
                         new string[]
                         {
-                            Helper.Skills.AnimalHandling,
-                            Helper.Skills.Insight,
-                            Helper.Skills.Medicine,
-                            Helper.Skills.Perception,
-                            Helper.Skills.Survival,
+                            NameHelper.Skills.AnimalHandling,
+                            NameHelper.Skills.Insight,
+                            NameHelper.Skills.Medicine,
+                            NameHelper.Skills.Perception,
+                            NameHelper.Skills.Survival,
                         });
                 }
             }

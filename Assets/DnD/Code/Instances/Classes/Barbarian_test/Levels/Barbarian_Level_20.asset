@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2834525173163891230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d80652f7ec184673862a6260a2623bea, type: 3}
+  m_Name: PrimalChampion
+  m_EditorClassIdentifier: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
+  m_Name: Barbarian_Level_20
+  m_EditorClassIdentifier: 
+  LevelNum: 20
+  ProficiencyBonus: 6
+  ClassFeatures:
+  - {fileID: -2834525173163891230}
+  ClassFeatureTraits:
+    rid: 1838690328050663832
+  references:
+    version: 2
+    RefIds:
+    - rid: 1838690328050663832
+      type: {class: BarbarianFP, ns: DnD.Code.Scripts.Characters.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data:
+        rages: 6
+        rageDamage: 4
+        weaponMastery: 4

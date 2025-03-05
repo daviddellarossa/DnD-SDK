@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Linq;
 using DnD.Code.Scripts;
+using DnD.Code.Scripts.Common;
 using NUnit.Framework;
 using UnityEditor;
 
@@ -39,42 +40,42 @@ namespace Tests
                 {
                     yield return new TestCaseData(
                         new DiceModel(
-                            Helper.Dice.D3,
+                            NameHelper.Dice.D3,
                             3
                         ));
                     yield return new TestCaseData(
                         new DiceModel(
-                            Helper.Dice.D4,
+                            NameHelper.Dice.D4,
                             4
                         ));
                     yield return new TestCaseData(
                         new DiceModel(
-                            Helper.Dice.D6,
+                            NameHelper.Dice.D6,
                             6
                         ));
                     yield return new TestCaseData(
                         new DiceModel(
-                            Helper.Dice.D8,
+                            NameHelper.Dice.D8,
                             8
                         ));
                     yield return new TestCaseData(
                         new DiceModel(
-                            Helper.Dice.D10,
+                            NameHelper.Dice.D10,
                             10
                         ));
                     yield return new TestCaseData(
                         new DiceModel(
-                            Helper.Dice.D12,
+                            NameHelper.Dice.D12,
                             12
                         ));
                     yield return new TestCaseData(
                         new DiceModel(
-                            Helper.Dice.D20,
+                            NameHelper.Dice.D20,
                             20
                         ));
                     yield return new TestCaseData(
                         new DiceModel(
-                            Helper.Dice.D100,
+                            NameHelper.Dice.D100,
                             100
                         ));
                 }

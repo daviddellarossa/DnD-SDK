@@ -31,16 +31,16 @@ MonoBehaviour:
   - {fileID: 6967518163411899285}
   - {fileID: -7919939185668570595}
   ClassFeatureTraits:
-    rid: 1838690267888877627
+    rid: 1838690328050663483
   references:
     version: 2
     RefIds:
-    - rid: 1838690267888877627
-      type: {class: BarbarianFP, ns: Assets.Scripts.Game.Characters.Classes.Barbarian.FeatureProperties, asm: Assembly-CSharp}
+    - rid: 1838690328050663483
+      type: {class: BarbarianFP, ns: DnD.Code.Scripts.Characters.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
-        rages: 2
-        rageDamage: 2
-        weaponMastery: 2
+        rages: 0
+        rageDamage: 0
+        weaponMastery: 0
 --- !u!114 &6967518163411899285
 MonoBehaviour:
   m_ObjectHideFlags: 0
