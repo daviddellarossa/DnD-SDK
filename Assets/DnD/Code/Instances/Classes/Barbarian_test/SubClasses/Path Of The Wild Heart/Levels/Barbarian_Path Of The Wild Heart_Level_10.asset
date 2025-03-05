@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5404830859767428952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e5a2e156863400fbfb7192df7081e2f, type: 3}
+  m_Name: NatureSpeaker
+  m_EditorClassIdentifier: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10,32 +22,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
-  m_Name: Barbarian_Level_16
+  m_Name: Barbarian_Path Of The Wild Heart_Level_10
   m_EditorClassIdentifier: 
-  LevelNum: 16
-  ProficiencyBonus: 5
+  LevelNum: 10
+  ProficiencyBonus: 4
   ClassFeatures:
-  - {fileID: 8886563904663565753}
+  - {fileID: -5404830859767428952}
   ClassFeatureTraits:
-    rid: 1838690337477361700
+    rid: 1838690337477361693
   references:
     version: 2
     RefIds:
-    - rid: 1838690337477361700
+    - rid: 1838690337477361693
       type: {class: BarbarianFP, ns: DnD.Code.Scripts.Characters.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
-        rages: 5
-        rageDamage: 4
+        rages: 4
+        rageDamage: 3
         weaponMastery: 4
---- !u!114 &8886563904663565753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93b44875cff0467eba9f3810ef4adf0c, type: 3}
-  m_Name: AbilityScoreImprovement
-  m_EditorClassIdentifier: 

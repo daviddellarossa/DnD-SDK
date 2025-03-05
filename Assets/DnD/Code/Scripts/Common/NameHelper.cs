@@ -374,5 +374,14 @@ namespace DnD.Code.Scripts.Common
             public const string ZealousPresence = "Zealous Presence";
 
         }
+
+        public static class BarbarianSubClasses
+        {
+            public const string PathOfTheBerserker = "Path Of The Berserker";
+            public const string PathOfTheWildHeart = "Path Of The Wild Heart";
+            public const string PathOfTheWorldTree = "Path Of The World Tree";
+            public const string PathOfTheZealot = "Path Of The Zealot";
+
+        }
     }
 }

@@ -1,17 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4267891772016560446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30fe93eb15624ac9a77e583a380cc235, type: 3}
-  m_Name: EpicBoon
-  m_EditorClassIdentifier: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27,15 +15,27 @@ MonoBehaviour:
   LevelNum: 19
   ProficiencyBonus: 6
   ClassFeatures:
-  - {fileID: -4267891772016560446}
+  - {fileID: 1583108783566419817}
   ClassFeatureTraits:
-    rid: 1838690328050663827
+    rid: 1838690337477361707
   references:
     version: 2
     RefIds:
-    - rid: 1838690328050663827
+    - rid: 1838690337477361707
       type: {class: BarbarianFP, ns: DnD.Code.Scripts.Characters.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
         rages: 6
         rageDamage: 4
         weaponMastery: 4
+--- !u!114 &1583108783566419817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30fe93eb15624ac9a77e583a380cc235, type: 3}
+  m_Name: EpicBoon
+  m_EditorClassIdentifier: 

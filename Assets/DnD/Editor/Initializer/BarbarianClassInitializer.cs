@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using DnD.Code.Scripts.Characters.Classes;
@@ -11,15 +12,17 @@ using DnD.Code.Scripts.Equipment.Coins;
 using DnD.Code.Scripts.Weapons;
 using Unity.VisualScripting;
 using UnityEditor;
-using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace DnD.Editor.Initializer
 {
     public static class BarbarianClassInitializer
     {
         public static readonly string BarbarianPath = $"{Common.ClassesPath}/Barbarian_test";
-        public static readonly string BarbarianStartingEquipmentPath = $"{BarbarianPath}/Starting Equipment";
-        public static readonly string BarbarianLevelsPath = $"{BarbarianPath}/Levels";
+        public static readonly string BarbarianStartingEquipmentPath = $"{BarbarianPath}/{Common.StartingEquipmentSubPath}";
+        public static readonly string BarbarianLevelsPath = $"{BarbarianPath}/{Common.LevelsSubPath}";
+        public static readonly string BarbarianSubClassesPath = $"{BarbarianPath}/{Common.SubClassesSubPath}";
+
 
         [MenuItem("D&D Game/Game Data Initializer/Generate Barbarian Data")]
         public static void InitializeBarbarianClass()
@@ -41,9 +44,16 @@ namespace DnD.Editor.Initializer
                 barbarian.Levels[i] = levelsArray[i];
             }
             
+            // Create Subclasses
+            var subclasses = InitializeSubClasses();
+            
+            foreach (var subclass in subclasses)
+            {
+                barbarian.SubClasses.Add(subclass);
+            }
+            
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
-            
         }
 
         public static StartingEquipment[] InitializeStartingEquipment(Object parent)
@@ -552,6 +562,385 @@ namespace DnD.Editor.Initializer
 
             //AssetDatabase.SaveAssetIfDirty(parent);
             return level;
+        }
+        
+        private static SubClass InitializeSubClassPathOfTheBerserker()
+        {
+            var className = NameHelper.Classes.Barbarian;
+            var subClassName = NameHelper.BarbarianSubClasses.PathOfTheBerserker;
+            var subClassPath = $"{BarbarianSubClassesPath}/{subClassName}";
+            var subClassLevelsPath = $"{subClassPath}/{Common.LevelsSubPath}";
+            
+            Common.EnsureFolderExists(subClassPath);
+            Common.EnsureFolderExists(subClassLevelsPath);
+
+            // Level 03
+            var level_03 = InitializeLevel(
+                $"{className}_{subClassName}_{Common.LevelName}_03",
+                3,
+                2,
+                new BarbarianFP()
+                {
+                    rages = 2,
+                    rageDamage = 2,
+                    weaponMastery = 2
+                },
+                subClassLevelsPath);
+            
+            level_03.ClassFeatures.AddRange(new ClassFeature []
+            {
+                Common.CreateScriptableObjectAndAddToObject<Frenzy>($"{nameof(Frenzy)}", level_03),
+            });
+            
+            // Level 06
+            var level_06 = InitializeLevel(
+                $"{className}_{subClassName}_{Common.LevelName}_06",
+                6,
+                3,
+                new BarbarianFP()
+                {
+                    rages = 4,
+                    rageDamage = 2,
+                    weaponMastery = 3
+                },
+                subClassLevelsPath);
+
+            level_06.ClassFeatures.AddRange(new ClassFeature []
+            {
+                Common.CreateScriptableObjectAndAddToObject<MindlessRage>($"{nameof(MindlessRage)}", level_06),
+            });
+            
+            // Level 10
+            var level_10 = InitializeLevel(
+                $"{className}_{subClassName}_{Common.LevelName}_10",
+                10,
+                4,
+                new BarbarianFP()
+                {
+                    rages = 4,
+                    rageDamage = 3,
+                    weaponMastery = 4
+                },
+                subClassLevelsPath);
+            
+            level_10.ClassFeatures.AddRange(new ClassFeature []
+            {
+                Common.CreateScriptableObjectAndAddToObject<Retaliation>($"{nameof(Retaliation)}", level_10),
+            });
+
+            // Level 14
+            var level_14 = InitializeLevel(
+                $"{className}_{subClassName}_{Common.LevelName}_14",
+                14,
+                5,
+                new BarbarianFP()
+                {
+                    rages = 5,
+                    rageDamage = 3,
+                    weaponMastery = 4
+                },
+                subClassLevelsPath);
+
+            level_14.ClassFeatures.AddRange(new ClassFeature []
+            {
+                Common.CreateScriptableObjectAndAddToObject<IntimidatingPresence>($"{nameof(IntimidatingPresence)}", level_14),
+
+            });
+            
+            var subClass = Classes.InitializeSubClass(subClassName, BarbarianSubClassesPath, level_03, level_06, level_10, level_14);
+            subClass.Name = subClassName;
+            subClass.Description = string.Empty;
+            
+            return subClass;
+        }
+
+        private static SubClass InitializeSubClassPathOfTheZealot()
+        { 
+            var className = NameHelper.Classes.Barbarian;
+            var subClassName = NameHelper.BarbarianSubClasses.PathOfTheZealot;
+            var subClassPath = $"{BarbarianSubClassesPath}/{subClassName}";
+            var subClassLevelsPath = $"{subClassPath}/{Common.LevelsSubPath}";
+            
+            Common.EnsureFolderExists(subClassPath);
+            Common.EnsureFolderExists(subClassLevelsPath);
+
+            // Level 03
+            var level_03 = InitializeLevel(
+                $"{className}_{subClassName}_{Common.LevelName}_03",
+                3,
+                2,
+                new BarbarianFP()
+                {
+                    rages = 2,
+                    rageDamage = 2,
+                    weaponMastery = 2
+                },
+                subClassLevelsPath);
+            
+            level_03.ClassFeatures.AddRange(new ClassFeature []
+            {
+                Common.CreateScriptableObjectAndAddToObject<DivineFury>($"{nameof(DivineFury)}", level_03),
+                Common.CreateScriptableObjectAndAddToObject<WarriorOfTheGods>($"{nameof(WarriorOfTheGods)}", level_03),
+
+            });
+            
+            // Level 06
+            var level_06 = InitializeLevel(
+                $"{className}_{subClassName}_{Common.LevelName}_06",
+                6,
+                3,
+                new BarbarianFP()
+                {
+                    rages = 4,
+                    rageDamage = 2,
+                    weaponMastery = 3
+                },
+                subClassLevelsPath);
+
+            level_06.ClassFeatures.AddRange(new ClassFeature []
+            {
+                Common.CreateScriptableObjectAndAddToObject<FanaticalFocus>($"{nameof(FanaticalFocus)}", level_06),
+            });
+            
+            // Level 10
+            var level_10 = InitializeLevel(
+                $"{className}_{subClassName}_{Common.LevelName}_10",
+                10,
+                4,
+                new BarbarianFP()
+                {
+                    rages = 4,
+                    rageDamage = 3,
+                    weaponMastery = 4
+                },
+                subClassLevelsPath);
+            
+            level_10.ClassFeatures.AddRange(new ClassFeature []
+            {
+                Common.CreateScriptableObjectAndAddToObject<ZealousPresence>($"{nameof(ZealousPresence)}", level_10),
+            });
+
+            // Level 14
+            var level_14 = InitializeLevel(
+                $"{className}_{subClassName}_{Common.LevelName}_14",
+                14,
+                5,
+                new BarbarianFP()
+                {
+                    rages = 5,
+                    rageDamage = 3,
+                    weaponMastery = 4
+                },
+                subClassLevelsPath);
+
+            level_14.ClassFeatures.AddRange(new ClassFeature []
+            {
+                Common.CreateScriptableObjectAndAddToObject<RageOfTheGods>($"{nameof(RageOfTheGods)}", level_14),
+
+            });
+            
+            var subClass = Classes.InitializeSubClass(subClassName, BarbarianSubClassesPath, level_03, level_06, level_10, level_14);
+            subClass.Name = subClassName;
+            subClass.Description = string.Empty;
+            
+            return subClass;
+        }
+
+        private static SubClass InitializeSubClassPathOfTheWildHeart()
+        {
+            var className = NameHelper.Classes.Barbarian;
+            var subClassName = NameHelper.BarbarianSubClasses.PathOfTheWildHeart;
+            var subClassPath = $"{BarbarianSubClassesPath}/{subClassName}";
+            var subClassLevelsPath = $"{subClassPath}/{Common.LevelsSubPath}";
+            
+            Common.EnsureFolderExists(subClassPath);
+            Common.EnsureFolderExists(subClassLevelsPath);
+
+            // Level 03
+            var level_03 = InitializeLevel(
+                $"{className}_{subClassName}_{Common.LevelName}_03",
+                3,
+                2,
+                new BarbarianFP()
+                {
+                    rages = 2,
+                    rageDamage = 2,
+                    weaponMastery = 2
+                },
+                subClassLevelsPath);
+            
+            level_03.ClassFeatures.AddRange(new ClassFeature []
+            {
+                Common.CreateScriptableObjectAndAddToObject<AnimalSpeaker>($"{nameof(AnimalSpeaker)}", level_03),
+                Common.CreateScriptableObjectAndAddToObject<RageOfTheWilds>($"{nameof(RageOfTheWilds)}", level_03),
+
+            });
+            
+            // Level 06
+            var level_06 = InitializeLevel(
+                $"{className}_{subClassName}_{Common.LevelName}_06",
+                6,
+                3,
+                new BarbarianFP()
+                {
+                    rages = 4,
+                    rageDamage = 2,
+                    weaponMastery = 3
+                },
+                subClassLevelsPath);
+
+            level_06.ClassFeatures.AddRange(new ClassFeature []
+            {
+                Common.CreateScriptableObjectAndAddToObject<AspectOfTheWilds>($"{nameof(AspectOfTheWilds)}", level_06),
+            });
+            
+            // Level 10
+            var level_10 = InitializeLevel(
+                $"{className}_{subClassName}_{Common.LevelName}_10",
+                10,
+                4,
+                new BarbarianFP()
+                {
+                    rages = 4,
+                    rageDamage = 3,
+                    weaponMastery = 4
+                },
+                subClassLevelsPath);
+            
+            level_10.ClassFeatures.AddRange(new ClassFeature []
+            {
+                Common.CreateScriptableObjectAndAddToObject<NatureSpeaker>($"{nameof(NatureSpeaker)}", level_10),
+            });
+
+            // Level 14
+            var level_14 = InitializeLevel(
+                $"{className}_{subClassName}_{Common.LevelName}_14",
+                14,
+                5,
+                new BarbarianFP()
+                {
+                    rages = 5,
+                    rageDamage = 3,
+                    weaponMastery = 4
+                },
+                subClassLevelsPath);
+
+            level_14.ClassFeatures.AddRange(new ClassFeature []
+            {
+                Common.CreateScriptableObjectAndAddToObject<PowerOfTheWilds>($"{nameof(PowerOfTheWilds)}", level_14),
+
+            });
+            
+            var subClass = Classes.InitializeSubClass(subClassName, BarbarianSubClassesPath, level_03, level_06, level_10, level_14);
+            subClass.Name = subClassName;
+            subClass.Description = string.Empty;
+            
+            return subClass;
+        }
+
+        private static SubClass InitializeSubClassPathOfTheWorldTree()
+        {
+            var className = NameHelper.Classes.Barbarian;
+            var subClassName = NameHelper.BarbarianSubClasses.PathOfTheWorldTree;
+            var subClassPath = $"{BarbarianSubClassesPath}/{subClassName}";
+            var subClassLevelsPath = $"{subClassPath}/{Common.LevelsSubPath}";
+            
+            Common.EnsureFolderExists(subClassPath);
+            Common.EnsureFolderExists(subClassLevelsPath);
+
+            // Level 03
+            var level_03 = InitializeLevel(
+                $"{className}_{subClassName}_{Common.LevelName}_03",
+                3,
+                2,
+                new BarbarianFP()
+                {
+                    rages = 2,
+                    rageDamage = 2,
+                    weaponMastery = 2
+                },
+                subClassLevelsPath);
+            
+            level_03.ClassFeatures.AddRange(new ClassFeature []
+            {
+                Common.CreateScriptableObjectAndAddToObject<VitalityOfTheTree>($"{nameof(VitalityOfTheTree)}", level_03),
+
+            });
+            
+            // Level 06
+            var level_06 = InitializeLevel(
+                $"{className}_{subClassName}_{Common.LevelName}_06",
+                6,
+                3,
+                new BarbarianFP()
+                {
+                    rages = 4,
+                    rageDamage = 2,
+                    weaponMastery = 3
+                },
+                subClassLevelsPath);
+
+            level_06.ClassFeatures.AddRange(new ClassFeature []
+            {
+                Common.CreateScriptableObjectAndAddToObject<BranchesOfTheTree>($"{nameof(BranchesOfTheTree)}", level_06),
+            });
+            
+            // Level 10
+            var level_10 = InitializeLevel(
+                $"{className}_{subClassName}_{Common.LevelName}_10",
+                10,
+                4,
+                new BarbarianFP()
+                {
+                    rages = 4,
+                    rageDamage = 3,
+                    weaponMastery = 4
+                },
+                subClassLevelsPath);
+            
+            level_10.ClassFeatures.AddRange(new ClassFeature []
+            {
+                Common.CreateScriptableObjectAndAddToObject<BatteringRoots>($"{nameof(BatteringRoots)}", level_10),
+            });
+
+            // Level 14
+            var level_14 = InitializeLevel(
+                $"{className}_{subClassName}_{Common.LevelName}_14",
+                14,
+                5,
+                new BarbarianFP()
+                {
+                    rages = 5,
+                    rageDamage = 3,
+                    weaponMastery = 4
+                },
+                subClassLevelsPath);
+
+            level_14.ClassFeatures.AddRange(new ClassFeature []
+            {
+                Common.CreateScriptableObjectAndAddToObject<TravelAlongTheTree>($"{nameof(TravelAlongTheTree)}", level_14),
+
+            });
+            
+            var subClass = Classes.InitializeSubClass(subClassName, BarbarianSubClassesPath, level_03, level_06, level_10, level_14);
+            subClass.Name = subClassName;
+            subClass.Description = string.Empty;
+            
+            return subClass;
+        }
+
+        private static SubClass[] InitializeSubClasses()
+        {
+            Common.EnsureFolderExists(BarbarianSubClassesPath);
+            
+            var subClasses = new List<SubClass>();
+
+            subClasses.Add(InitializeSubClassPathOfTheBerserker());
+            subClasses.Add(InitializeSubClassPathOfTheWildHeart()); 
+            // subClasses.Add(InitializeSubClassPathOfTheWorldTree()); // TODO: Fix this
+            // subClasses.Add(InitializeSubClassPathOfTheZealot()); // TODO: Fix this
+
+            return subClasses.ToArray();
         }
     }
 }

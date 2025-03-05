@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6741769184327970577
+--- !u!114 &-6711102639334233290
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -27,13 +27,13 @@ MonoBehaviour:
   LevelNum: 15
   ProficiencyBonus: 5
   ClassFeatures:
-  - {fileID: -6741769184327970577}
+  - {fileID: -6711102639334233290}
   ClassFeatureTraits:
-    rid: 1838690328050663835
+    rid: 1838690337477361719
   references:
     version: 2
     RefIds:
-    - rid: 1838690328050663835
+    - rid: 1838690337477361719
       type: {class: BarbarianFP, ns: DnD.Code.Scripts.Characters.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
         rages: 5

@@ -12,7 +12,14 @@ namespace DnD.Editor.Initializer
     public static class Common
     {
         public static readonly string FolderPath = "Assets/DnD/Code/Instances";
-        public static readonly string ClassesPath = "Assets/DnD/Code/Instances/Classes";
+        public static readonly string ClassesSubPath = "Classes";
+        public static readonly string SubClassesSubPath = "SubClasses";
+        public static readonly string LevelsSubPath = "Levels";
+        public static readonly string StartingEquipmentSubPath = "Starting Equipment";
+        public static readonly string ClassesPath = $"{FolderPath}/{ClassesSubPath}";
+        
+        public static readonly string LevelName = "Level";
+
 
         public static T CreateScriptableObject<T>(string fileName, string folderPath) where T : ScriptableObject
         {

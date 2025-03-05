@@ -1,18 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4628875120085686585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc07da6bab0f4b7ab1049dbe599a1468, type: 3}
-  m_Name: UnarmouredDefense
-  m_EditorClassIdentifier: 
---- !u!114 &-3081920918632746083
+--- !u!114 &-6991267471480939119
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23,6 +11,18 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11f533336c5c40458798acd0d8cea663, type: 3}
   m_Name: Rage
+  m_EditorClassIdentifier: 
+--- !u!114 &-1285787363284985918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc07da6bab0f4b7ab1049dbe599a1468, type: 3}
+  m_Name: UnarmouredDefense
   m_EditorClassIdentifier: 
 --- !u!114 &11400000
 MonoBehaviour:
@@ -39,21 +39,21 @@ MonoBehaviour:
   LevelNum: 1
   ProficiencyBonus: 2
   ClassFeatures:
-  - {fileID: -3081920918632746083}
-  - {fileID: -4628875120085686585}
-  - {fileID: 5046027479778849892}
+  - {fileID: -6991267471480939119}
+  - {fileID: -1285787363284985918}
+  - {fileID: 2229912900887557055}
   ClassFeatureTraits:
-    rid: 1838690328050663817
+    rid: 1838690337477361694
   references:
     version: 2
     RefIds:
-    - rid: 1838690328050663817
+    - rid: 1838690337477361694
       type: {class: BarbarianFP, ns: DnD.Code.Scripts.Characters.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
         rages: 2
         rageDamage: 2
         weaponMastery: 2
---- !u!114 &5046027479778849892
+--- !u!114 &2229912900887557055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -15,20 +15,20 @@ MonoBehaviour:
   LevelNum: 2
   ProficiencyBonus: 2
   ClassFeatures:
-  - {fileID: 3438321412852631884}
-  - {fileID: 3924872604732177877}
+  - {fileID: 3526079658243000614}
+  - {fileID: 5335484972500436573}
   ClassFeatureTraits:
-    rid: 1838690328050663829
+    rid: 1838690337477361712
   references:
     version: 2
     RefIds:
-    - rid: 1838690328050663829
+    - rid: 1838690337477361712
       type: {class: BarbarianFP, ns: DnD.Code.Scripts.Characters.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
         rages: 2
         rageDamage: 2
         weaponMastery: 2
---- !u!114 &3438321412852631884
+--- !u!114 &3526079658243000614
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cda25f610254d7fb3173176f7fc56c0, type: 3}
   m_Name: DangerSense
   m_EditorClassIdentifier: 
---- !u!114 &3924872604732177877
+--- !u!114 &5335484972500436573
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
