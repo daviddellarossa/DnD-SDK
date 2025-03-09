@@ -18,7 +18,7 @@ namespace DnD.Editor.Initializer
 {
     public static class BarbarianClassInitializer
     {
-        public static readonly string BarbarianPath = $"{Common.ClassesPath}/Barbarian_test";
+        public static readonly string BarbarianPath = $"{Common.ClassesPath}/Barbarian";
         public static readonly string BarbarianStartingEquipmentPath = $"{BarbarianPath}/{Common.StartingEquipmentSubPath}";
         public static readonly string BarbarianLevelsPath = $"{BarbarianPath}/{Common.LevelsSubPath}";
         public static readonly string BarbarianSubClassesPath = $"{BarbarianPath}/{Common.SubClassesSubPath}";
@@ -28,7 +28,9 @@ namespace DnD.Editor.Initializer
         public static void InitializeBarbarianClass()
         {
             Common.EnsureFolderExists(BarbarianPath);
-            
+
+            AssetDatabase.StartAssetEditing();
+
             // Create instance
             var barbarian = Common.CreateScriptableObject<Class>(NameHelper.Classes.Barbarian, BarbarianPath);
             
@@ -54,6 +56,8 @@ namespace DnD.Editor.Initializer
             
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
+
+            AssetDatabase.StopAssetEditing();
         }
 
         public static StartingEquipment[] InitializeStartingEquipment(Object parent)
@@ -937,8 +941,8 @@ namespace DnD.Editor.Initializer
 
             subClasses.Add(InitializeSubClassPathOfTheBerserker());
             subClasses.Add(InitializeSubClassPathOfTheWildHeart()); 
-            // subClasses.Add(InitializeSubClassPathOfTheWorldTree()); // TODO: Fix this
-            // subClasses.Add(InitializeSubClassPathOfTheZealot()); // TODO: Fix this
+            subClasses.Add(InitializeSubClassPathOfTheWorldTree()); // TODO: Fix this - In several occasions, enabling more than two lines in this group, would screw the database and corrupt the whole class creation.
+            subClasses.Add(InitializeSubClassPathOfTheZealot()); // TODO: Fix this - In several occasions, enabling more than two lines in this group, would screw the database and corrupt the whole class creation.
 
             return subClasses.ToArray();
         }

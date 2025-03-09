@@ -1,3 +1,5 @@
+using Unity.Collections.LowLevel.Unsafe;
+
 namespace DnD.Code.Scripts.Common
 {
     public static class NameHelper
@@ -59,7 +61,7 @@ namespace DnD.Code.Scripts.Common
 
         }
 
-        public static class Armour
+        public static class Armours
         {
             public const string ChainMail = "Chain Mail";
             public const string PlateArmour = "Plate Armour";
@@ -76,7 +78,7 @@ namespace DnD.Code.Scripts.Common
             public const string Shield = "Shield";
                         
         }
-        public static class WeaponType
+        public static class WeaponTypes
         {
             public const string MartialMeleeWeapon = "Martial Melee Weapon";
             public const string SimpleMeleeWeapon = "Simple Melee Weapon";
@@ -382,6 +384,15 @@ namespace DnD.Code.Scripts.Common
             public const string PathOfTheWorldTree = "Path Of The World Tree";
             public const string PathOfTheZealot = "Path Of The Zealot";
 
+        }
+
+        public static class AmmunitionTypes
+        {
+            public const string Arrows = "Arrow";
+            public const string Bolts = "Bolt";
+            public const string BulletsFirearm = "Bullets Firearm";
+            public const string Needles = "Needles";
+            public const string BulletsSling = "Bullets Sling";
         }
     }
 }

@@ -8,6 +8,6 @@ namespace DnD.Code.Scripts.Characters.Abilities
     {
         public string Name;
         public AbilityEnum AbilityType;
-        public List<Skill> SkillList;
+        public List<Skill> SkillList = new List<Skill>();
     }
 }

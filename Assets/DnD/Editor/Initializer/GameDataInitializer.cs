@@ -8,7 +8,14 @@ namespace DnD.Editor.Initializer
         [MenuItem("D&D Game/Game Data Initializer/Generate Game Data")]
         public static void InitializeGameData()
         {
-            BarbarianClassInitializer.InitializeBarbarianClass();
+            DiceInitializer.InitializeDice();
+            StorageInitializer.InitializeStorage();
+            EquipmentInitializer.InitializeEquipment();
+            AbilitiesInitializer.InitializeAbilities();
+            LanguagesInitializer.InitializeLanguages();
+            WeaponsInitializer.InitializeWeapons();
+            ArmoursInitializer.InitializeArmours();
+            // BarbarianClassInitializer.InitializeBarbarianClass();
         }
 
     }

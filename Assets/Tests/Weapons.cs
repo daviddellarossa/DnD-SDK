@@ -132,19 +132,19 @@ namespace Tests
                 {
                     yield return new TestCaseData(
                         new WeaponTypeModel(
-                            NameHelper.WeaponType.MartialMeleeWeapon
+                            NameHelper.WeaponTypes.MartialMeleeWeapon
                         ));
                     yield return new TestCaseData(
                         new WeaponTypeModel(
-                            NameHelper.WeaponType.MartialRangedWeapon
+                            NameHelper.WeaponTypes.MartialRangedWeapon
                         ));
                     yield return new TestCaseData(
                         new WeaponTypeModel(
-                            NameHelper.WeaponType.SimpleMeleeWeapon
+                            NameHelper.WeaponTypes.SimpleMeleeWeapon
                         ));
                     yield return new TestCaseData(
                         new WeaponTypeModel(
-                            NameHelper.WeaponType.SimpleRangedWeapon
+                            NameHelper.WeaponTypes.SimpleRangedWeapon
                         ));
                 }
             }
@@ -157,7 +157,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Battleaxe,
-                            NameHelper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                              NameHelper.Dice.D8,
                             NameHelper.DamageType.Slashing,
@@ -172,7 +172,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Flail,
-                            NameHelper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D8,
                             NameHelper.DamageType.Bludgeoning,
@@ -187,7 +187,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Glaive,
-                            NameHelper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D10,
                             NameHelper.DamageType.Slashing,
@@ -204,7 +204,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Greataxe,
-                            NameHelper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D12,
                             NameHelper.DamageType.Slashing,
@@ -220,7 +220,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Greatsword,
-                            NameHelper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.WeaponTypes.MartialMeleeWeapon,
                             2,
                             NameHelper.Dice.D6,
                             NameHelper.DamageType.Slashing,
@@ -236,7 +236,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Halberd,
-                            NameHelper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D10,
                             NameHelper.DamageType.Slashing,
@@ -253,7 +253,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Lance,
-                            NameHelper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D10,
                             NameHelper.DamageType.Piercing,
@@ -270,7 +270,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Longsword,
-                            NameHelper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D8,
                             NameHelper.DamageType.Slashing,
@@ -285,7 +285,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Maul,
-                            NameHelper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.WeaponTypes.MartialMeleeWeapon,
                             2,
                             NameHelper.Dice.D6,
                             NameHelper.DamageType.Bludgeoning,
@@ -301,7 +301,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Morningstar,
-                            NameHelper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D8,
                             NameHelper.DamageType.Piercing,
@@ -316,7 +316,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Pike,
-                            NameHelper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D10,
                             NameHelper.DamageType.Piercing,
@@ -333,7 +333,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Rapier,
-                            NameHelper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D8,
                             NameHelper.DamageType.Piercing,
@@ -348,7 +348,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Scimitar,
-                            NameHelper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D6,
                             NameHelper.DamageType.Slashing,
@@ -364,7 +364,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Shortsword,
-                            NameHelper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D6,
                             NameHelper.DamageType.Piercing,
@@ -380,7 +380,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Trident,
-                            NameHelper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D8,
                             NameHelper.DamageType.Piercing,
@@ -396,7 +396,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Warhammer,
-                            NameHelper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D8,
                             NameHelper.DamageType.Bludgeoning,
@@ -411,7 +411,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.WarPick,
-                            NameHelper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D8,
                             NameHelper.DamageType.Piercing,
@@ -426,7 +426,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Whip,
-                            NameHelper.WeaponType.MartialMeleeWeapon,
+                            NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D4,
                             NameHelper.DamageType.Slashing,
@@ -444,7 +444,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Blowgun,
-                            NameHelper.WeaponType.MartialRangedWeapon,
+                            NameHelper.WeaponTypes.MartialRangedWeapon,
                             1,
                             NameHelper.Dice.D1,
                             NameHelper.DamageType.Piercing,
@@ -460,7 +460,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.HandCrossbow,
-                            NameHelper.WeaponType.MartialRangedWeapon,
+                            NameHelper.WeaponTypes.MartialRangedWeapon,
                             1,
                             NameHelper.Dice.D6,
                             NameHelper.DamageType.Piercing,
@@ -477,7 +477,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.HeavyCrossbow,
-                            NameHelper.WeaponType.MartialRangedWeapon,
+                            NameHelper.WeaponTypes.MartialRangedWeapon,
                             1,
                             NameHelper.Dice.D10,
                             NameHelper.DamageType.Piercing,
@@ -495,7 +495,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Longbow,
-                            NameHelper.WeaponType.MartialRangedWeapon,
+                            NameHelper.WeaponTypes.MartialRangedWeapon,
                             1,
                             NameHelper.Dice.D8,
                             NameHelper.DamageType.Piercing,
@@ -512,7 +512,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Musket,
-                            NameHelper.WeaponType.MartialRangedWeapon,
+                            NameHelper.WeaponTypes.MartialRangedWeapon,
                             1,
                             NameHelper.Dice.D12,
                             NameHelper.DamageType.Piercing,
@@ -529,7 +529,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Pistol,
-                            NameHelper.WeaponType.MartialRangedWeapon,
+                            NameHelper.WeaponTypes.MartialRangedWeapon,
                             1,
                             NameHelper.Dice.D10,
                             NameHelper.DamageType.Piercing,
@@ -547,7 +547,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Club,
-                            NameHelper.WeaponType.SimpleMeleeWeapon,
+                            NameHelper.WeaponTypes.SimpleMeleeWeapon,
                             1,
                             NameHelper.Dice.D4,
                             NameHelper.DamageType.Bludgeoning,
@@ -562,7 +562,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Dagger,
-                            NameHelper.WeaponType.SimpleMeleeWeapon,
+                            NameHelper.WeaponTypes.SimpleMeleeWeapon,
                             1,
                             NameHelper.Dice.D4,
                             NameHelper.DamageType.Piercing,
@@ -579,7 +579,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Greatclub,
-                            NameHelper.WeaponType.SimpleMeleeWeapon,
+                            NameHelper.WeaponTypes.SimpleMeleeWeapon,
                             1,
                             NameHelper.Dice.D8,
                             NameHelper.DamageType.Bludgeoning,
@@ -594,7 +594,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Handaxe,
-                            NameHelper.WeaponType.SimpleMeleeWeapon,
+                            NameHelper.WeaponTypes.SimpleMeleeWeapon,
                             1,
                             NameHelper.Dice.D6,
                             NameHelper.DamageType.Slashing,
@@ -610,7 +610,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Javelin,
-                            NameHelper.WeaponType.SimpleMeleeWeapon,
+                            NameHelper.WeaponTypes.SimpleMeleeWeapon,
                             1,
                             NameHelper.Dice.D6,
                             NameHelper.DamageType.Piercing,
@@ -625,7 +625,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.LightHammer,
-                            NameHelper.WeaponType.SimpleMeleeWeapon,
+                            NameHelper.WeaponTypes.SimpleMeleeWeapon,
                             1,
                             NameHelper.Dice.D4,
                             NameHelper.DamageType.Bludgeoning,
@@ -641,7 +641,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Mace,
-                            NameHelper.WeaponType.SimpleMeleeWeapon,
+                            NameHelper.WeaponTypes.SimpleMeleeWeapon,
                             1,
                             NameHelper.Dice.D6,
                             NameHelper.DamageType.Bludgeoning,
@@ -656,7 +656,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Quarterstaff,
-                            NameHelper.WeaponType.SimpleMeleeWeapon,
+                            NameHelper.WeaponTypes.SimpleMeleeWeapon,
                             1,
                             NameHelper.Dice.D6,
                             NameHelper.DamageType.Bludgeoning,
@@ -671,7 +671,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Sickle,
-                            NameHelper.WeaponType.SimpleMeleeWeapon,
+                            NameHelper.WeaponTypes.SimpleMeleeWeapon,
                             1,
                             NameHelper.Dice.D4,
                             NameHelper.DamageType.Slashing,
@@ -686,7 +686,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Spear,
-                            NameHelper.WeaponType.SimpleMeleeWeapon,
+                            NameHelper.WeaponTypes.SimpleMeleeWeapon,
                             1,
                             NameHelper.Dice.D6,
                             NameHelper.DamageType.Piercing,
@@ -704,7 +704,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Dart,
-                            NameHelper.WeaponType.SimpleRangedWeapon,
+                            NameHelper.WeaponTypes.SimpleRangedWeapon,
                             1,
                             NameHelper.Dice.D4,
                             NameHelper.DamageType.Piercing,
@@ -720,7 +720,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.LightCrossbow,
-                            NameHelper.WeaponType.SimpleRangedWeapon,
+                            NameHelper.WeaponTypes.SimpleRangedWeapon,
                             1,
                             NameHelper.Dice.D8,
                             NameHelper.DamageType.Piercing,
@@ -737,7 +737,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Shortbow,
-                            NameHelper.WeaponType.SimpleRangedWeapon,
+                            NameHelper.WeaponTypes.SimpleRangedWeapon,
                             1,
                             NameHelper.Dice.D6,
                             NameHelper.DamageType.Piercing,
@@ -753,7 +753,7 @@ namespace Tests
                     yield return new TestCaseData(
                         new WeaponModel(
                             NameHelper.Weapons.Sling,
-                            NameHelper.WeaponType.SimpleRangedWeapon,
+                            NameHelper.WeaponTypes.SimpleRangedWeapon,
                             1,
                             NameHelper.Dice.D4,
                             NameHelper.DamageType.Bludgeoning,

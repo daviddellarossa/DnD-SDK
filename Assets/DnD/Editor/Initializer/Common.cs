@@ -11,7 +11,7 @@ namespace DnD.Editor.Initializer
 {
     public static class Common
     {
-        public static readonly string FolderPath = "Assets/DnD/Code/Instances";
+        public static readonly string FolderPath = "Assets/DnD_test/Code/Instances";
         public static readonly string ClassesSubPath = "Classes";
         public static readonly string SubClassesSubPath = "SubClasses";
         public static readonly string LevelsSubPath = "Levels";

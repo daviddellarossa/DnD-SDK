@@ -15,19 +15,19 @@ MonoBehaviour:
   LevelNum: 14
   ProficiencyBonus: 5
   ClassFeatures:
-  - {fileID: 1440505637371233806}
+  - {fileID: 4399654077544446198}
   ClassFeatureTraits:
-    rid: 1838690337477361713
+    rid: 8746985719605756051
   references:
     version: 2
     RefIds:
-    - rid: 1838690337477361713
+    - rid: 8746985719605756051
       type: {class: BarbarianFP, ns: DnD.Code.Scripts.Characters.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
         rages: 5
         rageDamage: 3
         weaponMastery: 4
---- !u!114 &1440505637371233806
+--- !u!114 &4399654077544446198
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

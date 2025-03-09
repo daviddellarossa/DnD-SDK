@@ -1,17 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5404830859767428952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e5a2e156863400fbfb7192df7081e2f, type: 3}
-  m_Name: NatureSpeaker
-  m_EditorClassIdentifier: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27,15 +15,27 @@ MonoBehaviour:
   LevelNum: 10
   ProficiencyBonus: 4
   ClassFeatures:
-  - {fileID: -5404830859767428952}
+  - {fileID: 5376954097800360757}
   ClassFeatureTraits:
-    rid: 1838690337477361693
+    rid: 8746985719605756029
   references:
     version: 2
     RefIds:
-    - rid: 1838690337477361693
+    - rid: 8746985719605756029
       type: {class: BarbarianFP, ns: DnD.Code.Scripts.Characters.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
         rages: 4
         rageDamage: 3
         weaponMastery: 4
+--- !u!114 &5376954097800360757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e5a2e156863400fbfb7192df7081e2f, type: 3}
+  m_Name: NatureSpeaker
+  m_EditorClassIdentifier: 

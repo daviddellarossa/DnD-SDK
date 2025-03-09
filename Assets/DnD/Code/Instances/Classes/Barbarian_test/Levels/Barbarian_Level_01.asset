@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6991267471480939119
+--- !u!114 &-3326161961863003247
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,7 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11f533336c5c40458798acd0d8cea663, type: 3}
   m_Name: Rage
   m_EditorClassIdentifier: 
---- !u!114 &-1285787363284985918
+--- !u!114 &-2938912890225045538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4609182062ff4c5f8d7e2b253477d3a8, type: 3}
+  m_Name: WeaponMastery
+  m_EditorClassIdentifier: 
+--- !u!114 &-607464729958121085
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -39,29 +51,17 @@ MonoBehaviour:
   LevelNum: 1
   ProficiencyBonus: 2
   ClassFeatures:
-  - {fileID: -6991267471480939119}
-  - {fileID: -1285787363284985918}
-  - {fileID: 2229912900887557055}
+  - {fileID: -3326161961863003247}
+  - {fileID: -607464729958121085}
+  - {fileID: -2938912890225045538}
   ClassFeatureTraits:
-    rid: 1838690337477361694
+    rid: 8746985719605756031
   references:
     version: 2
     RefIds:
-    - rid: 1838690337477361694
+    - rid: 8746985719605756031
       type: {class: BarbarianFP, ns: DnD.Code.Scripts.Characters.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
         rages: 2
         rageDamage: 2
         weaponMastery: 2
---- !u!114 &2229912900887557055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4609182062ff4c5f8d7e2b253477d3a8, type: 3}
-  m_Name: WeaponMastery
-  m_EditorClassIdentifier: 

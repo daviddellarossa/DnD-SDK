@@ -1,5 +1,29 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3403086103263063349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19929052c9ad4883978685c21dcfb19c, type: 3}
+  m_Name: ExtraAttack
+  m_EditorClassIdentifier: 
+--- !u!114 &-3249714025320582272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4500d684eb043678ac9afe3b78b5c9d, type: 3}
+  m_Name: FastMovement
+  m_EditorClassIdentifier: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,40 +39,16 @@ MonoBehaviour:
   LevelNum: 5
   ProficiencyBonus: 3
   ClassFeatures:
-  - {fileID: 4892765763594551449}
-  - {fileID: 918365629146052873}
+  - {fileID: -3403086103263063349}
+  - {fileID: -3249714025320582272}
   ClassFeatureTraits:
-    rid: 1838690337477361703
+    rid: 8746985719605756041
   references:
     version: 2
     RefIds:
-    - rid: 1838690337477361703
+    - rid: 8746985719605756041
       type: {class: BarbarianFP, ns: DnD.Code.Scripts.Characters.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
         rages: 3
         rageDamage: 2
         weaponMastery: 3
---- !u!114 &918365629146052873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4500d684eb043678ac9afe3b78b5c9d, type: 3}
-  m_Name: FastMovement
-  m_EditorClassIdentifier: 
---- !u!114 &4892765763594551449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19929052c9ad4883978685c21dcfb19c, type: 3}
-  m_Name: ExtraAttack
-  m_EditorClassIdentifier: 

@@ -1,17 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5244334288131453554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e35e1ef1772b4ec2a96206abfe9bf898, type: 3}
-  m_Name: PowerOfTheWilds
-  m_EditorClassIdentifier: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27,15 +15,27 @@ MonoBehaviour:
   LevelNum: 14
   ProficiencyBonus: 5
   ClassFeatures:
-  - {fileID: -5244334288131453554}
+  - {fileID: 6065589777058854688}
   ClassFeatureTraits:
-    rid: 1838690337477361708
+    rid: 8746985719605756045
   references:
     version: 2
     RefIds:
-    - rid: 1838690337477361708
+    - rid: 8746985719605756045
       type: {class: BarbarianFP, ns: DnD.Code.Scripts.Characters.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
         rages: 5
         rageDamage: 3
         weaponMastery: 4
+--- !u!114 &6065589777058854688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35e1ef1772b4ec2a96206abfe9bf898, type: 3}
+  m_Name: PowerOfTheWilds
+  m_EditorClassIdentifier: 
