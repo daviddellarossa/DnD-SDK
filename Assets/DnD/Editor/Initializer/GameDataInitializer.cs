@@ -9,6 +9,7 @@ namespace DnD.Editor.Initializer
         public static void InitializeGameData()
         {
             DiceInitializer.InitializeDice();
+            DamageTypeInitializer.InitializeDamageTypes();
             StorageInitializer.InitializeStorage();
             EquipmentInitializer.InitializeEquipment();
             AbilitiesInitializer.InitializeAbilities();

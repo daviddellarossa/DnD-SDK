@@ -39,55 +39,55 @@ namespace Tests
                 {
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            NameHelper.DamageType.Acid
+                            NameHelper.DamageTypes.Acid
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            NameHelper.DamageType.Bludgeoning
+                            NameHelper.DamageTypes.Bludgeoning
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            NameHelper.DamageType.Cold
+                            NameHelper.DamageTypes.Cold
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            NameHelper.DamageType.Fire
+                            NameHelper.DamageTypes.Fire
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            NameHelper.DamageType.Force
+                            NameHelper.DamageTypes.Force
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            NameHelper.DamageType.Lightning
+                            NameHelper.DamageTypes.Lightning
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            NameHelper.DamageType.Necrotic
+                            NameHelper.DamageTypes.Necrotic
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            NameHelper.DamageType.Piercing
+                            NameHelper.DamageTypes.Piercing
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            NameHelper.DamageType.Poison
+                            NameHelper.DamageTypes.Poison
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            NameHelper.DamageType.Psychic
+                            NameHelper.DamageTypes.Psychic
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            NameHelper.DamageType.Radiant
+                            NameHelper.DamageTypes.Radiant
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            NameHelper.DamageType.Slashing
+                            NameHelper.DamageTypes.Slashing
                         ));
                     yield return new TestCaseData(
                         new DamageTypeModel(
-                            NameHelper.DamageType.Thunder
+                            NameHelper.DamageTypes.Thunder
                         ));
                 }
             }

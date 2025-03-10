@@ -10,6 +10,11 @@ namespace DnD.Editor.Initializer
     {
         public static readonly string DicePath = $"{Common.FolderPath}/Dice";
 
+        public static Die[] GetAllDice()
+        {
+            return Common.GetAllScriptableObjects<Die>(DicePath);
+        }
+        
         [MenuItem("D&D Game/Game Data Initializer/Generate Dice Data")]
         public static void InitializeDice()
         {

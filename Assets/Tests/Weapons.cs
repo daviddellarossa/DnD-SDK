@@ -160,7 +160,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                              NameHelper.Dice.D8,
-                            NameHelper.DamageType.Slashing,
+                            NameHelper.DamageTypes.Slashing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Versatile
@@ -175,7 +175,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D8,
-                            NameHelper.DamageType.Bludgeoning,
+                            NameHelper.DamageTypes.Bludgeoning,
                             new string[]
                             {
                                 
@@ -190,7 +190,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D10,
-                            NameHelper.DamageType.Slashing,
+                            NameHelper.DamageTypes.Slashing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Heavy,
@@ -207,7 +207,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D12,
-                            NameHelper.DamageType.Slashing,
+                            NameHelper.DamageTypes.Slashing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Heavy,
@@ -223,7 +223,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialMeleeWeapon,
                             2,
                             NameHelper.Dice.D6,
-                            NameHelper.DamageType.Slashing,
+                            NameHelper.DamageTypes.Slashing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Heavy,
@@ -239,7 +239,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D10,
-                            NameHelper.DamageType.Slashing,
+                            NameHelper.DamageTypes.Slashing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Heavy,
@@ -256,7 +256,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D10,
-                            NameHelper.DamageType.Piercing,
+                            NameHelper.DamageTypes.Piercing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Heavy,
@@ -273,7 +273,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D8,
-                            NameHelper.DamageType.Slashing,
+                            NameHelper.DamageTypes.Slashing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Versatile
@@ -288,7 +288,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialMeleeWeapon,
                             2,
                             NameHelper.Dice.D6,
-                            NameHelper.DamageType.Bludgeoning,
+                            NameHelper.DamageTypes.Bludgeoning,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Heavy,
@@ -304,7 +304,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D8,
-                            NameHelper.DamageType.Piercing,
+                            NameHelper.DamageTypes.Piercing,
                             new string[]
                             {
                                 
@@ -319,7 +319,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D10,
-                            NameHelper.DamageType.Piercing,
+                            NameHelper.DamageTypes.Piercing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Heavy,
@@ -336,7 +336,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D8,
-                            NameHelper.DamageType.Piercing,
+                            NameHelper.DamageTypes.Piercing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Finesse
@@ -351,7 +351,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D6,
-                            NameHelper.DamageType.Slashing,
+                            NameHelper.DamageTypes.Slashing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Finesse,
@@ -367,7 +367,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D6,
-                            NameHelper.DamageType.Piercing,
+                            NameHelper.DamageTypes.Piercing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Finesse,
@@ -383,7 +383,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D8,
-                            NameHelper.DamageType.Piercing,
+                            NameHelper.DamageTypes.Piercing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Thrown,
@@ -399,7 +399,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D8,
-                            NameHelper.DamageType.Bludgeoning,
+                            NameHelper.DamageTypes.Bludgeoning,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Versatile
@@ -414,7 +414,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D8,
-                            NameHelper.DamageType.Piercing,
+                            NameHelper.DamageTypes.Piercing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Versatile
@@ -429,7 +429,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialMeleeWeapon,
                             1,
                             NameHelper.Dice.D4,
-                            NameHelper.DamageType.Slashing,
+                            NameHelper.DamageTypes.Slashing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Finesse,
@@ -447,7 +447,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialRangedWeapon,
                             1,
                             NameHelper.Dice.D1,
-                            NameHelper.DamageType.Piercing,
+                            NameHelper.DamageTypes.Piercing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Ammunition,
@@ -463,7 +463,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialRangedWeapon,
                             1,
                             NameHelper.Dice.D6,
-                            NameHelper.DamageType.Piercing,
+                            NameHelper.DamageTypes.Piercing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Ammunition,
@@ -480,7 +480,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialRangedWeapon,
                             1,
                             NameHelper.Dice.D10,
-                            NameHelper.DamageType.Piercing,
+                            NameHelper.DamageTypes.Piercing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Ammunition,
@@ -498,7 +498,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialRangedWeapon,
                             1,
                             NameHelper.Dice.D8,
-                            NameHelper.DamageType.Piercing,
+                            NameHelper.DamageTypes.Piercing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Ammunition,
@@ -515,7 +515,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialRangedWeapon,
                             1,
                             NameHelper.Dice.D12,
-                            NameHelper.DamageType.Piercing,
+                            NameHelper.DamageTypes.Piercing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Ammunition,
@@ -532,7 +532,7 @@ namespace Tests
                             NameHelper.WeaponTypes.MartialRangedWeapon,
                             1,
                             NameHelper.Dice.D10,
-                            NameHelper.DamageType.Piercing,
+                            NameHelper.DamageTypes.Piercing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Ammunition,
@@ -550,7 +550,7 @@ namespace Tests
                             NameHelper.WeaponTypes.SimpleMeleeWeapon,
                             1,
                             NameHelper.Dice.D4,
-                            NameHelper.DamageType.Bludgeoning,
+                            NameHelper.DamageTypes.Bludgeoning,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Light
@@ -565,7 +565,7 @@ namespace Tests
                             NameHelper.WeaponTypes.SimpleMeleeWeapon,
                             1,
                             NameHelper.Dice.D4,
-                            NameHelper.DamageType.Piercing,
+                            NameHelper.DamageTypes.Piercing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Finesse,
@@ -582,7 +582,7 @@ namespace Tests
                             NameHelper.WeaponTypes.SimpleMeleeWeapon,
                             1,
                             NameHelper.Dice.D8,
-                            NameHelper.DamageType.Bludgeoning,
+                            NameHelper.DamageTypes.Bludgeoning,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.TwoHanded
@@ -597,7 +597,7 @@ namespace Tests
                             NameHelper.WeaponTypes.SimpleMeleeWeapon,
                             1,
                             NameHelper.Dice.D6,
-                            NameHelper.DamageType.Slashing,
+                            NameHelper.DamageTypes.Slashing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Light,
@@ -613,7 +613,7 @@ namespace Tests
                             NameHelper.WeaponTypes.SimpleMeleeWeapon,
                             1,
                             NameHelper.Dice.D6,
-                            NameHelper.DamageType.Piercing,
+                            NameHelper.DamageTypes.Piercing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Thrown
@@ -628,7 +628,7 @@ namespace Tests
                             NameHelper.WeaponTypes.SimpleMeleeWeapon,
                             1,
                             NameHelper.Dice.D4,
-                            NameHelper.DamageType.Bludgeoning,
+                            NameHelper.DamageTypes.Bludgeoning,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Light,
@@ -644,7 +644,7 @@ namespace Tests
                             NameHelper.WeaponTypes.SimpleMeleeWeapon,
                             1,
                             NameHelper.Dice.D6,
-                            NameHelper.DamageType.Bludgeoning,
+                            NameHelper.DamageTypes.Bludgeoning,
                             new string[]
                             {
                                 
@@ -659,7 +659,7 @@ namespace Tests
                             NameHelper.WeaponTypes.SimpleMeleeWeapon,
                             1,
                             NameHelper.Dice.D6,
-                            NameHelper.DamageType.Bludgeoning,
+                            NameHelper.DamageTypes.Bludgeoning,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Versatile
@@ -674,7 +674,7 @@ namespace Tests
                             NameHelper.WeaponTypes.SimpleMeleeWeapon,
                             1,
                             NameHelper.Dice.D4,
-                            NameHelper.DamageType.Slashing,
+                            NameHelper.DamageTypes.Slashing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Light
@@ -689,7 +689,7 @@ namespace Tests
                             NameHelper.WeaponTypes.SimpleMeleeWeapon,
                             1,
                             NameHelper.Dice.D6,
-                            NameHelper.DamageType.Piercing,
+                            NameHelper.DamageTypes.Piercing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Thrown,
@@ -707,7 +707,7 @@ namespace Tests
                             NameHelper.WeaponTypes.SimpleRangedWeapon,
                             1,
                             NameHelper.Dice.D4,
-                            NameHelper.DamageType.Piercing,
+                            NameHelper.DamageTypes.Piercing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Finesse,
@@ -723,7 +723,7 @@ namespace Tests
                             NameHelper.WeaponTypes.SimpleRangedWeapon,
                             1,
                             NameHelper.Dice.D8,
-                            NameHelper.DamageType.Piercing,
+                            NameHelper.DamageTypes.Piercing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Ammunition,
@@ -740,7 +740,7 @@ namespace Tests
                             NameHelper.WeaponTypes.SimpleRangedWeapon,
                             1,
                             NameHelper.Dice.D6,
-                            NameHelper.DamageType.Piercing,
+                            NameHelper.DamageTypes.Piercing,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Ammunition,
@@ -756,7 +756,7 @@ namespace Tests
                             NameHelper.WeaponTypes.SimpleRangedWeapon,
                             1,
                             NameHelper.Dice.D4,
-                            NameHelper.DamageType.Bludgeoning,
+                            NameHelper.DamageTypes.Bludgeoning,
                             new string[]
                             {
                                 NameHelper.WeaponProperty.Ammunition,

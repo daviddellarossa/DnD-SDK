@@ -74,12 +74,12 @@ namespace DnD.Editor.Initializer
                 {
                     new StartingEquipment.ItemWithAmount()
                     {
-                        Item = weapons.Single(w => w.name == NameHelper.Weapons.Greataxe),
+                        Item = weapons.Single(w => w.name == NameHelper.Weapons_MartialMelee.Greataxe),
                         Amount = 1
                     },
                     new StartingEquipment.ItemWithAmount()
                     {
-                        Item = weapons.Single(w => w.name == NameHelper.Weapons.Handaxe),
+                        Item = weapons.Single(w => w.name == NameHelper.Weapons_SimpleMelee.Handaxe),
                         Amount = 4
                     },
                     
