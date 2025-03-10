@@ -17,21 +17,26 @@ namespace DnD.Editor.Initializer
         [MenuItem("D&D Game/Game Data Initializer/Generate Storage Data")]
         public static void InitializeStorage()
         {
-            AssetDatabase.StartAssetEditing();
+            try
+            {
+                AssetDatabase.StartAssetEditing();
 
-            Common.EnsureFolderExists(StoragePath);
+                Common.EnsureFolderExists(StoragePath);
 
-            var caseStorage = Common.CreateScriptableObject<Storage>(NameHelper.Storage.Case, StoragePath);
-            caseStorage.Name = NameHelper.Storage.Case;
-            var pouchStorage = Common.CreateScriptableObject<Storage>(NameHelper.Storage.Pouch, StoragePath);
-            pouchStorage.Name = NameHelper.Storage.Pouch;
-            var quiverStorage = Common.CreateScriptableObject<Storage>(NameHelper.Storage.Quiver, StoragePath);
-            quiverStorage.Name = NameHelper.Storage.Quiver;
+                var caseStorage = Common.CreateScriptableObject<Storage>(NameHelper.Storage.Case, StoragePath);
+                caseStorage.Name = NameHelper.Storage.Case;
+                var pouchStorage = Common.CreateScriptableObject<Storage>(NameHelper.Storage.Pouch, StoragePath);
+                pouchStorage.Name = NameHelper.Storage.Pouch;
+                var quiverStorage = Common.CreateScriptableObject<Storage>(NameHelper.Storage.Quiver, StoragePath);
+                quiverStorage.Name = NameHelper.Storage.Quiver;
 
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
-
-            AssetDatabase.StopAssetEditing();
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+            }
+            finally
+            {
+                AssetDatabase.StopAssetEditing();
+            }
         }
     }
 }

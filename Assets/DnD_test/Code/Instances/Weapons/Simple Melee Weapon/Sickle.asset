@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3450534243916820730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 972175a1f99609d41a0057c11c6bff3b, type: 3}
+  m_Name: Light
+  m_EditorClassIdentifier: 
+  Name: Light
+--- !u!114 &-827900446651057233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736285003def7cc46b8f45a9970c9ed2, type: 3}
+  m_Name: Nick
+  m_EditorClassIdentifier: 
+  Name: Nick
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
+  m_Name: Sickle
+  m_EditorClassIdentifier: 
+  Name: Sickle
+  Type: {fileID: 11400000, guid: 3484eb1faeec354f191816fcb1d7814a, type: 2}
+  NumOfDamageDice: 1
+  DamageDie: {fileID: 11400000, guid: 783ffafd2b8fa2aefab07d406b7c7724, type: 2}
+  DamageType: {fileID: 11400000, guid: 07cd786d2f714c450924b74e26dab4f9, type: 2}
+  Properties:
+  - {fileID: -3450534243916820730}
+  MasteryProperty: {fileID: -827900446651057233}
+  Weight: 1
+  Cost: 100

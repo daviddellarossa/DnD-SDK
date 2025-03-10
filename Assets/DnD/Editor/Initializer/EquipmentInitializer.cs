@@ -1,6 +1,7 @@
 using Codice.Client.BaseCommands.Acl;
 using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Equipment.Coins;
+using UnityEditor;
 
 namespace DnD.Editor.Initializer
 {
@@ -17,35 +18,50 @@ namespace DnD.Editor.Initializer
         
         public static void InitializeEquipment()
         {
+            Common.EnsureFolderExists(EquipmentPath);
             InitializeCoins();
         }
 
         public static void InitializeCoins()
         {
-            var copperPiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.CopperPiece, EquipmentCoinsPath);
-            copperPiece.Name = NameHelper.CoinValues.CopperPiece;
-            copperPiece.Abbreviation = "CP";
-            copperPiece.Value = 1;
+            try
+            {
+                AssetDatabase.StartAssetEditing();
+            
+                Common.EnsureFolderExists(EquipmentCoinsPath);
 
-            var silverpiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.SilverPiece, EquipmentCoinsPath);
-            silverpiece.Name = NameHelper.CoinValues.SilverPiece;
-            silverpiece.Abbreviation = "SP";
-            silverpiece.Value = 10;
+                var copperPiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.CopperPiece, EquipmentCoinsPath);
+                copperPiece.Name = NameHelper.CoinValues.CopperPiece;
+                copperPiece.Abbreviation = "CP";
+                copperPiece.Value = 1;
 
-            var electrumPiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.ElectrumPiece, EquipmentCoinsPath);
-            electrumPiece.Name = NameHelper.CoinValues.ElectrumPiece;
-            electrumPiece.Abbreviation = "EP";
-            electrumPiece.Value = 50;
+                var silverpiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.SilverPiece, EquipmentCoinsPath);
+                silverpiece.Name = NameHelper.CoinValues.SilverPiece;
+                silverpiece.Abbreviation = "SP";
+                silverpiece.Value = 10;
 
-            var goldPiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.GoldPiece, EquipmentCoinsPath);
-            goldPiece.Name = NameHelper.CoinValues.GoldPiece;
-            goldPiece.Abbreviation = "GP";
-            goldPiece.Value = 100;
+                var electrumPiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.ElectrumPiece, EquipmentCoinsPath);
+                electrumPiece.Name = NameHelper.CoinValues.ElectrumPiece;
+                electrumPiece.Abbreviation = "EP";
+                electrumPiece.Value = 50;
 
-            var platinumPiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.PlatinumPiece, EquipmentCoinsPath);
-            platinumPiece.Name = NameHelper.CoinValues.PlatinumPiece;
-            platinumPiece.Abbreviation = "PP";
-            platinumPiece.Value = 1000;
+                var goldPiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.GoldPiece, EquipmentCoinsPath);
+                goldPiece.Name = NameHelper.CoinValues.GoldPiece;
+                goldPiece.Abbreviation = "GP";
+                goldPiece.Value = 100;
+
+                var platinumPiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.PlatinumPiece, EquipmentCoinsPath);
+                platinumPiece.Name = NameHelper.CoinValues.PlatinumPiece;
+                platinumPiece.Abbreviation = "PP";
+                platinumPiece.Value = 1000;
+            
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+            }
+            finally
+            {
+                AssetDatabase.StopAssetEditing();
+            }
         }
     }
 }

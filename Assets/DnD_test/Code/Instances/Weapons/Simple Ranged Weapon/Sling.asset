@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-327395507364758941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa496ce09c6415f44bd81d1ad15fb33b, type: 3}
+  m_Name: Slow
+  m_EditorClassIdentifier: 
+  Name: Slow
+  SlowBy: 3
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
+  m_Name: Sling
+  m_EditorClassIdentifier: 
+  Name: Sling
+  Type: {fileID: 11400000, guid: 8071a1649e515a9648687934695c4d47, type: 2}
+  NumOfDamageDice: 1
+  DamageDie: {fileID: 11400000, guid: 783ffafd2b8fa2aefab07d406b7c7724, type: 2}
+  DamageType: {fileID: 11400000, guid: c257cd772ac0ffd38abd063945592ef3, type: 2}
+  Properties:
+  - {fileID: 6962325074446680709}
+  MasteryProperty: {fileID: -327395507364758941}
+  Weight: 0
+  Cost: 100
+--- !u!114 &6962325074446680709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8954e8761f4789b49a5fe892e72beeff, type: 3}
+  m_Name: Ammunition
+  m_EditorClassIdentifier: 
+  Name: Ammunition
+  Range:
+    Min: 9
+    Max: 36
+  Type: {fileID: 11400000, guid: cbcfab5aa1d5e2bd3ba5d1402d5ec4ee, type: 2}
