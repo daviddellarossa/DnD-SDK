@@ -1,0 +1,251 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: GameEntities_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 4302cb2128077c94e87d49e847df4181, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 50225733632
+    m_Localized: Acrobatics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9412692402176
+    m_Localized: Animal handling
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9559606288384
+    m_Localized: Arcana
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9606054010880
+    m_Localized: Athletics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9632012558336
+    m_Localized: Deception
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9656293384192
+    m_Localized: History
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9674924482560
+    m_Localized: Insight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9709737205760
+    m_Localized: Intimidation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9740129132544
+    m_Localized: Investigation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9760999989248
+    m_Localized: Medicine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9781577244672
+    m_Localized: Nature
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9799453368320
+    m_Localized: Perception
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9828167573504
+    m_Localized: Performance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9858249121792
+    m_Localized: Persuasion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9886703280128
+    m_Localized: Religion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9908924702720
+    m_Localized: Sleight of hand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9967003230208
+    m_Localized: Stealth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10002436710400
+    m_Localized: Survival
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10491802935296
+    m_Localized: Charisma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10532689010688
+    m_Localized: Constitution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10553803137024
+    m_Localized: Dexterity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10573185015808
+    m_Localized: Intelligence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10597293875200
+    m_Localized: Strength
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10618219257856
+    m_Localized: Wisdom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11708339838976
+    m_Localized: Thunder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11685300527104
+    m_Localized: Slashing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11656980586496
+    m_Localized: Radiant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11624340512768
+    m_Localized: Psychic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11599598313472
+    m_Localized: Poison
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11579545346048
+    m_Localized: Piercing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11554513739776
+    m_Localized: Necrotic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11524167950336
+    m_Localized: Lightning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11504391806976
+    m_Localized: Force
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11480295530496
+    m_Localized: Fire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11458476761088
+    m_Localized: Cold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11432312692736
+    m_Localized: Bludgeoning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11407834734592
+    m_Localized: Acid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12198733668352
+    m_Localized: D100
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12169050578944
+    m_Localized: D20
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12121633972224
+    m_Localized: D12
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12095667036160
+    m_Localized: D10
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12072048910336
+    m_Localized: D8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12053090656256
+    m_Localized: D6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12032752476160
+    m_Localized: D4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12006638739456
+    m_Localized: D3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11985113571328
+    m_Localized: D1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12422814359552
+    m_Localized: Quiver
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12403604447232
+    m_Localized: Pouch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12384243539968
+    m_Localized: Case
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12688372523008
+    m_Localized: Vex
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12669934362624
+    m_Localized: Topple
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12654516101120
+    m_Localized: Slow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12637663387648
+    m_Localized: Sap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12619028094976
+    m_Localized: Push
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12602368319488
+    m_Localized: Nick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12583150018560
+    m_Localized: Graze
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12559653527552
+    m_Localized: Cleave
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

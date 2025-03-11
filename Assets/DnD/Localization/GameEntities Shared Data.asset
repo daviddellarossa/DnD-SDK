@@ -1,0 +1,260 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: GameEntities Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: GameEntities
+  m_TableCollectionNameGuidString: 4302cb2128077c94e87d49e847df4181
+  m_Entries:
+  - m_Id: 50225733632
+    m_Key: Skills.Acrobatics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9412692402176
+    m_Key: Skills.AnimalHandling
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9559606288384
+    m_Key: Skills.Arcana
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9606054010880
+    m_Key: Skills.Athletics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9632012558336
+    m_Key: Skills.Deception
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9656293384192
+    m_Key: Skills.History
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9674924482560
+    m_Key: Skills.Insight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9709737205760
+    m_Key: Skills.Intimidation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9740129132544
+    m_Key: Skills.Investigation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9760999989248
+    m_Key: Skills.Medicine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9781577244672
+    m_Key: Skills.Nature
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9799453368320
+    m_Key: Skills.Perception
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9828167573504
+    m_Key: Skills.Performance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9858249121792
+    m_Key: Skills.Persuasion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9886703280128
+    m_Key: Skills.Religion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9908924702720
+    m_Key: Skills.SleightOfHand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9967003230208
+    m_Key: Skills.Stealth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10002436710400
+    m_Key: Skills.Survival
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10491802935296
+    m_Key: Abilities.Charisma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10532689010688
+    m_Key: Abilities.Constitution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10553803137024
+    m_Key: Abilities.Dexterity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10573185015808
+    m_Key: Abilities.Intelligence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10597293875200
+    m_Key: Abilities.Strength
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10618219257856
+    m_Key: Abilities.Wisdom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11407834734592
+    m_Key: DamageTypes.Acid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11432312692736
+    m_Key: DamageTypes.Bludgeoning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11458476761088
+    m_Key: DamageTypes.Cold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11480295530496
+    m_Key: DamageTypes.Fire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11504391806976
+    m_Key: DamageTypes.Force
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11524167950336
+    m_Key: DamageTypes.Lightning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11554513739776
+    m_Key: DamageTypes.Necrotic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11579545346048
+    m_Key: DamageTypes.Piercing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11599598313472
+    m_Key: DamageTypes.Poison
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11624340512768
+    m_Key: DamageTypes.Psychic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11656980586496
+    m_Key: DamageTypes.Radiant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11685300527104
+    m_Key: DamageTypes.Slashing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11708339838976
+    m_Key: DamageTypes.Thunder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11985113571328
+    m_Key: Dice.D1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12006638739456
+    m_Key: Dice.D3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12032752476160
+    m_Key: Dice.D4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12053090656256
+    m_Key: Dice.D6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12072048910336
+    m_Key: Dice.D8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12095667036160
+    m_Key: Dice.D10
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12121633972224
+    m_Key: Dice.D12
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12169050578944
+    m_Key: Dice.D20
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12198733668352
+    m_Key: Dice.D100
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12384243539968
+    m_Key: Storage.Case
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12403604447232
+    m_Key: Storage.Pouch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12422814359552
+    m_Key: Storage.Quiver
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12538765893632
+    m_Key: New Entry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12559653527552
+    m_Key: MasteryProperty.Cleave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12583150018560
+    m_Key: MasteryProperty.Graze
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12602368319488
+    m_Key: MasteryProperty.Nick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12619028094976
+    m_Key: MasteryProperty.Push
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12637663387648
+    m_Key: MasteryProperty.Sap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12654516101120
+    m_Key: MasteryProperty.Slow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12669934362624
+    m_Key: MasteryProperty.Topple
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12688372523008
+    m_Key: MasteryProperty.Vex
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 8746985801648177378
+  references:
+    version: 2
+    RefIds:
+    - rid: 8746985801648177378
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1741720665190

@@ -16,10 +16,11 @@ MonoBehaviour:
   m_GUID: 032a3c10841f60c46bd39aecae69464e
   m_SerializeEntries:
   - m_GUID: fb984b603751b204285064526d3dca5b
-    m_Address: GameTexts_it
+    m_Address: GameEntities_it
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-it
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 9dc79a5f458ec9c41965ee3f03643800, type: 2}
