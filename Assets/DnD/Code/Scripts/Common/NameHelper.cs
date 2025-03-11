@@ -45,40 +45,7 @@ namespace DnD.Code.Scripts.Common
             public const string D100 = "D100";
 
         }
-
-        public static class ArmourType
-        {
-            public const string HeavyArmour = "Heavy Armour Type";
-            public const string LightArmour = "Light Armour Type";
-            public const string MediumArmour = "Medium Armour Type";
-            public const string Shield = "Shield Type";
-
-        }
-
-        public static class Shields
-        {
-            public const string Shield = "Shield";
-
-        }
-
-        public static class Armours
-        {
-            public const string ChainMail = "Chain Mail";
-            public const string PlateArmour = "Plate Armour";
-            public const string RingMail = "Ring Mail";
-            public const string SplintArmour = "Splint Armour";
-            public const string LeatherArmour = "Leather Armour";
-            public const string PaddedArmour = "Padded Armour";
-            public const string StuddedLeatherArmour = "Studded Leather Armour";
-            public const string Breastplate = "Breastplate";
-            public const string ChainShirt = "Chain Shirt";
-            public const string HalfPlateArmour = "Half Plate Armour";
-            public const string HideArmour = "Hide Armour";
-            public const string ScaleMail = "Scale Mail";
-            public const string Shield = "Shield";
-                        
-        }
-
+        
         public static class Storage
         {
             public const string Case = "Case";
@@ -99,9 +66,7 @@ namespace DnD.Code.Scripts.Common
             public const string Vex = "Vex";
 
         }
-
-
-
+        
         public static class Skills
         {
             public const string Acrobatics = "Acrobatics";

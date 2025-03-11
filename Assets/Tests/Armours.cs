@@ -70,7 +70,7 @@ namespace Tests
                 {
                     yield return new TestCaseData(
                         new ArmourModel(
-                            NameHelper.Armours.ChainMail,
+                            NameHelper.Armours_Heavy.ChainMail,
                         NameHelper.ArmourType.HeavyArmour,
                         16,
                         false,
@@ -83,7 +83,7 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                            NameHelper.Armours.PlateArmour,
+                            NameHelper.Armours_Heavy.PlateArmour,
                         NameHelper.ArmourType.HeavyArmour,
                         18,
                         false,
@@ -96,7 +96,7 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                            NameHelper.Armours.RingMail,
+                            NameHelper.Armours_Heavy.RingMail,
                         NameHelper.ArmourType.HeavyArmour,
                         14,
                         false,
@@ -109,7 +109,7 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                            NameHelper.Armours.SplintArmour,
+                            NameHelper.Armours_Heavy.SplintArmour,
                         NameHelper.ArmourType.HeavyArmour,
                         17,
                         false,
@@ -123,7 +123,7 @@ namespace Tests
 
                     yield return new TestCaseData(
                         new ArmourModel(
-                            NameHelper.Armours.LeatherArmour,
+                            NameHelper.Armours_Light.LeatherArmour,
                         NameHelper.ArmourType.LightArmour,
                         11,
                         true,
@@ -136,7 +136,7 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                            NameHelper.Armours.PaddedArmour,
+                            NameHelper.Armours_Light.PaddedArmour,
                         NameHelper.ArmourType.LightArmour,
                         11,
                         true,
@@ -149,7 +149,7 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                            NameHelper.Armours.StuddedLeatherArmour,
+                            NameHelper.Armours_Light.StuddedLeatherArmour,
                         NameHelper.ArmourType.LightArmour,
                         12,
                         true,
@@ -163,7 +163,7 @@ namespace Tests
 
                     yield return new TestCaseData(
                         new ArmourModel(
-                            NameHelper.Armours.Breastplate,
+                            NameHelper.Armours_Medium.Breastplate,
                         NameHelper.ArmourType.MediumArmour,
                         14,
                         true,
@@ -176,7 +176,7 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                            NameHelper.Armours.ChainShirt,
+                            NameHelper.Armours_Medium.ChainShirt,
                         NameHelper.ArmourType.MediumArmour,
                         13,
                         true,
@@ -189,7 +189,7 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                            NameHelper.Armours.HalfPlateArmour,
+                            NameHelper.Armours_Medium.HalfPlateArmour,
                         NameHelper.ArmourType.MediumArmour,
                         15,
                         true,
@@ -202,7 +202,7 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                            NameHelper.Armours.HideArmour,
+                            NameHelper.Armours_Medium.HideArmour,
                         NameHelper.ArmourType.MediumArmour,
                         12,
                         true,
@@ -215,7 +215,7 @@ namespace Tests
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
-                            NameHelper.Armours.ScaleMail,
+                            NameHelper.Armours_Medium.ScaleMail,
                             NameHelper.ArmourType.MediumArmour,
                         14,
                         true,
@@ -235,7 +235,7 @@ namespace Tests
                 {
                     yield return new TestCaseData(
                         new ShieldModel(
-                        NameHelper.Armours.Shield, 
+                        NameHelper.Shields.Shield, 
                         NameHelper.ArmourType.Shield,
                         2,
                         3.0f,

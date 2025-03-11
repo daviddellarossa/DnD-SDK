@@ -21,6 +21,7 @@ namespace DnD.Editor.Initializer
                 AbilitiesInitializer.InitializeAbilities();
                 LanguagesInitializer.InitializeLanguages();
                 WeaponsInitializer.InitializeWeapons();
+                ArmoursInitializer.InitializeArmours();
                 return;
                 ArmoursInitializer.InitializeArmours();
                 // BarbarianClassInitializer.InitializeBarbarianClass();
