@@ -16,6 +16,7 @@ namespace DnD.Editor.Initializer
 
                 DiceInitializer.InitializeDice();
                 DamageTypeInitializer.InitializeDamageTypes();
+                CreatureTypesInitializer.InitializeCreatureTypes();
                 StorageInitializer.InitializeStorage();
                 EquipmentInitializer.InitializeEquipment();
                 AbilitiesInitializer.InitializeAbilities();
@@ -23,7 +24,6 @@ namespace DnD.Editor.Initializer
                 WeaponsInitializer.InitializeWeapons();
                 ArmoursInitializer.InitializeArmours();
                 return;
-                ArmoursInitializer.InitializeArmours();
                 // BarbarianClassInitializer.InitializeBarbarianClass();
 
             }
