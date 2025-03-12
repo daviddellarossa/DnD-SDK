@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-645687406357627272
+--- !u!114 &-1793147315875276270
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cb5d0173bc167f4ba82fdbebe29932e, type: 3}
-  m_Name: Reach
+  m_Script: {fileID: 11500000, guid: fa496ce09c6415f44bd81d1ad15fb33b, type: 3}
+  m_Name: Slow
   m_EditorClassIdentifier: 
-  Name: Reach
-  ExtraReach: 2.5
+  Name: MasteryProperty.Slow
+  SlowBy: 3
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26,18 +26,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
   m_Name: Whip
   m_EditorClassIdentifier: 
-  Name: Whip
+  Name: Weapons_MartialMelee.Whip
   Type: {fileID: 11400000, guid: a17122b4fb3a37baa82990cb42ae26d2, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: 783ffafd2b8fa2aefab07d406b7c7724, type: 2}
   DamageType: {fileID: 11400000, guid: 07cd786d2f714c450924b74e26dab4f9, type: 2}
   Properties:
-  - {fileID: 7620100436347735852}
-  - {fileID: -645687406357627272}
-  MasteryProperty: {fileID: 2015438437928857341}
+  - {fileID: 9184313058441365129}
+  - {fileID: 2838425269623472168}
+  MasteryProperty: {fileID: -1793147315875276270}
   Weight: 1.5
   Cost: 200
---- !u!114 &2015438437928857341
+--- !u!114 &2838425269623472168
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,12 +46,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa496ce09c6415f44bd81d1ad15fb33b, type: 3}
-  m_Name: Slow
+  m_Script: {fileID: 11500000, guid: 2cb5d0173bc167f4ba82fdbebe29932e, type: 3}
+  m_Name: Reach
   m_EditorClassIdentifier: 
-  Name: Slow
-  SlowBy: 3
---- !u!114 &7620100436347735852
+  Name: WeaponProperty.Reach
+  ExtraReach: 2.5
+--- !u!114 &9184313058441365129
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,4 +63,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebc4527f34bae1489fdaafed1f5dafc, type: 3}
   m_Name: Finesse
   m_EditorClassIdentifier: 
-  Name: Finesse
+  Name: WeaponProperty.Finesse

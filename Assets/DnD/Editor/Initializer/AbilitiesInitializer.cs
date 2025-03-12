@@ -12,6 +12,16 @@ namespace DnD.Editor.Initializer
         public static readonly string AbilitiesPath = $"{Common.FolderPath}/Abilities";
         public static readonly string SkillsPath = $"{Common.FolderPath}/Skills";
 
+        public static Ability[] GetAllAbilities()
+        {
+            return Common.GetAllScriptableObjects<Ability>(AbilitiesPath);
+        }
+        
+        public static Skill[] GetAllSkills()
+        {
+            return Common.GetAllScriptableObjects<Skill>(SkillsPath);
+        }
+        
         [MenuItem("D&D Game/Game Data Initializer/Generate Abilities Data")]
         public static void InitializeAbilities()
         {

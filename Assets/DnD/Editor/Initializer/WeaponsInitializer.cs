@@ -220,7 +220,7 @@ namespace DnD.Editor.Initializer
                 {
                     var club = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Club,
                         SimpleMeleeWeaponsPath);
-                    club.Name = NameHelper.Weapons_SimpleMelee.Club;
+                    club.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_SimpleMelee.Club}";
                     club.Type = simpleMeleeWeaponType;
                     club.NumOfDamageDice = 1;
                     club.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D4));
@@ -231,13 +231,13 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     var light = Common.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light,
                         club);
-                    light.Name = NameHelper.WeaponProperty.Light;
+                    light.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Light}";
 
                     club.Properties.AddRange(new Property[] { light });
 
                     // Mastery property
                     var slow = Common.CreateScriptableObjectAndAddToObject<Slow>(NameHelper.MasteryProperty.Slow, club);
-                    slow.Name = NameHelper.MasteryProperty.Slow;
+                    slow.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Slow}";
                     slow.SlowBy = 3;
 
                     club.MasteryProperty = slow;
@@ -245,7 +245,7 @@ namespace DnD.Editor.Initializer
                 {
                     var dagger = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Dagger,
                         SimpleMeleeWeaponsPath);
-                    dagger.Name = NameHelper.Weapons_SimpleMelee.Dagger;
+                    dagger.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_SimpleMelee.Dagger}";
                     dagger.Type = simpleMeleeWeaponType;
                     dagger.NumOfDamageDice = 1;
                     dagger.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D4));
@@ -256,30 +256,30 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     var thrown =
                         Common.CreateScriptableObjectAndAddToObject<Thrown>(NameHelper.WeaponProperty.Thrown, dagger);
-                    thrown.Name = NameHelper.WeaponProperty.Thrown;
+                    thrown.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Thrown}";
                     thrown.Range = new Range() { Max = 18, Min = 6 };
 
                     var finesse =
                         Common.CreateScriptableObjectAndAddToObject<Finesse>(NameHelper.WeaponProperty.Finesse, dagger);
-                    finesse.Name = NameHelper.WeaponProperty.Finesse;
+                    finesse.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Finesse}";
 
                     var light = Common.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light,
                         dagger);
-                    light.Name = NameHelper.WeaponProperty.Light;
+                    light.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Light}";
 
                     dagger.Properties.AddRange(new Property[] { thrown, finesse, light });
 
                     // Mastery property
                     var nick = Common.CreateScriptableObjectAndAddToObject<Nick>(NameHelper.MasteryProperty.Nick,
                         dagger);
-                    nick.Name = NameHelper.MasteryProperty.Nick;
+                    nick.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Nick}";
 
                     dagger.MasteryProperty = nick;
                 }
                 {
                     var greatclub = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Greatclub,
                         SimpleMeleeWeaponsPath);
-                    greatclub.Name = NameHelper.Weapons_SimpleMelee.Greatclub;
+                    greatclub.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_SimpleMelee.Greatclub}";
                     greatclub.Type = simpleMeleeWeaponType;
                     greatclub.NumOfDamageDice = 1;
                     greatclub.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D8));
@@ -291,14 +291,14 @@ namespace DnD.Editor.Initializer
                     var twoHanded =
                         Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                             greatclub);
-                    twoHanded.Name = NameHelper.WeaponProperty.TwoHanded;
+                    twoHanded.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.TwoHanded}";
 
                     greatclub.Properties.AddRange(new Property[] { twoHanded });
 
                     // Mastery property
                     var push = Common.CreateScriptableObjectAndAddToObject<Push>(NameHelper.MasteryProperty.Push,
                         greatclub);
-                    push.Name = NameHelper.MasteryProperty.Push;
+                    push.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Push}";
                     push.Distance = 3;
 
                     greatclub.MasteryProperty = push;
@@ -307,7 +307,7 @@ namespace DnD.Editor.Initializer
                 {
                     var handaxe = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Handaxe,
                         SimpleMeleeWeaponsPath);
-                    handaxe.Name = NameHelper.Weapons_SimpleMelee.Handaxe;
+                    handaxe.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_SimpleMelee.Handaxe}";
                     handaxe.Type = simpleMeleeWeaponType;
                     handaxe.NumOfDamageDice = 1;
                     handaxe.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D6));
@@ -318,25 +318,25 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     var thrown =
                         Common.CreateScriptableObjectAndAddToObject<Thrown>(NameHelper.WeaponProperty.Thrown, handaxe);
-                    thrown.Name = NameHelper.WeaponProperty.Thrown;
+                    thrown.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Thrown}";
                     thrown.Range = new Range() { Max = 18, Min = 6 };
 
                     var light = Common.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light,
                         handaxe);
-                    light.Name = NameHelper.WeaponProperty.Light;
+                    light.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Light}";
 
                     handaxe.Properties.AddRange(new Property[] { thrown, light });
 
                     // Mastery property
                     var vex = Common.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex, handaxe);
-                    vex.Name = NameHelper.MasteryProperty.Vex;
+                    vex.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Vex}";
 
                     handaxe.MasteryProperty = vex;
                 }
                 {
                     var javelin = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Javelin,
                         SimpleMeleeWeaponsPath);
-                    javelin.Name = NameHelper.Weapons_SimpleMelee.Javelin;
+                    javelin.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_SimpleMelee.Javelin}";
                     javelin.Type = simpleMeleeWeaponType;
                     javelin.NumOfDamageDice = 1;
                     javelin.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D6));
@@ -347,7 +347,7 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     var thrown =
                         Common.CreateScriptableObjectAndAddToObject<Thrown>(NameHelper.WeaponProperty.Thrown, javelin);
-                    thrown.Name = NameHelper.WeaponProperty.Thrown;
+                    thrown.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Thrown}";
                     thrown.Range = new Range() { Max = 36, Min = 9 };
 
                     javelin.Properties.AddRange(new Property[] { thrown });
@@ -355,7 +355,7 @@ namespace DnD.Editor.Initializer
                     // Mastery property
                     var slow = Common.CreateScriptableObjectAndAddToObject<Slow>(NameHelper.MasteryProperty.Slow,
                         javelin);
-                    slow.Name = NameHelper.MasteryProperty.Slow;
+                    slow.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Slow}";
                     slow.SlowBy = 3;
 
                     javelin.MasteryProperty = slow;
@@ -363,7 +363,7 @@ namespace DnD.Editor.Initializer
                 {
                     var lightHammer = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.LightHammer,
                         SimpleMeleeWeaponsPath);
-                    lightHammer.Name = NameHelper.Weapons_SimpleMelee.LightHammer;
+                    lightHammer.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_SimpleMelee.LightHammer}";
                     lightHammer.Type = simpleMeleeWeaponType;
                     lightHammer.NumOfDamageDice = 1;
                     lightHammer.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D4));
@@ -375,26 +375,26 @@ namespace DnD.Editor.Initializer
                     var thrown =
                         Common.CreateScriptableObjectAndAddToObject<Thrown>(NameHelper.WeaponProperty.Thrown,
                             lightHammer);
-                    thrown.Name = NameHelper.WeaponProperty.Thrown;
+                    thrown.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Thrown}";
                     thrown.Range = new Range() { Max = 18, Min = 6 };
 
                     var light = Common.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light,
                         lightHammer);
-                    light.Name = NameHelper.WeaponProperty.Light;
+                    light.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Light}";
 
                     lightHammer.Properties.AddRange(new Property[] { thrown, light });
 
                     // Mastery property
                     var nick = Common.CreateScriptableObjectAndAddToObject<Nick>(NameHelper.MasteryProperty.Nick,
                         lightHammer);
-                    nick.Name = NameHelper.MasteryProperty.Nick;
+                    nick.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Nick}";
 
                     lightHammer.MasteryProperty = nick;
                 }
                 {
                     var mace = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Mace,
                         SimpleMeleeWeaponsPath);
-                    mace.Name = NameHelper.Weapons_SimpleMelee.Mace;
+                    mace.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_SimpleMelee.Mace}";
                     mace.Type = simpleMeleeWeaponType;
                     mace.NumOfDamageDice = 1;
                     mace.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D6));
@@ -405,7 +405,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     var sap = Common.CreateScriptableObjectAndAddToObject<Sap>(NameHelper.MasteryProperty.Sap, mace);
-                    sap.Name = NameHelper.MasteryProperty.Sap;
+                    sap.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Sap}";
 
                     mace.MasteryProperty = sap;
                 }
@@ -413,7 +413,7 @@ namespace DnD.Editor.Initializer
                     var quarterstaff =
                         Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Quarterstaff,
                             SimpleMeleeWeaponsPath);
-                    quarterstaff.Name = NameHelper.Weapons_SimpleMelee.Quarterstaff;
+                    quarterstaff.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_SimpleMelee.Quarterstaff}";
                     quarterstaff.Type = simpleMeleeWeaponType;
                     quarterstaff.NumOfDamageDice = 1;
                     quarterstaff.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D6));
@@ -425,7 +425,7 @@ namespace DnD.Editor.Initializer
                     var versatile =
                         Common.CreateScriptableObjectAndAddToObject<Versatile>(NameHelper.WeaponProperty.Versatile,
                             quarterstaff);
-                    versatile.Name = NameHelper.WeaponProperty.Versatile;
+                    versatile.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Versatile}";
                     versatile.NumberOfDice = 1;
                     versatile.DieType = dice.Single((x => x.name == NameHelper.Dice.D8));
 
@@ -435,14 +435,14 @@ namespace DnD.Editor.Initializer
                     var topple =
                         Common.CreateScriptableObjectAndAddToObject<Topple>(NameHelper.MasteryProperty.Topple,
                             quarterstaff);
-                    topple.Name = NameHelper.MasteryProperty.Topple;
+                    topple.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Topple}";
 
                     quarterstaff.MasteryProperty = topple;
                 }
                 {
                     var sickle = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Sickle,
                         SimpleMeleeWeaponsPath);
-                    sickle.Name = NameHelper.Weapons_SimpleMelee.Sickle;
+                    sickle.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_SimpleMelee.Sickle}";
                     sickle.Type = simpleMeleeWeaponType;
                     sickle.NumOfDamageDice = 1;
                     sickle.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D4));
@@ -453,21 +453,21 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     var light = Common.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light,
                         sickle);
-                    light.Name = NameHelper.WeaponProperty.Light;
+                    light.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Light}";
 
                     sickle.Properties.AddRange(new Property[] { light });
 
                     // Mastery property
                     var nick = Common.CreateScriptableObjectAndAddToObject<Nick>(NameHelper.MasteryProperty.Nick,
                         sickle);
-                    nick.Name = NameHelper.MasteryProperty.Nick;
+                    nick.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Nick}";
 
                     sickle.MasteryProperty = nick;
                 }
                 {
                     var spear = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Spear,
                         SimpleMeleeWeaponsPath);
-                    spear.Name = NameHelper.Weapons_SimpleMelee.Spear;
+                    spear.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_SimpleMelee.Spear}";
                     spear.Type = simpleMeleeWeaponType;
                     spear.NumOfDamageDice = 1;
                     spear.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D6));
@@ -478,13 +478,13 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     var thrown =
                         Common.CreateScriptableObjectAndAddToObject<Thrown>(NameHelper.WeaponProperty.Thrown, spear);
-                    thrown.Name = NameHelper.WeaponProperty.Thrown;
+                    thrown.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Thrown}";
                     thrown.Range = new Range() { Max = 18, Min = 6 };
 
                     var versatile =
                         Common.CreateScriptableObjectAndAddToObject<Versatile>(NameHelper.WeaponProperty.Versatile,
                             spear);
-                    versatile.Name = NameHelper.WeaponProperty.Versatile;
+                    versatile.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Versatile}";
                     versatile.NumberOfDice = 1;
                     versatile.DieType = dice.Single((x => x.name == NameHelper.Dice.D8));
 
@@ -492,7 +492,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     var sap = Common.CreateScriptableObjectAndAddToObject<Sap>(NameHelper.MasteryProperty.Sap, spear);
-                    sap.Name = NameHelper.MasteryProperty.Sap;
+                    sap.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Sap}";
 
                     spear.MasteryProperty = sap;
                 }
@@ -521,7 +521,7 @@ namespace DnD.Editor.Initializer
                     var blowgun = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.Blowgun,
                         MartialRangedWeaponsPath);
 
-                    blowgun.Name = NameHelper.Weapons_MartialRanged.Blowgun;
+                    blowgun.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_MartialRanged.Blowgun}";
                     blowgun.Type = martialRangedWeaponType;
                     blowgun.NumOfDamageDice = 1;
                     blowgun.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D1));
@@ -533,20 +533,20 @@ namespace DnD.Editor.Initializer
                     var ammunition =
                         Common.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
                             blowgun);
-                    ammunition.Name = NameHelper.WeaponProperty.Ammunition;
+                    ammunition.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Ammunition}";
                     ammunition.Type = ammunitionTypes.Single(x => x.name == NameHelper.AmmunitionTypes.Needles);
                     ammunition.Range = new Range() { Max = 32, Min = 8 };
 
                     var loading =
                         Common.CreateScriptableObjectAndAddToObject<Loading>(NameHelper.WeaponProperty.Loading,
                             blowgun);
-                    loading.Name = NameHelper.WeaponProperty.Loading;
+                    loading.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Loading}";
 
                     blowgun.Properties.AddRange(new Property[] { ammunition, loading });
 
                     // Mastery property
                     var vex = Common.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex, blowgun);
-                    vex.Name = NameHelper.MasteryProperty.Vex;
+                    vex.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Vex}";
 
                     blowgun.MasteryProperty = vex;
                 }
@@ -555,7 +555,7 @@ namespace DnD.Editor.Initializer
                         Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.HandCrossbow,
                             MartialRangedWeaponsPath);
 
-                    handCrossbow.Name = NameHelper.Weapons_MartialRanged.HandCrossbow;
+                    handCrossbow.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_MartialRanged.HandCrossbow}";
                     handCrossbow.Type = martialRangedWeaponType;
                     handCrossbow.NumOfDamageDice = 1;
                     handCrossbow.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D6));
@@ -567,23 +567,23 @@ namespace DnD.Editor.Initializer
                     var ammunition =
                         Common.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
                             handCrossbow);
-                    ammunition.Name = NameHelper.WeaponProperty.Ammunition;
+                    ammunition.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Ammunition}";
                     ammunition.Type = ammunitionTypes.Single(x => x.name == NameHelper.AmmunitionTypes.Bolts);
                     ammunition.Range = new Range() { Max = 36, Min = 9 };
 
                     var loading =
                         Common.CreateScriptableObjectAndAddToObject<Loading>(NameHelper.WeaponProperty.Loading, handCrossbow);
-                    loading.Name = NameHelper.WeaponProperty.Loading;
+                    loading.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Loading}";
 
                     var light = Common.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light, handCrossbow);
-                    light.Name = NameHelper.WeaponProperty.Light;
+                    light.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Light}";
 
                     handCrossbow.Properties.AddRange(new Property[] { ammunition, loading, light });
 
                     // Mastery property
                     var vex = Common.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex,
                         handCrossbow);
-                    vex.Name = NameHelper.MasteryProperty.Vex;
+                    vex.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Vex}";
 
                     handCrossbow.MasteryProperty = vex;
                 }
@@ -592,7 +592,7 @@ namespace DnD.Editor.Initializer
                         Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.HeavyCrossbow,
                             MartialRangedWeaponsPath);
 
-                    heavyCrossbow.Name = NameHelper.Weapons_MartialRanged.HeavyCrossbow;
+                    heavyCrossbow.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_MartialRanged.HeavyCrossbow}";
                     heavyCrossbow.Type = martialRangedWeaponType;
                     heavyCrossbow.NumOfDamageDice = 1;
                     heavyCrossbow.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D10));
@@ -604,30 +604,30 @@ namespace DnD.Editor.Initializer
                     var ammunition =
                         Common.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
                             heavyCrossbow);
-                    ammunition.Name = NameHelper.WeaponProperty.Ammunition;
+                    ammunition.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Ammunition}";
                     ammunition.Type = ammunitionTypes.Single(x => x.name == NameHelper.AmmunitionTypes.Bolts);
                     ammunition.Range = new Range() { Max = 120, Min = 30 };
 
                     var heavy = Common.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
                         heavyCrossbow);
-                    heavy.Name = NameHelper.WeaponProperty.Loading;
+                    heavy.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Heavy}";
 
                     var loading =
                         Common.CreateScriptableObjectAndAddToObject<Loading>(NameHelper.WeaponProperty.Loading,
                             heavyCrossbow);
-                    loading.Name = NameHelper.WeaponProperty.Loading;
+                    loading.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Loading}";
 
                     var twoHanded =
                         Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                             heavyCrossbow);
-                    twoHanded.Name = NameHelper.WeaponProperty.TwoHanded;
+                    twoHanded.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.TwoHanded}";
 
                     heavyCrossbow.Properties.AddRange(new Property[] { ammunition, heavy, loading, twoHanded });
 
                     // Mastery property
                     var push = Common.CreateScriptableObjectAndAddToObject<Push>(NameHelper.MasteryProperty.Push,
                         heavyCrossbow);
-                    push.Name = NameHelper.MasteryProperty.Push;
+                    push.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Push}";
                     push.Distance = 3.0f;
 
                     heavyCrossbow.MasteryProperty = push;
@@ -636,7 +636,7 @@ namespace DnD.Editor.Initializer
                     var longbow = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.Longbow,
                         MartialRangedWeaponsPath);
 
-                    longbow.Name = NameHelper.Weapons_MartialRanged.Longbow;
+                    longbow.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_MartialRanged.Longbow}";
                     longbow.Type = martialRangedWeaponType;
                     longbow.NumOfDamageDice = 1;
                     longbow.DamageDie = dice.Single(x => x.name == NameHelper.Dice.D8);
@@ -648,25 +648,25 @@ namespace DnD.Editor.Initializer
                     var ammunition =
                         Common.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
                             longbow);
-                    ammunition.Name = NameHelper.WeaponProperty.Ammunition;
+                    ammunition.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Ammunition}";
                     ammunition.Type = ammunitionTypes.Single(x => x.name == NameHelper.AmmunitionTypes.Arrows);
                     ammunition.Range = new Range() { Max = 180, Min = 45 };
 
                     var heavy = Common.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
                         longbow);
-                    heavy.Name = NameHelper.WeaponProperty.Loading;
+                    heavy.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Heavy}";
 
                     var twoHanded =
                         Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                             longbow);
-                    twoHanded.Name = NameHelper.WeaponProperty.TwoHanded;
+                    twoHanded.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.TwoHanded}";
 
                     longbow.Properties.AddRange(new Property[] { ammunition, heavy, twoHanded });
 
                     // Mastery property
                     var slow = Common.CreateScriptableObjectAndAddToObject<Slow>(NameHelper.MasteryProperty.Slow,
                         longbow);
-                    slow.Name = NameHelper.MasteryProperty.Slow;
+                    slow.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Slow}";
                     slow.SlowBy = 3.0f;
 
                     longbow.MasteryProperty = slow;
@@ -675,7 +675,7 @@ namespace DnD.Editor.Initializer
                     var musket = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.Musket,
                         MartialRangedWeaponsPath);
 
-                    musket.Name = NameHelper.Weapons_MartialRanged.Musket;
+                    musket.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_MartialRanged.Musket}";
                     musket.Type = martialRangedWeaponType;
                     musket.NumOfDamageDice = 1;
                     musket.DamageDie = dice.Single(x => x.name == NameHelper.Dice.D12);
@@ -687,25 +687,25 @@ namespace DnD.Editor.Initializer
                     var ammunition =
                         Common.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
                             musket);
-                    ammunition.Name = NameHelper.WeaponProperty.Ammunition;
+                    ammunition.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Ammunition}";
                     ammunition.Type = ammunitionTypes.Single(x => x.name == NameHelper.AmmunitionTypes.BulletsFirearm);
                     ammunition.Range = new Range() { Max = 36, Min = 12 };
 
                     var loading =
                         Common.CreateScriptableObjectAndAddToObject<Loading>(NameHelper.WeaponProperty.Loading, musket);
-                    loading.Name = NameHelper.WeaponProperty.Loading;
+                    loading.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Loading}";
 
                     musket.Properties.AddRange(new Property[] { ammunition, loading });
 
                     var twoHanded =
                         Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                             musket);
-                    twoHanded.Name = NameHelper.WeaponProperty.TwoHanded;
-
+                    twoHanded.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.TwoHanded}";
+                    
                     // Mastery property
                     var slow = Common.CreateScriptableObjectAndAddToObject<Slow>(NameHelper.MasteryProperty.Slow,
                         musket);
-                    slow.Name = NameHelper.MasteryProperty.Slow;
+                    slow.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Slow}";
                     slow.SlowBy = 3.0f;
 
                     musket.MasteryProperty = slow;
@@ -713,7 +713,7 @@ namespace DnD.Editor.Initializer
                 {
                     var pistol = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.Pistol,
                         MartialRangedWeaponsPath);
-                    pistol.Name = NameHelper.Weapons_MartialRanged.Pistol;
+                    pistol.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_MartialRanged.Pistol}";
                     pistol.Type = martialRangedWeaponType;
                     pistol.NumOfDamageDice = 1;
                     pistol.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D10));
@@ -725,19 +725,19 @@ namespace DnD.Editor.Initializer
                     var ammunition =
                         Common.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
                             pistol);
-                    ammunition.Name = NameHelper.WeaponProperty.Ammunition;
+                    ammunition.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Ammunition}";
                     ammunition.Type = ammunitionTypes.Single(x => x.name == NameHelper.AmmunitionTypes.BulletsFirearm);
                     ammunition.Range = new Range() { Max = 27, Min = 9 };
 
                     var loading =
                         Common.CreateScriptableObjectAndAddToObject<Loading>(NameHelper.WeaponProperty.Loading, pistol);
-                    loading.Name = NameHelper.WeaponProperty.Loading;
+                    loading.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Loading}";
 
                     pistol.Properties.AddRange(new Property[] { ammunition, loading });
 
                     // Mastery property
                     var vex = Common.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex, pistol);
-                    vex.Name = NameHelper.MasteryProperty.Vex;
+                    vex.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Vex}";
 
                     pistol.MasteryProperty = vex;
                 }
@@ -765,7 +765,7 @@ namespace DnD.Editor.Initializer
                 {
                     var battleaxe = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Battleaxe,
                         MartialMeleeWeaponsPath);
-                    battleaxe.Name = NameHelper.Weapons_MartialMelee.Battleaxe;
+                    battleaxe.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Battleaxe}";
                     battleaxe.Type = martialMeleeWeaponType;
                     battleaxe.NumOfDamageDice = 1;
                     battleaxe.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D8));
@@ -777,7 +777,7 @@ namespace DnD.Editor.Initializer
                     var versatile =
                         Common.CreateScriptableObjectAndAddToObject<Versatile>(NameHelper.WeaponProperty.Versatile,
                             battleaxe);
-                    versatile.Name = NameHelper.WeaponProperty.Versatile;
+                    versatile.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Versatile}";
                     versatile.NumberOfDice = 1;
                     versatile.DieType = dice.Single((x => x.name == NameHelper.Dice.D10));
 
@@ -787,14 +787,14 @@ namespace DnD.Editor.Initializer
                     var topple =
                         Common.CreateScriptableObjectAndAddToObject<Topple>(NameHelper.MasteryProperty.Topple,
                             battleaxe);
-                    topple.Name = NameHelper.MasteryProperty.Topple;
+                    topple.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Topple}";
 
                     battleaxe.MasteryProperty = topple;
                 }
                 {
                     var flail = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Flail,
                         MartialMeleeWeaponsPath);
-                    flail.Name = NameHelper.Weapons_MartialMelee.Flail;
+                    flail.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Flail}";
                     flail.Type = martialMeleeWeaponType;
                     flail.NumOfDamageDice = 1;
                     flail.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D8));
@@ -804,14 +804,14 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     var sap = Common.CreateScriptableObjectAndAddToObject<Sap>(NameHelper.MasteryProperty.Sap, flail);
-                    sap.Name = NameHelper.MasteryProperty.Sap;
+                    sap.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Sap}";
 
                     flail.MasteryProperty = sap;
                 }
                 {
                     var glaive = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Glaive,
                         MartialMeleeWeaponsPath);
-                    glaive.Name = NameHelper.Weapons_MartialMelee.Glaive;
+                    glaive.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Glaive}";
                     glaive.Type = martialMeleeWeaponType;
                     glaive.NumOfDamageDice = 1;
                     glaive.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D10));
@@ -822,31 +822,31 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     var heavy = Common.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
                         glaive);
-                    heavy.Name = NameHelper.WeaponProperty.Heavy;
+                    heavy.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Heavy}";
 
                     var reach = Common.CreateScriptableObjectAndAddToObject<Reach>(NameHelper.WeaponProperty.Reach,
                         glaive);
-                    reach.Name = NameHelper.WeaponProperty.Reach;
+                    reach.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Reach}";
                     reach.ExtraReach = 2.5f;
 
                     var twoHanded =
                         Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                             glaive);
-                    twoHanded.Name = NameHelper.WeaponProperty.TwoHanded;
+                    twoHanded.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.TwoHanded}";
 
                     glaive.Properties.AddRange(new Property[] { heavy, reach, twoHanded });
 
                     // Mastery property
                     var graze = Common.CreateScriptableObjectAndAddToObject<Graze>(NameHelper.MasteryProperty.Graze,
                         glaive);
-                    graze.Name = NameHelper.MasteryProperty.Graze;
+                    graze.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Graze}";;
 
                     glaive.MasteryProperty = graze;
                 }
                 {
                     var greataxe = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Greataxe,
                         MartialMeleeWeaponsPath);
-                    greataxe.Name = NameHelper.Weapons_MartialMelee.Greataxe;
+                    greataxe.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Greataxe}";
                     greataxe.Type = martialMeleeWeaponType;
                     greataxe.NumOfDamageDice = 1;
                     greataxe.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D12));
@@ -857,12 +857,12 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     var heavy = Common.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
                         greataxe);
-                    heavy.Name = NameHelper.WeaponProperty.Heavy;
+                    heavy.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Heavy}";
 
                     var twoHanded =
                         Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                             greataxe);
-                    twoHanded.Name = NameHelper.WeaponProperty.TwoHanded;
+                    twoHanded.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.TwoHanded}";
 
                     greataxe.Properties.AddRange(new Property[] { heavy, twoHanded });
 
@@ -870,14 +870,14 @@ namespace DnD.Editor.Initializer
                     var cleave =
                         Common.CreateScriptableObjectAndAddToObject<Cleave>(NameHelper.MasteryProperty.Cleave,
                             greataxe);
-                    cleave.Name = NameHelper.MasteryProperty.Cleave;
+                    cleave.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Cleave}";
 
                     greataxe.MasteryProperty = cleave;
                 }
                 {
                     var greatsword = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Greatsword,
                         MartialMeleeWeaponsPath);
-                    greatsword.Name = NameHelper.Weapons_MartialMelee.Greatsword;
+                    greatsword.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Greatsword}";
                     greatsword.Type = martialMeleeWeaponType;
                     greatsword.NumOfDamageDice = 2;
                     greatsword.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D6));
@@ -888,26 +888,26 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     var heavy = Common.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
                         greatsword);
-                    heavy.Name = NameHelper.WeaponProperty.Heavy;
+                    heavy.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Heavy}";
 
                     var twoHanded =
                         Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                             greatsword);
-                    twoHanded.Name = NameHelper.WeaponProperty.TwoHanded;
+                    twoHanded.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.TwoHanded}";
 
                     greatsword.Properties.AddRange(new Property[] { heavy, twoHanded });
 
                     // Mastery property
                     var graze = Common.CreateScriptableObjectAndAddToObject<Graze>(NameHelper.MasteryProperty.Graze,
                         greatsword);
-                    graze.Name = NameHelper.MasteryProperty.Graze;
+                    graze.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Graze}";
 
                     greatsword.MasteryProperty = graze;
                 }
                 {
                     var halberd = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Halberd,
                         MartialMeleeWeaponsPath);
-                    halberd.Name = NameHelper.Weapons_MartialMelee.Halberd;
+                    halberd.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Halberd}";
                     halberd.Type = martialMeleeWeaponType;
                     halberd.NumOfDamageDice = 1;
                     halberd.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D10));
@@ -918,30 +918,30 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     var heavy = Common.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
                         halberd);
-                    heavy.Name = NameHelper.WeaponProperty.Heavy;
+                    heavy.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Heavy}";
 
                     var twoHanded =
                         Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                             halberd);
-                    twoHanded.Name = NameHelper.WeaponProperty.TwoHanded;
+                    twoHanded.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.TwoHanded}";
 
                     var reach = Common.CreateScriptableObjectAndAddToObject<Reach>(NameHelper.WeaponProperty.Reach,
                         halberd);
-                    reach.Name = NameHelper.WeaponProperty.Reach;
+                    reach.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Reach}";
 
                     halberd.Properties.AddRange(new Property[] { heavy, twoHanded, reach });
 
                     // Mastery property
                     var cleave =
                         Common.CreateScriptableObjectAndAddToObject<Cleave>(NameHelper.MasteryProperty.Cleave, halberd);
-                    cleave.Name = NameHelper.MasteryProperty.Cleave;
+                    cleave.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Cleave}";
 
                     halberd.MasteryProperty = cleave;
                 }
                 {
                     var lance = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Lance,
                         MartialMeleeWeaponsPath);
-                    lance.Name = NameHelper.Weapons_MartialMelee.Lance;
+                    lance.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Lance}";
                     lance.Type = martialMeleeWeaponType;
                     lance.NumOfDamageDice = 1;
                     lance.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D10));
@@ -952,16 +952,16 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     var heavy = Common.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
                         lance);
-                    heavy.Name = NameHelper.WeaponProperty.Heavy;
+                    heavy.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Heavy}";
 
                     var twoHanded =
                         Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                             lance);
-                    twoHanded.Name = NameHelper.WeaponProperty.TwoHanded;
+                    twoHanded.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.TwoHanded}";
 
                     var reach = Common.CreateScriptableObjectAndAddToObject<Reach>(NameHelper.WeaponProperty.Reach,
                         lance);
-                    reach.Name = NameHelper.WeaponProperty.Reach;
+                    reach.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Reach}";
                     reach.ExtraReach = 2.5f;
 
                     lance.Properties.AddRange(new Property[] { heavy, twoHanded, reach });
@@ -969,14 +969,14 @@ namespace DnD.Editor.Initializer
                     // Mastery property
                     var topple =
                         Common.CreateScriptableObjectAndAddToObject<Topple>(NameHelper.MasteryProperty.Topple, lance);
-                    topple.Name = NameHelper.MasteryProperty.Topple;
+                    topple.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Topple}";
 
                     lance.MasteryProperty = topple;
                 }
                 {
                     var longsword = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Longsword,
                         MartialMeleeWeaponsPath);
-                    longsword.Name = NameHelper.Weapons_MartialMelee.Longsword;
+                    longsword.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Longsword}";
                     longsword.Type = martialMeleeWeaponType;
                     longsword.NumOfDamageDice = 1;
                     longsword.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D8));
@@ -988,7 +988,7 @@ namespace DnD.Editor.Initializer
                     var versatile =
                         Common.CreateScriptableObjectAndAddToObject<Versatile>(NameHelper.WeaponProperty.Versatile,
                             longsword);
-                    versatile.Name = NameHelper.WeaponProperty.Versatile;
+                    versatile.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Versatile}";
                     versatile.NumberOfDice = 1;
                     versatile.DieType = dice.Single((x => x.name == NameHelper.Dice.D10));
 
@@ -997,14 +997,14 @@ namespace DnD.Editor.Initializer
                     // Mastery property
                     var sap = Common.CreateScriptableObjectAndAddToObject<Sap>(NameHelper.MasteryProperty.Sap,
                         longsword);
-                    sap.Name = NameHelper.MasteryProperty.Sap;
+                    sap.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Sap}";
 
                     longsword.MasteryProperty = sap;
                 }
                 {
                     var maul = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Maul,
                         MartialMeleeWeaponsPath);
-                    maul.Name = NameHelper.Weapons_MartialMelee.Maul;
+                    maul.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Maul}";
                     maul.Type = martialMeleeWeaponType;
                     maul.NumOfDamageDice = 2;
                     maul.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D6));
@@ -1015,26 +1015,26 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     var heavy = Common.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
                         maul);
-                    heavy.Name = NameHelper.WeaponProperty.Heavy;
+                    heavy.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Heavy}";
 
                     var twoHanded =
                         Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                             maul);
-                    twoHanded.Name = NameHelper.WeaponProperty.TwoHanded;
+                    twoHanded.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.TwoHanded}";
 
                     maul.Properties.AddRange(new Property[] { heavy, twoHanded });
 
                     // Mastery property
                     var topple =
                         Common.CreateScriptableObjectAndAddToObject<Topple>(NameHelper.MasteryProperty.Topple, maul);
-                    topple.Name = NameHelper.MasteryProperty.Topple;
+                    topple.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Topple}";
 
                     maul.MasteryProperty = topple;
                 }
                 {
                     var morningstar = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Morningstar,
                         MartialMeleeWeaponsPath);
-                    morningstar.Name = NameHelper.Weapons_MartialMelee.Morningstar;
+                    morningstar.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Morningstar}";
                     morningstar.Type = martialMeleeWeaponType;
                     morningstar.NumOfDamageDice = 1;
                     morningstar.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D8));
@@ -1045,14 +1045,14 @@ namespace DnD.Editor.Initializer
                     // Mastery property
                     var sap = Common.CreateScriptableObjectAndAddToObject<Sap>(NameHelper.MasteryProperty.Sap,
                         morningstar);
-                    sap.Name = NameHelper.MasteryProperty.Sap;
+                    sap.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Sap}";
 
                     morningstar.MasteryProperty = sap;
                 }
                 {
                     var pike = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Pike,
                         MartialMeleeWeaponsPath);
-                    pike.Name = NameHelper.Weapons_MartialMelee.Pike;
+                    pike.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Pike}";
                     pike.Type = martialMeleeWeaponType;
                     pike.NumOfDamageDice = 1;
                     pike.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D10));
@@ -1063,23 +1063,23 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     var heavy = Common.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
                         pike);
-                    heavy.Name = NameHelper.WeaponProperty.Heavy;
+                    heavy.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Heavy}";
 
                     var twoHanded =
                         Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                             pike);
-                    twoHanded.Name = NameHelper.WeaponProperty.TwoHanded;
+                    twoHanded.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.TwoHanded}";
 
                     var reach = Common.CreateScriptableObjectAndAddToObject<Reach>(NameHelper.WeaponProperty.Reach,
                         pike);
-                    reach.Name = NameHelper.WeaponProperty.Reach;
+                    reach.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Reach}";
                     reach.ExtraReach = 2.5f;
 
                     pike.Properties.AddRange(new Property[] { heavy, twoHanded, reach });
 
                     // Mastery property
                     var push = Common.CreateScriptableObjectAndAddToObject<Push>(NameHelper.MasteryProperty.Push, pike);
-                    push.Name = NameHelper.MasteryProperty.Push;
+                    push.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Push}";
                     push.Distance = 3.0f;
 
                     pike.MasteryProperty = push;
@@ -1087,7 +1087,7 @@ namespace DnD.Editor.Initializer
                 {
                     var rapier = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Rapier,
                         MartialMeleeWeaponsPath);
-                    rapier.Name = NameHelper.Weapons_MartialMelee.Rapier;
+                    rapier.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Rapier}";
                     rapier.Type = martialMeleeWeaponType;
                     rapier.NumOfDamageDice = 1;
                     rapier.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D8));
@@ -1098,20 +1098,20 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     var finesse =
                         Common.CreateScriptableObjectAndAddToObject<Finesse>(NameHelper.WeaponProperty.Finesse, rapier);
-                    finesse.Name = NameHelper.WeaponProperty.Finesse;
+                    finesse.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Finesse}";
 
                     rapier.Properties.AddRange(new Property[] { finesse });
 
                     // Mastery property
                     var vex = Common.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex, rapier);
-                    vex.Name = NameHelper.MasteryProperty.Vex;
+                    vex.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Vex}";
 
                     rapier.MasteryProperty = vex;
                 }
                 {
                     var scimitar = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Scimitar,
                         MartialMeleeWeaponsPath);
-                    scimitar.Name = NameHelper.Weapons_MartialMelee.Scimitar;
+                    scimitar.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Scimitar}";
                     scimitar.Type = martialMeleeWeaponType;
                     scimitar.NumOfDamageDice = 1;
                     scimitar.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D6));
@@ -1123,25 +1123,25 @@ namespace DnD.Editor.Initializer
                     var finesse =
                         Common.CreateScriptableObjectAndAddToObject<Finesse>(NameHelper.WeaponProperty.Finesse,
                             scimitar);
-                    finesse.Name = NameHelper.WeaponProperty.Finesse;
+                    finesse.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Finesse}";
 
                     var light = Common.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light,
                         scimitar);
-                    light.Name = NameHelper.WeaponProperty.Light;
+                    light.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Light}";
 
                     scimitar.Properties.AddRange(new Property[] { finesse, light });
 
                     // Mastery property
                     var nick = Common.CreateScriptableObjectAndAddToObject<Nick>(NameHelper.MasteryProperty.Nick,
                         scimitar);
-                    nick.Name = NameHelper.MasteryProperty.Nick;
+                    nick.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Nick}";
 
                     scimitar.MasteryProperty = nick;
                 }
                 {
                     var shortsword = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Shortsword,
                         MartialMeleeWeaponsPath);
-                    shortsword.Name = NameHelper.Weapons_MartialMelee.Shortsword;
+                    shortsword.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Shortsword}";
                     shortsword.Type = martialMeleeWeaponType;
                     shortsword.NumOfDamageDice = 1;
                     shortsword.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D6));
@@ -1153,25 +1153,25 @@ namespace DnD.Editor.Initializer
                     var finesse =
                         Common.CreateScriptableObjectAndAddToObject<Finesse>(NameHelper.WeaponProperty.Finesse,
                             shortsword);
-                    finesse.Name = NameHelper.WeaponProperty.Finesse;
+                    finesse.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Finesse}";
 
                     var light = Common.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light,
                         shortsword);
-                    light.Name = NameHelper.WeaponProperty.Light;
+                    light.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Light}";
 
                     shortsword.Properties.AddRange(new Property[] { finesse, light });
 
                     // Mastery property
                     var vex = Common.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex,
                         shortsword);
-                    vex.Name = NameHelper.MasteryProperty.Vex;
+                    vex.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Vex}";
 
                     shortsword.MasteryProperty = vex;
                 }
                 {
                     var trident = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Trident,
                         MartialMeleeWeaponsPath);
-                    trident.Name = NameHelper.Weapons_MartialMelee.Trident;
+                    trident.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Trident}";
                     trident.Type = martialMeleeWeaponType;
                     trident.NumOfDamageDice = 1;
                     trident.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D8));
@@ -1182,13 +1182,13 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     var thrown =
                         Common.CreateScriptableObjectAndAddToObject<Thrown>(NameHelper.WeaponProperty.Thrown, trident);
-                    thrown.Name = NameHelper.WeaponProperty.Thrown;
+                    thrown.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Thrown}";
                     thrown.Range = new Range() { Max = 18, Min = 6 };
 
                     var versatile =
                         Common.CreateScriptableObjectAndAddToObject<Versatile>(NameHelper.WeaponProperty.Versatile,
                             trident);
-                    versatile.Name = NameHelper.WeaponProperty.Versatile;
+                    versatile.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Versatile}";
                     versatile.NumberOfDice = 1;
                     versatile.DieType = dice.Single((x => x.name == NameHelper.Dice.D10));
 
@@ -1197,14 +1197,14 @@ namespace DnD.Editor.Initializer
                     // Mastery property
                     var topple =
                         Common.CreateScriptableObjectAndAddToObject<Topple>(NameHelper.MasteryProperty.Topple, trident);
-                    topple.Name = NameHelper.MasteryProperty.Topple;
+                    topple.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Topple}";
 
                     trident.MasteryProperty = topple;
                 }
                 {
                     var warhammer = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Warhammer,
                         MartialMeleeWeaponsPath);
-                    warhammer.Name = NameHelper.Weapons_MartialMelee.Warhammer;
+                    warhammer.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Warhammer}";
                     warhammer.Type = martialMeleeWeaponType;
                     warhammer.NumOfDamageDice = 1;
                     warhammer.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D8));
@@ -1216,7 +1216,7 @@ namespace DnD.Editor.Initializer
                     var versatile =
                         Common.CreateScriptableObjectAndAddToObject<Versatile>(NameHelper.WeaponProperty.Versatile,
                             warhammer);
-                    versatile.Name = NameHelper.WeaponProperty.Versatile;
+                    versatile.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Versatile}";
                     versatile.NumberOfDice = 1;
                     versatile.DieType = dice.Single((x => x.name == NameHelper.Dice.D10));
 
@@ -1225,7 +1225,7 @@ namespace DnD.Editor.Initializer
                     // Mastery property
                     var push = Common.CreateScriptableObjectAndAddToObject<Push>(NameHelper.MasteryProperty.Push,
                         warhammer);
-                    push.Name = NameHelper.MasteryProperty.Push;
+                    push.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Push}";
                     push.Distance = 3.0f;
 
                     warhammer.MasteryProperty = push;
@@ -1233,7 +1233,7 @@ namespace DnD.Editor.Initializer
                 {
                     var warpick = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.WarPick,
                         MartialMeleeWeaponsPath);
-                    warpick.Name = NameHelper.Weapons_MartialMelee.WarPick;
+                    warpick.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.WarPick}";
                     warpick.Type = martialMeleeWeaponType;
                     warpick.NumOfDamageDice = 1;
                     warpick.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D8));
@@ -1245,7 +1245,7 @@ namespace DnD.Editor.Initializer
                     var versatile =
                         Common.CreateScriptableObjectAndAddToObject<Versatile>(NameHelper.WeaponProperty.Versatile,
                             warpick);
-                    versatile.Name = NameHelper.WeaponProperty.Versatile;
+                    versatile.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Versatile}";
                     versatile.NumberOfDice = 1;
                     versatile.DieType = dice.Single((x => x.name == NameHelper.Dice.D10));
 
@@ -1253,14 +1253,14 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     var sap = Common.CreateScriptableObjectAndAddToObject<Sap>(NameHelper.MasteryProperty.Sap, warpick);
-                    sap.Name = NameHelper.MasteryProperty.Sap;
+                    sap.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Sap}";
 
                     warpick.MasteryProperty = sap;
                 }
                 {
                     var whip = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Whip,
                         MartialMeleeWeaponsPath);
-                    whip.Name = NameHelper.Weapons_MartialMelee.Whip;
+                    whip.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Whip}";
                     whip.Type = martialMeleeWeaponType;
                     whip.NumOfDamageDice = 1;
                     whip.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D4));
@@ -1271,17 +1271,17 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     var finesse =
                         Common.CreateScriptableObjectAndAddToObject<Finesse>(NameHelper.WeaponProperty.Finesse, whip);
-                    finesse.Name = NameHelper.WeaponProperty.Finesse;
+                    finesse.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Finesse}";
 
                     var reach = Common.CreateScriptableObjectAndAddToObject<Reach>(NameHelper.WeaponProperty.Reach,
                         whip);
-                    reach.Name = NameHelper.WeaponProperty.Reach;
+                    reach.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Reach}";
 
                     whip.Properties.AddRange(new Property[] { finesse, reach });
 
                     // Mastery property
                     var slow = Common.CreateScriptableObjectAndAddToObject<Slow>(NameHelper.MasteryProperty.Slow, whip);
-                    slow.Name = NameHelper.MasteryProperty.Slow;
+                    slow.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Slow}";
                     slow.SlowBy = 3.0f;
 
                     whip.MasteryProperty = slow;
@@ -1307,19 +1307,19 @@ namespace DnD.Editor.Initializer
                 Common.EnsureFolderExists(WeaponTypesPath);
                 
                 var martialMeleeWeapon = Common.CreateScriptableObject<WeaponType>(NameHelper.WeaponTypes.MartialMeleeWeapon, WeaponTypesPath);
-                martialMeleeWeapon.Name = NameHelper.WeaponTypes.MartialMeleeWeapon;
+                martialMeleeWeapon.Name = $"{nameof(NameHelper.WeaponTypes)}.{NameHelper.WeaponTypes.MartialMeleeWeapon}";
                 weaponTypes.Add(martialMeleeWeapon);
             
                 var simpleMeleeWeapon = Common.CreateScriptableObject<WeaponType>(NameHelper.WeaponTypes.SimpleMeleeWeapon, WeaponTypesPath);
-                simpleMeleeWeapon.Name = NameHelper.WeaponTypes.SimpleMeleeWeapon;
+                simpleMeleeWeapon.Name = $"{nameof(NameHelper.WeaponTypes)}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}";
                 weaponTypes.Add(simpleMeleeWeapon);
 
                 var martialRangedWeapon = Common.CreateScriptableObject<WeaponType>(NameHelper.WeaponTypes.MartialRangedWeapon, WeaponTypesPath);
-                martialRangedWeapon.Name = NameHelper.WeaponTypes.MartialRangedWeapon;
+                martialRangedWeapon.Name = $"{nameof(NameHelper.WeaponTypes)}.{NameHelper.WeaponTypes.MartialRangedWeapon}";
                 weaponTypes.Add(martialRangedWeapon);
             
                 var simpleRangedWeapon = Common.CreateScriptableObject<WeaponType>(NameHelper.WeaponTypes.SimpleRangedWeapon, WeaponTypesPath);
-                simpleRangedWeapon.Name = NameHelper.WeaponTypes.SimpleRangedWeapon;
+                simpleRangedWeapon.Name = $"{nameof(NameHelper.WeaponTypes)}.{NameHelper.WeaponTypes.SimpleRangedWeapon}";
                 weaponTypes.Add(simpleRangedWeapon);
 
                 AssetDatabase.SaveAssets();
@@ -1345,7 +1345,7 @@ namespace DnD.Editor.Initializer
                 Common.EnsureFolderExists(AmmunitionTypesPath);
                 
                 var arrows = Common.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.Arrows, AmmunitionTypesPath);
-                arrows.Name = NameHelper.AmmunitionTypes.Arrows;
+                arrows.Name = $"{nameof(NameHelper.AmmunitionTypes)}.{NameHelper.AmmunitionTypes.Arrows}";
                 arrows.Amount = 20;
                 arrows.Weight = 0.5f;
                 arrows.Cost = 1;
@@ -1353,7 +1353,7 @@ namespace DnD.Editor.Initializer
                 ammunitionTypes.Add(arrows);
             
                 var bolts = Common.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.Bolts, AmmunitionTypesPath);
-                bolts.Name = NameHelper.AmmunitionTypes.Bolts;
+                bolts.Name = $"{nameof(NameHelper.AmmunitionTypes)}.{NameHelper.AmmunitionTypes.Bolts}";
                 bolts.Amount = 20;
                 bolts.Weight = 0.75f;
                 bolts.Cost = 1;
@@ -1361,7 +1361,7 @@ namespace DnD.Editor.Initializer
                 ammunitionTypes.Add(bolts);
 
                 var bulletsFirearm = Common.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.BulletsFirearm, AmmunitionTypesPath);
-                bulletsFirearm.Name = NameHelper.AmmunitionTypes.BulletsFirearm;
+                bulletsFirearm.Name = $"{nameof(NameHelper.AmmunitionTypes)}.{NameHelper.AmmunitionTypes.BulletsFirearm}";
                 bulletsFirearm.Amount = 10;
                 bulletsFirearm.Weight = 1f;
                 bulletsFirearm.Cost = 3;
@@ -1369,7 +1369,7 @@ namespace DnD.Editor.Initializer
                 ammunitionTypes.Add(bulletsFirearm);
 
                 var bulletsSling = Common.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.BulletsSling, AmmunitionTypesPath);
-                bulletsSling.Name = NameHelper.AmmunitionTypes.BulletsSling;
+                bulletsSling.Name = $"{nameof(NameHelper.AmmunitionTypes)}.{NameHelper.AmmunitionTypes.BulletsSling}";
                 bulletsSling.Amount = 20;
                 bulletsSling.Weight = 0.75f;
                 bulletsSling.Cost = 4;
@@ -1377,7 +1377,7 @@ namespace DnD.Editor.Initializer
                 ammunitionTypes.Add(bulletsSling);
 
                 var needles = Common.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.Needles, AmmunitionTypesPath);
-                needles.Name = NameHelper.AmmunitionTypes.Needles;
+                needles.Name = $"{nameof(NameHelper.AmmunitionTypes)}.{NameHelper.AmmunitionTypes.Needles}";
                 needles.Amount = 50;
                 needles.Weight = 0.5f;
                 needles.Cost = 1;

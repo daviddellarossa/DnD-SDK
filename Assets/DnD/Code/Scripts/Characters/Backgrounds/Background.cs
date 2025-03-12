@@ -9,7 +9,7 @@ namespace DnD.Code.Scripts.Characters.Backgrounds
     public class Background : ScriptableObject
     {
         public string Name;
-        public AbilityEnum[] Abilities = new AbilityEnum[3];
+        public Ability[] Abilities = new Ability[3];
         public Skill[] SkillProficiencies = new Skill[2];
         public ITool ToolProficiency;
         public StartingEquipment[] StartingEquipment = new StartingEquipment[2];

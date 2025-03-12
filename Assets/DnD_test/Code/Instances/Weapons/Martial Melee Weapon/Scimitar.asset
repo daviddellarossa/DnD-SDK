@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6861798544270513680
+--- !u!114 &-4286130931749974663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736285003def7cc46b8f45a9970c9ed2, type: 3}
   m_Name: Nick
   m_EditorClassIdentifier: 
-  Name: Nick
+  Name: MasteryProperty.Nick
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25,18 +25,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
   m_Name: Scimitar
   m_EditorClassIdentifier: 
-  Name: Scimitar
+  Name: Weapons_MartialMelee.Scimitar
   Type: {fileID: 11400000, guid: a17122b4fb3a37baa82990cb42ae26d2, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: f0ea1e2ce5acbde74922c5ca6629c1de, type: 2}
   DamageType: {fileID: 11400000, guid: 07cd786d2f714c450924b74e26dab4f9, type: 2}
   Properties:
-  - {fileID: 378174202682904848}
-  - {fileID: 2111758717039189343}
-  MasteryProperty: {fileID: -6861798544270513680}
+  - {fileID: 1412653775782403490}
+  - {fileID: 5880907655772565974}
+  MasteryProperty: {fileID: -4286130931749974663}
   Weight: 1.05
   Cost: 2500
---- !u!114 &378174202682904848
+--- !u!114 &1412653775782403490
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebc4527f34bae1489fdaafed1f5dafc, type: 3}
   m_Name: Finesse
   m_EditorClassIdentifier: 
-  Name: Finesse
---- !u!114 &2111758717039189343
+  Name: WeaponProperty.Finesse
+--- !u!114 &5880907655772565974
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,4 +61,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 972175a1f99609d41a0057c11c6bff3b, type: 3}
   m_Name: Light
   m_EditorClassIdentifier: 
-  Name: Light
+  Name: WeaponProperty.Light

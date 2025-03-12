@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
   m_Name: Flail
   m_EditorClassIdentifier: 
-  Name: Flail
+  Name: Weapons_MartialMelee.Flail
   Type: {fileID: 11400000, guid: a17122b4fb3a37baa82990cb42ae26d2, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: 416ae441a889fd19f9b39135dbe65341, type: 2}
   DamageType: {fileID: 11400000, guid: c257cd772ac0ffd38abd063945592ef3, type: 2}
   Properties: []
-  MasteryProperty: {fileID: 8944392165368575774}
+  MasteryProperty: {fileID: 8273698488565557872}
   Weight: 1
   Cost: 1000
---- !u!114 &8944392165368575774
+--- !u!114 &8273698488565557872
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -33,4 +33,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e510b9724c2e76641951bf62d9c91ad4, type: 3}
   m_Name: Sap
   m_EditorClassIdentifier: 
-  Name: Sap
+  Name: MasteryProperty.Sap

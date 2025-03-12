@@ -1,35 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8542641616860112683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f8d5e35a94b90e41b494da90b605875, type: 3}
-  m_Name: Topple
-  m_EditorClassIdentifier: 
-  Name: Topple
---- !u!114 &-7544830609268036711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 160fc646e2c4724418aa23deca8abc00, type: 3}
-  m_Name: Thrown
-  m_EditorClassIdentifier: 
-  Name: Thrown
-  Range:
-    Min: 6
-    Max: 18
---- !u!114 &-6446190235065293396
+--- !u!114 &-7399673520875486986
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,9 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cf3b03451dd2e44ba153e70d88aa1c1, type: 3}
   m_Name: Versatile
   m_EditorClassIdentifier: 
-  Name: Versatile
+  Name: WeaponProperty.Versatile
   NumberOfDice: 1
   DieType: {fileID: 11400000, guid: 9ecbc39331fc58c3bb208fe609ae8f04, type: 2}
+--- !u!114 &-4745914171098858925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8d5e35a94b90e41b494da90b605875, type: 3}
+  m_Name: Topple
+  m_EditorClassIdentifier: 
+  Name: MasteryProperty.Topple
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,14 +40,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
   m_Name: Trident
   m_EditorClassIdentifier: 
-  Name: Trident
+  Name: Weapons_MartialMelee.Trident
   Type: {fileID: 11400000, guid: a17122b4fb3a37baa82990cb42ae26d2, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: 416ae441a889fd19f9b39135dbe65341, type: 2}
   DamageType: {fileID: 11400000, guid: 271a18c7e60c5cd6ebe215af8df61f5b, type: 2}
   Properties:
-  - {fileID: -7544830609268036711}
-  - {fileID: -6446190235065293396}
-  MasteryProperty: {fileID: -8542641616860112683}
+  - {fileID: 4686771028449390774}
+  - {fileID: -7399673520875486986}
+  MasteryProperty: {fileID: -4745914171098858925}
   Weight: 2
   Cost: 500
+--- !u!114 &4686771028449390774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 160fc646e2c4724418aa23deca8abc00, type: 3}
+  m_Name: Thrown
+  m_EditorClassIdentifier: 
+  Name: WeaponProperty.Thrown
+  Range:
+    Min: 6
+    Max: 18

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8964844738862009434
+--- !u!114 &-4075189526026615113
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,10 +9,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 037e71a86e645a242b3e1e815ad68008, type: 3}
-  m_Name: Heavy
+  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
+  m_Name: Two Handed
   m_EditorClassIdentifier: 
-  Name: Heavy
+  Name: WeaponProperty.Two Handed
+--- !u!114 &-3787636177332518775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb5d0173bc167f4ba82fdbebe29932e, type: 3}
+  m_Name: Reach
+  m_EditorClassIdentifier: 
+  Name: WeaponProperty.Reach
+  ExtraReach: 2.5
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25,19 +39,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
   m_Name: Pike
   m_EditorClassIdentifier: 
-  Name: Pike
+  Name: Weapons_MartialMelee.Pike
   Type: {fileID: 11400000, guid: a17122b4fb3a37baa82990cb42ae26d2, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: 9ecbc39331fc58c3bb208fe609ae8f04, type: 2}
   DamageType: {fileID: 11400000, guid: 271a18c7e60c5cd6ebe215af8df61f5b, type: 2}
   Properties:
-  - {fileID: -8964844738862009434}
-  - {fileID: 4428189809088844867}
-  - {fileID: 7755496883081793616}
-  MasteryProperty: {fileID: 1380931562691949893}
+  - {fileID: 38137183738492709}
+  - {fileID: -4075189526026615113}
+  - {fileID: -3787636177332518775}
+  MasteryProperty: {fileID: 2137411078879188615}
   Weight: 9
   Cost: 500
---- !u!114 &1380931562691949893
+--- !u!114 &38137183738492709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 037e71a86e645a242b3e1e815ad68008, type: 3}
+  m_Name: Heavy
+  m_EditorClassIdentifier: 
+  Name: WeaponProperty.Heavy
+--- !u!114 &2137411078879188615
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,32 +76,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92af2a4d070d7b4a8ba7357ce1e0dde, type: 3}
   m_Name: Push
   m_EditorClassIdentifier: 
-  Name: Push
+  Name: MasteryProperty.Push
   Distance: 3
---- !u!114 &4428189809088844867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
-  m_Name: Two Handed
-  m_EditorClassIdentifier: 
-  Name: Two Handed
---- !u!114 &7755496883081793616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cb5d0173bc167f4ba82fdbebe29932e, type: 3}
-  m_Name: Reach
-  m_EditorClassIdentifier: 
-  Name: Reach
-  ExtraReach: 2.5

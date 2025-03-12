@@ -30,30 +30,40 @@ namespace DnD.Editor.Initializer
             
                 Common.EnsureFolderExists(EquipmentCoinsPath);
 
-                var copperPiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.CopperPiece, EquipmentCoinsPath);
-                copperPiece.Name = $"{nameof(NameHelper.CoinValues)}.{NameHelper.CoinValues.CopperPiece}";
-                copperPiece.Abbreviation = "CP";
-                copperPiece.Value = 1;
+                {
+                    var copperPiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.CopperPiece, EquipmentCoinsPath);
+                    copperPiece.Name = $"{nameof(NameHelper.CoinValues)}.{NameHelper.CoinValues.CopperPiece}";
+                    copperPiece.Abbreviation = "CP";
+                    copperPiece.Value = 1;
+                }
 
-                var silverpiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.SilverPiece, EquipmentCoinsPath);
-                silverpiece.Name = $"{nameof(NameHelper.CoinValues)}.{NameHelper.CoinValues.SilverPiece}";
-                silverpiece.Abbreviation = "SP";
-                silverpiece.Value = 10;
+                {
+                    var silverpiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.SilverPiece, EquipmentCoinsPath);
+                    silverpiece.Name = $"{nameof(NameHelper.CoinValues)}.{NameHelper.CoinValues.SilverPiece}";
+                    silverpiece.Abbreviation = "SP";
+                    silverpiece.Value = 10;
+                }
 
-                var electrumPiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.ElectrumPiece, EquipmentCoinsPath);
-                electrumPiece.Name = $"{nameof(NameHelper.CoinValues)}.{NameHelper.CoinValues.ElectrumPiece}";
-                electrumPiece.Abbreviation = "EP";
-                electrumPiece.Value = 50;
+                {
+                    var electrumPiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.ElectrumPiece, EquipmentCoinsPath);
+                    electrumPiece.Name = $"{nameof(NameHelper.CoinValues)}.{NameHelper.CoinValues.ElectrumPiece}";
+                    electrumPiece.Abbreviation = "EP";
+                    electrumPiece.Value = 50;
+                }
 
-                var goldPiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.GoldPiece, EquipmentCoinsPath);
-                goldPiece.Name = $"{nameof(NameHelper.CoinValues)}.{NameHelper.CoinValues.GoldPiece}";
-                goldPiece.Abbreviation = "GP";
-                goldPiece.Value = 100;
+                {
+                    var goldPiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.GoldPiece, EquipmentCoinsPath);
+                    goldPiece.Name = $"{nameof(NameHelper.CoinValues)}.{NameHelper.CoinValues.GoldPiece}";
+                    goldPiece.Abbreviation = "GP";
+                    goldPiece.Value = 100;
+                }
 
-                var platinumPiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.PlatinumPiece, EquipmentCoinsPath);
-                platinumPiece.Name = $"{nameof(NameHelper.CoinValues)}.{NameHelper.CoinValues.PlatinumPiece}";
-                platinumPiece.Abbreviation = "PP";
-                platinumPiece.Value = 1000;
+                {
+                    var platinumPiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.PlatinumPiece, EquipmentCoinsPath);
+                    platinumPiece.Name = $"{nameof(NameHelper.CoinValues)}.{NameHelper.CoinValues.PlatinumPiece}";
+                    platinumPiece.Abbreviation = "PP";
+                    platinumPiece.Value = 1000;
+                }
             
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();

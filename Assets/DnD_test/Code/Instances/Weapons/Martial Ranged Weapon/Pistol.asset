@@ -1,19 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6335683126300263331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1de63446a39c28145a8b4eea8f194a7e, type: 3}
-  m_Name: Vex
-  m_EditorClassIdentifier: 
-  Name: Vex
---- !u!114 &-685653888499288233
+--- !u!114 &-5700217992335054092
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25,7 +12,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb202eed58cbad5498c5cbc96f204e39, type: 3}
   m_Name: Loading
   m_EditorClassIdentifier: 
-  Name: Loading
+  Name: WeaponProperty.Loading
+--- !u!114 &-4138631739215156054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1de63446a39c28145a8b4eea8f194a7e, type: 3}
+  m_Name: Vex
+  m_EditorClassIdentifier: 
+  Name: MasteryProperty.Vex
+--- !u!114 &-3907433248842793327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8954e8761f4789b49a5fe892e72beeff, type: 3}
+  m_Name: Ammunition
+  m_EditorClassIdentifier: 
+  Name: WeaponProperty.Ammunition
+  Range:
+    Min: 9
+    Max: 27
+  Type: {fileID: 11400000, guid: 696d0823fe9f05856a32638030d4e8bd, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38,31 +55,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
-  Name: Pistol
+  Name: Weapons_SimpleMelee.Pistol
   Type: {fileID: 11400000, guid: 2b4a7bb5ff540f19a87717b719f1ee02, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: 9ecbc39331fc58c3bb208fe609ae8f04, type: 2}
   DamageType: {fileID: 11400000, guid: 271a18c7e60c5cd6ebe215af8df61f5b, type: 2}
   Properties:
-  - {fileID: 6049394635718797665}
-  - {fileID: -685653888499288233}
-  MasteryProperty: {fileID: -6335683126300263331}
+  - {fileID: -3907433248842793327}
+  - {fileID: -5700217992335054092}
+  MasteryProperty: {fileID: -4138631739215156054}
   Weight: 1.5
   Cost: 25000
---- !u!114 &6049394635718797665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8954e8761f4789b49a5fe892e72beeff, type: 3}
-  m_Name: Ammunition
-  m_EditorClassIdentifier: 
-  Name: Ammunition
-  Range:
-    Min: 9
-    Max: 27
-  Type: {fileID: 11400000, guid: 696d0823fe9f05856a32638030d4e8bd, type: 2}

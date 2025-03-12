@@ -4,6 +4,10 @@ namespace DnD.Code.Scripts.Common
 {
     public static partial class NameHelper
     {
+        public static class Naming
+        {
+            public const string Description = "Description";
+        }
         public static class Abilities
         {
             public const string Charisma = "Charisma";
@@ -213,6 +217,11 @@ namespace DnD.Code.Scripts.Common
             public const string General = "General";
             public const string Origin = "Origin";
 
+        }
+
+        public static class Feats
+        {
+            public const string MagicInitiate = "MagicInitiate";
         }
 
         public static class Backgrounds

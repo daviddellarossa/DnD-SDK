@@ -1,23 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6525708347965097879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8954e8761f4789b49a5fe892e72beeff, type: 3}
-  m_Name: Ammunition
-  m_EditorClassIdentifier: 
-  Name: Ammunition
-  Range:
-    Min: 8
-    Max: 32
-  Type: {fileID: 11400000, guid: 7cb8a02c0b64a3d95a2644602e76f2c6, type: 2}
---- !u!114 &-3131918109315958433
+--- !u!114 &-5769118236141931846
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29,7 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de63446a39c28145a8b4eea8f194a7e, type: 3}
   m_Name: Vex
   m_EditorClassIdentifier: 
-  Name: Vex
+  Name: MasteryProperty.Vex
+--- !u!114 &-2425524781866553612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb202eed58cbad5498c5cbc96f204e39, type: 3}
+  m_Name: Loading
+  m_EditorClassIdentifier: 
+  Name: WeaponProperty.Loading
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,18 +38,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
   m_Name: Blowgun
   m_EditorClassIdentifier: 
-  Name: Blowgun
+  Name: Weapons_SimpleMelee.Blowgun
   Type: {fileID: 11400000, guid: 2b4a7bb5ff540f19a87717b719f1ee02, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: 939feea76bff3f735b4e7ec82236a51f, type: 2}
   DamageType: {fileID: 11400000, guid: 271a18c7e60c5cd6ebe215af8df61f5b, type: 2}
   Properties:
-  - {fileID: -6525708347965097879}
-  - {fileID: 4706540159837593187}
-  MasteryProperty: {fileID: -3131918109315958433}
+  - {fileID: 5687146222312348707}
+  - {fileID: -2425524781866553612}
+  MasteryProperty: {fileID: -5769118236141931846}
   Weight: 0.5
   Cost: 1000
---- !u!114 &4706540159837593187
+--- !u!114 &5687146222312348707
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,7 +58,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb202eed58cbad5498c5cbc96f204e39, type: 3}
-  m_Name: Loading
+  m_Script: {fileID: 11500000, guid: 8954e8761f4789b49a5fe892e72beeff, type: 3}
+  m_Name: Ammunition
   m_EditorClassIdentifier: 
-  Name: Loading
+  Name: WeaponProperty.Ammunition
+  Range:
+    Min: 8
+    Max: 32
+  Type: {fileID: 11400000, guid: 7cb8a02c0b64a3d95a2644602e76f2c6, type: 2}

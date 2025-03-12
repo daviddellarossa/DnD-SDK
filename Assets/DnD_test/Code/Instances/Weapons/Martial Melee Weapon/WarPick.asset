@@ -1,20 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2334636646939564043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cf3b03451dd2e44ba153e70d88aa1c1, type: 3}
-  m_Name: Versatile
-  m_EditorClassIdentifier: 
-  Name: Versatile
-  NumberOfDice: 1
-  DieType: {fileID: 11400000, guid: 9ecbc39331fc58c3bb208fe609ae8f04, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
   m_Name: WarPick
   m_EditorClassIdentifier: 
-  Name: WarPick
+  Name: Weapons_MartialMelee.WarPick
   Type: {fileID: 11400000, guid: a17122b4fb3a37baa82990cb42ae26d2, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: 416ae441a889fd19f9b39135dbe65341, type: 2}
   DamageType: {fileID: 11400000, guid: 271a18c7e60c5cd6ebe215af8df61f5b, type: 2}
   Properties:
-  - {fileID: -2334636646939564043}
-  MasteryProperty: {fileID: 2723018762264420883}
+  - {fileID: 8251158011200336462}
+  MasteryProperty: {fileID: 1758207395258594463}
   Weight: 1
   Cost: 500
---- !u!114 &2723018762264420883
+--- !u!114 &1758207395258594463
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,4 +34,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e510b9724c2e76641951bf62d9c91ad4, type: 3}
   m_Name: Sap
   m_EditorClassIdentifier: 
-  Name: Sap
+  Name: MasteryProperty.Sap
+--- !u!114 &8251158011200336462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf3b03451dd2e44ba153e70d88aa1c1, type: 3}
+  m_Name: Versatile
+  m_EditorClassIdentifier: 
+  Name: WeaponProperty.Versatile
+  NumberOfDice: 1
+  DieType: {fileID: 11400000, guid: 9ecbc39331fc58c3bb208fe609ae8f04, type: 2}
