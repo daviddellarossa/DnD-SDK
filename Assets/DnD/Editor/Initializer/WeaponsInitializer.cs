@@ -64,7 +64,7 @@ namespace DnD.Editor.Initializer
                 {
                     var dart = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleRanged.Dart,
                         SimpleRangedWeaponsPath);
-                    dart.Name = NameHelper.Weapons_SimpleRanged.Dart;
+                    dart.Name = $"{nameof(NameHelper.Weapons_SimpleRanged)}.{NameHelper.Weapons_SimpleRanged.Dart}";
                     dart.Type = simpleRangedWeaponType;
                     dart.NumOfDamageDice = 1;
                     dart.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D4));
@@ -75,19 +75,19 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     var finesse =
                         Common.CreateScriptableObjectAndAddToObject<Finesse>(NameHelper.WeaponProperty.Finesse, dart);
-                    finesse.Name = NameHelper.WeaponProperty.Finesse;
+                    finesse.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Finesse}";
 
 
                     var thrown =
                         Common.CreateScriptableObjectAndAddToObject<Thrown>(NameHelper.WeaponProperty.Thrown, dart);
-                    thrown.Name = NameHelper.WeaponProperty.Thrown;
+                    thrown.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Thrown}";
                     thrown.Range = new Range() { Max = 18, Min = 6 };
 
                     dart.Properties.AddRange(new Property[] { finesse, thrown });
 
                     // Mastery property
                     var vex = Common.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex, dart);
-                    vex.Name = NameHelper.MasteryProperty.Vex;
+                    vex.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Vex}";
 
                     dart.MasteryProperty = vex;
 
@@ -97,7 +97,7 @@ namespace DnD.Editor.Initializer
                     var lightCrossbow =
                         Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleRanged.LightCrossbow,
                             SimpleRangedWeaponsPath);
-                    lightCrossbow.Name = NameHelper.Weapons_SimpleRanged.LightCrossbow;
+                    lightCrossbow.Name = $"{nameof(NameHelper.Weapons_SimpleRanged)}.{NameHelper.Weapons_SimpleRanged.LightCrossbow}";
                     lightCrossbow.Type = simpleRangedWeaponType;
                     lightCrossbow.NumOfDamageDice = 1;
                     lightCrossbow.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D8));
@@ -109,26 +109,26 @@ namespace DnD.Editor.Initializer
                     var ammunition =
                         Common.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
                             lightCrossbow);
-                    ammunition.Name = NameHelper.WeaponProperty.Ammunition;
+                    ammunition.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Ammunition}";
                     ammunition.Type = ammunitionTypes.Single(x => x.name == NameHelper.AmmunitionTypes.Bolts);
                     ammunition.Range = new Range() { Max = 96, Min = 24 };
 
                     var loading =
                         Common.CreateScriptableObjectAndAddToObject<Loading>(NameHelper.WeaponProperty.Loading,
                             lightCrossbow);
-                    loading.Name = NameHelper.WeaponProperty.Loading;
+                    loading.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Loading}";
 
                     var twoHanded =
                         Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                             lightCrossbow);
-                    twoHanded.Name = NameHelper.WeaponProperty.TwoHanded;
+                    twoHanded.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.TwoHanded}";
 
                     lightCrossbow.Properties.AddRange(new Property[] { ammunition, loading, twoHanded });
 
                     // Mastery property
                     var slow = Common.CreateScriptableObjectAndAddToObject<Slow>(NameHelper.MasteryProperty.Slow,
                         lightCrossbow);
-                    slow.Name = NameHelper.MasteryProperty.Slow;
+                    slow.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Slow}";
 
                     lightCrossbow.MasteryProperty = slow;
                 }
@@ -136,7 +136,7 @@ namespace DnD.Editor.Initializer
                 {
                     var shortbow = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleRanged.Shortbow,
                         SimpleRangedWeaponsPath);
-                    shortbow.Name = NameHelper.Weapons_SimpleRanged.Shortbow;
+                    shortbow.Name = $"{nameof(NameHelper.Weapons_SimpleRanged)}.{NameHelper.Weapons_SimpleRanged.Shortbow}";
                     shortbow.Type = simpleRangedWeaponType;
                     shortbow.NumOfDamageDice = 1;
                     shortbow.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D6));
@@ -148,7 +148,7 @@ namespace DnD.Editor.Initializer
                     var ammunition =
                         Common.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
                             shortbow);
-                    ammunition.Name = NameHelper.WeaponProperty.Ammunition;
+                    ammunition.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Ammunition}";
                     ammunition.Type = ammunitionTypes.Single(x => x.name == NameHelper.AmmunitionTypes.Arrows);
                     ammunition.Range = new Range() { Max = 96, Min = 24 };
 
@@ -156,14 +156,14 @@ namespace DnD.Editor.Initializer
                     var twoHanded =
                         Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                             shortbow);
-                    twoHanded.Name = NameHelper.WeaponProperty.TwoHanded;
+                    twoHanded.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.TwoHanded}";
 
                     shortbow.Properties.AddRange(new Property[] { ammunition, twoHanded });
 
                     // Mastery property
                     var vex = Common.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex,
                         shortbow);
-                    vex.Name = NameHelper.MasteryProperty.Vex;
+                    vex.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Vex}";
 
                     shortbow.MasteryProperty = vex;
                 }
@@ -171,7 +171,7 @@ namespace DnD.Editor.Initializer
                 {
                     var sling = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleRanged.Sling,
                         SimpleRangedWeaponsPath);
-                    sling.Name = NameHelper.Weapons_SimpleRanged.Sling;
+                    sling.Name = $"{nameof(NameHelper.Weapons_SimpleRanged)}.{NameHelper.Weapons_SimpleRanged.Sling}";
                     sling.Type = simpleRangedWeaponType;
                     sling.NumOfDamageDice = 1;
                     sling.DamageDie = dice.Single((x => x.name == NameHelper.Dice.D4));
@@ -183,7 +183,7 @@ namespace DnD.Editor.Initializer
                     var ammunition =
                         Common.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
                             sling);
-                    ammunition.Name = NameHelper.WeaponProperty.Ammunition;
+                    ammunition.Name = $"{nameof(NameHelper.WeaponProperty)}.{NameHelper.WeaponProperty.Ammunition}";
                     ammunition.Type = ammunitionTypes.Single(x => x.name == NameHelper.AmmunitionTypes.BulletsSling);
                     ammunition.Range = new Range() { Max = 36, Min = 9 };
 
@@ -192,7 +192,7 @@ namespace DnD.Editor.Initializer
                     // Mastery property
                     var slow = Common.CreateScriptableObjectAndAddToObject<Slow>(NameHelper.MasteryProperty.Slow,
                         sling);
-                    slow.Name = NameHelper.MasteryProperty.Slow;
+                    slow.Name = $"{nameof(NameHelper.MasteryProperty)}.{NameHelper.MasteryProperty.Slow}";
                     slow.SlowBy = 3;
 
                     sling.MasteryProperty = slow;

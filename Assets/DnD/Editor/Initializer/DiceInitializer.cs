@@ -25,39 +25,39 @@ namespace DnD.Editor.Initializer
                 Common.EnsureFolderExists(DicePath);
             
                 var d1 = Common.CreateScriptableObject<Die>(Dice.D1, DicePath);
-                d1.Name = Dice.D1;
+                d1.Name = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D1}";
                 d1.NumOfFaces = 1;
 
                 var d3 = Common.CreateScriptableObject<Die>(Dice.D3, DicePath);
-                d3.Name = Dice.D3;
+                d3.Name = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D3}";
                 d3.NumOfFaces = 3;
 
                 var d4 = Common.CreateScriptableObject<Die>(Dice.D4, DicePath);
-                d4.Name = Dice.D4;
+                d4.Name = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D4}";
                 d4.NumOfFaces = 4;
 
                 var d6 = Common.CreateScriptableObject<Die>(Dice.D6, DicePath);
-                d6.Name = Dice.D6;
+                d6.Name = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D6}";
                 d6.NumOfFaces = 6;
 
                 var d8 = Common.CreateScriptableObject<Die>(Dice.D8, DicePath);
-                d8.Name = Dice.D8;
+                d8.Name = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D8}";
                 d8.NumOfFaces = 8;
 
                 var d10 = Common.CreateScriptableObject<Die>(Dice.D10, DicePath);
-                d10.Name = Dice.D10;
+                d10.Name = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D10}";
                 d10.NumOfFaces = 10;
 
                 var d12 = Common.CreateScriptableObject<Die>(Dice.D12, DicePath);
-                d12.Name = Dice.D12;
+                d12.Name = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D12}";
                 d12.NumOfFaces = 12;
 
                 var d20 = Common.CreateScriptableObject<Die>(Dice.D20, DicePath);
-                d20.Name = Dice.D20;
+                d20.Name = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D20}";
                 d20.NumOfFaces = 20;
 
                 var d100 = Common.CreateScriptableObject<Die>(Dice.D100, DicePath);
-                d100.Name = Dice.D100;
+                d100.Name = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D100}";
                 d100.NumOfFaces = 100;
 
 

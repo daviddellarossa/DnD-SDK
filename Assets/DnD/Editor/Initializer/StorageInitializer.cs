@@ -24,11 +24,11 @@ namespace DnD.Editor.Initializer
                 Common.EnsureFolderExists(StoragePath);
 
                 var caseStorage = Common.CreateScriptableObject<Storage>(NameHelper.Storage.Case, StoragePath);
-                caseStorage.Name = NameHelper.Storage.Case;
+                caseStorage.Name = $"{nameof(NameHelper.Storage)}.{NameHelper.Storage.Case}";
                 var pouchStorage = Common.CreateScriptableObject<Storage>(NameHelper.Storage.Pouch, StoragePath);
-                pouchStorage.Name = NameHelper.Storage.Pouch;
+                pouchStorage.Name = $"{nameof(NameHelper.Storage)}.{NameHelper.Storage.Pouch}";
                 var quiverStorage = Common.CreateScriptableObject<Storage>(NameHelper.Storage.Quiver, StoragePath);
-                quiverStorage.Name = NameHelper.Storage.Quiver;
+                quiverStorage.Name = $"{nameof(NameHelper.Storage)}.{NameHelper.Storage.Quiver}";
 
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
