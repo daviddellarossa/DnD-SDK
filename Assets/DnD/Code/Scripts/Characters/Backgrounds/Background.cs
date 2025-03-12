@@ -11,7 +11,7 @@ namespace DnD.Code.Scripts.Characters.Backgrounds
         public string Name;
         public Ability[] Abilities = new Ability[3];
         public Skill[] SkillProficiencies = new Skill[2];
-        public ITool ToolProficiency;
+        public string ToolProficiency;
         public StartingEquipment[] StartingEquipment = new StartingEquipment[2];
         public Feat Feat; // TODO: this must be a Origin Feat. Add a filter on the UI.
         public string Note = "Tool proficiency still not shown in the UI. TODO.";

@@ -9,6 +9,7 @@ namespace DnD.Editor.Initializer
     {
         public static readonly string EquipmentPath = $"{Common.FolderPath}/Equipment";
         public static readonly string EquipmentCoinsPath = $"{EquipmentPath}/Coins";
+        public static readonly string EquipmentToolsPath = $"{EquipmentPath}/Tools";
 
 
         public static CoinValue[] GetAllCoinValues()
@@ -16,13 +17,15 @@ namespace DnD.Editor.Initializer
             return Common.GetAllScriptableObjects<CoinValue>(EquipmentCoinsPath);
         }
         
+        [MenuItem("D&D Game/Game Data Initializer/Initialize Equipment Data")]
         public static void InitializeEquipment()
         {
             Common.EnsureFolderExists(EquipmentPath);
             InitializeCoins();
+            InitializeTools();
         }
 
-        public static void InitializeCoins()
+        private static void InitializeCoins()
         {
             try
             {
@@ -65,6 +68,25 @@ namespace DnD.Editor.Initializer
                     platinumPiece.Value = 1000;
                 }
             
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+            }
+            finally
+            {
+                AssetDatabase.StopAssetEditing();
+            }
+        }
+
+        private static void InitializeTools()
+        {
+            try
+            {
+                AssetDatabase.StartAssetEditing();
+            
+                Common.EnsureFolderExists(EquipmentToolsPath);
+                
+                
+                
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
             }

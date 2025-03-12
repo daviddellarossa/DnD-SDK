@@ -22,6 +22,7 @@ namespace DnD.Editor.Initializer
                 AbilitiesInitializer.InitializeAbilities();
                 LanguagesInitializer.InitializeLanguages();
                 FeatsInitializer.InitializeFeatsData();
+                BackgroundInitializer.InitializeBackgrounds();
                 WeaponsInitializer.InitializeWeapons();
                 ArmoursInitializer.InitializeArmours();
                 return;

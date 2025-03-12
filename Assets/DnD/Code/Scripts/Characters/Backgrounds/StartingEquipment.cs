@@ -20,9 +20,20 @@ namespace DnD.Code.Scripts.Characters.Backgrounds
         public class EquipmentWithAmount
         {
             public ScriptableObject Item;
-            public int Amount;
+            public float Amount;
 
             public IEquipment AsIEquipment() => Item as IEquipment;
+
+            public EquipmentWithAmount()
+            {
+                
+            }
+
+            public EquipmentWithAmount(ScriptableObject item, float amount)
+            {
+                this.Item = item;
+                this.Amount = amount;
+            }
         }
     }
 }

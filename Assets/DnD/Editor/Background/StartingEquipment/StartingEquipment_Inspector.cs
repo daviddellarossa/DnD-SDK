@@ -87,7 +87,7 @@ namespace DnD.Editor.Background.StartingEquipment
                 label.style.unityTextAlign = TextAnchor.LowerLeft;
 
                 // Add the amount field
-                var amountField = new IntegerField("Amount")
+                var amountField = new FloatField("Amount")
                 {
                     value = item.Amount,
                 };

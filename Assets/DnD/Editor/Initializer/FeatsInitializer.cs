@@ -12,6 +12,12 @@ namespace DnD.Editor.Initializer
         public static readonly string FeatCategoriesPath = $"{FeatsDataPath}/Categories";
         public static readonly string FeatsPath = $"{FeatsDataPath}/Feats";
 
+        public static Feat[] GetAllFeats()
+        {
+            return Common.GetAllScriptableObjects<Feat>(FeatsPath);
+        }
+        
+        [MenuItem("D&D Game/Game Data Initializer/Initialize Feats Data")]
         public static void InitializeFeatsData()
         {
             Common.EnsureFolderExists(FeatsDataPath);
@@ -79,7 +85,7 @@ namespace DnD.Editor.Initializer
                 {
                     var magicInitiate = Common.CreateScriptableObject<Feat>(NameHelper.Feats.MagicInitiate, FeatsPath);
                     magicInitiate.DisplayName = $"{nameof(NameHelper.Feats)}.{NameHelper.Feats.MagicInitiate}";
-                    magicInitiate.Category = featCategories.Single(category => category.name == nameof(NameHelper.Feats.MagicInitiate));
+                    magicInitiate.Category = featCategories.Single(category => category.name == nameof(NameHelper.FeatCategories.Origin));
                     magicInitiate.Repeatable = Repeatable.Once;
                     magicInitiate.Benefit = null; // TODO
                     magicInitiate.Prerequisite = null; // TODO
