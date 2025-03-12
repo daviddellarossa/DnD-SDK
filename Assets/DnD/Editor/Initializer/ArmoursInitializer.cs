@@ -48,7 +48,7 @@ namespace DnD.Editor.Initializer
                 Common.EnsureFolderExists(ShieldsPath);
                 
                 var shieldType =
-                    armourTypes.Single(x => ((ShieldType)x).name == NameHelper.ArmourType.Shield) as ShieldType;
+                    armourTypes.Single(x => ((ScriptableObject)x).name == NameHelper.ArmourType.Shield) as ShieldType;
 
                 {
                     var shield = Common.CreateScriptableObject<Shield>(NameHelper.Shields.Shield, ShieldsPath);
@@ -76,7 +76,7 @@ namespace DnD.Editor.Initializer
                 Common.EnsureFolderExists(MediumArmoursPath);
                 
                 var armourType =
-                    armourTypes.Single(x => ((ArmourType)x).name == NameHelper.ArmourType.MediumArmour) as ArmourType;
+                    armourTypes.Single(x => ((ScriptableObject)x).name == NameHelper.ArmourType.MediumArmour) as ArmourType;
 
                 {
                     var breastplate = Common.CreateScriptableObject<Armour>(NameHelper.Armours_Medium.Breastplate, MediumArmoursPath);
@@ -161,7 +161,7 @@ namespace DnD.Editor.Initializer
                 Common.EnsureFolderExists(LightArmoursPath);
                 
                 var armourType =
-                    armourTypes.Single(x => ((ArmourType)x).name == NameHelper.ArmourType.LightArmour) as ArmourType;
+                    armourTypes.Single(x => ((ScriptableObject)x).name == NameHelper.ArmourType.LightArmour) as ArmourType;
 
                 {
                     var leatherArmour = Common.CreateScriptableObject<Armour>(NameHelper.Armours_Light.LeatherArmour, LightArmoursPath);
@@ -220,8 +220,13 @@ namespace DnD.Editor.Initializer
                 Common.EnsureFolderExists(HeavyArmoursPath);
                 
                 var armourType =
-                    armourTypes.Single(x => ((ArmourType)x).name == NameHelper.ArmourType.HeavyArmour) as ArmourType;
+                    armourTypes.Single(x => ((ScriptableObject)x).name == NameHelper.ArmourType.HeavyArmour) as ArmourType;
 
+                if (armourType == null)
+                {
+                    Debug.LogError($"Couldn't find armour type {NameHelper.ArmourType.HeavyArmour}");
+                }
+                
                 {
                     var chainMail = Common.CreateScriptableObject<Armour>(NameHelper.Armours_Heavy.ChainMail, HeavyArmoursPath);
                     chainMail.Type = armourType;
@@ -290,6 +295,8 @@ namespace DnD.Editor.Initializer
             try
             {
                 AssetDatabase.StartAssetEditing();
+
+                Common.EnsureFolderExists(ArmourTypesPath);
 
                 {
                     var heavyArmourType = Common.CreateScriptableObject<ArmourType>(NameHelper.ArmourType.HeavyArmour, ArmourTypesPath);

@@ -247,6 +247,318 @@ MonoBehaviour:
     m_Key: MasteryProperty.Vex
     m_Metadata:
       m_Items: []
+  - m_Id: 130015797698560
+    m_Key: LanguageOrigins.Aberrations
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130054825697280
+    m_Key: LanguageOrigins.Celestials
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130080322871296
+    m_Key: LanguageOrigins.DemonsOfTheAbyss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130135113064448
+    m_Key: LanguageOrigins.DevilsOfTheNineHells
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130180952612864
+    m_Key: LanguageOrigins.Dragons
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130207439642624
+    m_Key: LanguageOrigins.DruidicCircles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130222409113600
+    m_Key: LanguageOrigins.Dwarves
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130238653652992
+    m_Key: LanguageOrigins.Elementals
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130255074353152
+    m_Key: LanguageOrigins.Elves
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130269406289920
+    m_Key: LanguageOrigins.Giants
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130287982862336
+    m_Key: LanguageOrigins.Gnomes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130305326309376
+    m_Key: LanguageOrigins.Goblinoids
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130326906003456
+    m_Key: LanguageOrigins.Halflings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130345365135360
+    m_Key: LanguageOrigins.Orcs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130364738625536
+    m_Key: LanguageOrigins.Sigil
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130381134159872
+    m_Key: LanguageOrigins.TheFeywild
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130397097680896
+    m_Key: LanguageOrigins.TheUnderdark
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130413086367744
+    m_Key: LanguageOrigins.VariousCriminalGuilds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131174868443136
+    m_Key: Languages.Common
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131195768659968
+    m_Key: Languages.CommonSign
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131221311971328
+    m_Key: Languages.Draconic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131251318022144
+    m_Key: Languages.Dwarvish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131271660396544
+    m_Key: Languages.Elvish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131292808077312
+    m_Key: Languages.Giant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131312735215616
+    m_Key: Languages.Gnomish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131331999653888
+    m_Key: Languages.Goblin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131353180889088
+    m_Key: Languages.Halfling
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131372197863424
+    m_Key: Languages.Orc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131395585302528
+    m_Key: Languages.Abyssal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131418226155520
+    m_Key: Languages.Celestial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131437721280512
+    m_Key: Languages.DeepSpeech
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131490137497600
+    m_Key: Languages.Druidic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131508873453568
+    m_Key: Languages.Infernal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131528729288704
+    m_Key: Languages.Primordial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131547918229504
+    m_Key: Languages.Sylvan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131567551766528
+    m_Key: Languages.ThievesCant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131597994024960
+    m_Key: Languages.Undercommon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131974785130496
+    m_Key: CreatureTypes.Aberration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131992241823744
+    m_Key: CreatureTypes.Beast
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132010940030976
+    m_Key: CreatureTypes.Celestial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132029051035648
+    m_Key: CreatureTypes.Construct
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132053357027328
+    m_Key: CreatureTypes.Dragon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132071728078848
+    m_Key: CreatureTypes.Elemental
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132122139418624
+    m_Key: CreatureTypes.Fey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132139780661248
+    m_Key: CreatureTypes.Fiend
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132154477502464
+    m_Key: CreatureTypes.Giant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132170411663360
+    m_Key: CreatureTypes.Humanoid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132186312269824
+    m_Key: CreatureTypes.Monstrosity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132201755697152
+    m_Key: CreatureTypes.Ooze
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132210932834304
+    m_Key: CreatureTypes.Plant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132234987167744
+    m_Key: CreatureTypes.Undead
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132722868609024
+    m_Key: Species.Aasimar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132753101152256
+    m_Key: Species.Dragonborn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132777998540800
+    m_Key: Species.Dwarf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132793609740288
+    m_Key: Species.Elf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132807341891584
+    m_Key: Species.Gnome
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132823808729088
+    m_Key: Species.Goliath
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132837339553792
+    m_Key: Species.Halfling
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132852099309568
+    m_Key: Species.Human
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132869425979392
+    m_Key: Species.Orc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132883128770560
+    m_Key: Species.Tiefling
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133379277185024
+    m_Key: Classes.Barbarian
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133397761482752
+    m_Key: Classes.Bard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133416119951360
+    m_Key: Classes.Cleric
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133435661213696
+    m_Key: Classes.Druid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133453495394304
+    m_Key: Classes.Fighter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133469274365952
+    m_Key: Classes.Monk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133487066603520
+    m_Key: Classes.Paladin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133503822848000
+    m_Key: Classes.Ranger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133521929658368
+    m_Key: Classes.Rogue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133538971115520
+    m_Key: Classes.Sorcerer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133559368015872
+    m_Key: Classes.Warlock
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133576044568576
+    m_Key: Classes.Wizard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133861060108288
+    m_Key: CoinValues.CopperPiece
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133913203695616
+    m_Key: CoinValues.ElectrumPiece
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133946590355456
+    m_Key: CoinValues.GoldPiece
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133980148981760
+    m_Key: CoinValues.PlatinumPiece
+    m_Metadata:
+      m_Items: []
+  - m_Id: 134015267889152
+    m_Key: CoinValues.SilverPiece
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

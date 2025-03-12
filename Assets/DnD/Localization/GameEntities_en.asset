@@ -246,6 +246,318 @@ MonoBehaviour:
     m_Localized: Cleave
     m_Metadata:
       m_Items: []
+  - m_Id: 130015797698560
+    m_Localized: Aberrations
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130054825697280
+    m_Localized: Celestials
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130080322871296
+    m_Localized: Demons  of the Abyss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130135113064448
+    m_Localized: Devils of the Nine Hells
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130180952612864
+    m_Localized: Dragons
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130207439642624
+    m_Localized: Druidic Circles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130222409113600
+    m_Localized: Dwarves
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130238653652992
+    m_Localized: Elementals
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130255074353152
+    m_Localized: Elves
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130269406289920
+    m_Localized: Giants
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130287982862336
+    m_Localized: Gnomes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130305326309376
+    m_Localized: Goblinoids
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130326906003456
+    m_Localized: Halflings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130345365135360
+    m_Localized: Orcs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130364738625536
+    m_Localized: Sigil
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130381134159872
+    m_Localized: TheFeywild
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130397097680896
+    m_Localized: TheUnderdark
+    m_Metadata:
+      m_Items: []
+  - m_Id: 130413086367744
+    m_Localized: VariousCriminalGuilds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131174868443136
+    m_Localized: Common
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131195768659968
+    m_Localized: Common Sign
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131221311971328
+    m_Localized: Draconic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131251318022144
+    m_Localized: Dwarvish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131271660396544
+    m_Localized: Elvish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131292808077312
+    m_Localized: Giant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131312735215616
+    m_Localized: Gnomish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131331999653888
+    m_Localized: Goblin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131353180889088
+    m_Localized: Halfling
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131372197863424
+    m_Localized: Orc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131395585302528
+    m_Localized: Abyssal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131418226155520
+    m_Localized: Celestial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131437721280512
+    m_Localized: Deep Speech
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131490137497600
+    m_Localized: Druidic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131508873453568
+    m_Localized: Infernal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131528729288704
+    m_Localized: Primordial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131547918229504
+    m_Localized: Sylvan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131567551766528
+    m_Localized: Thieves Cant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131597994024960
+    m_Localized: Undercommon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131974785130496
+    m_Localized: Aberration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131992241823744
+    m_Localized: Beast
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132010940030976
+    m_Localized: Celestial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132029051035648
+    m_Localized: Construct
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132053357027328
+    m_Localized: Dragon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132071728078848
+    m_Localized: Elemental
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132122139418624
+    m_Localized: Fey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132139780661248
+    m_Localized: Fiend
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132154477502464
+    m_Localized: Giant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132170411663360
+    m_Localized: Humanoid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132186312269824
+    m_Localized: Monstrosity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132201755697152
+    m_Localized: Ooze
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132210932834304
+    m_Localized: Plant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132234987167744
+    m_Localized: Undead
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132722868609024
+    m_Localized: Aasimar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132753101152256
+    m_Localized: Dragonborn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132777998540800
+    m_Localized: Dwarf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132793609740288
+    m_Localized: Elf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132807341891584
+    m_Localized: Gnome
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132823808729088
+    m_Localized: Goliath
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132837339553792
+    m_Localized: Halfling
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132852099309568
+    m_Localized: Human
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132869425979392
+    m_Localized: Orc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132883128770560
+    m_Localized: Tiefling
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133379277185024
+    m_Localized: Barbarian
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133397761482752
+    m_Localized: Bard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133416119951360
+    m_Localized: Cleric
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133435661213696
+    m_Localized: Druid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133453495394304
+    m_Localized: Fighter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133469274365952
+    m_Localized: Monk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133487066603520
+    m_Localized: Paladin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133503822848000
+    m_Localized: Ranger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133521929658368
+    m_Localized: Rogue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133538971115520
+    m_Localized: Sorcerer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133559368015872
+    m_Localized: Warlock
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133576044568576
+    m_Localized: Wizard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133861060108288
+    m_Localized: Copper Piece
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133913203695616
+    m_Localized: Electrum Piece
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133946590355456
+    m_Localized: Gold Piece
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133980148981760
+    m_Localized: Platinum Piece
+    m_Metadata:
+      m_Items: []
+  - m_Id: 134015267889152
+    m_Localized: Silver Piece
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
