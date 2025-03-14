@@ -8,7 +8,7 @@ namespace DnD.Editor.Initializer
 {
     public static class DiceInitializer
     {
-        public static readonly string DicePath = $"{Common.FolderPath}/Dice";
+        public static readonly string DicePath = $"{Common.FolderPath}/{NameHelper.Naming.Dice}";
 
         public static Die[] GetAllDice()
         {

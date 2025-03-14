@@ -7,7 +7,7 @@ namespace DnD.Editor.Initializer
 {
     public static class StorageInitializer
     {
-        public static readonly string StoragePath = $"{Common.FolderPath}/Storage";
+        public static readonly string StoragePath = $"{Common.FolderPath}/{NameHelper.Naming.Storage}";
 
         public static Storage[] GetAllStorage()
         {

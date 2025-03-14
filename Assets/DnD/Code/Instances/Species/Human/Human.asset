@@ -12,12 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5870f259807e6bc4593d3daf3778e1d2, type: 3}
   m_Name: Human
   m_EditorClassIdentifier: 
-  Name: Human
+  Name: 
   InheritFrom: {fileID: 0}
-  CreatureType: {fileID: 11400000, guid: 5d6f9cefc5df181448a78f0d2423587a, type: 2}
-  Size: 3
-  Speed: 9.144
-  Traits:
-  - {fileID: 11400000, guid: 2f2a3692a5da3c24dbaeb19c88b9a88b, type: 2}
-  - {fileID: 11400000, guid: b2a8c008c71a3f542b6cce841e85e194, type: 2}
-  - {fileID: 11400000, guid: 67ba1b832fd814e42bbe6ec07f8bcb85, type: 2}
+  CreatureType: {fileID: 0}
+  Size: 0
+  Speed: 0
+  Traits: []

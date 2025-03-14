@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eccccb37ea76d947bef9627378a17cb, type: 3}
   m_Name: Gold Piece
   m_EditorClassIdentifier: 
-  Name: Gold Piece
-  Abbreviation: GP
-  Value: 100
+  Name: 
+  Abbreviation: 
+  Value: 0

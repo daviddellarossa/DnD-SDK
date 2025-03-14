@@ -9,10 +9,10 @@ namespace DnD.Editor.Initializer
 {
     public static class LanguagesInitializer
     {
-        public static readonly string LanguagesPath = $"{Common.FolderPath}/Languages";
-        public static readonly string OriginsPath = $"{LanguagesPath}/Origins";
-        public static readonly string RareLanguagesPath = $"{LanguagesPath}/RareLanguages";
-        public static readonly string StandardLanguagesPath = $"{LanguagesPath}/StandardLanguages";
+        public static readonly string LanguagesPath = $"{Common.FolderPath}/{NameHelper.Naming.Languages}";
+        public static readonly string OriginsPath = $"{LanguagesPath}/{NameHelper.Naming.Origins}";
+        public static readonly string RareLanguagesPath = $"{LanguagesPath}/{NameHelper.Naming.RareLanguages}";
+        public static readonly string StandardLanguagesPath = $"{LanguagesPath}/{NameHelper.Naming.StandardLanguages}";
 
 
         [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Languages Data")]

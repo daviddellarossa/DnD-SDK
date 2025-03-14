@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ff5d5761f0a0342b7404468e2e8445, type: 3}
   m_Name: Constitution
   m_EditorClassIdentifier: 
-  Name: Constitution
-  AbilityType: 2
+  Name: 
+  AbilityType: 0
   SkillList: []

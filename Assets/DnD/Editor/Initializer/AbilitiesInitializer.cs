@@ -9,8 +9,8 @@ namespace DnD.Editor.Initializer
 {
     public static class AbilitiesInitializer
     {
-        public static readonly string AbilitiesPath = $"{Common.FolderPath}/Abilities";
-        public static readonly string SkillsPath = $"{Common.FolderPath}/Skills";
+        public static readonly string AbilitiesPath = $"{Common.FolderPath}/{NameHelper.Naming.Abilities}";
+        public static readonly string SkillsPath = $"{Common.FolderPath}/{NameHelper.Naming.Skills}";
 
         public static Ability[] GetAllAbilities()
         {

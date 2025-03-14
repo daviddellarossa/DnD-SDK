@@ -8,9 +8,9 @@ namespace DnD.Editor.Initializer
 {
     public static class FeatsInitializer
     {
-        public static readonly string FeatsDataPath = $"{Common.FolderPath}/FeatsData";
-        public static readonly string FeatCategoriesPath = $"{FeatsDataPath}/Categories";
-        public static readonly string FeatsPath = $"{FeatsDataPath}/Feats";
+        public static readonly string FeatsDataPath = $"{Common.FolderPath}/{NameHelper.Naming.FeatsData}";
+        public static readonly string FeatCategoriesPath = $"{FeatsDataPath}/{NameHelper.Naming.Categories}";
+        public static readonly string FeatsPath = $"{FeatsDataPath}/{NameHelper.Naming.Feats}";
 
         public static Feat[] GetAllFeats()
         {

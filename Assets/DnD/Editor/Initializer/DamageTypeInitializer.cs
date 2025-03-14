@@ -6,7 +6,7 @@ namespace DnD.Editor.Initializer
 {
     public static class DamageTypeInitializer
     {
-        public static readonly string DamageTypePath = $"{Common.FolderPath}/DamageTypes";
+        public static readonly string DamageTypePath = $"{Common.FolderPath}/{NameHelper.Naming.DamageTypes}";
 
         public static DamageType[] GetAllDamageTypes()
         {

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c8a7c9581d8d045a6a25e39023fd47, type: 3}
   m_Name: D6
   m_EditorClassIdentifier: 
-  Name: D6
-  NumOfFaces: 6
+  Name: 
+  NumOfFaces: 0

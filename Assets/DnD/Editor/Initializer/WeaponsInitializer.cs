@@ -15,9 +15,9 @@ namespace DnD.Editor.Initializer
 {
     public static class WeaponsInitializer
     {
-        public static readonly string WeaponsPath = $"{Common.FolderPath}/Weapons";
-        public static readonly string WeaponTypesPath = $"{WeaponsPath}/WeaponTypes";
-        public static readonly string AmmunitionTypesPath = $"{WeaponsPath}/AmmunitionTypes";
+        public static readonly string WeaponsPath = $"{Common.FolderPath}/{NameHelper.Naming.Weapons}";
+        public static readonly string WeaponTypesPath = $"{WeaponsPath}/{NameHelper.Naming.WeaponTypes}";
+        public static readonly string AmmunitionTypesPath = $"{WeaponsPath}/{NameHelper.Naming.AmmunitionTypes}";
         public static readonly string MartialMeleeWeaponsPath = $"{WeaponsPath}/{NameHelper.WeaponTypes.MartialMeleeWeapon}";
         public static readonly string SimpleMeleeWeaponsPath = $"{WeaponsPath}/{NameHelper.WeaponTypes.SimpleMeleeWeapon}";
         public static readonly string MartialRangedWeaponsPath = $"{WeaponsPath}/{NameHelper.WeaponTypes.MartialRangedWeapon}";
@@ -26,6 +26,11 @@ namespace DnD.Editor.Initializer
         public static Weapon[] GetAllWeapons()
         {
             return Common.GetAllScriptableObjects<Weapon>(WeaponsPath);
+        }
+        
+        public static WeaponType[] GetAllWeaponTypes()
+        {
+            return Common.GetAllScriptableObjects<WeaponType>(WeaponTypesPath);
         }
 
         [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Weapons")]

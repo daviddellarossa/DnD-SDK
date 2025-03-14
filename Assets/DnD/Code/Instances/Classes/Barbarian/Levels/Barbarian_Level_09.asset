@@ -12,31 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
   m_Name: Barbarian_Level_09
   m_EditorClassIdentifier: 
-  LevelNum: 9
-  ProficiencyBonus: 4
-  ClassFeatures:
-  - {fileID: 3004232800196225087}
+  LevelNum: 0
+  ProficiencyBonus: 0
+  ClassFeatures: []
   ClassFeatureTraits:
-    rid: 1838690267888877633
+    rid: -2
   references:
     version: 2
     RefIds:
-    - rid: 1838690267888877633
-      type: {class: BarbarianFP, ns: Assets.Scripts.Game.Characters.Classes.Barbarian.FeatureProperties, asm: Assembly-CSharp}
-      data:
-        rages: 4
-        rageDamage: 3
-        weaponMastery: 3
---- !u!114 &3004232800196225087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9a73f2225dd42979989cfa1dbe8f53d, type: 3}
-  m_Name: BrutalStrike
-  m_EditorClassIdentifier: 
-  Name: 
+    - rid: -2
+      type: {class: , ns: , asm: }

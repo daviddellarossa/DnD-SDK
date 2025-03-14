@@ -12,13 +12,12 @@ namespace DnD.Code.Scripts.Characters.Classes
     [CreateAssetMenu(fileName = "NewClass", menuName = "Game Entities/Character/Classes/Class")]
     public class Class : ScriptableObject
     {
-        public AbilityStats PrimaryAbility;
+        public Ability PrimaryAbility;
         public Die HitPointDie;
-        public AbilityStats[] SavingThrowProficiencies;
+        public List<Ability> SavingThrowProficiencies = new ();
         public List<Skill> SkillProficienciesAvailable = new List<Skill>();
         public List<WeaponType> WeaponProficiencies = new ();
-        public List<ArmourType> ArmorTraining = new List<ArmourType>();
-        public List<Shield> ShieldTraining = new List<Shield>();
+        public List<IBaseArmourType> ArmorTraining = new List<IBaseArmourType>();
         public List<StartingEquipment> StartingEquipmentOptions = new List<StartingEquipment>();
         public Level[] Levels = new Level[20];
         public List<SubClass> SubClasses = new List<SubClass>();

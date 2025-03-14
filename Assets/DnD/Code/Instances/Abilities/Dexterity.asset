@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ff5d5761f0a0342b7404468e2e8445, type: 3}
   m_Name: Dexterity
   m_EditorClassIdentifier: 
-  Name: Dexterity
-  AbilityType: 1
-  SkillList:
-  - {fileID: 11400000, guid: 45c34a9c357fc4f40999135398ea46ec, type: 2}
-  - {fileID: 11400000, guid: 5463d03e635d7d142bf69b3414fcf038, type: 2}
-  - {fileID: 11400000, guid: 84db9dc84871ad647984e5a95c273aad, type: 2}
+  Name: 
+  AbilityType: 0
+  SkillList: []

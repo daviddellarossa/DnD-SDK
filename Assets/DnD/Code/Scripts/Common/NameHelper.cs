@@ -14,6 +14,30 @@ namespace DnD.Code.Scripts.Common
             public const string Level = "Level";
             public const string SpecialTraits = "SpecialTraits";
             public const string Species = "Species";
+            public const string Armours = "Armours";
+            public const string ArmourTypes = "ArmourTypes";
+            public const string Weapons = "Weapons";
+            public const string WeaponTypes = "WeaponsTypes";
+            public const string AmmunitionTypes = "AmmunitionTypes";
+            public const string TraitTypes = "TraitTypes";
+            public const string Storage = "Storage";
+            public const string Languages = "Languages";
+            public const string RareLanguages = "RareLanguages";
+            public const string StandardLanguages = "StandardLanguages";
+            public const string Origins = "Origins";
+            public const string FeatsData = "FeatsData";
+            public const string Feats = "Feats";
+            public const string Categories = "Categories";
+            public const string Equipments = "Equipments";
+            public const string Coins = "Coins";
+            public const string Tools = "Tools";
+            public const string Dice = "Dice";
+            public const string DamageTypes = "DamageTypes";
+            public const string CreatureTypes = "CreatureTypes";
+            public const string Backgrounds = "Backgrounds";
+            public const string Abilities = "Abilities";
+            public const string Skills = "Skills";
+
 
 
         }

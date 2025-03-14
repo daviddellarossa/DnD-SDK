@@ -52,7 +52,7 @@ namespace DnD.Editor.Initializer
                 Common.EnsureFolderExists(ClassLevelsPath);
                 Common.EnsureFolderExists(ClassStartingEquipmentPath);
                 Common.EnsureFolderExists(ClassSubClassesPath);
-
+                
                 
                 var classInstance = CreateClassInstance();
 

@@ -9,7 +9,7 @@ namespace DnD.Editor.Initializer
 {
     public static class BackgroundInitializer
     {
-        public static readonly string BackgroundsPath = $"{Common.FolderPath}/Backgrounds";
+        public static readonly string BackgroundsPath = $"{Common.FolderPath}/{NameHelper.Naming.Backgrounds}";
 
         [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Background Data")]
         public static void InitializeBackgrounds()

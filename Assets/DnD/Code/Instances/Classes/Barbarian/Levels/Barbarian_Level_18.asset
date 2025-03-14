@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7303412665300676715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 885629ca6c934e5b9cf8c1eca5853ebc, type: 3}
-  m_Name: IndomitableMight
-  m_EditorClassIdentifier: 
-  Name: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25,18 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
   m_Name: Barbarian_Level_18
   m_EditorClassIdentifier: 
-  LevelNum: 18
-  ProficiencyBonus: 6
-  ClassFeatures:
-  - {fileID: -7303412665300676715}
+  LevelNum: 0
+  ProficiencyBonus: 0
+  ClassFeatures: []
   ClassFeatureTraits:
-    rid: 1838690267888877642
+    rid: -2
   references:
     version: 2
     RefIds:
-    - rid: 1838690267888877642
-      type: {class: BarbarianFP, ns: Assets.Scripts.Game.Characters.Classes.Barbarian.FeatureProperties, asm: Assembly-CSharp}
-      data:
-        rages: 6
-        rageDamage: 4
-        weaponMastery: 4
+    - rid: -2
+      type: {class: , ns: , asm: }

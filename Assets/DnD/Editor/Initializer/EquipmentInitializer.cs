@@ -7,9 +7,9 @@ namespace DnD.Editor.Initializer
 {
     public static class EquipmentInitializer
     {
-        public static readonly string EquipmentPath = $"{Common.FolderPath}/Equipment";
-        public static readonly string EquipmentCoinsPath = $"{EquipmentPath}/Coins";
-        public static readonly string EquipmentToolsPath = $"{EquipmentPath}/Tools";
+        public static readonly string EquipmentPath = $"{Common.FolderPath}/{NameHelper.Naming.Equipments}";
+        public static readonly string EquipmentCoinsPath = $"{EquipmentPath}/{NameHelper.Naming.Coins}";
+        public static readonly string EquipmentToolsPath = $"{EquipmentPath}/{NameHelper.Naming.Tools}";
 
 
         public static CoinValue[] GetAllCoinValues()

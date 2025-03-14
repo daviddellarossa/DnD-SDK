@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 760c3175d147f34488c27c47d230bb07, type: 3}
   m_Name: Path Of The World Tree
   m_EditorClassIdentifier: 
-  Name: Path of the World Tree
-  Description: Trace the roots and branches of the Multiverse
-  Level_3: {fileID: 11400000, guid: 0e4b61d0402a91b38a598e967550f803, type: 2}
-  Level_6: {fileID: 11400000, guid: cf93ef323f44608f3a4bed46a8fd49fe, type: 2}
-  Level_10: {fileID: 11400000, guid: ac00affbbebddccc585606e0fd8263cb, type: 2}
-  Level_14: {fileID: 11400000, guid: e4b6e25d1a950afe4a5ec4d253a806e6, type: 2}
+  Name: 
+  Description: 
+  Level03: {fileID: 0}
+  Level06: {fileID: 0}
+  Level10: {fileID: 0}
+  Level14: {fileID: 0}

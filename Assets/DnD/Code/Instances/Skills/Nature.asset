@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf79b86849cbd264e809320d0d85cc41, type: 3}
   m_Name: Nature
   m_EditorClassIdentifier: 
-  Name: Nature
-  Ability: 3
+  Name: 
+  Ability: 0

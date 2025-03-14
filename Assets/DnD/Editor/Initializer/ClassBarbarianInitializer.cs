@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using DnD.Code.Scripts.Characters;
+using DnD.Code.Scripts.Characters.Abilities;
 using DnD.Code.Scripts.Characters.Classes;
 using DnD.Code.Scripts.Characters.Classes.Barbarian.ClassFeatures;
 using DnD.Code.Scripts.Characters.Classes.Barbarian.FeatureProperties;
@@ -9,6 +11,7 @@ using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Equipment;
 using DnD.Code.Scripts.Equipment.Coins;
 using DnD.Code.Scripts.Weapons;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -29,7 +32,52 @@ namespace DnD.Editor.Initializer
         
         protected override Class CreateClassInstance()
         {
-            return Common.CreateScriptableObject<Class>(ClassName, ClassPath);
+            var cls =  Common.CreateScriptableObject<Class>(ClassName, ClassPath);
+
+            var dice = DiceInitializer.GetAllDice();
+            var abilities = AbilitiesInitializer.GetAllAbilities();
+            var skills = AbilitiesInitializer.GetAllSkills();
+            var weaponTypes = WeaponsInitializer.GetAllWeaponTypes();
+            var armourTypes = ArmoursInitializer.GetAllArmourTypes();
+
+            cls.HitPointDie = dice.Single(die => die.name == NameHelper.Dice.D12);
+            
+            cls.PrimaryAbility = abilities.Single(ab => ab.name == NameHelper.Abilities.Strength);
+            
+            cls.SavingThrowProficiencies.AddRange( new [] {
+                abilities.Single(ab => ab.name == NameHelper.Abilities.Strength),
+                abilities.Single(ab => ab.name == NameHelper.Abilities.Constitution),
+                });
+            
+            cls.SkillProficienciesAvailable.AddRange(new []
+            {
+                skills.Single(skill => skill.name == NameHelper.Skills.AnimalHandling),
+                skills.Single(skill => skill.name == NameHelper.Skills.Athletics),
+                skills.Single(skill => skill.name == NameHelper.Skills.Intimidation),
+                skills.Single(skill => skill.name == NameHelper.Skills.Nature),
+                skills.Single(skill => skill.name == NameHelper.Skills.Perception),
+                skills.Single(skill => skill.name == NameHelper.Skills.Survival),
+
+            });
+            
+            cls.WeaponProficiencies.AddRange(new []
+            {
+                weaponTypes.Single(wt => wt.name == NameHelper.WeaponTypes.SimpleMeleeWeapon),
+                weaponTypes.Single(wt => wt.name == NameHelper.WeaponTypes.SimpleRangedWeapon),
+                weaponTypes.Single(wt => wt.name == NameHelper.WeaponTypes.MartialMeleeWeapon),
+                weaponTypes.Single(wt => wt.name == NameHelper.WeaponTypes.MartialRangedWeapon),
+
+            });
+            
+            cls.ArmorTraining.AddRange(new []
+            {
+                armourTypes.Single(at => ((ScriptableObject)at).name == NameHelper.ArmourType.LightArmour),
+                armourTypes.Single(at => ((ScriptableObject)at).name == NameHelper.ArmourType.MediumArmour),
+                armourTypes.Single(at => ((ScriptableObject)at).name == NameHelper.ArmourType.Shield),
+
+            });
+                
+            return cls;
         }
         
         protected override IEnumerable<SubClass> InitializeSubClasses()

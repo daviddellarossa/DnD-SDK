@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11df98cbe2c5a8d42ab5f1be50486c2a, type: 3}
   m_Name: Fire
   m_EditorClassIdentifier: 
-  Name: Fire
-  Description: Flames, unbearable heat
+  Name: 
+  Description: 

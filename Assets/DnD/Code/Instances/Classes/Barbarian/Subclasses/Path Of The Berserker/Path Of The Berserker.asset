@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 760c3175d147f34488c27c47d230bb07, type: 3}
   m_Name: Path Of The Berserker
   m_EditorClassIdentifier: 
-  Name: Path of the Berserker
-  Description: Channel rage into violent fury
-  Level_3: {fileID: 11400000, guid: 02b5e342563db175da4d738289084f92, type: 2}
-  Level_6: {fileID: 11400000, guid: b60917dda7de5ca5db63e8f6ef90500d, type: 2}
-  Level_10: {fileID: 11400000, guid: cec9e2c2a78bc6c1eae563877694e87d, type: 2}
-  Level_14: {fileID: 11400000, guid: 4d825b3a58e031cb6a9700fc20f89628, type: 2}
+  Name: 
+  Description: 
+  Level03: {fileID: 0}
+  Level06: {fileID: 0}
+  Level10: {fileID: 0}
+  Level14: {fileID: 0}

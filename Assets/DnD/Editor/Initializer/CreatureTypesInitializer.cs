@@ -6,7 +6,7 @@ namespace DnD.Editor.Initializer
 {
     public static class CreatureTypesInitializer
     {
-        public static readonly string CreatureTypesPath = $"{Common.FolderPath}/CreatureTypes";
+        public static readonly string CreatureTypesPath = $"{Common.FolderPath}/{NameHelper.Naming.CreatureTypes}";
 
         public static CreatureType[] GetAllCreatureTypes()
         {

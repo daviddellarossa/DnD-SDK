@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 760c3175d147f34488c27c47d230bb07, type: 3}
   m_Name: Path Of The Zealot
   m_EditorClassIdentifier: 
-  Name: Path of the Zealot
-  Description: Rage in ecstatic union with a God
-  Level_3: {fileID: 11400000, guid: 10977f72aac23a87e98fc5f03dd3be4f, type: 2}
-  Level_6: {fileID: 11400000, guid: a2cf818cd12353e6d9eb604cc04c7199, type: 2}
-  Level_10: {fileID: 11400000, guid: ef23c77617bd2913bb61ba0b6d926a64, type: 2}
-  Level_14: {fileID: 11400000, guid: 44e6638af4223149dab66b4638957de3, type: 2}
+  Name: 
+  Description: 
+  Level03: {fileID: 0}
+  Level06: {fileID: 0}
+  Level10: {fileID: 0}
+  Level14: {fileID: 0}

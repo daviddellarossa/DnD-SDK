@@ -10,8 +10,8 @@ namespace DnD.Editor.Initializer
 {
     public static class ArmoursInitializer
     {
-        public static readonly string ArmoursPath = $"{Common.FolderPath}/Armours";
-        public static readonly string ArmourTypesPath = $"{ArmoursPath}/ArmourTypes";
+        public static readonly string ArmoursPath = $"{Common.FolderPath}/{NameHelper.Naming.Armours}";
+        public static readonly string ArmourTypesPath = $"{ArmoursPath}/{NameHelper.Naming.ArmourTypes}";
         public static readonly string HeavyArmoursPath = $"{ArmoursPath}/{NameHelper.ArmourType.HeavyArmour}";
         public static readonly string MediumArmoursPath = $"{ArmoursPath}/{NameHelper.ArmourType.MediumArmour}";
         public static readonly string LightArmoursPath = $"{ArmoursPath}/{NameHelper.ArmourType.LightArmour}";
@@ -20,6 +20,14 @@ namespace DnD.Editor.Initializer
         public static Armour[] GetAllArmours()
         {
             return Common.GetAllScriptableObjects<Armour>(ArmoursPath);
+        }
+
+        public static IBaseArmourType[] GetAllArmourTypes()
+        {
+            var armourTypes = new List<IBaseArmourType>();
+            armourTypes.AddRange(Common.GetAllScriptableObjects<ArmourType>(ArmourTypesPath));
+            armourTypes.AddRange(Common.GetAllScriptableObjects<ShieldType>(ArmourTypesPath));
+            return armourTypes.ToArray();
         }
         
         [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Armours")]
