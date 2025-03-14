@@ -41,7 +41,7 @@ namespace DnD.Editor.Initializer
         
         private static SpecialTrait[] InitializeHumanSpecialTraits()
         {
-            var humanSpecialTraitsPath = $"{SpeciesPath}/{NameHelper.Species.Human}/SpecialTraits";
+            var humanSpecialTraitsPath = $"{SpeciesPath}/{NameHelper.Species.Human}/{NameHelper.Naming.SpecialTraits}";
 
             var specialTraits = new List<SpecialTrait>();
             

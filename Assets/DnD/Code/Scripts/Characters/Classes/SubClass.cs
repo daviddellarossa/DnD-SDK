@@ -7,9 +7,9 @@ namespace DnD.Code.Scripts.Characters.Classes
     {
         public string Name;
         public string Description;
-        public Level Level_3;
-        public Level Level_6;
-        public Level Level_10;
-        public Level Level_14;
+        public Level Level03;
+        public Level Level06;
+        public Level Level10;
+        public Level Level14;
     }
 }

@@ -7,6 +7,15 @@ namespace DnD.Code.Scripts.Common
         public static class Naming
         {
             public const string Description = "Description";
+            public const string Classes = "Classes";
+            public const string SubClasses = "SubClasses";
+            public const string Levels = "Levels";
+            public const string StartingEquipment = "StartingEquipment";
+            public const string Level = "Level";
+            public const string SpecialTraits = "SpecialTraits";
+            public const string Species = "Species";
+
+
         }
         public static class Abilities
         {

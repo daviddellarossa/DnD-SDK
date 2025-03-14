@@ -26,9 +26,8 @@ namespace DnD.Editor.Initializer
                 WeaponsInitializer.InitializeWeapons();
                 ArmoursInitializer.InitializeArmours();
                 SpeciesInitializer.InitializeSpecies();
-                return;
-                // BarbarianClassInitializer.InitializeBarbarianClass();
-
+                ClassInitializer.InitializeClasses();
+                
             }
             catch (Exception e)
             {

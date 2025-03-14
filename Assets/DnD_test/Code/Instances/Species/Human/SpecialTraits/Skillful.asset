@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7143998388371901922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2d3ac5ec28a8e4bae992907fe802a4, type: 3}
+  m_Name: Proficiency
+  m_EditorClassIdentifier: 
+  Name: TypeTraits.Proficiency
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,5 +25,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2298edb0b712f784f9fd3b5a7213da5b, type: 3}
   m_Name: Skillful
   m_EditorClassIdentifier: 
-  Name: 
-  TraitTypes: []
+  Name: SpecialTraits.Skillful
+  TraitTypes:
+  - {fileID: -7143998388371901922}
