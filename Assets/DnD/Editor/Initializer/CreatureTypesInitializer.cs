@@ -8,8 +8,12 @@ namespace DnD.Editor.Initializer
     {
         public static readonly string CreatureTypesPath = $"{Common.FolderPath}/CreatureTypes";
 
-
-        [MenuItem("D&D Game/Game Data Initializer/Initialize all Creature Types")]
+        public static CreatureType[] GetAllCreatureTypes()
+        {
+            return Common.GetAllScriptableObjects<CreatureType>(CreatureTypesPath);
+        }
+        
+        [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Creature Types")]
         public static void InitializeCreatureTypes()
         {
             try

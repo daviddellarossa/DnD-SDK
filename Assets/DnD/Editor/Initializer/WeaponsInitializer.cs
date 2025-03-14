@@ -28,7 +28,7 @@ namespace DnD.Editor.Initializer
             return Common.GetAllScriptableObjects<Weapon>(WeaponsPath);
         }
 
-        [MenuItem("D&D Game/Game Data Initializer/Initialize all Weapons")]
+        [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Weapons")]
         public static void InitializeWeapons()
         {
             var storage = StorageInitializer.GetAllStorage();

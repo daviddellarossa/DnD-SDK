@@ -14,7 +14,7 @@ namespace DnD.Editor.Initializer
             return Common.GetAllScriptableObjects<Storage>(StoragePath);
         }
 
-        [MenuItem("D&D Game/Game Data Initializer/Generate Storage Data")]
+        [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Storage Data")]
         public static void InitializeStorage()
         {
             try

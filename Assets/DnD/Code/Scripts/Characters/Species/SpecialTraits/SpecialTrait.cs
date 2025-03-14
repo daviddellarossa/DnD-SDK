@@ -11,10 +11,6 @@ namespace DnD.Code.Scripts.Characters.Species.SpecialTraits
 
         [SerializeReference]
         public List<TraitType> TraitTypes = new();
-
-        public SpecialTrait()
-        {
-            this.Name = nameof(SpecialTrait);
-        }
+        
     }
 }

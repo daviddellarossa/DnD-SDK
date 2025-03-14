@@ -17,7 +17,12 @@ namespace DnD.Editor.Initializer
             return Common.GetAllScriptableObjects<Feat>(FeatsPath);
         }
         
-        [MenuItem("D&D Game/Game Data Initializer/Initialize Feats Data")]
+        public static FeatCategory[] GetAllFeatCategories()
+        {
+            return Common.GetAllScriptableObjects<FeatCategory>(FeatCategoriesPath);
+        }
+        
+        [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Feats Data")]
         public static void InitializeFeatsData()
         {
             Common.EnsureFolderExists(FeatsDataPath);

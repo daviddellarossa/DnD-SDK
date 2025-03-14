@@ -13,7 +13,7 @@ namespace DnD.Editor.Initializer
             return Common.GetAllScriptableObjects<DamageType>(DamageTypePath);
         }
 
-        [MenuItem("D&D Game/Game Data Initializer/Initialize Damage Types")]
+        [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Damage Types")]
         public static void InitializeDamageTypes()
         {
             try

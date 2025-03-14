@@ -22,7 +22,7 @@ namespace DnD.Editor.Initializer
             return Common.GetAllScriptableObjects<Skill>(SkillsPath);
         }
         
-        [MenuItem("D&D Game/Game Data Initializer/Generate Abilities Data")]
+        [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Abilities Data")]
         public static void InitializeAbilities()
         {
             try

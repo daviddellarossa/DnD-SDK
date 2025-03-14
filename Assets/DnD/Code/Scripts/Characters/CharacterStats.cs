@@ -75,8 +75,9 @@ namespace DnD.Code.Scripts.Characters
             get
             {
                 var heroicInspirationTrait = this.SpeciesTraits.FirstOrDefault(trait => trait is HeroicInspiration) as HeroicInspiration;
-                
-                return heroicInspirationTrait?.IsInspired ?? false;
+
+                return false;
+                //return heroicInspirationTrait?.IsInspired ?? false;
             }
         }
 

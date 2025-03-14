@@ -17,7 +17,7 @@ namespace DnD.Editor.Initializer
             return Common.GetAllScriptableObjects<CoinValue>(EquipmentCoinsPath);
         }
         
-        [MenuItem("D&D Game/Game Data Initializer/Initialize Equipment Data")]
+        [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Equipment Data")]
         public static void InitializeEquipment()
         {
             Common.EnsureFolderExists(EquipmentPath);

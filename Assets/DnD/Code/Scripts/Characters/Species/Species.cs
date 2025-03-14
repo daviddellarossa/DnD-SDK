@@ -14,7 +14,7 @@ namespace DnD.Code.Scripts.Characters.Species
         public Size Size;
         public float Speed;
 
-        public List<SpecialTrait> Traits;
+        public List<SpecialTrait> Traits = new ();
     }
 
     [Flags]

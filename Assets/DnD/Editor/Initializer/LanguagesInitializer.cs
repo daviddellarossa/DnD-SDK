@@ -15,7 +15,7 @@ namespace DnD.Editor.Initializer
         public static readonly string StandardLanguagesPath = $"{LanguagesPath}/StandardLanguages";
 
 
-        [MenuItem("D&D Game/Game Data Initializer/Generate Languages Data")]
+        [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Languages Data")]
 
         public static void InitializeLanguages()
         {

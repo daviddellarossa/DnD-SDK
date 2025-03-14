@@ -7,7 +7,7 @@ namespace DnD.Editor.Initializer
     public static class GameDataInitializer
     {
         
-        [MenuItem("D&D Game/Game Data Initializer/Generate Game Data")]
+        [MenuItem("D&D Game/Game Data Initializer/Initialize Game Data")]
         public static void InitializeGameData()
         {
             Debug.Log("Initializing Game Data");
@@ -25,6 +25,7 @@ namespace DnD.Editor.Initializer
                 BackgroundInitializer.InitializeBackgrounds();
                 WeaponsInitializer.InitializeWeapons();
                 ArmoursInitializer.InitializeArmours();
+                SpeciesInitializer.InitializeSpecies();
                 return;
                 // BarbarianClassInitializer.InitializeBarbarianClass();
 

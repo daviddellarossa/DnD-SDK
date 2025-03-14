@@ -15,7 +15,7 @@ namespace DnD.Editor.Initializer
             return Common.GetAllScriptableObjects<Die>(DicePath);
         }
         
-        [MenuItem("D&D Game/Game Data Initializer/Generate Dice Data")]
+        [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Dice Data")]
         public static void InitializeDice()
         {
             try

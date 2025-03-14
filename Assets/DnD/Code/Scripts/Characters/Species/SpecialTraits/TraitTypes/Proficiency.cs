@@ -6,6 +6,6 @@ namespace DnD.Code.Scripts.Characters.Species.SpecialTraits.TraitTypes
     [Serializable]
     public class Proficiency: TraitType
     {
-        public Skill Skill;
+        // public Skill Skill;
     }
 }

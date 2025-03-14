@@ -24,7 +24,7 @@ namespace DnD.Editor.Initializer
         public static readonly string BarbarianSubClassesPath = $"{BarbarianPath}/{Common.SubClassesSubPath}";
 
 
-        [MenuItem("D&D Game/Game Data Initializer/Generate Barbarian Data")]
+        [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Barbarian Data")]
         public static void InitializeBarbarianClass()
         {
             Common.EnsureFolderExists(BarbarianPath);

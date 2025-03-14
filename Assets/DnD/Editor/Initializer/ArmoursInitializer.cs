@@ -22,7 +22,7 @@ namespace DnD.Editor.Initializer
             return Common.GetAllScriptableObjects<Armour>(ArmoursPath);
         }
         
-        [MenuItem("D&D Game/Game Data Initializer/Initialize all Armours")]
+        [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Armours")]
         public static void InitializeArmours()
         {
             Common.EnsureFolderExists(ArmoursPath);

@@ -11,7 +11,7 @@ namespace DnD.Editor.Initializer
     {
         public static readonly string BackgroundsPath = $"{Common.FolderPath}/Backgrounds";
 
-        [MenuItem("D&D Game/Game Data Initializer/Initialize Background Data")]
+        [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Background Data")]
         public static void InitializeBackgrounds()
         {
             try
@@ -29,7 +29,7 @@ namespace DnD.Editor.Initializer
                 var coins = EquipmentInitializer.GetAllCoinValues();
 
                 {
-                    var acolytePath = $"{Common.FolderPath}/{NameHelper.Backgrounds.Acolyte}";
+                    var acolytePath = $"{BackgroundsPath}/{NameHelper.Backgrounds.Acolyte}";
                     var acolyteToolsPath = $"{acolytePath}/Tools";
                     var acolyteStartingEquipmentPath = $"{acolytePath}/StartingEquipment";
 
