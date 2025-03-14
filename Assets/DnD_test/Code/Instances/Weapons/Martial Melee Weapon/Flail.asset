@@ -18,10 +18,10 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 416ae441a889fd19f9b39135dbe65341, type: 2}
   DamageType: {fileID: 11400000, guid: c257cd772ac0ffd38abd063945592ef3, type: 2}
   Properties: []
-  MasteryProperty: {fileID: 8273698488565557872}
+  MasteryProperty: {fileID: 6287023427281233681}
   Weight: 1
   Cost: 1000
---- !u!114 &8273698488565557872
+--- !u!114 &6287023427281233681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

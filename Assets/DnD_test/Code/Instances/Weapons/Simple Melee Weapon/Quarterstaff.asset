@@ -1,6 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7811232601133833623
+--- !u!114 &-7387656595828824441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf3b03451dd2e44ba153e70d88aa1c1, type: 3}
+  m_Name: Versatile
+  m_EditorClassIdentifier: 
+  Name: WeaponProperty.Versatile
+  NumberOfDice: 1
+  DieType: {fileID: 11400000, guid: 416ae441a889fd19f9b39135dbe65341, type: 2}
+--- !u!114 &-3848452716665198185
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31,22 +46,7 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: f0ea1e2ce5acbde74922c5ca6629c1de, type: 2}
   DamageType: {fileID: 11400000, guid: c257cd772ac0ffd38abd063945592ef3, type: 2}
   Properties:
-  - {fileID: 8227356233542530068}
-  MasteryProperty: {fileID: -7811232601133833623}
+  - {fileID: -7387656595828824441}
+  MasteryProperty: {fileID: -3848452716665198185}
   Weight: 2
   Cost: 200
---- !u!114 &8227356233542530068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cf3b03451dd2e44ba153e70d88aa1c1, type: 3}
-  m_Name: Versatile
-  m_EditorClassIdentifier: 
-  Name: WeaponProperty.Versatile
-  NumberOfDice: 1
-  DieType: {fileID: 11400000, guid: 416ae441a889fd19f9b39135dbe65341, type: 2}

@@ -6,13 +6,13 @@ namespace DnD.Editor.Initializer
 {
     public static class GameDataInitializer
     {
-        
         [MenuItem("D&D Game/Game Data Initializer/Initialize Game Data")]
         public static void InitializeGameData()
         {
             Debug.Log("Initializing Game Data");
             try
             {
+                Common.EnsureFolderExists(Common.FolderPath, true);
 
                 DiceInitializer.InitializeDice();
                 DamageTypeInitializer.InitializeDamageTypes();

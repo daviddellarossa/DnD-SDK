@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4104625960644431348
+--- !u!114 &-162140167619118365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31,11 +31,11 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 416ae441a889fd19f9b39135dbe65341, type: 2}
   DamageType: {fileID: 11400000, guid: 07cd786d2f714c450924b74e26dab4f9, type: 2}
   Properties:
-  - {fileID: 7617204795517618354}
-  MasteryProperty: {fileID: -4104625960644431348}
+  - {fileID: 1521713626029702413}
+  MasteryProperty: {fileID: -162140167619118365}
   Weight: 2
   Cost: 1000
---- !u!114 &7617204795517618354
+--- !u!114 &1521713626029702413
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

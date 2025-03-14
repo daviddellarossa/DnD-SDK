@@ -1,6 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4286130931749974663
+--- !u!114 &-6744456004736643858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ebc4527f34bae1489fdaafed1f5dafc, type: 3}
+  m_Name: Finesse
+  m_EditorClassIdentifier: 
+  Name: WeaponProperty.Finesse
+--- !u!114 &-1245746730232113789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31,25 +44,12 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: f0ea1e2ce5acbde74922c5ca6629c1de, type: 2}
   DamageType: {fileID: 11400000, guid: 07cd786d2f714c450924b74e26dab4f9, type: 2}
   Properties:
-  - {fileID: 1412653775782403490}
-  - {fileID: 5880907655772565974}
-  MasteryProperty: {fileID: -4286130931749974663}
+  - {fileID: -6744456004736643858}
+  - {fileID: 5146244713733145416}
+  MasteryProperty: {fileID: -1245746730232113789}
   Weight: 1.05
   Cost: 2500
---- !u!114 &1412653775782403490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ebc4527f34bae1489fdaafed1f5dafc, type: 3}
-  m_Name: Finesse
-  m_EditorClassIdentifier: 
-  Name: WeaponProperty.Finesse
---- !u!114 &5880907655772565974
+--- !u!114 &5146244713733145416
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

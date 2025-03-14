@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3197067127026583152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 160fc646e2c4724418aa23deca8abc00, type: 3}
+  m_Name: Thrown
+  m_EditorClassIdentifier: 
+  Name: WeaponProperty.Thrown
+  Range:
+    Min: 9
+    Max: 36
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18,11 +34,11 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: f0ea1e2ce5acbde74922c5ca6629c1de, type: 2}
   DamageType: {fileID: 11400000, guid: 271a18c7e60c5cd6ebe215af8df61f5b, type: 2}
   Properties:
-  - {fileID: 941720819600986235}
-  MasteryProperty: {fileID: 29614594539119190}
+  - {fileID: -3197067127026583152}
+  MasteryProperty: {fileID: 628357860234540115}
   Weight: 1
   Cost: 500
---- !u!114 &29614594539119190
+--- !u!114 &628357860234540115
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -36,19 +52,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: MasteryProperty.Slow
   SlowBy: 3
---- !u!114 &941720819600986235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 160fc646e2c4724418aa23deca8abc00, type: 3}
-  m_Name: Thrown
-  m_EditorClassIdentifier: 
-  Name: WeaponProperty.Thrown
-  Range:
-    Min: 9
-    Max: 36

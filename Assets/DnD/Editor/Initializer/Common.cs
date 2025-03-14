@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using Codice.Client.Common;
 using DnD.Code.Scripts.Common;
 using UnityEditor;
@@ -86,18 +87,17 @@ namespace DnD.Editor.Initializer
             Object[] subAssets = AssetDatabase.LoadAllAssetsAtPath(assetPath);
             return subAssets.OfType<T>().Any();
         }
-
         
-        public static void EnsureFolderExists(string folderPath)
+        public static void EnsureFolderExists(string folderPath, bool recursively = false)
         {
             if (!AssetDatabase.IsValidFolder(folderPath))
             {
                 string parentFolder = Path.GetDirectoryName(folderPath);
                 string newFolder = Path.GetFileName(folderPath);
 
-                if (!string.IsNullOrEmpty(parentFolder) && !AssetDatabase.IsValidFolder(parentFolder))
+                if (recursively && !string.IsNullOrEmpty(parentFolder) && !AssetDatabase.IsValidFolder(parentFolder))
                 {
-                    EnsureFolderExists(parentFolder); // Recursively create parent folders if needed
+                    EnsureFolderExists(parentFolder, true); // Recursively create parent folders if needed
                 }
 
                 AssetDatabase.CreateFolder(parentFolder, newFolder);

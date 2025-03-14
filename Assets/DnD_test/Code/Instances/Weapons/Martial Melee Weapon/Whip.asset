@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1793147315875276270
+--- !u!114 &-5560832511601633983
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa496ce09c6415f44bd81d1ad15fb33b, type: 3}
-  m_Name: Slow
+  m_Script: {fileID: 11500000, guid: 2cb5d0173bc167f4ba82fdbebe29932e, type: 3}
+  m_Name: Reach
   m_EditorClassIdentifier: 
-  Name: MasteryProperty.Slow
-  SlowBy: 3
+  Name: WeaponProperty.Reach
+  ExtraReach: 2.5
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,26 +32,12 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 783ffafd2b8fa2aefab07d406b7c7724, type: 2}
   DamageType: {fileID: 11400000, guid: 07cd786d2f714c450924b74e26dab4f9, type: 2}
   Properties:
-  - {fileID: 9184313058441365129}
-  - {fileID: 2838425269623472168}
-  MasteryProperty: {fileID: -1793147315875276270}
+  - {fileID: 4154014142844831172}
+  - {fileID: -5560832511601633983}
+  MasteryProperty: {fileID: 7423134742730236741}
   Weight: 1.5
   Cost: 200
---- !u!114 &2838425269623472168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cb5d0173bc167f4ba82fdbebe29932e, type: 3}
-  m_Name: Reach
-  m_EditorClassIdentifier: 
-  Name: WeaponProperty.Reach
-  ExtraReach: 2.5
---- !u!114 &9184313058441365129
+--- !u!114 &4154014142844831172
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,3 +50,17 @@ MonoBehaviour:
   m_Name: Finesse
   m_EditorClassIdentifier: 
   Name: WeaponProperty.Finesse
+--- !u!114 &7423134742730236741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa496ce09c6415f44bd81d1ad15fb33b, type: 3}
+  m_Name: Slow
+  m_EditorClassIdentifier: 
+  Name: MasteryProperty.Slow
+  SlowBy: 3

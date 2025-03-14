@@ -167,16 +167,6 @@ namespace DnD.Editor.Initializer
         protected abstract Level InitializeLevel18();
         protected abstract Level InitializeLevel19();
         protected abstract Level InitializeLevel20();
-
-        // protected Level InitializeLevel(string levelName, int levelNum, int proficiencyBonus, IClassFeatureTraits classFeatureTraits, string assetPath)
-        // {
-        //     var level = Common.CreateScriptableObject<Level>(levelName, assetPath);
-        //     level.LevelNum = levelNum;
-        //     level.ProficiencyBonus = proficiencyBonus;
-        //     level.ClassFeatureTraits = classFeatureTraits;
-        //
-        //     return level;
-        // }
         
         protected abstract class SubClassInitializer : BaseClassInitializer
         {

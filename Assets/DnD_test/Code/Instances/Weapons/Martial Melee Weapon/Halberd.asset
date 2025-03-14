@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2405410509592079448
+--- !u!114 &-6955028768519344730
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,11 +9,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cb5d0173bc167f4ba82fdbebe29932e, type: 3}
-  m_Name: Reach
+  m_Script: {fileID: 11500000, guid: 74e2517a1e89530418ff81722a46388e, type: 3}
+  m_Name: Cleave
   m_EditorClassIdentifier: 
-  Name: WeaponProperty.Reach
-  ExtraReach: 2.5
+  Name: MasteryProperty.Cleave
+--- !u!114 &-3004907241297999698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 037e71a86e645a242b3e1e815ad68008, type: 3}
+  m_Name: Heavy
+  m_EditorClassIdentifier: 
+  Name: WeaponProperty.Heavy
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,13 +44,13 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 9ecbc39331fc58c3bb208fe609ae8f04, type: 2}
   DamageType: {fileID: 11400000, guid: 07cd786d2f714c450924b74e26dab4f9, type: 2}
   Properties:
-  - {fileID: 5131101453085345130}
-  - {fileID: 5949239907691875595}
-  - {fileID: -2405410509592079448}
-  MasteryProperty: {fileID: 4680298306371687902}
+  - {fileID: -3004907241297999698}
+  - {fileID: 8802722885003587058}
+  - {fileID: 8208041912273384700}
+  MasteryProperty: {fileID: -6955028768519344730}
   Weight: 3
   Cost: 2000
---- !u!114 &4680298306371687902
+--- !u!114 &8208041912273384700
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,24 +59,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74e2517a1e89530418ff81722a46388e, type: 3}
-  m_Name: Cleave
+  m_Script: {fileID: 11500000, guid: 2cb5d0173bc167f4ba82fdbebe29932e, type: 3}
+  m_Name: Reach
   m_EditorClassIdentifier: 
-  Name: MasteryProperty.Cleave
---- !u!114 &5131101453085345130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 037e71a86e645a242b3e1e815ad68008, type: 3}
-  m_Name: Heavy
-  m_EditorClassIdentifier: 
-  Name: WeaponProperty.Heavy
---- !u!114 &5949239907691875595
+  Name: WeaponProperty.Reach
+  ExtraReach: 2.5
+--- !u!114 &8802722885003587058
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
