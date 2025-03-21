@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5170993341952499830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a095ac811fd34f4eba426d62d87651d1, type: 3}
+  m_Name: WarriorOfTheGods
+  m_EditorClassIdentifier: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,13 +24,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
   m_Name: Barbarian_Path Of The Zealot_Level_03
   m_EditorClassIdentifier: 
-  LevelNum: 0
-  ProficiencyBonus: 0
-  ClassFeatures: []
+  LevelNum: 3
+  ProficiencyBonus: 2
+  ClassFeatures:
+  - {fileID: 7086783586760025046}
+  - {fileID: -5170993341952499830}
   ClassFeatureTraits:
-    rid: -2
+    rid: 8746986014252728387
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 8746986014252728387
+      type: {class: BarbarianFP, ns: DnD.Code.Scripts.Characters.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data:
+        rages: 2
+        rageDamage: 2
+        weaponMastery: 2
+--- !u!114 &7086783586760025046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1d68a8e0947496199569c1b53c61cbc, type: 3}
+  m_Name: DivineFury
+  m_EditorClassIdentifier: 

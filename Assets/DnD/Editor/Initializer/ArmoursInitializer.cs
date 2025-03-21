@@ -64,7 +64,9 @@ namespace DnD.Editor.Initializer
                     shield.Type = shieldType;
                     shield.IncrementArmourClassBy = 2;
                     shield.Weight = 3;
-                    shield.Cost = 0;
+                    shield.Cost = 1000;
+                    
+                    EditorUtility.SetDirty(shield);
                 }
                 
                 AssetDatabase.SaveAssets();
@@ -97,22 +99,26 @@ namespace DnD.Editor.Initializer
                     breastplate.MaxDexModifier = 2;
                     breastplate.HasDisadvantageOnDexterityChecks = false;
                     breastplate.Strength = 0;
-                    breastplate.Weight = 3;
-                    breastplate.Cost = 0;
+                    breastplate.Weight = 10;
+                    breastplate.Cost = 40000;
+                    
+                    EditorUtility.SetDirty(breastplate);
                 }
                 
                 {
                     var chainShirt = Common.CreateScriptableObject<Armour>(NameHelper.Armours_Medium.ChainShirt, MediumArmoursPath);
                     chainShirt.Name = $"{nameof(NameHelper.Armours_Medium)}.{NameHelper.Armours_Medium.ChainShirt}";
                     chainShirt.Type = armourType;
-                    chainShirt.ArmourClass = 14;
+                    chainShirt.ArmourClass = 13;
                     chainShirt.AddDexModifier = true;
                     chainShirt.CapDexModifier = true;
                     chainShirt.MaxDexModifier = 2;
                     chainShirt.HasDisadvantageOnDexterityChecks = false;
                     chainShirt.Strength = 0;
-                    chainShirt.Weight = 3;
-                    chainShirt.Cost = 0;
+                    chainShirt.Weight = 10;
+                    chainShirt.Cost = 5000;
+                    
+                    EditorUtility.SetDirty(chainShirt);
                 }
                 
                 {
@@ -126,7 +132,9 @@ namespace DnD.Editor.Initializer
                     halfPlateArmour.HasDisadvantageOnDexterityChecks = true;
                     halfPlateArmour.Strength = 0;
                     halfPlateArmour.Weight = 20;
-                    halfPlateArmour.Cost = 0;
+                    halfPlateArmour.Cost = 75000;
+                    
+                    EditorUtility.SetDirty(halfPlateArmour);
                 }
                 
                 {
@@ -140,7 +148,9 @@ namespace DnD.Editor.Initializer
                     hideArmour.HasDisadvantageOnDexterityChecks = false;
                     hideArmour.Strength = 0;
                     hideArmour.Weight = 6;
-                    hideArmour.Cost = 0;
+                    hideArmour.Cost = 1000;
+                    
+                    EditorUtility.SetDirty(hideArmour);
                 }
                 
                 {
@@ -154,7 +164,9 @@ namespace DnD.Editor.Initializer
                     scaleMail.HasDisadvantageOnDexterityChecks = true;
                     scaleMail.Strength = 0;
                     scaleMail.Weight = 22.5f;
-                    scaleMail.Cost = 0;
+                    scaleMail.Cost = 5000;
+                    
+                    EditorUtility.SetDirty(scaleMail);
                 }
                 
                 AssetDatabase.SaveAssets();
@@ -188,7 +200,9 @@ namespace DnD.Editor.Initializer
                     leatherArmour.HasDisadvantageOnDexterityChecks = true;
                     leatherArmour.Strength = 0;
                     leatherArmour.Weight = 5;
-                    leatherArmour.Cost = 0;
+                    leatherArmour.Cost = 1000;
+                    
+                    EditorUtility.SetDirty(leatherArmour);
                 }
                 
                 {
@@ -202,7 +216,9 @@ namespace DnD.Editor.Initializer
                     paddedArmour.HasDisadvantageOnDexterityChecks = true;
                     paddedArmour.Strength = 0;
                     paddedArmour.Weight = 4;
-                    paddedArmour.Cost = 0;
+                    paddedArmour.Cost = 500;
+                    
+                    EditorUtility.SetDirty(paddedArmour);
                 }
                 
                 {
@@ -216,7 +232,9 @@ namespace DnD.Editor.Initializer
                     studdedLeatherArmour.HasDisadvantageOnDexterityChecks = false;
                     studdedLeatherArmour.Strength = 0;
                     studdedLeatherArmour.Weight = 6.5f;
-                    studdedLeatherArmour.Cost = 0;
+                    studdedLeatherArmour.Cost = 4500;
+                    
+                    EditorUtility.SetDirty(studdedLeatherArmour);
                 }
                 
                 AssetDatabase.SaveAssets();
@@ -254,8 +272,10 @@ namespace DnD.Editor.Initializer
                     chainMail.MaxDexModifier = 0;
                     chainMail.HasDisadvantageOnDexterityChecks = true;
                     chainMail.Strength = 13;
-                    chainMail.Weight = 27;
-                    chainMail.Cost = 1;
+                    chainMail.Weight = 27.5f;
+                    chainMail.Cost = 7500;
+                    
+                    EditorUtility.SetDirty(chainMail);
                 }
                 
                 {
@@ -269,7 +289,9 @@ namespace DnD.Editor.Initializer
                     plateArmour.HasDisadvantageOnDexterityChecks = true;
                     plateArmour.Strength = 15;
                     plateArmour.Weight = 32.5f;
-                    plateArmour.Cost = 0;
+                    plateArmour.Cost = 150000;
+                    
+                    EditorUtility.SetDirty(plateArmour);
                 }
                 
                 {
@@ -283,7 +305,9 @@ namespace DnD.Editor.Initializer
                     ringMail.HasDisadvantageOnDexterityChecks = true;
                     ringMail.Strength = 0;
                     ringMail.Weight = 20.0f;
-                    ringMail.Cost = 0;
+                    ringMail.Cost = 3000;
+                    
+                    EditorUtility.SetDirty(ringMail);
                 }
                 
                 {
@@ -297,7 +321,9 @@ namespace DnD.Editor.Initializer
                     splintArmour.HasDisadvantageOnDexterityChecks = true;
                     splintArmour.Strength = 15;
                     splintArmour.Weight = 30.0f;
-                    splintArmour.Cost = 0;
+                    splintArmour.Cost = 20000;
+                    
+                    EditorUtility.SetDirty(splintArmour);
                 }
                 
                 AssetDatabase.SaveAssets();
@@ -325,6 +351,8 @@ namespace DnD.Editor.Initializer
                     heavyArmourType.TimeInMinutesToDoff = 5;
                     heavyArmourType.TimeInMinutesToDon = 10;
                     armourTypes.Add(heavyArmourType);
+                    
+                    EditorUtility.SetDirty(heavyArmourType);
                 }
 
                 {
@@ -333,6 +361,8 @@ namespace DnD.Editor.Initializer
                     lightArmourType.TimeInMinutesToDoff = 1;
                     lightArmourType.TimeInMinutesToDon = 1;
                     armourTypes.Add(lightArmourType);
+                    
+                    EditorUtility.SetDirty(lightArmourType);
                 }
                 
                 {
@@ -341,12 +371,16 @@ namespace DnD.Editor.Initializer
                     mediumArmourType.TimeInMinutesToDoff = 1;
                     mediumArmourType.TimeInMinutesToDon = 5;
                     armourTypes.Add(mediumArmourType);
+                    
+                    EditorUtility.SetDirty(mediumArmourType);
                 }
                 
                 {
                     var shieldType = Common.CreateScriptableObject<ShieldType>(NameHelper.ArmourType.Shield, ArmourTypesPath);
                     shieldType.Name = $"{nameof(NameHelper.ArmourType)}.{NameHelper.ArmourType.Shield}";
                     armourTypes.Add(shieldType);
+                    
+                    EditorUtility.SetDirty(shieldType);
                 }
                 
                 AssetDatabase.SaveAssets();

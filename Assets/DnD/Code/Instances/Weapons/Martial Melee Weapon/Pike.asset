@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6686893769802382990
+--- !u!114 &-7028118614868813553
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: MasteryProperty.Push
   Distance: 3
---- !u!114 &-4005230723077292449
+--- !u!114 &-3867634871785758327
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -27,33 +27,6 @@ MonoBehaviour:
   m_Name: Heavy
   m_EditorClassIdentifier: 
   Name: WeaponProperty.Heavy
---- !u!114 &-3616388405747968457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cb5d0173bc167f4ba82fdbebe29932e, type: 3}
-  m_Name: Reach
-  m_EditorClassIdentifier: 
-  Name: WeaponProperty.Reach
-  ExtraReach: 2.5
---- !u!114 &-3492162695950731406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
-  m_Name: Two Handed
-  m_EditorClassIdentifier: 
-  Name: WeaponProperty.Two Handed
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,14 +40,41 @@ MonoBehaviour:
   m_Name: Pike
   m_EditorClassIdentifier: 
   Name: Weapons_MartialMelee.Pike
-  Type: {fileID: 11400000, guid: f91544c6c19a57a48a795c30de958652, type: 2}
+  Type: {fileID: 11400000, guid: 617cd2f31502e334b8fd582144b755f3, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: 148ec924f8b04f54fb2cb6ad83ecc392, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: -4005230723077292449}
-  - {fileID: -3492162695950731406}
-  - {fileID: -3616388405747968457}
-  MasteryProperty: {fileID: -6686893769802382990}
+  - {fileID: -3867634871785758327}
+  - {fileID: 6647528295770622781}
+  - {fileID: 6362989059853728225}
+  MasteryProperty: {fileID: -7028118614868813553}
   Weight: 9
   Cost: 500
+--- !u!114 &6362989059853728225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb5d0173bc167f4ba82fdbebe29932e, type: 3}
+  m_Name: Reach
+  m_EditorClassIdentifier: 
+  Name: WeaponProperty.Reach
+  ExtraReach: 2.5
+--- !u!114 &6647528295770622781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
+  m_Name: Two Handed
+  m_EditorClassIdentifier: 
+  Name: WeaponProperty.Two Handed

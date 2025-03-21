@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-951804525517920020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8d5e35a94b90e41b494da90b605875, type: 3}
+  m_Name: Topple
+  m_EditorClassIdentifier: 
+  Name: MasteryProperty.Topple
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,29 +26,16 @@ MonoBehaviour:
   m_Name: Battleaxe
   m_EditorClassIdentifier: 
   Name: Weapons_MartialMelee.Battleaxe
-  Type: {fileID: 11400000, guid: f91544c6c19a57a48a795c30de958652, type: 2}
+  Type: {fileID: 11400000, guid: 617cd2f31502e334b8fd582144b755f3, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
   DamageType: {fileID: 11400000, guid: 9437bf1f986d56941b00734a2f0ec3ca, type: 2}
   Properties:
-  - {fileID: 2133982157750568690}
-  MasteryProperty: {fileID: 1258367033933332029}
+  - {fileID: 6220664516719725133}
+  MasteryProperty: {fileID: -951804525517920020}
   Weight: 2
   Cost: 1000
---- !u!114 &1258367033933332029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f8d5e35a94b90e41b494da90b605875, type: 3}
-  m_Name: Topple
-  m_EditorClassIdentifier: 
-  Name: MasteryProperty.Topple
---- !u!114 &2133982157750568690
+--- !u!114 &6220664516719725133
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

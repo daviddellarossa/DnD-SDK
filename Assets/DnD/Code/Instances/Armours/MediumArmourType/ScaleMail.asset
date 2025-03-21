@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b5371e7252f88488ddec75394374ad, type: 3}
   m_Name: ScaleMail
   m_EditorClassIdentifier: 
-  Name: 
-  Type: {fileID: 0}
-  ArmourClass: 0
-  AddDexModifier: 0
-  CapDexModifier: 0
-  MaxDexModifier: 0
-  HasDisadvantageOnDexterityChecks: 0
+  Name: Armours_Medium.ScaleMail
+  Type: {fileID: 11400000, guid: d271d92e026d4694eb6f1ec1d47602da, type: 2}
+  ArmourClass: 14
+  AddDexModifier: 1
+  CapDexModifier: 1
+  MaxDexModifier: 2
+  HasDisadvantageOnDexterityChecks: 1
   Strength: 0
-  Weight: 0
-  Cost: 0
+  Weight: 22.5
+  Cost: 5000

@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b5371e7252f88488ddec75394374ad, type: 3}
   m_Name: StuddedLeatherArmour
   m_EditorClassIdentifier: 
-  Name: 
-  Type: {fileID: 0}
-  ArmourClass: 0
-  AddDexModifier: 0
+  Name: Armours_Light.StuddedLeatherArmour
+  Type: {fileID: 11400000, guid: 0d1c5f4b7cdce494dbb3babe5d3aef2a, type: 2}
+  ArmourClass: 12
+  AddDexModifier: 1
   CapDexModifier: 0
   MaxDexModifier: 0
   HasDisadvantageOnDexterityChecks: 0
   Strength: 0
-  Weight: 0
-  Cost: 0
+  Weight: 6.5
+  Cost: 4500

@@ -1,56 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2764396915680191960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb202eed58cbad5498c5cbc96f204e39, type: 3}
-  m_Name: Loading
-  m_EditorClassIdentifier: 
-  Name: WeaponProperty.Loading
---- !u!114 &-1292868467517945828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
-  m_Name: Two Handed
-  m_EditorClassIdentifier: 
-  Name: WeaponProperty.Two Handed
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
-  m_Name: Light Crossbow
-  m_EditorClassIdentifier: 
-  Name: Weapons_SimpleRanged.Light Crossbow
-  Type: {fileID: 11400000, guid: ea36dac41de985f4bafcafe7bf313b9c, type: 2}
-  NumOfDamageDice: 1
-  DamageDie: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
-  DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
-  Properties:
-  - {fileID: 6127072502223659936}
-  - {fileID: -2764396915680191960}
-  - {fileID: -1292868467517945828}
-  MasteryProperty: {fileID: 7442745731611397145}
-  Weight: 2.5
-  Cost: 2500
---- !u!114 &6127072502223659936
+--- !u!114 &-9197872908280517335
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,7 +17,20 @@ MonoBehaviour:
     Min: 24
     Max: 96
   Type: {fileID: 11400000, guid: e1d8f7a120bc40040857aa574c27a5e9, type: 2}
---- !u!114 &7442745731611397145
+--- !u!114 &-6266464798562182356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
+  m_Name: Two Handed
+  m_EditorClassIdentifier: 
+  Name: WeaponProperty.Two Handed
+--- !u!114 &-3003802363408387665
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,3 +44,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: MasteryProperty.Slow
   SlowBy: 3
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
+  m_Name: Light Crossbow
+  m_EditorClassIdentifier: 
+  Name: Weapons_SimpleRanged.Light Crossbow
+  Type: {fileID: 11400000, guid: fcde4b92e712b774c974cbc1c76a29b6, type: 2}
+  NumOfDamageDice: 1
+  DamageDie: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
+  DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
+  Properties:
+  - {fileID: -9197872908280517335}
+  - {fileID: 415297115879180453}
+  - {fileID: -6266464798562182356}
+  MasteryProperty: {fileID: -3003802363408387665}
+  Weight: 2.5
+  Cost: 2500
+--- !u!114 &415297115879180453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb202eed58cbad5498c5cbc96f204e39, type: 3}
+  m_Name: Loading
+  m_EditorClassIdentifier: 
+  Name: WeaponProperty.Loading

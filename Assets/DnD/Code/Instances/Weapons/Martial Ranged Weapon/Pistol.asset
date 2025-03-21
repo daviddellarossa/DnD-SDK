@@ -1,6 +1,42 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8054371184968919337
+--- !u!114 &-3483179703750557012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1de63446a39c28145a8b4eea8f194a7e, type: 3}
+  m_Name: Vex
+  m_EditorClassIdentifier: 
+  Name: MasteryProperty.Vex
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
+  m_Name: Pistol
+  m_EditorClassIdentifier: 
+  Name: Weapons_SimpleMelee.Pistol
+  Type: {fileID: 11400000, guid: fb0e43c8590a32643b27921f80ae7819, type: 2}
+  NumOfDamageDice: 1
+  DamageDie: {fileID: 11400000, guid: 148ec924f8b04f54fb2cb6ad83ecc392, type: 2}
+  DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
+  Properties:
+  - {fileID: 436022384035075580}
+  - {fileID: 7887493857871507620}
+  MasteryProperty: {fileID: -3483179703750557012}
+  Weight: 1.5
+  Cost: 25000
+--- !u!114 &436022384035075580
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17,7 +53,7 @@ MonoBehaviour:
     Min: 9
     Max: 27
   Type: {fileID: 11400000, guid: 69a9cd06582e1e54eb5f3846942efa23, type: 2}
---- !u!114 &-5826418909733107993
+--- !u!114 &7887493857871507620
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,39 +66,3 @@ MonoBehaviour:
   m_Name: Loading
   m_EditorClassIdentifier: 
   Name: WeaponProperty.Loading
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
-  m_Name: Pistol
-  m_EditorClassIdentifier: 
-  Name: Weapons_SimpleMelee.Pistol
-  Type: {fileID: 11400000, guid: adb4870acbccf4a4bae4201183004e57, type: 2}
-  NumOfDamageDice: 1
-  DamageDie: {fileID: 11400000, guid: 148ec924f8b04f54fb2cb6ad83ecc392, type: 2}
-  DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
-  Properties:
-  - {fileID: -8054371184968919337}
-  - {fileID: -5826418909733107993}
-  MasteryProperty: {fileID: 1525147988454430184}
-  Weight: 1.5
-  Cost: 25000
---- !u!114 &1525147988454430184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1de63446a39c28145a8b4eea8f194a7e, type: 3}
-  m_Name: Vex
-  m_EditorClassIdentifier: 
-  Name: MasteryProperty.Vex

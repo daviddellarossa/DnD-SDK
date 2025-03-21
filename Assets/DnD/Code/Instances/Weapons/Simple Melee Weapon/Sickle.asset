@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8668963228183700367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736285003def7cc46b8f45a9970c9ed2, type: 3}
+  m_Name: Nick
+  m_EditorClassIdentifier: 
+  Name: MasteryProperty.Nick
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,29 +26,16 @@ MonoBehaviour:
   m_Name: Sickle
   m_EditorClassIdentifier: 
   Name: Weapons_SimpleMelee.Sickle
-  Type: {fileID: 11400000, guid: 9f6a49b7034ad0f4f8a32c5df73e523d, type: 2}
+  Type: {fileID: 11400000, guid: 1c7ca2717ab96074a8028ece16c57f50, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: e23ede8f2cf0b9b49b31d2e95b0a3d15, type: 2}
   DamageType: {fileID: 11400000, guid: 9437bf1f986d56941b00734a2f0ec3ca, type: 2}
   Properties:
-  - {fileID: 2890840883668712463}
-  MasteryProperty: {fileID: 1448695600469018567}
+  - {fileID: 1818851218019052937}
+  MasteryProperty: {fileID: -8668963228183700367}
   Weight: 1
   Cost: 100
---- !u!114 &1448695600469018567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 736285003def7cc46b8f45a9970c9ed2, type: 3}
-  m_Name: Nick
-  m_EditorClassIdentifier: 
-  Name: MasteryProperty.Nick
---- !u!114 &2890840883668712463
+--- !u!114 &1818851218019052937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

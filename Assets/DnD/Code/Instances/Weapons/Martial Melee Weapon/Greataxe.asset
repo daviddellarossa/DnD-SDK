@@ -1,19 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8197669608526503798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
-  m_Name: Two Handed
-  m_EditorClassIdentifier: 
-  Name: WeaponProperty.Two Handed
---- !u!114 &-2036751973312877801
+--- !u!114 &-7444478656200211672
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -39,17 +26,17 @@ MonoBehaviour:
   m_Name: Greataxe
   m_EditorClassIdentifier: 
   Name: Weapons_MartialMelee.Greataxe
-  Type: {fileID: 11400000, guid: f91544c6c19a57a48a795c30de958652, type: 2}
+  Type: {fileID: 11400000, guid: 617cd2f31502e334b8fd582144b755f3, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: 55ea3d617514ced46bd8d6f580c4b8c9, type: 2}
   DamageType: {fileID: 11400000, guid: 9437bf1f986d56941b00734a2f0ec3ca, type: 2}
   Properties:
-  - {fileID: -2036751973312877801}
-  - {fileID: -8197669608526503798}
-  MasteryProperty: {fileID: 9036989862757793042}
+  - {fileID: -7444478656200211672}
+  - {fileID: 7565362472467294279}
+  MasteryProperty: {fileID: 2433285650375140423}
   Weight: 3.5
   Cost: 3000
---- !u!114 &9036989862757793042
+--- !u!114 &2433285650375140423
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,3 +49,16 @@ MonoBehaviour:
   m_Name: Cleave
   m_EditorClassIdentifier: 
   Name: MasteryProperty.Cleave
+--- !u!114 &7565362472467294279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
+  m_Name: Two Handed
+  m_EditorClassIdentifier: 
+  Name: WeaponProperty.Two Handed

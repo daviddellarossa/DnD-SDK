@@ -37,16 +37,16 @@ namespace Tests
         {
             var armour = _armours.SingleOrDefault(armour => armour.name == expected.Name);
             
-            Assert.That(armour, Is.Not.Null);
-            Assert.That(armour.Type.name, Is.EqualTo(expected.Type));
-            Assert.That(armour.ArmourClass, Is.EqualTo(expected.ArmourClass));
-            Assert.That(armour.AddDexModifier, Is.EqualTo(expected.AddDexModifier));
-            Assert.That(armour.CapDexModifier, Is.EqualTo(expected.CapDexModifier));
-            Assert.That(armour.MaxDexModifier, Is.EqualTo(expected.MaxDexModifier));
-            Assert.That(armour.HasDisadvantageOnDexterityChecks, Is.EqualTo(expected.HasDisadvantageOnDexterityChecks));
-            Assert.That(armour.Strength, Is.EqualTo(expected.Strength));
-            Assert.That(armour.Weight, Is.EqualTo(expected.Weight));
-            Assert.That(armour.Cost, Is.EqualTo(expected.Cost));
+            Assert.That(armour, Is.Not.Null, GetTestName(expected.Name, string.Empty));
+            Assert.That(armour.Type.name, Is.EqualTo(expected.Type), GetTestName(expected.Name, nameof(armour.Type)));
+            Assert.That(armour.ArmourClass, Is.EqualTo(expected.ArmourClass), GetTestName(expected.Name, nameof(armour.ArmourClass)));
+            Assert.That(armour.AddDexModifier, Is.EqualTo(expected.AddDexModifier), GetTestName(expected.Name, nameof(armour.AddDexModifier)));
+            Assert.That(armour.CapDexModifier, Is.EqualTo(expected.CapDexModifier), GetTestName(expected.Name, nameof(armour.CapDexModifier)));
+            Assert.That(armour.MaxDexModifier, Is.EqualTo(expected.MaxDexModifier), GetTestName(expected.Name, nameof(armour.MaxDexModifier)));
+            Assert.That(armour.HasDisadvantageOnDexterityChecks, Is.EqualTo(expected.HasDisadvantageOnDexterityChecks), GetTestName(expected.Name, nameof(armour.HasDisadvantageOnDexterityChecks)));
+            Assert.That(armour.Strength, Is.EqualTo(expected.Strength), GetTestName(expected.Name, nameof(armour.Strength)));
+            Assert.That(armour.Weight, Is.EqualTo(expected.Weight), GetTestName(expected.Name, nameof(armour.Weight)));
+            Assert.That(armour.Cost, Is.EqualTo(expected.Cost), GetTestName(expected.Name, nameof(armour.Cost)));
 
         }
         
@@ -56,11 +56,14 @@ namespace Tests
             var shield = _shields.SingleOrDefault(shield => shield.name == expected.Name);
             
             Assert.That(shield, Is.Not.Null);
-            Assert.That(shield.Type.name, Is.EqualTo(expected.Type));
-            Assert.That(shield.IncrementArmourClassBy, Is.EqualTo(expected.IncrementArmourClassBy));
-            Assert.That(shield.Weight, Is.EqualTo(expected.Weight));
-            Assert.That(shield.Cost, Is.EqualTo(expected.Cost));
+            Assert.That(shield.Type.name, Is.EqualTo(expected.Type), GetTestName(expected.Name, nameof(shield.Type)));
+            Assert.That(shield.IncrementArmourClassBy, Is.EqualTo(expected.IncrementArmourClassBy), GetTestName(expected.Name, nameof(shield.IncrementArmourClassBy)));
+            Assert.That(shield.Weight, Is.EqualTo(expected.Weight), GetTestName(expected.Name, nameof(shield.Weight)));
+            Assert.That(shield.Cost, Is.EqualTo(expected.Cost), GetTestName(expected.Name, nameof(shield.Cost)));
         }
+        
+        private string GetTestName(string caseName, string propertyName)
+            => $"{caseName}: {propertyName}";
         
         private class AbilitiesData
         {
@@ -78,8 +81,8 @@ namespace Tests
                         0,
                         true,
                         13,
-                        27.0f,
-                        1
+                        27.5f,
+                        7500
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
@@ -92,7 +95,7 @@ namespace Tests
                         true,
                         15,
                         32.5f,
-                        0
+                        150000
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
@@ -105,7 +108,7 @@ namespace Tests
                         true,
                         0,
                         20.0f,
-                        0
+                        3000
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
@@ -118,7 +121,7 @@ namespace Tests
                         true,
                         15,
                         30.0f,
-                        0
+                        20000
                         ));
 
                     yield return new TestCaseData(
@@ -132,7 +135,7 @@ namespace Tests
                         true,
                         0,
                         5.0f,
-                        0
+                        1000
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
@@ -145,7 +148,7 @@ namespace Tests
                         true,
                         0,
                         4.0f,
-                        0
+                        500
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
@@ -158,7 +161,7 @@ namespace Tests
                         false,
                         0,
                         6.5f,
-                        0
+                        4500
                         ));
 
                     yield return new TestCaseData(
@@ -172,7 +175,7 @@ namespace Tests
                         false,
                         0,
                         10.0f,
-                        0
+                        40000
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
@@ -184,8 +187,8 @@ namespace Tests
                         2,
                         false,
                         0,
-                        5.0f,
-                        0
+                        10.0f,
+                        5000
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
@@ -198,7 +201,7 @@ namespace Tests
                         true,
                         0,
                         20.0f,
-                        0
+                        75000
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
@@ -211,7 +214,7 @@ namespace Tests
                         false,
                         0,
                         6.0f,
-                        0
+                        1000
                         ));
                     yield return new TestCaseData(
                         new ArmourModel(
@@ -224,7 +227,7 @@ namespace Tests
                         true,
                         0,
                         22.5f,
-                        0
+                        5000
                         ));
                 }
             }
@@ -239,7 +242,7 @@ namespace Tests
                         NameHelper.ArmourType.Shield,
                         2,
                         3.0f,
-                        0
+                        1000
                         ));
                 }
             }

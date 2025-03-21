@@ -13,30 +13,17 @@ MonoBehaviour:
   m_Name: Whip
   m_EditorClassIdentifier: 
   Name: Weapons_MartialMelee.Whip
-  Type: {fileID: 11400000, guid: f91544c6c19a57a48a795c30de958652, type: 2}
+  Type: {fileID: 11400000, guid: 617cd2f31502e334b8fd582144b755f3, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: e23ede8f2cf0b9b49b31d2e95b0a3d15, type: 2}
   DamageType: {fileID: 11400000, guid: 9437bf1f986d56941b00734a2f0ec3ca, type: 2}
   Properties:
-  - {fileID: 2035641891468169523}
-  - {fileID: 5412693943923081918}
-  MasteryProperty: {fileID: 6309477644567192284}
+  - {fileID: 5880378830160691555}
+  - {fileID: 3958387692492205695}
+  MasteryProperty: {fileID: 8579287759770184045}
   Weight: 1.5
   Cost: 200
---- !u!114 &2035641891468169523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ebc4527f34bae1489fdaafed1f5dafc, type: 3}
-  m_Name: Finesse
-  m_EditorClassIdentifier: 
-  Name: WeaponProperty.Finesse
---- !u!114 &5412693943923081918
+--- !u!114 &3958387692492205695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,7 +37,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: WeaponProperty.Reach
   ExtraReach: 2.5
---- !u!114 &6309477644567192284
+--- !u!114 &5880378830160691555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ebc4527f34bae1489fdaafed1f5dafc, type: 3}
+  m_Name: Finesse
+  m_EditorClassIdentifier: 
+  Name: WeaponProperty.Finesse
+--- !u!114 &8579287759770184045
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2907cc55a1c84c5499a945cb946d6555, type: 3}
   m_Name: HeavyArmourType
   m_EditorClassIdentifier: 
-  Name: 
-  TimeInMinutesToDon: 0
-  TimeInMinutesToDoff: 0
+  Name: ArmourType.HeavyArmourType
+  TimeInMinutesToDon: 10
+  TimeInMinutesToDoff: 5

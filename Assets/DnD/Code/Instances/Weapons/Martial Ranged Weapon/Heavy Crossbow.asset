@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2255170877628274956
+--- !u!114 &-5099246473453000825
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Heavy
   m_EditorClassIdentifier: 
   Name: WeaponProperty.Heavy
---- !u!114 &-2186524722163644185
+--- !u!114 &-1262426212651615734
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -39,19 +39,19 @@ MonoBehaviour:
   m_Name: Heavy Crossbow
   m_EditorClassIdentifier: 
   Name: Weapons_SimpleMelee.Heavy Crossbow
-  Type: {fileID: 11400000, guid: adb4870acbccf4a4bae4201183004e57, type: 2}
+  Type: {fileID: 11400000, guid: fb0e43c8590a32643b27921f80ae7819, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: 148ec924f8b04f54fb2cb6ad83ecc392, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: 5334376872538199}
-  - {fileID: -2255170877628274956}
-  - {fileID: -2186524722163644185}
-  - {fileID: 837049822619293271}
-  MasteryProperty: {fileID: 6103613969141854924}
+  - {fileID: 1593167692919042756}
+  - {fileID: -5099246473453000825}
+  - {fileID: -1262426212651615734}
+  - {fileID: 4630306843421527545}
+  MasteryProperty: {fileID: 2778212060766159791}
   Weight: 9
   Cost: 5000
---- !u!114 &5334376872538199
+--- !u!114 &1593167692919042756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,20 +68,7 @@ MonoBehaviour:
     Min: 30
     Max: 120
   Type: {fileID: 11400000, guid: e1d8f7a120bc40040857aa574c27a5e9, type: 2}
---- !u!114 &837049822619293271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
-  m_Name: Two Handed
-  m_EditorClassIdentifier: 
-  Name: WeaponProperty.Two Handed
---- !u!114 &6103613969141854924
+--- !u!114 &2778212060766159791
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,3 +82,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: MasteryProperty.Push
   Distance: 3
+--- !u!114 &4630306843421527545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
+  m_Name: Two Handed
+  m_EditorClassIdentifier: 
+  Name: WeaponProperty.Two Handed

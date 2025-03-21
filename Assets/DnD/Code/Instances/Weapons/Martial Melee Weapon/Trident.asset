@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8352362946553478891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f8d5e35a94b90e41b494da90b605875, type: 3}
-  m_Name: Topple
-  m_EditorClassIdentifier: 
-  Name: MasteryProperty.Topple
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26,17 +13,17 @@ MonoBehaviour:
   m_Name: Trident
   m_EditorClassIdentifier: 
   Name: Weapons_MartialMelee.Trident
-  Type: {fileID: 11400000, guid: f91544c6c19a57a48a795c30de958652, type: 2}
+  Type: {fileID: 11400000, guid: 617cd2f31502e334b8fd582144b755f3, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: 7743931151645917896}
-  - {fileID: 4385595946657762766}
-  MasteryProperty: {fileID: -8352362946553478891}
+  - {fileID: 452742554907405948}
+  - {fileID: 221311635061376075}
+  MasteryProperty: {fileID: 7606591406883606845}
   Weight: 2
   Cost: 500
---- !u!114 &4385595946657762766
+--- !u!114 &221311635061376075
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51,7 +38,7 @@ MonoBehaviour:
   Name: WeaponProperty.Versatile
   NumberOfDice: 1
   DieType: {fileID: 11400000, guid: 148ec924f8b04f54fb2cb6ad83ecc392, type: 2}
---- !u!114 &7743931151645917896
+--- !u!114 &452742554907405948
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,3 +54,16 @@ MonoBehaviour:
   Range:
     Min: 6
     Max: 18
+--- !u!114 &7606591406883606845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8d5e35a94b90e41b494da90b605875, type: 3}
+  m_Name: Topple
+  m_EditorClassIdentifier: 
+  Name: MasteryProperty.Topple

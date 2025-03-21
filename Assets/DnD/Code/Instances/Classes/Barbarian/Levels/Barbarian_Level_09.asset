@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7345457922033284823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a73f2225dd42979989cfa1dbe8f53d, type: 3}
+  m_Name: BrutalStrike
+  m_EditorClassIdentifier: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,13 +24,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
   m_Name: Barbarian_Level_09
   m_EditorClassIdentifier: 
-  LevelNum: 0
-  ProficiencyBonus: 0
-  ClassFeatures: []
+  LevelNum: 9
+  ProficiencyBonus: 4
+  ClassFeatures:
+  - {fileID: -7345457922033284823}
   ClassFeatureTraits:
-    rid: -2
+    rid: 8746986014252728419
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 8746986014252728419
+      type: {class: BarbarianFP, ns: DnD.Code.Scripts.Characters.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data:
+        rages: 4
+        rageDamage: 3
+        weaponMastery: 3

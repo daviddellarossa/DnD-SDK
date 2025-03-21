@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Flail
   m_EditorClassIdentifier: 
   Name: Weapons_MartialMelee.Flail
-  Type: {fileID: 11400000, guid: f91544c6c19a57a48a795c30de958652, type: 2}
+  Type: {fileID: 11400000, guid: 617cd2f31502e334b8fd582144b755f3, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
   DamageType: {fileID: 11400000, guid: 4a6261dd04b0a8941a6be6453b8bbb47, type: 2}
   Properties: []
-  MasteryProperty: {fileID: 4145194451465010043}
+  MasteryProperty: {fileID: 4822330579507621383}
   Weight: 1
   Cost: 1000
---- !u!114 &4145194451465010043
+--- !u!114 &4822330579507621383
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

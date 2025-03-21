@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8052672785470256534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1de63446a39c28145a8b4eea8f194a7e, type: 3}
-  m_Name: Vex
-  m_EditorClassIdentifier: 
-  Name: MasteryProperty.Vex
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26,17 +13,17 @@ MonoBehaviour:
   m_Name: Handaxe
   m_EditorClassIdentifier: 
   Name: Weapons_SimpleMelee.Handaxe
-  Type: {fileID: 11400000, guid: 9f6a49b7034ad0f4f8a32c5df73e523d, type: 2}
+  Type: {fileID: 11400000, guid: 1c7ca2717ab96074a8028ece16c57f50, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
   DamageType: {fileID: 11400000, guid: 9437bf1f986d56941b00734a2f0ec3ca, type: 2}
   Properties:
-  - {fileID: 5892626790742989104}
-  - {fileID: 2032864060191507005}
-  MasteryProperty: {fileID: -8052672785470256534}
+  - {fileID: 7452445721967419345}
+  - {fileID: 4525283583609414344}
+  MasteryProperty: {fileID: 5800088690350919612}
   Weight: 1
   Cost: 500
---- !u!114 &2032864060191507005
+--- !u!114 &4525283583609414344
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,7 +36,20 @@ MonoBehaviour:
   m_Name: Light
   m_EditorClassIdentifier: 
   Name: WeaponProperty.Light
---- !u!114 &5892626790742989104
+--- !u!114 &5800088690350919612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1de63446a39c28145a8b4eea8f194a7e, type: 3}
+  m_Name: Vex
+  m_EditorClassIdentifier: 
+  Name: MasteryProperty.Vex
+--- !u!114 &7452445721967419345
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
