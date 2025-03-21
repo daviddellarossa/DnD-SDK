@@ -58,35 +58,47 @@ namespace DnD.Editor.Initializer
                             holySymbol.Name = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.HolySymbol}";
                             holySymbol.Description = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.HolySymbol}.{NameHelper.Naming.Description}";
                             optionA.Items.Add(new StartingEquipment.EquipmentWithAmount(holySymbol, 1.0f));
+                            
+                            EditorUtility.SetDirty(holySymbol);
                         }
                         {
                             var parchment = Common.CreateScriptableObject<HolySymbol>(NameHelper.Equipment.Gear.Acolyte.Parchment, acolyteToolsPath);
                             parchment.Name = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.Parchment}";
                             parchment.Description = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.Parchment}.{NameHelper.Naming.Description}";
                             optionA.Items.Add(new StartingEquipment.EquipmentWithAmount(parchment, 10.0f));
+                            
+                            EditorUtility.SetDirty(parchment);
                         }
                         {
                             var robe = Common.CreateScriptableObject<HolySymbol>(NameHelper.Equipment.Gear.Acolyte.Robe, acolyteToolsPath);
                             robe.Name = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.Robe}";
                             robe.Description = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.Robe}.{NameHelper.Naming.Description}";
                             optionA.Items.Add(new StartingEquipment.EquipmentWithAmount(robe, 1.0f));
+                            
+                            EditorUtility.SetDirty(robe);
                         }
                         {
                             var prayersBook = Common.CreateScriptableObject<HolySymbol>(NameHelper.Equipment.Gear.Acolyte.Book, acolyteToolsPath);
                             prayersBook.Name = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.Book}";
                             prayersBook.Description = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.Book}.{NameHelper.Naming.Description}";
                             optionA.Items.Add(new StartingEquipment.EquipmentWithAmount(prayersBook, 1.0f));
+                            
+                            EditorUtility.SetDirty(prayersBook);
                         }
                         {
                             var calligrapherTool = Common.CreateScriptableObject<HolySymbol>(NameHelper.Equipment.Tools.CalligrapherTool, acolyteToolsPath);
                             calligrapherTool.Name = $"{nameof(NameHelper.Equipment.Tools)}.{NameHelper.Equipment.Tools.CalligrapherTool}";
                             calligrapherTool.Description = $"{nameof(NameHelper.Equipment.Tools)}.{NameHelper.Equipment.Tools.CalligrapherTool}.{NameHelper.Naming.Description}";
                             optionA.Items.Add(new StartingEquipment.EquipmentWithAmount(calligrapherTool, 1.0f));
+                            
+                            EditorUtility.SetDirty(calligrapherTool);
                         }
 
                         {
                             optionA.Items.Add(new StartingEquipment.EquipmentWithAmount(coins.Single(coin => coin.name == NameHelper.CoinValues.GoldPiece), 8.0f));
                         }
+                        
+                        EditorUtility.SetDirty(optionA);
                     
                         acolyte.StartingEquipment[0] = optionA;
                         
@@ -96,10 +108,15 @@ namespace DnD.Editor.Initializer
                         {
                             optionB.Items.Add(new StartingEquipment.EquipmentWithAmount(coins.Single(coin => coin.name == NameHelper.CoinValues.GoldPiece), 50.0f));
                         }
+                        
+                        EditorUtility.SetDirty(optionB);
+
                         acolyte.StartingEquipment[1] = optionB;
                     }
                     
                     acolyte.ToolProficiency = NameHelper.Equipment.Tools.CalligrapherTool;
+                    
+                    EditorUtility.SetDirty(acolyte);
                 }
                 
                 AssetDatabase.SaveAssets();

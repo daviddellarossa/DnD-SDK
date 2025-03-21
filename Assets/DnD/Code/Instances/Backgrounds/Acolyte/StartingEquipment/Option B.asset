@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20b6e3af0ebfb9f4682951854de34abf, type: 3}
   m_Name: Option B
   m_EditorClassIdentifier: 
-  Items: []
+  Items:
+  - rid: 8746986014487871553
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 8746986014487871553
+      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Characters.Backgrounds, asm: DnD}
+      data:
+        Item: {fileID: 11400000, guid: 4d1f81aa7cefccf40ab750f2ed744e0b, type: 2}
+        Amount: 50

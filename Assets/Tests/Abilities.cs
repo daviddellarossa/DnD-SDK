@@ -26,13 +26,13 @@ namespace Tests
         public void TestAllAbilities(string name, AbilityEnum abilityEnum, string[] skillNames)
         {
             var ability = _abilities.SingleOrDefault(ability => ability.name == name && ability.AbilityType == abilityEnum);
-            Assert.IsNotNull(ability);
+            Assert.That(ability, Is.Not.Null,  $"Ability {name} not found");
             
-            Assert.AreEqual(ability.SkillList.Count, skillNames.Length);
-
+            Assert.That(ability.SkillList.Count, Is.EqualTo(skillNames.Length));
+            
             foreach (var skillName in skillNames)
             {
-                Assert.IsTrue(ability.SkillList.Any(skill => skill.name == skillName));
+                Assert.IsTrue(ability.SkillList.Any(skill => skill.name == skillName) , $"{ability.name}: Skill {skillName} not found");
             }
         }
 

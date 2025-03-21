@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee8a40cf9bffd58489528eab69dae873, type: 3}
   m_Name: Shield
   m_EditorClassIdentifier: 
-  Name: 
-  Type: {fileID: 0}
-  IncrementArmourClassBy: 0
-  Weight: 0
-  Cost: 0
+  Name: Shields.Shield
+  Type: {fileID: 11400000, guid: f4d02071dff761443b31e05dce38b54a, type: 2}
+  IncrementArmourClassBy: 2
+  Weight: 3
+  Cost: 1000

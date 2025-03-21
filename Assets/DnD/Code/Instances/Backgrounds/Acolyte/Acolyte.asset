@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b07ac9e01a0e34e8e1069255b4c930, type: 3}
   m_Name: Acolyte
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Backgrounds.Acolyte
   Abilities:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 9cb7c735c585f8242b9fee23d7b0fc44, type: 2}
+  - {fileID: 11400000, guid: 6cc012760c397c548918ff185f0a6831, type: 2}
+  - {fileID: 11400000, guid: 6a9032efade58cb4eba9fce4c37fc960, type: 2}
   SkillProficiencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  ToolProficiency: 
+  - {fileID: 11400000, guid: 2ec62fec9d6ba674083e60c0d103d927, type: 2}
+  - {fileID: 11400000, guid: 5f6c86d2b248ebb4990b935fb1945f97, type: 2}
+  ToolProficiency: CalligrapherTool
   StartingEquipment:
-  - {fileID: 0}
-  - {fileID: 0}
-  Feat: {fileID: 0}
+  - {fileID: 11400000, guid: b3fa57fedb0b4154982093c48f137128, type: 2}
+  - {fileID: 11400000, guid: 7553b940866eb4549a2a2872db8e9f29, type: 2}
+  Feat: {fileID: 11400000, guid: dfe3f64cc15100a4492bc851965f8c42, type: 2}
   Note: Tool proficiency still not shown in the UI. TODO.
