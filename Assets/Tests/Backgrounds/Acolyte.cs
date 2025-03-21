@@ -70,6 +70,12 @@ namespace Tests.Backgrounds
             Assert.That(_acolyte.Feat.name, Is.EqualTo(data.FeatName));
         }
 
+        [Test, Ignore("Not implemented yet")]
+        public void TestTools()
+        {
+            
+        }
+
         private class AcolyteData
         {
             public static IEnumerable OptionsTestCases
