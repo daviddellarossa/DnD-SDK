@@ -1,7 +1,8 @@
-﻿namespace DnD.Code.Scripts.Equipment
+﻿using DnD.Code.Scripts.Common;
+
+namespace DnD.Code.Scripts.Equipment
 {
-    public interface IEquipment
+    public interface IEquipment: ILocalizable
     {
-        string DisplayText { get; }
     }
 }

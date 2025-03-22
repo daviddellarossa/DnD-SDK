@@ -51,27 +51,27 @@ namespace Assets.Scripts.Game.Characters.Classes
             SetupItemSection<Shield, string>(
                 root,
                 nameof(Shield),
-                (Shield sh) => sh.DisplayText,
-                (Shield sh) => sh.DisplayText);
+                (Shield sh) => sh.DisplayName,
+                (Shield sh) => sh.DisplayName);
 
             SetupSection(
                 root,
                 FindAllArmourTypes,
                 FindAllArmourOfType,
-                (DnD.Code.Scripts.Armour.Armour arm) => arm.DisplayText,
-                (DnD.Code.Scripts.Armour.Armour arm) => arm.DisplayText);
+                (DnD.Code.Scripts.Armour.Armour arm) => arm.DisplayName,
+                (DnD.Code.Scripts.Armour.Armour arm) => arm.DisplayName);
 
             SetupSection(
                 root,
                 FindAllWeaponTypes,
                 FindAllWeaponsOfType,
-                (Weapon wep) => wep.DisplayText,
-                (Weapon wep) => wep.DisplayText);
+                (Weapon wep) => wep.DisplayName,
+                (Weapon wep) => wep.DisplayName);
 
             SetupItemSection<CoinValue, float>(
                 root,
                 nameof(CoinValue),
-                (CoinValue cv) => $"{cv.DisplayText} - {cv.Value}",
+                (CoinValue cv) => $"{cv.DisplayName} - {cv.Value}",
                 (CoinValue cv) => cv.Value);
 
             return root;
@@ -106,7 +106,7 @@ namespace Assets.Scripts.Game.Characters.Classes
                 itemContainer.style.marginLeft = 200;
 
                 // Add the item's DisplayText (name)
-                var label = new Label(item.AsIItem.DisplayText);
+                var label = new Label(item.AsIItem.DisplayName);
                 label.style.flexGrow = 1;  // Allow label to take available space
                 label.style.unityTextAlign = TextAnchor.LowerLeft;
 

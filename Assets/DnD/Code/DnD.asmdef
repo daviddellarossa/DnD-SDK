@@ -1,7 +1,9 @@
 {
     "name": "DnD",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:8132b7426762da041989c533cf601af4"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

@@ -13,7 +13,7 @@ namespace DnD.Editor.Initializer
 {
     public static class Common
     {
-        public static readonly string FolderPath = "Assets/DnD/Code/Instances";
+        // public static readonly string FolderPath = "Assets/DnD/Code/Instances";
         
         public static T CreateScriptableObject<T>(string fileName, string folderPath) where T : ScriptableObject
         {

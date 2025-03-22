@@ -4,9 +4,11 @@ using DnD.Code.Scripts.Characters.Classes.FeatureProperties;
 using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Equipment;
 using DnD.Code.Scripts.Equipment.Coins;
+using DnD.Code.Scripts.Helpers.PathHelper;
 using DnD.Code.Scripts.Weapons;
 using UnityEditor;
 using UnityEngine;
+using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
 
 namespace DnD.Editor.Initializer
 {
@@ -24,7 +26,7 @@ namespace DnD.Editor.Initializer
     }
     public abstract class ClassInitializer : BaseClassInitializer
     {
-        public static readonly string ClassesPath = $"{Common.FolderPath}/{NameHelper.Naming.Classes}";
+        // public static readonly string ClassesPath = $"{Common.FolderPath}/{NameHelper.Naming.Classes}";
         protected const int NumOfLevels = 20;
         
         protected abstract string ClassName { get; }
@@ -36,7 +38,7 @@ namespace DnD.Editor.Initializer
         [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Classes Data")]
         public static void InitializeClasses()
         {
-            Common.EnsureFolderExists(ClassesPath);
+            Common.EnsureFolderExists(PathHelper.Classes.ClassesPath);
             
             var barbarianInitializer = new ClassBarbarianInitializer();
             barbarianInitializer.InitializeBarbarian();

@@ -1,4 +1,5 @@
 using System;
+using DnD.Code.Scripts.Helpers.PathHelper;
 using UnityEditor;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ namespace DnD.Editor.Initializer
             Debug.Log("Initializing Game Data");
             try
             {
-                Common.EnsureFolderExists(Common.FolderPath, true);
+                Common.EnsureFolderExists(PathHelper.FolderPath, true);
 
                 DiceInitializer.InitializeDice();
                 DamageTypeInitializer.InitializeDamageTypes();

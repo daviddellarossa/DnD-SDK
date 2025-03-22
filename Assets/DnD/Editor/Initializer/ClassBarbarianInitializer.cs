@@ -10,20 +10,22 @@ using DnD.Code.Scripts.Characters.Classes.FeatureProperties;
 using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Equipment;
 using DnD.Code.Scripts.Equipment.Coins;
+using DnD.Code.Scripts.Helpers.PathHelper;
 using DnD.Code.Scripts.Weapons;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
 
 namespace DnD.Editor.Initializer
 {
     public class ClassBarbarianInitializer : ClassInitializer
     {
-        protected override string ClassName => NameHelper.Classes.Barbarian;
-        protected override string ClassPath => $"{ClassesPath}/{ClassName}";
-        protected override string ClassStartingEquipmentPath => $"{ClassPath}/{NameHelper.Naming.StartingEquipment}";
-        protected override string ClassLevelsPath => $"{ClassPath}/{NameHelper.Naming.Levels}";
-        protected override string ClassSubClassesPath => $"{ClassPath}/{NameHelper.Naming.SubClasses}";
+        protected override string ClassName => PathHelper.Classes.Barbarian.ClassName;
+        protected override string ClassPath => PathHelper.Classes.Barbarian.ClassPath;
+        protected override string ClassStartingEquipmentPath => PathHelper.Classes.Barbarian.ClassStartingEquipmentPath;
+        protected override string ClassLevelsPath => PathHelper.Classes.Barbarian.ClassLevelsPath;
+        protected override string ClassSubClassesPath => PathHelper.Classes.Barbarian.ClassSubClassesPath;
         
         public void InitializeBarbarian()
         {
@@ -104,8 +106,8 @@ namespace DnD.Editor.Initializer
         {
             public override string ClassName => NameHelper.Classes.Barbarian;
             public override string SubClassName => NameHelper.BarbarianSubClasses.PathOfTheZealot;
-            public override string SubClassPath => $"{parentSubClassPath}/{SubClassName}";
-            public override string SubClassLevelsPath => $"{SubClassPath}/{NameHelper.Naming.Levels}";
+            public override string SubClassPath => PathHelper.Classes.Barbarian.SubClasses.PathOfTheZealot.SubClassPath;
+            public override string SubClassLevelsPath => PathHelper.Classes.Barbarian.SubClasses.PathOfTheZealot.SubClassLevelsPath;
 
             private readonly string parentSubClassPath;
             
@@ -210,9 +212,9 @@ namespace DnD.Editor.Initializer
         {
             public override string ClassName => NameHelper.Classes.Barbarian;
             public override string SubClassName => NameHelper.BarbarianSubClasses.PathOfTheWorldTree;
-            public override string SubClassPath => $"{parentSubClassPath}/{SubClassName}";
-            public override string SubClassLevelsPath => $"{SubClassPath}/{NameHelper.Naming.Levels}";
-
+            public override string SubClassPath => PathHelper.Classes.Barbarian.SubClasses.PathOfTheWorldTree.SubClassPath;
+            public override string SubClassLevelsPath => PathHelper.Classes.Barbarian.SubClasses.PathOfTheWorldTree.SubClassLevelsPath;
+            
             private readonly string parentSubClassPath;
             
             public PathOfTheWorldTree(string parentSubClassPath)
@@ -314,9 +316,9 @@ namespace DnD.Editor.Initializer
         {
             public override string ClassName => NameHelper.Classes.Barbarian;
             public override string SubClassName => NameHelper.BarbarianSubClasses.PathOfTheWildHeart;
-            public override string SubClassPath => $"{parentSubClassPath}/{SubClassName}";
-            public override string SubClassLevelsPath => $"{SubClassPath}/{NameHelper.Naming.Levels}";
-
+            public override string SubClassPath => PathHelper.Classes.Barbarian.SubClasses.PathOfTheWildHeart.SubClassPath;
+            public override string SubClassLevelsPath => PathHelper.Classes.Barbarian.SubClasses.PathOfTheWildHeart.SubClassLevelsPath;
+            
             private readonly string parentSubClassPath;
             
             public PathOfTheWildHeart(string parentSubClassPath)
@@ -419,9 +421,9 @@ namespace DnD.Editor.Initializer
         {
             public override string ClassName => NameHelper.Classes.Barbarian;
             public override string SubClassName => NameHelper.BarbarianSubClasses.PathOfTheBerserker;
-            public override string SubClassPath => $"{parentSubClassPath}/{SubClassName}";
-            public override string SubClassLevelsPath => $"{SubClassPath}/{NameHelper.Naming.Levels}";
-
+            public override string SubClassPath => PathHelper.Classes.Barbarian.SubClasses.PathOfTheBerserker.SubClassPath;
+            public override string SubClassLevelsPath => PathHelper.Classes.Barbarian.SubClasses.PathOfTheBerserker.SubClassLevelsPath;
+            
             private readonly string parentSubClassPath;
             
             public PathOfTheBerserker(string parentSubClassPath)

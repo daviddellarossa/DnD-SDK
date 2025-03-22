@@ -1,6 +1,4 @@
-using Unity.Collections.LowLevel.Unsafe;
-
-namespace DnD.Code.Scripts.Common
+namespace DnD.Code.Scripts.Helpers.NameHelper
 {
     public static partial class NameHelper
     {

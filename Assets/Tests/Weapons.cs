@@ -5,6 +5,7 @@ using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Weapons;
 using NUnit.Framework;
 using UnityEditor;
+using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
 
 namespace Tests
 {
@@ -44,7 +45,7 @@ namespace Tests
         [TestCaseSource(typeof(WeaponsData), nameof(WeaponsData.AmmunitionTypesTestCases))]
         public void TestAllAmmunitionTypes(AmmunitionTypeModel expected)
         {
-            var ammunitionType = _ammunitionTypes.SingleOrDefault(d => d.name == expected.Name);
+            var ammunitionType = _ammunitionTypes.SingleOrDefault(d => d.name == expected.DisplayName);
             
             Assert.That(ammunitionType, Is.Not.Null);
             Assert.That(ammunitionType.Amount, Is.EqualTo(expected.Amount));
@@ -56,7 +57,7 @@ namespace Tests
         [TestCaseSource(typeof(WeaponsData), nameof(WeaponsData.WeaponTypesTestCases))]
         public void TestAllWeaponTypes(WeaponTypeModel expected)
         {
-            var weaponType = _weaponTypes.SingleOrDefault(d => d.name == expected.Name);
+            var weaponType = _weaponTypes.SingleOrDefault(d => d.name == expected.DisplayName);
             
             Assert.That(weaponType, Is.Not.Null);
         }
@@ -64,12 +65,12 @@ namespace Tests
         [TestCaseSource(typeof(WeaponsData), nameof(WeaponsData.WeaponsTestCases))]
         public void TestAllWeapons(WeaponModel expected)
         {
-            var weapon = _weapons.SingleOrDefault(d => d.name == expected.Name);
+            var weapon = _weapons.SingleOrDefault(d => d.name == expected.DisplayName);
             
             Assert.That(weapon, Is.Not.Null);
-            Assert.That(weapon.Type.Name, Is.EqualTo(expected.Type));
+            Assert.That(weapon.Type.DisplayName, Is.EqualTo(expected.Type));
             Assert.That(weapon.NumOfDamageDice, Is.EqualTo(expected.NumOfDamageDice));
-            Assert.That(weapon.DamageDie.Name, Is.EqualTo(expected.DamageDie));
+            Assert.That(weapon.DamageDie.name, Is.EqualTo(expected.DamageDie));
             Assert.That(weapon.DamageType.Name, Is.EqualTo(expected.DamageType));
             Assert.That(weapon.Properties.Select(x => x.Name), Is.EquivalentTo(expected.Properties));
             Assert.That(weapon.MasteryProperty.Name, Is.EqualTo(expected.MasteryProperty));
@@ -772,20 +773,20 @@ namespace Tests
         
         public class AmmunitionTypeModel
         {
-            public string Name { get; set; }
+            public string DisplayName { get; set; }
             public int Amount { get; set; }
             public string Storage { get; set; }
             public float Weight { get; set; }
             public float Cost { get; set; }
 
             public AmmunitionTypeModel(
-                string name,  
+                string displayName,  
                 int amount,
                 string storage,
                 float weight,
                 float cost)
             {
-                this.Name = name;
+                this.DisplayName = displayName;
                 this.Amount = amount;
                 this.Storage = storage;
                 this.Weight = weight;
@@ -795,18 +796,18 @@ namespace Tests
 
         public class WeaponTypeModel
         {
-            public string Name { get; set; }
+            public string DisplayName { get; set; }
             
             public WeaponTypeModel(
-                string name)
+                string displayName)
             {
-                this.Name = name;
+                this.DisplayName = displayName;
             }
         }
 
         public class WeaponModel
         {
-            public string Name { get; set; }
+            public string DisplayName { get; set; }
             public string Type { get; set; }
             public int NumOfDamageDice { get; set; }
             public string DamageDie  { get; set; }
@@ -817,7 +818,7 @@ namespace Tests
             public float Cost { get; set; }
 
             public WeaponModel(
-                string name,
+                string displayName,
                 string type,
                 int numOfDamageDice,
                 string damageDie,
@@ -828,7 +829,7 @@ namespace Tests
                 float cost
                 )
             {
-                this.Name = name;
+                this.DisplayName = displayName;
                 this.Type = type;
                 this.NumOfDamageDice = numOfDamageDice;
                 this.DamageDie = damageDie;

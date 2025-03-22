@@ -4,7 +4,8 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "DnD"
+        "DnD",
+        "DnD.Helpers"
     ],
     "includePlatforms": [
         "Editor"

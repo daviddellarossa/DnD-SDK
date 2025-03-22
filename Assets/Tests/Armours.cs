@@ -5,6 +5,7 @@ using DnD.Code.Scripts.Characters.Abilities;
 using DnD.Code.Scripts.Common;
 using NUnit.Framework;
 using UnityEditor;
+using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
 
 namespace Tests
 {
@@ -35,31 +36,31 @@ namespace Tests
         [TestCaseSource(typeof(AbilitiesData), nameof(AbilitiesData.ArmoursTestCases))]
         public void TestAllArmours(ArmourModel expected)
         {
-            var armour = _armours.SingleOrDefault(armour => armour.name == expected.Name);
+            var armour = _armours.SingleOrDefault(armour => armour.name == expected.DisplayName);
             
-            Assert.That(armour, Is.Not.Null, GetTestName(expected.Name, string.Empty));
-            Assert.That(armour.Type.name, Is.EqualTo(expected.Type), GetTestName(expected.Name, nameof(armour.Type)));
-            Assert.That(armour.ArmourClass, Is.EqualTo(expected.ArmourClass), GetTestName(expected.Name, nameof(armour.ArmourClass)));
-            Assert.That(armour.AddDexModifier, Is.EqualTo(expected.AddDexModifier), GetTestName(expected.Name, nameof(armour.AddDexModifier)));
-            Assert.That(armour.CapDexModifier, Is.EqualTo(expected.CapDexModifier), GetTestName(expected.Name, nameof(armour.CapDexModifier)));
-            Assert.That(armour.MaxDexModifier, Is.EqualTo(expected.MaxDexModifier), GetTestName(expected.Name, nameof(armour.MaxDexModifier)));
-            Assert.That(armour.HasDisadvantageOnDexterityChecks, Is.EqualTo(expected.HasDisadvantageOnDexterityChecks), GetTestName(expected.Name, nameof(armour.HasDisadvantageOnDexterityChecks)));
-            Assert.That(armour.Strength, Is.EqualTo(expected.Strength), GetTestName(expected.Name, nameof(armour.Strength)));
-            Assert.That(armour.Weight, Is.EqualTo(expected.Weight), GetTestName(expected.Name, nameof(armour.Weight)));
-            Assert.That(armour.Cost, Is.EqualTo(expected.Cost), GetTestName(expected.Name, nameof(armour.Cost)));
+            Assert.That(armour, Is.Not.Null, GetTestName(expected.DisplayName, string.Empty));
+            Assert.That(armour.Type.name, Is.EqualTo(expected.Type), GetTestName(expected.DisplayName, nameof(armour.Type)));
+            Assert.That(armour.ArmourClass, Is.EqualTo(expected.ArmourClass), GetTestName(expected.DisplayName, nameof(armour.ArmourClass)));
+            Assert.That(armour.AddDexModifier, Is.EqualTo(expected.AddDexModifier), GetTestName(expected.DisplayName, nameof(armour.AddDexModifier)));
+            Assert.That(armour.CapDexModifier, Is.EqualTo(expected.CapDexModifier), GetTestName(expected.DisplayName, nameof(armour.CapDexModifier)));
+            Assert.That(armour.MaxDexModifier, Is.EqualTo(expected.MaxDexModifier), GetTestName(expected.DisplayName, nameof(armour.MaxDexModifier)));
+            Assert.That(armour.HasDisadvantageOnDexterityChecks, Is.EqualTo(expected.HasDisadvantageOnDexterityChecks), GetTestName(expected.DisplayName, nameof(armour.HasDisadvantageOnDexterityChecks)));
+            Assert.That(armour.Strength, Is.EqualTo(expected.Strength), GetTestName(expected.DisplayName, nameof(armour.Strength)));
+            Assert.That(armour.Weight, Is.EqualTo(expected.Weight), GetTestName(expected.DisplayName, nameof(armour.Weight)));
+            Assert.That(armour.Cost, Is.EqualTo(expected.Cost), GetTestName(expected.DisplayName, nameof(armour.Cost)));
 
         }
         
         [TestCaseSource(typeof(AbilitiesData), nameof(AbilitiesData.ShieldsTestCases))]
         public void TestAllShields(ShieldModel expected)
         {
-            var shield = _shields.SingleOrDefault(shield => shield.name == expected.Name);
+            var shield = _shields.SingleOrDefault(shield => shield.name == expected.DisplayName);
             
             Assert.That(shield, Is.Not.Null);
-            Assert.That(shield.Type.name, Is.EqualTo(expected.Type), GetTestName(expected.Name, nameof(shield.Type)));
-            Assert.That(shield.IncrementArmourClassBy, Is.EqualTo(expected.IncrementArmourClassBy), GetTestName(expected.Name, nameof(shield.IncrementArmourClassBy)));
-            Assert.That(shield.Weight, Is.EqualTo(expected.Weight), GetTestName(expected.Name, nameof(shield.Weight)));
-            Assert.That(shield.Cost, Is.EqualTo(expected.Cost), GetTestName(expected.Name, nameof(shield.Cost)));
+            Assert.That(shield.Type.name, Is.EqualTo(expected.Type), GetTestName(expected.DisplayName, nameof(shield.Type)));
+            Assert.That(shield.IncrementArmourClassBy, Is.EqualTo(expected.IncrementArmourClassBy), GetTestName(expected.DisplayName, nameof(shield.IncrementArmourClassBy)));
+            Assert.That(shield.Weight, Is.EqualTo(expected.Weight), GetTestName(expected.DisplayName, nameof(shield.Weight)));
+            Assert.That(shield.Cost, Is.EqualTo(expected.Cost), GetTestName(expected.DisplayName, nameof(shield.Cost)));
         }
         
         private string GetTestName(string caseName, string propertyName)
@@ -250,7 +251,7 @@ namespace Tests
 
         public class ArmourModel
         {
-            public string Name { get; set; }
+            public string DisplayName { get; set; }
             public string Type { get; set; }
             public int ArmourClass { get; set; }
             public bool AddDexModifier { get; set; }
@@ -262,7 +263,7 @@ namespace Tests
             public int Cost { get; set; }
 
             public  ArmourModel(
-                string name,
+                string displayName,
                 string type,
                 int armourClass,
                 bool addDexModifier,
@@ -274,7 +275,7 @@ namespace Tests
                 int cost
                 )
             {
-                Name = name;
+                DisplayName = displayName;
                 Type = type;
                 ArmourClass = armourClass;
                 AddDexModifier = addDexModifier;
@@ -289,21 +290,21 @@ namespace Tests
 
         public class ShieldModel
         {
-            public string Name { get; set; }
+            public string DisplayName { get; set; }
             public string Type { get; set; }
             public int IncrementArmourClassBy { get; set; }
             public float Weight { get; set; }
             public int Cost { get; set; }
 
             public ShieldModel(
-                string name,
+                string displayName,
                 string type,
                 int incrementArmourClassBy,
                 float weight,
                 int cost
                 )
             {
-                this.Name = name;
+                this.DisplayName = displayName;
                 this.Type = type;
                 this.IncrementArmourClassBy = incrementArmourClassBy;
                 this.Weight = weight;

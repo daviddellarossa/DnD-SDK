@@ -4,6 +4,7 @@ using DnD.Code.Scripts.Combat;
 using DnD.Code.Scripts.Common;
 using NUnit.Framework;
 using UnityEditor;
+using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
 
 namespace Tests
 {

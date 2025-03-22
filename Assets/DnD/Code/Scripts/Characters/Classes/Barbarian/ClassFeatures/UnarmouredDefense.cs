@@ -5,6 +5,6 @@ namespace DnD.Code.Scripts.Characters.Classes.Barbarian.ClassFeatures
 {
     public class UnarmouredDefense : ClassFeature, IBarbarianClassFeature
     {
-        public string Name => NameHelper.ClassFeatures_Barbarian.UnarmouredDefense;
+        public string Name => Helpers.NameHelper.NameHelper.ClassFeatures_Barbarian.UnarmouredDefense;
     }
 }

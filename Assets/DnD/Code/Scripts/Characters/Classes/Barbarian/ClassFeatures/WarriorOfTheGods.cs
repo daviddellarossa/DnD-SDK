@@ -5,6 +5,6 @@ namespace DnD.Code.Scripts.Characters.Classes.Barbarian.ClassFeatures
 {
     public class WarriorOfTheGods : ClassFeature, IBarbarianClassFeature
     {
-        public string Name => NameHelper.ClassFeatures_Barbarian.WarriorOfTheGods;
+        public string Name => Helpers.NameHelper.NameHelper.ClassFeatures_Barbarian.WarriorOfTheGods;
     }
 }

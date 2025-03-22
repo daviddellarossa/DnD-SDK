@@ -61,7 +61,7 @@ namespace Assets.Scripts.Game.Characters.Classes
             var ddfTraitType = root.Q<DropdownField>("ddfTraitTypes");
 
             // Assign the list to the DropDownField
-            ddfTraitType.choices = listOfItems.Select(x => x.DisplayText).OrderBy(x => x).ToList();
+            ddfTraitType.choices = listOfItems.Select(x => x.DisplayName).OrderBy(x => x).ToList();
 
             // Handle selection change
             ddfTraitType.RegisterValueChangedCallback(evt =>

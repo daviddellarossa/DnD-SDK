@@ -47,8 +47,8 @@ namespace DnD.Editor.Background.StartingEquipment
             SetupEquipmentSection<IEquipment, string>(
                 root,
                 nameof(IEquipment),
-                (IEquipment eq) => eq.DisplayText,
-                (IEquipment eq) => eq.DisplayText);
+                (IEquipment eq) => eq.DisplayName,
+                (IEquipment eq) => eq.DisplayName);
 
             return root;
         }
@@ -82,7 +82,7 @@ namespace DnD.Editor.Background.StartingEquipment
                 itemContainer.style.marginLeft = 200;
 
                 // Add the item's DisplayText (name)
-                var label = new Label(item.AsIEquipment().DisplayText);
+                var label = new Label(item.AsIEquipment().DisplayName);
                 label.style.flexGrow = 1;  // Allow label to take available space
                 label.style.unityTextAlign = TextAnchor.LowerLeft;
 
@@ -110,7 +110,7 @@ namespace DnD.Editor.Background.StartingEquipment
         private void SetupEquipmentSection<TType, TOrderType>(VisualElement root, string sectionTitle, Func<IEquipment, string> displayName, Func<IEquipment, TOrderType> orderBy)
             where TType : IEquipment
         {
-            var availableItems = FindAllScriptableObjectsImplementingT<IEquipment, string>((x) => x.DisplayText);
+            var availableItems = FindAllScriptableObjectsImplementingT<IEquipment, string>((x) => x.DisplayName);
 
             var vePopupField = root.Q<VisualElement>($"ve{sectionTitle}").Q<VisualElement>("vePopupField");
             if (vePopupField is null)
@@ -118,7 +118,7 @@ namespace DnD.Editor.Background.StartingEquipment
                 Debug.Log($"Popup container not found for section {sectionTitle}");
                 return;
             }
-            var popup = new PopupField<IEquipment>(string.Empty, availableItems, 0, item => item.DisplayText, item => item.DisplayText);
+            var popup = new PopupField<IEquipment>(string.Empty, availableItems, 0, item => item.DisplayName, item => item.DisplayName);
             //popup.label = $"Add {sectionTitle}";
             popup.choices = availableItems;
             popup.formatSelectedValueCallback = displayName;

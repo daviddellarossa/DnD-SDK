@@ -1,7 +1,8 @@
-﻿namespace DnD.Code.Scripts.Items
+﻿using DnD.Code.Scripts.Common;
+
+namespace DnD.Code.Scripts.Items
 {
-    public interface IItem
+    public interface IItem: ILocalizable
     {
-        string DisplayText { get; }
     }
 }

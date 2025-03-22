@@ -5,6 +5,6 @@ namespace DnD.Code.Scripts.Characters.Classes.Barbarian.ClassFeatures
 {
     public class FastMovement : ClassFeature, IBarbarianClassFeature
     {
-        public string Name => NameHelper.ClassFeatures_Barbarian.FastMovement;
+        public string Name => Helpers.NameHelper.NameHelper.ClassFeatures_Barbarian.FastMovement;
     }
 }

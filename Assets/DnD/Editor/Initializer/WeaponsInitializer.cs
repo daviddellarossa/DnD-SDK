@@ -6,31 +6,33 @@ using System.Linq;
 using DnD.Code.Scripts;
 using DnD.Code.Scripts.Characters.Storage;
 using DnD.Code.Scripts.Combat;
+using DnD.Code.Scripts.Helpers.PathHelper;
 using DnD.Code.Scripts.Weapons.MasteryProperties;
 using DnD.Code.Scripts.Weapons.Properties;
 using UnityEditor;
+using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
 using Range = DnD.Code.Scripts.Weapons.Properties.Range;
 
 namespace DnD.Editor.Initializer
 {
     public static class WeaponsInitializer
     {
-        public static readonly string WeaponsPath = $"{Common.FolderPath}/{NameHelper.Naming.Weapons}";
-        public static readonly string WeaponTypesPath = $"{WeaponsPath}/{NameHelper.Naming.WeaponTypes}";
-        public static readonly string AmmunitionTypesPath = $"{WeaponsPath}/{NameHelper.Naming.AmmunitionTypes}";
-        public static readonly string MartialMeleeWeaponsPath = $"{WeaponsPath}/{NameHelper.WeaponTypes.MartialMeleeWeapon}";
-        public static readonly string SimpleMeleeWeaponsPath = $"{WeaponsPath}/{NameHelper.WeaponTypes.SimpleMeleeWeapon}";
-        public static readonly string MartialRangedWeaponsPath = $"{WeaponsPath}/{NameHelper.WeaponTypes.MartialRangedWeapon}";
-        public static readonly string SimpleRangedWeaponsPath = $"{WeaponsPath}/{NameHelper.WeaponTypes.SimpleRangedWeapon}";
+        // public static readonly string PathHelper.Weapons.WeaponsPath = $"{Common.FolderPath}/{NameHelper.Naming.Weapons}";
+        // public static readonly string PathHelper.Weapons.WeaponTypesPath = $"{PathHelper.Weapons.WeaponsPath}/{NameHelper.Naming.WeaponTypes}";
+        // public static readonly string PathHelper.Weapons.AmmunitionTypesPath = $"{PathHelper.Weapons.WeaponsPath}/{NameHelper.Naming.AmmunitionTypes}";
+        // public static readonly string PathHelper.Weapons.MartialMeleeWeaponsPath = $"{PathHelper.Weapons.WeaponsPath}/{NameHelper.WeaponTypes.MartialMeleeWeapon}";
+        // public static readonly string PathHelper.Weapons.SimpleMeleeWeaponsPath = $"{PathHelper.Weapons.WeaponsPath}/{NameHelper.WeaponTypes.SimpleMeleeWeapon}";
+        // public static readonly string PathHelper.Weapons.MartialRangedWeaponsPath = $"{PathHelper.Weapons.WeaponsPath}/{NameHelper.WeaponTypes.MartialRangedWeapon}";
+        // public static readonly string PathHelper.Weapons.SimpleRangedWeaponsPath = $"{PathHelper.Weapons.WeaponsPath}/{NameHelper.WeaponTypes.SimpleRangedWeapon}";
         
         public static Weapon[] GetAllWeapons()
         {
-            return Common.GetAllScriptableObjects<Weapon>(WeaponsPath);
+            return Common.GetAllScriptableObjects<Weapon>(PathHelper.Weapons.WeaponsPath);
         }
         
         public static WeaponType[] GetAllWeaponTypes()
         {
-            return Common.GetAllScriptableObjects<WeaponType>(WeaponTypesPath);
+            return Common.GetAllScriptableObjects<WeaponType>(PathHelper.Weapons.WeaponTypesPath);
         }
 
         [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Weapons")]
@@ -40,7 +42,7 @@ namespace DnD.Editor.Initializer
             var dice = DiceInitializer.GetAllDice();
             var damageTypes = DamageTypeInitializer.GetAllDamageTypes();
             
-            Common.EnsureFolderExists(WeaponsPath);
+            Common.EnsureFolderExists(PathHelper.Weapons.WeaponsPath);
 
             var weaponTypes = InitializeWeaponTypes();
 
@@ -61,14 +63,14 @@ namespace DnD.Editor.Initializer
             {
                 AssetDatabase.StartAssetEditing();
 
-                Common.EnsureFolderExists(SimpleRangedWeaponsPath);
+                Common.EnsureFolderExists(PathHelper.Weapons.SimpleRangedWeaponsPath);
 
                 var simpleRangedWeaponType =
                     weaponTypes.Single(x => x.name == NameHelper.WeaponTypes.SimpleRangedWeapon);
 
                 {
                     var dart = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleRanged.Dart,
-                        SimpleRangedWeaponsPath);
+                        PathHelper.Weapons.SimpleRangedWeaponsPath);
                     dart.Name = $"{nameof(NameHelper.Weapons_SimpleRanged)}.{NameHelper.Weapons_SimpleRanged.Dart}";
                     dart.Type = simpleRangedWeaponType;
                     dart.NumOfDamageDice = 1;
@@ -101,7 +103,7 @@ namespace DnD.Editor.Initializer
                 {
                     var lightCrossbow =
                         Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleRanged.LightCrossbow,
-                            SimpleRangedWeaponsPath);
+                            PathHelper.Weapons.SimpleRangedWeaponsPath);
                     lightCrossbow.Name = $"{nameof(NameHelper.Weapons_SimpleRanged)}.{NameHelper.Weapons_SimpleRanged.LightCrossbow}";
                     lightCrossbow.Type = simpleRangedWeaponType;
                     lightCrossbow.NumOfDamageDice = 1;
@@ -140,7 +142,7 @@ namespace DnD.Editor.Initializer
 
                 {
                     var shortbow = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleRanged.Shortbow,
-                        SimpleRangedWeaponsPath);
+                        PathHelper.Weapons.SimpleRangedWeaponsPath);
                     shortbow.Name = $"{nameof(NameHelper.Weapons_SimpleRanged)}.{NameHelper.Weapons_SimpleRanged.Shortbow}";
                     shortbow.Type = simpleRangedWeaponType;
                     shortbow.NumOfDamageDice = 1;
@@ -175,7 +177,7 @@ namespace DnD.Editor.Initializer
 
                 {
                     var sling = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleRanged.Sling,
-                        SimpleRangedWeaponsPath);
+                        PathHelper.Weapons.SimpleRangedWeaponsPath);
                     sling.Name = $"{nameof(NameHelper.Weapons_SimpleRanged)}.{NameHelper.Weapons_SimpleRanged.Sling}";
                     sling.Type = simpleRangedWeaponType;
                     sling.NumOfDamageDice = 1;
@@ -218,13 +220,13 @@ namespace DnD.Editor.Initializer
             try
             {
                 AssetDatabase.StartAssetEditing();
-                Common.EnsureFolderExists(SimpleMeleeWeaponsPath);
+                Common.EnsureFolderExists(PathHelper.Weapons.SimpleMeleeWeaponsPath);
 
                 var simpleMeleeWeaponType = weaponTypes.Single(x => x.name == NameHelper.WeaponTypes.SimpleMeleeWeapon);
 
                 {
                     var club = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Club,
-                        SimpleMeleeWeaponsPath);
+                        PathHelper.Weapons.SimpleMeleeWeaponsPath);
                     club.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_SimpleMelee.Club}";
                     club.Type = simpleMeleeWeaponType;
                     club.NumOfDamageDice = 1;
@@ -249,7 +251,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var dagger = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Dagger,
-                        SimpleMeleeWeaponsPath);
+                        PathHelper.Weapons.SimpleMeleeWeaponsPath);
                     dagger.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_SimpleMelee.Dagger}";
                     dagger.Type = simpleMeleeWeaponType;
                     dagger.NumOfDamageDice = 1;
@@ -283,7 +285,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var greatclub = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Greatclub,
-                        SimpleMeleeWeaponsPath);
+                        PathHelper.Weapons.SimpleMeleeWeaponsPath);
                     greatclub.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_SimpleMelee.Greatclub}";
                     greatclub.Type = simpleMeleeWeaponType;
                     greatclub.NumOfDamageDice = 1;
@@ -311,7 +313,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var handaxe = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Handaxe,
-                        SimpleMeleeWeaponsPath);
+                        PathHelper.Weapons.SimpleMeleeWeaponsPath);
                     handaxe.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_SimpleMelee.Handaxe}";
                     handaxe.Type = simpleMeleeWeaponType;
                     handaxe.NumOfDamageDice = 1;
@@ -340,7 +342,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var javelin = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Javelin,
-                        SimpleMeleeWeaponsPath);
+                        PathHelper.Weapons.SimpleMeleeWeaponsPath);
                     javelin.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_SimpleMelee.Javelin}";
                     javelin.Type = simpleMeleeWeaponType;
                     javelin.NumOfDamageDice = 1;
@@ -367,7 +369,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var lightHammer = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.LightHammer,
-                        SimpleMeleeWeaponsPath);
+                        PathHelper.Weapons.SimpleMeleeWeaponsPath);
                     lightHammer.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_SimpleMelee.LightHammer}";
                     lightHammer.Type = simpleMeleeWeaponType;
                     lightHammer.NumOfDamageDice = 1;
@@ -398,7 +400,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var mace = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Mace,
-                        SimpleMeleeWeaponsPath);
+                        PathHelper.Weapons.SimpleMeleeWeaponsPath);
                     mace.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_SimpleMelee.Mace}";
                     mace.Type = simpleMeleeWeaponType;
                     mace.NumOfDamageDice = 1;
@@ -417,7 +419,7 @@ namespace DnD.Editor.Initializer
                 {
                     var quarterstaff =
                         Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Quarterstaff,
-                            SimpleMeleeWeaponsPath);
+                            PathHelper.Weapons.SimpleMeleeWeaponsPath);
                     quarterstaff.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_SimpleMelee.Quarterstaff}";
                     quarterstaff.Type = simpleMeleeWeaponType;
                     quarterstaff.NumOfDamageDice = 1;
@@ -446,7 +448,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var sickle = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Sickle,
-                        SimpleMeleeWeaponsPath);
+                        PathHelper.Weapons.SimpleMeleeWeaponsPath);
                     sickle.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_SimpleMelee.Sickle}";
                     sickle.Type = simpleMeleeWeaponType;
                     sickle.NumOfDamageDice = 1;
@@ -471,7 +473,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var spear = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Spear,
-                        SimpleMeleeWeaponsPath);
+                        PathHelper.Weapons.SimpleMeleeWeaponsPath);
                     spear.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_SimpleMelee.Spear}";
                     spear.Type = simpleMeleeWeaponType;
                     spear.NumOfDamageDice = 1;
@@ -517,14 +519,14 @@ namespace DnD.Editor.Initializer
             try
             {
                 AssetDatabase.StartAssetEditing();
-                Common.EnsureFolderExists(MartialRangedWeaponsPath);
+                Common.EnsureFolderExists(PathHelper.Weapons.MartialRangedWeaponsPath);
 
                 var martialRangedWeaponType =
                     weaponTypes.Single(x => x.name == NameHelper.WeaponTypes.MartialRangedWeapon);
 
                 {
                     var blowgun = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.Blowgun,
-                        MartialRangedWeaponsPath);
+                        PathHelper.Weapons.MartialRangedWeaponsPath);
 
                     blowgun.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_MartialRanged.Blowgun}";
                     blowgun.Type = martialRangedWeaponType;
@@ -558,7 +560,7 @@ namespace DnD.Editor.Initializer
                 {
                     var handCrossbow =
                         Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.HandCrossbow,
-                            MartialRangedWeaponsPath);
+                            PathHelper.Weapons.MartialRangedWeaponsPath);
 
                     handCrossbow.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_MartialRanged.HandCrossbow}";
                     handCrossbow.Type = martialRangedWeaponType;
@@ -595,7 +597,7 @@ namespace DnD.Editor.Initializer
                 {
                     var heavyCrossbow =
                         Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.HeavyCrossbow,
-                            MartialRangedWeaponsPath);
+                            PathHelper.Weapons.MartialRangedWeaponsPath);
 
                     heavyCrossbow.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_MartialRanged.HeavyCrossbow}";
                     heavyCrossbow.Type = martialRangedWeaponType;
@@ -639,7 +641,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var longbow = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.Longbow,
-                        MartialRangedWeaponsPath);
+                        PathHelper.Weapons.MartialRangedWeaponsPath);
 
                     longbow.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_MartialRanged.Longbow}";
                     longbow.Type = martialRangedWeaponType;
@@ -678,7 +680,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var musket = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.Musket,
-                        MartialRangedWeaponsPath);
+                        PathHelper.Weapons.MartialRangedWeaponsPath);
 
                     musket.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_MartialRanged.Musket}";
                     musket.Type = martialRangedWeaponType;
@@ -717,7 +719,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var pistol = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.Pistol,
-                        MartialRangedWeaponsPath);
+                        PathHelper.Weapons.MartialRangedWeaponsPath);
                     pistol.Name = $"{nameof(NameHelper.Weapons_SimpleMelee)}.{NameHelper.Weapons_MartialRanged.Pistol}";
                     pistol.Type = martialRangedWeaponType;
                     pistol.NumOfDamageDice = 1;
@@ -762,14 +764,14 @@ namespace DnD.Editor.Initializer
             try
             {
                 AssetDatabase.StartAssetEditing();
-                Common.EnsureFolderExists(MartialMeleeWeaponsPath);
+                Common.EnsureFolderExists(PathHelper.Weapons.MartialMeleeWeaponsPath);
 
                 var martialMeleeWeaponType =
                     weaponTypes.Single(x => x.name == NameHelper.WeaponTypes.MartialMeleeWeapon);
 
                 {
                     var battleaxe = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Battleaxe,
-                        MartialMeleeWeaponsPath);
+                        PathHelper.Weapons.MartialMeleeWeaponsPath);
                     battleaxe.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Battleaxe}";
                     battleaxe.Type = martialMeleeWeaponType;
                     battleaxe.NumOfDamageDice = 1;
@@ -798,7 +800,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var flail = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Flail,
-                        MartialMeleeWeaponsPath);
+                        PathHelper.Weapons.MartialMeleeWeaponsPath);
                     flail.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Flail}";
                     flail.Type = martialMeleeWeaponType;
                     flail.NumOfDamageDice = 1;
@@ -815,7 +817,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var glaive = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Glaive,
-                        MartialMeleeWeaponsPath);
+                        PathHelper.Weapons.MartialMeleeWeaponsPath);
                     glaive.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Glaive}";
                     glaive.Type = martialMeleeWeaponType;
                     glaive.NumOfDamageDice = 1;
@@ -850,7 +852,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var greataxe = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Greataxe,
-                        MartialMeleeWeaponsPath);
+                        PathHelper.Weapons.MartialMeleeWeaponsPath);
                     greataxe.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Greataxe}";
                     greataxe.Type = martialMeleeWeaponType;
                     greataxe.NumOfDamageDice = 1;
@@ -881,7 +883,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var greatsword = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Greatsword,
-                        MartialMeleeWeaponsPath);
+                        PathHelper.Weapons.MartialMeleeWeaponsPath);
                     greatsword.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Greatsword}";
                     greatsword.Type = martialMeleeWeaponType;
                     greatsword.NumOfDamageDice = 2;
@@ -911,7 +913,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var halberd = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Halberd,
-                        MartialMeleeWeaponsPath);
+                        PathHelper.Weapons.MartialMeleeWeaponsPath);
                     halberd.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Halberd}";
                     halberd.Type = martialMeleeWeaponType;
                     halberd.NumOfDamageDice = 1;
@@ -945,7 +947,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var lance = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Lance,
-                        MartialMeleeWeaponsPath);
+                        PathHelper.Weapons.MartialMeleeWeaponsPath);
                     lance.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Lance}";
                     lance.Type = martialMeleeWeaponType;
                     lance.NumOfDamageDice = 1;
@@ -980,7 +982,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var longsword = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Longsword,
-                        MartialMeleeWeaponsPath);
+                        PathHelper.Weapons.MartialMeleeWeaponsPath);
                     longsword.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Longsword}";
                     longsword.Type = martialMeleeWeaponType;
                     longsword.NumOfDamageDice = 1;
@@ -1008,7 +1010,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var maul = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Maul,
-                        MartialMeleeWeaponsPath);
+                        PathHelper.Weapons.MartialMeleeWeaponsPath);
                     maul.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Maul}";
                     maul.Type = martialMeleeWeaponType;
                     maul.NumOfDamageDice = 2;
@@ -1038,7 +1040,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var morningstar = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Morningstar,
-                        MartialMeleeWeaponsPath);
+                        PathHelper.Weapons.MartialMeleeWeaponsPath);
                     morningstar.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Morningstar}";
                     morningstar.Type = martialMeleeWeaponType;
                     morningstar.NumOfDamageDice = 1;
@@ -1056,7 +1058,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var pike = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Pike,
-                        MartialMeleeWeaponsPath);
+                        PathHelper.Weapons.MartialMeleeWeaponsPath);
                     pike.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Pike}";
                     pike.Type = martialMeleeWeaponType;
                     pike.NumOfDamageDice = 1;
@@ -1091,7 +1093,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var rapier = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Rapier,
-                        MartialMeleeWeaponsPath);
+                        PathHelper.Weapons.MartialMeleeWeaponsPath);
                     rapier.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Rapier}";
                     rapier.Type = martialMeleeWeaponType;
                     rapier.NumOfDamageDice = 1;
@@ -1115,7 +1117,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var scimitar = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Scimitar,
-                        MartialMeleeWeaponsPath);
+                        PathHelper.Weapons.MartialMeleeWeaponsPath);
                     scimitar.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Scimitar}";
                     scimitar.Type = martialMeleeWeaponType;
                     scimitar.NumOfDamageDice = 1;
@@ -1145,7 +1147,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var shortsword = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Shortsword,
-                        MartialMeleeWeaponsPath);
+                        PathHelper.Weapons.MartialMeleeWeaponsPath);
                     shortsword.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Shortsword}";
                     shortsword.Type = martialMeleeWeaponType;
                     shortsword.NumOfDamageDice = 1;
@@ -1175,7 +1177,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var trident = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Trident,
-                        MartialMeleeWeaponsPath);
+                        PathHelper.Weapons.MartialMeleeWeaponsPath);
                     trident.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Trident}";
                     trident.Type = martialMeleeWeaponType;
                     trident.NumOfDamageDice = 1;
@@ -1208,7 +1210,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var warhammer = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Warhammer,
-                        MartialMeleeWeaponsPath);
+                        PathHelper.Weapons.MartialMeleeWeaponsPath);
                     warhammer.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Warhammer}";
                     warhammer.Type = martialMeleeWeaponType;
                     warhammer.NumOfDamageDice = 1;
@@ -1237,7 +1239,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var warpick = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.WarPick,
-                        MartialMeleeWeaponsPath);
+                        PathHelper.Weapons.MartialMeleeWeaponsPath);
                     warpick.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.WarPick}";
                     warpick.Type = martialMeleeWeaponType;
                     warpick.NumOfDamageDice = 1;
@@ -1264,7 +1266,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var whip = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Whip,
-                        MartialMeleeWeaponsPath);
+                        PathHelper.Weapons.MartialMeleeWeaponsPath);
                     whip.Name = $"{nameof(NameHelper.Weapons_MartialMelee)}.{NameHelper.Weapons_MartialMelee.Whip}";
                     whip.Type = martialMeleeWeaponType;
                     whip.NumOfDamageDice = 1;
@@ -1309,22 +1311,22 @@ namespace DnD.Editor.Initializer
             {
                 AssetDatabase.StartAssetEditing();
 
-                Common.EnsureFolderExists(WeaponTypesPath);
+                Common.EnsureFolderExists(PathHelper.Weapons.WeaponTypesPath);
                 
-                var martialMeleeWeapon = Common.CreateScriptableObject<WeaponType>(NameHelper.WeaponTypes.MartialMeleeWeapon, WeaponTypesPath);
-                martialMeleeWeapon.Name = $"{nameof(NameHelper.WeaponTypes)}.{NameHelper.WeaponTypes.MartialMeleeWeapon}";
+                var martialMeleeWeapon = Common.CreateScriptableObject<WeaponType>(NameHelper.WeaponTypes.MartialMeleeWeapon, PathHelper.Weapons.WeaponTypesPath);
+                martialMeleeWeapon.DisplayName = $"{nameof(NameHelper.WeaponTypes)}.{NameHelper.WeaponTypes.MartialMeleeWeapon}";
                 weaponTypes.Add(martialMeleeWeapon);
             
-                var simpleMeleeWeapon = Common.CreateScriptableObject<WeaponType>(NameHelper.WeaponTypes.SimpleMeleeWeapon, WeaponTypesPath);
-                simpleMeleeWeapon.Name = $"{nameof(NameHelper.WeaponTypes)}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}";
+                var simpleMeleeWeapon = Common.CreateScriptableObject<WeaponType>(NameHelper.WeaponTypes.SimpleMeleeWeapon, PathHelper.Weapons.WeaponTypesPath);
+                simpleMeleeWeapon.DisplayName = $"{nameof(NameHelper.WeaponTypes)}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}";
                 weaponTypes.Add(simpleMeleeWeapon);
 
-                var martialRangedWeapon = Common.CreateScriptableObject<WeaponType>(NameHelper.WeaponTypes.MartialRangedWeapon, WeaponTypesPath);
-                martialRangedWeapon.Name = $"{nameof(NameHelper.WeaponTypes)}.{NameHelper.WeaponTypes.MartialRangedWeapon}";
+                var martialRangedWeapon = Common.CreateScriptableObject<WeaponType>(NameHelper.WeaponTypes.MartialRangedWeapon, PathHelper.Weapons.WeaponTypesPath);
+                martialRangedWeapon.DisplayName = $"{nameof(NameHelper.WeaponTypes)}.{NameHelper.WeaponTypes.MartialRangedWeapon}";
                 weaponTypes.Add(martialRangedWeapon);
             
-                var simpleRangedWeapon = Common.CreateScriptableObject<WeaponType>(NameHelper.WeaponTypes.SimpleRangedWeapon, WeaponTypesPath);
-                simpleRangedWeapon.Name = $"{nameof(NameHelper.WeaponTypes)}.{NameHelper.WeaponTypes.SimpleRangedWeapon}";
+                var simpleRangedWeapon = Common.CreateScriptableObject<WeaponType>(NameHelper.WeaponTypes.SimpleRangedWeapon, PathHelper.Weapons.WeaponTypesPath);
+                simpleRangedWeapon.DisplayName = $"{nameof(NameHelper.WeaponTypes)}.{NameHelper.WeaponTypes.SimpleRangedWeapon}";
                 weaponTypes.Add(simpleRangedWeapon);
 
                 AssetDatabase.SaveAssets();
@@ -1347,42 +1349,42 @@ namespace DnD.Editor.Initializer
             {
                 AssetDatabase.StartAssetEditing();
 
-                Common.EnsureFolderExists(AmmunitionTypesPath);
+                Common.EnsureFolderExists(PathHelper.Weapons.AmmunitionTypesPath);
                 
-                var arrows = Common.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.Arrows, AmmunitionTypesPath);
-                arrows.Name = $"{nameof(NameHelper.AmmunitionTypes)}.{NameHelper.AmmunitionTypes.Arrows}";
+                var arrows = Common.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.Arrows, PathHelper.Weapons.AmmunitionTypesPath);
+                arrows.DisplayName = $"{nameof(NameHelper.AmmunitionTypes)}.{NameHelper.AmmunitionTypes.Arrows}";
                 arrows.Amount = 20;
                 arrows.Weight = 0.5f;
                 arrows.Cost = 1;
                 arrows.Storage = storage.SingleOrDefault(x => x.name == NameHelper.Storage.Quiver);
                 ammunitionTypes.Add(arrows);
             
-                var bolts = Common.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.Bolts, AmmunitionTypesPath);
-                bolts.Name = $"{nameof(NameHelper.AmmunitionTypes)}.{NameHelper.AmmunitionTypes.Bolts}";
+                var bolts = Common.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.Bolts, PathHelper.Weapons.AmmunitionTypesPath);
+                bolts.DisplayName = $"{nameof(NameHelper.AmmunitionTypes)}.{NameHelper.AmmunitionTypes.Bolts}";
                 bolts.Amount = 20;
                 bolts.Weight = 0.75f;
                 bolts.Cost = 1;
                 bolts.Storage = storage.SingleOrDefault(x => x.name == NameHelper.Storage.Case);
                 ammunitionTypes.Add(bolts);
 
-                var bulletsFirearm = Common.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.BulletsFirearm, AmmunitionTypesPath);
-                bulletsFirearm.Name = $"{nameof(NameHelper.AmmunitionTypes)}.{NameHelper.AmmunitionTypes.BulletsFirearm}";
+                var bulletsFirearm = Common.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.BulletsFirearm, PathHelper.Weapons.AmmunitionTypesPath);
+                bulletsFirearm.DisplayName = $"{nameof(NameHelper.AmmunitionTypes)}.{NameHelper.AmmunitionTypes.BulletsFirearm}";
                 bulletsFirearm.Amount = 10;
                 bulletsFirearm.Weight = 1f;
                 bulletsFirearm.Cost = 3;
                 bulletsFirearm.Storage = storage.SingleOrDefault(x => x.name == NameHelper.Storage.Pouch);
                 ammunitionTypes.Add(bulletsFirearm);
 
-                var bulletsSling = Common.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.BulletsSling, AmmunitionTypesPath);
-                bulletsSling.Name = $"{nameof(NameHelper.AmmunitionTypes)}.{NameHelper.AmmunitionTypes.BulletsSling}";
+                var bulletsSling = Common.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.BulletsSling, PathHelper.Weapons.AmmunitionTypesPath);
+                bulletsSling.DisplayName = $"{nameof(NameHelper.AmmunitionTypes)}.{NameHelper.AmmunitionTypes.BulletsSling}";
                 bulletsSling.Amount = 20;
                 bulletsSling.Weight = 0.75f;
                 bulletsSling.Cost = 4;
                 bulletsSling.Storage = storage.SingleOrDefault(x => x.name == NameHelper.Storage.Pouch);
                 ammunitionTypes.Add(bulletsSling);
 
-                var needles = Common.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.Needles, AmmunitionTypesPath);
-                needles.Name = $"{nameof(NameHelper.AmmunitionTypes)}.{NameHelper.AmmunitionTypes.Needles}";
+                var needles = Common.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.Needles, PathHelper.Weapons.AmmunitionTypesPath);
+                needles.DisplayName = $"{nameof(NameHelper.AmmunitionTypes)}.{NameHelper.AmmunitionTypes.Needles}";
                 needles.Amount = 50;
                 needles.Weight = 0.5f;
                 needles.Cost = 1;

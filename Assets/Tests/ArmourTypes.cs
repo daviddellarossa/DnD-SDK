@@ -5,6 +5,7 @@ using DnD.Code.Scripts.Characters.Abilities;
 using DnD.Code.Scripts.Common;
 using NUnit.Framework;
 using UnityEditor;
+using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
 
 namespace Tests
 {
@@ -34,7 +35,7 @@ namespace Tests
         [TestCaseSource(typeof(AbilitiesData), nameof(AbilitiesData.ArmourTypeTestCases))]
         public void TestAllArmourTypes(ArmourTypeModel armourTypeModel)
         {
-            var armourType = _armourTypes.SingleOrDefault(ability => ability.name == armourTypeModel.Name);
+            var armourType = _armourTypes.SingleOrDefault(ability => ability.name == armourTypeModel.DisplayName);
             
             Assert.IsNotNull(armourType);
             Assert.AreEqual(armourType.TimeInMinutesToDoff, armourTypeModel.TimeInMinutesToDoff);
@@ -85,13 +86,13 @@ namespace Tests
 
         public class ArmourTypeModel
         {
-            public string Name { get; set; }
+            public string DisplayName { get; set; }
             public int TimeInMinutesToDon { get; set; }
             public int TimeInMinutesToDoff { get; set; }
 
-            public ArmourTypeModel(string name, int timeInMinutesToDon, int timeInMinutesToDoff)
+            public ArmourTypeModel(string displayName, int timeInMinutesToDon, int timeInMinutesToDoff)
             {
-                this.Name = name;
+                this.DisplayName = displayName;
                 this.TimeInMinutesToDon = timeInMinutesToDon;
                 this.TimeInMinutesToDoff = timeInMinutesToDoff;
             }

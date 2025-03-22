@@ -1,18 +1,20 @@
 ﻿
 using DnD.Code.Scripts;
 using DnD.Code.Scripts.Common;
+using DnD.Code.Scripts.Helpers.PathHelper;
 using UnityEditor;
-using static DnD.Code.Scripts.Common.NameHelper;
+using static DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
+using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
 
 namespace DnD.Editor.Initializer
 {
     public static class DiceInitializer
     {
-        public static readonly string DicePath = $"{Common.FolderPath}/{NameHelper.Naming.Dice}";
+        // public static readonly string PathHelper.DicePath = $"{Common.FolderPath}/{NameHelper.Naming.Dice}";
 
         public static Die[] GetAllDice()
         {
-            return Common.GetAllScriptableObjects<Die>(DicePath);
+            return Common.GetAllScriptableObjects<Die>(PathHelper.DicePath);
         }
         
         [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Dice Data")]
@@ -22,44 +24,62 @@ namespace DnD.Editor.Initializer
             {
                 AssetDatabase.StartAssetEditing();
 
-                Common.EnsureFolderExists(DicePath);
+                Common.EnsureFolderExists(PathHelper.DicePath);
             
-                var d1 = Common.CreateScriptableObject<Die>(Dice.D1, DicePath);
-                d1.Name = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D1}";
+                var d1 = Common.CreateScriptableObject<Die>(Dice.D1, PathHelper.DicePath);
+                d1.DisplayName = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D1}";
+                d1.DisplayDescription = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D1}.{NameHelper.Naming.Description}";
                 d1.NumOfFaces = 1;
+                EditorUtility.SetDirty(d1);
 
-                var d3 = Common.CreateScriptableObject<Die>(Dice.D3, DicePath);
-                d3.Name = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D3}";
+                
+                var d3 = Common.CreateScriptableObject<Die>(Dice.D3, PathHelper.DicePath);
+                d3.DisplayName = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D3}";
+                d3.DisplayDescription = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D3}.{NameHelper.Naming.Description}";
                 d3.NumOfFaces = 3;
+                EditorUtility.SetDirty(d3);
 
-                var d4 = Common.CreateScriptableObject<Die>(Dice.D4, DicePath);
-                d4.Name = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D4}";
+                var d4 = Common.CreateScriptableObject<Die>(Dice.D4, PathHelper.DicePath);
+                d4.DisplayName = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D4}";
+                d4.DisplayDescription = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D4}.{NameHelper.Naming.Description}";
                 d4.NumOfFaces = 4;
+                EditorUtility.SetDirty(d4);
 
-                var d6 = Common.CreateScriptableObject<Die>(Dice.D6, DicePath);
-                d6.Name = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D6}";
+                var d6 = Common.CreateScriptableObject<Die>(Dice.D6, PathHelper.DicePath);
+                d6.DisplayName = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D6}";
+                d6.DisplayDescription = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D6}.{NameHelper.Naming.Description}";
                 d6.NumOfFaces = 6;
+                EditorUtility.SetDirty(d6);
 
-                var d8 = Common.CreateScriptableObject<Die>(Dice.D8, DicePath);
-                d8.Name = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D8}";
+                var d8 = Common.CreateScriptableObject<Die>(Dice.D8, PathHelper.DicePath);
+                d8.DisplayName = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D8}";
+                d8.DisplayDescription = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D8}.{NameHelper.Naming.Description}";
                 d8.NumOfFaces = 8;
+                EditorUtility.SetDirty(d8);
 
-                var d10 = Common.CreateScriptableObject<Die>(Dice.D10, DicePath);
-                d10.Name = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D10}";
+                var d10 = Common.CreateScriptableObject<Die>(Dice.D10, PathHelper.DicePath);
+                d10.DisplayName = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D10}";
+                d10.DisplayDescription = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D10}.{NameHelper.Naming.Description}";
                 d10.NumOfFaces = 10;
+                EditorUtility.SetDirty(d10);
 
-                var d12 = Common.CreateScriptableObject<Die>(Dice.D12, DicePath);
-                d12.Name = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D12}";
+                var d12 = Common.CreateScriptableObject<Die>(Dice.D12, PathHelper.DicePath);
+                d12.DisplayName = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D12}";
+                d12.DisplayDescription = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D12}.{NameHelper.Naming.Description}";
                 d12.NumOfFaces = 12;
+                EditorUtility.SetDirty(d12);
 
-                var d20 = Common.CreateScriptableObject<Die>(Dice.D20, DicePath);
-                d20.Name = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D20}";
+                var d20 = Common.CreateScriptableObject<Die>(Dice.D20, PathHelper.DicePath);
+                d20.DisplayName = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D20}";
+                d20.DisplayDescription = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D20}.{NameHelper.Naming.Description}";
                 d20.NumOfFaces = 20;
+                EditorUtility.SetDirty(d20);
 
-                var d100 = Common.CreateScriptableObject<Die>(Dice.D100, DicePath);
-                d100.Name = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D100}";
+                var d100 = Common.CreateScriptableObject<Die>(Dice.D100, PathHelper.DicePath);
+                d100.DisplayName = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D100}";
+                d100.DisplayDescription = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D100}.{NameHelper.Naming.Description}";
                 d100.NumOfFaces = 100;
-
+                EditorUtility.SetDirty(d100);
 
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();

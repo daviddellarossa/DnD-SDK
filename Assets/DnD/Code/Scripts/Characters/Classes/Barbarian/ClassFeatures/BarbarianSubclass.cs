@@ -5,6 +5,6 @@ namespace DnD.Code.Scripts.Characters.Classes.Barbarian.ClassFeatures
 {
     public class BarbarianSubclass : ClassFeature, IBarbarianClassFeature
     {
-        public string Name => NameHelper.ClassFeatures_Barbarian.BarbarianSubclass;
+        public string Name => Helpers.NameHelper.NameHelper.ClassFeatures_Barbarian.BarbarianSubclass;
     }
 }

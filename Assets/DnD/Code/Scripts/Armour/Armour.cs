@@ -6,7 +6,7 @@ namespace DnD.Code.Scripts.Armour
     [CreateAssetMenu(fileName = "NewArmour", menuName = "Game Entities/Armours/Armour")]
     public class Armour : ScriptableObject, IItem, IArmour
     {
-        public string Name;
+        // public string Name;
         public ArmourType Type;
         public int ArmourClass;
         public bool AddDexModifier;
@@ -18,6 +18,21 @@ namespace DnD.Code.Scripts.Armour
         public float Weight;
         public float Cost;
 
-        public string DisplayText => this.Name;
+        [SerializeField]
+        private string displayName;
+        [SerializeField]
+        private string displayDescription;
+
+        public string DisplayName
+        {
+            get => displayName;
+            set => displayName = value;
+        }
+
+        public string DisplayDescription
+        {
+            get => displayDescription;
+            set => displayDescription = value;
+        }
     }
 }

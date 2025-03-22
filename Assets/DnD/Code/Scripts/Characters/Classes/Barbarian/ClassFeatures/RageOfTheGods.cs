@@ -5,6 +5,6 @@ namespace DnD.Code.Scripts.Characters.Classes.Barbarian.ClassFeatures
 {
     public class RageOfTheGods : ClassFeature, IBarbarianClassFeature
     {
-        public string Name => NameHelper.ClassFeatures_Barbarian.RageOfTheGods;
+        public string Name => Helpers.NameHelper.NameHelper.ClassFeatures_Barbarian.RageOfTheGods;
     }
 }

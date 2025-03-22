@@ -1,6 +1,8 @@
-﻿namespace DnD.Code.Scripts.Armour
+﻿using DnD.Code.Scripts.Common;
+
+namespace DnD.Code.Scripts.Armour
 {
-    public interface IBaseArmourType
+    public interface IBaseArmourType: ILocalizable
     {
     }
 }

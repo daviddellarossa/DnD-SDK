@@ -4,8 +4,7 @@ namespace DnD.Code.Scripts.Tools
 {
     public class ThievesTool : ScriptableObject, IThievesTool
     {
-        public string Name;
-
-        public string DisplayText => this.Name;
+        public string DisplayName { get; set; }
+        public string DisplayDescription { get; set; }
     }
 }

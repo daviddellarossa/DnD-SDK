@@ -1,21 +1,26 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
-using DnD.Code.Scripts.Characters.Abilities;
+using Assets.Scripts.Game.Equipment.Gear;
 using DnD.Code.Scripts.Characters.Backgrounds;
 using DnD.Code.Scripts.Common;
+using DnD.Code.Scripts.Helpers.PathHelper;
 using NUnit.Framework;
-using Tests;
+
 using UnityEditor;
-using UnityEditor.VersionControl;
+
 using UnityEngine;
-using UnityEngine.TestTools;
+
+using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
 
 namespace Tests.Backgrounds
 {
     public class Acolyte
     {
         private Background _acolyte;
+        private IEnumerable<ScriptableObject> _tools ;
+        private static readonly string _className = NameHelper.Backgrounds.Acolyte;
 
         [SetUp]
         public void Setup()
@@ -25,6 +30,8 @@ namespace Tests.Backgrounds
                 .Select(AssetDatabase.GUIDToAssetPath)
                 .Select(AssetDatabase.LoadAssetAtPath<Background>)
                 .SingleOrDefault(asset => asset.name == NameHelper.Backgrounds.Acolyte);
+            _tools = Common.GetAllScriptableObjects<ScriptableObject>(PathHelper.Backgrounds.AcolyteToolsPath);
+
         }
 
         [Test]
@@ -66,14 +73,22 @@ namespace Tests.Backgrounds
         [TestCaseSource(typeof(AcolyteData), nameof(AcolyteData.BackgroundDataTest))]
         public void TestProperties(BackgroundData data)
         {
-            Assert.That(_acolyte.Name, Is.EqualTo(data.LocalizationName));
+            Assert.That(_acolyte.DisplayName, Is.EqualTo(data.DisplayName));
+            Assert.That(_acolyte.DisplayDescription, Is.EqualTo(data.DisplayDescription));
             Assert.That(_acolyte.Feat.name, Is.EqualTo(data.FeatName));
         }
 
-        [Test, Ignore("Not implemented yet")]
-        public void TestTools()
+        [TestCaseSource(typeof(AcolyteData), nameof(AcolyteData.ToolsTestCases))]
+        public void TestTools(ToolData data)
         {
+            var toolSo = _tools.SingleOrDefault(tool => tool.name == data.Name);
+            Assert.That(toolSo, Is.Not.Null, $"Tool {data.Name} doesn't exist for {_className}");
             
+            // Test ILocalizable
+            var tool = toolSo as ILocalizable;
+            Assert.That(tool, Is.Not.Null, $"Tool {data.Name} is not of type {nameof(ILocalizable)}");
+            Assert.That(tool.DisplayName, Is.EqualTo(data.DisplayName),  $"Tool {data.Name}.{nameof(tool.DisplayName)} doesn't equal expected value: {data.DisplayName}");
+            Assert.That(tool.DisplayDescription, Is.EqualTo(data.DisplayDescription),  $"Tool {data.Name}.{nameof(tool.DisplayDescription)} doesn't equal expected value: {data.DisplayDescription}");
         }
 
         private class AcolyteData
@@ -148,16 +163,72 @@ namespace Tests.Backgrounds
                         new BackgroundData()
                         {
                             FeatName = NameHelper.Feats.MagicInitiate,
-                            LocalizationName = $"{NameHelper.Naming.Backgrounds}.{NameHelper.Backgrounds.Acolyte}"
+                            DisplayName = $"{NameHelper.Naming.Backgrounds}.{NameHelper.Backgrounds.Acolyte}",
+                            DisplayDescription = $"{NameHelper.Naming.Backgrounds}.{NameHelper.Backgrounds.Acolyte}.{NameHelper.Naming.Description}"
                         });
+                }
+            }
+
+            public static IEnumerable ToolsTestCases
+            {
+                get
+                {
+                    yield return new TestCaseData(
+                        new ToolData()
+                        {
+                            Name = NameHelper.Equipment.Gear.Acolyte.HolySymbol,
+                            DisplayName = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.HolySymbol}",
+                            DisplayDescription = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.HolySymbol}.{NameHelper.Naming.Description}"
+                        }
+                    );
+                    yield return new TestCaseData(
+                        new ToolData()
+                        {
+                            Name = NameHelper.Equipment.Gear.Acolyte.Parchment,
+                            DisplayName = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.Parchment}",
+                            DisplayDescription = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.Parchment}.{NameHelper.Naming.Description}"
+                        }
+                    );
+                    yield return new TestCaseData(
+                        new ToolData()
+                        {
+                            Name = NameHelper.Equipment.Gear.Acolyte.Robe,
+                            DisplayName = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.Robe}",
+                            DisplayDescription = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.Robe}.{NameHelper.Naming.Description}"
+                        }
+                    );
+                    yield return new TestCaseData(
+                        new ToolData()
+                        {
+                            Name = NameHelper.Equipment.Gear.Acolyte.Book,
+                            DisplayName = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.Book}",
+                            DisplayDescription = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.Book}.{NameHelper.Naming.Description}"
+                        }
+                    );
+                    yield return new TestCaseData(
+                        new ToolData()
+                        {
+                            Name = NameHelper.Equipment.Tools.CalligrapherTool,
+                            DisplayName = $"{nameof(NameHelper.Equipment.Tools)}.{NameHelper.Equipment.Tools.CalligrapherTool}",
+                            DisplayDescription = $"{nameof(NameHelper.Equipment.Tools)}.{NameHelper.Equipment.Tools.CalligrapherTool}.{NameHelper.Naming.Description}"
+                        }
+                    );
                 }
             }
         }
 
         public struct BackgroundData
         {
-            public string LocalizationName;
+            public string DisplayName;
+            public string DisplayDescription;
             public string FeatName;
+        }
+
+        public struct ToolData
+        {
+            public string Name;
+            public string DisplayName;
+            public string DisplayDescription;
         }
     }
 }

@@ -20,6 +20,21 @@ namespace DnD.Code.Scripts.Weapons
         public float Weight;
         public float Cost;
 
-        public string DisplayText => this.Name;
+        [SerializeField]
+        private string displayName;
+        [SerializeField]
+        private string displayDescription;
+
+        public string DisplayName
+        {
+            get => displayName;
+            set => displayName = value;
+        }
+
+        public string DisplayDescription
+        {
+            get => displayDescription;
+            set => displayDescription = value;
+        }
     }
 }
