@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0b85fd2a0f26e748b92266203299a08, type: 3}
   m_Name: Simple Melee Weapon
   m_EditorClassIdentifier: 
-  Name: 
+  displayName: WeaponsTypes.Simple Melee Weapon
+  displayDescription: WeaponsTypes.Simple Melee Weapon.Description

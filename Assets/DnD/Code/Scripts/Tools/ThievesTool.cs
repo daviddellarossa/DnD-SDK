@@ -4,7 +4,21 @@ namespace DnD.Code.Scripts.Tools
 {
     public class ThievesTool : ScriptableObject, IThievesTool
     {
-        public string DisplayName { get; set; }
-        public string DisplayDescription { get; set; }
+        [SerializeField]
+        private string displayName;
+        [SerializeField]
+        private string displayDescription;
+
+        public string DisplayName
+        {
+            get => displayName;
+            set => displayName = value;
+        }
+
+        public string DisplayDescription
+        {
+            get => displayDescription;
+            set => displayDescription = value;
+        }
     }
 }

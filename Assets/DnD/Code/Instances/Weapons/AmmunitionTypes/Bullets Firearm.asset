@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f1d9f2e27d8fa48a844072ad94c781, type: 3}
   m_Name: Bullets Firearm
   m_EditorClassIdentifier: 
-  Name: 
-  Amount: 0
-  Storage: {fileID: 0}
-  Weight: 0
-  Cost: 0
+  Amount: 10
+  Storage: {fileID: 11400000, guid: dd77dd30c7a00a643b48454984ccb2f0, type: 2}
+  Weight: 1
+  Cost: 3
+  displayName: AmmunitionTypes.Bullets Firearm
+  displayDescription: AmmunitionTypes.Bullets Firearm.Description

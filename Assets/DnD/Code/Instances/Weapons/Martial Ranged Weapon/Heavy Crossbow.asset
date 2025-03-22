@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5099246473453000825
+--- !u!114 &-8281389615258540803
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 037e71a86e645a242b3e1e815ad68008, type: 3}
-  m_Name: Heavy
+  m_Script: {fileID: 11500000, guid: e92af2a4d070d7b4a8ba7357ce1e0dde, type: 3}
+  m_Name: Push
   m_EditorClassIdentifier: 
-  Name: WeaponProperty.Heavy
---- !u!114 &-1262426212651615734
+  displayName: MasteryProperty.Push
+  displayDescription: MasteryProperty.Push.Description
+  Distance: 3
+--- !u!114 &-5716534095132164708
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25,7 +27,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb202eed58cbad5498c5cbc96f204e39, type: 3}
   m_Name: Loading
   m_EditorClassIdentifier: 
-  Name: WeaponProperty.Loading
+  displayName: WeaponProperty.Loading
+  displayDescription: WeaponProperty.Loading.Description
+--- !u!114 &-403013467082223195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8954e8761f4789b49a5fe892e72beeff, type: 3}
+  m_Name: Ammunition
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Ammunition
+  displayDescription: 
+  Range:
+    Min: 30
+    Max: 120
+  Type: {fileID: 11400000, guid: e1d8f7a120bc40040857aa574c27a5e9, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38,20 +59,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
   m_Name: Heavy Crossbow
   m_EditorClassIdentifier: 
-  Name: Weapons_SimpleMelee.Heavy Crossbow
   Type: {fileID: 11400000, guid: fb0e43c8590a32643b27921f80ae7819, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: 148ec924f8b04f54fb2cb6ad83ecc392, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: 1593167692919042756}
-  - {fileID: -5099246473453000825}
-  - {fileID: -1262426212651615734}
-  - {fileID: 4630306843421527545}
-  MasteryProperty: {fileID: 2778212060766159791}
+  - {fileID: -403013467082223195}
+  - {fileID: 2751483479470052254}
+  - {fileID: -5716534095132164708}
+  - {fileID: 3178666727408544374}
+  MasteryProperty: {fileID: -8281389615258540803}
   Weight: 9
   Cost: 5000
---- !u!114 &1593167692919042756
+  displayName: Weapons_SimpleMelee.Heavy Crossbow
+  displayDescription: Weapons.Martial Ranged Weapon.Heavy Crossbow.Description
+--- !u!114 &2751483479470052254
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,29 +82,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8954e8761f4789b49a5fe892e72beeff, type: 3}
-  m_Name: Ammunition
+  m_Script: {fileID: 11500000, guid: 037e71a86e645a242b3e1e815ad68008, type: 3}
+  m_Name: Heavy
   m_EditorClassIdentifier: 
-  Name: WeaponProperty.Ammunition
-  Range:
-    Min: 30
-    Max: 120
-  Type: {fileID: 11400000, guid: e1d8f7a120bc40040857aa574c27a5e9, type: 2}
---- !u!114 &2778212060766159791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e92af2a4d070d7b4a8ba7357ce1e0dde, type: 3}
-  m_Name: Push
-  m_EditorClassIdentifier: 
-  Name: MasteryProperty.Push
-  Distance: 3
---- !u!114 &4630306843421527545
+  displayName: WeaponProperty.Heavy
+  displayDescription: WeaponProperty.Heavy.Description
+--- !u!114 &3178666727408544374
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,4 +99,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
   m_Name: Two Handed
   m_EditorClassIdentifier: 
-  Name: WeaponProperty.Two Handed
+  displayName: WeaponProperty.Two Handed
+  displayDescription: WeaponProperty.Two Handed.Description

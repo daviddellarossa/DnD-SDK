@@ -1,6 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2469115612458157939
+--- !u!114 &-6593545249751606561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736285003def7cc46b8f45a9970c9ed2, type: 3}
+  m_Name: Nick
+  m_EditorClassIdentifier: 
+  displayName: MasteryProperty.Nick
+  displayDescription: MasteryProperty.Nick.Description
+--- !u!114 &-6336789984533357564
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,8 +26,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 972175a1f99609d41a0057c11c6bff3b, type: 3}
   m_Name: Light
   m_EditorClassIdentifier: 
-  Name: WeaponProperty.Light
---- !u!114 &-2439355664117726939
+  displayName: WeaponProperty.Light
+  displayDescription: WeaponProperty.Light.Description
+--- !u!114 &-4229436051936921142
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25,7 +40,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebc4527f34bae1489fdaafed1f5dafc, type: 3}
   m_Name: Finesse
   m_EditorClassIdentifier: 
-  Name: WeaponProperty.Finesse
+  displayName: WeaponProperty.Finesse
+  displayDescription: WeaponProperty.Finesse.Description
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38,27 +54,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
   m_Name: Scimitar
   m_EditorClassIdentifier: 
-  Name: Weapons_MartialMelee.Scimitar
   Type: {fileID: 11400000, guid: 617cd2f31502e334b8fd582144b755f3, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
   DamageType: {fileID: 11400000, guid: 9437bf1f986d56941b00734a2f0ec3ca, type: 2}
   Properties:
-  - {fileID: -2439355664117726939}
-  - {fileID: -2469115612458157939}
-  MasteryProperty: {fileID: 6481719809861726044}
+  - {fileID: -4229436051936921142}
+  - {fileID: -6336789984533357564}
+  MasteryProperty: {fileID: -6593545249751606561}
   Weight: 1.05
   Cost: 2500
---- !u!114 &6481719809861726044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 736285003def7cc46b8f45a9970c9ed2, type: 3}
-  m_Name: Nick
-  m_EditorClassIdentifier: 
-  Name: MasteryProperty.Nick
+  displayName: Weapons_MartialMelee.Scimitar
+  displayDescription: Weapons.Martial Melee Weapon.Scimitar.Description

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f1d9f2e27d8fa48a844072ad94c781, type: 3}
   m_Name: Arrow
   m_EditorClassIdentifier: 
-  Name: 
-  Amount: 0
-  Storage: {fileID: 0}
-  Weight: 0
-  Cost: 0
+  Amount: 20
+  Storage: {fileID: 11400000, guid: 2efeff72e1e4d594f982c20c4b80c3a0, type: 2}
+  Weight: 0.5
+  Cost: 1
+  displayName: AmmunitionTypes.Arrow
+  displayDescription: AmmunitionTypes.Arrow.Description

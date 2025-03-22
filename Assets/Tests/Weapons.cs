@@ -72,8 +72,8 @@ namespace Tests
             Assert.That(weapon.NumOfDamageDice, Is.EqualTo(expected.NumOfDamageDice));
             Assert.That(weapon.DamageDie.name, Is.EqualTo(expected.DamageDie));
             Assert.That(weapon.DamageType.Name, Is.EqualTo(expected.DamageType));
-            Assert.That(weapon.Properties.Select(x => x.Name), Is.EquivalentTo(expected.Properties));
-            Assert.That(weapon.MasteryProperty.Name, Is.EqualTo(expected.MasteryProperty));
+            Assert.That(weapon.Properties.Select(x => x.name), Is.EquivalentTo(expected.Properties));
+            Assert.That(weapon.MasteryProperty.DisplayName, Is.EqualTo(expected.MasteryProperty));
             Assert.That(weapon.Weight, Is.EqualTo(expected.Weight));
             Assert.That(weapon.Cost, Is.EqualTo(expected.Cost));
         }

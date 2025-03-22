@@ -175,7 +175,7 @@ public class Weapon_Inspector : Editor
         newScriptableObjectInstance.name = newAssetFileName;
 
         var newProperty = newScriptableObjectInstance as Property;
-        newProperty.Name = selectedOption;
+        newProperty.name = selectedOption;
 
         // Add new object to the current special trait
         weapon.Properties.Add(newProperty);
@@ -210,7 +210,7 @@ public class Weapon_Inspector : Editor
         newScriptableObjectInstance.name = newAssetFileName;
 
         var newProperty = newScriptableObjectInstance as MasteryProperty;
-        newProperty.Name = selectedOption;
+        newProperty.name = selectedOption;
 
         // Remove previous item
         if (prevMasteryProperty != null)

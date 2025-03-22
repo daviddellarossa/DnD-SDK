@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7444478656200211672
+--- !u!114 &-2020026120428196874
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 037e71a86e645a242b3e1e815ad68008, type: 3}
-  m_Name: Heavy
+  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
+  m_Name: Two Handed
   m_EditorClassIdentifier: 
-  Name: WeaponProperty.Heavy
+  displayName: WeaponProperty.Two Handed
+  displayDescription: WeaponProperty.Two Handed.Description
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25,18 +26,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
   m_Name: Greataxe
   m_EditorClassIdentifier: 
-  Name: Weapons_MartialMelee.Greataxe
   Type: {fileID: 11400000, guid: 617cd2f31502e334b8fd582144b755f3, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: 55ea3d617514ced46bd8d6f580c4b8c9, type: 2}
   DamageType: {fileID: 11400000, guid: 9437bf1f986d56941b00734a2f0ec3ca, type: 2}
   Properties:
-  - {fileID: -7444478656200211672}
-  - {fileID: 7565362472467294279}
-  MasteryProperty: {fileID: 2433285650375140423}
+  - {fileID: 3005279688359054452}
+  - {fileID: -2020026120428196874}
+  MasteryProperty: {fileID: 1380664500203369785}
   Weight: 3.5
   Cost: 3000
---- !u!114 &2433285650375140423
+  displayName: Weapons_MartialMelee.Greataxe
+  displayDescription: Weapons.Martial Melee Weapon.Greataxe.Description
+--- !u!114 &1380664500203369785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,8 +50,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74e2517a1e89530418ff81722a46388e, type: 3}
   m_Name: Cleave
   m_EditorClassIdentifier: 
-  Name: MasteryProperty.Cleave
---- !u!114 &7565362472467294279
+  displayName: MasteryProperty.Cleave
+  displayDescription: MasteryProperty.Cleave.Description
+--- !u!114 &3005279688359054452
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,7 +61,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
-  m_Name: Two Handed
+  m_Script: {fileID: 11500000, guid: 037e71a86e645a242b3e1e815ad68008, type: 3}
+  m_Name: Heavy
   m_EditorClassIdentifier: 
-  Name: WeaponProperty.Two Handed
+  displayName: WeaponProperty.Heavy
+  displayDescription: WeaponProperty.Heavy.Description

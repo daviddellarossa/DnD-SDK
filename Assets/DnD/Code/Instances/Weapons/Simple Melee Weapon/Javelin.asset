@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7510752326995178731
+--- !u!114 &-4430999920397247033
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,11 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa496ce09c6415f44bd81d1ad15fb33b, type: 3}
-  m_Name: Slow
+  m_Script: {fileID: 11500000, guid: 160fc646e2c4724418aa23deca8abc00, type: 3}
+  m_Name: Thrown
   m_EditorClassIdentifier: 
-  Name: MasteryProperty.Slow
-  SlowBy: 3
+  displayName: WeaponProperty.Thrown
+  displayDescription: WeaponProperty.Thrown.Description
+  Range:
+    Min: 9
+    Max: 36
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26,17 +29,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
   m_Name: Javelin
   m_EditorClassIdentifier: 
-  Name: Weapons_SimpleMelee.Javelin
   Type: {fileID: 11400000, guid: 1c7ca2717ab96074a8028ece16c57f50, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: 524148609973795605}
-  MasteryProperty: {fileID: -7510752326995178731}
+  - {fileID: -4430999920397247033}
+  MasteryProperty: {fileID: 6111937913575407698}
   Weight: 1
   Cost: 500
---- !u!114 &524148609973795605
+  displayName: Weapons_SimpleMelee.Javelin
+  displayDescription: Weapons.Simple Melee Weapon.Javelin.Description
+--- !u!114 &6111937913575407698
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,10 +49,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 160fc646e2c4724418aa23deca8abc00, type: 3}
-  m_Name: Thrown
+  m_Script: {fileID: 11500000, guid: fa496ce09c6415f44bd81d1ad15fb33b, type: 3}
+  m_Name: Slow
   m_EditorClassIdentifier: 
-  Name: WeaponProperty.Thrown
-  Range:
-    Min: 9
-    Max: 36
+  displayName: MasteryProperty.Slow
+  displayDescription: MasteryProperty.Slow.Description
+  SlowBy: 3

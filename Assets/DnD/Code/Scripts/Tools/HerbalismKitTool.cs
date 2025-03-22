@@ -5,7 +5,21 @@ namespace DnD.Code.Scripts.Tools
     [CreateAssetMenu(fileName = "NewHerbalismKit", menuName = "Game Entities/Equipment/Tools/Herbalism Kit")]
     public class HerbalismKitTool : ScriptableObject, IHerbalismKitTool
     {
-        public string DisplayName { get; set; }
-        public string DisplayDescription { get; set; }
+        [SerializeField]
+        private string displayName;
+        [SerializeField]
+        private string displayDescription;
+
+        public string DisplayName
+        {
+            get => displayName;
+            set => displayName = value;
+        }
+
+        public string DisplayDescription
+        {
+            get => displayDescription;
+            set => displayDescription = value;
+        }
     }
 }

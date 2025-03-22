@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1890053554411531167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ebc4527f34bae1489fdaafed1f5dafc, type: 3}
-  m_Name: Finesse
-  m_EditorClassIdentifier: 
-  Name: WeaponProperty.Finesse
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25,18 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
   m_Name: Shortsword
   m_EditorClassIdentifier: 
-  Name: Weapons_MartialMelee.Shortsword
   Type: {fileID: 11400000, guid: 617cd2f31502e334b8fd582144b755f3, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: -1890053554411531167}
-  - {fileID: 3872637374617719492}
-  MasteryProperty: {fileID: 8597559926536478083}
+  - {fileID: 2689112618689829663}
+  - {fileID: 496642552567138769}
+  MasteryProperty: {fileID: 8383756780403249139}
   Weight: 1
   Cost: 1000
---- !u!114 &3872637374617719492
+  displayName: Weapons_MartialMelee.Shortsword
+  displayDescription: Weapons.Martial Melee Weapon.Shortsword.Description
+--- !u!114 &496642552567138769
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,8 +36,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 972175a1f99609d41a0057c11c6bff3b, type: 3}
   m_Name: Light
   m_EditorClassIdentifier: 
-  Name: WeaponProperty.Light
---- !u!114 &8597559926536478083
+  displayName: WeaponProperty.Light
+  displayDescription: WeaponProperty.Light.Description
+--- !u!114 &2689112618689829663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ebc4527f34bae1489fdaafed1f5dafc, type: 3}
+  m_Name: Finesse
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Finesse
+  displayDescription: WeaponProperty.Finesse.Description
+--- !u!114 &8383756780403249139
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,4 +64,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de63446a39c28145a8b4eea8f194a7e, type: 3}
   m_Name: Vex
   m_EditorClassIdentifier: 
-  Name: MasteryProperty.Vex
+  displayName: MasteryProperty.Vex
+  displayDescription: MasteryProperty.Vex.Description

@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5651069305352633866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb202eed58cbad5498c5cbc96f204e39, type: 3}
-  m_Name: Loading
-  m_EditorClassIdentifier: 
-  Name: WeaponProperty.Loading
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25,31 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
   m_Name: Blowgun
   m_EditorClassIdentifier: 
-  Name: Weapons_SimpleMelee.Blowgun
   Type: {fileID: 11400000, guid: fb0e43c8590a32643b27921f80ae7819, type: 2}
   NumOfDamageDice: 1
   DamageDie: {fileID: 11400000, guid: 11278b0b14da46a51a9ed8754a0274ff, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: 8214531304347919025}
-  - {fileID: -5651069305352633866}
-  MasteryProperty: {fileID: 2316344909692930176}
+  - {fileID: 7404106699231230594}
+  - {fileID: 7575966976493348753}
+  MasteryProperty: {fileID: 7987080382617283955}
   Weight: 0.5
   Cost: 1000
---- !u!114 &2316344909692930176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1de63446a39c28145a8b4eea8f194a7e, type: 3}
-  m_Name: Vex
-  m_EditorClassIdentifier: 
-  Name: MasteryProperty.Vex
---- !u!114 &8214531304347919025
+  displayName: Weapons_SimpleMelee.Blowgun
+  displayDescription: Weapons.Martial Ranged Weapon.Blowgun.Description
+--- !u!114 &7404106699231230594
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,8 +36,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8954e8761f4789b49a5fe892e72beeff, type: 3}
   m_Name: Ammunition
   m_EditorClassIdentifier: 
-  Name: WeaponProperty.Ammunition
+  displayName: WeaponProperty.Ammunition
+  displayDescription: WeaponProperty.Ammunition.Description
   Range:
     Min: 8
     Max: 32
   Type: {fileID: 11400000, guid: b2ea6cbce11728d4b817a348b68d8fa6, type: 2}
+--- !u!114 &7575966976493348753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb202eed58cbad5498c5cbc96f204e39, type: 3}
+  m_Name: Loading
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Loading
+  displayDescription: WeaponProperty.Loading.Description
+--- !u!114 &7987080382617283955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1de63446a39c28145a8b4eea8f194a7e, type: 3}
+  m_Name: Vex
+  m_EditorClassIdentifier: 
+  displayName: MasteryProperty.Vex
+  displayDescription: MasteryProperty.Vex.Description
