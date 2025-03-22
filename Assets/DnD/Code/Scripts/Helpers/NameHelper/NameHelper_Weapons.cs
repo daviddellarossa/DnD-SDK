@@ -6,17 +6,17 @@ namespace DnD.Code.Scripts.Helpers.NameHelper
         {
             public const string Arrows = "Arrow";
             public const string Bolts = "Bolt";
-            public const string BulletsFirearm = "Bullets Firearm";
+            public const string BulletsFirearm = "BulletsFirearm";
             public const string Needles = "Needles";
-            public const string BulletsSling = "Bullets Sling";
+            public const string BulletsSling = "BulletsSling";
         }
         
         public static class WeaponTypes
         {
-            public const string MartialMeleeWeapon = "Martial Melee Weapon";
-            public const string SimpleMeleeWeapon = "Simple Melee Weapon";
-            public const string MartialRangedWeapon = "Martial Ranged Weapon";
-            public const string SimpleRangedWeapon = "Simple Ranged Weapon";
+            public const string MartialMeleeWeapon = "MartialMeleeWeapon";
+            public const string SimpleMeleeWeapon = "SimpleMeleeWeapon";
+            public const string MartialRangedWeapon = "MartialRangedWeapon";
+            public const string SimpleRangedWeapon = "SimpleRangedWeapon";
         }
         
         public static class WeaponProperty
@@ -58,8 +58,8 @@ namespace DnD.Code.Scripts.Helpers.NameHelper
         public static class Weapons_MartialRanged
         {
             public const string Blowgun = "Blowgun";
-            public const string HandCrossbow = "Hand Crossbow";
-            public const string HeavyCrossbow = "Heavy Crossbow";
+            public const string HandCrossbow = "HandCrossbow";
+            public const string HeavyCrossbow = "HeavyCrossbow";
             public const string Longbow = "Longbow";
             public const string Musket = "Musket";
             public const string Pistol = "Pistol";
@@ -72,7 +72,7 @@ namespace DnD.Code.Scripts.Helpers.NameHelper
             public const string Greatclub = "Greatclub";
             public const string Handaxe = "Handaxe";
             public const string Javelin = "Javelin";
-            public const string LightHammer = "Light Hammer";
+            public const string LightHammer = "LightHammer";
             public const string Mace = "Mace";
             public const string Quarterstaff = "Quarterstaff";
             public const string Sickle = "Sickle";
@@ -82,7 +82,7 @@ namespace DnD.Code.Scripts.Helpers.NameHelper
         public static class Weapons_SimpleRanged
         {
             public const string Dart = "Dart";
-            public const string LightCrossbow = "Light Crossbow";
+            public const string LightCrossbow = "LightCrossbow";
             public const string Shortbow = "Shortbow";
             public const string Sling = "Sling";
         }

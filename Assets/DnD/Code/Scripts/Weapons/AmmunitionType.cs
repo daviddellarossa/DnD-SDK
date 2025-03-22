@@ -7,7 +7,6 @@ namespace DnD.Code.Scripts.Weapons
     [CreateAssetMenu(fileName = "NewAmmunitionType", menuName = "Game Entities/Weapons/AmmunitionType")]
     public class AmmunitionType : ScriptableObject, ILocalizable
     {
-        // public string Name;
         public int Amount;
         public Storage Storage;
         public float Weight;

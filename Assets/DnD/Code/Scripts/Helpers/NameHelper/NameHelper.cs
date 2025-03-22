@@ -16,6 +16,8 @@ namespace DnD.Code.Scripts.Helpers.NameHelper
             public const string ArmourTypes = "ArmourTypes";
             public const string Weapons = "Weapons";
             public const string WeaponTypes = "WeaponsTypes";
+            public const string WeaponProperty = "WeaponProperty";
+            public const string WeaponMasteryProperty = "WeaponMasteryProperty";
             public const string AmmunitionTypes = "AmmunitionTypes";
             public const string TraitTypes = "TraitTypes";
             public const string Storage = "Storage";

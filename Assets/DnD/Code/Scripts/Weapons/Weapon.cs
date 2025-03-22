@@ -10,7 +10,6 @@ namespace DnD.Code.Scripts.Weapons
     [CreateAssetMenu(fileName = "NewWeapon", menuName = "Game Entities/Weapons/Weapon")]
     public class Weapon : ScriptableObject, IItem, IWeapon
     {
-        // public string Name;
         public WeaponType Type;
         public int NumOfDamageDice = 1;
         public Die DamageDie;
