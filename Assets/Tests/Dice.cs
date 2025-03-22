@@ -32,10 +32,9 @@ namespace Tests
             Assert.That(die, Is.Not.Null);
             Assert.That(die.NumOfFaces, Is.EqualTo(expected.NumOfFaces));
             
-            // Testing ILanguage
+            // Testing ILocalizable
             Assert.That(die.DisplayName, Is.EqualTo(expected.DisplayName));
             Assert.That(die.DisplayDescription, Is.EqualTo(expected.DisplayDescription));
-
         }
         
         private class AbilitiesData

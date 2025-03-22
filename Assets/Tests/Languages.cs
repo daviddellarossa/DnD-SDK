@@ -46,6 +46,8 @@ namespace Tests
             var languageOrigin = _languageOrigins.SingleOrDefault(d => d.name == expected.Name);
             
             Assert.That(languageOrigin, Is.Not.Null);
+            Assert.That(languageOrigin.DisplayName, Is.EqualTo(expected.DisplayName));
+            Assert.That(languageOrigin.DisplayDescription, Is.EqualTo(expected.DisplayDescription));
         }
         
         [TestCaseSource(typeof(AbilitiesData), nameof(AbilitiesData.RareLanguagesTestCases))]
@@ -54,7 +56,9 @@ namespace Tests
             var rareLanguage = _rareLanguages.SingleOrDefault(d => d.name == expected.Name);
             
             Assert.That(rareLanguage, Is.Not.Null);
-            Assert.That(rareLanguage.Origin.Name, Is.EqualTo(expected.Origin));
+            Assert.That(rareLanguage.DisplayName, Is.EqualTo(expected.DisplayName));
+            Assert.That(rareLanguage.DisplayDescription, Is.EqualTo(expected.DisplayDescription));
+            Assert.That(rareLanguage.Origin.name, Is.EqualTo(expected.Origin));
         }
         
         [TestCaseSource(typeof(AbilitiesData), nameof(AbilitiesData.StandardLanguagesTestCases))]
@@ -63,7 +67,9 @@ namespace Tests
             var standardLanguage = _standardLanguages.SingleOrDefault(d => d.name == expected.Name);
             
             Assert.That(standardLanguage, Is.Not.Null);
-            Assert.That(standardLanguage.Origin.Name, Is.EqualTo(expected.Origin));
+            Assert.That(standardLanguage.DisplayName, Is.EqualTo(expected.DisplayName));
+            Assert.That(standardLanguage.DisplayDescription, Is.EqualTo(expected.DisplayDescription));
+            Assert.That(standardLanguage.Origin.name, Is.EqualTo(expected.Origin));
         }
         
         private class AbilitiesData
@@ -73,77 +79,112 @@ namespace Tests
                 get
                 {
                     yield return new TestCaseData(
-                        new LanguageOriginModel(
-                            NameHelper.LanguageOrigins.Aberrations
-                        ));
+                        new LanguageOriginModel()
+                        {
+                            Name = NameHelper.LanguageOrigins.Aberrations,
+                        });
+
                     yield return new TestCaseData(
-                        new LanguageOriginModel(
-                            NameHelper.LanguageOrigins.Celestials
-                        ));
+                        new LanguageOriginModel()
+                        {
+                            Name = NameHelper.LanguageOrigins.Celestials,
+                        });
+                    
                     yield return new TestCaseData(
-                        new LanguageOriginModel(
-                            NameHelper.LanguageOrigins.DemonsOfTheAbyss
-                        ));
+                        new LanguageOriginModel()
+                        {
+                            Name = NameHelper.LanguageOrigins.DemonsOfTheAbyss,
+                        });
+
                     yield return new TestCaseData(
-                        new LanguageOriginModel(
-                            NameHelper.LanguageOrigins.DevilsOfTheNineHells
-                        ));
+                        new LanguageOriginModel()
+                        {
+                            Name = NameHelper.LanguageOrigins.DevilsOfTheNineHells,
+                        });
+                    
                     yield return new TestCaseData(
-                        new LanguageOriginModel(
-                            NameHelper.LanguageOrigins.Dragons
-                        ));
+                        new LanguageOriginModel()
+                        {
+                            Name = NameHelper.LanguageOrigins.Dragons,
+                        });
+
                     yield return new TestCaseData(
-                        new LanguageOriginModel(
-                            NameHelper.LanguageOrigins.DruidicCircles
-                        ));
+                        new LanguageOriginModel()
+                        {
+                            Name = NameHelper.LanguageOrigins.DruidicCircles,
+                        });
+
                     yield return new TestCaseData(
-                        new LanguageOriginModel(
-                            NameHelper.LanguageOrigins.Dwarves
-                        ));
+                        new LanguageOriginModel()
+                        {
+                            Name = NameHelper.LanguageOrigins.Dwarves,
+                        });
+
                     yield return new TestCaseData(
-                        new LanguageOriginModel(
-                            NameHelper.LanguageOrigins.Elementals
-                        ));
+                        new LanguageOriginModel()
+                        {
+                            Name = NameHelper.LanguageOrigins.Elementals,
+                        });
+                    
                     yield return new TestCaseData(
-                        new LanguageOriginModel(
-                            NameHelper.LanguageOrigins.Elves
-                        ));
+                        new LanguageOriginModel()
+                        {
+                            Name = NameHelper.LanguageOrigins.Elves,
+                        });
+
                     yield return new TestCaseData(
-                        new LanguageOriginModel(
-                            NameHelper.LanguageOrigins.Giants
-                        ));
+                        new LanguageOriginModel()
+                        {
+                            Name = NameHelper.LanguageOrigins.Giants,
+                        });
+                    
                     yield return new TestCaseData(
-                        new LanguageOriginModel(
-                            NameHelper.LanguageOrigins.Gnomes
-                        ));
+                        new LanguageOriginModel()
+                        {
+                            Name = NameHelper.LanguageOrigins.Gnomes,
+                        });
+
                     yield return new TestCaseData(
-                        new LanguageOriginModel(
-                            NameHelper.LanguageOrigins.Goblinoids
-                        ));
+                        new LanguageOriginModel()
+                        {
+                            Name = NameHelper.LanguageOrigins.Goblinoids,
+                        });
+
                     yield return new TestCaseData(
-                        new LanguageOriginModel(
-                            NameHelper.LanguageOrigins.Halflings
-                        ));
+                        new LanguageOriginModel()
+                        {
+                            Name = NameHelper.LanguageOrigins.Halflings,
+                        });
+                    
                     yield return new TestCaseData(
-                        new LanguageOriginModel(
-                            NameHelper.LanguageOrigins.Orcs
-                        ));
+                        new LanguageOriginModel()
+                        {
+                            Name = NameHelper.LanguageOrigins.Orcs,
+                        });
+                    
                     yield return new TestCaseData(
-                        new LanguageOriginModel(
-                            NameHelper.LanguageOrigins.Sigil
-                        ));
+                        new LanguageOriginModel()
+                        {
+                            Name = NameHelper.LanguageOrigins.Sigil,
+                        });
+                    
                     yield return new TestCaseData(
-                        new LanguageOriginModel(
-                            NameHelper.LanguageOrigins.TheFeywild
-                        ));
+                        new LanguageOriginModel()
+                        {
+                            Name = NameHelper.LanguageOrigins.TheFeywild,
+                        });
+                    
                     yield return new TestCaseData(
-                        new LanguageOriginModel(
-                            NameHelper.LanguageOrigins.TheUnderdark
-                        ));
+                        new LanguageOriginModel()
+                        {
+                            Name = NameHelper.LanguageOrigins.TheUnderdark,
+                        });
+
                     yield return new TestCaseData(
-                        new LanguageOriginModel(
-                            NameHelper.LanguageOrigins.VariousCriminalGuilds
-                        ));
+                        new LanguageOriginModel()
+                        {
+                            Name = NameHelper.LanguageOrigins.VariousCriminalGuilds,
+                        });
                 }
             }
             
@@ -152,50 +193,67 @@ namespace Tests
                 get
                 {
                     yield return new TestCaseData(
-                        new LanguageModel(
-                            NameHelper.Languages.Abyssal,
-                            NameHelper.LanguageOrigins.DemonsOfTheAbyss
-                        ));
+                        new LanguageModel()
+                        {
+                            Name = NameHelper.Languages.Abyssal,
+                            Origin = NameHelper.LanguageOrigins.DemonsOfTheAbyss
+                        });
+                    
                     yield return new TestCaseData(
-                        new LanguageModel(
-                            NameHelper.Languages.Celestial,
-                            NameHelper.LanguageOrigins.Celestials
-                        ));
+                        new LanguageModel()
+                        {
+                            Name = NameHelper.Languages.Celestial,
+                            Origin = NameHelper.LanguageOrigins.Celestials
+                        });
+                    
                     yield return new TestCaseData(
-                        new LanguageModel(
-                            NameHelper.Languages.DeepSpeech,
-                            NameHelper.LanguageOrigins.Aberrations
-                        ));
+                        new LanguageModel()
+                        {
+                            Name = NameHelper.Languages.DeepSpeech,
+                            Origin = NameHelper.LanguageOrigins.Aberrations
+                        });
+
                     yield return new TestCaseData(
-                        new LanguageModel(
-                            NameHelper.Languages.Druidic,
-                            NameHelper.LanguageOrigins.DruidicCircles
-                        ));
+                        new LanguageModel()
+                        {
+                            Name = NameHelper.Languages.Druidic,
+                            Origin = NameHelper.LanguageOrigins.DruidicCircles
+                        });
+                    
                     yield return new TestCaseData(
-                        new LanguageModel(
-                            NameHelper.Languages.Infernal,
-                            NameHelper.LanguageOrigins.DevilsOfTheNineHells
-                        ));
+                        new LanguageModel()
+                        {
+                            Name = NameHelper.Languages.Infernal,
+                            Origin = NameHelper.LanguageOrigins.DevilsOfTheNineHells
+                        });
+                    
                     yield return new TestCaseData(
-                        new LanguageModel(
-                            NameHelper.Languages.Primordial,
-                            NameHelper.LanguageOrigins.Elementals
-                        ));
+                        new LanguageModel()
+                        {
+                            Name = NameHelper.Languages.Primordial,
+                            Origin = NameHelper.LanguageOrigins.Elementals
+                        });
+                    
                     yield return new TestCaseData(
-                        new LanguageModel(
-                            NameHelper.Languages.Sylvan,
-                            NameHelper.LanguageOrigins.TheFeywild
-                        ));
+                        new LanguageModel()
+                        {
+                            Name = NameHelper.Languages.Sylvan,
+                            Origin = NameHelper.LanguageOrigins.TheFeywild
+                        });
+                    
                     yield return new TestCaseData(
-                        new LanguageModel(
-                            NameHelper.Languages.ThievesCant,
-                            NameHelper.LanguageOrigins.VariousCriminalGuilds
-                        ));
+                        new LanguageModel()
+                        {
+                            Name = NameHelper.Languages.ThievesCant,
+                            Origin = NameHelper.LanguageOrigins.VariousCriminalGuilds
+                        });
+                    
                     yield return new TestCaseData(
-                        new LanguageModel(
-                            NameHelper.Languages.Undercommon,
-                            NameHelper.LanguageOrigins.TheUnderdark
-                        ));
+                        new LanguageModel()
+                        {
+                            Name = NameHelper.Languages.Undercommon,
+                            Origin = NameHelper.LanguageOrigins.TheUnderdark
+                        });
                 }
             }
             
@@ -204,55 +262,74 @@ namespace Tests
                 get
                 {
                     yield return new TestCaseData(
-                        new LanguageModel(
-                            NameHelper.Languages.Common,
-                            NameHelper.LanguageOrigins.Sigil
-                        ));
+                        new LanguageModel()
+                        {
+                            Name = NameHelper.Languages.Common,
+                            Origin = NameHelper.LanguageOrigins.Sigil
+                        });
+                    
                     yield return new TestCaseData(
-                        new LanguageModel(
-                            NameHelper.Languages.CommonSign,
-                            NameHelper.LanguageOrigins.Sigil
-                        ));
+                        new LanguageModel()
+                        {
+                            Name = NameHelper.Languages.CommonSign,
+                            Origin = NameHelper.LanguageOrigins.Sigil
+                        });
+                    
                     yield return new TestCaseData(
-                        new LanguageModel(
-                            NameHelper.Languages.Draconic,
-                            NameHelper.LanguageOrigins.Dragons
-                        ));
+                        new LanguageModel()
+                        {
+                            Name = NameHelper.Languages.Draconic,
+                            Origin = NameHelper.LanguageOrigins.Dragons
+                        });
+
                     yield return new TestCaseData(
-                        new LanguageModel(
-                            NameHelper.Languages.Dwarvish,
-                            NameHelper.LanguageOrigins.Dwarves
-                        ));
+                        new LanguageModel()
+                        {
+                            Name = NameHelper.Languages.Dwarvish,
+                            Origin = NameHelper.LanguageOrigins.Dwarves
+                        });
+
                     yield return new TestCaseData(
-                        new LanguageModel(
-                            NameHelper.Languages.Elvish,
-                            NameHelper.LanguageOrigins.Elves
-                        ));
+                        new LanguageModel()
+                        {
+                            Name = NameHelper.Languages.Elvish,
+                            Origin = NameHelper.LanguageOrigins.Elves
+                        });
+
                     yield return new TestCaseData(
-                        new LanguageModel(
-                            NameHelper.Languages.Giant,
-                            NameHelper.LanguageOrigins.Giants
-                        ));
+                        new LanguageModel()
+                        {
+                            Name = NameHelper.Languages.Giant,
+                            Origin = NameHelper.LanguageOrigins.Giants
+                        });
+
                     yield return new TestCaseData(
-                        new LanguageModel(
-                            NameHelper.Languages.Gnomish,
-                            NameHelper.LanguageOrigins.Gnomes
-                        ));
+                        new LanguageModel()
+                        {
+                            Name = NameHelper.Languages.Gnomish,
+                            Origin = NameHelper.LanguageOrigins.Gnomes
+                        });
+
                     yield return new TestCaseData(
-                        new LanguageModel(
-                            NameHelper.Languages.Goblin,
-                            NameHelper.LanguageOrigins.Goblinoids
-                        ));
+                        new LanguageModel()
+                        {
+                            Name = NameHelper.Languages.Goblin,
+                            Origin = NameHelper.LanguageOrigins.Goblinoids
+                        });
+
                     yield return new TestCaseData(
-                        new LanguageModel(
-                            NameHelper.Languages.Halfling,
-                            NameHelper.LanguageOrigins.Halflings
-                        ));
+                        new LanguageModel()
+                        {
+                            Name = NameHelper.Languages.Halfling,
+                            Origin = NameHelper.LanguageOrigins.Halflings
+                        });
+
                     yield return new TestCaseData(
-                        new LanguageModel(
-                            NameHelper.Languages.Orc,
-                            NameHelper.LanguageOrigins.Orcs
-                        ));
+                        new LanguageModel()
+                        {
+                            Name = NameHelper.Languages.Orc,
+                            Origin = NameHelper.LanguageOrigins.Orcs
+                        });
                 }
             }
         }
@@ -261,22 +338,16 @@ namespace Tests
         public class LanguageOriginModel
         {
             public string Name { get; set; }
-            public LanguageOriginModel(string name)
-            {
-                this.Name = name;
-            }
+            public string DisplayName => $"{NameHelper.Naming.LanguageOrigins}.{Name}";
+            public string DisplayDescription =>  $"{DisplayName}.{NameHelper.Naming.Description}";
         }
 
         public class LanguageModel
         {
             public string Name { get; set; }
+            public string DisplayName => $"{NameHelper.Naming.Languages}.{Name}";
+            public string DisplayDescription =>  $"{DisplayName}.{NameHelper.Naming.Description}";
             public string Origin { get; set; }
-
-            public LanguageModel(string name,  string origin)
-            {
-                this.Name = name;
-                this.Origin = origin;
-            }
         }
     }
 }

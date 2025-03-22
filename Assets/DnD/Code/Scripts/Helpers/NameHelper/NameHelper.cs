@@ -20,6 +20,7 @@ namespace DnD.Code.Scripts.Helpers.NameHelper
             public const string TraitTypes = "TraitTypes";
             public const string Storage = "Storage";
             public const string Languages = "Languages";
+            public const string LanguageOrigins = "LanguageOrigins";
             public const string RareLanguages = "RareLanguages";
             public const string StandardLanguages = "StandardLanguages";
             public const string Origins = "Origins";

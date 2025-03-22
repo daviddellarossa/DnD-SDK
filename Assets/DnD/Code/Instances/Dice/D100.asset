@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c8a7c9581d8d045a6a25e39023fd47, type: 3}
   m_Name: D100
   m_EditorClassIdentifier: 
-  NumOfFaces: 0
-  displayName: 
-  displayDescription: 
+  NumOfFaces: 100
+  displayName: Dice.D100
+  displayDescription: Dice.D100.Description

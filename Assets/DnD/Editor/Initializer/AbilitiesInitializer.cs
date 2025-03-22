@@ -12,9 +12,6 @@ namespace DnD.Editor.Initializer
 {
     public static class AbilitiesInitializer
     {
-        // public static readonly string PathHelper.Abilities.AbilitiesPath = $"{Common.FolderPath}/{NameHelper.Naming.Abilities}";
-        // public static readonly string PathHelper.Abilities.SkillsPath = $"{Common.FolderPath}/{NameHelper.Naming.Skills}";
-
         public static Ability[] GetAllAbilities()
         {
             return Common.GetAllScriptableObjects<Ability>(PathHelper.Abilities.AbilitiesPath);

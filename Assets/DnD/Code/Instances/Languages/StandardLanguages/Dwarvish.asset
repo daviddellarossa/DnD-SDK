@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae3504c206a99f41a667412865a7a80, type: 3}
   m_Name: Dwarvish
   m_EditorClassIdentifier: 
-  Name: 
   Origin: {fileID: 0}
+  displayName: 
+  displayDescription: 

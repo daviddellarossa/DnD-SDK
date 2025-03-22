@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7a44792d596ee429a8d4f009940006, type: 3}
   m_Name: Druidic
   m_EditorClassIdentifier: 
-  Name: 
-  Origin: {fileID: 0}
+  Origin: {fileID: 11400000, guid: 5fd0a8c5a8bc6c441afb6d70981b0138, type: 2}
+  displayName: Languages.Druidic
+  displayDescription: Languages.Druidic.Description

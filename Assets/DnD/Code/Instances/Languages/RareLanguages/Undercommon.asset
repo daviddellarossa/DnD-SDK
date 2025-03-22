@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7a44792d596ee429a8d4f009940006, type: 3}
   m_Name: Undercommon
   m_EditorClassIdentifier: 
-  Name: 
-  Origin: {fileID: 0}
+  Origin: {fileID: 11400000, guid: afb4e08d67e2ea2428ccd107aaa9f756, type: 2}
+  displayName: Languages.Undercommon
+  displayDescription: Languages.Undercommon.Description
