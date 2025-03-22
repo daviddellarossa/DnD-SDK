@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae3504c206a99f41a667412865a7a80, type: 3}
   m_Name: Giant
   m_EditorClassIdentifier: 
-  Origin: {fileID: 0}
-  displayName: 
-  displayDescription: 
+  Origin: {fileID: 11400000, guid: e95f1c11d4bb87949bec46d6abbda951, type: 2}
+  displayName: Languages.Giant
+  displayDescription: Languages.Giant.Description

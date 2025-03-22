@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae3504c206a99f41a667412865a7a80, type: 3}
   m_Name: Halfling
   m_EditorClassIdentifier: 
-  Origin: {fileID: 0}
-  displayName: 
-  displayDescription: 
+  Origin: {fileID: 11400000, guid: cfa1bec33aa11644699e6fcceff79c24, type: 2}
+  displayName: Languages.Halfling
+  displayDescription: Languages.Halfling.Description

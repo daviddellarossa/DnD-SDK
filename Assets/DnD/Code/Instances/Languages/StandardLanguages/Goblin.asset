@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae3504c206a99f41a667412865a7a80, type: 3}
   m_Name: Goblin
   m_EditorClassIdentifier: 
-  Origin: {fileID: 0}
-  displayName: 
-  displayDescription: 
+  Origin: {fileID: 11400000, guid: 61b1c43cfda7b0f4dbb148950ca88c1b, type: 2}
+  displayName: Languages.Goblin
+  displayDescription: Languages.Goblin.Description

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae3504c206a99f41a667412865a7a80, type: 3}
   m_Name: Orc
   m_EditorClassIdentifier: 
-  Origin: {fileID: 0}
-  displayName: 
-  displayDescription: 
+  Origin: {fileID: 11400000, guid: c1437114e8d9b87439914a701a1d89cc, type: 2}
+  displayName: Languages.Orc
+  displayDescription: Languages.Orc.Description
