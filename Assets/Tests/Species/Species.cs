@@ -32,7 +32,7 @@ namespace Tests.Species
             
             Assert.That(species, Is.Not.Null);
             Assert.That(species.InheritFrom, Is.EqualTo(expected.InheritFrom));
-            Assert.That(species.CreatureType.Name, Is.EqualTo(expected.CreatureType));
+            Assert.That(species.CreatureType.name, Is.EqualTo(expected.CreatureType));
             Assert.That(species.Size, Is.EqualTo(expected.Size));
             Assert.That(species.Speed, Is.EqualTo(expected.Speed));
             Assert.That(species.Traits.Count, Is.EqualTo(expected.Traits.Count()));
@@ -196,7 +196,7 @@ namespace Tests.Species
                 Assert.That(tt, Is.Not.Null);
                 
                 Assert.That(this.Percent, Is.EqualTo(tt.Percent));
-                Assert.That(this.DamageType, Is.EqualTo(tt.DamageType.Name));
+                Assert.That(this.DamageType, Is.EqualTo(tt.DamageType.DisplayName));
                 Assert.That(this.Name, Is.EqualTo(tt.Name));
             }
         }

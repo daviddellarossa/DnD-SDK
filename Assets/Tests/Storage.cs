@@ -24,11 +24,13 @@ namespace Tests
         }
         
         [TestCaseSource(typeof(AbilitiesData), nameof(AbilitiesData.StorageTestCases))]
-        public void TestAllStandardLanguages(StorageModel expected)
+        public void TestAllStandardLanguages(StorageTestModel expected)
         {
-            var standardLanguage = _storages.SingleOrDefault(d => d.name == expected.Name);
+            var storage = _storages.SingleOrDefault(d => d.name == expected.Name);
             
-            Assert.That(standardLanguage, Is.Not.Null);
+            Assert.That(storage, Is.Not.Null, Common.GetNotFoundLogInfo(NameHelper.Naming.Storage, expected.Name));
+            Assert.That(storage.DisplayName, Is.EqualTo(expected.DisplayName), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayName), expected.DisplayName));
+            Assert.That(storage.DisplayDescription, Is.EqualTo(expected.DisplayDescription), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayDescription), expected.DisplayDescription));
         }
 
         
@@ -39,29 +41,26 @@ namespace Tests
                 get
                 {
                     yield return new TestCaseData(
-                        new StorageModel(
-                            NameHelper.Storage.Case
-                        ));
+                        new StorageTestModel(){
+                            Name = NameHelper.Storage.Case
+                        });
                     yield return new TestCaseData(
-                        new StorageModel(
-                            NameHelper.Storage.Pouch
-                        ));
+                        new StorageTestModel(){
+                            Name = NameHelper.Storage.Pouch
+                        });
                     yield return new TestCaseData(
-                        new StorageModel(
-                            NameHelper.Storage.Quiver
-                        ));
+                        new StorageTestModel(){
+                            Name = NameHelper.Storage.Quiver
+                        });
                 }
             }
         }
 
-        public class StorageModel
+        public class StorageTestModel
         {
             public string Name { get; set; }
-
-            public StorageModel(string name)
-            {
-                this.Name = name;
-            }
+            public string DisplayName => $"{NameHelper.Naming.Storage}.{Name}";
+            public string DisplayDescription => $"{DisplayName}.{NameHelper.Naming.Description}";
         }
     }
 }

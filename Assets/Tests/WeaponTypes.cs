@@ -25,13 +25,13 @@ namespace Tests
         }
         
         [TestCaseSource(typeof(WeaponTypesData), nameof(WeaponTypesData.WeaponTypesTestCases))]
-        public void TestAllWeaponTypes(WeaponTypeModel expected)
+        public void TestAllWeaponTypes(WeaponTypeTestModel expected)
         {
             var weaponType = _weaponTypes.SingleOrDefault(d => d.name == expected.Name);
             
-            Assert.That(weaponType, Is.Not.Null);
-            Assert.That(weaponType.DisplayName, Is.EqualTo(expected.DisplayName), $"{expected.DisplayName}: {nameof(expected.DisplayName)} not equal to {expected.DisplayName}.");
-            Assert.That(weaponType.DisplayDescription, Is.EqualTo(expected.DisplayDescription), $"{expected.DisplayName}: {nameof(expected.DisplayDescription)} not equal to {expected.DisplayDescription}.");
+            Assert.That(weaponType, Is.Not.Null, Common.GetNotFoundLogInfo(NameHelper.Naming.WeaponTypes, expected.Name));
+            Assert.That(weaponType.DisplayName, Is.EqualTo(expected.DisplayName), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayName), expected.DisplayName));
+            Assert.That(weaponType.DisplayDescription, Is.EqualTo(expected.DisplayDescription), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayDescription), expected.DisplayDescription));
         }
         
         private class WeaponTypesData
@@ -41,22 +41,22 @@ namespace Tests
                 get
                 {
                     yield return new TestCaseData(
-                        new WeaponTypeModel()
+                        new WeaponTypeTestModel()
                         {
                             Name = NameHelper.WeaponTypes.MartialMeleeWeapon
                         });
                     yield return new TestCaseData(
-                        new WeaponTypeModel()
+                        new WeaponTypeTestModel()
                         {
                             Name = NameHelper.WeaponTypes.MartialRangedWeapon
                         });
                     yield return new TestCaseData(
-                        new WeaponTypeModel()
+                        new WeaponTypeTestModel()
                         {
                             Name = NameHelper.WeaponTypes.SimpleMeleeWeapon
                         });
                     yield return new TestCaseData(
-                        new WeaponTypeModel()
+                        new WeaponTypeTestModel()
                         {
                             Name = NameHelper.WeaponTypes.SimpleRangedWeapon
                         });
@@ -64,7 +64,7 @@ namespace Tests
             }
         }
         
-        public class WeaponTypeModel
+        public class WeaponTypeTestModel
         {
             public string Name { get; set; }
             public string DisplayName => $"{NameHelper.Naming.WeaponTypes}.{Name}";

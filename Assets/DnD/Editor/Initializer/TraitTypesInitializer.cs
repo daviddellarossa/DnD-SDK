@@ -7,8 +7,6 @@ namespace DnD.Editor.Initializer
 {
     public static class TraitTypesInitializer
     {
-        //public static readonly string PathHelper.TraitTypesPath = $"{Common.FolderPath}/{NameHelper.Naming.TraitTypes}";
-
         [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Type Traits Data")]
         public static void InitializeTypeTraits()
         {

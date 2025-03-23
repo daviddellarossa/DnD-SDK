@@ -25,12 +25,24 @@ namespace DnD.Editor.Initializer
 
                 Common.EnsureFolderExists(PathHelper.StoragePath);
 
-                var caseStorage = Common.CreateScriptableObject<Storage>(NameHelper.Storage.Case, PathHelper.StoragePath);
-                caseStorage.Name = $"{nameof(NameHelper.Storage)}.{NameHelper.Storage.Case}";
-                var pouchStorage = Common.CreateScriptableObject<Storage>(NameHelper.Storage.Pouch, PathHelper.StoragePath);
-                pouchStorage.Name = $"{nameof(NameHelper.Storage)}.{NameHelper.Storage.Pouch}";
-                var quiverStorage = Common.CreateScriptableObject<Storage>(NameHelper.Storage.Quiver, PathHelper.StoragePath);
-                quiverStorage.Name = $"{nameof(NameHelper.Storage)}.{NameHelper.Storage.Quiver}";
+                {
+                    var caseStorage = Common.CreateScriptableObject<Storage>(NameHelper.Storage.Case, PathHelper.StoragePath);
+                    caseStorage.DisplayName = $"{nameof(NameHelper.Storage)}.{NameHelper.Storage.Case}";
+                    caseStorage.DisplayDescription = $"{nameof(NameHelper.Storage)}.{NameHelper.Storage.Case}.{NameHelper.Naming.Description}";
+                    EditorUtility.SetDirty(caseStorage);
+                }
+                {
+                    var pouchStorage = Common.CreateScriptableObject<Storage>(NameHelper.Storage.Pouch, PathHelper.StoragePath);
+                    pouchStorage.DisplayName = $"{nameof(NameHelper.Storage)}.{NameHelper.Storage.Pouch}";
+                    pouchStorage.DisplayDescription = $"{nameof(NameHelper.Storage)}.{NameHelper.Storage.Pouch}.{NameHelper.Naming.Description}";
+                    EditorUtility.SetDirty(pouchStorage);
+                }
+                {
+                    var quiverStorage = Common.CreateScriptableObject<Storage>(NameHelper.Storage.Quiver, PathHelper.StoragePath);
+                    quiverStorage.DisplayName = $"{nameof(NameHelper.Storage)}.{NameHelper.Storage.Quiver}";
+                    quiverStorage.DisplayDescription = $"{nameof(NameHelper.Storage)}.{NameHelper.Storage.Quiver}.{NameHelper.Naming.Description}";
+                    EditorUtility.SetDirty(quiverStorage);
+                }
 
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();

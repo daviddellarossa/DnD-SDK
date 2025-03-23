@@ -25,16 +25,14 @@ namespace Tests
         }
         
         [TestCaseSource(typeof(AbilitiesData), nameof(AbilitiesData.DamageTypeTestCases))]
-        public void TestAllDice(DiceModel expected)
+        public void TestAllDice(DiceTestModel expected)
         {
             var die = _dice.SingleOrDefault(d => d.name == expected.Name);
             
-            Assert.That(die, Is.Not.Null);
-            Assert.That(die.NumOfFaces, Is.EqualTo(expected.NumOfFaces));
-            
-            // Testing ILocalizable
-            Assert.That(die.DisplayName, Is.EqualTo(expected.DisplayName));
-            Assert.That(die.DisplayDescription, Is.EqualTo(expected.DisplayDescription));
+            Assert.That(die, Is.Not.Null, Common.GetNotFoundLogInfo(NameHelper.Naming.Dice, expected.Name));
+            Assert.That(die.DisplayName, Is.EqualTo(expected.DisplayName), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayName), expected.DisplayName));
+            Assert.That(die.DisplayDescription, Is.EqualTo(expected.DisplayDescription), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayDescription), expected.DisplayDescription));
+            Assert.That(die.NumOfFaces, Is.EqualTo(expected.NumOfFaces), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.NumOfFaces), expected.NumOfFaces));
         }
         
         private class AbilitiesData
@@ -44,87 +42,69 @@ namespace Tests
                 get
                 {
                     yield return new TestCaseData(
-                        new DiceModel()
+                        new DiceTestModel()
                         {
                             
                             Name = NameHelper.Dice.D1,
-                            DisplayName = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D1}",
-                            DisplayDescription = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D1}.{NameHelper.Naming.Description}",
                             NumOfFaces = 1
                         });
                     yield return new TestCaseData(
-                        new DiceModel()
+                        new DiceTestModel()
                         {
                             Name = NameHelper.Dice.D3,
-                            DisplayName = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D3}",
-                            DisplayDescription = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D3}.{NameHelper.Naming.Description}",
                             NumOfFaces = 3
                         });
                     yield return new TestCaseData(
-                        new DiceModel()
+                        new DiceTestModel()
                         {
                             Name = NameHelper.Dice.D4,
-                            DisplayName = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D4}",
-                            DisplayDescription = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D4}.{NameHelper.Naming.Description}",
                             NumOfFaces = 4
                         });
                     yield return new TestCaseData(
-                        new DiceModel()
+                        new DiceTestModel()
                         {
                             Name = NameHelper.Dice.D6,
-                            DisplayName = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D6}",
-                            DisplayDescription = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D6}.{NameHelper.Naming.Description}",
                             NumOfFaces = 6
                         });
                     yield return new TestCaseData(
-                        new DiceModel()
+                        new DiceTestModel()
                         {
                             Name = NameHelper.Dice.D8,
-                            DisplayName = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D8}",
-                            DisplayDescription = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D8}.{NameHelper.Naming.Description}",
                             NumOfFaces = 8
                         });
                     yield return new TestCaseData(
-                        new DiceModel()
+                        new DiceTestModel()
                         {
                             Name = NameHelper.Dice.D10,
-                            DisplayName = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D10}",
-                            DisplayDescription = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D10}.{NameHelper.Naming.Description}",
                             NumOfFaces = 10
                         });
                     yield return new TestCaseData(
-                        new DiceModel()
+                        new DiceTestModel()
                         {
                             Name = NameHelper.Dice.D12,
-                            DisplayName = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D12}",
-                            DisplayDescription = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D12}.{NameHelper.Naming.Description}",
                             NumOfFaces = 12
                         });
                     yield return new TestCaseData(
-                        new DiceModel()
+                        new DiceTestModel()
                         {
                             Name = NameHelper.Dice.D20,
-                            DisplayName = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D20}",
-                            DisplayDescription = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D20}.{NameHelper.Naming.Description}",
                             NumOfFaces = 20
                         });
                     yield return new TestCaseData(
-                        new DiceModel()
+                        new DiceTestModel()
                         {
                             Name = NameHelper.Dice.D100,
-                            DisplayName = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D100}",
-                            DisplayDescription = $"{nameof(NameHelper.Dice)}.{NameHelper.Dice.D100}.{NameHelper.Naming.Description}",
                             NumOfFaces = 100
                         });
                 }
             }
         }
         
-        public class DiceModel
+        public class DiceTestModel
         {
             public string Name { get; set; }
-            public string DisplayName { get; set; }
-            public string DisplayDescription { get; set; }
+            public string DisplayName => $"{NameHelper.Naming.Dice}.{Name}";
+            public string DisplayDescription => $"{DisplayName}.{NameHelper.Naming.Description}";
             public int NumOfFaces { get; set; }
         }
     }

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11df98cbe2c5a8d42ab5f1be50486c2a, type: 3}
   m_Name: Acid
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
+  displayName: DamageTypes.Acid
+  displayDescription: DamageTypes.Acid.Description

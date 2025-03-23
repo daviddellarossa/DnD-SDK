@@ -25,11 +25,13 @@ namespace Tests
         }
         
         [TestCaseSource(typeof(AbilitiesData), nameof(AbilitiesData.DamageTypeTestCases))]
-        public void TestAllDamageTypes(DamageTypeModel expected)
+        public void TestAllDamageTypes(DamageTypeTestModel expected)
         {
             var damageType = _damageTypes.SingleOrDefault(damageType => damageType.name == expected.Name);
             
-            Assert.That(damageType, Is.Not.Null);
+            Assert.That(damageType, Is.Not.Null, Common.GetNotFoundLogInfo(NameHelper.Naming.DamageTypes, expected.Name));
+            Assert.That(damageType.DisplayName, Is.EqualTo(expected.DisplayName), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayName), expected.DisplayName));
+            Assert.That(damageType.DisplayDescription, Is.EqualTo(expected.DisplayDescription), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayDescription), expected.DisplayDescription));
         }
         
         private class AbilitiesData
@@ -39,68 +41,78 @@ namespace Tests
                 get
                 {
                     yield return new TestCaseData(
-                        new DamageTypeModel(
-                            NameHelper.DamageTypes.Acid
-                        ));
+                        new DamageTypeTestModel()
+                        {
+                            Name = NameHelper.DamageTypes.Acid
+                        });
                     yield return new TestCaseData(
-                        new DamageTypeModel(
-                            NameHelper.DamageTypes.Bludgeoning
-                        ));
+                        new DamageTypeTestModel()
+                        {
+                            Name = NameHelper.DamageTypes.Bludgeoning
+                        });
                     yield return new TestCaseData(
-                        new DamageTypeModel(
-                            NameHelper.DamageTypes.Cold
-                        ));
+                        new DamageTypeTestModel()
+                        {
+                            Name = NameHelper.DamageTypes.Cold
+                        });
                     yield return new TestCaseData(
-                        new DamageTypeModel(
-                            NameHelper.DamageTypes.Fire
-                        ));
+                        new DamageTypeTestModel()
+                        {
+                            Name = NameHelper.DamageTypes.Fire
+                        });
                     yield return new TestCaseData(
-                        new DamageTypeModel(
-                            NameHelper.DamageTypes.Force
-                        ));
+                        new DamageTypeTestModel()
+                        {
+                            Name = NameHelper.DamageTypes.Force
+                        });
                     yield return new TestCaseData(
-                        new DamageTypeModel(
-                            NameHelper.DamageTypes.Lightning
-                        ));
+                        new DamageTypeTestModel()
+                        {
+                            Name = NameHelper.DamageTypes.Lightning
+                        });
                     yield return new TestCaseData(
-                        new DamageTypeModel(
-                            NameHelper.DamageTypes.Necrotic
-                        ));
+                        new DamageTypeTestModel()
+                        {
+                            Name = NameHelper.DamageTypes.Necrotic
+                        });
                     yield return new TestCaseData(
-                        new DamageTypeModel(
-                            NameHelper.DamageTypes.Piercing
-                        ));
+                        new DamageTypeTestModel()
+                        {
+                            Name = NameHelper.DamageTypes.Piercing
+                        });
                     yield return new TestCaseData(
-                        new DamageTypeModel(
-                            NameHelper.DamageTypes.Poison
-                        ));
+                        new DamageTypeTestModel()
+                        {
+                            Name = NameHelper.DamageTypes.Poison
+                        });
                     yield return new TestCaseData(
-                        new DamageTypeModel(
-                            NameHelper.DamageTypes.Psychic
-                        ));
+                        new DamageTypeTestModel()
+                        {
+                            Name = NameHelper.DamageTypes.Psychic
+                        });
                     yield return new TestCaseData(
-                        new DamageTypeModel(
-                            NameHelper.DamageTypes.Radiant
-                        ));
+                        new DamageTypeTestModel()
+                        {
+                            Name = NameHelper.DamageTypes.Radiant
+                        });
                     yield return new TestCaseData(
-                        new DamageTypeModel(
-                            NameHelper.DamageTypes.Slashing
-                        ));
+                        new DamageTypeTestModel()
+                        {
+                            Name = NameHelper.DamageTypes.Slashing
+                        });
                     yield return new TestCaseData(
-                        new DamageTypeModel(
-                            NameHelper.DamageTypes.Thunder
-                        ));
+                        new DamageTypeTestModel()
+                        {
+                            Name = NameHelper.DamageTypes.Thunder
+                        });
                 }
             }
         }
-        public class DamageTypeModel
+        public class DamageTypeTestModel
         {
             public string Name { get; set; }
-
-            public DamageTypeModel(string name)
-            {
-                this.Name = name;
-            }
+            public string DisplayName => $"{NameHelper.Naming.DamageTypes}.{Name}";
+            public string DisplayDescription => $"{DisplayName}.{NameHelper.Naming.Description}";
         }
     }
 }

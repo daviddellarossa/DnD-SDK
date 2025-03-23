@@ -8,8 +8,6 @@ namespace DnD.Editor.Initializer
 {
     public static class DamageTypeInitializer
     {
-        // public static readonly string PathHelper.DamageTypePath = $"{Common.FolderPath}/{NameHelper.Naming.DamageTypes}";
-
         public static DamageType[] GetAllDamageTypes()
         {
             return Common.GetAllScriptableObjects<DamageType>(PathHelper.DamageTypePath);
@@ -26,80 +24,92 @@ namespace DnD.Editor.Initializer
 
                 {
                     var acid = Common.CreateScriptableObject<DamageType>(NameHelper.DamageTypes.Acid, PathHelper.DamageTypePath);
-                    acid.Name = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Acid}";
-                    acid.Description = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Acid}.{NameHelper.Naming.Description}";
-                    
+                    acid.DisplayName = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Acid}";
+                    acid.DisplayDescription = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Acid}.{NameHelper.Naming.Description}";
+                    EditorUtility.SetDirty(acid);
                 }
                 {
                     var bludgeoning = Common.CreateScriptableObject<DamageType>(NameHelper.DamageTypes.Bludgeoning, PathHelper.DamageTypePath);
-                    bludgeoning.Name = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Bludgeoning}";
-                    bludgeoning.Description = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Bludgeoning}.{NameHelper.Naming.Description}";
+                    bludgeoning.DisplayName = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Bludgeoning}";
+                    bludgeoning.DisplayDescription = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Bludgeoning}.{NameHelper.Naming.Description}";
+                    EditorUtility.SetDirty(bludgeoning);
                     
                 }
                 {
                     var cold = Common.CreateScriptableObject<DamageType>(NameHelper.DamageTypes.Cold, PathHelper.DamageTypePath);
-                    cold.Name = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Cold}";
-                    cold.Description = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Cold}.{NameHelper.Naming.Description}";
+                    cold.DisplayName = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Cold}";
+                    cold.DisplayDescription = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Cold}.{NameHelper.Naming.Description}";
+                    EditorUtility.SetDirty(cold);
                     
                 }
                 {
                     var fire = Common.CreateScriptableObject<DamageType>(NameHelper.DamageTypes.Fire, PathHelper.DamageTypePath);
-                    fire.Name = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Fire}";
-                    fire.Description = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Fire}.{NameHelper.Naming.Description}";
+                    fire.DisplayName = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Fire}";
+                    fire.DisplayDescription = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Fire}.{NameHelper.Naming.Description}";
+                    EditorUtility.SetDirty(fire);
                     
                 }
                 {
                     var force = Common.CreateScriptableObject<DamageType>(NameHelper.DamageTypes.Force, PathHelper.DamageTypePath);
-                    force.Name = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Force}";
-                    force.Description = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Force}.{NameHelper.Naming.Description}";
+                    force.DisplayName = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Force}";
+                    force.DisplayDescription = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Force}.{NameHelper.Naming.Description}";
+                    EditorUtility.SetDirty(force);
                     
                 }
                 {
                     var lightning = Common.CreateScriptableObject<DamageType>(NameHelper.DamageTypes.Lightning, PathHelper.DamageTypePath);
-                    lightning.Name = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Lightning}";
-                    lightning.Description = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Lightning}.{NameHelper.Naming.Description}";
+                    lightning.DisplayName = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Lightning}";
+                    lightning.DisplayDescription = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Lightning}.{NameHelper.Naming.Description}";
+                    EditorUtility.SetDirty(lightning);
                     
                 }
                 {
                     var necrotic = Common.CreateScriptableObject<DamageType>(NameHelper.DamageTypes.Necrotic, PathHelper.DamageTypePath);
-                    necrotic.Name = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Necrotic}";
-                    necrotic.Description = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Necrotic}.{NameHelper.Naming.Description}";
+                    necrotic.DisplayName = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Necrotic}";
+                    necrotic.DisplayDescription = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Necrotic}.{NameHelper.Naming.Description}";
+                    EditorUtility.SetDirty(necrotic);
                     
                 }
                 {
                     var piercing = Common.CreateScriptableObject<DamageType>(NameHelper.DamageTypes.Piercing, PathHelper.DamageTypePath);
-                    piercing.Name = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Piercing}";
-                    piercing.Description = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Piercing}.{NameHelper.Naming.Description}";
+                    piercing.DisplayName = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Piercing}";
+                    piercing.DisplayDescription = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Piercing}.{NameHelper.Naming.Description}";
+                    EditorUtility.SetDirty(piercing);
                     
                 }
                 {
                     var poison = Common.CreateScriptableObject<DamageType>(NameHelper.DamageTypes.Poison, PathHelper.DamageTypePath);
-                    poison.Name = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Poison}";
-                    poison.Description = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Poison}.{NameHelper.Naming.Description}";
+                    poison.DisplayName = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Poison}";
+                    poison.DisplayDescription = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Poison}.{NameHelper.Naming.Description}";
+                    EditorUtility.SetDirty(poison);
                     
                 }
                 {
                     var psychic = Common.CreateScriptableObject<DamageType>(NameHelper.DamageTypes.Psychic, PathHelper.DamageTypePath);
-                    psychic.Name = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Psychic}";
-                    psychic.Description = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Psychic}.{NameHelper.Naming.Description}";
+                    psychic.DisplayName = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Psychic}";
+                    psychic.DisplayDescription = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Psychic}.{NameHelper.Naming.Description}";
+                    EditorUtility.SetDirty(psychic);
                     
                 }
                 {
                     var radiant = Common.CreateScriptableObject<DamageType>(NameHelper.DamageTypes.Radiant, PathHelper.DamageTypePath);
-                    radiant.Name = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Radiant}";
-                    radiant.Description = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Radiant}.{NameHelper.Naming.Description}";
+                    radiant.DisplayName = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Radiant}";
+                    radiant.DisplayDescription = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Radiant}.{NameHelper.Naming.Description}";
+                    EditorUtility.SetDirty(radiant);
                     
                 }
                 {
                     var slashing = Common.CreateScriptableObject<DamageType>(NameHelper.DamageTypes.Slashing, PathHelper.DamageTypePath);
-                    slashing.Name = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Slashing}";
-                    slashing.Description = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Slashing}.{NameHelper.Naming.Description}";
+                    slashing.DisplayName = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Slashing}";
+                    slashing.DisplayDescription = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Slashing}.{NameHelper.Naming.Description}";
+                    EditorUtility.SetDirty(slashing);
                     
                 }
                 {
                     var thunder = Common.CreateScriptableObject<DamageType>(NameHelper.DamageTypes.Thunder, PathHelper.DamageTypePath);
-                    thunder.Name = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Thunder}";
-                    thunder.Description = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Thunder}.{NameHelper.Naming.Description}";
+                    thunder.DisplayName = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Thunder}";
+                    thunder.DisplayDescription = $"{nameof(NameHelper.DamageTypes)}.{NameHelper.DamageTypes.Thunder}.{NameHelper.Naming.Description}";
+                    EditorUtility.SetDirty(thunder);
                     
                 }
                 AssetDatabase.SaveAssets();

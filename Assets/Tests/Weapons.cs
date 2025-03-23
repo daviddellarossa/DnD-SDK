@@ -24,20 +24,20 @@ namespace Tests
         }
         
         [TestCaseSource(typeof(WeaponsData), nameof(WeaponsData.WeaponsTestCases))]
-        public void TestAllWeapons(WeaponModel expected)
+        public void TestAllWeapons(WeaponTestModel expected)
         {
             var weapon = _weapons.SingleOrDefault(d => d.name == expected.Name);
             
-            Assert.That(weapon, Is.Not.Null, $"Weapon {expected.Name} not found.");
-            Assert.That(weapon.DisplayName, Is.EqualTo(expected.DisplayName), $"{expected.Name}: {nameof(expected.DisplayName)} not equal to {expected.DisplayName}.");
-            Assert.That(weapon.DisplayDescription, Is.EqualTo(expected.DisplayDescription), $"{expected.Name}: {nameof(expected.DisplayDescription)} not equal to {expected.DisplayDescription}.");
-            Assert.That(weapon.NumOfDamageDice, Is.EqualTo(expected.NumOfDamageDice), $"{expected.Name}: {nameof(expected.NumOfDamageDice)} not equal to {expected.NumOfDamageDice}.");
-            Assert.That(weapon.DamageDie.name, Is.EqualTo(expected.DamageDie), $"{expected.Name}: {nameof(expected.DamageDie)} not equal to {expected.DamageDie}.");
-            Assert.That(weapon.DamageType.name, Is.EqualTo(expected.DamageType), $"{expected.Name}: {nameof(expected.DamageType)} not equal to {expected.DamageType}.");
-            Assert.That(weapon.Properties.Select(x => x.name), Is.EquivalentTo(expected.Properties), $"{expected.Name}: {nameof(expected.Properties)} not equal to {expected.Properties}.");
-            Assert.That(weapon.MasteryProperty.name, Is.EqualTo(expected.MasteryProperty), $"{expected.Name}: {nameof(expected.MasteryProperty)} not equal to {expected.MasteryProperty}.");
-            Assert.That(weapon.Weight, Is.EqualTo(expected.Weight), $"{expected.Name}: {nameof(expected.Weight)} not equal to {expected.Weight}.");
-            Assert.That(weapon.Cost, Is.EqualTo(expected.Cost), $"{expected.Name}: {nameof(expected.Cost)} not equal to {expected.Cost}.");
+            Assert.That(weapon, Is.Not.Null, Common.GetNotFoundLogInfo(NameHelper.Naming.Weapons, expected.Name));
+            Assert.That(weapon.DisplayName, Is.EqualTo(expected.DisplayName), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayName), expected.DisplayName));
+            Assert.That(weapon.DisplayDescription, Is.EqualTo(expected.DisplayDescription), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayDescription), expected.DisplayDescription));
+            Assert.That(weapon.NumOfDamageDice, Is.EqualTo(expected.NumOfDamageDice), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.NumOfDamageDice), expected.NumOfDamageDice));
+            Assert.That(weapon.DamageDie.name, Is.EqualTo(expected.DamageDie), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DamageDie), expected.DamageDie));
+            Assert.That(weapon.DamageType.name, Is.EqualTo(expected.DamageType), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DamageType), expected.DamageType));
+            Assert.That(weapon.Properties.Select(x => x.name), Is.EquivalentTo(expected.Properties), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.Properties), expected.Properties));
+            Assert.That(weapon.MasteryProperty.name, Is.EqualTo(expected.MasteryProperty), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.MasteryProperty), expected.MasteryProperty));
+            Assert.That(weapon.Weight, Is.EqualTo(expected.Weight), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.Weight), expected.Weight));
+            Assert.That(weapon.Cost, Is.EqualTo(expected.Cost), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.Cost), expected.Cost));
         }
         
         private class WeaponsData
@@ -48,7 +48,7 @@ namespace Tests
                 {
                     // MartialMeleeWeapon
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialMelee.Battleaxe,
                             Type = NameHelper.WeaponTypes.MartialMeleeWeapon,
@@ -65,7 +65,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialMelee.Flail,
                             Type = NameHelper.WeaponTypes.MartialMeleeWeapon,
@@ -79,7 +79,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialMelee.Glaive,
                             Type = NameHelper.WeaponTypes.MartialMeleeWeapon,
@@ -98,7 +98,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialMelee.Greataxe,
                             Type = NameHelper.WeaponTypes.MartialMeleeWeapon,
@@ -116,7 +116,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialMelee.Greatsword,
                             Type = NameHelper.WeaponTypes.MartialMeleeWeapon,
@@ -134,7 +134,7 @@ namespace Tests
                         });
 
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialMelee.Halberd,
                             Type = NameHelper.WeaponTypes.MartialMeleeWeapon,
@@ -153,7 +153,7 @@ namespace Tests
                         });
 
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialMelee.Lance,
                             Type = NameHelper.WeaponTypes.MartialMeleeWeapon,
@@ -172,7 +172,7 @@ namespace Tests
                         });
 
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialMelee.Longsword,
                             Type = NameHelper.WeaponTypes.MartialMeleeWeapon,
@@ -189,7 +189,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialMelee.Maul,
                             Type = NameHelper.WeaponTypes.MartialMeleeWeapon,
@@ -207,7 +207,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialMelee.Morningstar,
                             Type = NameHelper.WeaponTypes.MartialMeleeWeapon,
@@ -221,7 +221,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialMelee.Pike,
                             Type = NameHelper.WeaponTypes.MartialMeleeWeapon,
@@ -240,7 +240,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialMelee.Rapier,
                             Type = NameHelper.WeaponTypes.MartialMeleeWeapon,
@@ -257,7 +257,7 @@ namespace Tests
                         });
 
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialMelee.Scimitar,
                             Type = NameHelper.WeaponTypes.MartialMeleeWeapon,
@@ -275,7 +275,7 @@ namespace Tests
                         });
 
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialMelee.Shortsword,
                             Type = NameHelper.WeaponTypes.MartialMeleeWeapon,
@@ -293,7 +293,7 @@ namespace Tests
                         });
 
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialMelee.Trident,
                             Type = NameHelper.WeaponTypes.MartialMeleeWeapon,
@@ -311,7 +311,7 @@ namespace Tests
                         });
 
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialMelee.Warhammer,
                             Type = NameHelper.WeaponTypes.MartialMeleeWeapon,
@@ -328,7 +328,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialMelee.WarPick,
                             Type = NameHelper.WeaponTypes.MartialMeleeWeapon,
@@ -345,7 +345,7 @@ namespace Tests
                         });
 
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialMelee.Whip,
                             Type = NameHelper.WeaponTypes.MartialMeleeWeapon,
@@ -364,7 +364,7 @@ namespace Tests
                     
                     // MartialRangedWeapon
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialRanged.Blowgun,
                             Type = NameHelper.WeaponTypes.MartialRangedWeapon,
@@ -382,7 +382,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialRanged.HandCrossbow,
                             Type = NameHelper.WeaponTypes.MartialRangedWeapon,
@@ -401,7 +401,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialRanged.HeavyCrossbow,
                             Type = NameHelper.WeaponTypes.MartialRangedWeapon,
@@ -421,7 +421,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialRanged.Longbow,
                             Type = NameHelper.WeaponTypes.MartialRangedWeapon,
@@ -440,7 +440,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialRanged.Musket,
                             Type = NameHelper.WeaponTypes.MartialRangedWeapon,
@@ -459,7 +459,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_MartialRanged.Pistol,
                             Type = NameHelper.WeaponTypes.MartialRangedWeapon,
@@ -478,7 +478,7 @@ namespace Tests
                     
                     // SimpleMeleeWeapon
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_SimpleMelee.Club,
                             Type = NameHelper.WeaponTypes.SimpleMeleeWeapon,
@@ -495,7 +495,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_SimpleMelee.Dagger,
                             Type = NameHelper.WeaponTypes.SimpleMeleeWeapon,
@@ -514,7 +514,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_SimpleMelee.Greatclub,
                             Type = NameHelper.WeaponTypes.SimpleMeleeWeapon,
@@ -531,7 +531,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_SimpleMelee.Handaxe,
                             Type = NameHelper.WeaponTypes.SimpleMeleeWeapon,
@@ -549,7 +549,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_SimpleMelee.Javelin,
                             Type = NameHelper.WeaponTypes.SimpleMeleeWeapon,
@@ -566,7 +566,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_SimpleMelee.LightHammer,
                             Type = NameHelper.WeaponTypes.SimpleMeleeWeapon,
@@ -584,7 +584,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_SimpleMelee.Mace,
                             Type = NameHelper.WeaponTypes.SimpleMeleeWeapon,
@@ -598,7 +598,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_SimpleMelee.Quarterstaff,
                             Type = NameHelper.WeaponTypes.SimpleMeleeWeapon,
@@ -615,7 +615,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_SimpleMelee.Sickle,
                             Type = NameHelper.WeaponTypes.SimpleMeleeWeapon,
@@ -632,7 +632,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_SimpleMelee.Spear,
                             Type = NameHelper.WeaponTypes.SimpleMeleeWeapon,
@@ -651,7 +651,7 @@ namespace Tests
                     
                     // SimpleRangedWeapon
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_SimpleRanged.Dart,
                             Type = NameHelper.WeaponTypes.SimpleRangedWeapon,
@@ -669,7 +669,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_SimpleRanged.LightCrossbow,
                             Type = NameHelper.WeaponTypes.SimpleRangedWeapon,
@@ -688,7 +688,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_SimpleRanged.Shortbow,
                             Type = NameHelper.WeaponTypes.SimpleRangedWeapon,
@@ -706,7 +706,7 @@ namespace Tests
                         });
                     
                     yield return new TestCaseData(
-                        new WeaponModel()
+                        new WeaponTestModel()
                         {
                             Name = NameHelper.Weapons_SimpleRanged.Sling,
                             Type = NameHelper.WeaponTypes.SimpleRangedWeapon,
@@ -726,7 +726,7 @@ namespace Tests
 
         }
 
-        public class WeaponModel
+        public class WeaponTestModel
         {
             public string Name { get; set; }
             public string DisplayName => $"{NameHelper.Naming.Weapons}.{Type}.{Name}";

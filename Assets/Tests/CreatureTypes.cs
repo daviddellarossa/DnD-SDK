@@ -25,7 +25,7 @@ namespace Tests
         }
         
         [TestCaseSource(typeof(AbilitiesData), nameof(AbilitiesData.CreatureTypeTestCases))]
-        public void TestAllCreatureTypes(CreatureTypeModel expected)
+        public void TestAllCreatureTypes(CreatureTypeTestModel expected)
         {
             var creatureType = _creatureTypes.SingleOrDefault(creatureType => creatureType.name == expected.Name);
             
@@ -39,72 +39,83 @@ namespace Tests
                 get
                 {
                     yield return new TestCaseData(
-                        new CreatureTypeModel(
-                            NameHelper.CreatureTypes.Aberration
-                        ));
+                        new CreatureTypeTestModel()
+                        {
+                            Name = NameHelper.CreatureTypes.Aberration
+                        });
                     yield return new TestCaseData(
-                        new CreatureTypeModel(
-                            NameHelper.CreatureTypes.Beast
-                        ));
+                        new CreatureTypeTestModel()
+                        {
+                            Name = NameHelper.CreatureTypes.Beast
+                        });
                     yield return new TestCaseData(
-                        new CreatureTypeModel(
-                            NameHelper.CreatureTypes.Celestial
-                        ));
+                        new CreatureTypeTestModel()
+                        {
+                            Name = NameHelper.CreatureTypes.Celestial
+                        });
                     yield return new TestCaseData(
-                        new CreatureTypeModel(
-                            NameHelper.CreatureTypes.Construct
-                        ));
+                        new CreatureTypeTestModel()
+                        {
+                            Name = NameHelper.CreatureTypes.Construct
+                        });
                     yield return new TestCaseData(
-                        new CreatureTypeModel(
-                            NameHelper.CreatureTypes.Dragon
-                        ));
+                        new CreatureTypeTestModel()
+                        {
+                            Name = NameHelper.CreatureTypes.Dragon
+                        });
                     yield return new TestCaseData(
-                        new CreatureTypeModel(
-                            NameHelper.CreatureTypes.Elemental
-                        ));
+                        new CreatureTypeTestModel()
+                        {
+                            Name = NameHelper.CreatureTypes.Elemental
+                        });
                     yield return new TestCaseData(
-                        new CreatureTypeModel(
-                            NameHelper.CreatureTypes.Fey
-                        ));
+                        new CreatureTypeTestModel()
+                        {
+                            Name = NameHelper.CreatureTypes.Fey
+                        });
                     yield return new TestCaseData(
-                        new CreatureTypeModel(
-                            NameHelper.CreatureTypes.Fiend
-                        ));
+                        new CreatureTypeTestModel()
+                        {
+                            Name = NameHelper.CreatureTypes.Fiend
+                        });
                     yield return new TestCaseData(
-                        new CreatureTypeModel(
-                            NameHelper.CreatureTypes.Giant
-                        ));
+                        new CreatureTypeTestModel()
+                        {
+                            Name = NameHelper.CreatureTypes.Giant
+                        });
                     yield return new TestCaseData(
-                        new CreatureTypeModel(
-                            NameHelper.CreatureTypes.Humanoid
-                        ));
+                        new CreatureTypeTestModel()
+                        {
+                            Name = NameHelper.CreatureTypes.Humanoid
+                        });
                     yield return new TestCaseData(
-                        new CreatureTypeModel(
-                            NameHelper.CreatureTypes.Monstrosity
-                        ));
+                        new CreatureTypeTestModel()
+                        {
+                            Name = NameHelper.CreatureTypes.Monstrosity
+                        });
                     yield return new TestCaseData(
-                        new CreatureTypeModel(
-                            NameHelper.CreatureTypes.Ooze
-                        ));
+                        new CreatureTypeTestModel()
+                        {
+                            Name = NameHelper.CreatureTypes.Ooze
+                        });
                     yield return new TestCaseData(
-                        new CreatureTypeModel(
-                            NameHelper.CreatureTypes.Plant
-                        ));
+                        new CreatureTypeTestModel()
+                        {
+                            Name = NameHelper.CreatureTypes.Plant
+                        });
                     yield return new TestCaseData(
-                        new CreatureTypeModel(
-                            NameHelper.CreatureTypes.Undead
-                        ));
+                        new CreatureTypeTestModel()
+                        {
+                            Name = NameHelper.CreatureTypes.Undead
+                        });
                 }
             }
         }
-        public class CreatureTypeModel
+        public class CreatureTypeTestModel
         {
             public string Name { get; set; }
-
-            public CreatureTypeModel(string name)
-            {
-                this.Name = name;
-            }
+            public string DisplayName => $"{NameHelper.Naming.CreatureTypes}.{Name}";
+            public string DisplayDescription => $"{DisplayName}.{NameHelper.Naming.Description}";
         }
     }
 }
