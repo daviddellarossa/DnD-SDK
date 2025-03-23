@@ -8,6 +8,7 @@ using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
 
 namespace Tests
 {
+    [TestFixture]
     public class Armours
     {
         private Armour[] _armours;

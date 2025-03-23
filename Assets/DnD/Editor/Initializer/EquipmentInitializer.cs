@@ -10,11 +10,6 @@ namespace DnD.Editor.Initializer
 {
     public static class EquipmentInitializer
     {
-        // public static readonly string EquipmentPath = $"{Common.FolderPath}/{NameHelper.Naming.Equipments}";
-        // public static readonly string PathHelper.Equipments.EquipmentCoinsPath = $"{EquipmentPath}/{NameHelper.Naming.Coins}";
-        // public static readonly string EquipmentToolsPath = $"{EquipmentPath}/{NameHelper.Naming.Tools}";
-
-
         public static CoinValue[] GetAllCoinValues()
         {
             return Common.GetAllScriptableObjects<CoinValue>(PathHelper.Equipments.EquipmentCoinsPath);
@@ -42,6 +37,7 @@ namespace DnD.Editor.Initializer
                     copperPiece.DisplayDescription = $"{nameof(NameHelper.CoinValues)}.{NameHelper.CoinValues.CopperPiece}.{NameHelper.Naming.Description}";
                     copperPiece.Abbreviation = "CP";
                     copperPiece.Value = 1;
+                    EditorUtility.SetDirty(copperPiece);
                 }
 
                 {
@@ -50,6 +46,7 @@ namespace DnD.Editor.Initializer
                     silverpiece.DisplayDescription = $"{nameof(NameHelper.CoinValues)}.{NameHelper.CoinValues.SilverPiece}.{NameHelper.Naming.Description}";
                     silverpiece.Abbreviation = "SP";
                     silverpiece.Value = 10;
+                    EditorUtility.SetDirty(silverpiece);
                 }
 
                 {
@@ -58,6 +55,7 @@ namespace DnD.Editor.Initializer
                     electrumPiece.DisplayDescription = $"{nameof(NameHelper.CoinValues)}.{NameHelper.CoinValues.ElectrumPiece}.{NameHelper.Naming.Description}";
                     electrumPiece.Abbreviation = "EP";
                     electrumPiece.Value = 50;
+                    EditorUtility.SetDirty(electrumPiece);
                 }
 
                 {
@@ -66,6 +64,7 @@ namespace DnD.Editor.Initializer
                     goldPiece.DisplayDescription = $"{nameof(NameHelper.CoinValues)}.{NameHelper.CoinValues.GoldPiece}.{NameHelper.Naming.Description}";
                     goldPiece.Abbreviation = "GP";
                     goldPiece.Value = 100;
+                    EditorUtility.SetDirty(goldPiece);
                 }
 
                 {
@@ -74,6 +73,7 @@ namespace DnD.Editor.Initializer
                     platinumPiece.DisplayDescription = $"{nameof(NameHelper.CoinValues)}.{NameHelper.CoinValues.PlatinumPiece}.{NameHelper.Naming.Description}";
                     platinumPiece.Abbreviation = "PP";
                     platinumPiece.Value = 1000;
+                    EditorUtility.SetDirty(platinumPiece);
                 }
             
                 AssetDatabase.SaveAssets();
