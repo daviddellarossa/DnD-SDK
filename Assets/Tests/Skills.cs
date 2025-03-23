@@ -27,12 +27,13 @@ namespace Tests
         }
         
         [TestCaseSource(typeof(AbilitiesData), nameof(AbilitiesData.DamageTypeTestCases))]
-        public void TestAllSkills(SkillModel expected)
+        public void TestAllSkills(SkillTestModel expected)
         {
             var skill = _skills.SingleOrDefault(d => d.name == expected.Name);
-            
-            Assert.That(skill, Is.Not.Null);
-            Assert.That(skill.Ability, Is.EqualTo(expected.Ability));
+            Assert.That(skill, Is.Not.Null, Common.GetNotFoundLogInfo(NameHelper.Naming.Skills, expected.Name));
+            Assert.That(skill.DisplayName, Is.EqualTo(expected.DisplayName), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayName), expected.DisplayName));
+            Assert.That(skill.DisplayDescription, Is.EqualTo(expected.DisplayDescription), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayDescription), expected.DisplayDescription));
+            Assert.That(skill.Ability.name, Is.EqualTo(expected.Ability), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.Ability), expected.Ability));
         }
         
         private class AbilitiesData
@@ -42,109 +43,124 @@ namespace Tests
                 get
                 {
                     yield return new TestCaseData(
-                        new SkillModel(
-                            NameHelper.Skills.Acrobatics,
-                            AbilityEnum.Dexterity
-                        ));
+                        new SkillTestModel()
+                        {
+                            Name = NameHelper.Skills.Acrobatics,
+                            Ability = NameHelper.Abilities.Dexterity,
+                        });
                     yield return new TestCaseData(
-                        new SkillModel(
-                            NameHelper.Skills.AnimalHandling,
-                            AbilityEnum.Wisdom
-                        ));
+                        new SkillTestModel()
+                        {
+                            Name = NameHelper.Skills.AnimalHandling,
+                            Ability = NameHelper.Abilities.Wisdom,
+                        });
                     yield return new TestCaseData(
-                        new SkillModel(
-                            NameHelper.Skills.Arcana,
-                            AbilityEnum.Intelligence
-                        ));
+                        new SkillTestModel()
+                        {
+                            Name = NameHelper.Skills.Arcana,
+                            Ability = NameHelper.Abilities.Intelligence,
+                        });
                     yield return new TestCaseData(
-                        new SkillModel(
-                            NameHelper.Skills.Athletics,
-                            AbilityEnum.Strength
-                        ));
+                        new SkillTestModel()
+                        {
+                            Name = NameHelper.Skills.Athletics,
+                            Ability = NameHelper.Abilities.Strength,
+                        });
                     yield return new TestCaseData(
-                        new SkillModel(
-                            NameHelper.Skills.Deception,
-                            AbilityEnum.Charisma
-                        ));
+                        new SkillTestModel()
+                        {
+                            Name = NameHelper.Skills.Deception,
+                            Ability = NameHelper.Abilities.Charisma,
+                        });
                     yield return new TestCaseData(
-                        new SkillModel(
-                            NameHelper.Skills.History,
-                            AbilityEnum.Intelligence
-                        ));
+                        new SkillTestModel()
+                        {
+                            Name = NameHelper.Skills.History,
+                            Ability = NameHelper.Abilities.Intelligence,
+                        });
                     yield return new TestCaseData(
-                        new SkillModel(
-                            NameHelper.Skills.Insight,
-                            AbilityEnum.Wisdom
-                        ));
+                        new SkillTestModel()
+                        {
+                            Name = NameHelper.Skills.Insight,
+                            Ability = NameHelper.Abilities.Wisdom,
+                        });
                     yield return new TestCaseData(
-                        new SkillModel(
-                            NameHelper.Skills.Intimidation,
-                            AbilityEnum.Charisma
-                        ));
+                        new SkillTestModel()
+                        {
+                            Name = NameHelper.Skills.Intimidation,
+                            Ability = NameHelper.Abilities.Charisma,
+                        });
                     yield return new TestCaseData(
-                        new SkillModel(
-                            NameHelper.Skills.Investigation,
-                            AbilityEnum.Intelligence
-                        ));
+                        new SkillTestModel()
+                        {
+                            Name = NameHelper.Skills.Investigation,
+                            Ability = NameHelper.Abilities.Intelligence,
+                        });
                     yield return new TestCaseData(
-                        new SkillModel(
-                            NameHelper.Skills.Medicine,
-                            AbilityEnum.Wisdom
-                        ));
+                        new SkillTestModel()
+                        {
+                            Name = NameHelper.Skills.Medicine,
+                            Ability = NameHelper.Abilities.Wisdom,
+                        });
                     yield return new TestCaseData(
-                        new SkillModel(
-                            NameHelper.Skills.Nature,
-                            AbilityEnum.Intelligence
-                        ));
+                        new SkillTestModel()
+                        {
+                            Name = NameHelper.Skills.Nature,
+                            Ability = NameHelper.Abilities.Intelligence,
+                        });
                     yield return new TestCaseData(
-                        new SkillModel(
-                            NameHelper.Skills.Perception,
-                            AbilityEnum.Wisdom
-                        ));
+                        new SkillTestModel()
+                        {
+                            Name = NameHelper.Skills.Perception,
+                            Ability = NameHelper.Abilities.Wisdom,
+                        });
                     yield return new TestCaseData(
-                        new SkillModel(
-                            NameHelper.Skills.Performance,
-                            AbilityEnum.Charisma
-                        ));
+                        new SkillTestModel()
+                        {
+                            Name = NameHelper.Skills.Performance,
+                            Ability = NameHelper.Abilities.Charisma,
+                        });
                     yield return new TestCaseData(
-                        new SkillModel(
-                            NameHelper.Skills.Persuasion,
-                            AbilityEnum.Charisma
-                        ));
+                        new SkillTestModel()
+                        {
+                            Name = NameHelper.Skills.Persuasion,
+                            Ability = NameHelper.Abilities.Charisma,
+                        });
                     yield return new TestCaseData(
-                        new SkillModel(
-                            NameHelper.Skills.Religion,
-                            AbilityEnum.Intelligence
-                        ));
+                        new SkillTestModel()
+                        {
+                            Name = NameHelper.Skills.Religion,
+                            Ability = NameHelper.Abilities.Intelligence,
+                        });
                     yield return new TestCaseData(
-                        new SkillModel(
-                            NameHelper.Skills.SleightOfHand,
-                            AbilityEnum.Dexterity
-                        ));
+                        new SkillTestModel()
+                        {
+                            Name = NameHelper.Skills.SleightOfHand,
+                            Ability = NameHelper.Abilities.Dexterity,
+                        });
                     yield return new TestCaseData(
-                        new SkillModel(
-                            NameHelper.Skills.Stealth,
-                            AbilityEnum.Dexterity
-                        ));
+                        new SkillTestModel()
+                        {
+                            Name = NameHelper.Skills.Stealth,
+                            Ability = NameHelper.Abilities.Dexterity,
+                        });
                     yield return new TestCaseData(
-                        new SkillModel(
-                            NameHelper.Skills.Survival,
-                            AbilityEnum.Wisdom
-                        ));
+                        new SkillTestModel()
+                        {
+                            Name = NameHelper.Skills.Survival,
+                            Ability = NameHelper.Abilities.Wisdom,
+                        });
                 }
             }
         }
         
-        public class SkillModel
+        public class SkillTestModel
         {
             public string Name { get; set; }
-            public AbilityEnum Ability { get; set; }
-
-            public SkillModel(string name,  AbilityEnum ability)
-            {
-                this.Name = name;
-                this.Ability = ability;
-            }
+            public string DisplayName => $"{NameHelper.Naming.Skills}.{Name}";
+            public string DisplayDescription => $"{DisplayName}.{NameHelper.Naming.Description}";
+            public string Ability { get; set; }
+            
         }
     }
 }
