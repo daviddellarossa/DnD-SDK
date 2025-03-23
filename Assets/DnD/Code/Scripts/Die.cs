@@ -6,7 +6,6 @@ namespace DnD.Code.Scripts
     [CreateAssetMenu(fileName = "NewDie", menuName = "Game Entities/Die")]
     public class Die : ScriptableObject, ILocalizable
     {
-        //public string Name;
         public int NumOfFaces;
         
         [SerializeField]

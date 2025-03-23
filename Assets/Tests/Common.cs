@@ -23,5 +23,12 @@ namespace Tests
 
             return assets.ToArray();
         }
+        
+        public static string GetUnexpectedValueLogInfo(string instanceName, string fieldName, object expectedValue)
+            => $"{instanceName}: {fieldName} not equal to {expectedValue}.";
+
+        public static string GetNotFoundLogInfo(string instanceTypeName, string instanceName)
+            => $"{instanceTypeName} {instanceName} not found.";
+
     }
 }

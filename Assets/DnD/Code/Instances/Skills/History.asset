@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf79b86849cbd264e809320d0d85cc41, type: 3}
   m_Name: History
   m_EditorClassIdentifier: 
-  Name: Skills.History
-  Ability: 3
+  displayName: Skills.History
+  displayDescription: Skills.History.Description
+  Ability: {fileID: 11400000, guid: 9cb7c735c585f8242b9fee23d7b0fc44, type: 2}

@@ -12,13 +12,6 @@ namespace DnD.Editor.Initializer
 {
     public static class ArmoursInitializer
     {
-        // public static readonly string PathHelper.Armours.ArmoursPath = $"{Common.FolderPath}/{NameHelper.Naming.Armours}";
-        // public static readonly string PathHelper.Armours.ArmourTypesPath = $"{PathHelper.Armours.ArmoursPath}/{NameHelper.Naming.ArmourTypes}";
-        // public static readonly string PathHelper.Armours.HeavyArmoursPath = $"{PathHelper.Armours.ArmoursPath}/{NameHelper.ArmourType.HeavyArmour}";
-        // public static readonly string PathHelper.Armours.MediumArmoursPath = $"{PathHelper.Armours.ArmoursPath}/{NameHelper.ArmourType.MediumArmour}";
-        // public static readonly string PathHelper.Armours.LightArmoursPath = $"{PathHelper.Armours.ArmoursPath}/{NameHelper.ArmourType.LightArmour}";
-        // public static readonly string PathHelper.Armours.ShieldsPath = $"{PathHelper.Armours.ArmoursPath}/{NameHelper.ArmourType.Shield}";
-
         public static Armour[] GetAllArmours()
         {
             return Common.GetAllScriptableObjects<Armour>(PathHelper.Armours.ArmoursPath);
@@ -62,7 +55,8 @@ namespace DnD.Editor.Initializer
 
                 {
                     var shield = Common.CreateScriptableObject<Shield>(NameHelper.Shields.Shield, PathHelper.Armours.ShieldsPath);
-                    shield.DisplayName = $"{nameof(NameHelper.Shields)}.{NameHelper.Shields.Shield}";
+                    shield.DisplayName = $"{NameHelper.Naming.Shields}.{NameHelper.Shields.Shield}";
+                    shield.DisplayDescription = $"{NameHelper.Naming.Shields}.{NameHelper.Shields.Shield}.{NameHelper.Naming.Description}";
                     shield.Type = shieldType;
                     shield.IncrementArmourClassBy = 2;
                     shield.Weight = 3;
@@ -93,7 +87,8 @@ namespace DnD.Editor.Initializer
 
                 {
                     var breastplate = Common.CreateScriptableObject<Armour>(NameHelper.Armours_Medium.Breastplate, PathHelper.Armours.MediumArmoursPath);
-                    breastplate.DisplayName = $"{nameof(NameHelper.Armours_Medium)}.{NameHelper.Armours_Medium.Breastplate}";
+                    breastplate.DisplayName = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.MediumArmour}.{NameHelper.Armours_Medium.Breastplate}";
+                    breastplate.DisplayDescription = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.MediumArmour}.{NameHelper.Armours_Medium.Breastplate}.{NameHelper.Naming.Description}";
                     breastplate.Type = armourType;
                     breastplate.ArmourClass = 14;
                     breastplate.AddDexModifier = true;
@@ -109,7 +104,8 @@ namespace DnD.Editor.Initializer
                 
                 {
                     var chainShirt = Common.CreateScriptableObject<Armour>(NameHelper.Armours_Medium.ChainShirt, PathHelper.Armours.MediumArmoursPath);
-                    chainShirt.DisplayName = $"{nameof(NameHelper.Armours_Medium)}.{NameHelper.Armours_Medium.ChainShirt}";
+                    chainShirt.DisplayName = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.MediumArmour}.{NameHelper.Armours_Medium.ChainShirt}";
+                    chainShirt.DisplayDescription = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.MediumArmour}.{NameHelper.Armours_Medium.ChainShirt}.{NameHelper.Naming.Description}";
                     chainShirt.Type = armourType;
                     chainShirt.ArmourClass = 13;
                     chainShirt.AddDexModifier = true;
@@ -125,7 +121,8 @@ namespace DnD.Editor.Initializer
                 
                 {
                     var halfPlateArmour = Common.CreateScriptableObject<Armour>(NameHelper.Armours_Medium.HalfPlateArmour, PathHelper.Armours.MediumArmoursPath);
-                    halfPlateArmour.DisplayName = $"{nameof(NameHelper.Armours_Medium)}.{NameHelper.Armours_Medium.HalfPlateArmour}";
+                    halfPlateArmour.DisplayName = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.MediumArmour}.{NameHelper.Armours_Medium.HalfPlateArmour}";
+                    halfPlateArmour.DisplayDescription = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.MediumArmour}.{NameHelper.Armours_Medium.HalfPlateArmour}.{NameHelper.Naming.Description}";
                     halfPlateArmour.Type = armourType;
                     halfPlateArmour.ArmourClass = 15;
                     halfPlateArmour.AddDexModifier = true;
@@ -141,7 +138,8 @@ namespace DnD.Editor.Initializer
                 
                 {
                     var hideArmour = Common.CreateScriptableObject<Armour>(NameHelper.Armours_Medium.HideArmour, PathHelper.Armours.MediumArmoursPath);
-                    hideArmour.DisplayName = $"{nameof(NameHelper.Armours_Medium)}.{NameHelper.Armours_Medium.HideArmour}";
+                    hideArmour.DisplayName = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.MediumArmour}.{NameHelper.Armours_Medium.HideArmour}";
+                    hideArmour.DisplayDescription = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.MediumArmour}.{NameHelper.Armours_Medium.HideArmour}.{NameHelper.Naming.Description}";
                     hideArmour.Type = armourType;
                     hideArmour.ArmourClass = 12;
                     hideArmour.AddDexModifier = true;
@@ -157,7 +155,8 @@ namespace DnD.Editor.Initializer
                 
                 {
                     var scaleMail = Common.CreateScriptableObject<Armour>(NameHelper.Armours_Medium.ScaleMail, PathHelper.Armours.MediumArmoursPath);
-                    scaleMail.DisplayName = $"{nameof(NameHelper.Armours_Medium)}.{NameHelper.Armours_Medium.ScaleMail}";
+                    scaleMail.DisplayName = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.MediumArmour}.{NameHelper.Armours_Medium.ScaleMail}";
+                    scaleMail.DisplayDescription = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.MediumArmour}.{NameHelper.Armours_Medium.ScaleMail}.{NameHelper.Naming.Description}";
                     scaleMail.Type = armourType;
                     scaleMail.ArmourClass = 14;
                     scaleMail.AddDexModifier = true;
@@ -193,7 +192,8 @@ namespace DnD.Editor.Initializer
 
                 {
                     var leatherArmour = Common.CreateScriptableObject<Armour>(NameHelper.Armours_Light.LeatherArmour, PathHelper.Armours.LightArmoursPath);
-                    leatherArmour.DisplayName = $"{nameof(NameHelper.Armours_Light)}.{NameHelper.Armours_Light.LeatherArmour}";
+                    leatherArmour.DisplayName = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.LightArmour}.{NameHelper.Armours_Light.LeatherArmour}";
+                    leatherArmour.DisplayDescription = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.LightArmour}.{NameHelper.Armours_Light.LeatherArmour}.{NameHelper.Naming.Description}";
                     leatherArmour.Type = armourType;
                     leatherArmour.ArmourClass = 11;
                     leatherArmour.AddDexModifier = true;
@@ -209,7 +209,8 @@ namespace DnD.Editor.Initializer
                 
                 {
                     var paddedArmour = Common.CreateScriptableObject<Armour>(NameHelper.Armours_Light.PaddedArmour, PathHelper.Armours.LightArmoursPath);
-                    paddedArmour.DisplayName = $"{nameof(NameHelper.Armours_Light)}.{NameHelper.Armours_Light.PaddedArmour}";
+                    paddedArmour.DisplayName = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.LightArmour}.{NameHelper.Armours_Light.PaddedArmour}";
+                    paddedArmour.DisplayDescription = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.LightArmour}.{NameHelper.Armours_Light.PaddedArmour}.{NameHelper.Naming.Description}";
                     paddedArmour.Type = armourType;
                     paddedArmour.ArmourClass = 11;
                     paddedArmour.AddDexModifier = true;
@@ -225,7 +226,8 @@ namespace DnD.Editor.Initializer
                 
                 {
                     var studdedLeatherArmour = Common.CreateScriptableObject<Armour>(NameHelper.Armours_Light.StuddedLeatherArmour, PathHelper.Armours.LightArmoursPath);
-                    studdedLeatherArmour.DisplayName = $"{nameof(NameHelper.Armours_Light)}.{NameHelper.Armours_Light.StuddedLeatherArmour}";
+                    studdedLeatherArmour.DisplayName = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.LightArmour}.{NameHelper.Armours_Light.StuddedLeatherArmour}";
+                    studdedLeatherArmour.DisplayDescription = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.LightArmour}.{NameHelper.Armours_Light.StuddedLeatherArmour}.{NameHelper.Naming.Description}";
                     studdedLeatherArmour.Type = armourType;
                     studdedLeatherArmour.ArmourClass = 12;
                     studdedLeatherArmour.AddDexModifier = true;
@@ -266,7 +268,8 @@ namespace DnD.Editor.Initializer
                 
                 {
                     var chainMail = Common.CreateScriptableObject<Armour>(NameHelper.Armours_Heavy.ChainMail, PathHelper.Armours.HeavyArmoursPath);
-                    chainMail.DisplayName = $"{nameof(NameHelper.Armours_Heavy)}.{NameHelper.Armours_Heavy.ChainMail}";
+                    chainMail.DisplayName = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.HeavyArmour}.{NameHelper.Armours_Heavy.ChainMail}";
+                    chainMail.DisplayDescription = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.HeavyArmour}.{NameHelper.Armours_Heavy.ChainMail}.{NameHelper.Naming.Description}";
                     chainMail.Type = armourType;
                     chainMail.ArmourClass = 16;
                     chainMail.AddDexModifier = false;
@@ -282,7 +285,8 @@ namespace DnD.Editor.Initializer
                 
                 {
                     var plateArmour = Common.CreateScriptableObject<Armour>(NameHelper.Armours_Heavy.PlateArmour, PathHelper.Armours.HeavyArmoursPath);
-                    plateArmour.DisplayName = $"{nameof(NameHelper.Armours_Heavy)}.{NameHelper.Armours_Heavy.PlateArmour}";
+                    plateArmour.DisplayName = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.HeavyArmour}.{NameHelper.Armours_Heavy.PlateArmour}";
+                    plateArmour.DisplayDescription = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.HeavyArmour}.{NameHelper.Armours_Heavy.PlateArmour}.{NameHelper.Naming.Description}";
                     plateArmour.Type = armourType;
                     plateArmour.ArmourClass = 18;
                     plateArmour.AddDexModifier = false;
@@ -298,7 +302,8 @@ namespace DnD.Editor.Initializer
                 
                 {
                     var ringMail = Common.CreateScriptableObject<Armour>(NameHelper.Armours_Heavy.RingMail, PathHelper.Armours.HeavyArmoursPath);
-                    ringMail.DisplayName = $"{nameof(NameHelper.Armours_Heavy)}.{NameHelper.Armours_Heavy.RingMail}";
+                    ringMail.DisplayName = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.HeavyArmour}.{NameHelper.Armours_Heavy.RingMail}";
+                    ringMail.DisplayDescription = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.HeavyArmour}.{NameHelper.Armours_Heavy.RingMail}.{NameHelper.Naming.Description}";
                     ringMail.Type = armourType;
                     ringMail.ArmourClass = 14;
                     ringMail.AddDexModifier = false;
@@ -314,7 +319,8 @@ namespace DnD.Editor.Initializer
                 
                 {
                     var splintArmour = Common.CreateScriptableObject<Armour>(NameHelper.Armours_Heavy.SplintArmour, PathHelper.Armours.HeavyArmoursPath);
-                    splintArmour.DisplayName = $"{nameof(NameHelper.Armours_Heavy)}.{NameHelper.Armours_Heavy.SplintArmour}";
+                    splintArmour.DisplayName = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.HeavyArmour}.{NameHelper.Armours_Heavy.SplintArmour}";
+                    splintArmour.DisplayDescription = $"{NameHelper.Naming.Armours}.{NameHelper.ArmourType.HeavyArmour}.{NameHelper.Armours_Heavy.SplintArmour}.{NameHelper.Naming.Description}";
                     splintArmour.Type = armourType;
                     splintArmour.ArmourClass = 17;
                     splintArmour.AddDexModifier = false;
@@ -349,7 +355,8 @@ namespace DnD.Editor.Initializer
 
                 {
                     var heavyArmourType = Common.CreateScriptableObject<ArmourType>(NameHelper.ArmourType.HeavyArmour, PathHelper.Armours.ArmourTypesPath);
-                    heavyArmourType.Name = $"{nameof(NameHelper.ArmourType)}.{NameHelper.ArmourType.HeavyArmour}";
+                    heavyArmourType.DisplayName = $"{NameHelper.Naming.ArmourTypes}.{NameHelper.ArmourType.HeavyArmour}";
+                    heavyArmourType.DisplayDescription = $"{NameHelper.Naming.ArmourTypes}.{NameHelper.ArmourType.HeavyArmour}.{NameHelper.Naming.Description}";
                     heavyArmourType.TimeInMinutesToDoff = 5;
                     heavyArmourType.TimeInMinutesToDon = 10;
                     armourTypes.Add(heavyArmourType);
@@ -359,7 +366,8 @@ namespace DnD.Editor.Initializer
 
                 {
                     var lightArmourType = Common.CreateScriptableObject<ArmourType>(NameHelper.ArmourType.LightArmour, PathHelper.Armours.ArmourTypesPath);
-                    lightArmourType.Name = $"{nameof(NameHelper.ArmourType)}.{NameHelper.ArmourType.LightArmour}";
+                    lightArmourType.DisplayName = $"{NameHelper.Naming.ArmourTypes}.{NameHelper.ArmourType.LightArmour}";
+                    lightArmourType.DisplayDescription = $"{NameHelper.Naming.ArmourTypes}.{NameHelper.ArmourType.LightArmour}.{NameHelper.Naming.Description}";
                     lightArmourType.TimeInMinutesToDoff = 1;
                     lightArmourType.TimeInMinutesToDon = 1;
                     armourTypes.Add(lightArmourType);
@@ -369,7 +377,8 @@ namespace DnD.Editor.Initializer
                 
                 {
                     var mediumArmourType = Common.CreateScriptableObject<ArmourType>(NameHelper.ArmourType.MediumArmour, PathHelper.Armours.ArmourTypesPath);
-                    mediumArmourType.Name = $"{nameof(NameHelper.ArmourType)}.{NameHelper.ArmourType.MediumArmour}";
+                    mediumArmourType.DisplayName = $"{NameHelper.Naming.ArmourTypes}.{NameHelper.ArmourType.MediumArmour}";
+                    mediumArmourType.DisplayDescription = $"{NameHelper.Naming.ArmourTypes}.{NameHelper.ArmourType.MediumArmour}.{NameHelper.Naming.Description}";
                     mediumArmourType.TimeInMinutesToDoff = 1;
                     mediumArmourType.TimeInMinutesToDon = 5;
                     armourTypes.Add(mediumArmourType);
@@ -379,7 +388,8 @@ namespace DnD.Editor.Initializer
                 
                 {
                     var shieldType = Common.CreateScriptableObject<ShieldType>(NameHelper.ArmourType.Shield, PathHelper.Armours.ArmourTypesPath);
-                    shieldType.DisplayName = $"{nameof(NameHelper.ArmourType)}.{NameHelper.ArmourType.Shield}";
+                    shieldType.DisplayName = $"{NameHelper.Naming.ShieldTypes}.{NameHelper.ArmourType.Shield}";
+                    shieldType.DisplayDescription = $"{NameHelper.Naming.ShieldTypes}.{NameHelper.ArmourType.Shield}.{NameHelper.Naming.Description}";
                     armourTypes.Add(shieldType);
                     
                     EditorUtility.SetDirty(shieldType);

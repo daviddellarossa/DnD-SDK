@@ -4,10 +4,10 @@
     {
         public static class ArmourType
         {
-            public const string HeavyArmour = "HeavyArmourType";
-            public const string LightArmour = "LightArmourType";
-            public const string MediumArmour = "MediumArmourType";
-            public const string Shield = "ShieldType";
+            public const string HeavyArmour = "HeavyArmour";
+            public const string LightArmour = "LightArmour";
+            public const string MediumArmour = "MediumArmour";
+            public const string Shield = "Shield";
 
         }
         

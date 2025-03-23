@@ -24,20 +24,20 @@ namespace Tests
         }
         
         [TestCaseSource(typeof(AmmunitionTypesData), nameof(AmmunitionTypesData.AmmunitionTypesTestCases))]
-        public void TestAllAmmunitionTypes(AmmunitionTypeModel expected)
+        public void TestAllAmmunitionTypes(AmmunitionTypeTestModel expected)
         {
             var ammunitionType = _ammunitionTypes.SingleOrDefault(d => d.name == expected.Name);
             
-            Assert.That(ammunitionType, Is.Not.Null, $"AmmunitionType {expected.Name} not found.");
-            Assert.That(ammunitionType.DisplayName, Is.EqualTo(expected.DisplayName), $"{expected.DisplayName}: {nameof(expected.DisplayName)} not equal to {expected.DisplayName}.");
-            Assert.That(ammunitionType.DisplayDescription, Is.EqualTo(expected.DisplayDescription), $"{expected.DisplayName}: {nameof(expected.DisplayDescription)} not equal to {expected.DisplayDescription}.");
-            Assert.That(ammunitionType.Amount, Is.EqualTo(expected.Amount), $"{expected.DisplayName}: {nameof(expected.Amount)} not equal to {expected.Amount}.");
-            Assert.That(ammunitionType.Storage.name, Is.EqualTo(expected.Storage), $"{expected.DisplayName}: {nameof(expected.Storage)} not equal to {expected.Storage}.");
-            Assert.That(ammunitionType.Weight, Is.EqualTo(expected.Weight), $"{expected.DisplayName}: {nameof(expected.Weight)} not equal to {expected.Weight}.");
-            Assert.That(ammunitionType.Cost, Is.EqualTo(expected.Cost), $"{expected.DisplayName}: {nameof(expected.Cost)} not equal to {expected.Cost}.");
+            Assert.That(ammunitionType, Is.Not.Null, Common.GetNotFoundLogInfo(NameHelper.Naming.AmmunitionTypes, expected.Name));
+            Assert.That(ammunitionType.DisplayName, Is.EqualTo(expected.DisplayName), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayName), expected.DisplayName));
+            Assert.That(ammunitionType.DisplayDescription, Is.EqualTo(expected.DisplayDescription), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayDescription), expected.DisplayDescription));
+            Assert.That(ammunitionType.Amount, Is.EqualTo(expected.Amount), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.Amount), expected.Amount));
+            Assert.That(ammunitionType.Storage.name, Is.EqualTo(expected.Storage), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.Storage), expected.Storage));
+            Assert.That(ammunitionType.Weight, Is.EqualTo(expected.Weight), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.Weight), expected.Weight));
+            Assert.That(ammunitionType.Cost, Is.EqualTo(expected.Cost), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.Cost), expected.Cost));
         }
     }
-
+    
     public class AmmunitionTypesData
     {
         public static IEnumerable AmmunitionTypesTestCases
@@ -45,7 +45,7 @@ namespace Tests
                         get
                         {
                             yield return new TestCaseData(
-                                new AmmunitionTypeModel()
+                                new AmmunitionTypeTestModel()
                                 {
                                     Name =  NameHelper.AmmunitionTypes.Arrows,
                                     Amount = 20,
@@ -55,7 +55,7 @@ namespace Tests
                                 });
                             
                             yield return new TestCaseData(
-                                new AmmunitionTypeModel()
+                                new AmmunitionTypeTestModel()
                                 {
                                     Name =  NameHelper.AmmunitionTypes.Bolts,
                                     Amount = 20,
@@ -65,7 +65,7 @@ namespace Tests
                                 });
 
                             yield return new TestCaseData(
-                                new AmmunitionTypeModel()
+                                new AmmunitionTypeTestModel()
                                 {
                                     Name =  NameHelper.AmmunitionTypes.BulletsFirearm,
                                     Amount = 10,
@@ -75,7 +75,7 @@ namespace Tests
                                 });
 
                             yield return new TestCaseData(
-                                new AmmunitionTypeModel()
+                                new AmmunitionTypeTestModel()
                                 {
                                     Name =  NameHelper.AmmunitionTypes.BulletsSling,
                                     Amount = 20,
@@ -85,7 +85,7 @@ namespace Tests
                                 });
                             
                             yield return new TestCaseData(
-                                new AmmunitionTypeModel()
+                                new AmmunitionTypeTestModel()
                                 {
                                     Name =  NameHelper.AmmunitionTypes.Needles,
                                     Amount = 50,
@@ -98,11 +98,10 @@ namespace Tests
                     
     }
     
-    public class AmmunitionTypeModel
+    public class AmmunitionTypeTestModel
     {
         public string Name { get; set; }
         public string DisplayName => $"{NameHelper.Naming.AmmunitionTypes}.{Name}";
-        
         public string DisplayDescription => $"{DisplayName}.{NameHelper.Naming.Description}";
         public int Amount { get; set; }
         public string Storage { get; set; }

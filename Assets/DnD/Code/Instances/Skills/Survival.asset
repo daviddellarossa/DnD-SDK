@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf79b86849cbd264e809320d0d85cc41, type: 3}
   m_Name: Survival
   m_EditorClassIdentifier: 
-  Name: Skills.Survival
-  Ability: 4
+  displayName: Skills.Survival
+  displayDescription: Skills.Survival.Description
+  Ability: {fileID: 11400000, guid: 6cc012760c397c548918ff185f0a6831, type: 2}

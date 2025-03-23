@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf79b86849cbd264e809320d0d85cc41, type: 3}
   m_Name: Stealth
   m_EditorClassIdentifier: 
-  Name: Skills.Stealth
-  Ability: 1
+  displayName: Skills.Stealth
+  displayDescription: Skills.Stealth.Description
+  Ability: {fileID: 11400000, guid: 423893783f64a3546a8ded812c50734c, type: 2}

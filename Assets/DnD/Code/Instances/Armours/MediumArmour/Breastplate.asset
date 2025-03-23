@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12b5371e7252f88488ddec75394374ad, type: 3}
+  m_Name: Breastplate
+  m_EditorClassIdentifier: 
+  Type: {fileID: 11400000, guid: b2bbdf146f2796541ba4a2b150681300, type: 2}
+  ArmourClass: 14
+  AddDexModifier: 1
+  CapDexModifier: 1
+  MaxDexModifier: 2
+  HasDisadvantageOnDexterityChecks: 0
+  Strength: 0
+  Weight: 10
+  Cost: 40000
+  displayName: Armours.MediumArmour.Breastplate
+  displayDescription: Armours.MediumArmour.Breastplate.Description

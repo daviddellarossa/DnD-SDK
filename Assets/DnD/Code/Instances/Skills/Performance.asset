@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf79b86849cbd264e809320d0d85cc41, type: 3}
   m_Name: Performance
   m_EditorClassIdentifier: 
-  Name: Skills.Performance
-  Ability: 5
+  displayName: Skills.Performance
+  displayDescription: Skills.Performance.Description
+  Ability: {fileID: 11400000, guid: 6a9032efade58cb4eba9fce4c37fc960, type: 2}

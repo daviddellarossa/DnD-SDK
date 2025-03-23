@@ -8,7 +8,7 @@ namespace DnD.Code.Scripts.Characters
     [Serializable]
     public class AbilityStats
     {
-        public AbilityEnum Ability;
+        public Ability Ability;
 
         public int Score;
         public int Modifier => Mathf.FloorToInt((Score - 10) / 2f);
@@ -17,7 +17,7 @@ namespace DnD.Code.Scripts.Characters
 
         public Dictionary<Skill, Proficiency<Skill>> SkillProficiencies = new Dictionary<Skill, Proficiency<Skill>>();
 
-        public AbilityStats(AbilityEnum ability)
+        public AbilityStats(Ability ability)
         {
             this.Ability = ability;
         }

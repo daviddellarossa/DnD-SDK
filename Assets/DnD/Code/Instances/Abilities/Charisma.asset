@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ff5d5761f0a0342b7404468e2e8445, type: 3}
   m_Name: Charisma
   m_EditorClassIdentifier: 
-  Name: Abilities.Charisma
-  AbilityType: 5
+  displayName: Abilities.Charisma
+  displayDescription: Abilities.Charisma.Description
   SkillList:
   - {fileID: 11400000, guid: b7aad41f6f66e2d43a50d1e5a867edc6, type: 2}
   - {fileID: 11400000, guid: c487db87a3b29f94bb68d8221e7ee20f, type: 2}

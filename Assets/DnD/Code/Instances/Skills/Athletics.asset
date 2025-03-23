@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf79b86849cbd264e809320d0d85cc41, type: 3}
   m_Name: Athletics
   m_EditorClassIdentifier: 
-  Name: Skills.Athletics
-  Ability: 0
+  displayName: Skills.Athletics
+  displayDescription: Skills.Athletics.Description
+  Ability: {fileID: 11400000, guid: 1b0ab14d768ac0e458574c6cd37a5491, type: 2}

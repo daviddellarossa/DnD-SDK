@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using DnD.Code.Scripts.Armour;
@@ -44,12 +45,13 @@ namespace DnD.Code.Scripts.Characters
 
         public Dictionary<AbilityEnum, AbilityStats> Abilities = new Dictionary<AbilityEnum, AbilityStats>
             {
-                [AbilityEnum.Strength] = new AbilityStats(AbilityEnum.Strength),
-                [AbilityEnum.Dexterity] = new AbilityStats(AbilityEnum.Dexterity),
-                [AbilityEnum.Constitution] = new AbilityStats(AbilityEnum.Constitution),
-                [AbilityEnum.Intelligence] = new AbilityStats(AbilityEnum.Intelligence),
-                [AbilityEnum.Wisdom] = new AbilityStats(AbilityEnum.Wisdom),
-                [AbilityEnum.Charisma] = new AbilityStats(AbilityEnum.Charisma),
+                // TODO: fix this
+                // [AbilityEnum.Strength] = new AbilityStats(AbilityEnum.Strength),
+                // [AbilityEnum.Dexterity] = new AbilityStats(AbilityEnum.Dexterity),
+                // [AbilityEnum.Constitution] = new AbilityStats(AbilityEnum.Constitution),
+                // [AbilityEnum.Intelligence] = new AbilityStats(AbilityEnum.Intelligence),
+                // [AbilityEnum.Wisdom] = new AbilityStats(AbilityEnum.Wisdom),
+                // [AbilityEnum.Charisma] = new AbilityStats(AbilityEnum.Charisma),
         };
  
         public int ProficiencyBonus => 2 + (this.Level - 1) / 4;
@@ -94,18 +96,21 @@ namespace DnD.Code.Scripts.Characters
 
         public int GetSkillProficiency(Skill skill)
         {
-            AbilityStats abilityStats = this.Abilities[skill.Ability];
+            // TODO: Fix this
+            //AbilityStats abilityStats = this.Abilities[skill.Ability];
 
-            var proficiencyScore = abilityStats.Modifier;
+            //var proficiencyScore = abilityStats.Modifier;
 
-            if (abilityStats.SkillProficiencies.TryGetValue(skill, out var proficiencySkill))
-            {
-                var multiplier = proficiencySkill.IsExpert ? 2 : 1; // Here 2 is the multiplier for expertise.
+            // if (abilityStats.SkillProficiencies.TryGetValue(skill, out var proficiencySkill))
+            // {
+            //     var multiplier = proficiencySkill.IsExpert ? 2 : 1; // Here 2 is the multiplier for expertise.
+            //
+            //     proficiencyScore += multiplier * this.ProficiencyBonus;
+            // }
 
-                proficiencyScore += multiplier * this.ProficiencyBonus;
-            }
+            //return proficiencyScore;
 
-            return proficiencyScore;
+            throw new NotImplementedException();
         }
 
         public string PassivePerception;

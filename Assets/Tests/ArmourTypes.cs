@@ -33,19 +33,25 @@ namespace Tests
         }
 
         [TestCaseSource(typeof(AbilitiesData), nameof(AbilitiesData.ArmourTypeTestCases))]
-        public void TestAllArmourTypes(ArmourTypeModel armourTypeModel)
+        public void TestAllArmourTypes(ArmourTypeTestModel expected)
         {
-            var armourType = _armourTypes.SingleOrDefault(ability => ability.name == armourTypeModel.DisplayName);
+            var armourType = _armourTypes.SingleOrDefault(armourType => armourType.name == expected.Name);
             
-            Assert.IsNotNull(armourType);
-            Assert.AreEqual(armourType.TimeInMinutesToDoff, armourTypeModel.TimeInMinutesToDoff);
-            Assert.AreEqual(armourType.TimeInMinutesToDon, armourTypeModel.TimeInMinutesToDon);
+            Assert.That(armourType, Is.Not.Null, Common.GetNotFoundLogInfo(NameHelper.Naming.ArmourTypes, expected.Name));
+            Assert.That(armourType.DisplayName, Is.EqualTo(expected.DisplayName), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayName), expected.DisplayName));
+            Assert.That(armourType.DisplayDescription, Is.EqualTo(expected.DisplayDescription), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayDescription), expected.DisplayDescription));
+            Assert.That(armourType.TimeInMinutesToDoff, Is.EqualTo(expected.TimeInMinutesToDoff), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.TimeInMinutesToDoff), expected.TimeInMinutesToDoff));
+            Assert.That(armourType.TimeInMinutesToDon, Is.EqualTo(expected.TimeInMinutesToDon), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.TimeInMinutesToDon), expected.TimeInMinutesToDon));
         }
         
         [TestCaseSource(typeof(AbilitiesData), nameof(AbilitiesData.ShieldTypeTestCases))]
-        public bool TestAllShieldTypes(string name)
+        public void TestAllShieldTypes(ShieldTypeTestModel expected)
         {
-            return _shieldTypes.Any(ability => ability.name == name);
+            var shieldType = _shieldTypes.SingleOrDefault(d => d.name == expected.Name);
+
+            Assert.That(shieldType, Is.Not.Null, Common.GetNotFoundLogInfo(NameHelper.Naming.ShieldTypes, expected.Name));
+            Assert.That(shieldType.DisplayName, Is.EqualTo(expected.DisplayName), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayName), expected.DisplayName));
+            Assert.That(shieldType.DisplayDescription, Is.EqualTo(expected.DisplayDescription), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayDescription), expected.DisplayDescription));
         }
 
         private class AbilitiesData
@@ -55,23 +61,26 @@ namespace Tests
                 get
                 {
                     yield return new TestCaseData(
-                        new ArmourTypeModel(
-                        NameHelper.ArmourType.HeavyArmour,
-                        10,
-                        5
-                        ));
+                        new ArmourTypeTestModel()
+                        {
+                            Name = NameHelper.ArmourType.HeavyArmour,
+                            TimeInMinutesToDon = 10,
+                            TimeInMinutesToDoff = 5
+                        });
                     yield return new TestCaseData(
-                        new ArmourTypeModel(
-                        NameHelper.ArmourType.LightArmour,
-                        1,
-                        1
-                        ));
+                        new ArmourTypeTestModel()
+                        {
+                            Name = NameHelper.ArmourType.LightArmour,
+                            TimeInMinutesToDon = 1,
+                            TimeInMinutesToDoff = 1
+                        });
                     yield return new TestCaseData(
-                        new ArmourTypeModel(
-                        NameHelper.ArmourType.MediumArmour,
-                        5,
-                        1
-                        ));
+                        new ArmourTypeTestModel()
+                        {
+                            Name = NameHelper.ArmourType.MediumArmour,
+                            TimeInMinutesToDon = 5,
+                            TimeInMinutesToDoff = 1
+                        });
                 }
             }
             
@@ -79,23 +88,28 @@ namespace Tests
             {
                 get
                 {
-                    yield return new TestCaseData(NameHelper.ArmourType.Shield).Returns(true);
+                    yield return new TestCaseData(
+                        new ShieldTypeTestModel()
+                        {
+                            Name = NameHelper.ArmourType.Shield
+                        });
                 }
             }
         }
-
-        public class ArmourTypeModel
-        {
-            public string DisplayName { get; set; }
-            public int TimeInMinutesToDon { get; set; }
-            public int TimeInMinutesToDoff { get; set; }
-
-            public ArmourTypeModel(string displayName, int timeInMinutesToDon, int timeInMinutesToDoff)
-            {
-                this.DisplayName = displayName;
-                this.TimeInMinutesToDon = timeInMinutesToDon;
-                this.TimeInMinutesToDoff = timeInMinutesToDoff;
-            }
-        }
+    }
+    
+    public class ArmourTypeTestModel
+    {
+        public string Name { get; set; }
+        public string DisplayName => $"{NameHelper.Naming.ArmourTypes}.{Name}";
+        public string DisplayDescription => $"{DisplayName}.{NameHelper.Naming.Description}";
+        public int TimeInMinutesToDon { get; set; }
+        public int TimeInMinutesToDoff { get; set; }
+    }
+    public class ShieldTypeTestModel
+    {
+        public string Name { get; set; }
+        public string DisplayName => $"{NameHelper.Naming.ShieldTypes}.{Name}";
+        public string DisplayDescription => $"{DisplayName}.{NameHelper.Naming.Description}";
     }
 }

@@ -6,7 +6,6 @@ namespace DnD.Code.Scripts.Armour
     [CreateAssetMenu(fileName = "NewArmour", menuName = "Game Entities/Armours/Armour")]
     public class Armour : ScriptableObject, IItem, IArmour
     {
-        // public string Name;
         public ArmourType Type;
         public int ArmourClass;
         public bool AddDexModifier;

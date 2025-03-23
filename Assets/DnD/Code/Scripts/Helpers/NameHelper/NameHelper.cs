@@ -14,6 +14,8 @@ namespace DnD.Code.Scripts.Helpers.NameHelper
             public const string Species = "Species";
             public const string Armours = "Armours";
             public const string ArmourTypes = "ArmourTypes";
+            public const string Shields = "Shields";
+            public const string ShieldTypes = "ShieldTypes";
             public const string Weapons = "Weapons";
             public const string WeaponTypes = "WeaponsTypes";
             public const string WeaponProperty = "WeaponProperty";
