@@ -1,6 +1,6 @@
 using System;
 using System.Linq;
-using DnD.Code.Scripts.Characters.Species.SpecialTraits.TraitTypes;
+using DnD.Code.Scripts.Species.SpecialTraits.TraitTypes;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;

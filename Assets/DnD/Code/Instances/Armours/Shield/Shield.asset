@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee8a40cf9bffd58489528eab69dae873, type: 3}
   m_Name: Shield
   m_EditorClassIdentifier: 
-  Type: {fileID: 0}
-  IncrementArmourClassBy: 0
-  Weight: 0
-  Cost: 0
-  displayName: 
-  displayDescription: 
+  Type: {fileID: 11400000, guid: 43e471904e85be840b4d26e75d00dd3a, type: 2}
+  IncrementArmourClassBy: 2
+  Weight: 3
+  Cost: 1000
+  displayName: Shields.Shield
+  displayDescription: Shields.Shield.Description

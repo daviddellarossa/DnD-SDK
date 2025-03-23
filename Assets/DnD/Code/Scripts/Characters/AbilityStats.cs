@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using DnD.Code.Scripts.Characters.Abilities;
+using DnD.Code.Scripts.Abilities;
 using UnityEngine;
 
 namespace DnD.Code.Scripts.Characters

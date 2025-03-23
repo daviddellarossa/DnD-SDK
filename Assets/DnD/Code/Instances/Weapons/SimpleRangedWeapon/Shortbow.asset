@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7933139102905727853
+--- !u!114 &-8546135067303079563
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,31 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponProperty.Two Handed
   displayDescription: WeaponProperty.Two Handed.Description
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
-  m_Name: Shortbow
-  m_EditorClassIdentifier: 
-  Type: {fileID: 11400000, guid: 1bdf88451f1635143bc1ed2818e20872, type: 2}
-  NumOfDamageDice: 1
-  DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
-  DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
-  Properties:
-  - {fileID: 1027847322715444935}
-  - {fileID: -7933139102905727853}
-  MasteryProperty: {fileID: 6680582725072938442}
-  Weight: 1
-  Cost: 2500
-  displayName: Weapons.SimpleRangedWeapon.Shortbow
-  displayDescription: Weapons.SimpleRangedWeapon.Shortbow.Description
---- !u!114 &1027847322715444935
+--- !u!114 &-5321880683708650691
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,7 +32,31 @@ MonoBehaviour:
     Min: 24
     Max: 96
   Type: {fileID: 11400000, guid: 7af87e900e9fcd94c905d12f73ca1e6c, type: 2}
---- !u!114 &6680582725072938442
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
+  m_Name: Shortbow
+  m_EditorClassIdentifier: 
+  Type: {fileID: 11400000, guid: 1bdf88451f1635143bc1ed2818e20872, type: 2}
+  NumOfDamageDice: 1
+  DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
+  DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
+  Properties:
+  - {fileID: -5321880683708650691}
+  - {fileID: -8546135067303079563}
+  MasteryProperty: {fileID: 3229846079225899270}
+  Weight: 1
+  Cost: 2500
+  displayName: Weapons.SimpleRangedWeapon.Shortbow
+  displayDescription: Weapons.SimpleRangedWeapon.Shortbow.Description
+--- !u!114 &3229846079225899270
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Linq;
-using DnD.Code.Scripts.Characters.Classes;
-using DnD.Code.Scripts.Characters.Classes.ClassFeatures;
+using DnD.Code.Scripts.Classes;
 using NUnit.Framework;
 using UnityEditor;
 

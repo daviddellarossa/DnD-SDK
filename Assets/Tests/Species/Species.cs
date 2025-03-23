@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Linq;
-using DnD.Code.Scripts.Characters.Abilities;
-using DnD.Code.Scripts.Characters.Species;
-using DnD.Code.Scripts.Characters.Species.SpecialTraits.TraitTypes;
 using DnD.Code.Scripts.Common;
+using DnD.Code.Scripts.Species;
+using DnD.Code.Scripts.Species.SpecialTraits.TraitTypes;
 using NUnit.Framework;
 using UnityEditor;
 using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
@@ -13,15 +12,15 @@ namespace Tests.Species
     [TestFixture]
     public class Species
     {
-        private DnD.Code.Scripts.Characters.Species.Species[] _species;
+        private DnD.Code.Scripts.Species.Species[] _species;
 
         [SetUp]
         public void Setup()
         {
-            string[] guids = AssetDatabase.FindAssets($"t:{nameof(DnD.Code.Scripts.Characters.Species.Species)}");
+            string[] guids = AssetDatabase.FindAssets($"t:{nameof(DnD.Code.Scripts.Species.Species)}");
             _species =  guids
                 .Select(AssetDatabase.GUIDToAssetPath)
-                .Select(AssetDatabase.LoadAssetAtPath<DnD.Code.Scripts.Characters.Species.Species>)
+                .Select(AssetDatabase.LoadAssetAtPath<DnD.Code.Scripts.Species.Species>)
                 .Where(asset => asset != null)
                 .ToArray();
         }
@@ -134,7 +133,7 @@ namespace Tests.Species
             public string Name { get; set; }
             public string InheritFrom { get; set; }
             public string CreatureType { get; set; }
-            public DnD.Code.Scripts.Characters.Species.Size Size { get; set; }
+            public Size Size { get; set; }
             public float Speed { get; set; }
             public SpecialTraitModel[] Traits { get; set; }
 
@@ -142,7 +141,7 @@ namespace Tests.Species
                 string name,
                 string inheritFrom,
                 string creatureType,
-                DnD.Code.Scripts.Characters.Species.Size size,
+                Size size,
                 float speed,
                 SpecialTraitModel[] traits
                 )

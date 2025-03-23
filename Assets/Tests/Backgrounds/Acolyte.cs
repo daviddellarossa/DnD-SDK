@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Game.Equipment.Gear;
-using DnD.Code.Scripts.Characters.Backgrounds;
+using DnD.Code.Scripts.Backgrounds;
 using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Helpers.PathHelper;
 using NUnit.Framework;

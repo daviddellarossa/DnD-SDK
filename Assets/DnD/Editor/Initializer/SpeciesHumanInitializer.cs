@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using DnD.Code.Scripts.Characters.Species;
-using DnD.Code.Scripts.Characters.Species.SpecialTraits;
-using DnD.Code.Scripts.Characters.Species.SpecialTraits.TraitTypes;
 using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Helpers.PathHelper;
+using DnD.Code.Scripts.Species;
+using DnD.Code.Scripts.Species.SpecialTraits;
+using DnD.Code.Scripts.Species.SpecialTraits.TraitTypes;
 using UnityEditor;
 using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
 
@@ -24,7 +24,7 @@ namespace DnD.Editor.Initializer
                 
                 var specialTraits = InitializeHumanSpecialTraits();
                 
-                var human = Common.CreateScriptableObject<Code.Scripts.Characters.Species.Species>(NameHelper.Species.Human, PathHelper.Species.Human.HumanPath);
+                var human = Common.CreateScriptableObject<Code.Scripts.Species.Species>(NameHelper.Species.Human, PathHelper.Species.Human.HumanPath);
                 human.Name = $"{nameof(NameHelper.Species)}.{NameHelper.Species.Human}";
                 human.InheritFrom = null;
                 human.CreatureType = creatureTypes.Single(creatureType => creatureType.name == NameHelper.CreatureTypes.Humanoid);

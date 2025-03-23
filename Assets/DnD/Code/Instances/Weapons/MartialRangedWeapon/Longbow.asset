@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
+--- !u!114 &-6764606876707718668
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,23 +9,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
-  m_Name: Longbow
+  m_Script: {fileID: 11500000, guid: fa496ce09c6415f44bd81d1ad15fb33b, type: 3}
+  m_Name: Slow
   m_EditorClassIdentifier: 
-  Type: {fileID: 11400000, guid: 1244ffb235b46774bb36d1f048ecf652, type: 2}
-  NumOfDamageDice: 1
-  DamageDie: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
-  DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
-  Properties:
-  - {fileID: 1176806586625628641}
-  - {fileID: 7625446776837255846}
-  - {fileID: 2178961547814853035}
-  MasteryProperty: {fileID: 5943823253619838219}
-  Weight: 1
-  Cost: 5000
-  displayName: Weapons.MartialRangedWeapon.Longbow
-  displayDescription: Weapons.MartialRangedWeapon.Longbow.Description
---- !u!114 &1176806586625628641
+  displayName: WeaponMasteryProperty.Slow
+  displayDescription: WeaponMasteryProperty.Slow.Description
+  SlowBy: 3
+--- !u!114 &-4892483609686824750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 037e71a86e645a242b3e1e815ad68008, type: 3}
+  m_Name: Heavy
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Heavy
+  displayDescription: WeaponProperty.Heavy.Description
+--- !u!114 &-3623009737968268973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,7 +47,32 @@ MonoBehaviour:
     Min: 45
     Max: 180
   Type: {fileID: 11400000, guid: 7af87e900e9fcd94c905d12f73ca1e6c, type: 2}
---- !u!114 &2178961547814853035
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
+  m_Name: Longbow
+  m_EditorClassIdentifier: 
+  Type: {fileID: 11400000, guid: 1244ffb235b46774bb36d1f048ecf652, type: 2}
+  NumOfDamageDice: 1
+  DamageDie: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
+  DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
+  Properties:
+  - {fileID: -3623009737968268973}
+  - {fileID: -4892483609686824750}
+  - {fileID: 933547271710948853}
+  MasteryProperty: {fileID: -6764606876707718668}
+  Weight: 1
+  Cost: 5000
+  displayName: Weapons.MartialRangedWeapon.Longbow
+  displayDescription: Weapons.MartialRangedWeapon.Longbow.Description
+--- !u!114 &933547271710948853
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,32 +86,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponProperty.Two Handed
   displayDescription: WeaponProperty.Two Handed.Description
---- !u!114 &5943823253619838219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa496ce09c6415f44bd81d1ad15fb33b, type: 3}
-  m_Name: Slow
-  m_EditorClassIdentifier: 
-  displayName: WeaponMasteryProperty.Slow
-  displayDescription: WeaponMasteryProperty.Slow.Description
-  SlowBy: 3
---- !u!114 &7625446776837255846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 037e71a86e645a242b3e1e815ad68008, type: 3}
-  m_Name: Heavy
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Heavy
-  displayDescription: WeaponProperty.Heavy.Description

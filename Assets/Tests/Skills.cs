@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Linq;
 using DnD.Code.Scripts;
-using DnD.Code.Scripts.Characters.Abilities;
+using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Common;
 using NUnit.Framework;
 using UnityEditor;

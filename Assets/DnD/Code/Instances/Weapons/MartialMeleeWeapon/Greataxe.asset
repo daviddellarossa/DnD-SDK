@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4668994013089769951
+--- !u!114 &-7966755704305351121
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74e2517a1e89530418ff81722a46388e, type: 3}
-  m_Name: Cleave
+  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
+  m_Name: Two Handed
   m_EditorClassIdentifier: 
-  displayName: WeaponMasteryProperty.Cleave
-  displayDescription: WeaponMasteryProperty.Cleave.Description
+  displayName: WeaponProperty.Two Handed
+  displayDescription: WeaponProperty.Two Handed.Description
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31,14 +31,14 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 55ea3d617514ced46bd8d6f580c4b8c9, type: 2}
   DamageType: {fileID: 11400000, guid: 9437bf1f986d56941b00734a2f0ec3ca, type: 2}
   Properties:
-  - {fileID: 814437848659777741}
-  - {fileID: 2623545791501133898}
-  MasteryProperty: {fileID: -4668994013089769951}
+  - {fileID: 2435749307037269178}
+  - {fileID: -7966755704305351121}
+  MasteryProperty: {fileID: 7869473300521284741}
   Weight: 3.5
   Cost: 3000
   displayName: Weapons.MartialMeleeWeapon.Greataxe
   displayDescription: Weapons.MartialMeleeWeapon.Greataxe.Description
---- !u!114 &814437848659777741
+--- !u!114 &2435749307037269178
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,7 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponProperty.Heavy
   displayDescription: WeaponProperty.Heavy.Description
---- !u!114 &2623545791501133898
+--- !u!114 &7869473300521284741
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,8 +61,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
-  m_Name: Two Handed
+  m_Script: {fileID: 11500000, guid: 74e2517a1e89530418ff81722a46388e, type: 3}
+  m_Name: Cleave
   m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Two Handed
-  displayDescription: WeaponProperty.Two Handed.Description
+  displayName: WeaponMasteryProperty.Cleave
+  displayDescription: WeaponMasteryProperty.Cleave.Description

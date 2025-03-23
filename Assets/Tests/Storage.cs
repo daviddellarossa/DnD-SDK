@@ -10,15 +10,15 @@ namespace Tests
     [TestFixture]
     public class Storage
     {
-        private DnD.Code.Scripts.Characters.Storage.Storage[] _storages;
+        private DnD.Code.Scripts.Storage.Storage[] _storages;
 
         [SetUp]
         public void Setup()
         {
-            string[] guids = AssetDatabase.FindAssets($"t:{nameof(DnD.Code.Scripts.Characters.Storage.Storage)}");
+            string[] guids = AssetDatabase.FindAssets($"t:{nameof(DnD.Code.Scripts.Storage.Storage)}");
             _storages =  guids
                 .Select(AssetDatabase.GUIDToAssetPath)
-                .Select(AssetDatabase.LoadAssetAtPath<DnD.Code.Scripts.Characters.Storage.Storage>)
+                .Select(AssetDatabase.LoadAssetAtPath<DnD.Code.Scripts.Storage.Storage>)
                 .Where(asset => asset != null)
                 .ToArray();
         }

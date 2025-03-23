@@ -1,8 +1,8 @@
 ﻿using Codice.Client.Common;
 using System;
 using System.Linq;
-using DnD.Code.Scripts.Characters.Species.SpecialTraits;
-using DnD.Code.Scripts.Characters.Species.SpecialTraits.TraitTypes;
+using DnD.Code.Scripts.Species.SpecialTraits;
+using DnD.Code.Scripts.Species.SpecialTraits.TraitTypes;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;

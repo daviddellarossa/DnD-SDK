@@ -1,6 +1,6 @@
-﻿using DnD.Code.Scripts.Characters.Species;
-using DnD.Code.Scripts.Common;
+﻿using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Helpers.PathHelper;
+using DnD.Code.Scripts.Species;
 using UnityEditor;
 using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
 

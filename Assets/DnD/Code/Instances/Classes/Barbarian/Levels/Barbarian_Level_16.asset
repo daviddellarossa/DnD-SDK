@@ -1,17 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-211594915980544858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93b44875cff0467eba9f3810ef4adf0c, type: 3}
-  m_Name: AbilityScoreImprovement
-  m_EditorClassIdentifier: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24,18 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
   m_Name: Barbarian_Level_16
   m_EditorClassIdentifier: 
-  LevelNum: 16
-  ProficiencyBonus: 5
-  ClassFeatures:
-  - {fileID: -211594915980544858}
+  LevelNum: 0
+  ProficiencyBonus: 0
+  ClassFeatures: []
   ClassFeatureTraits:
-    rid: 8746986014252728410
+    rid: -2
   references:
     version: 2
     RefIds:
-    - rid: 8746986014252728410
-      type: {class: BarbarianFP, ns: DnD.Code.Scripts.Characters.Classes.Barbarian.FeatureProperties, asm: DnD}
-      data:
-        rages: 5
-        rageDamage: 4
-        weaponMastery: 4
+    - rid: -2
+      type: {class: , ns: , asm: }

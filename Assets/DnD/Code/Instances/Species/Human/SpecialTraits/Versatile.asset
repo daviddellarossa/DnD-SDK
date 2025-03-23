@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: SpecialTraits.Versatile
   TraitTypes:
-  - {fileID: 8660921259771588181}
---- !u!114 &8660921259771588181
+  - {fileID: 6500391416821261839}
+--- !u!114 &6500391416821261839
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

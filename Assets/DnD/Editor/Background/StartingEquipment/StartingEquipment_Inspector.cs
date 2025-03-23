@@ -7,17 +7,17 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UIElements.Button;
-using StartingEquipment = DnD.Code.Scripts.Characters.Backgrounds.StartingEquipment;
+using StartingEquipment = DnD.Code.Scripts.Backgrounds.StartingEquipment;
 
 namespace DnD.Editor.Background.StartingEquipment
 {
-    [CustomEditor(typeof(Code.Scripts.Characters.Backgrounds.StartingEquipment))]
+    [CustomEditor(typeof(Code.Scripts.Backgrounds.StartingEquipment))]
     public class StartingEquipmentEditor : UnityEditor.Editor
     {
         private string uxmlFilePath;
         private VisualTreeAsset rootXML;
 
-        private Code.Scripts.Characters.Backgrounds.StartingEquipment startingEquipment;
+        private Code.Scripts.Backgrounds.StartingEquipment startingEquipment;
         private ListView lvItems;
 
         public override VisualElement CreateInspectorGUI()
@@ -38,7 +38,7 @@ namespace DnD.Editor.Background.StartingEquipment
             // Instantiate the UXML.
             root = rootXML.Instantiate();
 
-            startingEquipment = (Code.Scripts.Characters.Backgrounds.StartingEquipment)target;
+            startingEquipment = (Code.Scripts.Backgrounds.StartingEquipment)target;
 
             lvItems = root.Q<ListView>("lvItems");
 

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7777936514571152438
+--- !u!114 &-6026300316031513148
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,25 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36493f1abb9fc004589c959707dc588f, type: 3}
-  m_Name: Graze
+  m_Script: {fileID: 11500000, guid: 037e71a86e645a242b3e1e815ad68008, type: 3}
+  m_Name: Heavy
   m_EditorClassIdentifier: 
-  displayName: WeaponMasteryProperty.Graze
-  displayDescription: WeaponMasteryProperty.Graze.Description
---- !u!114 &-3566346954676054431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
-  m_Name: Two Handed
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Two Handed
-  displayDescription: WeaponProperty.Two Handed.Description
+  displayName: WeaponProperty.Heavy
+  displayDescription: WeaponProperty.Heavy.Description
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,29 +31,15 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 148ec924f8b04f54fb2cb6ad83ecc392, type: 2}
   DamageType: {fileID: 11400000, guid: 9437bf1f986d56941b00734a2f0ec3ca, type: 2}
   Properties:
-  - {fileID: 1553996752717001800}
-  - {fileID: 5004449683790217538}
-  - {fileID: -3566346954676054431}
-  MasteryProperty: {fileID: -7777936514571152438}
+  - {fileID: -6026300316031513148}
+  - {fileID: 2985509572765446586}
+  - {fileID: 3901177863126054860}
+  MasteryProperty: {fileID: 3820463230732536073}
   Weight: 3
   Cost: 2000
   displayName: Weapons.MartialMeleeWeapon.Glaive
   displayDescription: Weapons.MartialMeleeWeapon.Glaive.Description
---- !u!114 &1553996752717001800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 037e71a86e645a242b3e1e815ad68008, type: 3}
-  m_Name: Heavy
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Heavy
-  displayDescription: WeaponProperty.Heavy.Description
---- !u!114 &5004449683790217538
+--- !u!114 &2985509572765446586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -82,3 +54,31 @@ MonoBehaviour:
   displayName: WeaponProperty.Reach
   displayDescription: WeaponProperty.Reach.Description
   ExtraReach: 2.5
+--- !u!114 &3820463230732536073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36493f1abb9fc004589c959707dc588f, type: 3}
+  m_Name: Graze
+  m_EditorClassIdentifier: 
+  displayName: WeaponMasteryProperty.Graze
+  displayDescription: WeaponMasteryProperty.Graze.Description
+--- !u!114 &3901177863126054860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
+  m_Name: Two Handed
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Two Handed
+  displayDescription: WeaponProperty.Two Handed.Description

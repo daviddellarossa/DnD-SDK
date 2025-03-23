@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Option B
   m_EditorClassIdentifier: 
   Items:
-  - rid: 8746986058590453966
+  - rid: 8746986058590453973
   references:
     version: 2
     RefIds:
-    - rid: 8746986058590453966
-      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Characters.Backgrounds, asm: DnD}
+    - rid: 8746986058590453973
+      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Backgrounds, asm: DnD}
       data:
         Item: {fileID: 11400000, guid: 4d1f81aa7cefccf40ab750f2ed744e0b, type: 2}
         Amount: 50

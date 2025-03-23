@@ -10,9 +10,9 @@ namespace DnD.Editor.Initializer
     {
         // public static readonly string PathHelper.Species.SpeciesPath = $"{Common.FolderPath}/{NameHelper.Naming.Species}";
 
-        public static Code.Scripts.Characters.Species.Species[] GetAllSpecies()
+        public static Code.Scripts.Species.Species[] GetAllSpecies()
         {
-            return Common.GetAllScriptableObjects<Code.Scripts.Characters.Species.Species>(PathHelper.Species.SpeciesPath);
+            return Common.GetAllScriptableObjects<Code.Scripts.Species.Species>(PathHelper.Species.SpeciesPath);
         }
         
         [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Species Data")]

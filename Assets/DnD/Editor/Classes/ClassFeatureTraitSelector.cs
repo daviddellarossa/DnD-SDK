@@ -1,8 +1,7 @@
 using System;
 using System.Linq;
-using Assets.Scripts.Game.Characters.Classes;
-using DnD.Code.Scripts.Characters.Classes;
-using DnD.Code.Scripts.Characters.Classes.FeatureProperties;
+using DnD.Code.Scripts.Classes;
+using DnD.Code.Scripts.Classes.FeatureProperties;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8376023576994308815
+--- !u!114 &-7062158087472852508
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,12 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e510b9724c2e76641951bf62d9c91ad4, type: 3}
-  m_Name: Sap
+  m_Script: {fileID: 11500000, guid: 160fc646e2c4724418aa23deca8abc00, type: 3}
+  m_Name: Thrown
   m_EditorClassIdentifier: 
-  displayName: WeaponMasteryProperty.Sap
-  displayDescription: WeaponMasteryProperty.Sap.Description
---- !u!114 &-3381730161199409421
+  displayName: WeaponProperty.Thrown
+  displayDescription: WeaponProperty.Thrown.Description
+  Range:
+    Min: 6
+    Max: 18
+--- !u!114 &-4770801242047843632
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,6 +33,20 @@ MonoBehaviour:
   displayDescription: WeaponProperty.Versatile.Description
   NumberOfDice: 1
   DieType: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
+--- !u!114 &-2603757548416859289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e510b9724c2e76641951bf62d9c91ad4, type: 3}
+  m_Name: Sap
+  m_EditorClassIdentifier: 
+  displayName: WeaponMasteryProperty.Sap
+  displayDescription: WeaponMasteryProperty.Sap.Description
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,27 +64,10 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: 7136105743383177587}
-  - {fileID: -3381730161199409421}
-  MasteryProperty: {fileID: -8376023576994308815}
+  - {fileID: -7062158087472852508}
+  - {fileID: -4770801242047843632}
+  MasteryProperty: {fileID: -2603757548416859289}
   Weight: 1.5
   Cost: 100
   displayName: Weapons.SimpleMeleeWeapon.Spear
   displayDescription: Weapons.SimpleMeleeWeapon.Spear.Description
---- !u!114 &7136105743383177587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 160fc646e2c4724418aa23deca8abc00, type: 3}
-  m_Name: Thrown
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Thrown
-  displayDescription: WeaponProperty.Thrown.Description
-  Range:
-    Min: 6
-    Max: 18

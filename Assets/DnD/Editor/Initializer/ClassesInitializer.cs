@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using DnD.Code.Scripts.Characters.Classes;
-using DnD.Code.Scripts.Characters.Classes.FeatureProperties;
-using DnD.Code.Scripts.Common;
+using DnD.Code.Scripts.Classes;
+using DnD.Code.Scripts.Classes.FeatureProperties;
 using DnD.Code.Scripts.Equipment;
 using DnD.Code.Scripts.Equipment.Coins;
 using DnD.Code.Scripts.Helpers.PathHelper;

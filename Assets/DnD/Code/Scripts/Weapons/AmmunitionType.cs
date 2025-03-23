@@ -1,5 +1,4 @@
-﻿using DnD.Code.Scripts.Characters.Storage;
-using DnD.Code.Scripts.Common;
+﻿using DnD.Code.Scripts.Common;
 using UnityEngine;
 
 namespace DnD.Code.Scripts.Weapons
@@ -8,7 +7,7 @@ namespace DnD.Code.Scripts.Weapons
     public class AmmunitionType : ScriptableObject, ILocalizable
     {
         public int Amount;
-        public Storage Storage;
+        public Storage.Storage Storage;
         public float Weight;
         public float Cost;
         

@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Runtime.InteropServices;
 using Assets.Scripts.Game.Equipment.Gear;
-using DnD.Code.Scripts.Characters.Backgrounds;
+using DnD.Code.Scripts.Backgrounds;
 using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Helpers.PathHelper;
 using DnD.Code.Scripts.Tools;
@@ -35,7 +35,7 @@ namespace DnD.Editor.Initializer
                     Common.EnsureFolderExists(PathHelper.Backgrounds.AcolyteStartingEquipmentPath);
 
                     var acolyte =
-                        Common.CreateScriptableObject<Code.Scripts.Characters.Backgrounds.Background>(
+                        Common.CreateScriptableObject<Code.Scripts.Backgrounds.Background>(
                             NameHelper.Backgrounds.Acolyte, PathHelper.Backgrounds.AcolytePath);
                     acolyte.DisplayName = $"{nameof(NameHelper.Backgrounds)}.{NameHelper.Backgrounds.Acolyte}";
                     acolyte.DisplayDescription = $"{nameof(NameHelper.Backgrounds)}.{NameHelper.Backgrounds.Acolyte}.{NameHelper.Naming.Description}";

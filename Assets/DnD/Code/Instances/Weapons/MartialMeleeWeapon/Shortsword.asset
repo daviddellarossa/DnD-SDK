@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7429876652346649781
+--- !u!114 &-4779244545212775113
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponMasteryProperty.Vex
   displayDescription: WeaponMasteryProperty.Vex.Description
---- !u!114 &-5428242171078491454
+--- !u!114 &-3955662522823681808
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,14 +45,14 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: 3045302278013904896}
-  - {fileID: -5428242171078491454}
-  MasteryProperty: {fileID: -7429876652346649781}
+  - {fileID: 336262198670341955}
+  - {fileID: -3955662522823681808}
+  MasteryProperty: {fileID: -4779244545212775113}
   Weight: 1
   Cost: 1000
   displayName: Weapons.MartialMeleeWeapon.Shortsword
   displayDescription: Weapons.MartialMeleeWeapon.Shortsword.Description
---- !u!114 &3045302278013904896
+--- !u!114 &336262198670341955
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

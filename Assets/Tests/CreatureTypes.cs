@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Linq;
-using DnD.Code.Scripts.Characters.Species;
 using DnD.Code.Scripts.Common;
+using DnD.Code.Scripts.Species;
 using NUnit.Framework;
 using UnityEditor;
 using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;

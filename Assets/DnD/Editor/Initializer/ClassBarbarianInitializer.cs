@@ -1,12 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using DnD.Code.Scripts.Characters;
-using DnD.Code.Scripts.Characters.Abilities;
-using DnD.Code.Scripts.Characters.Classes;
-using DnD.Code.Scripts.Characters.Classes.Barbarian.ClassFeatures;
-using DnD.Code.Scripts.Characters.Classes.Barbarian.FeatureProperties;
-using DnD.Code.Scripts.Characters.Classes.ClassFeatures;
-using DnD.Code.Scripts.Characters.Classes.FeatureProperties;
+using DnD.Code.Scripts.Classes;
+using DnD.Code.Scripts.Classes.Barbarian.ClassFeatures;
+using DnD.Code.Scripts.Classes.Barbarian.FeatureProperties;
+using DnD.Code.Scripts.Classes.ClassFeatures;
 using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Equipment;
 using DnD.Code.Scripts.Equipment.Coins;
