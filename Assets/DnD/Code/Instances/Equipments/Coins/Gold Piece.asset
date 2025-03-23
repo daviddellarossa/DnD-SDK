@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eccccb37ea76d947bef9627378a17cb, type: 3}
   m_Name: Gold Piece
   m_EditorClassIdentifier: 
-  Abbreviation: 
-  Value: 0
-  displayName: 
-  displayDescription: 
+  displayName: Coins.Gold Piece
+  displayDescription: Coins.Gold Piece.Description
+  Abbreviation: Coins.Gold Piece.Abbreviation
+  Value: 100

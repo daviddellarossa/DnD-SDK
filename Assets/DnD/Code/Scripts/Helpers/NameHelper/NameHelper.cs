@@ -4,6 +4,7 @@ namespace DnD.Code.Scripts.Helpers.NameHelper
     {
         public static class Naming
         {
+            public const string Abbreviation = "Abbreviation";
             public const string Description = "Description";
             public const string Classes = "Classes";
             public const string SubClasses = "SubClasses";
@@ -273,14 +274,12 @@ namespace DnD.Code.Scripts.Helpers.NameHelper
             public const string GoldPiece = "Gold Piece";
             public const string PlatinumPiece = "Platinum Piece";
             public const string SilverPiece = "Silver Piece";
-
         }
 
         public static class StartingEquipmentOptions
         {
             public const string OptionA = "Option A";
             public const string OptionB = "Option B";
-
         }
 
         public static class ClassFeatures_Barbarian

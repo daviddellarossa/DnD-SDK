@@ -29,7 +29,9 @@ namespace Tests
         {
             var creatureType = _creatureTypes.SingleOrDefault(creatureType => creatureType.name == expected.Name);
             
-            Assert.That(creatureType, Is.Not.Null);
+            Assert.That(creatureType, Is.Not.Null, Common.GetNotFoundLogInfo(NameHelper.Naming.CreatureTypes, expected.Name));
+            Assert.That(creatureType.DisplayName, Is.EqualTo(expected.DisplayName), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayName), expected.DisplayName));
+            Assert.That(creatureType.DisplayDescription, Is.EqualTo(expected.DisplayDescription), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayDescription), expected.DisplayDescription));
         }
         
         private class AbilitiesData
