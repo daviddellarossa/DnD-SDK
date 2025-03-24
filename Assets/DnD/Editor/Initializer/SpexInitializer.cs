@@ -50,7 +50,7 @@ namespace DnD.Editor.Initializer
 
                 // Create Special Traits
                 var specialTraits = InitializeSpecialTraits();
-                spexInstance.Traits.AddRange(specialTraits);
+                spexInstance.SpecialTraits.AddRange(specialTraits);
                 
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
@@ -64,22 +64,5 @@ namespace DnD.Editor.Initializer
         protected abstract Spex CreateSpexInstance();
 
         protected abstract SpecialTrait[] InitializeSpecialTraits();
-
-
-        // public static Code.Scripts.Species.Species[] GetAllSpecies()
-        // {
-        //     return Common.GetAllScriptableObjects<Code.Scripts.Species.Species>(PathHelper.Species.SpeciesPath);
-        // }
-
-        // [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Species Data")]
-        // public static void InitializeSpecies()
-        // {
-        //     Common.EnsureFolderExists(PathHelper.Species.SpeciesPath);
-        //
-        //     var creatureTypes = CreatureTypesInitializer.GetAllCreatureTypes();
-        //
-        //     var humanInitializer = new SpeciesHumanInitializer();
-        //     humanInitializer.InitializeHuman(creatureTypes);
-        // }
     }
 }

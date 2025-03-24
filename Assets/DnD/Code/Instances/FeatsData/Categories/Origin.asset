@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1271e0055a66c4292c436f5496e3a3, type: 3}
   m_Name: Origin
   m_EditorClassIdentifier: 
-  Name: 
+  displayName: FeatCategories.Origin
+  displayDescription: FeatCategories.Origin.Description

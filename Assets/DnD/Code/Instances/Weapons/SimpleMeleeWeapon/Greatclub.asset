@@ -1,5 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8864044827687244288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92af2a4d070d7b4a8ba7357ce1e0dde, type: 3}
+  m_Name: Push
+  m_EditorClassIdentifier: 
+  displayName: WeaponMasteryProperty.Push
+  displayDescription: WeaponMasteryProperty.Push.Description
+  Distance: 3
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17,28 +32,13 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
   DamageType: {fileID: 11400000, guid: 4a6261dd04b0a8941a6be6453b8bbb47, type: 2}
   Properties:
-  - {fileID: 2931731436707074932}
-  MasteryProperty: {fileID: 1563375355210206829}
+  - {fileID: 4729600014029836865}
+  MasteryProperty: {fileID: -8864044827687244288}
   Weight: 5
   Cost: 200
   displayName: Weapons.SimpleMeleeWeapon.Greatclub
   displayDescription: Weapons.SimpleMeleeWeapon.Greatclub.Description
---- !u!114 &1563375355210206829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e92af2a4d070d7b4a8ba7357ce1e0dde, type: 3}
-  m_Name: Push
-  m_EditorClassIdentifier: 
-  displayName: WeaponMasteryProperty.Push
-  displayDescription: WeaponMasteryProperty.Push.Description
-  Distance: 3
---- !u!114 &2931731436707074932
+--- !u!114 &4729600014029836865
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

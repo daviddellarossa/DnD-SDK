@@ -10,10 +10,6 @@ namespace DnD.Editor.Initializer
 {
     public static class FeatsInitializer
     {
-        // public static readonly string PathHelper.Feats.FeatsDataPath = $"{Common.FolderPath}/{NameHelper.Naming.FeatsData}";
-        // public static readonly string PathHelper.Feats.FeatCategoriesPath = $"{PathHelper.Feats.FeatsDataPath}/{NameHelper.Naming.Categories}";
-        // public static readonly string PathHelper.Feats.FeatsPath = $"{PathHelper.Feats.FeatsDataPath}/{NameHelper.Naming.Feats}";
-
         public static Feat[] GetAllFeats()
         {
             return Common.GetAllScriptableObjects<Feat>(PathHelper.Feats.FeatsPath);
@@ -43,31 +39,51 @@ namespace DnD.Editor.Initializer
 
                 {
                     var barbarianFeat = Common.CreateScriptableObject<FeatCategory>(NameHelper.FeatCategories.BarbarianFeat, PathHelper.Feats.FeatCategoriesPath);
-                    barbarianFeat.Name = $"{nameof(NameHelper.FeatCategories)}.{NameHelper.FeatCategories.BarbarianFeat}";
+                    barbarianFeat.DisplayName = $"{NameHelper.Naming.FeatCategories}.{NameHelper.FeatCategories.BarbarianFeat}";
+                    barbarianFeat.DisplayDescription = $"{NameHelper.Naming.FeatCategories}.{NameHelper.FeatCategories.BarbarianFeat}.{NameHelper.Naming.Description}";
+                    
+                    EditorUtility.SetDirty(barbarianFeat);
+                    
                     featCategories.Add(barbarianFeat);
                 }
                 
                 {
                     var epicBoon = Common.CreateScriptableObject<FeatCategory>(NameHelper.FeatCategories.EpicBoon, PathHelper.Feats.FeatCategoriesPath);
-                    epicBoon.Name = $"{nameof(NameHelper.FeatCategories)}.{NameHelper.FeatCategories.EpicBoon}";
+                    epicBoon.DisplayName = $"{NameHelper.Naming.FeatCategories}.{NameHelper.FeatCategories.EpicBoon}";
+                    epicBoon.DisplayDescription = $"{NameHelper.Naming.FeatCategories}.{NameHelper.FeatCategories.EpicBoon}.{NameHelper.Naming.Description}";
+                    
+                    EditorUtility.SetDirty(epicBoon);
+                    
                     featCategories.Add(epicBoon);
                 }
                 
                 {
                     var fightingStyle = Common.CreateScriptableObject<FeatCategory>(NameHelper.FeatCategories.FightingStyle, PathHelper.Feats.FeatCategoriesPath);
-                    fightingStyle.Name = $"{nameof(NameHelper.FeatCategories)}.{NameHelper.FeatCategories.FightingStyle}";
+                    fightingStyle.DisplayName = $"{NameHelper.Naming.FeatCategories}.{NameHelper.FeatCategories.FightingStyle}";
+                    fightingStyle.DisplayDescription = $"{NameHelper.Naming.FeatCategories}.{NameHelper.FeatCategories.FightingStyle}.{NameHelper.Naming.Description}";
+                    
+                    EditorUtility.SetDirty(fightingStyle);
+                    
                     featCategories.Add(fightingStyle);
                 }
                 
                 {
                     var general = Common.CreateScriptableObject<FeatCategory>(NameHelper.FeatCategories.General, PathHelper.Feats.FeatCategoriesPath);
-                    general.Name = $"{nameof(NameHelper.FeatCategories)}.{NameHelper.FeatCategories.General}";
+                    general.DisplayName = $"{NameHelper.Naming.FeatCategories}.{NameHelper.FeatCategories.General}";
+                    general.DisplayDescription = $"{NameHelper.Naming.FeatCategories}.{NameHelper.FeatCategories.General}.{NameHelper.Naming.Description}";
+                    
+                    EditorUtility.SetDirty(general);
+                    
                     featCategories.Add(general);
                 }
                 
                 {
                     var origin = Common.CreateScriptableObject<FeatCategory>(NameHelper.FeatCategories.Origin, PathHelper.Feats.FeatCategoriesPath);
-                    origin.Name = $"{nameof(NameHelper.FeatCategories)}.{NameHelper.FeatCategories.Origin}";
+                    origin.DisplayName = $"{NameHelper.Naming.FeatCategories}.{NameHelper.FeatCategories.Origin}";
+                    origin.DisplayDescription = $"{NameHelper.Naming.FeatCategories}.{NameHelper.FeatCategories.Origin}.{NameHelper.Naming.Description}";
+                    
+                    EditorUtility.SetDirty(origin);
+                    
                     featCategories.Add(origin);
                 }
                 
@@ -92,10 +108,13 @@ namespace DnD.Editor.Initializer
                 {
                     var magicInitiate = Common.CreateScriptableObject<Feat>(NameHelper.Feats.MagicInitiate, PathHelper.Feats.FeatsPath);
                     magicInitiate.DisplayName = $"{nameof(NameHelper.Feats)}.{NameHelper.Feats.MagicInitiate}";
+                    magicInitiate.DisplayDescription = $"{nameof(NameHelper.Feats)}.{NameHelper.Feats.MagicInitiate}.{NameHelper.Naming.Description}";
                     magicInitiate.Category = featCategories.Single(category => category.name == nameof(NameHelper.FeatCategories.Origin));
                     magicInitiate.Repeatable = Repeatable.Once;
                     magicInitiate.Benefit = null; // TODO
                     magicInitiate.Prerequisite = null; // TODO
+                    
+                    EditorUtility.SetDirty(magicInitiate);
                 }
                 
                 AssetDatabase.SaveAssets();

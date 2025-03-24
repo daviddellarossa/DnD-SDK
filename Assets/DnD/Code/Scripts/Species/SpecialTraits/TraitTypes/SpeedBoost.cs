@@ -4,7 +4,7 @@ using UnityEngine;
 namespace DnD.Code.Scripts.Species.SpecialTraits.TraitTypes
 {
     [Serializable]
-    public class SpeedBoost : TraitType
+    public class SpeedBoost : TypeTrait
     {
         public float speedMultiplier;
         

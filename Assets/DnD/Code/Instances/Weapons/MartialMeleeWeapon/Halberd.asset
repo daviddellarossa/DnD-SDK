@@ -1,6 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6015817577723217853
+--- !u!114 &-9179599375785384129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74e2517a1e89530418ff81722a46388e, type: 3}
+  m_Name: Cleave
+  m_EditorClassIdentifier: 
+  displayName: WeaponMasteryProperty.Cleave
+  displayDescription: WeaponMasteryProperty.Cleave.Description
+--- !u!114 &-8623886044264964871
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15,7 +29,7 @@ MonoBehaviour:
   displayName: WeaponProperty.Reach
   displayDescription: WeaponProperty.Reach.Description
   ExtraReach: 2.5
---- !u!114 &-3372277590944292331
+--- !u!114 &-82061332377804772
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,15 +60,15 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 148ec924f8b04f54fb2cb6ad83ecc392, type: 2}
   DamageType: {fileID: 11400000, guid: 9437bf1f986d56941b00734a2f0ec3ca, type: 2}
   Properties:
-  - {fileID: 2030333747860796725}
-  - {fileID: -3372277590944292331}
-  - {fileID: -6015817577723217853}
-  MasteryProperty: {fileID: 5563643888538554514}
+  - {fileID: 5612282626906086068}
+  - {fileID: -82061332377804772}
+  - {fileID: -8623886044264964871}
+  MasteryProperty: {fileID: -9179599375785384129}
   Weight: 3
   Cost: 2000
   displayName: Weapons.MartialMeleeWeapon.Halberd
   displayDescription: Weapons.MartialMeleeWeapon.Halberd.Description
---- !u!114 &2030333747860796725
+--- !u!114 &5612282626906086068
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,17 +82,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponProperty.Heavy
   displayDescription: WeaponProperty.Heavy.Description
---- !u!114 &5563643888538554514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74e2517a1e89530418ff81722a46388e, type: 3}
-  m_Name: Cleave
-  m_EditorClassIdentifier: 
-  displayName: WeaponMasteryProperty.Cleave
-  displayDescription: WeaponMasteryProperty.Cleave.Description

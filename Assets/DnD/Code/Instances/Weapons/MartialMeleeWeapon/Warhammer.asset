@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4097961720056495508
+--- !u!114 &-5343134419239540234
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32,13 +32,13 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
   DamageType: {fileID: 11400000, guid: 4a6261dd04b0a8941a6be6453b8bbb47, type: 2}
   Properties:
-  - {fileID: 8979462854629987987}
-  MasteryProperty: {fileID: -4097961720056495508}
+  - {fileID: 7794246394930585144}
+  MasteryProperty: {fileID: -5343134419239540234}
   Weight: 2.5
   Cost: 1500
   displayName: Weapons.MartialMeleeWeapon.Warhammer
   displayDescription: Weapons.MartialMeleeWeapon.Warhammer.Description
---- !u!114 &8979462854629987987
+--- !u!114 &7794246394930585144
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

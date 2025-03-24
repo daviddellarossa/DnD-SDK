@@ -11,16 +11,16 @@ namespace Tests.TraitTypes
 {
     public class TraitTypes
     {
-        private TraitType[] _traits;
+        private TypeTrait[] _traits;
         private SpecialTrait[] _specialTraits;
 
         [SetUp]
         public void Setup()
         {
-            string[] guids = AssetDatabase.FindAssets($"t:{nameof(TraitType)}");
+            string[] guids = AssetDatabase.FindAssets($"t:{nameof(TypeTrait)}");
             _traits = guids
                 .Select(AssetDatabase.GUIDToAssetPath)
-                .Select(AssetDatabase.LoadAssetAtPath<TraitType>)
+                .Select(AssetDatabase.LoadAssetAtPath<TypeTrait>)
                 .Where(asset => asset != null)
                 .ToArray();
 

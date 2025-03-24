@@ -117,7 +117,7 @@
                 public static string SpexName => NameHelper.NameHelper.Species.Human;
 
                 public static string SpexPath => $"{SpeciesPath}/{SpexName}";
-                public static string SpexSpecialTraitsPath => $"{SpeciesPath}/{NameHelper.NameHelper.Naming.SpecialTraits}";
+                public static string SpexSpecialTraitsPath => $"{SpexPath}/{NameHelper.NameHelper.Naming.SpecialTraits}";
             }
         }
     }

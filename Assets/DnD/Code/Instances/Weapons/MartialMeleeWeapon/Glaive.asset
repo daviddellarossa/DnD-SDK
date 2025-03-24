@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6026300316031513148
+--- !u!114 &-7399561513735521615
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,6 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponProperty.Heavy
   displayDescription: WeaponProperty.Heavy.Description
+--- !u!114 &-2110799282763046355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb5d0173bc167f4ba82fdbebe29932e, type: 3}
+  m_Name: Reach
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Reach
+  displayDescription: WeaponProperty.Reach.Description
+  ExtraReach: 2.5
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31,44 +46,15 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 148ec924f8b04f54fb2cb6ad83ecc392, type: 2}
   DamageType: {fileID: 11400000, guid: 9437bf1f986d56941b00734a2f0ec3ca, type: 2}
   Properties:
-  - {fileID: -6026300316031513148}
-  - {fileID: 2985509572765446586}
-  - {fileID: 3901177863126054860}
-  MasteryProperty: {fileID: 3820463230732536073}
+  - {fileID: -7399561513735521615}
+  - {fileID: -2110799282763046355}
+  - {fileID: 6236833637360243056}
+  MasteryProperty: {fileID: 6711302273969701737}
   Weight: 3
   Cost: 2000
   displayName: Weapons.MartialMeleeWeapon.Glaive
   displayDescription: Weapons.MartialMeleeWeapon.Glaive.Description
---- !u!114 &2985509572765446586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cb5d0173bc167f4ba82fdbebe29932e, type: 3}
-  m_Name: Reach
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Reach
-  displayDescription: WeaponProperty.Reach.Description
-  ExtraReach: 2.5
---- !u!114 &3820463230732536073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36493f1abb9fc004589c959707dc588f, type: 3}
-  m_Name: Graze
-  m_EditorClassIdentifier: 
-  displayName: WeaponMasteryProperty.Graze
-  displayDescription: WeaponMasteryProperty.Graze.Description
---- !u!114 &3901177863126054860
+--- !u!114 &6236833637360243056
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -82,3 +68,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponProperty.Two Handed
   displayDescription: WeaponProperty.Two Handed.Description
+--- !u!114 &6711302273969701737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36493f1abb9fc004589c959707dc588f, type: 3}
+  m_Name: Graze
+  m_EditorClassIdentifier: 
+  displayName: WeaponMasteryProperty.Graze
+  displayDescription: WeaponMasteryProperty.Graze.Description

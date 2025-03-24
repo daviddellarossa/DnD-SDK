@@ -17,14 +17,14 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: 7044834883493955989}
-  - {fileID: 6113759226927641084}
-  MasteryProperty: {fileID: 8613370988835145708}
+  - {fileID: 7741259852316549170}
+  - {fileID: 712850107057210371}
+  MasteryProperty: {fileID: 7846644441323179713}
   Weight: 2
   Cost: 500
   displayName: Weapons.MartialMeleeWeapon.Trident
   displayDescription: Weapons.MartialMeleeWeapon.Trident.Description
---- !u!114 &6113759226927641084
+--- !u!114 &712850107057210371
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,7 +40,7 @@ MonoBehaviour:
   displayDescription: WeaponProperty.Versatile.Description
   NumberOfDice: 1
   DieType: {fileID: 11400000, guid: 148ec924f8b04f54fb2cb6ad83ecc392, type: 2}
---- !u!114 &7044834883493955989
+--- !u!114 &7741259852316549170
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,7 +57,7 @@ MonoBehaviour:
   Range:
     Min: 6
     Max: 18
---- !u!114 &8613370988835145708
+--- !u!114 &7846644441323179713
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

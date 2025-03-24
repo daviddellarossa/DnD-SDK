@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Species.SpecialTraits;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace DnD.Code.Scripts.Species
 {
@@ -31,7 +32,7 @@ namespace DnD.Code.Scripts.Species
             set => displayDescription = value;
         }
 
-        public List<SpecialTrait> Traits = new ();
+        [FormerlySerializedAs("Traits")] public List<SpecialTrait> SpecialTraits = new ();
     }
 
     [Flags]

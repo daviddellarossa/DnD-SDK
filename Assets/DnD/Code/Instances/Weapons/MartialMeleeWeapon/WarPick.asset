@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4852398267993262278
+--- !u!114 &-8594674044350746184
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponMasteryProperty.Sap
   displayDescription: WeaponMasteryProperty.Sap.Description
---- !u!114 &-1528968958512406858
+--- !u!114 &-7265583839542740827
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,8 +47,8 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: -1528968958512406858}
-  MasteryProperty: {fileID: -4852398267993262278}
+  - {fileID: -7265583839542740827}
+  MasteryProperty: {fileID: -8594674044350746184}
   Weight: 1
   Cost: 500
   displayName: Weapons.MartialMeleeWeapon.WarPick

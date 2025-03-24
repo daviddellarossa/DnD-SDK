@@ -26,7 +26,7 @@ namespace DnD.Code.Scripts.Species.SpecialTraits
         }
 
         [SerializeReference]
-        public List<TraitType> TraitTypes = new();
+        public List<TypeTrait> TraitTypes = new();
         
     }
 }

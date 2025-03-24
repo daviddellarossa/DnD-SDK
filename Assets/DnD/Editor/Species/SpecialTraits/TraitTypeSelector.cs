@@ -52,7 +52,7 @@ namespace DnD.Editor.Species.SpecialTraits
             btnCancel.clicked += BtnCancel_clicked;
 
             // Get the list of types inheriting from TraitType
-            var listOfTraitTypes = GetDerivedTypes(typeof(TraitType));
+            var listOfTraitTypes = GetDerivedTypes(typeof(TypeTrait));
 
             // Find the DropDownList
             var ddfTraitType = root.Q<DropdownField>("ddfTraitTypes");

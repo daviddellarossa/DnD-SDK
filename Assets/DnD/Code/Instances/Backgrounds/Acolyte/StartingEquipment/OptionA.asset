@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20b6e3af0ebfb9f4682951854de34abf, type: 3}
+  m_Name: OptionA
+  m_EditorClassIdentifier: 
+  Items:
+  - rid: 8746986082103459905
+  - rid: 8746986082103459906
+  - rid: 8746986082103459907
+  - rid: 8746986082103459908
+  - rid: 8746986082103459909
+  - rid: 8746986082103459910
+  references:
+    version: 2
+    RefIds:
+    - rid: 8746986082103459905
+      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Backgrounds, asm: DnD}
+      data:
+        Item: {fileID: 11400000, guid: 8c25ffe2f40cf1a48a24cbf19adf4684, type: 2}
+        Amount: 1
+    - rid: 8746986082103459906
+      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Backgrounds, asm: DnD}
+      data:
+        Item: {fileID: 11400000, guid: 72414c8b1699dd84a86af2b9d6aaf877, type: 2}
+        Amount: 10
+    - rid: 8746986082103459907
+      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Backgrounds, asm: DnD}
+      data:
+        Item: {fileID: 11400000, guid: 5003266ab6262af4496382bbe12272ce, type: 2}
+        Amount: 1
+    - rid: 8746986082103459908
+      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Backgrounds, asm: DnD}
+      data:
+        Item: {fileID: 11400000, guid: 29a543830e7d1864faf0feb2f5d2fc66, type: 2}
+        Amount: 1
+    - rid: 8746986082103459909
+      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Backgrounds, asm: DnD}
+      data:
+        Item: {fileID: 11400000, guid: 06d2037f09a5e724782f74eed6481e9e, type: 2}
+        Amount: 1
+    - rid: 8746986082103459910
+      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Backgrounds, asm: DnD}
+      data:
+        Item: {fileID: 11400000, guid: 1db5925526c836b4bb86b5ef334241a5, type: 2}
+        Amount: 8

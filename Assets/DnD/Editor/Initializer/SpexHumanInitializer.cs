@@ -67,9 +67,9 @@ namespace DnD.Editor.Initializer
 
         private HeroicInspiration InitializeHeroicInspiration(ScriptableObject parent)
         {
-            var heroicInspiration = Common.CreateScriptableObjectAndAddToObject<HeroicInspiration>(NameHelper.TypeTraits.HeroicInspiration, parent);
-            heroicInspiration.DisplayName = $"{NameHelper.Naming.TypeTraits}.{NameHelper.TypeTraits.HeroicInspiration}";
-            heroicInspiration.DisplayDescription = $"{NameHelper.Naming.TypeTraits}.{NameHelper.TypeTraits.HeroicInspiration}.{NameHelper.Naming.Description}";
+            var heroicInspiration = Common.CreateScriptableObjectAndAddToObject<HeroicInspiration>(NameHelper.TraitTypes.HeroicInspiration, parent);
+            heroicInspiration.DisplayName = $"{NameHelper.Naming.TypeTraits}.{NameHelper.TraitTypes.HeroicInspiration}";
+            heroicInspiration.DisplayDescription = $"{NameHelper.Naming.TypeTraits}.{NameHelper.TraitTypes.HeroicInspiration}.{NameHelper.Naming.Description}";
 
             EditorUtility.SetDirty(heroicInspiration);
                     
@@ -93,9 +93,9 @@ namespace DnD.Editor.Initializer
 
         private Proficiency InitializeProficiency(ScriptableObject parent)
         {
-            var proficiency = Common.CreateScriptableObjectAndAddToObject<Proficiency>(NameHelper.TypeTraits.Proficiency, parent);
-            proficiency.DisplayName = $"{NameHelper.Naming.TypeTraits}.{NameHelper.TypeTraits.Proficiency}";
-            proficiency.DisplayDescription = $"{NameHelper.Naming.TypeTraits}.{NameHelper.TypeTraits.Proficiency}.{NameHelper.Naming.Description}";
+            var proficiency = Common.CreateScriptableObjectAndAddToObject<Proficiency>(NameHelper.TraitTypes.Proficiency, parent);
+            proficiency.DisplayName = $"{NameHelper.Naming.TypeTraits}.{NameHelper.TraitTypes.Proficiency}";
+            proficiency.DisplayDescription = $"{NameHelper.Naming.TypeTraits}.{NameHelper.TraitTypes.Proficiency}.{NameHelper.Naming.Description}";
             
             EditorUtility.SetDirty(proficiency);
                 
@@ -121,9 +121,9 @@ namespace DnD.Editor.Initializer
         {
             var featCategory = FeatCategories.Single(featCategory => featCategory.name == featCategoryName);
             
-            var hasFeatByCategory = Common.CreateScriptableObjectAndAddToObject<HasFeatByCategory>(NameHelper.TypeTraits.HasFeatByCategory, parent);
-            hasFeatByCategory.DisplayName = $"{NameHelper.Naming.TypeTraits}.{NameHelper.TypeTraits.HasFeatByCategory}";
-            hasFeatByCategory.DisplayDescription = $"{NameHelper.Naming.TypeTraits}.{NameHelper.TypeTraits.HasFeatByCategory}.{NameHelper.Naming.Description}";
+            var hasFeatByCategory = Common.CreateScriptableObjectAndAddToObject<HasFeatByCategory>(NameHelper.TraitTypes.HasFeatByCategory, parent);
+            hasFeatByCategory.DisplayName = $"{NameHelper.Naming.TypeTraits}.{NameHelper.TraitTypes.HasFeatByCategory}";
+            hasFeatByCategory.DisplayDescription = $"{NameHelper.Naming.TypeTraits}.{NameHelper.TraitTypes.HasFeatByCategory}.{NameHelper.Naming.Description}";
             hasFeatByCategory.FeatCategory = featCategory;
             
             EditorUtility.SetDirty(hasFeatByCategory);

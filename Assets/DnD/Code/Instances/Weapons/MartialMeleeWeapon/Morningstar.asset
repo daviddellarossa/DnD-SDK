@@ -17,12 +17,12 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties: []
-  MasteryProperty: {fileID: 2700321204843577625}
+  MasteryProperty: {fileID: 7823925914425646237}
   Weight: 2
   Cost: 1500
   displayName: Weapons.MartialMeleeWeapon.Morningstar
   displayDescription: Weapons.MartialMeleeWeapon.Morningstar.Description
---- !u!114 &2700321204843577625
+--- !u!114 &7823925914425646237
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

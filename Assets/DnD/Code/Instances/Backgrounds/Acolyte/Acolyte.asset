@@ -21,8 +21,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5f6c86d2b248ebb4990b935fb1945f97, type: 2}
   ToolProficiency: CalligrapherTool
   StartingEquipment:
-  - {fileID: 11400000, guid: b3fa57fedb0b4154982093c48f137128, type: 2}
-  - {fileID: 11400000, guid: 7553b940866eb4549a2a2872db8e9f29, type: 2}
+  - {fileID: 11400000, guid: e616f659dbc6fd946ac73ee18b2923c8, type: 2}
+  - {fileID: 11400000, guid: 1411696085a7b3e44a64080ccf375198, type: 2}
   Feat: {fileID: 11400000, guid: dfe3f64cc15100a4492bc851965f8c42, type: 2}
   Note: Tool proficiency still not shown in the UI. TODO.
   displayName: Backgrounds.Acolyte

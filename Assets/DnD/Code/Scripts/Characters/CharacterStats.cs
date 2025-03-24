@@ -71,7 +71,7 @@ namespace DnD.Code.Scripts.Characters
 
         public Size Size;
 
-        public List<TraitType> SpeciesTraits = new List<TraitType>();
+        public List<TypeTrait> SpeciesTraits = new List<TypeTrait>();
 
         public bool HeroicInspiration
         {

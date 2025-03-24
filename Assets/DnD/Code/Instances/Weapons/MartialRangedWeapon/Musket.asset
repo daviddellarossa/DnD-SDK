@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6125535851395323308
+--- !u!114 &-7162499446881228270
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15,20 +15,6 @@ MonoBehaviour:
   displayName: WeaponMasteryProperty.Slow
   displayDescription: WeaponMasteryProperty.Slow.Description
   SlowBy: 3
---- !u!114 &-4050898828015854129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb202eed58cbad5498c5cbc96f204e39, type: 3}
-  m_Name: Loading
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Loading
-  displayDescription: WeaponProperty.Loading.Description
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,15 +32,15 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 55ea3d617514ced46bd8d6f580c4b8c9, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: 8988680609029275855}
-  - {fileID: -4050898828015854129}
-  - {fileID: 5147352672918662611}
-  MasteryProperty: {fileID: -6125535851395323308}
+  - {fileID: 2285244740781397970}
+  - {fileID: 2704671747919345527}
+  - {fileID: 1381038187945390529}
+  MasteryProperty: {fileID: -7162499446881228270}
   Weight: 5
   Cost: 50000
   displayName: Weapons.MartialRangedWeapon.Musket
   displayDescription: Weapons.MartialRangedWeapon.Musket.Description
---- !u!114 &5147352672918662611
+--- !u!114 &1381038187945390529
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponProperty.Two Handed
   displayDescription: WeaponProperty.Two Handed.Description
---- !u!114 &8988680609029275855
+--- !u!114 &2285244740781397970
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,3 +72,17 @@ MonoBehaviour:
     Min: 12
     Max: 36
   Type: {fileID: 11400000, guid: d1c5027a62f3e8a4abb3ee61c531a993, type: 2}
+--- !u!114 &2704671747919345527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb202eed58cbad5498c5cbc96f204e39, type: 3}
+  m_Name: Loading
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Loading
+  displayDescription: WeaponProperty.Loading.Description

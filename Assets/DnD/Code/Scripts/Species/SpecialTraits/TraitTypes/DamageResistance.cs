@@ -5,7 +5,7 @@ using UnityEngine;
 namespace DnD.Code.Scripts.Species.SpecialTraits.TraitTypes
 {
     [Serializable]
-    public class DamageResistance : TraitType
+    public class DamageResistance : TypeTrait
     {
         public DamageType DamageType;
         public float Percent;

@@ -97,7 +97,7 @@ namespace DnD.Editor.Species.SpecialTraits
             }
         }
 
-        private void CleanupBeforeRemoval(TraitType itemToRemove)
+        private void CleanupBeforeRemoval(TypeTrait itemToRemove)
         {
             AssetDatabase.RemoveObjectFromAsset(itemToRemove);
             EditorUtility.SetDirty(target);
@@ -126,7 +126,7 @@ namespace DnD.Editor.Species.SpecialTraits
             var specialTraitFileName = System.IO.Path.GetFileNameWithoutExtension(specialTraitFilePath);
 
             // Get the type of TraitType selected by the user
-            var selectedType = GetDerivedTypes(typeof(TraitType)).Single(x => x.Name == selectedOption);
+            var selectedType = GetDerivedTypes(typeof(TypeTrait)).Single(x => x.Name == selectedOption);
 
             // Create a new instance of a scriptable object
             ScriptableObject newScriptableObjectInstance = ScriptableObject.CreateInstance(selectedType);
@@ -135,7 +135,7 @@ namespace DnD.Editor.Species.SpecialTraits
             var newAssetFileName = $"{selectedOption}_{Guid.NewGuid().ToString()}";
             newScriptableObjectInstance.name = newAssetFileName;
 
-            var newTraitType = newScriptableObjectInstance as TraitType;
+            var newTraitType = newScriptableObjectInstance as TypeTrait;
 
             // Add new object to the current special trait
             specialTrait.TraitTypes.Add(newTraitType);
