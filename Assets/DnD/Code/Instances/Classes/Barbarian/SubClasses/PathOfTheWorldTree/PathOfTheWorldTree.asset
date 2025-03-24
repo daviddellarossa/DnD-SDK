@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 760c3175d147f34488c27c47d230bb07, type: 3}
   m_Name: PathOfTheWorldTree
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
-  Level03: {fileID: 0}
-  Level06: {fileID: 0}
-  Level10: {fileID: 0}
-  Level14: {fileID: 0}
+  Level03: {fileID: 11400000, guid: e88bd22194523da40bd07f141e991e8d, type: 2}
+  Level06: {fileID: 11400000, guid: 00a38637e9850fd449bceaa43336f645, type: 2}
+  Level10: {fileID: 11400000, guid: aa6e2f124752ca84f806326534d3d081, type: 2}
+  Level14: {fileID: 11400000, guid: 2c870216aff62a241b8a438c052b7f4b, type: 2}
+  displayName: 
+  displayDescription: 

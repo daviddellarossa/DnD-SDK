@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 760c3175d147f34488c27c47d230bb07, type: 3}
   m_Name: PathOfTheWildHeart
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
-  Level03: {fileID: 0}
-  Level06: {fileID: 0}
-  Level10: {fileID: 0}
-  Level14: {fileID: 0}
+  Level03: {fileID: 11400000, guid: d01bbe6292efc7043ac89e101823929c, type: 2}
+  Level06: {fileID: 11400000, guid: e7975c821c3fef442aa113cc29b78cad, type: 2}
+  Level10: {fileID: 11400000, guid: 9323d67e4716a15408749fc54f622ef3, type: 2}
+  Level14: {fileID: 11400000, guid: 3449ca55c96b1224cb715df1360ef6c0, type: 2}
+  displayName: 
+  displayDescription: 

@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1669976502861517052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e29e4dd27c04bedab61663c23c1959f, type: 3}
+  m_Name: ImprovedBrutalStrike
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,13 +26,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
   m_Name: Barbarian_Level_17
   m_EditorClassIdentifier: 
-  LevelNum: 0
-  ProficiencyBonus: 0
-  ClassFeatures: []
+  LevelNum: 17
+  ProficiencyBonus: 6
+  ClassFeatures:
+  - {fileID: -1669976502861517052}
   ClassFeatureTraits:
-    rid: -2
+    rid: 8746986082103459937
+  displayName: 
+  displayDescription: 
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 8746986082103459937
+      type: {class: BarbarianFP, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data:
+        rages: 6
+        rageDamage: 4
+        weaponMastery: 4
