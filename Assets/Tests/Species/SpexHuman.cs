@@ -9,6 +9,7 @@ using UnityEditor;
 
 namespace Tests.Species
 {
+    [TestFixture]
     public class SpexHuman
     {
         private Spex _spex;
@@ -21,7 +22,7 @@ namespace Tests.Species
             _spex =  guids
                 .Select(AssetDatabase.GUIDToAssetPath)
                 .Select(AssetDatabase.LoadAssetAtPath<Spex>)
-                .Single(asset => asset != null);
+                .Single(asset => asset.name == NameHelper.Species.Human);
             
             guids = AssetDatabase.FindAssets($"t:{nameof(CreatureType)}");
             _creatureTypes =  guids
@@ -112,37 +113,7 @@ namespace Tests.Species
                 }
             }
         }
-
-        public class SpexTestModel
-        {
-            public string Name { get; set; }
-            public string DisplayName => $"{NameHelper.Naming.Species}.{Name}";
-            public string DisplayDescription => $"{DisplayName}.{NameHelper.Naming.Description}";
-            public string InheritFrom;
-            public string CreatureType;
-            public Size Size;
-            public float Speed;
-            public SpecialTraitTestModel[] SpecialTraits;
-        }
-
-        public class SpecialTraitTestModel
-        {
-            public string Name { get; set; }
-            public string DisplayName => $"{NameHelper.Naming.SpecialTraits}.{Name}";
-            public string DisplayDescription => $"{DisplayName}.{NameHelper.Naming.Description}";
-
-            public TypeTraitTestModel[] TraitTypes { get; set; }
-        }
-
-        public abstract class TypeTraitTestModel
-        {
-            public string Name { get; set; }
-            public string DisplayName => $"{NameHelper.Naming.TypeTraits}.{Name}";
-            public string DisplayDescription => $"{DisplayName}.{NameHelper.Naming.Description}";
-            
-            public abstract void AssertEqual(TypeTrait typeTrait);
-        }
-
+        
         public class HeroicInspirationTestModel : TypeTraitTestModel
         {
             public override void AssertEqual(TypeTrait typeTrait)

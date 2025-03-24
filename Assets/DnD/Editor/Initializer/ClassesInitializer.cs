@@ -199,8 +199,8 @@ namespace DnD.Editor.Initializer
                 Common.EnsureFolderExists(SubClassLevelsPath);
 
                 var subClass = Common.CreateScriptableObject<SubClass>(SubClassName, SubClassPath);
-                subClass.Name = $"{ClassName}.{SubClassName}";
-                subClass.Description = $"{ClassName}.{SubClassName}.{NameHelper.Naming.Description}";
+                subClass.DisplayName = $"{ClassName}.{SubClassName}";
+                subClass.DisplayDescription = $"{ClassName}.{SubClassName}.{NameHelper.Naming.Description}";
                 
                 subClass.Level03 = InitializeLevel03();
                 subClass.Level06 = InitializeLevel06();
