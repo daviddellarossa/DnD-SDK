@@ -26,7 +26,7 @@ namespace DnD.Editor.Initializer
                 BackgroundInitializer.InitializeBackgrounds();
                 WeaponsInitializer.InitializeWeapons();
                 ArmoursInitializer.InitializeArmours();
-                SpeciesInitializer.InitializeSpecies();
+                SpexInitializer.InitializeSpecies();
                 ClassInitializer.InitializeClasses();
                 
             }

@@ -13,6 +13,7 @@ using DnD.Code.Scripts.Species;
 using DnD.Code.Scripts.Species.SpecialTraits.TraitTypes;
 using DnD.Code.Scripts.Tools;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace DnD.Code.Scripts.Characters
 {
@@ -30,8 +31,8 @@ namespace DnD.Code.Scripts.Characters
         [SerializeReference]
         public SubClass SubClass;
 
-        [SerializeReference]
-        public Species.Species Species;
+        [FormerlySerializedAs("Species")] [SerializeReference]
+        public Species.Spex spex;
 
         public int Level = 1;
 

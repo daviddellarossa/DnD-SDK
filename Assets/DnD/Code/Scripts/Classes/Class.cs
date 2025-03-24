@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Armour;
+using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Equipment;
 using DnD.Code.Scripts.Weapons;
 using UnityEngine;
@@ -8,7 +9,7 @@ using UnityEngine;
 namespace DnD.Code.Scripts.Classes
 {
     [CreateAssetMenu(fileName = "NewClass", menuName = "Game Entities/Character/Classes/Class")]
-    public class Class : ScriptableObject
+    public class Class : ScriptableObject,  ILocalizable
     {
         public Ability PrimaryAbility;
         public Die HitPointDie;
@@ -19,5 +20,22 @@ namespace DnD.Code.Scripts.Classes
         public List<StartingEquipment> StartingEquipmentOptions = new List<StartingEquipment>();
         public Level[] Levels = new Level[20];
         public List<SubClass> SubClasses = new List<SubClass>();
+        
+        [SerializeField]
+        private string displayName;
+        [SerializeField]
+        private string displayDescription;
+        
+        public string DisplayName
+        {
+            get => displayName;
+            set => displayName = value;
+        }
+
+        public string DisplayDescription
+        {
+            get => displayDescription;
+            set => displayDescription = value;
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace DnD.Code.Scripts.Helpers.NameHelper
             public const string WeaponProperty = "WeaponProperty";
             public const string WeaponMasteryProperty = "WeaponMasteryProperty";
             public const string AmmunitionTypes = "AmmunitionTypes";
-            public const string TraitTypes = "TraitTypes";
+            public const string TypeTraits = "TypeTraits";
             public const string Storage = "Storage";
             public const string Languages = "Languages";
             public const string LanguageOrigins = "LanguageOrigins";

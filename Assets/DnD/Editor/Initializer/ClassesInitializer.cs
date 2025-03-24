@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using DnD.Code.Scripts;
+using DnD.Code.Scripts.Abilities;
+using DnD.Code.Scripts.Armour;
 using DnD.Code.Scripts.Classes;
 using DnD.Code.Scripts.Classes.FeatureProperties;
 using DnD.Code.Scripts.Equipment;
@@ -20,19 +23,27 @@ namespace DnD.Editor.Initializer
             level.ProficiencyBonus = proficiencyBonus;
             level.ClassFeatureTraits = classFeatureTraits;
 
+            EditorUtility.SetDirty(level);
+            
             return level;
         }
     }
     public abstract class ClassInitializer : BaseClassInitializer
     {
-        // public static readonly string ClassesPath = $"{Common.FolderPath}/{NameHelper.Naming.Classes}";
-        protected const int NumOfLevels = 20;
+        private const int NumOfLevels = 20;
         
         protected abstract string ClassName { get; }
         protected abstract string ClassPath { get; }
         protected abstract string ClassStartingEquipmentPath { get; }
         protected abstract string ClassLevelsPath { get; }
         protected abstract string ClassSubClassesPath { get; }
+
+        protected Die[] Dice => DiceInitializer.GetAllDice();
+        protected Ability[] Abilities => AbilitiesInitializer.GetAllAbilities();
+        protected Skill[] Skills => AbilitiesInitializer.GetAllSkills();
+        protected WeaponType[] WeaponTypes => WeaponsInitializer.GetAllWeaponTypes();
+        protected IBaseArmourType[] ArmourTypes => ArmoursInitializer.GetAllArmourTypes();
+        
         
         [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Classes Data")]
         public static void InitializeClasses()
@@ -54,14 +65,12 @@ namespace DnD.Editor.Initializer
                 Common.EnsureFolderExists(ClassStartingEquipmentPath);
                 Common.EnsureFolderExists(ClassSubClassesPath);
                 
-                
                 var classInstance = CreateClassInstance();
 
                 // Create Starting Equipment
                 var startingEquipmentArray = InitializeStartingEquipment();
 
                 classInstance.StartingEquipmentOptions.AddRange(startingEquipmentArray);
-                
                 
                 // Create Levels
                 var levelsArray = InitializeLevels(classInstance);
@@ -99,6 +108,8 @@ namespace DnD.Editor.Initializer
             {
                 startingEquipment.Items.Add(item);
             }
+            EditorUtility.SetDirty(startingEquipment);
+            
             return startingEquipment;
         }
         
@@ -196,6 +207,7 @@ namespace DnD.Editor.Initializer
                 subClass.Level10 = InitializeLevel10();
                 subClass.Level14 = InitializeLevel14();
             
+                EditorUtility.SetDirty(subClass);
                 return subClass;
             }
         }

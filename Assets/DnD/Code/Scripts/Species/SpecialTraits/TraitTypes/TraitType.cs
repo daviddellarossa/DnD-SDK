@@ -1,15 +1,25 @@
+using DnD.Code.Scripts.Common;
 using UnityEngine;
 
 namespace DnD.Code.Scripts.Species.SpecialTraits.TraitTypes
 {
-    public class TraitType : ScriptableObject
+    public class TraitType : ScriptableObject, ILocalizable
     {
-        public string Name;
-        public virtual void ApplyTrait(GameObject target) { }
+        [SerializeField]
+        private string displayName;
+        [SerializeField]
+        private string displayDescription;
 
-        protected TraitType()
+        public string DisplayName
         {
-            this.Name = this.GetType().Name;
+            get => displayName;
+            set => displayName = value;
+        }
+
+        public string DisplayDescription
+        {
+            get => displayDescription;
+            set => displayDescription = value;
         }
     }
 }

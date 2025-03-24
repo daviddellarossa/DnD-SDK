@@ -8,7 +8,7 @@
         public static readonly string DamageTypePath = $"{FolderPath}/{NameHelper.NameHelper.Naming.DamageTypes}";
         public static readonly string DicePath = $"{FolderPath}/{NameHelper.NameHelper.Naming.Dice}";
         public static readonly string StoragePath = $"{FolderPath}/{NameHelper.NameHelper.Naming.Storage}";
-        public static readonly string TraitTypesPath = $"{FolderPath}/{NameHelper.NameHelper.Naming.TraitTypes}";
+        public static readonly string TraitTypesPath = $"{FolderPath}/{NameHelper.NameHelper.Naming.TypeTraits}";
 
         public static class Abilities
         {
@@ -114,11 +114,11 @@
 
             public static class Human
             {
-                public static readonly string HumanPath = $"{SpeciesPath}/{NameHelper.NameHelper.Species.Human}";
-                public static readonly string SpecialTraitsPath = $"{HumanPath}/{NameHelper.NameHelper.Naming.SpecialTraits}";
+                public static string SpexName => NameHelper.NameHelper.Species.Human;
 
+                public static string SpexPath => $"{SpeciesPath}/{SpexName}";
+                public static string SpexSpecialTraitsPath => $"{SpeciesPath}/{NameHelper.NameHelper.Naming.SpecialTraits}";
             }
-            
         }
     }
 }

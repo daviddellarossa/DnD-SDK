@@ -9,10 +9,5 @@ namespace DnD.Code.Scripts.Species.SpecialTraits.TraitTypes
     {
         public DamageType DamageType;
         public float Percent;
-
-        public override void ApplyTrait(GameObject target)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
