@@ -16,6 +16,7 @@ namespace DnD.Code.Scripts.Classes
         public List<Ability> SavingThrowProficiencies = new ();
         public List<Skill> SkillProficienciesAvailable = new List<Skill>();
         public List<WeaponType> WeaponProficiencies = new ();
+        [SerializeReference]
         public List<IBaseArmourType> ArmorTraining = new List<IBaseArmourType>();
         public List<StartingEquipment> StartingEquipmentOptions = new List<StartingEquipment>();
         public Level[] Levels = new Level[20];

@@ -113,10 +113,10 @@ namespace DnD.Editor.Initializer
             protected override Level InitializeLevel03()
             {
                 var level = InitializeLevel(
-                    $"{ClassName}_{SubClassName}_{NameHelper.Naming.Level}_03",
+                    $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     3,
                     2,
-                    new BarbarianFP()
+                    new BarbarianFp()
                     {
                         rages = 2,
                         rageDamage = 2,
@@ -126,8 +126,8 @@ namespace DnD.Editor.Initializer
             
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    Common.CreateScriptableObjectAndAddToObject<DivineFury>($"{nameof(DivineFury)}", level),
-                    Common.CreateScriptableObjectAndAddToObject<WarriorOfTheGods>($"{nameof(WarriorOfTheGods)}", level),
+                    Common.CreateScriptableObjectAndAddToObject<DivineFury>(NameHelper.ClassFeatures_Barbarian.DivineFury, level),
+                    Common.CreateScriptableObjectAndAddToObject<WarriorOfTheGods>(NameHelper.ClassFeatures_Barbarian.WarriorOfTheGods, level),
                 });
                 
                 return level;
@@ -136,10 +136,10 @@ namespace DnD.Editor.Initializer
             protected override Level InitializeLevel06()
             {
                 var level = InitializeLevel(
-                    $"{ClassName}_{SubClassName}_{NameHelper.Naming.Level}_06",
+                    $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     6,
                     3,
-                    new BarbarianFP()
+                    new BarbarianFp()
                     {
                         rages = 4,
                         rageDamage = 2,
@@ -149,7 +149,7 @@ namespace DnD.Editor.Initializer
 
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    Common.CreateScriptableObjectAndAddToObject<FanaticalFocus>($"{nameof(FanaticalFocus)}", level),
+                    Common.CreateScriptableObjectAndAddToObject<FanaticalFocus>(NameHelper.ClassFeatures_Barbarian.FanaticalFocus, level),
                 });
                 
                 return level;
@@ -158,10 +158,10 @@ namespace DnD.Editor.Initializer
             protected override Level InitializeLevel10()
             {
                 var level = InitializeLevel(
-                    $"{ClassName}_{SubClassName}_{NameHelper.Naming.Level}_10",
+                    $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     10,
                     4,
-                    new BarbarianFP()
+                    new BarbarianFp()
                     {
                         rages = 4,
                         rageDamage = 3,
@@ -171,7 +171,7 @@ namespace DnD.Editor.Initializer
             
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    Common.CreateScriptableObjectAndAddToObject<ZealousPresence>($"{nameof(ZealousPresence)}", level),
+                    Common.CreateScriptableObjectAndAddToObject<ZealousPresence>(NameHelper.ClassFeatures_Barbarian.ZealousPresence, level),
                 });
                 
                 return level;
@@ -180,10 +180,10 @@ namespace DnD.Editor.Initializer
             protected override Level InitializeLevel14()
             {
                 var level = InitializeLevel(
-                    $"{ClassName}_{SubClassName}_{NameHelper.Naming.Level}_14",
+                    $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     14,
                     5,
-                    new BarbarianFP()
+                    new BarbarianFp()
                     {
                         rages = 5,
                         rageDamage = 3,
@@ -193,7 +193,7 @@ namespace DnD.Editor.Initializer
 
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    Common.CreateScriptableObjectAndAddToObject<RageOfTheGods>($"{nameof(RageOfTheGods)}", level),
+                    Common.CreateScriptableObjectAndAddToObject<RageOfTheGods>(NameHelper.ClassFeatures_Barbarian.RageOfTheGods, level),
 
                 });
                 
@@ -217,10 +217,10 @@ namespace DnD.Editor.Initializer
             protected override Level InitializeLevel03()
             {
                 var level = InitializeLevel(
-                    $"{ClassName}_{SubClassName}_{NameHelper.Naming.Level}_03",
+                    $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     3,
                     2,
-                    new BarbarianFP()
+                    new BarbarianFp()
                     {
                         rages = 2,
                         rageDamage = 2,
@@ -230,7 +230,7 @@ namespace DnD.Editor.Initializer
             
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    Common.CreateScriptableObjectAndAddToObject<VitalityOfTheTree>($"{nameof(VitalityOfTheTree)}", level),
+                    Common.CreateScriptableObjectAndAddToObject<VitalityOfTheTree>(NameHelper.ClassFeatures_Barbarian.VitalityOfTheTree, level),
 
                 });
                 
@@ -240,10 +240,10 @@ namespace DnD.Editor.Initializer
             protected override Level InitializeLevel06()
             {
                 var level = InitializeLevel(
-                    $"{ClassName}_{SubClassName}_{NameHelper.Naming.Level}_06",
+                    $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     6,
                     3,
-                    new BarbarianFP()
+                    new BarbarianFp()
                     {
                         rages = 4,
                         rageDamage = 2,
@@ -253,7 +253,7 @@ namespace DnD.Editor.Initializer
 
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    Common.CreateScriptableObjectAndAddToObject<BranchesOfTheTree>($"{nameof(BranchesOfTheTree)}", level),
+                    Common.CreateScriptableObjectAndAddToObject<BranchesOfTheTree>(NameHelper.ClassFeatures_Barbarian.BranchesOfTheTree, level),
                 });
                 
                 return level;
@@ -262,10 +262,10 @@ namespace DnD.Editor.Initializer
             protected override Level InitializeLevel10()
             {
                 var level = InitializeLevel(
-                    $"{ClassName}_{SubClassName}_{NameHelper.Naming.Level}_10",
+                    $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     10,
                     4,
-                    new BarbarianFP()
+                    new BarbarianFp()
                     {
                         rages = 4,
                         rageDamage = 3,
@@ -275,7 +275,7 @@ namespace DnD.Editor.Initializer
             
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    Common.CreateScriptableObjectAndAddToObject<BatteringRoots>($"{nameof(BatteringRoots)}", level),
+                    Common.CreateScriptableObjectAndAddToObject<BatteringRoots>(NameHelper.ClassFeatures_Barbarian.BatteringRoots, level),
                 });
                 
                 return level;
@@ -284,10 +284,10 @@ namespace DnD.Editor.Initializer
             protected override Level InitializeLevel14()
             {
                 var level = InitializeLevel(
-                    $"{ClassName}_{SubClassName}_{NameHelper.Naming.Level}_14",
+                    $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     14,
                     5,
-                    new BarbarianFP()
+                    new BarbarianFp()
                     {
                         rages = 5,
                         rageDamage = 3,
@@ -297,7 +297,7 @@ namespace DnD.Editor.Initializer
 
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    Common.CreateScriptableObjectAndAddToObject<TravelAlongTheTree>($"{nameof(TravelAlongTheTree)}", level),
+                    Common.CreateScriptableObjectAndAddToObject<TravelAlongTheTree>(NameHelper.ClassFeatures_Barbarian.TravelAlongTheTree, level),
 
                 });
                 
@@ -321,10 +321,10 @@ namespace DnD.Editor.Initializer
             protected override Level InitializeLevel03()
             {
                 var level = InitializeLevel(
-                    $"{ClassName}_{SubClassName}_{NameHelper.Naming.Level}_03",
+                    $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     3,
                     2,
-                    new BarbarianFP()
+                    new BarbarianFp()
                     {
                         rages = 2,
                         rageDamage = 2,
@@ -334,8 +334,8 @@ namespace DnD.Editor.Initializer
             
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    Common.CreateScriptableObjectAndAddToObject<AnimalSpeaker>($"{nameof(AnimalSpeaker)}", level),
-                    Common.CreateScriptableObjectAndAddToObject<RageOfTheWilds>($"{nameof(RageOfTheWilds)}", level),
+                    Common.CreateScriptableObjectAndAddToObject<AnimalSpeaker>(NameHelper.ClassFeatures_Barbarian.AnimalSpeaker, level),
+                    Common.CreateScriptableObjectAndAddToObject<RageOfTheWilds>(NameHelper.ClassFeatures_Barbarian.RageOfTheWilds, level),
 
                 });
                 
@@ -345,10 +345,10 @@ namespace DnD.Editor.Initializer
             protected override Level InitializeLevel06()
             {
                 var level = InitializeLevel(
-                    $"{ClassName}_{SubClassName}_{NameHelper.Naming.Level}_06",
+                    $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     6,
                     3,
-                    new BarbarianFP()
+                    new BarbarianFp()
                     {
                         rages = 4,
                         rageDamage = 2,
@@ -358,7 +358,7 @@ namespace DnD.Editor.Initializer
 
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    Common.CreateScriptableObjectAndAddToObject<AspectOfTheWilds>($"{nameof(AspectOfTheWilds)}", level),
+                    Common.CreateScriptableObjectAndAddToObject<AspectOfTheWilds>(NameHelper.ClassFeatures_Barbarian.AspectOfTheWilds, level),
                 });
                 
                 return level;
@@ -367,10 +367,10 @@ namespace DnD.Editor.Initializer
             protected override Level InitializeLevel10()
             {
                 var level = InitializeLevel(
-                    $"{ClassName}_{SubClassName}_{NameHelper.Naming.Level}_10",
+                    $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     10,
                     4,
-                    new BarbarianFP()
+                    new BarbarianFp()
                     {
                         rages = 4,
                         rageDamage = 3,
@@ -380,7 +380,7 @@ namespace DnD.Editor.Initializer
             
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    Common.CreateScriptableObjectAndAddToObject<NatureSpeaker>($"{nameof(NatureSpeaker)}", level),
+                    Common.CreateScriptableObjectAndAddToObject<NatureSpeaker>(NameHelper.ClassFeatures_Barbarian.NatureSpeaker, level),
                 });
                 
                 return level;
@@ -389,10 +389,10 @@ namespace DnD.Editor.Initializer
             protected override Level InitializeLevel14()
             {
                 var level = InitializeLevel(
-                    $"{ClassName}_{SubClassName}_{NameHelper.Naming.Level}_14",
+                    $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     14,
                     5,
-                    new BarbarianFP()
+                    new BarbarianFp()
                     {
                         rages = 5,
                         rageDamage = 3,
@@ -402,7 +402,7 @@ namespace DnD.Editor.Initializer
 
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    Common.CreateScriptableObjectAndAddToObject<PowerOfTheWilds>($"{nameof(PowerOfTheWilds)}", level),
+                    Common.CreateScriptableObjectAndAddToObject<PowerOfTheWilds>(NameHelper.ClassFeatures_Barbarian.PowerOfTheWilds, level),
 
                 });
                 
@@ -426,10 +426,10 @@ namespace DnD.Editor.Initializer
             protected override Level InitializeLevel03()
             {
                 var level = InitializeLevel(
-                    $"{ClassName}_{SubClassName}_{NameHelper.Naming.Level}_03",
+                    $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     3,
                     2,
-                    new BarbarianFP()
+                    new BarbarianFp()
                     {
                         rages = 2,
                         rageDamage = 2,
@@ -439,7 +439,7 @@ namespace DnD.Editor.Initializer
             
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    Common.CreateScriptableObjectAndAddToObject<Frenzy>($"{nameof(Frenzy)}", level),
+                    Common.CreateScriptableObjectAndAddToObject<Frenzy>($"{NameHelper.ClassFeatures_Barbarian.Frenzy}", level),
                 });
                 
                 return level;
@@ -448,10 +448,10 @@ namespace DnD.Editor.Initializer
             protected override Level InitializeLevel06()
             {
                 var level = InitializeLevel(
-                    $"{ClassName}_{SubClassName}_{NameHelper.Naming.Level}_06",
+                    $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     6,
                     3,
-                    new BarbarianFP()
+                    new BarbarianFp()
                     {
                         rages = 4,
                         rageDamage = 2,
@@ -461,7 +461,7 @@ namespace DnD.Editor.Initializer
 
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    Common.CreateScriptableObjectAndAddToObject<MindlessRage>($"{nameof(MindlessRage)}", level),
+                    Common.CreateScriptableObjectAndAddToObject<MindlessRage>(NameHelper.ClassFeatures_Barbarian.MindlessRage, level),
                 });
                 
                 return level;
@@ -470,10 +470,10 @@ namespace DnD.Editor.Initializer
             protected override Level InitializeLevel10()
             {
                 var level = InitializeLevel(
-                    $"{ClassName}_{SubClassName}_{NameHelper.Naming.Level}_10",
+                    $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     10,
                     4,
-                    new BarbarianFP()
+                    new BarbarianFp()
                     {
                         rages = 4,
                         rageDamage = 3,
@@ -483,7 +483,7 @@ namespace DnD.Editor.Initializer
             
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    Common.CreateScriptableObjectAndAddToObject<Retaliation>($"{nameof(Retaliation)}", level),
+                    Common.CreateScriptableObjectAndAddToObject<Retaliation>(NameHelper.ClassFeatures_Barbarian.Retaliation, level),
                 });
                 
                 return level;
@@ -492,10 +492,10 @@ namespace DnD.Editor.Initializer
             protected override Level InitializeLevel14()
             {
                 var level = InitializeLevel(
-                    $"{ClassName}_{SubClassName}_{NameHelper.Naming.Level}_14",
+                    $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     14,
                     5,
-                    new BarbarianFP()
+                    new BarbarianFp()
                     {
                         rages = 5,
                         rageDamage = 3,
@@ -505,7 +505,7 @@ namespace DnD.Editor.Initializer
 
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    Common.CreateScriptableObjectAndAddToObject<IntimidatingPresence>($"{nameof(IntimidatingPresence)}", level),
+                    Common.CreateScriptableObjectAndAddToObject<IntimidatingPresence>(NameHelper.ClassFeatures_Barbarian.IntimidatingPresence, level),
 
                 });
                 
@@ -561,10 +561,10 @@ namespace DnD.Editor.Initializer
         protected override Level InitializeLevel01()
         {
             var level = InitializeLevel(
-                $"{NameHelper.Classes.Barbarian}_{NameHelper.Naming.Level}_01",
+                $"{ClassName}.{NameHelper.Naming.Level}",
                 1,
                 2,
-                new BarbarianFP()
+                new BarbarianFp()
                 {
                     rages = 2,
                     rageDamage = 2,
@@ -574,9 +574,9 @@ namespace DnD.Editor.Initializer
             
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                Common.CreateScriptableObjectAndAddToObject<Rage>($"{nameof(Rage)}", level),
-                Common.CreateScriptableObjectAndAddToObject<UnarmouredDefense>($"{nameof(UnarmouredDefense)}", level),
-                Common.CreateScriptableObjectAndAddToObject<WeaponMastery>($"{nameof(WeaponMastery)}", level),
+                Common.CreateScriptableObjectAndAddToObject<Rage>(NameHelper.ClassFeatures_Barbarian.Rage, level),
+                Common.CreateScriptableObjectAndAddToObject<UnarmouredDefense>(NameHelper.ClassFeatures_Barbarian.UnarmouredDefense, level),
+                Common.CreateScriptableObjectAndAddToObject<WeaponMastery>(NameHelper.ClassFeatures_Barbarian.WeaponMastery, level),
             });
             
             return level;
@@ -585,10 +585,10 @@ namespace DnD.Editor.Initializer
         protected override Level InitializeLevel02()
         {
             var level = InitializeLevel(
-                $"{NameHelper.Classes.Barbarian}_{NameHelper.Naming.Level}_02",
+                $"{ClassName}.{NameHelper.Naming.Level}",
                 2,
                 2,
-                new BarbarianFP()
+                new BarbarianFp()
                 {
                     rages = 2,
                     rageDamage = 2,
@@ -598,9 +598,8 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                Common.CreateScriptableObjectAndAddToObject<DangerSense>($"{nameof(DangerSense)}", level),
-                Common.CreateScriptableObjectAndAddToObject<RecklessAttack>($"{nameof(RecklessAttack)}", level),
-
+                Common.CreateScriptableObjectAndAddToObject<DangerSense>(NameHelper.ClassFeatures_Barbarian.DangerSense, level),
+                Common.CreateScriptableObjectAndAddToObject<RecklessAttack>(NameHelper.ClassFeatures_Barbarian.RecklessAttack, level),
             });
             return level;
         }
@@ -608,10 +607,10 @@ namespace DnD.Editor.Initializer
         protected override Level InitializeLevel03()
         {
             var level = InitializeLevel(
-                $"{NameHelper.Classes.Barbarian}_{NameHelper.Naming.Level}_03",
+                $"{ClassName}.{NameHelper.Naming.Level}",
                 3,
                 2,
-                new BarbarianFP()
+                new BarbarianFp()
                 {
                     rages = 3,
                     rageDamage = 2,
@@ -621,9 +620,8 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                Common.CreateScriptableObjectAndAddToObject<BarbarianSubclass>($"{nameof(BarbarianSubclass)}", level),
-                Common.CreateScriptableObjectAndAddToObject<PrimalKnowledge>($"{nameof(PrimalKnowledge)}", level),
-
+                Common.CreateScriptableObjectAndAddToObject<BarbarianSubclass>(NameHelper.ClassFeatures_Barbarian.BarbarianSubclass, level),
+                Common.CreateScriptableObjectAndAddToObject<PrimalKnowledge>(NameHelper.ClassFeatures_Barbarian.PrimalKnowledge, level),
             });
             return level;
         }
@@ -631,10 +629,10 @@ namespace DnD.Editor.Initializer
         protected override Level InitializeLevel04()
         {
             var level = InitializeLevel(
-                $"{NameHelper.Classes.Barbarian}_{NameHelper.Naming.Level}_04",
+                $"{ClassName}.{NameHelper.Naming.Level}",
                 4,
                 2,
-                new BarbarianFP()
+                new BarbarianFp()
                 {
                     rages = 3,
                     rageDamage = 2,
@@ -644,8 +642,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                Common.CreateScriptableObjectAndAddToObject<AbilityScoreImprovement>($"{nameof(AbilityScoreImprovement)}", level),
-
+                Common.CreateScriptableObjectAndAddToObject<AbilityScoreImprovement>(NameHelper.ClassFeatures_Barbarian.AbilityScoreImprovement, level),
             });
             return level;
         }
@@ -653,10 +650,10 @@ namespace DnD.Editor.Initializer
         protected override Level InitializeLevel05()
         {
             var level = InitializeLevel(
-                $"{NameHelper.Classes.Barbarian}_{NameHelper.Naming.Level}_05",
+                $"{ClassName}.{NameHelper.Naming.Level}",
                 5,
                 3,
-                new BarbarianFP()
+                new BarbarianFp()
                 {
                     rages = 3,
                     rageDamage = 2,
@@ -666,9 +663,8 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                Common.CreateScriptableObjectAndAddToObject<ExtraAttack>($"{nameof(ExtraAttack)}", level),
-                Common.CreateScriptableObjectAndAddToObject<FastMovement>($"{nameof(FastMovement)}", level),
-
+                Common.CreateScriptableObjectAndAddToObject<ExtraAttack>(NameHelper.ClassFeatures_Barbarian.ExtraAttack, level),
+                Common.CreateScriptableObjectAndAddToObject<FastMovement>(NameHelper.ClassFeatures_Barbarian.FastMovement, level),
             });
             return level;
         }
@@ -676,10 +672,10 @@ namespace DnD.Editor.Initializer
         protected override Level InitializeLevel06()
         {
             var level = InitializeLevel(
-                $"{NameHelper.Classes.Barbarian}_{NameHelper.Naming.Level}_06",
+                $"{ClassName}.{NameHelper.Naming.Level}",
                 6,
                 3,
-                new BarbarianFP()
+                new BarbarianFp()
                 {
                     rages = 4,
                     rageDamage = 2,
@@ -689,8 +685,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                Common.CreateScriptableObjectAndAddToObject<SubclassFeature>($"{nameof(SubclassFeature)}", level),
-
+                Common.CreateScriptableObjectAndAddToObject<SubclassFeature>(NameHelper.ClassFeatures_Barbarian.SubclassFeature, level),
             });
             return level;
         }
@@ -698,10 +693,10 @@ namespace DnD.Editor.Initializer
         protected override Level InitializeLevel07()
         {
             var level = InitializeLevel(
-                $"{NameHelper.Classes.Barbarian}_{NameHelper.Naming.Level}_07",
+                $"{ClassName}.{NameHelper.Naming.Level}",
                 7,
                 3,
-                new BarbarianFP()
+                new BarbarianFp()
                 {
                     rages = 4,
                     rageDamage = 2,
@@ -711,9 +706,8 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                Common.CreateScriptableObjectAndAddToObject<FeralInstinct>($"{nameof(FeralInstinct)}", level),
-                Common.CreateScriptableObjectAndAddToObject<InstinctivePounce>($"{nameof(InstinctivePounce)}", level),
-
+                Common.CreateScriptableObjectAndAddToObject<FeralInstinct>(NameHelper.ClassFeatures_Barbarian.FeralInstinct, level),
+                Common.CreateScriptableObjectAndAddToObject<InstinctivePounce>(NameHelper.ClassFeatures_Barbarian.InstinctivePounce, level),
             });
             return level;
         }
@@ -721,10 +715,10 @@ namespace DnD.Editor.Initializer
         protected override Level InitializeLevel08()
         {
             var level = InitializeLevel(
-                $"{NameHelper.Classes.Barbarian}_{NameHelper.Naming.Level}_08",
+                $"{ClassName}.{NameHelper.Naming.Level}",
                 8,
                 3,
-                new BarbarianFP()
+                new BarbarianFp()
                 {
                     rages = 4,
                     rageDamage = 2,
@@ -734,8 +728,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                Common.CreateScriptableObjectAndAddToObject<AbilityScoreImprovement>($"{nameof(AbilityScoreImprovement)}", level),
-
+                Common.CreateScriptableObjectAndAddToObject<AbilityScoreImprovement>(NameHelper.ClassFeatures_Barbarian.AbilityScoreImprovement, level),
             });
             return level;
         }
@@ -743,10 +736,10 @@ namespace DnD.Editor.Initializer
         protected override Level InitializeLevel09()
         {
             var level = InitializeLevel(
-                $"{NameHelper.Classes.Barbarian}_{NameHelper.Naming.Level}_09",
+                $"{ClassName}.{NameHelper.Naming.Level}",
                 9,
                 4,
-                new BarbarianFP()
+                new BarbarianFp()
                 {
                     rages = 4,
                     rageDamage = 3,
@@ -756,8 +749,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                Common.CreateScriptableObjectAndAddToObject<BrutalStrike>($"{nameof(BrutalStrike)}", level),
-
+                Common.CreateScriptableObjectAndAddToObject<BrutalStrike>(NameHelper.ClassFeatures_Barbarian.BrutalStrike, level),
             });
             return level;
         }
@@ -765,10 +757,10 @@ namespace DnD.Editor.Initializer
         protected override Level InitializeLevel10()
         {
             var level = InitializeLevel(
-                $"{NameHelper.Classes.Barbarian}_{NameHelper.Naming.Level}_10",
+                $"{ClassName}.{NameHelper.Naming.Level}",
                 10,
                 4,
-                new BarbarianFP()
+                new BarbarianFp()
                 {
                     rages = 4,
                     rageDamage = 3,
@@ -778,8 +770,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                Common.CreateScriptableObjectAndAddToObject<SubclassFeature>($"{nameof(SubclassFeature)}", level),
-
+                Common.CreateScriptableObjectAndAddToObject<SubclassFeature>(NameHelper.ClassFeatures_Barbarian.SubclassFeature, level),
             });
             return level;
         }
@@ -787,10 +778,10 @@ namespace DnD.Editor.Initializer
         protected override Level InitializeLevel11()
         {
             var level = InitializeLevel(
-                $"{NameHelper.Classes.Barbarian}_{NameHelper.Naming.Level}_11",
+                $"{ClassName}.{NameHelper.Naming.Level}",
                 11,
                 4,
-                new BarbarianFP()
+                new BarbarianFp()
                 {
                     rages = 4,
                     rageDamage = 3,
@@ -800,8 +791,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                Common.CreateScriptableObjectAndAddToObject<RelentlessRage>($"{nameof(RelentlessRage)}", level),
-
+                Common.CreateScriptableObjectAndAddToObject<RelentlessRage>(NameHelper.ClassFeatures_Barbarian.RelentlessRage, level),
             });
             return level;
         }
@@ -809,10 +799,10 @@ namespace DnD.Editor.Initializer
         protected override Level InitializeLevel12()
         {
             var  level = InitializeLevel(
-                $"{NameHelper.Classes.Barbarian}_{NameHelper.Naming.Level}_12",
+                $"{ClassName}.{NameHelper.Naming.Level}",
                 12,
                 4,
-                new BarbarianFP()
+                new BarbarianFp()
                 {
                     rages = 5,
                     rageDamage = 3,
@@ -822,8 +812,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                Common.CreateScriptableObjectAndAddToObject<AbilityScoreImprovement>($"{nameof(AbilityScoreImprovement)}", level),
-
+                Common.CreateScriptableObjectAndAddToObject<AbilityScoreImprovement>(NameHelper.ClassFeatures_Barbarian.AbilityScoreImprovement, level),
             });
             return level;
         }
@@ -831,10 +820,10 @@ namespace DnD.Editor.Initializer
         protected override Level InitializeLevel13()
         {
             var level = InitializeLevel(
-                $"{NameHelper.Classes.Barbarian}_{NameHelper.Naming.Level}_13",
+                $"{ClassName}.{NameHelper.Naming.Level}",
                 13,
                 5,
-                new BarbarianFP()
+                new BarbarianFp()
                 {
                     rages = 5,
                     rageDamage = 3,
@@ -844,8 +833,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                Common.CreateScriptableObjectAndAddToObject<ImprovedBrutalStrike>($"{nameof(ImprovedBrutalStrike)}", level),
-
+                Common.CreateScriptableObjectAndAddToObject<ImprovedBrutalStrike>(NameHelper.ClassFeatures_Barbarian.ImprovedBrutalStrike, level),
             });
             return level;
         }
@@ -853,10 +841,10 @@ namespace DnD.Editor.Initializer
         protected override Level InitializeLevel14()
         {
             var level = InitializeLevel(
-                $"{NameHelper.Classes.Barbarian}_{NameHelper.Naming.Level}_14",
+                $"{ClassName}.{NameHelper.Naming.Level}",
                 14,
                 5,
-                new BarbarianFP()
+                new BarbarianFp()
                 {
                     rages = 5,
                     rageDamage = 3,
@@ -866,8 +854,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                Common.CreateScriptableObjectAndAddToObject<SubclassFeature>($"{nameof(SubclassFeature)}", level),
-
+                Common.CreateScriptableObjectAndAddToObject<SubclassFeature>(NameHelper.ClassFeatures_Barbarian.SubclassFeature, level),
             });
             return level;
         }
@@ -875,10 +862,10 @@ namespace DnD.Editor.Initializer
         protected override Level InitializeLevel15()
         {
             var level = InitializeLevel(
-                $"{NameHelper.Classes.Barbarian}_{NameHelper.Naming.Level}_15",
+                $"{ClassName}.{NameHelper.Naming.Level}",
                 15,
                 5,
-                new BarbarianFP()
+                new BarbarianFp()
                 {
                     rages = 5,
                     rageDamage = 3,
@@ -888,8 +875,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                Common.CreateScriptableObjectAndAddToObject<PersistentRage>($"{nameof(PersistentRage)}", level),
-
+                Common.CreateScriptableObjectAndAddToObject<PersistentRage>(NameHelper.ClassFeatures_Barbarian.PersistentRage, level),
             });
             return level;
         }
@@ -897,10 +883,10 @@ namespace DnD.Editor.Initializer
         protected override Level InitializeLevel16()
         {
             var level = InitializeLevel(
-                $"{NameHelper.Classes.Barbarian}_{NameHelper.Naming.Level}_16",
+                $"{ClassName}.{NameHelper.Naming.Level}",
                 16,
                 5,
-                new BarbarianFP()
+                new BarbarianFp()
                 {
                     rages = 5,
                     rageDamage = 4,
@@ -910,8 +896,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                Common.CreateScriptableObjectAndAddToObject<AbilityScoreImprovement>($"{nameof(AbilityScoreImprovement)}", level),
-
+                Common.CreateScriptableObjectAndAddToObject<AbilityScoreImprovement>(NameHelper.ClassFeatures_Barbarian.AbilityScoreImprovement, level),
             });
             return level;
         }
@@ -919,10 +904,10 @@ namespace DnD.Editor.Initializer
         protected override Level InitializeLevel17()
         {
             var level = InitializeLevel(
-                $"{NameHelper.Classes.Barbarian}_{NameHelper.Naming.Level}_17",
+                $"{ClassName}.{NameHelper.Naming.Level}",
                 17,
                 6,
-                new BarbarianFP()
+                new BarbarianFp()
                 {
                     rages = 6,
                     rageDamage = 4,
@@ -932,8 +917,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                Common.CreateScriptableObjectAndAddToObject<ImprovedBrutalStrike>($"{nameof(ImprovedBrutalStrike)}", level),
-
+                Common.CreateScriptableObjectAndAddToObject<ImprovedBrutalStrike>(NameHelper.ClassFeatures_Barbarian.ImprovedBrutalStrike, level),
             });
             return level;
         }
@@ -941,10 +925,10 @@ namespace DnD.Editor.Initializer
         protected override Level InitializeLevel18()
         {
             var level = InitializeLevel(
-                $"{NameHelper.Classes.Barbarian}_{NameHelper.Naming.Level}_18",
+                $"{ClassName}.{NameHelper.Naming.Level}",
                 18,
                 6,
-                new BarbarianFP()
+                new BarbarianFp()
                 {
                     rages = 6,
                     rageDamage = 4,
@@ -954,8 +938,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                Common.CreateScriptableObjectAndAddToObject<SubclassFeature>($"{nameof(SubclassFeature)}", level),
-
+                Common.CreateScriptableObjectAndAddToObject<SubclassFeature>(NameHelper.ClassFeatures_Barbarian.SubclassFeature, level),
             });
             return level;
         }
@@ -963,10 +946,10 @@ namespace DnD.Editor.Initializer
         protected override Level InitializeLevel19()
         {
             var level = InitializeLevel(
-                $"{NameHelper.Classes.Barbarian}_{NameHelper.Naming.Level}_19",
+                $"{ClassName}.{NameHelper.Naming.Level}",
                 19,
                 6,
-                new BarbarianFP()
+                new BarbarianFp()
                 {
                     rages = 6,
                     rageDamage = 4,
@@ -976,8 +959,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                Common.CreateScriptableObjectAndAddToObject<EpicBoon>($"{nameof(EpicBoon)}", level),
-
+                Common.CreateScriptableObjectAndAddToObject<EpicBoon>(NameHelper.ClassFeatures_Barbarian.EpicBoon, level),
             });
             return level;
         }
@@ -985,10 +967,10 @@ namespace DnD.Editor.Initializer
         protected override Level InitializeLevel20()
         {
             var level = InitializeLevel(
-                $"{NameHelper.Classes.Barbarian}_{NameHelper.Naming.Level}_20",
+                $"{ClassName}.{NameHelper.Naming.Level}",
                 20,
                 6,
-                new BarbarianFP()
+                new BarbarianFp()
                 {
                     rages = 6,
                     rageDamage = 4,
@@ -998,8 +980,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                Common.CreateScriptableObjectAndAddToObject<PrimalChampion>($"{nameof(PrimalChampion)}", level),
-
+                Common.CreateScriptableObjectAndAddToObject<PrimalChampion>(NameHelper.ClassFeatures_Barbarian.PrimalChampion, level),
             });
             return level;
         }

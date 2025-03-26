@@ -4,7 +4,7 @@ using DnD.Code.Scripts.Classes.FeatureProperties;
 namespace DnD.Code.Scripts.Classes.Barbarian.FeatureProperties
 {
     [Serializable]
-    public class BarbarianFP : IClassFeatureTraits
+    public class BarbarianFp : IClassFeatureTraits
     {
         public int rages;
         public int rageDamage;

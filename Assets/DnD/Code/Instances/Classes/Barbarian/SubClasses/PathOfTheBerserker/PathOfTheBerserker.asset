@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 760c3175d147f34488c27c47d230bb07, type: 3}
   m_Name: PathOfTheBerserker
   m_EditorClassIdentifier: 
-  Level03: {fileID: 11400000, guid: c850ab65d50b2e94a8bb8bc4678cfcec, type: 2}
-  Level06: {fileID: 11400000, guid: 605ba3b7fe6e7b148b41533e94b131a7, type: 2}
-  Level10: {fileID: 11400000, guid: a1c101ee0e0fe75499be20e8d5f8bdd5, type: 2}
-  Level14: {fileID: 11400000, guid: 204bd37b566c91d4d9ae24a151bb8873, type: 2}
+  Level03: {fileID: 0}
+  Level06: {fileID: 0}
+  Level10: {fileID: 0}
+  Level14: {fileID: 0}
   displayName: 
   displayDescription: 

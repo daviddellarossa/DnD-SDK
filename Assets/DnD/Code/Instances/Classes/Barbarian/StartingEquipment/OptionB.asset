@@ -12,13 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e2ece3541cae4fa08de39e85b166c, type: 3}
   m_Name: OptionB
   m_EditorClassIdentifier: 
-  Items:
-  - rid: 8746986082103459951
+  Items: []
   references:
     version: 2
-    RefIds:
-    - rid: 8746986082103459951
-      type: {class: StartingEquipment/ItemWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
-      data:
-        Item: {fileID: 11400000, guid: 1db5925526c836b4bb86b5ef334241a5, type: 2}
-        Amount: 75
+    RefIds: []

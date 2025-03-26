@@ -12,51 +12,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c5968dbe13d364cbe36aae694c3f82, type: 3}
   m_Name: Barbarian
   m_EditorClassIdentifier: 
-  PrimaryAbility: {fileID: 11400000, guid: 1b0ab14d768ac0e458574c6cd37a5491, type: 2}
-  HitPointDie: {fileID: 11400000, guid: 55ea3d617514ced46bd8d6f580c4b8c9, type: 2}
-  SavingThrowProficiencies:
-  - {fileID: 11400000, guid: 1b0ab14d768ac0e458574c6cd37a5491, type: 2}
-  - {fileID: 11400000, guid: 201125b3e2d3a8b4980d203d6eb72657, type: 2}
-  SkillProficienciesAvailable:
-  - {fileID: 11400000, guid: 6e66807c4ae635c4cb57330fdcffc001, type: 2}
-  - {fileID: 11400000, guid: 19af576ee2343f24f835e8e62b922231, type: 2}
-  - {fileID: 11400000, guid: c487db87a3b29f94bb68d8221e7ee20f, type: 2}
-  - {fileID: 11400000, guid: c4168c8f94679ad46b0f29ecec06d9c9, type: 2}
-  - {fileID: 11400000, guid: a956dad4fbc185145bccff87c2460ca9, type: 2}
-  - {fileID: 11400000, guid: cb1465541ac074a44b35ca4df178ef6e, type: 2}
-  WeaponProficiencies:
-  - {fileID: 11400000, guid: 570d457c1172f5940bbf6fd5cd341e85, type: 2}
-  - {fileID: 11400000, guid: 1bdf88451f1635143bc1ed2818e20872, type: 2}
-  - {fileID: 11400000, guid: 7c4ea157468202348b5b520ad44015b9, type: 2}
-  - {fileID: 11400000, guid: 1244ffb235b46774bb36d1f048ecf652, type: 2}
-  StartingEquipmentOptions:
-  - {fileID: 11400000, guid: f6c0405bf260cca4aab7866f5d4a74bd, type: 2}
-  - {fileID: 11400000, guid: bad9b1c59ec8a944d9eea1416ebe9baf, type: 2}
+  PrimaryAbility: {fileID: 0}
+  HitPointDie: {fileID: 0}
+  SavingThrowProficiencies: []
+  SkillProficienciesAvailable: []
+  WeaponProficiencies: []
+  ArmorTraining: []
+  StartingEquipmentOptions: []
   Levels:
-  - {fileID: 11400000, guid: 043373d2c98b01d4ca39dcbcd2364d4b, type: 2}
-  - {fileID: 11400000, guid: 3b3bf885acb3fd149b9d8646e622d1ab, type: 2}
-  - {fileID: 11400000, guid: 77a2d895ed9d62749987295ef58107e9, type: 2}
-  - {fileID: 11400000, guid: 14ea64892848e554eb6f40a2674a6f1b, type: 2}
-  - {fileID: 11400000, guid: e0da952419cf3454fb8b010543e5fbf3, type: 2}
-  - {fileID: 11400000, guid: ff58bf8a3baa8064cbea03a4b32343c4, type: 2}
-  - {fileID: 11400000, guid: a5c18fd40bf53f9499ffafcf8672b03e, type: 2}
-  - {fileID: 11400000, guid: 59aa2a595f9da3b49a53059df16fd351, type: 2}
-  - {fileID: 11400000, guid: f02e65d95821d8248aabd6cdba99115a, type: 2}
-  - {fileID: 11400000, guid: c8802eeafcd438f498028babf8c12cb0, type: 2}
-  - {fileID: 11400000, guid: 57db49e932d2ff848843ff6c773b2d8e, type: 2}
-  - {fileID: 11400000, guid: 0f9d71ca29c17c043b205e35ae7aa761, type: 2}
-  - {fileID: 11400000, guid: 75fafda57c4287b49a6ec6697dcede6d, type: 2}
-  - {fileID: 11400000, guid: 0be2d1322f5210949ba339f302805466, type: 2}
-  - {fileID: 11400000, guid: 231c45a1656ce8541a6f4317e018d1be, type: 2}
-  - {fileID: 11400000, guid: 8ad777b060648b6408b9839a6f9ccef0, type: 2}
-  - {fileID: 11400000, guid: 9f34d370d59e156428b2b4d28b8e7ebf, type: 2}
-  - {fileID: 11400000, guid: 52e931ee2376a624480c40e643f84033, type: 2}
-  - {fileID: 11400000, guid: 4240cf249547957469e7ba81dedbf832, type: 2}
-  - {fileID: 11400000, guid: 2ea812a794692404fb721c757d8f682a, type: 2}
-  SubClasses:
-  - {fileID: 11400000, guid: 81b2f164caecae54dbcae1bd88cd65b6, type: 2}
-  - {fileID: 11400000, guid: 0fde8234c2da77546ab57209f9f276b1, type: 2}
-  - {fileID: 11400000, guid: 1e0b9c7356a7e064591aaca28e3f4527, type: 2}
-  - {fileID: 11400000, guid: 8aee6f386e4dce34984f2e04bfd52c20, type: 2}
-  displayName: Classes.Barbarian
-  displayDescription: Classes.Barbarian.Description
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  SubClasses: []
+  displayName: 
+  displayDescription: 
+  references:
+    version: 2
+    RefIds: []

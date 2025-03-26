@@ -5,21 +5,15 @@ namespace Tests.Classes
     public class ClassTestModel
     {
         public string Name { get; set; }
-        public string DisplayName => $"{NameHelper.Naming.Species}.{Name}";
+        public string DisplayName => $"{NameHelper.Naming.Classes}.{Name}";
         public string DisplayDescription => $"{DisplayName}.{NameHelper.Naming.Description}";
-        public string Ability { get; set; }
-        public string Die { get; set; }
-        public string[] SavingThrowProficiencies { get; set; }
-        public string[] SkillProficienciesAvailable { get; set; }
-        public string[] WeaponProficiencies { get; set; }
-        public string[] ArmorTraining { get; set; }
-        public StartingEquipmentTestModel[] StartingEquipmentOptions { get; set; }
-        public LevelTestModel[] Levels { get; set; }
-        public SubClassTestModel[] SubClasses { get; set; }
+        public string PrimaryAbility { get; set; }
+        public string HitPointDie { get; set; }
     }
 
     public class StartingEquipmentTestModel
     {
+        public string Name { get; set; }
         public ItemWithAmountTestModel[] Items { get; set; }
     }
 
@@ -31,23 +25,36 @@ namespace Tests.Classes
 
     public class LevelTestModel
     {
-        public string Name  { get; set; }
-        public string DisplayName => $"{NameHelper.Naming.Levels}.{Name}";
+        private string name;
+
+        public string Name
+        {
+            get => $"{name}.{LevelNum:00}";
+            set => name = value;
+        }
+
+        public virtual string DisplayName => $"{Name}.{LevelNum:00}";
         public string DisplayDescription => $"{DisplayName}.{NameHelper.Naming.Description}";
         public int LevelNum { get; set; }
         public int ProficiencyBonus { get; set; }
         public string[] ClassFeatures { get; set; }
-        public string[] ClassFeatureTraits { get; set; }
+        public IClassFeatureTraitsTestModel ClassFeatureTraits { get; set; }
+    }
+
+    public class SubLevelTestModel : LevelTestModel
+    {
+        public string SubClassName  { get; set; }
     }
 
     public class SubClassTestModel
     {
-        public int Name  { get; set; }
-        public string DisplayName => $"{NameHelper.Naming.Levels}.{Name}";
+        public string Name  { get; set; }
+        public string ClassName { get; set; }
+        public string DisplayName => $"{ClassName}.{Name}";
         public string DisplayDescription => $"{DisplayName}.{NameHelper.Naming.Description}";
-        public LevelTestModel Level03 { get; set; }
-        public LevelTestModel Level06 { get; set; }
-        public LevelTestModel Level10 { get; set; }
-        public LevelTestModel Level14 { get; set; }
+    }
+
+    public interface IClassFeatureTraitsTestModel
+    {
     }
 }
