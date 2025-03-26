@@ -12,15 +12,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
   m_Name: Barbarian.Level.02
   m_EditorClassIdentifier: 
-  LevelNum: 0
-  ProficiencyBonus: 0
-  ClassFeatures: []
+  LevelNum: 2
+  ProficiencyBonus: 2
+  ClassFeatures:
+  - {fileID: 8278219198944251278}
+  - {fileID: 3454413908758492671}
   ClassFeatureTraits:
-    rid: -2
-  displayName: 
-  displayDescription: 
+    rid: 8746986128382361783
+  displayName: Levels.Barbarian.Level
+  displayDescription: Levels.Barbarian.Level.Description
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 8746986128382361783
+      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data:
+        rages: 2
+        rageDamage: 2
+        weaponMastery: 2
+--- !u!114 &3454413908758492671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ad6fe1035542fbb1e4f9400c702003, type: 3}
+  m_Name: RecklessAttack
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 
+--- !u!114 &8278219198944251278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cda25f610254d7fb3173176f7fc56c0, type: 3}
+  m_Name: DangerSense
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 

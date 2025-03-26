@@ -12,15 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
   m_Name: Barbarian.Level.12
   m_EditorClassIdentifier: 
-  LevelNum: 0
-  ProficiencyBonus: 0
-  ClassFeatures: []
+  LevelNum: 12
+  ProficiencyBonus: 4
+  ClassFeatures:
+  - {fileID: 4456514672308671455}
   ClassFeatureTraits:
-    rid: -2
-  displayName: 
-  displayDescription: 
+    rid: 8746986128382361777
+  displayName: Levels.Barbarian.Level
+  displayDescription: Levels.Barbarian.Level.Description
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 8746986128382361777
+      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data:
+        rages: 5
+        rageDamage: 3
+        weaponMastery: 4
+--- !u!114 &4456514672308671455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b44875cff0467eba9f3810ef4adf0c, type: 3}
+  m_Name: AbilityScoreImprovement
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 

@@ -12,15 +12,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
   m_Name: Barbarian.Level.05
   m_EditorClassIdentifier: 
-  LevelNum: 0
-  ProficiencyBonus: 0
-  ClassFeatures: []
+  LevelNum: 5
+  ProficiencyBonus: 3
+  ClassFeatures:
+  - {fileID: 6754348351147310544}
+  - {fileID: 1028663947235336944}
   ClassFeatureTraits:
-    rid: -2
-  displayName: 
-  displayDescription: 
+    rid: 8746986128382361764
+  displayName: Levels.Barbarian.Level
+  displayDescription: Levels.Barbarian.Level.Description
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 8746986128382361764
+      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data:
+        rages: 3
+        rageDamage: 2
+        weaponMastery: 3
+--- !u!114 &1028663947235336944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4500d684eb043678ac9afe3b78b5c9d, type: 3}
+  m_Name: FastMovement
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 
+--- !u!114 &6754348351147310544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19929052c9ad4883978685c21dcfb19c, type: 3}
+  m_Name: ExtraAttack
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 
