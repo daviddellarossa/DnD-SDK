@@ -19,30 +19,35 @@ namespace DnD.Code.Scripts.Characters
 {
     public class CharacterStats : ScriptableObject
     {
-        [Header("General")]
-        public string Name;
+        public string characterName;
 
         [SerializeReference]
-        public Background Background;
+        [SerializeField]
+        private Background background;
 
         [SerializeReference]
-        public Class Class;
+        private Class @class;
 
         [SerializeReference]
-        public SubClass SubClass;
+        private SubClass subClass;
 
         [FormerlySerializedAs("Species")] [SerializeReference]
-        public Species.Spex spex;
+        private Species.Spex spex;
 
-        public int Level = 1;
+        [SerializeField]
+        private int level = 1;
 
-        public int XP = 0;
+        [SerializeField]
+        private int xp = 0;
 
-        public string ArmorClass;
+        [SerializeField]
+        private string armorClass;
 
-        public HitPoints HitPoints;
+        [SerializeField]
+        private HitPoints hitPoints;
 
-        public DeathSaves DeathSaves;
+        [SerializeField]
+        private DeathSaves deathSaves;
 
         public Dictionary<AbilityEnum, AbilityStats> Abilities = new Dictionary<AbilityEnum, AbilityStats>
             {
@@ -55,7 +60,7 @@ namespace DnD.Code.Scripts.Characters
                 // [AbilityEnum.Charisma] = new AbilityStats(AbilityEnum.Charisma),
         };
  
-        public int ProficiencyBonus => 2 + (this.Level - 1) / 4;
+        public int ProficiencyBonus => 2 + (this.level - 1) / 4;
 
         public HashSet<BaseArmourType> ArmourTypeProficiencies;
 
@@ -120,34 +125,19 @@ namespace DnD.Code.Scripts.Characters
 
         public string Initiative;
 
-        [Header("Hit Dice")]
         [SerializeField]
         public string HitDice;
 
-        [Header("Weapons & Damage Cantrips")]
         [SerializeField]
         public string WeaponsDamageCantrips;
 
-        [Header("Class Features")]
         [SerializeField]
         public string ClassFeatures;
 
-        [Header("Extra Info")]
         [SerializeField]
         public string Appearance;
+        
         [SerializeField]
         public string BackstoryAndPersonality;
-
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
     }
 }
