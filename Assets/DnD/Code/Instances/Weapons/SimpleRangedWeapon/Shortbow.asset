@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2287146949453099033
+--- !u!114 &-8714835867056244046
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
-  m_Name: Two Handed
+  m_Script: {fileID: 11500000, guid: 1de63446a39c28145a8b4eea8f194a7e, type: 3}
+  m_Name: Vex
   m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Two Handed
-  displayDescription: WeaponProperty.Two Handed.Description
+  displayName: WeaponMasteryProperty.Vex
+  displayDescription: WeaponMasteryProperty.Vex.Description
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31,28 +31,14 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: 2398366897300319618}
-  - {fileID: -2287146949453099033}
-  MasteryProperty: {fileID: 1740542221320354890}
+  - {fileID: 1482306629241417119}
+  - {fileID: 9181504144210209749}
+  MasteryProperty: {fileID: -8714835867056244046}
   Weight: 1
   Cost: 2500
   displayName: Weapons.SimpleRangedWeapon.Shortbow
   displayDescription: Weapons.SimpleRangedWeapon.Shortbow.Description
---- !u!114 &1740542221320354890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1de63446a39c28145a8b4eea8f194a7e, type: 3}
-  m_Name: Vex
-  m_EditorClassIdentifier: 
-  displayName: WeaponMasteryProperty.Vex
-  displayDescription: WeaponMasteryProperty.Vex.Description
---- !u!114 &2398366897300319618
+--- !u!114 &1482306629241417119
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -70,3 +56,17 @@ MonoBehaviour:
     Min: 24
     Max: 96
   Type: {fileID: 11400000, guid: 7af87e900e9fcd94c905d12f73ca1e6c, type: 2}
+--- !u!114 &9181504144210209749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
+  m_Name: Two Handed
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Two Handed
+  displayDescription: WeaponProperty.Two Handed.Description

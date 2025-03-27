@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7859767173072080347
+--- !u!114 &-1523104589177400237
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31,28 +31,14 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 55ea3d617514ced46bd8d6f580c4b8c9, type: 2}
   DamageType: {fileID: 11400000, guid: 9437bf1f986d56941b00734a2f0ec3ca, type: 2}
   Properties:
-  - {fileID: 6023567972819666313}
-  - {fileID: -7859767173072080347}
-  MasteryProperty: {fileID: 7241953120610787369}
+  - {fileID: 4452819767398699846}
+  - {fileID: -1523104589177400237}
+  MasteryProperty: {fileID: 1899052127581347472}
   Weight: 3.5
   Cost: 3000
   displayName: Weapons.MartialMeleeWeapon.Greataxe
   displayDescription: Weapons.MartialMeleeWeapon.Greataxe.Description
---- !u!114 &6023567972819666313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 037e71a86e645a242b3e1e815ad68008, type: 3}
-  m_Name: Heavy
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Heavy
-  displayDescription: WeaponProperty.Heavy.Description
---- !u!114 &7241953120610787369
+--- !u!114 &1899052127581347472
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -66,3 +52,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponMasteryProperty.Cleave
   displayDescription: WeaponMasteryProperty.Cleave.Description
+--- !u!114 &4452819767398699846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 037e71a86e645a242b3e1e815ad68008, type: 3}
+  m_Name: Heavy
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Heavy
+  displayDescription: WeaponProperty.Heavy.Description

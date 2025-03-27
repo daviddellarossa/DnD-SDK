@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3452544936607889326
+--- !u!114 &-4413181934493050107
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31,7 +31,7 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
   DamageType: {fileID: 11400000, guid: 4a6261dd04b0a8941a6be6453b8bbb47, type: 2}
   Properties: []
-  MasteryProperty: {fileID: -3452544936607889326}
+  MasteryProperty: {fileID: -4413181934493050107}
   Weight: 2
   Cost: 500
   displayName: Weapons.SimpleMeleeWeapon.Mace

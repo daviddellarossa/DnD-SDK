@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8007680219981803349
+--- !u!114 &-5624763631022000244
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,7 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponProperty.Heavy
   displayDescription: WeaponProperty.Heavy.Description
---- !u!114 &-853248419500756945
+--- !u!114 &-2027853267549889714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74e2517a1e89530418ff81722a46388e, type: 3}
+  m_Name: Cleave
+  m_EditorClassIdentifier: 
+  displayName: WeaponMasteryProperty.Cleave
+  displayDescription: WeaponMasteryProperty.Cleave.Description
+--- !u!114 &-1932670967014435216
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28,6 +42,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponProperty.Two Handed
   displayDescription: WeaponProperty.Two Handed.Description
+--- !u!114 &-564888470874639167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb5d0173bc167f4ba82fdbebe29932e, type: 3}
+  m_Name: Reach
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Reach
+  displayDescription: WeaponProperty.Reach.Description
+  ExtraReach: 2.5
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,40 +74,11 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 148ec924f8b04f54fb2cb6ad83ecc392, type: 2}
   DamageType: {fileID: 11400000, guid: 9437bf1f986d56941b00734a2f0ec3ca, type: 2}
   Properties:
-  - {fileID: -8007680219981803349}
-  - {fileID: -853248419500756945}
-  - {fileID: 8554638431692447995}
-  MasteryProperty: {fileID: 7130527704735812529}
+  - {fileID: -5624763631022000244}
+  - {fileID: -1932670967014435216}
+  - {fileID: -564888470874639167}
+  MasteryProperty: {fileID: -2027853267549889714}
   Weight: 3
   Cost: 2000
   displayName: Weapons.MartialMeleeWeapon.Halberd
   displayDescription: Weapons.MartialMeleeWeapon.Halberd.Description
---- !u!114 &7130527704735812529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74e2517a1e89530418ff81722a46388e, type: 3}
-  m_Name: Cleave
-  m_EditorClassIdentifier: 
-  displayName: WeaponMasteryProperty.Cleave
-  displayDescription: WeaponMasteryProperty.Cleave.Description
---- !u!114 &8554638431692447995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cb5d0173bc167f4ba82fdbebe29932e, type: 3}
-  m_Name: Reach
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Reach
-  displayDescription: WeaponProperty.Reach.Description
-  ExtraReach: 2.5

@@ -17,13 +17,28 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
   DamageType: {fileID: 11400000, guid: 4a6261dd04b0a8941a6be6453b8bbb47, type: 2}
   Properties:
-  - {fileID: 6257989772058089168}
-  MasteryProperty: {fileID: 7127898635820606686}
+  - {fileID: 7499155214094790225}
+  MasteryProperty: {fileID: 1819139653465557026}
   Weight: 2.5
   Cost: 1500
   displayName: Weapons.MartialMeleeWeapon.Warhammer
   displayDescription: Weapons.MartialMeleeWeapon.Warhammer.Description
---- !u!114 &6257989772058089168
+--- !u!114 &1819139653465557026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92af2a4d070d7b4a8ba7357ce1e0dde, type: 3}
+  m_Name: Push
+  m_EditorClassIdentifier: 
+  displayName: WeaponMasteryProperty.Push
+  displayDescription: WeaponMasteryProperty.Push.Description
+  Distance: 3
+--- !u!114 &7499155214094790225
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -39,18 +54,3 @@ MonoBehaviour:
   displayDescription: WeaponProperty.Versatile.Description
   NumberOfDice: 1
   DieType: {fileID: 11400000, guid: 148ec924f8b04f54fb2cb6ad83ecc392, type: 2}
---- !u!114 &7127898635820606686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e92af2a4d070d7b4a8ba7357ce1e0dde, type: 3}
-  m_Name: Push
-  m_EditorClassIdentifier: 
-  displayName: WeaponMasteryProperty.Push
-  displayDescription: WeaponMasteryProperty.Push.Description
-  Distance: 3

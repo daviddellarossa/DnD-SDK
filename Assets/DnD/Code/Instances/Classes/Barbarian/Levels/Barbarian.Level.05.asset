@@ -1,19 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7835803001461139285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4500d684eb043678ac9afe3b78b5c9d, type: 3}
-  m_Name: FastMovement
-  m_EditorClassIdentifier: 
-  displayName: 
-  displayDescription: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31,20 +17,20 @@ MonoBehaviour:
   LevelNum: 5
   ProficiencyBonus: 3
   ClassFeatures:
-  - {fileID: 4596291670480811542}
-  - {fileID: -7835803001461139285}
+  - {fileID: 711347466290152449}
+  - {fileID: 1315412886165031517}
   ClassFeatureTraits:
-    rid: 8746986145678360832
+    rid: 8746986146811347031
   references:
     version: 2
     RefIds:
-    - rid: 8746986145678360832
+    - rid: 8746986146811347031
       type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
         rages: 3
         rageDamage: 2
         weaponMastery: 3
---- !u!114 &4596291670480811542
+--- !u!114 &711347466290152449
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,6 +41,20 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19929052c9ad4883978685c21dcfb19c, type: 3}
   m_Name: ExtraAttack
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 
+--- !u!114 &1315412886165031517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4500d684eb043678ac9afe3b78b5c9d, type: 3}
+  m_Name: FastMovement
   m_EditorClassIdentifier: 
   displayName: 
   displayDescription: 

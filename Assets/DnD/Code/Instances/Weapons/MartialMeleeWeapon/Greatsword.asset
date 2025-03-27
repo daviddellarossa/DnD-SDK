@@ -17,42 +17,14 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
   DamageType: {fileID: 11400000, guid: 9437bf1f986d56941b00734a2f0ec3ca, type: 2}
   Properties:
-  - {fileID: 4736560964624985580}
-  - {fileID: 3147195291118992814}
-  MasteryProperty: {fileID: 399369538066970896}
+  - {fileID: 931295410498249694}
+  - {fileID: 2462487619109160894}
+  MasteryProperty: {fileID: 5867922202538333859}
   Weight: 3
   Cost: 5000
   displayName: Weapons.MartialMeleeWeapon.Greatsword
   displayDescription: Weapons.MartialMeleeWeapon.Greatsword.Description
---- !u!114 &399369538066970896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36493f1abb9fc004589c959707dc588f, type: 3}
-  m_Name: Graze
-  m_EditorClassIdentifier: 
-  displayName: WeaponMasteryProperty.Graze
-  displayDescription: WeaponMasteryProperty.Graze.Description
---- !u!114 &3147195291118992814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
-  m_Name: Two Handed
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Two Handed
-  displayDescription: WeaponProperty.Two Handed.Description
---- !u!114 &4736560964624985580
+--- !u!114 &931295410498249694
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -66,3 +38,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponProperty.Heavy
   displayDescription: WeaponProperty.Heavy.Description
+--- !u!114 &2462487619109160894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
+  m_Name: Two Handed
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Two Handed
+  displayDescription: WeaponProperty.Two Handed.Description
+--- !u!114 &5867922202538333859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36493f1abb9fc004589c959707dc588f, type: 3}
+  m_Name: Graze
+  m_EditorClassIdentifier: 
+  displayName: WeaponMasteryProperty.Graze
+  displayDescription: WeaponMasteryProperty.Graze.Description

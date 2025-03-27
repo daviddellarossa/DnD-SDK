@@ -17,13 +17,13 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
   DamageType: {fileID: 11400000, guid: 4a6261dd04b0a8941a6be6453b8bbb47, type: 2}
   Properties:
-  - {fileID: 6029053616144330263}
-  MasteryProperty: {fileID: 6553177503306458312}
+  - {fileID: 1560502695256976394}
+  MasteryProperty: {fileID: 2478120267232201928}
   Weight: 2
   Cost: 200
   displayName: Weapons.SimpleMeleeWeapon.Quarterstaff
   displayDescription: Weapons.SimpleMeleeWeapon.Quarterstaff.Description
---- !u!114 &6029053616144330263
+--- !u!114 &1560502695256976394
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -39,7 +39,7 @@ MonoBehaviour:
   displayDescription: WeaponProperty.Versatile.Description
   NumberOfDice: 1
   DieType: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
---- !u!114 &6553177503306458312
+--- !u!114 &2478120267232201928
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

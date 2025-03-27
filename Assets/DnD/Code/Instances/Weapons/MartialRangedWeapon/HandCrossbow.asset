@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1029885183407264114
+--- !u!114 &-8253774446011335603
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,15 +9,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8954e8761f4789b49a5fe892e72beeff, type: 3}
-  m_Name: Ammunition
+  m_Script: {fileID: 11500000, guid: 1de63446a39c28145a8b4eea8f194a7e, type: 3}
+  m_Name: Vex
   m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Ammunition
-  displayDescription: WeaponProperty.Ammunition.Description
-  Range:
-    Min: 9
-    Max: 36
-  Type: {fileID: 11400000, guid: e1d8f7a120bc40040857aa574c27a5e9, type: 2}
+  displayName: WeaponMasteryProperty.Vex
+  displayDescription: WeaponMasteryProperty.Vex.Description
+--- !u!114 &-4303703794016594264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb202eed58cbad5498c5cbc96f204e39, type: 3}
+  m_Name: Loading
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Loading
+  displayDescription: WeaponProperty.Loading.Description
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,15 +45,15 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: -1029885183407264114}
-  - {fileID: 511049261602311156}
-  - {fileID: 2791803926298139227}
-  MasteryProperty: {fileID: 5275305890134988297}
+  - {fileID: 2088043208983524744}
+  - {fileID: -4303703794016594264}
+  - {fileID: 8853089710175347588}
+  MasteryProperty: {fileID: -8253774446011335603}
   Weight: 1.5
   Cost: 7500
   displayName: Weapons.MartialRangedWeapon.HandCrossbow
   displayDescription: Weapons.MartialRangedWeapon.HandCrossbow.Description
---- !u!114 &511049261602311156
+--- !u!114 &2088043208983524744
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,12 +62,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb202eed58cbad5498c5cbc96f204e39, type: 3}
-  m_Name: Loading
+  m_Script: {fileID: 11500000, guid: 8954e8761f4789b49a5fe892e72beeff, type: 3}
+  m_Name: Ammunition
   m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Loading
-  displayDescription: WeaponProperty.Loading.Description
---- !u!114 &2791803926298139227
+  displayName: WeaponProperty.Ammunition
+  displayDescription: WeaponProperty.Ammunition.Description
+  Range:
+    Min: 9
+    Max: 36
+  Type: {fileID: 11400000, guid: e1d8f7a120bc40040857aa574c27a5e9, type: 2}
+--- !u!114 &8853089710175347588
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,17 +85,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponProperty.Light
   displayDescription: WeaponProperty.Light.Description
---- !u!114 &5275305890134988297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1de63446a39c28145a8b4eea8f194a7e, type: 3}
-  m_Name: Vex
-  m_EditorClassIdentifier: 
-  displayName: WeaponMasteryProperty.Vex
-  displayDescription: WeaponMasteryProperty.Vex.Description

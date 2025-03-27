@@ -17,13 +17,13 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
   DamageType: {fileID: 11400000, guid: 4a6261dd04b0a8941a6be6453b8bbb47, type: 2}
   Properties:
-  - {fileID: 6232867521516646588}
-  MasteryProperty: {fileID: 1216774350143275507}
+  - {fileID: 5644853656342725362}
+  MasteryProperty: {fileID: 4739629627655565682}
   Weight: 5
   Cost: 200
   displayName: Weapons.SimpleMeleeWeapon.Greatclub
   displayDescription: Weapons.SimpleMeleeWeapon.Greatclub.Description
---- !u!114 &1216774350143275507
+--- !u!114 &4739629627655565682
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38,7 +38,7 @@ MonoBehaviour:
   displayName: WeaponMasteryProperty.Push
   displayDescription: WeaponMasteryProperty.Push.Description
   Distance: 3
---- !u!114 &6232867521516646588
+--- !u!114 &5644853656342725362
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

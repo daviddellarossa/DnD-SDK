@@ -1,21 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5796737582012417090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa496ce09c6415f44bd81d1ad15fb33b, type: 3}
-  m_Name: Slow
-  m_EditorClassIdentifier: 
-  displayName: WeaponMasteryProperty.Slow
-  displayDescription: WeaponMasteryProperty.Slow.Description
-  SlowBy: 3
---- !u!114 &-3261365592099852468
+--- !u!114 &-677872762181450657
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -33,6 +18,21 @@ MonoBehaviour:
     Min: 9
     Max: 36
   Type: {fileID: 11400000, guid: 11de7b482c467294889a1deab162a1c9, type: 2}
+--- !u!114 &-45210924357598175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa496ce09c6415f44bd81d1ad15fb33b, type: 3}
+  m_Name: Slow
+  m_EditorClassIdentifier: 
+  displayName: WeaponMasteryProperty.Slow
+  displayDescription: WeaponMasteryProperty.Slow.Description
+  SlowBy: 3
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50,8 +50,8 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: e23ede8f2cf0b9b49b31d2e95b0a3d15, type: 2}
   DamageType: {fileID: 11400000, guid: 4a6261dd04b0a8941a6be6453b8bbb47, type: 2}
   Properties:
-  - {fileID: -3261365592099852468}
-  MasteryProperty: {fileID: -5796737582012417090}
+  - {fileID: -677872762181450657}
+  MasteryProperty: {fileID: -45210924357598175}
   Weight: 0
   Cost: 100
   displayName: Weapons.SimpleRangedWeapon.Sling

@@ -17,9 +17,9 @@ namespace DnD.Editor.Initializer
             return Common.GetAllScriptableObjects<Armour>(PathHelper.Armours.ArmoursPath);
         }
 
-        public static IBaseArmourType[] GetAllArmourTypes()
+        public static BaseArmourType[] GetAllArmourTypes()
         {
-            var armourTypes = new List<IBaseArmourType>();
+            var armourTypes = new List<BaseArmourType>();
             armourTypes.AddRange(Common.GetAllScriptableObjects<ArmourType>(PathHelper.Armours.ArmourTypesPath));
             armourTypes.AddRange(Common.GetAllScriptableObjects<ShieldType>(PathHelper.Armours.ArmourTypesPath));
             return armourTypes.ToArray();
@@ -42,7 +42,7 @@ namespace DnD.Editor.Initializer
 
         }
 
-        private static void InitializeShields(IBaseArmourType[] armourTypes)
+        private static void InitializeShields(BaseArmourType[] armourTypes)
         {
             try
             {
@@ -74,7 +74,7 @@ namespace DnD.Editor.Initializer
             }
         }
 
-        private static void InitializeMediumArmours(IBaseArmourType[] armourTypes)
+        private static void InitializeMediumArmours(BaseArmourType[] armourTypes)
         {
             try
             {
@@ -179,7 +179,7 @@ namespace DnD.Editor.Initializer
             }
         }
 
-        private static void InitializeLightArmours(IBaseArmourType[] armourTypes)
+        private static void InitializeLightArmours(BaseArmourType[] armourTypes)
         {
             try
             {
@@ -250,7 +250,7 @@ namespace DnD.Editor.Initializer
             }
         }
 
-        private static void InitializeHeavyArmours(IBaseArmourType[] armourTypes)
+        private static void InitializeHeavyArmours(BaseArmourType[] armourTypes)
         {
             try
             {
@@ -343,9 +343,9 @@ namespace DnD.Editor.Initializer
             }
         }
 
-        private static IBaseArmourType[] InitializeArmourTypes()
+        private static BaseArmourType[] InitializeArmourTypes()
         {
-            var armourTypes = new List<IBaseArmourType>();
+            var armourTypes = new List<BaseArmourType>();
 
             try
             {

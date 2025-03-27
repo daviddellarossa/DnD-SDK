@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7092530467750407475
+--- !u!114 &-8061448360655129653
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponProperty.Loading
   displayDescription: WeaponProperty.Loading.Description
---- !u!114 &-6279669970629214798
+--- !u!114 &-5878793404239698436
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23,15 +23,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8954e8761f4789b49a5fe892e72beeff, type: 3}
-  m_Name: Ammunition
+  m_Script: {fileID: 11500000, guid: fa496ce09c6415f44bd81d1ad15fb33b, type: 3}
+  m_Name: Slow
   m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Ammunition
-  displayDescription: WeaponProperty.Ammunition.Description
-  Range:
-    Min: 12
-    Max: 36
-  Type: {fileID: 11400000, guid: d1c5027a62f3e8a4abb3ee61c531a993, type: 2}
+  displayName: WeaponMasteryProperty.Slow
+  displayDescription: WeaponMasteryProperty.Slow.Description
+  SlowBy: 3
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,30 +46,15 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 55ea3d617514ced46bd8d6f580c4b8c9, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: -6279669970629214798}
-  - {fileID: -7092530467750407475}
-  - {fileID: 6292741668731027530}
-  MasteryProperty: {fileID: 1734829197088068938}
+  - {fileID: 5044128149630381776}
+  - {fileID: -8061448360655129653}
+  - {fileID: 3840124931835742663}
+  MasteryProperty: {fileID: -5878793404239698436}
   Weight: 5
   Cost: 50000
   displayName: Weapons.MartialRangedWeapon.Musket
   displayDescription: Weapons.MartialRangedWeapon.Musket.Description
---- !u!114 &1734829197088068938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa496ce09c6415f44bd81d1ad15fb33b, type: 3}
-  m_Name: Slow
-  m_EditorClassIdentifier: 
-  displayName: WeaponMasteryProperty.Slow
-  displayDescription: WeaponMasteryProperty.Slow.Description
-  SlowBy: 3
---- !u!114 &6292741668731027530
+--- !u!114 &3840124931835742663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,3 +68,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponProperty.Two Handed
   displayDescription: WeaponProperty.Two Handed.Description
+--- !u!114 &5044128149630381776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8954e8761f4789b49a5fe892e72beeff, type: 3}
+  m_Name: Ammunition
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Ammunition
+  displayDescription: WeaponProperty.Ammunition.Description
+  Range:
+    Min: 12
+    Max: 36
+  Type: {fileID: 11400000, guid: d1c5027a62f3e8a4abb3ee61c531a993, type: 2}

@@ -44,7 +44,7 @@ namespace DnD.Editor.Initializer
         protected Ability[] Abilities => AbilitiesInitializer.GetAllAbilities();
         protected Skill[] Skills => AbilitiesInitializer.GetAllSkills();
         protected WeaponType[] WeaponTypes => WeaponsInitializer.GetAllWeaponTypes();
-        protected IBaseArmourType[] ArmourTypes => ArmoursInitializer.GetAllArmourTypes();
+        protected BaseArmourType[] ArmourTypes => ArmoursInitializer.GetAllArmourTypes();
         
         
         [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Classes Data")]

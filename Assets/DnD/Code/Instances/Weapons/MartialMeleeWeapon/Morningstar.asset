@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4412906648117833701
+--- !u!114 &-6656579215152852273
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31,7 +31,7 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties: []
-  MasteryProperty: {fileID: -4412906648117833701}
+  MasteryProperty: {fileID: -6656579215152852273}
   Weight: 2
   Cost: 1500
   displayName: Weapons.MartialMeleeWeapon.Morningstar

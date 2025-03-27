@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7996896098047658803
+--- !u!114 &-4999548287127256223
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -33,28 +33,14 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: 5441340594174407341}
-  - {fileID: -7996896098047658803}
-  MasteryProperty: {fileID: 2919875646065092684}
+  - {fileID: 5548818410401300180}
+  - {fileID: -4999548287127256223}
+  MasteryProperty: {fileID: 9205958517623682606}
   Weight: 2
   Cost: 500
   displayName: Weapons.MartialMeleeWeapon.Trident
   displayDescription: Weapons.MartialMeleeWeapon.Trident.Description
---- !u!114 &2919875646065092684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f8d5e35a94b90e41b494da90b605875, type: 3}
-  m_Name: Topple
-  m_EditorClassIdentifier: 
-  displayName: WeaponMasteryProperty.Topple
-  displayDescription: WeaponMasteryProperty.Topple.Description
---- !u!114 &5441340594174407341
+--- !u!114 &5548818410401300180
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,3 +57,17 @@ MonoBehaviour:
   Range:
     Min: 6
     Max: 18
+--- !u!114 &9205958517623682606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8d5e35a94b90e41b494da90b605875, type: 3}
+  m_Name: Topple
+  m_EditorClassIdentifier: 
+  displayName: WeaponMasteryProperty.Topple
+  displayDescription: WeaponMasteryProperty.Topple.Description

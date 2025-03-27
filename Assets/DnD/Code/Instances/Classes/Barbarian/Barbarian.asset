@@ -32,9 +32,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7c4ea157468202348b5b520ad44015b9, type: 2}
   - {fileID: 11400000, guid: 1244ffb235b46774bb36d1f048ecf652, type: 2}
   ArmorTraining:
-  - rid: -2
-  - rid: -2
-  - rid: -2
+  - {fileID: 11400000, guid: 88f9fae716238c44ba99c245c327c6c5, type: 2}
+  - {fileID: 11400000, guid: b2bbdf146f2796541ba4a2b150681300, type: 2}
+  - {fileID: 11400000, guid: 43e471904e85be840b4d26e75d00dd3a, type: 2}
   StartingEquipmentOptions:
   - {fileID: 11400000, guid: f6c0405bf260cca4aab7866f5d4a74bd, type: 2}
   - {fileID: 11400000, guid: bad9b1c59ec8a944d9eea1416ebe9baf, type: 2}
@@ -64,8 +64,3 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0fde8234c2da77546ab57209f9f276b1, type: 2}
   - {fileID: 11400000, guid: 1e0b9c7356a7e064591aaca28e3f4527, type: 2}
   - {fileID: 11400000, guid: 8aee6f386e4dce34984f2e04bfd52c20, type: 2}
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }

@@ -57,7 +57,7 @@ namespace DnD.Code.Scripts.Characters
  
         public int ProficiencyBonus => 2 + (this.Level - 1) / 4;
 
-        public HashSet<IBaseArmourType> ArmourTypeProficiencies;
+        public HashSet<BaseArmourType> ArmourTypeProficiencies;
 
         public HashSet<ITool> ToolProficiencies; //TODO: Not sure about this ITool
 

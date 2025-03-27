@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using DnD.Code.Scripts.Common;
+using UnityEngine;
 
 namespace DnD.Code.Scripts.Armour
 {
     [CreateAssetMenu(fileName = "NewShieldType", menuName = "Game Entities/Armours/ShieldType")]
-    public class ShieldType : ScriptableObject, IBaseArmourType
+    public class ShieldType : BaseArmourType, ILocalizable
     {
         [SerializeField]
         private string displayName;

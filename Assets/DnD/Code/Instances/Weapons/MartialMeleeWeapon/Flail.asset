@@ -17,12 +17,12 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
   DamageType: {fileID: 11400000, guid: 4a6261dd04b0a8941a6be6453b8bbb47, type: 2}
   Properties: []
-  MasteryProperty: {fileID: 1607460414844507750}
+  MasteryProperty: {fileID: 3153701609857223184}
   Weight: 1
   Cost: 1000
   displayName: Weapons.MartialMeleeWeapon.Flail
   displayDescription: Weapons.MartialMeleeWeapon.Flail.Description
---- !u!114 &1607460414844507750
+--- !u!114 &3153701609857223184
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

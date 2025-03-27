@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6758185508144231146
+--- !u!114 &-7636145466444056456
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15,38 +15,6 @@ MonoBehaviour:
   displayName: WeaponMasteryProperty.Slow
   displayDescription: WeaponMasteryProperty.Slow.Description
   SlowBy: 3
---- !u!114 &-2553321025721626860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb202eed58cbad5498c5cbc96f204e39, type: 3}
-  m_Name: Loading
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Loading
-  displayDescription: WeaponProperty.Loading.Description
---- !u!114 &-1051325287409174535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8954e8761f4789b49a5fe892e72beeff, type: 3}
-  m_Name: Ammunition
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Ammunition
-  displayDescription: WeaponProperty.Ammunition.Description
-  Range:
-    Min: 24
-    Max: 96
-  Type: {fileID: 11400000, guid: e1d8f7a120bc40040857aa574c27a5e9, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,15 +32,33 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: -1051325287409174535}
-  - {fileID: -2553321025721626860}
-  - {fileID: 6405347625393969571}
-  MasteryProperty: {fileID: -6758185508144231146}
+  - {fileID: 3876141549929548160}
+  - {fileID: 6702753662018280890}
+  - {fileID: 5099657047264068699}
+  MasteryProperty: {fileID: -7636145466444056456}
   Weight: 2.5
   Cost: 2500
   displayName: Weapons.SimpleRangedWeapon.LightCrossbow
   displayDescription: Weapons.SimpleRangedWeapon.LightCrossbow.Description
---- !u!114 &6405347625393969571
+--- !u!114 &3876141549929548160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8954e8761f4789b49a5fe892e72beeff, type: 3}
+  m_Name: Ammunition
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Ammunition
+  displayDescription: WeaponProperty.Ammunition.Description
+  Range:
+    Min: 24
+    Max: 96
+  Type: {fileID: 11400000, guid: e1d8f7a120bc40040857aa574c27a5e9, type: 2}
+--- !u!114 &5099657047264068699
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,3 +72,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponProperty.Two Handed
   displayDescription: WeaponProperty.Two Handed.Description
+--- !u!114 &6702753662018280890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb202eed58cbad5498c5cbc96f204e39, type: 3}
+  m_Name: Loading
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Loading
+  displayDescription: WeaponProperty.Loading.Description
