@@ -12,24 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
   m_Name: Barbarian.PathOfTheZealot.Level.10
   m_EditorClassIdentifier: 
+  displayName: Barbarian.PathOfTheZealot.Level.10
+  displayDescription: Barbarian.PathOfTheZealot.Level.10.Description
   LevelNum: 10
   ProficiencyBonus: 4
   ClassFeatures:
-  - {fileID: 9016851294746338784}
+  - {fileID: 7552565600424632945}
   ClassFeatureTraits:
-    rid: 8746986128382361746
-  displayName: Levels.Barbarian.PathOfTheZealot.Level
-  displayDescription: Levels.Barbarian.PathOfTheZealot.Level.Description
+    rid: 8746986145678360828
   references:
     version: 2
     RefIds:
-    - rid: 8746986128382361746
+    - rid: 8746986145678360828
       type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
         rages: 4
         rageDamage: 3
         weaponMastery: 4
---- !u!114 &9016851294746338784
+--- !u!114 &7552565600424632945
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

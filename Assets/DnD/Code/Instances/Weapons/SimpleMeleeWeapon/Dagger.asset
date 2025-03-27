@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8456299013707908714
+--- !u!114 &-7809374722364521812
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 736285003def7cc46b8f45a9970c9ed2, type: 3}
-  m_Name: Nick
+  m_Script: {fileID: 11500000, guid: 6ebc4527f34bae1489fdaafed1f5dafc, type: 3}
+  m_Name: Finesse
   m_EditorClassIdentifier: 
-  displayName: WeaponMasteryProperty.Nick
-  displayDescription: WeaponMasteryProperty.Nick.Description
---- !u!114 &-104636849384301886
+  displayName: WeaponProperty.Finesse
+  displayDescription: WeaponProperty.Finesse.Description
+--- !u!114 &-7447979599000890766
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31,6 +31,20 @@ MonoBehaviour:
   Range:
     Min: 6
     Max: 18
+--- !u!114 &-6099279809079982077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736285003def7cc46b8f45a9970c9ed2, type: 3}
+  m_Name: Nick
+  m_EditorClassIdentifier: 
+  displayName: WeaponMasteryProperty.Nick
+  displayDescription: WeaponMasteryProperty.Nick.Description
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,29 +62,15 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: e23ede8f2cf0b9b49b31d2e95b0a3d15, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: -104636849384301886}
-  - {fileID: 7792656602984303420}
-  - {fileID: 7858472353657941195}
-  MasteryProperty: {fileID: -8456299013707908714}
+  - {fileID: -7447979599000890766}
+  - {fileID: -7809374722364521812}
+  - {fileID: 7151658460567012028}
+  MasteryProperty: {fileID: -6099279809079982077}
   Weight: 0.5
   Cost: 200
   displayName: Weapons.SimpleMeleeWeapon.Dagger
   displayDescription: Weapons.SimpleMeleeWeapon.Dagger.Description
---- !u!114 &7792656602984303420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ebc4527f34bae1489fdaafed1f5dafc, type: 3}
-  m_Name: Finesse
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Finesse
-  displayDescription: WeaponProperty.Finesse.Description
---- !u!114 &7858472353657941195
+--- !u!114 &7151658460567012028
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

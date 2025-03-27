@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5005886891452357078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 972175a1f99609d41a0057c11c6bff3b, type: 3}
-  m_Name: Light
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Light
-  displayDescription: WeaponProperty.Light.Description
---- !u!114 &-4971423718257779503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 160fc646e2c4724418aa23deca8abc00, type: 3}
-  m_Name: Thrown
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Thrown
-  displayDescription: WeaponProperty.Thrown.Description
-  Range:
-    Min: 6
-    Max: 18
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,14 +17,14 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: e23ede8f2cf0b9b49b31d2e95b0a3d15, type: 2}
   DamageType: {fileID: 11400000, guid: 4a6261dd04b0a8941a6be6453b8bbb47, type: 2}
   Properties:
-  - {fileID: -4971423718257779503}
-  - {fileID: -5005886891452357078}
-  MasteryProperty: {fileID: 3909161137967184139}
+  - {fileID: 8835083001083420446}
+  - {fileID: 5249028735648273308}
+  MasteryProperty: {fileID: 3095537037218583034}
   Weight: 1
   Cost: 200
   displayName: Weapons.SimpleMeleeWeapon.LightHammer
   displayDescription: Weapons.SimpleMeleeWeapon.LightHammer.Description
---- !u!114 &3909161137967184139
+--- !u!114 &3095537037218583034
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -69,3 +38,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponMasteryProperty.Nick
   displayDescription: WeaponMasteryProperty.Nick.Description
+--- !u!114 &5249028735648273308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 972175a1f99609d41a0057c11c6bff3b, type: 3}
+  m_Name: Light
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Light
+  displayDescription: WeaponProperty.Light.Description
+--- !u!114 &8835083001083420446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 160fc646e2c4724418aa23deca8abc00, type: 3}
+  m_Name: Thrown
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Thrown
+  displayDescription: WeaponProperty.Thrown.Description
+  Range:
+    Min: 6
+    Max: 18

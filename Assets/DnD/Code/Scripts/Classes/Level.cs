@@ -8,6 +8,11 @@ namespace DnD.Code.Scripts.Classes
     [CreateAssetMenu(fileName = "NewLevel", menuName = "Game Entities/Character/Classes/Level")]
     public class Level : ScriptableObject
     {
+        [SerializeField]
+        private string displayName;
+        [SerializeField]
+        private string displayDescription;
+        
         public int LevelNum;
         public int ProficiencyBonus;
         
@@ -16,11 +21,6 @@ namespace DnD.Code.Scripts.Classes
         
         [SerializeReference]
         public IClassFeatureTraits ClassFeatureTraits;
-        
-        [SerializeField]
-        private string displayName;
-        [SerializeField]
-        private string displayDescription;
         
         public string DisplayName
         {

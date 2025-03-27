@@ -12,24 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
   m_Name: Barbarian.Level.14
   m_EditorClassIdentifier: 
+  displayName: Barbarian.Level.14
+  displayDescription: Barbarian.Level.14.Description
   LevelNum: 14
   ProficiencyBonus: 5
   ClassFeatures:
-  - {fileID: 7347731385141113108}
+  - {fileID: 419316233690456607}
   ClassFeatureTraits:
-    rid: 8746986128382361751
-  displayName: Levels.Barbarian.Level
-  displayDescription: Levels.Barbarian.Level.Description
+    rid: 8746986145678360848
   references:
     version: 2
     RefIds:
-    - rid: 8746986128382361751
+    - rid: 8746986145678360848
       type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
         rages: 5
         rageDamage: 3
         weaponMastery: 4
---- !u!114 &7347731385141113108
+--- !u!114 &419316233690456607
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

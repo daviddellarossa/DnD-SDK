@@ -12,24 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
   m_Name: Barbarian.PathOfTheWildHeart.Level.06
   m_EditorClassIdentifier: 
+  displayName: Barbarian.PathOfTheWildHeart.Level.06
+  displayDescription: Barbarian.PathOfTheWildHeart.Level.06.Description
   LevelNum: 6
   ProficiencyBonus: 3
   ClassFeatures:
-  - {fileID: 9003455187407886537}
+  - {fileID: 1427416590495411462}
   ClassFeatureTraits:
-    rid: 8746986128382361769
-  displayName: Levels.Barbarian.PathOfTheWildHeart.Level
-  displayDescription: Levels.Barbarian.PathOfTheWildHeart.Level.Description
+    rid: 8746986145678360853
   references:
     version: 2
     RefIds:
-    - rid: 8746986128382361769
+    - rid: 8746986145678360853
       type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
         rages: 4
         rageDamage: 2
         weaponMastery: 3
---- !u!114 &9003455187407886537
+--- !u!114 &1427416590495411462
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

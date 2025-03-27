@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c5968dbe13d364cbe36aae694c3f82, type: 3}
   m_Name: Barbarian
   m_EditorClassIdentifier: 
+  displayName: Classes.Barbarian
+  displayDescription: Classes.Barbarian.Description
   PrimaryAbility: {fileID: 11400000, guid: 1b0ab14d768ac0e458574c6cd37a5491, type: 2}
   HitPointDie: {fileID: 11400000, guid: 55ea3d617514ced46bd8d6f580c4b8c9, type: 2}
   SavingThrowProficiencies:
@@ -62,8 +64,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0fde8234c2da77546ab57209f9f276b1, type: 2}
   - {fileID: 11400000, guid: 1e0b9c7356a7e064591aaca28e3f4527, type: 2}
   - {fileID: 11400000, guid: 8aee6f386e4dce34984f2e04bfd52c20, type: 2}
-  displayName: Classes.Barbarian
-  displayDescription: Classes.Barbarian.Description
   references:
     version: 2
     RefIds:

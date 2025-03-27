@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8377260476506969623
+--- !u!114 &-5323179824937632789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,8 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11f533336c5c40458798acd0d8cea663, type: 3}
-  m_Name: Rage
+  m_Script: {fileID: 11500000, guid: fc07da6bab0f4b7ab1049dbe599a1468, type: 3}
+  m_Name: UnarmouredDefense
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 
+--- !u!114 &-5316734946768353239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4609182062ff4c5f8d7e2b253477d3a8, type: 3}
+  m_Name: WeaponMastery
   m_EditorClassIdentifier: 
   displayName: 
   displayDescription: 
@@ -26,26 +40,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
   m_Name: Barbarian.Level.01
   m_EditorClassIdentifier: 
+  displayName: Barbarian.Level.01
+  displayDescription: Barbarian.Level.01.Description
   LevelNum: 1
   ProficiencyBonus: 2
   ClassFeatures:
-  - {fileID: -8377260476506969623}
-  - {fileID: 5284543348725151305}
-  - {fileID: 4560594672443549165}
+  - {fileID: 3193226234715685101}
+  - {fileID: -5323179824937632789}
+  - {fileID: -5316734946768353239}
   ClassFeatureTraits:
-    rid: 8746986128382361745
-  displayName: Levels.Barbarian.Level
-  displayDescription: Levels.Barbarian.Level.Description
+    rid: 8746986145678360835
   references:
     version: 2
     RefIds:
-    - rid: 8746986128382361745
+    - rid: 8746986145678360835
       type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
         rages: 2
         rageDamage: 2
         weaponMastery: 2
---- !u!114 &4560594672443549165
+--- !u!114 &3193226234715685101
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,22 +68,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4609182062ff4c5f8d7e2b253477d3a8, type: 3}
-  m_Name: WeaponMastery
-  m_EditorClassIdentifier: 
-  displayName: 
-  displayDescription: 
---- !u!114 &5284543348725151305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc07da6bab0f4b7ab1049dbe599a1468, type: 3}
-  m_Name: UnarmouredDefense
+  m_Script: {fileID: 11500000, guid: 11f533336c5c40458798acd0d8cea663, type: 3}
+  m_Name: Rage
   m_EditorClassIdentifier: 
   displayName: 
   displayDescription: 

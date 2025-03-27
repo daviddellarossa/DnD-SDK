@@ -15,8 +15,8 @@ MonoBehaviour:
   displayName: SpecialTraits.Resourceful
   displayDescription: SpecialTraits.Resourceful.Description
   TraitTypes:
-  - {fileID: 543688280701602917}
---- !u!114 &543688280701602917
+  - {fileID: 8931189643931050575}
+--- !u!114 &8931189643931050575
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

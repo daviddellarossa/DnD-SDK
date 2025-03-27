@@ -1,35 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
-  m_Name: Barbarian.Level.11
-  m_EditorClassIdentifier: 
-  LevelNum: 11
-  ProficiencyBonus: 4
-  ClassFeatures:
-  - {fileID: 2102483106828618328}
-  ClassFeatureTraits:
-    rid: 8746986128382361782
-  displayName: Levels.Barbarian.Level
-  displayDescription: Levels.Barbarian.Level.Description
-  references:
-    version: 2
-    RefIds:
-    - rid: 8746986128382361782
-      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
-      data:
-        rages: 4
-        rageDamage: 3
-        weaponMastery: 4
---- !u!114 &2102483106828618328
+--- !u!114 &-533721920023277873
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,3 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: 
   displayDescription: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
+  m_Name: Barbarian.Level.11
+  m_EditorClassIdentifier: 
+  displayName: Barbarian.Level.11
+  displayDescription: Barbarian.Level.11.Description
+  LevelNum: 11
+  ProficiencyBonus: 4
+  ClassFeatures:
+  - {fileID: -533721920023277873}
+  ClassFeatureTraits:
+    rid: 8746986145678360852
+  references:
+    version: 2
+    RefIds:
+    - rid: 8746986145678360852
+      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data:
+        rages: 4
+        rageDamage: 3
+        weaponMastery: 4

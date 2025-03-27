@@ -11,6 +11,11 @@ namespace DnD.Code.Scripts.Classes
     [CreateAssetMenu(fileName = "NewClass", menuName = "Game Entities/Character/Classes/Class")]
     public class Class : ScriptableObject,  ILocalizable
     {
+        [SerializeField]
+        private string displayName;
+        [SerializeField]
+        private string displayDescription;
+        
         public Ability PrimaryAbility;
         public Die HitPointDie;
         public List<Ability> SavingThrowProficiencies = new ();
@@ -21,11 +26,6 @@ namespace DnD.Code.Scripts.Classes
         public List<StartingEquipment> StartingEquipmentOptions = new List<StartingEquipment>();
         public Level[] Levels = new Level[20];
         public List<SubClass> SubClasses = new List<SubClass>();
-        
-        [SerializeField]
-        private string displayName;
-        [SerializeField]
-        private string displayDescription;
         
         public string DisplayName
         {

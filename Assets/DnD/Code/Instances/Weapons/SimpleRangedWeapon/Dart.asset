@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4175852498773208902
+--- !u!114 &-3238661317314480615
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,21 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponMasteryProperty.Vex
   displayDescription: WeaponMasteryProperty.Vex.Description
---- !u!114 &-3240484797284854800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ebc4527f34bae1489fdaafed1f5dafc, type: 3}
-  m_Name: Finesse
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Finesse
-  displayDescription: WeaponProperty.Finesse.Description
---- !u!114 &-367997082499397771
+--- !u!114 &-25586626506779776
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,10 +48,24 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: e23ede8f2cf0b9b49b31d2e95b0a3d15, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: -3240484797284854800}
-  - {fileID: -367997082499397771}
-  MasteryProperty: {fileID: -4175852498773208902}
+  - {fileID: 5644873691298832900}
+  - {fileID: -25586626506779776}
+  MasteryProperty: {fileID: -3238661317314480615}
   Weight: 0.125
   Cost: 500
   displayName: Weapons.SimpleRangedWeapon.Dart
   displayDescription: Weapons.SimpleRangedWeapon.Dart.Description
+--- !u!114 &5644873691298832900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ebc4527f34bae1489fdaafed1f5dafc, type: 3}
+  m_Name: Finesse
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Finesse
+  displayDescription: WeaponProperty.Finesse.Description

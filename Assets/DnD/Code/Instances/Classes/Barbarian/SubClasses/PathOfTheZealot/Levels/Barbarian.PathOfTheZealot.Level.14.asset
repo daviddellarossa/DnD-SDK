@@ -1,6 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8724146411842712229
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
+  m_Name: Barbarian.PathOfTheZealot.Level.14
+  m_EditorClassIdentifier: 
+  displayName: Barbarian.PathOfTheZealot.Level.14
+  displayDescription: Barbarian.PathOfTheZealot.Level.14.Description
+  LevelNum: 14
+  ProficiencyBonus: 5
+  ClassFeatures:
+  - {fileID: 1872739232602896464}
+  ClassFeatureTraits:
+    rid: 8746986145678360830
+  references:
+    version: 2
+    RefIds:
+    - rid: 8746986145678360830
+      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data:
+        rages: 5
+        rageDamage: 3
+        weaponMastery: 4
+--- !u!114 &1872739232602896464
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,32 +43,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: 
   displayDescription: 
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
-  m_Name: Barbarian.PathOfTheZealot.Level.14
-  m_EditorClassIdentifier: 
-  LevelNum: 14
-  ProficiencyBonus: 5
-  ClassFeatures:
-  - {fileID: -8724146411842712229}
-  ClassFeatureTraits:
-    rid: 8746986128382361758
-  displayName: Levels.Barbarian.PathOfTheZealot.Level
-  displayDescription: Levels.Barbarian.PathOfTheZealot.Level.Description
-  references:
-    version: 2
-    RefIds:
-    - rid: 8746986128382361758
-      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
-      data:
-        rages: 5
-        rageDamage: 3
-        weaponMastery: 4

@@ -111,8 +111,6 @@ namespace DnD.Editor.Initializer
                     magicInitiate.DisplayDescription = $"{nameof(NameHelper.Feats)}.{NameHelper.Feats.MagicInitiate}.{NameHelper.Naming.Description}";
                     magicInitiate.Category = featCategories.Single(category => category.name == nameof(NameHelper.FeatCategories.Origin));
                     magicInitiate.Repeatable = Repeatable.Once;
-                    magicInitiate.Benefit = null; // TODO
-                    magicInitiate.Prerequisite = null; // TODO
                     
                     EditorUtility.SetDirty(magicInitiate);
                 }

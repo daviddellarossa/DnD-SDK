@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4874621119249453431
+--- !u!114 &-5891954635335112550
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f8d5e35a94b90e41b494da90b605875, type: 3}
-  m_Name: Topple
+  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
+  m_Name: Two Handed
   m_EditorClassIdentifier: 
-  displayName: WeaponMasteryProperty.Topple
-  displayDescription: WeaponMasteryProperty.Topple.Description
---- !u!114 &-1305185528198541498
+  displayName: WeaponProperty.Two Handed
+  displayDescription: WeaponProperty.Two Handed.Description
+--- !u!114 &-3366226341683586424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,14 +45,14 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
   DamageType: {fileID: 11400000, guid: 4a6261dd04b0a8941a6be6453b8bbb47, type: 2}
   Properties:
-  - {fileID: -1305185528198541498}
-  - {fileID: 4372752950832187598}
-  MasteryProperty: {fileID: -4874621119249453431}
+  - {fileID: -3366226341683586424}
+  - {fileID: -5891954635335112550}
+  MasteryProperty: {fileID: 274177847674576277}
   Weight: 5
   Cost: 1000
   displayName: Weapons.MartialMeleeWeapon.Maul
   displayDescription: Weapons.MartialMeleeWeapon.Maul.Description
---- !u!114 &4372752950832187598
+--- !u!114 &274177847674576277
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,8 +61,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8502f7442337e184c98601f6fe66d2ef, type: 3}
-  m_Name: Two Handed
+  m_Script: {fileID: 11500000, guid: 5f8d5e35a94b90e41b494da90b605875, type: 3}
+  m_Name: Topple
   m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Two Handed
-  displayDescription: WeaponProperty.Two Handed.Description
+  displayName: WeaponMasteryProperty.Topple
+  displayDescription: WeaponMasteryProperty.Topple.Description

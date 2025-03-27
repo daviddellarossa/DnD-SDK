@@ -15,8 +15,8 @@ MonoBehaviour:
   displayName: SpecialTraits.Skillful
   displayDescription: SpecialTraits.Skillful.Description
   TraitTypes:
-  - {fileID: 8882519978827448156}
---- !u!114 &8882519978827448156
+  - {fileID: 7155379065340723909}
+--- !u!114 &7155379065340723909
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

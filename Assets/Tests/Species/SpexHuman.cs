@@ -42,23 +42,66 @@ namespace Tests.Species
             Assert.That(_spex.CreatureType.name, Is.EqualTo(expected.CreatureType),  $"{expected.DisplayName}: {nameof(expected.CreatureType)} not equal to {expected.CreatureType}.");
             Assert.That(_spex.Size, Is.EqualTo(expected.Size),  $"{expected.DisplayName}: {nameof(expected.Size)} not equal to {expected.Size}.");
             Assert.That(_spex.Speed, Is.EqualTo(expected.Speed),  $"{expected.DisplayName}: {nameof(expected.Speed)} not equal to {expected.Speed}.");
-            
-            Assert.That(_spex.SpecialTraits.Count, Is.EqualTo(expected.SpecialTraits.Length));
-            foreach (var expectedSpecialTrait in expected.SpecialTraits)
-            {
-                var specialTrait = _spex.SpecialTraits.Single(st => st.name == expectedSpecialTrait.Name);
-                Assert.That(specialTrait.name, Is.EqualTo(expectedSpecialTrait.Name));
+        }
+
+        [TestCaseSource(typeof(SpexData), nameof(SpexData.SpecialTraitsTestCases))]
+        public void TestSpecialTraitsTestCases(SpecialTraitTestModel expected)
+        {
+            var specialTrait = _spex.SpecialTraits.Single(st => st.name == expected.Name);
+            Assert.That(specialTrait.name, Is.EqualTo(expected.Name));
                 
-                foreach (var expectedTraitType in expectedSpecialTrait.TraitTypes)
-                {
-                    var traitType = specialTrait.TraitTypes.Single(tt => tt.name == expectedTraitType.Name);
-                    expectedTraitType.AssertEqual(traitType);
-                }
+            foreach (var expectedTraitType in expected.TraitTypes)
+            {
+                var traitType = specialTrait.TraitTypes.Single(tt => tt.name == expectedTraitType.Name);
+                expectedTraitType.AssertEqual(traitType);
             }
         }
-        
+
         private class SpexData
         {
+            public static IEnumerable SpecialTraitsTestCases
+            {
+                get
+                {
+                    yield return new TestCaseData(
+                        new SpecialTraitTestModel()
+                        {
+                            Name = NameHelper.SpecialTraits.Resourceful,
+                            TraitTypes = new TypeTraitTestModel []
+                            {
+                                new HeroicInspirationTestModel()
+                                {
+                                    Name = NameHelper.TraitTypes.HeroicInspiration,
+                                }
+                            }
+                        });
+                    yield return new TestCaseData(
+                        new  SpecialTraitTestModel()
+                        {
+                            Name = NameHelper.SpecialTraits.Skillful,
+                            TraitTypes = new TypeTraitTestModel []
+                            {
+                                new ProficiencyTestModel()
+                                {
+                                    Name = NameHelper.TraitTypes.Proficiency,
+                                }
+                            }
+                        });
+                    yield return new TestCaseData(
+                        new SpecialTraitTestModel()
+                        {
+                            Name = NameHelper.SpecialTraits.Versatile,
+                            TraitTypes = new TypeTraitTestModel[]
+                            {
+                                new HasFeatByCategoryTestModel()
+                                {
+                                    Name = NameHelper.TraitTypes.HasFeatByCategory,
+                                    FeatCategoryName = NameHelper.FeatCategories.Origin
+                                }
+                            }
+                        });
+                }
+            }
             public static IEnumerable SpexTestCases
             {
                 get
@@ -71,44 +114,6 @@ namespace Tests.Species
                             CreatureType = NameHelper.CreatureTypes.Humanoid,
                             Size = Size.Small | Size.Medium,
                             Speed = 9.144f,
-                            SpecialTraits = new[]
-                            {
-                                new SpecialTraitTestModel()
-                                {
-                                    Name = NameHelper.SpecialTraits.Resourceful,
-                                    TraitTypes = new TypeTraitTestModel []
-                                    {
-                                        new HeroicInspirationTestModel()
-                                        {
-                                            Name = NameHelper.TraitTypes.HeroicInspiration,
-                                        }
-                                    }
-                                },
-                                new  SpecialTraitTestModel()
-                                {
-                                    Name = NameHelper.SpecialTraits.Skillful,
-                                    TraitTypes = new TypeTraitTestModel []
-                                    {
-                                        new ProficiencyTestModel()
-                                        {
-                                            Name = NameHelper.TraitTypes.Proficiency,
-                                        }
-                                    }
-                                },
-                                new  SpecialTraitTestModel()
-                                {
-                                    Name = NameHelper.SpecialTraits.Versatile,
-                                    TraitTypes = new TypeTraitTestModel []
-                                    {
-                                        new HasFeatByCategoryTestModel()
-                                        {
-                                            Name = NameHelper.TraitTypes.HasFeatByCategory,
-                                            FeatCategoryName = NameHelper.FeatCategories.Origin
-                                        }
-                                    }
-                                }
-                            }
-                            
                         });
                 }
             }

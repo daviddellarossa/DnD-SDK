@@ -59,6 +59,22 @@ namespace Tests.Classes.Barbarian
             Assert.That(_class.ArmorTraining.Cast<ScriptableObject>().Select(x => x.name), Does.Contain(expected),  $"{_class.DisplayName} ArmorTraining: {nameof(expected)} not found.");
         }
         
+        [TestCaseSource(typeof(ClassData), nameof(ClassData.StartingEquipmentOptionsTestCases))]
+        public void TestStartingEquipmentOptionsTestCases(StartingEquipmentTestModel expected)
+        {
+            var startingEquipmentOption =  _class.StartingEquipmentOptions.SingleOrDefault(option => option.name == expected.Name);
+            Assert.That(startingEquipmentOption, Is.Not.Null,  $"StartingEquipmentOption {expected.Name} was null.");
+
+            foreach (var expectedItem in expected.Items)
+            {
+                var item = startingEquipmentOption.Items.SingleOrDefault(item => item.Item.name == expectedItem.ItemName);
+                Assert.That(item, Is.Not.Null,  $"Item {expected.Name} was null.");
+
+                Assert.That(item.Amount, Is.EqualTo(expectedItem.Amount),
+                    $"{expectedItem.ItemName}: {nameof(expectedItem.Amount)} not equal to {item.Amount}.");
+            }
+        }
+
         [TestCaseSource(typeof(ClassData), nameof(ClassData.LevelsTestCases))]
         public void TestLevelsTestCases(LevelTestModel expected)
         {
@@ -89,22 +105,6 @@ namespace Tests.Classes.Barbarian
             TestLevel(level, expected);
         }
         
-        [TestCaseSource(typeof(ClassData), nameof(ClassData.StartingEquipmentOptionsTestCases))]
-        public void TestStartingEquipmentOptionsTestCases(StartingEquipmentTestModel expected)
-        {
-            var startingEquipmentOption =  _class.StartingEquipmentOptions.SingleOrDefault(option => option.name == expected.Name);
-            Assert.That(startingEquipmentOption, Is.Not.Null,  $"StartingEquipmentOption {expected.Name} was null.");
-
-            foreach (var expectedItem in expected.Items)
-            {
-                var item = startingEquipmentOption.Items.SingleOrDefault(item => item.Item.name == expectedItem.ItemName);
-                Assert.That(item, Is.Not.Null,  $"Item {expected.Name} was null.");
-
-                Assert.That(item.Amount, Is.EqualTo(expectedItem.Amount),
-                    $"{expectedItem.ItemName}: {nameof(expectedItem.Amount)} not equal to {item.Amount}.");
-            }
-        }
-        
         private void TestLevel(Level actual, LevelTestModel expected)
         {
             Assert.That(actual, Is.Not.Null);
@@ -112,6 +112,13 @@ namespace Tests.Classes.Barbarian
             Assert.That(actual.DisplayDescription, Is.EqualTo(expected.DisplayDescription),  $"{expected.LevelNum}.{expected.DisplayName}: {nameof(expected.DisplayDescription)} not equal to {expected.DisplayDescription}.");
             Assert.That(actual.LevelNum, Is.EqualTo(expected.LevelNum), $"{expected.LevelNum}.{expected.DisplayName}: {nameof(expected.LevelNum)} not equal to {expected.LevelNum}.");
             Assert.That(actual.ProficiencyBonus, Is.EqualTo(expected.ProficiencyBonus), $"{expected.LevelNum}.{expected.DisplayName}: {nameof(expected.ProficiencyBonus)} not equal to {expected.ProficiencyBonus}.");
+
+            var levelClassFeatureNames = actual.ClassFeatures.Select(x => x.name).ToArray();
+            foreach (var classFeature in expected.ClassFeatures)
+            {
+                Assert.That(levelClassFeatureNames, Does.Contain(classFeature));
+            }
+            
             Assert.That(actual.ClassFeatureTraits, Is.TypeOf<BarbarianFp>(), $"{expected.LevelNum}.{nameof(actual.ClassFeatureTraits)} is of the wrong type. Expected: {nameof(BarbarianFp)}.");
             
             var classFeatureTraits = (BarbarianFp)actual.ClassFeatureTraits;
@@ -119,14 +126,7 @@ namespace Tests.Classes.Barbarian
             Assert.That(classFeatureTraits.rages, Is.EqualTo(expectedClassFeatureTraits.Rages), $"{expected.LevelNum}.{nameof(actual.ClassFeatureTraits)}.Rages: {nameof(expectedClassFeatureTraits.Rages)} not equal to {expectedClassFeatureTraits.Rages}.");
             Assert.That(classFeatureTraits.rageDamage, Is.EqualTo(expectedClassFeatureTraits.RageDamage), $"{expected.LevelNum}.{nameof(actual.ClassFeatureTraits)}.{nameof(expectedClassFeatureTraits.RageDamage)}: {nameof(expectedClassFeatureTraits.RageDamage)} not equal to {expectedClassFeatureTraits.RageDamage}.");
             Assert.That(classFeatureTraits.weaponMastery, Is.EqualTo(expectedClassFeatureTraits.WeaponMastery), $"{expected.LevelNum}.{nameof(actual.ClassFeatureTraits)}.{nameof(expectedClassFeatureTraits.WeaponMastery)}: {nameof(expectedClassFeatureTraits.WeaponMastery)} not equal to {expectedClassFeatureTraits.WeaponMastery}.");
-
-            var levelClassFeatureNames = actual.ClassFeatures.Select(x => x.name).ToArray();
-            foreach (var classFeature in expected.ClassFeatures)
-            {
-                Assert.That(levelClassFeatureNames, Does.Contain(classFeature));
-            }
         }
-
         
         private class ClassData
         {

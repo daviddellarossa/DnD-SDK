@@ -33,7 +33,7 @@ namespace Tests.Classes
             set => name = value;
         }
 
-        public virtual string DisplayName => $"{Name}.{LevelNum:00}";
+        public virtual string DisplayName => $"{Name}";
         public string DisplayDescription => $"{DisplayName}.{NameHelper.Naming.Description}";
         public int LevelNum { get; set; }
         public int ProficiencyBonus { get; set; }

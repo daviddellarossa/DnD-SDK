@@ -1,36 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
-  m_Name: Barbarian.Level.05
-  m_EditorClassIdentifier: 
-  LevelNum: 5
-  ProficiencyBonus: 3
-  ClassFeatures:
-  - {fileID: 6754348351147310544}
-  - {fileID: 1028663947235336944}
-  ClassFeatureTraits:
-    rid: 8746986128382361764
-  displayName: Levels.Barbarian.Level
-  displayDescription: Levels.Barbarian.Level.Description
-  references:
-    version: 2
-    RefIds:
-    - rid: 8746986128382361764
-      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
-      data:
-        rages: 3
-        rageDamage: 2
-        weaponMastery: 3
---- !u!114 &1028663947235336944
+--- !u!114 &-7835803001461139285
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,7 +14,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: 
   displayDescription: 
---- !u!114 &6754348351147310544
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
+  m_Name: Barbarian.Level.05
+  m_EditorClassIdentifier: 
+  displayName: Barbarian.Level.05
+  displayDescription: Barbarian.Level.05.Description
+  LevelNum: 5
+  ProficiencyBonus: 3
+  ClassFeatures:
+  - {fileID: 4596291670480811542}
+  - {fileID: -7835803001461139285}
+  ClassFeatureTraits:
+    rid: 8746986145678360832
+  references:
+    version: 2
+    RefIds:
+    - rid: 8746986145678360832
+      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data:
+        rages: 3
+        rageDamage: 2
+        weaponMastery: 3
+--- !u!114 &4596291670480811542
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

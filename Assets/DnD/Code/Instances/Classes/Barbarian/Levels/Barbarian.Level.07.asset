@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7534934032879222608
+--- !u!114 &-8191935519557309964
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11,20 +11,6 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ae33dde8f064188bfe29b6df51ab370, type: 3}
   m_Name: InstinctivePounce
-  m_EditorClassIdentifier: 
-  displayName: 
-  displayDescription: 
---- !u!114 &-393718460115914940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01f2eff6a49448de820a71d6eac2b7ba, type: 3}
-  m_Name: FeralInstinct
   m_EditorClassIdentifier: 
   displayName: 
   displayDescription: 
@@ -40,21 +26,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
   m_Name: Barbarian.Level.07
   m_EditorClassIdentifier: 
+  displayName: Barbarian.Level.07
+  displayDescription: Barbarian.Level.07.Description
   LevelNum: 7
   ProficiencyBonus: 3
   ClassFeatures:
-  - {fileID: -393718460115914940}
-  - {fileID: -7534934032879222608}
+  - {fileID: 164732955516251518}
+  - {fileID: -8191935519557309964}
   ClassFeatureTraits:
-    rid: 8746986128382361765
-  displayName: Levels.Barbarian.Level
-  displayDescription: Levels.Barbarian.Level.Description
+    rid: 8746986145678360838
   references:
     version: 2
     RefIds:
-    - rid: 8746986128382361765
+    - rid: 8746986145678360838
       type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
         rages: 4
         rageDamage: 2
         weaponMastery: 3
+--- !u!114 &164732955516251518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01f2eff6a49448de820a71d6eac2b7ba, type: 3}
+  m_Name: FeralInstinct
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 

@@ -19,8 +19,8 @@ namespace DnD.Editor.Initializer
         protected Level InitializeLevel(string levelName, int levelNum, int proficiencyBonus, IClassFeatureTraits classFeatureTraits, string assetPath)
         {
             var level = Common.CreateScriptableObject<Level>($"{levelName}.{levelNum:00}", assetPath);
-            level.DisplayName = $"{NameHelper.Naming.Levels}.{levelName}";
-            level.DisplayDescription = $"{NameHelper.Naming.Levels}.{levelName}.{NameHelper.Naming.Description}";
+            level.DisplayName = $"{levelName}.{levelNum:00}";
+            level.DisplayDescription = $"{levelName}.{levelNum:00}.{NameHelper.Naming.Description}";
             level.LevelNum = levelNum;
             level.ProficiencyBonus = proficiencyBonus;
             level.ClassFeatureTraits = classFeatureTraits;

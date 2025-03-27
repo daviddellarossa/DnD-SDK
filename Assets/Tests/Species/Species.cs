@@ -13,7 +13,6 @@ namespace Tests.Species
         public string CreatureType;
         public Size Size;
         public float Speed;
-        public SpecialTraitTestModel[] SpecialTraits;
     }
     public abstract class TypeTraitTestModel
     {

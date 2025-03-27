@@ -8,7 +8,7 @@
         public static readonly string DamageTypePath = $"{FolderPath}/{NameHelper.NameHelper.Naming.DamageTypes}";
         public static readonly string DicePath = $"{FolderPath}/{NameHelper.NameHelper.Naming.Dice}";
         public static readonly string StoragePath = $"{FolderPath}/{NameHelper.NameHelper.Naming.Storage}";
-        public static readonly string TraitTypesPath = $"{FolderPath}/{NameHelper.NameHelper.Naming.TypeTraits}";
+        public static readonly string TypeTraitsPath = $"{FolderPath}/{NameHelper.NameHelper.Naming.TypeTraits}";
 
         public static class Abilities
         {

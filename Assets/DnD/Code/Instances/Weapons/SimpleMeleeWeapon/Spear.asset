@@ -17,14 +17,44 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: 1459435040787811191}
-  - {fileID: 8295284747450639479}
-  MasteryProperty: {fileID: 8923913739409833099}
+  - {fileID: 7535218430007617838}
+  - {fileID: 1419672684444506355}
+  MasteryProperty: {fileID: 4036712451923047399}
   Weight: 1.5
   Cost: 100
   displayName: Weapons.SimpleMeleeWeapon.Spear
   displayDescription: Weapons.SimpleMeleeWeapon.Spear.Description
---- !u!114 &1459435040787811191
+--- !u!114 &1419672684444506355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf3b03451dd2e44ba153e70d88aa1c1, type: 3}
+  m_Name: Versatile
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Versatile
+  displayDescription: WeaponProperty.Versatile.Description
+  NumberOfDice: 1
+  DieType: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
+--- !u!114 &4036712451923047399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e510b9724c2e76641951bf62d9c91ad4, type: 3}
+  m_Name: Sap
+  m_EditorClassIdentifier: 
+  displayName: WeaponMasteryProperty.Sap
+  displayDescription: WeaponMasteryProperty.Sap.Description
+--- !u!114 &7535218430007617838
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,33 +71,3 @@ MonoBehaviour:
   Range:
     Min: 6
     Max: 18
---- !u!114 &8295284747450639479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cf3b03451dd2e44ba153e70d88aa1c1, type: 3}
-  m_Name: Versatile
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Versatile
-  displayDescription: WeaponProperty.Versatile.Description
-  NumberOfDice: 1
-  DieType: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
---- !u!114 &8923913739409833099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e510b9724c2e76641951bf62d9c91ad4, type: 3}
-  m_Name: Sap
-  m_EditorClassIdentifier: 
-  displayName: WeaponMasteryProperty.Sap
-  displayDescription: WeaponMasteryProperty.Sap.Description
