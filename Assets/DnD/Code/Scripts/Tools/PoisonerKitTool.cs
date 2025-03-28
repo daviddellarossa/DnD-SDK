@@ -3,7 +3,7 @@
 namespace DnD.Code.Scripts.Tools
 {
     [CreateAssetMenu(fileName = "NewPoisonerKit", menuName = "Game Entities/Equipment/Tools/Poisoner Kit")]
-    public class PoisonerKitTool : ScriptableObject, IPoisonerKitTool
+    public class PoisonerKitTool : Tool, IPoisonerKitTool
     {
         [SerializeField]
         private string displayName;

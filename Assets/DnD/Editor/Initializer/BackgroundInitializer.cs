@@ -27,7 +27,7 @@ namespace DnD.Editor.Initializer
                 var abilities = AbilitiesInitializer.GetAllAbilities();
                 
                 var skills = AbilitiesInitializer.GetAllSkills();
-
+                
                 var coins = EquipmentInitializer.GetAllCoinValues();
 
                 {
@@ -47,6 +47,8 @@ namespace DnD.Editor.Initializer
                     acolyte.SkillProficiencies[0] = skills.Single(skill => skill.name == NameHelper.Skills.Insight);
                     acolyte.SkillProficiencies[1] = skills.Single(skill => skill.name == NameHelper.Skills.Religion);
 
+                    acolyte.ToolProficiency = NameHelper.Equipment.Tools.CalligrapherTool;
+                    
                     acolyte.Feat =  feats.Single(feat => feat.name == NameHelper.Feats.MagicInitiate);
 
                     {

@@ -3,7 +3,7 @@
 namespace DnD.Code.Scripts.Tools
 {
     [CreateAssetMenu(fileName = "NewMusicalInstrument", menuName = "Game Entities/Equipment/Tools/Musical Instrument")]
-    public class MusicalInstrumentTool : ScriptableObject, IMusicalInstrumentTool
+    public class MusicalInstrumentTool : Tool, IMusicalInstrumentTool
     {
         [SerializeField]
         private string displayName;

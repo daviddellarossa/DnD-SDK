@@ -2,7 +2,7 @@
 
 namespace DnD.Code.Scripts.Tools
 {
-    public class ThievesTool : ScriptableObject, IThievesTool
+    public class ThievesTool : Tool, IThievesTool
     {
         [SerializeField]
         private string displayName;

@@ -12,6 +12,7 @@ using DnD.Code.Scripts.Languages;
 using DnD.Code.Scripts.Species;
 using DnD.Code.Scripts.Species.SpecialTraits.TraitTypes;
 using DnD.Code.Scripts.Tools;
+using DnD.Code.Scripts.Weapons;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -34,23 +35,42 @@ namespace DnD.Code.Scripts.Characters
         [SerializeField]
         private Species.Spex spex;
         
-        
-        
         [SerializeField]
         private int level = 1;
 
         [SerializeField]
         private int xp = 0;
+        
+        [SerializeField]
+        private List<BaseArmourType> armorTraining = new List<BaseArmourType>();
 
         [SerializeField]
-        private string armorClass;
+        private List<WeaponType> weaponProficiencies = new ();
+        
+        [SerializeField]
+        private List<Skill> skillProficiencies = new List<Skill>();
+        
+        [SerializeField]
+        // Review this data type
+        private List<string> toolProficiencies = new List<string>();
 
+        
         [SerializeField]
         private HitPoints hitPoints;
 
         [SerializeField]
-        private DeathSaves deathSaves;
+        private string armorClass;
 
+
+        [SerializeField]
+        private DeathSaves deathSaves;
+        
+        public Die HitPointDie => this.@class.HitPointDie;
+        
+        public Feat Feat => this.background.Feat;
+        
+        
+        
         // public Dictionary<AbilityEnum, AbilityStats> Abilities = new Dictionary<AbilityEnum, AbilityStats>
         //     {
         //         // TODO: fix this
@@ -141,7 +161,7 @@ namespace DnD.Code.Scripts.Characters
         //
         // [SerializeField]
         // public string BackstoryAndPersonality;
-        
-        
+
+
     }
 }

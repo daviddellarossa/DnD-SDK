@@ -11,8 +11,12 @@ namespace DnD.Code.Scripts.Feats
         [SerializeField]
         private string displayDescription;
         
-        public FeatCategory Category;
-        public Repeatable Repeatable;
+        [SerializeField]
+        private FeatCategory category;
+        
+        [SerializeField]
+        private Repeatable repeatable;
+        
         // public object Benefit; // TODO
         // public object Prerequisite; // TODO
 
@@ -28,5 +32,16 @@ namespace DnD.Code.Scripts.Feats
             set => displayDescription = value;
         }
 
+        public FeatCategory Category
+        {
+            get => category;
+            set => category = value;
+        }
+
+        public Repeatable Repeatable
+        {
+            get => repeatable;
+            set => repeatable = value;
+        }
     }
 }

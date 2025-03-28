@@ -3,7 +3,7 @@
 namespace DnD.Code.Scripts.Tools
 {
     [CreateAssetMenu(fileName = "NewCalligrapherTool", menuName = "Game Entities/Equipment/Tools/Artisan Tools/Calligrapher Tool")]
-    public class CalligrapherTool : ScriptableObject, ICalligrapherTool
+    public class CalligrapherTool : Tool, ICalligrapherTool
     {
         [SerializeField]
         private string displayName;

@@ -3,7 +3,7 @@
 namespace DnD.Code.Scripts.Tools
 {
     [CreateAssetMenu(fileName = "NewHerbalismKit", menuName = "Game Entities/Equipment/Tools/Herbalism Kit")]
-    public class HerbalismKitTool : ScriptableObject, IHerbalismKitTool
+    public class HerbalismKitTool : Tool, IHerbalismKitTool
     {
         [SerializeField]
         private string displayName;

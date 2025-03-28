@@ -3,7 +3,7 @@
 namespace DnD.Code.Scripts.Tools
 {
     [CreateAssetMenu(fileName = "NewCartographerTool", menuName = "Game Entities/Equipment/Tools/Artisan Tools/Cartographer Tool")]
-    public class CartographerTool : ScriptableObject, ICartographerTool
+    public class CartographerTool : Tool, ICartographerTool
     {
         [SerializeField]
         private string displayName;

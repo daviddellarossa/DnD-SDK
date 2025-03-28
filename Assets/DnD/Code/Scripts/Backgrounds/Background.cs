@@ -8,19 +8,29 @@ namespace DnD.Code.Scripts.Backgrounds
     [CreateAssetMenu(fileName = "NewSpecies", menuName = "Game Entities/Character/Background/Background")]
     public class Background : ScriptableObject, ILocalizable
     {
-        // public string Name;
-        public Ability[] Abilities = new Ability[3];
-        public Skill[] SkillProficiencies = new Skill[2];
-        public string ToolProficiency;
-        public StartingEquipment[] StartingEquipment = new StartingEquipment[2];
-        public Feat Feat; // TODO: this must be a Origin Feat. Add a filter on the UI.
-        public string Note = "Tool proficiency still not shown in the UI. TODO.";
-        
         [SerializeField]
         private string displayName;
+        
         [SerializeField]
         private string displayDescription;
-
+        
+        [SerializeField]
+        private Ability[] abilities = new Ability[3];
+        
+        [SerializeField]
+        private Skill[] skillProficiencies = new Skill[2];
+        
+        [SerializeField]
+        // TODO: use a more specific type for toolProficiency: string is not the safest type to use here
+        private string toolProficiency;
+        
+        [SerializeField]
+        private StartingEquipment[] startingEquipment = new StartingEquipment[2];
+        
+        [SerializeField]
+        private Feat feat; // TODO: this must be a Origin Feat. Add a filter on the UI.
+        
+        
         public string DisplayName
         {
             get => displayName;
@@ -31,6 +41,36 @@ namespace DnD.Code.Scripts.Backgrounds
         {
             get => displayDescription;
             set => displayDescription = value;
+        }
+
+        public Ability[] Abilities
+        {
+            get => abilities;
+            set => abilities = value;
+        }
+
+        public Skill[] SkillProficiencies
+        {
+            get => skillProficiencies;
+            set => skillProficiencies = value;
+        }
+
+        public string ToolProficiency
+        {
+            get => toolProficiency;
+            set => toolProficiency = value;
+        }
+
+        public StartingEquipment[] StartingEquipment
+        {
+            get => startingEquipment;
+            set => startingEquipment = value;
+        }
+
+        public Feat Feat
+        {
+            get => feat;
+            set => feat = value;
         }
     }
 }

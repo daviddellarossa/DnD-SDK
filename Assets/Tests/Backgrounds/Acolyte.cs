@@ -76,6 +76,7 @@ namespace Tests.Backgrounds
             Assert.That(_acolyte.DisplayName, Is.EqualTo(data.DisplayName));
             Assert.That(_acolyte.DisplayDescription, Is.EqualTo(data.DisplayDescription));
             Assert.That(_acolyte.Feat.name, Is.EqualTo(data.FeatName));
+            Assert.That(_acolyte.ToolProficiency, Is.EqualTo(data.ToolProficiency));
         }
 
         [TestCaseSource(typeof(AcolyteData), nameof(AcolyteData.ToolsTestCases))]
@@ -164,7 +165,8 @@ namespace Tests.Backgrounds
                         {
                             FeatName = NameHelper.Feats.MagicInitiate,
                             DisplayName = $"{NameHelper.Naming.Backgrounds}.{NameHelper.Backgrounds.Acolyte}",
-                            DisplayDescription = $"{NameHelper.Naming.Backgrounds}.{NameHelper.Backgrounds.Acolyte}.{NameHelper.Naming.Description}"
+                            DisplayDescription = $"{NameHelper.Naming.Backgrounds}.{NameHelper.Backgrounds.Acolyte}.{NameHelper.Naming.Description}",
+                            ToolProficiency =  NameHelper.Equipment.Tools.CalligrapherTool,
                         });
                 }
             }
@@ -222,6 +224,7 @@ namespace Tests.Backgrounds
             public string DisplayName;
             public string DisplayDescription;
             public string FeatName;
+            public string ToolProficiency;
         }
 
         public struct ToolData

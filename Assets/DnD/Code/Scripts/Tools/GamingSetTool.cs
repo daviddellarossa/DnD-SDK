@@ -3,7 +3,7 @@
 namespace DnD.Code.Scripts.Tools
 {
     [CreateAssetMenu(fileName = "NewGamingSet", menuName = "Game Entities/Equipment/Tools/Gaming Set")]
-    public class GamingSetTool : ScriptableObject, IGamingSetTool
+    public class GamingSetTool : Tool, IGamingSetTool
     {
         [SerializeField]
         private string displayName;

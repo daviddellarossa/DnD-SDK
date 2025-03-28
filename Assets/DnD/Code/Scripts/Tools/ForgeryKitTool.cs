@@ -3,7 +3,7 @@
 namespace DnD.Code.Scripts.Tools
 {
     [CreateAssetMenu(fileName = "NewForgeryKit", menuName = "Game Entities/Equipment/Tools/Forgery Kit")]
-    public class ForgeryKitTool : ScriptableObject, IForgeryKitTool
+    public class ForgeryKitTool : Tool, IForgeryKitTool
     {
         [SerializeField]
         private string displayName;

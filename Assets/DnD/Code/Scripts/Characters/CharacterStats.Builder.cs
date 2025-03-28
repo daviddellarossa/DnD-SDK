@@ -71,9 +71,17 @@ namespace DnD.Code.Scripts.Characters
                 characterStats.subClass = this._subClass;
                 characterStats.spex = this._spex;
                 characterStats.background = this._background;
-                characterStats.level = _level;
-                characterStats.xp = _xp;
+                characterStats.level = this._level;
+                characterStats.xp = this._xp;
                 
+                // from class
+                characterStats.armorTraining.AddRange(this._class.ArmorTraining);
+                characterStats.weaponProficiencies.AddRange(this._class.WeaponProficiencies);
+                // TODO: add proficiencies from class
+                
+                // from background
+                characterStats.skillProficiencies.AddRange(this._background.SkillProficiencies);
+                characterStats.toolProficiencies.Add(this._background.ToolProficiency);
                 
                 return characterStats;
             }
