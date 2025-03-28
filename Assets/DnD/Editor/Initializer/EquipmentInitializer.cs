@@ -1,6 +1,7 @@
 using Codice.Client.BaseCommands.Acl;
 using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Equipment.Coins;
+using DnD.Code.Scripts.Helpers;
 using DnD.Code.Scripts.Helpers.PathHelper;
 using UnityEditor;
 using static DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
@@ -12,13 +13,13 @@ namespace DnD.Editor.Initializer
     {
         public static CoinValue[] GetAllCoinValues()
         {
-            return Common.GetAllScriptableObjects<CoinValue>(PathHelper.Equipments.EquipmentCoinsPath);
+            return ScriptableObjectHelper.GetAllScriptableObjects<CoinValue>(PathHelper.Equipments.EquipmentCoinsPath);
         }
         
         [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Equipment Data")]
         public static void InitializeEquipment()
         {
-            Common.EnsureFolderExists(PathHelper.Equipments.EquipmentPath);
+            FileSystemHelper.EnsureFolderExists(PathHelper.Equipments.EquipmentPath);
             InitializeCoins();
             InitializeTools();
         }
@@ -29,10 +30,10 @@ namespace DnD.Editor.Initializer
             {
                 AssetDatabase.StartAssetEditing();
             
-                Common.EnsureFolderExists(PathHelper.Equipments.EquipmentCoinsPath);
+                FileSystemHelper.EnsureFolderExists(PathHelper.Equipments.EquipmentCoinsPath);
 
                 {
-                    var copperPiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.CopperPiece, PathHelper.Equipments.EquipmentCoinsPath);
+                    var copperPiece = ScriptableObjectHelper.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.CopperPiece, PathHelper.Equipments.EquipmentCoinsPath);
                     copperPiece.DisplayName = $"{NameHelper.Naming.Coins}.{NameHelper.CoinValues.CopperPiece}";
                     copperPiece.DisplayDescription = $"{NameHelper.Naming.Coins}.{NameHelper.CoinValues.CopperPiece}.{NameHelper.Naming.Description}";
                     copperPiece.Abbreviation = $"{NameHelper.Naming.Coins}.{NameHelper.CoinValues.CopperPiece}.{NameHelper.Naming.Abbreviation}";
@@ -41,7 +42,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var silverpiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.SilverPiece, PathHelper.Equipments.EquipmentCoinsPath);
+                    var silverpiece = ScriptableObjectHelper.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.SilverPiece, PathHelper.Equipments.EquipmentCoinsPath);
                     silverpiece.DisplayName = $"{NameHelper.Naming.Coins}.{NameHelper.CoinValues.SilverPiece}";
                     silverpiece.DisplayDescription = $"{NameHelper.Naming.Coins}.{NameHelper.CoinValues.SilverPiece}.{NameHelper.Naming.Description}";
                     silverpiece.Abbreviation = $"{NameHelper.Naming.Coins}.{NameHelper.CoinValues.SilverPiece}.{NameHelper.Naming.Abbreviation}";;
@@ -50,7 +51,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var electrumPiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.ElectrumPiece, PathHelper.Equipments.EquipmentCoinsPath);
+                    var electrumPiece = ScriptableObjectHelper.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.ElectrumPiece, PathHelper.Equipments.EquipmentCoinsPath);
                     electrumPiece.DisplayName = $"{NameHelper.Naming.Coins}.{NameHelper.CoinValues.ElectrumPiece}";
                     electrumPiece.DisplayDescription = $"{NameHelper.Naming.Coins}.{NameHelper.CoinValues.ElectrumPiece}.{NameHelper.Naming.Description}";
                     electrumPiece.Abbreviation = $"{NameHelper.Naming.Coins}.{NameHelper.CoinValues.ElectrumPiece}.{NameHelper.Naming.Abbreviation}";;
@@ -59,7 +60,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var goldPiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.GoldPiece, PathHelper.Equipments.EquipmentCoinsPath);
+                    var goldPiece = ScriptableObjectHelper.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.GoldPiece, PathHelper.Equipments.EquipmentCoinsPath);
                     goldPiece.DisplayName = $"{NameHelper.Naming.Coins}.{NameHelper.CoinValues.GoldPiece}";
                     goldPiece.DisplayDescription = $"{NameHelper.Naming.Coins}.{NameHelper.CoinValues.GoldPiece}.{NameHelper.Naming.Description}";
                     goldPiece.Abbreviation = $"{NameHelper.Naming.Coins}.{NameHelper.CoinValues.GoldPiece}.{NameHelper.Naming.Abbreviation}";;
@@ -68,7 +69,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var platinumPiece = Common.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.PlatinumPiece, PathHelper.Equipments.EquipmentCoinsPath);
+                    var platinumPiece = ScriptableObjectHelper.CreateScriptableObject<CoinValue>(NameHelper.CoinValues.PlatinumPiece, PathHelper.Equipments.EquipmentCoinsPath);
                     platinumPiece.DisplayName = $"{NameHelper.Naming.Coins}.{NameHelper.CoinValues.PlatinumPiece}";
                     platinumPiece.DisplayDescription = $"{NameHelper.Naming.Coins}.{NameHelper.CoinValues.PlatinumPiece}.{NameHelper.Naming.Description}";
                     platinumPiece.Abbreviation = $"{NameHelper.Naming.Coins}.{NameHelper.CoinValues.PlatinumPiece}.{NameHelper.Naming.Abbreviation}";;
@@ -91,9 +92,7 @@ namespace DnD.Editor.Initializer
             {
                 AssetDatabase.StartAssetEditing();
             
-                Common.EnsureFolderExists(PathHelper.Equipments.EquipmentToolsPath);
-                
-                
+                FileSystemHelper.EnsureFolderExists(PathHelper.Equipments.EquipmentToolsPath);
                 
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();

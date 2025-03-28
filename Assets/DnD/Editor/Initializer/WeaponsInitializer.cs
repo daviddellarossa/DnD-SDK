@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DnD.Code.Scripts;
 using DnD.Code.Scripts.Combat;
+using DnD.Code.Scripts.Helpers;
 using DnD.Code.Scripts.Helpers.PathHelper;
 using DnD.Code.Scripts.Storage;
 using DnD.Code.Scripts.Weapons.MasteryProperties;
@@ -19,12 +20,12 @@ namespace DnD.Editor.Initializer
     {
         public static Weapon[] GetAllWeapons()
         {
-            return Common.GetAllScriptableObjects<Weapon>(PathHelper.Weapons.WeaponsPath);
+            return ScriptableObjectHelper.GetAllScriptableObjects<Weapon>(PathHelper.Weapons.WeaponsPath);
         }
         
         public static WeaponType[] GetAllWeaponTypes()
         {
-            return Common.GetAllScriptableObjects<WeaponType>(PathHelper.Weapons.WeaponTypesPath);
+            return ScriptableObjectHelper.GetAllScriptableObjects<WeaponType>(PathHelper.Weapons.WeaponTypesPath);
         }
 
         [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Weapons")]
@@ -34,7 +35,7 @@ namespace DnD.Editor.Initializer
             var dice = DiceInitializer.GetAllDice();
             var damageTypes = DamageTypeInitializer.GetAllDamageTypes();
             
-            Common.EnsureFolderExists(PathHelper.Weapons.WeaponsPath);
+            FileSystemHelper.EnsureFolderExists(PathHelper.Weapons.WeaponsPath);
 
             var weaponTypes = InitializeWeaponTypes();
 
@@ -55,13 +56,13 @@ namespace DnD.Editor.Initializer
             {
                 AssetDatabase.StartAssetEditing();
 
-                Common.EnsureFolderExists(PathHelper.Weapons.SimpleRangedWeaponsPath);
+                FileSystemHelper.EnsureFolderExists(PathHelper.Weapons.SimpleRangedWeaponsPath);
 
                 var simpleRangedWeaponType =
                     weaponTypes.Single(x => x.name == NameHelper.WeaponTypes.SimpleRangedWeapon);
 
                 {
-                    var dart = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleRanged.Dart,
+                    var dart = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleRanged.Dart,
                         PathHelper.Weapons.SimpleRangedWeaponsPath);
                     dart.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleRangedWeapon}.{NameHelper.Weapons_SimpleRanged.Dart}";
                     dart.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleRangedWeapon}.{NameHelper.Weapons_SimpleRanged.Dart}.{NameHelper.Naming.Description}";
@@ -75,14 +76,14 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var finesse =
-                            Common.CreateScriptableObjectAndAddToObject<Finesse>(NameHelper.WeaponProperty.Finesse, dart);
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Finesse>(NameHelper.WeaponProperty.Finesse, dart);
                         finesse.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Finesse}";
                         finesse.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Finesse}.{NameHelper.Naming.Description}";
                         
                         EditorUtility.SetDirty(finesse);
                         
                         var thrown =
-                            Common.CreateScriptableObjectAndAddToObject<Thrown>(NameHelper.WeaponProperty.Thrown, dart);
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Thrown>(NameHelper.WeaponProperty.Thrown, dart);
                         thrown.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Thrown}";
                         thrown.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Thrown}.{NameHelper.Naming.Description}";
                         thrown.Range = new Range() { Max = 18, Min = 6 };
@@ -94,7 +95,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var vex = Common.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex, dart);
+                        var vex = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex, dart);
                         vex.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Vex}";
                         vex.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Vex}.{NameHelper.Naming.Description}";
                         
@@ -108,7 +109,7 @@ namespace DnD.Editor.Initializer
 
                 {
                     var lightCrossbow =
-                        Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleRanged.LightCrossbow,
+                        ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleRanged.LightCrossbow,
                             PathHelper.Weapons.SimpleRangedWeaponsPath);
                     lightCrossbow.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleRangedWeapon}.{NameHelper.Weapons_SimpleRanged.LightCrossbow}";
                     lightCrossbow.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleRangedWeapon}.{NameHelper.Weapons_SimpleRanged.LightCrossbow}.{NameHelper.Naming.Description}";
@@ -122,7 +123,7 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var ammunition =
-                            Common.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
                                 lightCrossbow);
                         ammunition.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Ammunition}";
                         ammunition.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Ammunition}.{NameHelper.Naming.Description}";
@@ -132,7 +133,7 @@ namespace DnD.Editor.Initializer
                         EditorUtility.SetDirty(ammunition);
 
                         var loading =
-                            Common.CreateScriptableObjectAndAddToObject<Loading>(NameHelper.WeaponProperty.Loading,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Loading>(NameHelper.WeaponProperty.Loading,
                                 lightCrossbow);
                         loading.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Loading}";
                         loading.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Loading}.{NameHelper.Naming.Description}";
@@ -140,7 +141,7 @@ namespace DnD.Editor.Initializer
                         EditorUtility.SetDirty(loading);
 
                         var twoHanded =
-                            Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                                 lightCrossbow);
                         twoHanded.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}";
                         twoHanded.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}.{NameHelper.Naming.Description}";
@@ -152,7 +153,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var slow = Common.CreateScriptableObjectAndAddToObject<Slow>(NameHelper.MasteryProperty.Slow,
+                        var slow = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Slow>(NameHelper.MasteryProperty.Slow,
                             lightCrossbow);
                         slow.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Slow}";
                         slow.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Slow}.{NameHelper.Naming.Description}";
@@ -166,7 +167,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var shortbow = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleRanged.Shortbow,
+                    var shortbow = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleRanged.Shortbow,
                         PathHelper.Weapons.SimpleRangedWeaponsPath);
                     shortbow.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleRangedWeapon}.{NameHelper.Weapons_SimpleRanged.Shortbow}";
                     shortbow.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleRangedWeapon}.{NameHelper.Weapons_SimpleRanged.Shortbow}.{NameHelper.Naming.Description}";
@@ -180,7 +181,7 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var ammunition =
-                            Common.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
                                 shortbow);
                         ammunition.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Ammunition}";
                         ammunition.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Ammunition}.{NameHelper.Naming.Description}";
@@ -191,7 +192,7 @@ namespace DnD.Editor.Initializer
 
 
                         var twoHanded =
-                            Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                                 shortbow);
                         twoHanded.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}";
                         twoHanded.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}.{NameHelper.Naming.Description}";
@@ -203,7 +204,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var vex = Common.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex,
+                        var vex = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex,
                             shortbow);
                         vex.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Vex}";
                         vex.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Vex}.{NameHelper.Naming.Description}";
@@ -217,7 +218,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var sling = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleRanged.Sling,
+                    var sling = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleRanged.Sling,
                         PathHelper.Weapons.SimpleRangedWeaponsPath);
                     sling.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleRangedWeapon}.{NameHelper.Weapons_SimpleRanged.Sling}";
                     sling.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleRangedWeapon}.{NameHelper.Weapons_SimpleRanged.Sling}.{NameHelper.Naming.Description}";
@@ -231,7 +232,7 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var ammunition =
-                            Common.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
                                 sling);
                         ammunition.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Ammunition}";
                         ammunition.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Ammunition}.{NameHelper.Naming.Description}";
@@ -245,7 +246,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var slow = Common.CreateScriptableObjectAndAddToObject<Slow>(NameHelper.MasteryProperty.Slow,
+                        var slow = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Slow>(NameHelper.MasteryProperty.Slow,
                             sling);
                         slow.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Slow}";
                         slow.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Slow}.{NameHelper.Naming.Description}";
@@ -274,12 +275,12 @@ namespace DnD.Editor.Initializer
             try
             {
                 AssetDatabase.StartAssetEditing();
-                Common.EnsureFolderExists(PathHelper.Weapons.SimpleMeleeWeaponsPath);
+                FileSystemHelper.EnsureFolderExists(PathHelper.Weapons.SimpleMeleeWeaponsPath);
 
                 var simpleMeleeWeaponType = weaponTypes.Single(x => x.name == NameHelper.WeaponTypes.SimpleMeleeWeapon);
 
                 {
-                    var club = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Club,
+                    var club = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Club,
                         PathHelper.Weapons.SimpleMeleeWeaponsPath);
                     club.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}.{NameHelper.Weapons_SimpleMelee.Club}";
                     club.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}.{NameHelper.Weapons_SimpleMelee.Club}.{NameHelper.Naming.Description}";
@@ -292,7 +293,7 @@ namespace DnD.Editor.Initializer
 
                     // Weapon properties
                     {
-                        var light = Common.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light,
+                        var light = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light,
                             club);
                         light.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Light}";
                         light.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Light}.{NameHelper.Naming.Description}";
@@ -304,7 +305,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var slow = Common.CreateScriptableObjectAndAddToObject<Slow>(NameHelper.MasteryProperty.Slow, club);
+                        var slow = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Slow>(NameHelper.MasteryProperty.Slow, club);
                         slow.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Slow}";
                         slow.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Slow}.{NameHelper.Naming.Description}";
                         slow.SlowBy = 3;
@@ -317,7 +318,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(club);
                 }
                 {
-                    var dagger = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Dagger,
+                    var dagger = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Dagger,
                         PathHelper.Weapons.SimpleMeleeWeaponsPath);
                     dagger.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}.{NameHelper.Weapons_SimpleMelee.Dagger}";
                     dagger.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}.{NameHelper.Weapons_SimpleMelee.Dagger}.{NameHelper.Naming.Description}";
@@ -331,7 +332,7 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var thrown =
-                            Common.CreateScriptableObjectAndAddToObject<Thrown>(NameHelper.WeaponProperty.Thrown, dagger);
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Thrown>(NameHelper.WeaponProperty.Thrown, dagger);
                         thrown.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Thrown}";
                         thrown.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Thrown}.{NameHelper.Naming.Description}";
                         thrown.Range = new Range() { Max = 18, Min = 6 };
@@ -339,13 +340,13 @@ namespace DnD.Editor.Initializer
                         EditorUtility.SetDirty(thrown);
 
                         var finesse =
-                            Common.CreateScriptableObjectAndAddToObject<Finesse>(NameHelper.WeaponProperty.Finesse, dagger);
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Finesse>(NameHelper.WeaponProperty.Finesse, dagger);
                         finesse.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Finesse}";
                         finesse.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Finesse}.{NameHelper.Naming.Description}";
                         
                         EditorUtility.SetDirty(finesse);
 
-                        var light = Common.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light,
+                        var light = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light,
                             dagger);
                         light.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Light}";
                         light.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Light}.{NameHelper.Naming.Description}";
@@ -357,7 +358,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var nick = Common.CreateScriptableObjectAndAddToObject<Nick>(NameHelper.MasteryProperty.Nick,
+                        var nick = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Nick>(NameHelper.MasteryProperty.Nick,
                             dagger);
                         nick.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Nick}";
                         nick.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Nick}.{NameHelper.Naming.Description}";
@@ -370,7 +371,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(dagger);
                 }
                 {
-                    var greatclub = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Greatclub,
+                    var greatclub = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Greatclub,
                         PathHelper.Weapons.SimpleMeleeWeaponsPath);
                     greatclub.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}.{NameHelper.Weapons_SimpleMelee.Greatclub}";
                     greatclub.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}.{NameHelper.Weapons_SimpleMelee.Greatclub}.{NameHelper.Naming.Description}";
@@ -384,7 +385,7 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var twoHanded =
-                            Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                                 greatclub);
                         twoHanded.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}";
                         twoHanded.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}.{NameHelper.Naming.Description}";
@@ -396,7 +397,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var push = Common.CreateScriptableObjectAndAddToObject<Push>(NameHelper.MasteryProperty.Push,
+                        var push = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Push>(NameHelper.MasteryProperty.Push,
                             greatclub);
                         push.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Push}";
                         push.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Push}.{NameHelper.Naming.Description}";
@@ -411,7 +412,7 @@ namespace DnD.Editor.Initializer
 
                 }
                 {
-                    var handaxe = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Handaxe,
+                    var handaxe = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Handaxe,
                         PathHelper.Weapons.SimpleMeleeWeaponsPath);
                     handaxe.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}.{NameHelper.Weapons_SimpleMelee.Handaxe}";
                     handaxe.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}.{NameHelper.Weapons_SimpleMelee.Handaxe}.{NameHelper.Naming.Description}";
@@ -425,14 +426,14 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var thrown =
-                            Common.CreateScriptableObjectAndAddToObject<Thrown>(NameHelper.WeaponProperty.Thrown, handaxe);
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Thrown>(NameHelper.WeaponProperty.Thrown, handaxe);
                         thrown.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Thrown}";
                         thrown.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Thrown}.{NameHelper.Naming.Description}";
                         thrown.Range = new Range() { Max = 18, Min = 6 };
                         
                         EditorUtility.SetDirty(thrown);
 
-                        var light = Common.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light,
+                        var light = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light,
                             handaxe);
                         light.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Light}";
                         light.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Light}.{NameHelper.Naming.Description}";
@@ -444,7 +445,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var vex = Common.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex, handaxe);
+                        var vex = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex, handaxe);
                         vex.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Vex}";
                         vex.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Vex}.{NameHelper.Naming.Description}";
                         
@@ -456,7 +457,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(handaxe);
                 }
                 {
-                    var javelin = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Javelin,
+                    var javelin = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Javelin,
                         PathHelper.Weapons.SimpleMeleeWeaponsPath);
                     javelin.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}.{NameHelper.Weapons_SimpleMelee.Javelin}";
                     javelin.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}.{NameHelper.Weapons_SimpleMelee.Javelin}.{NameHelper.Naming.Description}";
@@ -470,7 +471,7 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var thrown =
-                            Common.CreateScriptableObjectAndAddToObject<Thrown>(NameHelper.WeaponProperty.Thrown, javelin);
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Thrown>(NameHelper.WeaponProperty.Thrown, javelin);
                         thrown.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Thrown}";
                         thrown.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Thrown}.{NameHelper.Naming.Description}";
                         thrown.Range = new Range() { Max = 36, Min = 9 };
@@ -482,7 +483,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var slow = Common.CreateScriptableObjectAndAddToObject<Slow>(NameHelper.MasteryProperty.Slow,
+                        var slow = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Slow>(NameHelper.MasteryProperty.Slow,
                             javelin);
                         slow.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Slow}";
                         slow.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Slow}.{NameHelper.Naming.Description}";
@@ -496,7 +497,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(javelin);
                 }
                 {
-                    var lightHammer = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.LightHammer,
+                    var lightHammer = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.LightHammer,
                         PathHelper.Weapons.SimpleMeleeWeaponsPath);
                     lightHammer.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}.{NameHelper.Weapons_SimpleMelee.LightHammer}";
                     lightHammer.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}.{NameHelper.Weapons_SimpleMelee.LightHammer}.{NameHelper.Naming.Description}";
@@ -510,7 +511,7 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var thrown =
-                            Common.CreateScriptableObjectAndAddToObject<Thrown>(NameHelper.WeaponProperty.Thrown,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Thrown>(NameHelper.WeaponProperty.Thrown,
                                 lightHammer);
                         thrown.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Thrown}";
                         thrown.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Thrown}.{NameHelper.Naming.Description}";
@@ -518,7 +519,7 @@ namespace DnD.Editor.Initializer
                         
                         EditorUtility.SetDirty(thrown);
 
-                        var light = Common.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light,
+                        var light = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light,
                             lightHammer);
                         light.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Light}";
                         light.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Light}.{NameHelper.Naming.Description}";
@@ -530,7 +531,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var nick = Common.CreateScriptableObjectAndAddToObject<Nick>(NameHelper.MasteryProperty.Nick,
+                        var nick = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Nick>(NameHelper.MasteryProperty.Nick,
                             lightHammer);
                         nick.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Nick}";
                         nick.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Nick}.{NameHelper.Naming.Description}";
@@ -543,7 +544,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(lightHammer);
                 }
                 {
-                    var mace = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Mace,
+                    var mace = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Mace,
                         PathHelper.Weapons.SimpleMeleeWeaponsPath);
                     mace.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}.{NameHelper.Weapons_SimpleMelee.Mace}";
                     mace.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}.{NameHelper.Weapons_SimpleMelee.Mace}.{NameHelper.Naming.Description}";
@@ -557,7 +558,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var sap = Common.CreateScriptableObjectAndAddToObject<Sap>(NameHelper.MasteryProperty.Sap, mace);
+                        var sap = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Sap>(NameHelper.MasteryProperty.Sap, mace);
                         sap.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Sap}";
                         sap.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Sap}.{NameHelper.Naming.Description}";
                         
@@ -570,7 +571,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var quarterstaff =
-                        Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Quarterstaff,
+                        ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Quarterstaff,
                             PathHelper.Weapons.SimpleMeleeWeaponsPath);
                     quarterstaff.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}.{NameHelper.Weapons_SimpleMelee.Quarterstaff}";
                     quarterstaff.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}.{NameHelper.Weapons_SimpleMelee.Quarterstaff}.{NameHelper.Naming.Description}";
@@ -584,7 +585,7 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var versatile =
-                            Common.CreateScriptableObjectAndAddToObject<Versatile>(NameHelper.WeaponProperty.Versatile,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Versatile>(NameHelper.WeaponProperty.Versatile,
                                 quarterstaff);
                         versatile.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Versatile}";
                         versatile.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Versatile}.{NameHelper.Naming.Description}";
@@ -599,7 +600,7 @@ namespace DnD.Editor.Initializer
                     // Mastery property
                     {
                         var topple =
-                            Common.CreateScriptableObjectAndAddToObject<Topple>(NameHelper.MasteryProperty.Topple,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Topple>(NameHelper.MasteryProperty.Topple,
                                 quarterstaff);
                         topple.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Topple}";
                         topple.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Topple}.{NameHelper.Naming.Description}";
@@ -612,7 +613,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(quarterstaff);
                 }
                 {
-                    var sickle = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Sickle,
+                    var sickle = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Sickle,
                         PathHelper.Weapons.SimpleMeleeWeaponsPath);
                     sickle.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}.{NameHelper.Weapons_SimpleMelee.Sickle}";
                     sickle.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}.{NameHelper.Weapons_SimpleMelee.Sickle}.{NameHelper.Naming.Description}";
@@ -625,7 +626,7 @@ namespace DnD.Editor.Initializer
 
                     // Weapon properties
                     {
-                        var light = Common.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light,
+                        var light = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light,
                             sickle);
                         light.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Light}";
                         light.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Light}.{NameHelper.Naming.Description}";
@@ -637,7 +638,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var nick = Common.CreateScriptableObjectAndAddToObject<Nick>(NameHelper.MasteryProperty.Nick,
+                        var nick = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Nick>(NameHelper.MasteryProperty.Nick,
                             sickle);
                         nick.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Nick}";
                         nick.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Nick}.{NameHelper.Naming.Description}";
@@ -650,7 +651,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(sickle);
                 }
                 {
-                    var spear = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Spear,
+                    var spear = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_SimpleMelee.Spear,
                         PathHelper.Weapons.SimpleMeleeWeaponsPath);
                     spear.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}.{NameHelper.Weapons_SimpleMelee.Spear}";
                     spear.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}.{NameHelper.Weapons_SimpleMelee.Spear}.{NameHelper.Naming.Description}";
@@ -664,7 +665,7 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var thrown =
-                            Common.CreateScriptableObjectAndAddToObject<Thrown>(NameHelper.WeaponProperty.Thrown, spear);
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Thrown>(NameHelper.WeaponProperty.Thrown, spear);
                         thrown.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Thrown}";
                         thrown.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Thrown}.{NameHelper.Naming.Description}";
                         thrown.Range = new Range() { Max = 18, Min = 6 };
@@ -672,7 +673,7 @@ namespace DnD.Editor.Initializer
                         EditorUtility.SetDirty(thrown);
 
                         var versatile =
-                            Common.CreateScriptableObjectAndAddToObject<Versatile>(NameHelper.WeaponProperty.Versatile,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Versatile>(NameHelper.WeaponProperty.Versatile,
                                 spear);
                         versatile.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Versatile}";
                         versatile.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Versatile}.{NameHelper.Naming.Description}";
@@ -686,7 +687,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var sap = Common.CreateScriptableObjectAndAddToObject<Sap>(NameHelper.MasteryProperty.Sap, spear);
+                        var sap = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Sap>(NameHelper.MasteryProperty.Sap, spear);
                         sap.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Sap}";
                         sap.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Sap}.{NameHelper.Naming.Description}";
                         
@@ -713,13 +714,13 @@ namespace DnD.Editor.Initializer
             try
             {
                 AssetDatabase.StartAssetEditing();
-                Common.EnsureFolderExists(PathHelper.Weapons.MartialRangedWeaponsPath);
+                FileSystemHelper.EnsureFolderExists(PathHelper.Weapons.MartialRangedWeaponsPath);
 
                 var martialRangedWeaponType =
                     weaponTypes.Single(x => x.name == NameHelper.WeaponTypes.MartialRangedWeapon);
 
                 {
-                    var blowgun = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.Blowgun,
+                    var blowgun = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.Blowgun,
                         PathHelper.Weapons.MartialRangedWeaponsPath);
 
                     blowgun.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialRangedWeapon}.{NameHelper.Weapons_MartialRanged.Blowgun}";
@@ -734,7 +735,7 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var ammunition =
-                            Common.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
                                 blowgun);
                         ammunition.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Ammunition}";
                         ammunition.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Ammunition}.{NameHelper.Naming.Description}";
@@ -744,7 +745,7 @@ namespace DnD.Editor.Initializer
                         EditorUtility.SetDirty(ammunition);
 
                         var loading =
-                            Common.CreateScriptableObjectAndAddToObject<Loading>(NameHelper.WeaponProperty.Loading,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Loading>(NameHelper.WeaponProperty.Loading,
                                 blowgun);
                         loading.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Loading}";
                         loading.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Loading}.{NameHelper.Naming.Description}";
@@ -756,7 +757,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var vex = Common.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex, blowgun);
+                        var vex = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex, blowgun);
                         vex.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Vex}";
                         vex.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Vex}.{NameHelper.Naming.Description}";
                         
@@ -769,7 +770,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var handCrossbow =
-                        Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.HandCrossbow,
+                        ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.HandCrossbow,
                             PathHelper.Weapons.MartialRangedWeaponsPath);
 
                     handCrossbow.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialRangedWeapon}.{NameHelper.Weapons_MartialRanged.HandCrossbow}";
@@ -784,7 +785,7 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var ammunition =
-                            Common.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
                                 handCrossbow);
                         ammunition.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Ammunition}";
                         ammunition.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Ammunition}.{NameHelper.Naming.Description}";
@@ -794,13 +795,13 @@ namespace DnD.Editor.Initializer
                         EditorUtility.SetDirty(ammunition);
 
                         var loading =
-                            Common.CreateScriptableObjectAndAddToObject<Loading>(NameHelper.WeaponProperty.Loading, handCrossbow);
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Loading>(NameHelper.WeaponProperty.Loading, handCrossbow);
                         loading.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Loading}";
                         loading.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Loading}.{NameHelper.Naming.Description}";
                         
                         EditorUtility.SetDirty(loading);
 
-                        var light = Common.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light, handCrossbow);
+                        var light = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light, handCrossbow);
                         light.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Light}";
                         light.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Light}.{NameHelper.Naming.Description}";
                         
@@ -811,7 +812,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var vex = Common.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex,
+                        var vex = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex,
                             handCrossbow);
                         vex.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Vex}";
                         vex.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Vex}.{NameHelper.Naming.Description}";
@@ -825,7 +826,7 @@ namespace DnD.Editor.Initializer
                 }
                 {
                     var heavyCrossbow =
-                        Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.HeavyCrossbow,
+                        ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.HeavyCrossbow,
                             PathHelper.Weapons.MartialRangedWeaponsPath);
 
                     heavyCrossbow.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialRangedWeapon}.{NameHelper.Weapons_MartialRanged.HeavyCrossbow}";
@@ -840,7 +841,7 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var ammunition =
-                            Common.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
                                 heavyCrossbow);
                         ammunition.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Ammunition}";
                         ammunition.Type = ammunitionTypes.Single(x => x.name == NameHelper.AmmunitionTypes.Bolts);
@@ -848,7 +849,7 @@ namespace DnD.Editor.Initializer
                         
                         EditorUtility.SetDirty(ammunition);
 
-                        var heavy = Common.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
+                        var heavy = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
                             heavyCrossbow);
                         heavy.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Heavy}";
                         heavy.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Heavy}.{NameHelper.Naming.Description}";
@@ -856,7 +857,7 @@ namespace DnD.Editor.Initializer
                         EditorUtility.SetDirty(heavy);
 
                         var loading =
-                            Common.CreateScriptableObjectAndAddToObject<Loading>(NameHelper.WeaponProperty.Loading,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Loading>(NameHelper.WeaponProperty.Loading,
                                 heavyCrossbow);
                         loading.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Loading}";
                         loading.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Loading}.{NameHelper.Naming.Description}";
@@ -864,7 +865,7 @@ namespace DnD.Editor.Initializer
                         EditorUtility.SetDirty(loading);
 
                         var twoHanded =
-                            Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                                 heavyCrossbow);
                         twoHanded.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}";
                         twoHanded.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}.{NameHelper.Naming.Description}";
@@ -876,7 +877,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var push = Common.CreateScriptableObjectAndAddToObject<Push>(NameHelper.MasteryProperty.Push,
+                        var push = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Push>(NameHelper.MasteryProperty.Push,
                             heavyCrossbow);
                         push.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Push}";
                         push.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Push}.{NameHelper.Naming.Description}";
@@ -890,7 +891,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(heavyCrossbow);
                 }
                 {
-                    var longbow = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.Longbow,
+                    var longbow = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.Longbow,
                         PathHelper.Weapons.MartialRangedWeaponsPath);
 
                     longbow.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialRangedWeapon}.{NameHelper.Weapons_MartialRanged.Longbow}";
@@ -905,7 +906,7 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var ammunition =
-                            Common.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
                                 longbow);
                         ammunition.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Ammunition}";
                         ammunition.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Ammunition}.{NameHelper.Naming.Description}";
@@ -914,7 +915,7 @@ namespace DnD.Editor.Initializer
                         
                         EditorUtility.SetDirty(ammunition);
 
-                        var heavy = Common.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
+                        var heavy = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
                             longbow);
                         heavy.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Heavy}";
                         heavy.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Heavy}.{NameHelper.Naming.Description}";
@@ -922,7 +923,7 @@ namespace DnD.Editor.Initializer
                         EditorUtility.SetDirty(heavy);
 
                         var twoHanded =
-                            Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                                 longbow);
                         twoHanded.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}";
                         twoHanded.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}.{NameHelper.Naming.Description}";
@@ -934,7 +935,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var slow = Common.CreateScriptableObjectAndAddToObject<Slow>(NameHelper.MasteryProperty.Slow,
+                        var slow = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Slow>(NameHelper.MasteryProperty.Slow,
                             longbow);
                         slow.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Slow}";
                         slow.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Slow}.{NameHelper.Naming.Description}";
@@ -948,7 +949,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(longbow);
                 }
                 {
-                    var musket = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.Musket,
+                    var musket = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.Musket,
                         PathHelper.Weapons.MartialRangedWeaponsPath);
 
                     musket.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialRangedWeapon}.{NameHelper.Weapons_MartialRanged.Musket}";
@@ -963,7 +964,7 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var ammunition =
-                            Common.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
                                 musket);
                         ammunition.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Ammunition}";
                         ammunition.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Ammunition}.{NameHelper.Naming.Description}";
@@ -973,14 +974,14 @@ namespace DnD.Editor.Initializer
                         EditorUtility.SetDirty(ammunition);
 
                         var loading =
-                            Common.CreateScriptableObjectAndAddToObject<Loading>(NameHelper.WeaponProperty.Loading, musket);
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Loading>(NameHelper.WeaponProperty.Loading, musket);
                         loading.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Loading}";
                         loading.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Loading}.{NameHelper.Naming.Description}";
                         
                         EditorUtility.SetDirty(loading);
                         
                         var twoHanded =
-                            Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                                 musket);
                         twoHanded.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}";
                         twoHanded.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}.{NameHelper.Naming.Description}";
@@ -993,7 +994,7 @@ namespace DnD.Editor.Initializer
                     
                     // Mastery property
                     {
-                        var slow = Common.CreateScriptableObjectAndAddToObject<Slow>(NameHelper.MasteryProperty.Slow,
+                        var slow = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Slow>(NameHelper.MasteryProperty.Slow,
                             musket);
                         slow.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Slow}";
                         slow.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Slow}.{NameHelper.Naming.Description}";
@@ -1007,7 +1008,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(musket);
                 }
                 {
-                    var pistol = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.Pistol,
+                    var pistol = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialRanged.Pistol,
                         PathHelper.Weapons.MartialRangedWeaponsPath);
                     pistol.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialRangedWeapon}.{NameHelper.Weapons_MartialRanged.Pistol}";
                     pistol.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialRangedWeapon}.{NameHelper.Weapons_MartialRanged.Pistol}.{NameHelper.Naming.Description}";
@@ -1021,7 +1022,7 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var ammunition =
-                            Common.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Ammunition>(NameHelper.WeaponProperty.Ammunition,
                                 pistol);
                         ammunition.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Ammunition}";
                         ammunition.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Ammunition}.{NameHelper.Naming.Description}";
@@ -1031,7 +1032,7 @@ namespace DnD.Editor.Initializer
                         EditorUtility.SetDirty(ammunition);
 
                         var loading =
-                            Common.CreateScriptableObjectAndAddToObject<Loading>(NameHelper.WeaponProperty.Loading, pistol);
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Loading>(NameHelper.WeaponProperty.Loading, pistol);
                         loading.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Loading}";
                         loading.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Loading}.{NameHelper.Naming.Description}";
                         
@@ -1042,7 +1043,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var vex = Common.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex, pistol);
+                        var vex = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex, pistol);
                         vex.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Vex}";
                         vex.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Vex}.{NameHelper.Naming.Description}";
                         
@@ -1069,13 +1070,13 @@ namespace DnD.Editor.Initializer
             try
             {
                 AssetDatabase.StartAssetEditing();
-                Common.EnsureFolderExists(PathHelper.Weapons.MartialMeleeWeaponsPath);
+                FileSystemHelper.EnsureFolderExists(PathHelper.Weapons.MartialMeleeWeaponsPath);
 
                 var martialMeleeWeaponType =
                     weaponTypes.Single(x => x.name == NameHelper.WeaponTypes.MartialMeleeWeapon);
 
                 {
-                    var battleaxe = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Battleaxe,
+                    var battleaxe = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Battleaxe,
                         PathHelper.Weapons.MartialMeleeWeaponsPath);
                     battleaxe.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Battleaxe}";
                     battleaxe.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Battleaxe}.{NameHelper.Naming.Description}";
@@ -1089,7 +1090,7 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var versatile =
-                            Common.CreateScriptableObjectAndAddToObject<Versatile>(NameHelper.WeaponProperty.Versatile,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Versatile>(NameHelper.WeaponProperty.Versatile,
                                 battleaxe);
                         versatile.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Versatile}";
                         versatile.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Versatile}.{NameHelper.Naming.Description}";
@@ -1104,7 +1105,7 @@ namespace DnD.Editor.Initializer
                     // Mastery property
                     {
                         var topple =
-                            Common.CreateScriptableObjectAndAddToObject<Topple>(NameHelper.MasteryProperty.Topple,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Topple>(NameHelper.MasteryProperty.Topple,
                                 battleaxe);
                         topple.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Topple}";
                         topple.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Topple}.{NameHelper.Naming.Description}";
@@ -1117,7 +1118,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(battleaxe);
                 }
                 {
-                    var flail = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Flail,
+                    var flail = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Flail,
                         PathHelper.Weapons.MartialMeleeWeaponsPath);
                     flail.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Flail}";
                     flail.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Flail}.{NameHelper.Naming.Description}";
@@ -1130,7 +1131,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var sap = Common.CreateScriptableObjectAndAddToObject<Sap>(NameHelper.MasteryProperty.Sap, flail);
+                        var sap = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Sap>(NameHelper.MasteryProperty.Sap, flail);
                         sap.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Sap}";
                         sap.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Sap}.{NameHelper.Naming.Description}";
                         
@@ -1142,7 +1143,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(flail);
                 }
                 {
-                    var glaive = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Glaive,
+                    var glaive = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Glaive,
                         PathHelper.Weapons.MartialMeleeWeaponsPath);
                     glaive.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Glaive}";
                     glaive.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Glaive}.{NameHelper.Naming.Description}";
@@ -1155,14 +1156,14 @@ namespace DnD.Editor.Initializer
 
                     // Weapon properties
                     {
-                        var heavy = Common.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
+                        var heavy = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
                             glaive);
                         heavy.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Heavy}";
                         heavy.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Heavy}.{NameHelper.Naming.Description}";
                         
                         EditorUtility.SetDirty(heavy);
 
-                        var reach = Common.CreateScriptableObjectAndAddToObject<Reach>(NameHelper.WeaponProperty.Reach,
+                        var reach = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Reach>(NameHelper.WeaponProperty.Reach,
                             glaive);
                         reach.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Reach}";
                         reach.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Reach}.{NameHelper.Naming.Description}";
@@ -1171,7 +1172,7 @@ namespace DnD.Editor.Initializer
                         EditorUtility.SetDirty(reach);
 
                         var twoHanded =
-                            Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                                 glaive);
                         twoHanded.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}";
                         twoHanded.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}.{NameHelper.Naming.Description}";
@@ -1183,7 +1184,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var graze = Common.CreateScriptableObjectAndAddToObject<Graze>(NameHelper.MasteryProperty.Graze,
+                        var graze = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Graze>(NameHelper.MasteryProperty.Graze,
                             glaive);
                         graze.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Graze}";
                         graze.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Graze}.{NameHelper.Naming.Description}";
@@ -1196,7 +1197,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(glaive);
                 }
                 {
-                    var greataxe = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Greataxe,
+                    var greataxe = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Greataxe,
                         PathHelper.Weapons.MartialMeleeWeaponsPath);
                     greataxe.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Greataxe}";
                     greataxe.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Greataxe}.{NameHelper.Naming.Description}";
@@ -1209,7 +1210,7 @@ namespace DnD.Editor.Initializer
 
                     // Weapon properties
                     {
-                        var heavy = Common.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
+                        var heavy = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
                             greataxe);
                         heavy.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Heavy}";
                         heavy.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Heavy}.{NameHelper.Naming.Description}";
@@ -1217,7 +1218,7 @@ namespace DnD.Editor.Initializer
                         EditorUtility.SetDirty(heavy);
 
                         var twoHanded =
-                            Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                                 greataxe);
                         twoHanded.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}";
                         twoHanded.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}.{NameHelper.Naming.Description}";
@@ -1230,7 +1231,7 @@ namespace DnD.Editor.Initializer
                     // Mastery property
                     {
                         var cleave =
-                            Common.CreateScriptableObjectAndAddToObject<Cleave>(NameHelper.MasteryProperty.Cleave,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Cleave>(NameHelper.MasteryProperty.Cleave,
                                 greataxe);
                         cleave.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Cleave}";
                         cleave.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Cleave}.{NameHelper.Naming.Description}";
@@ -1243,7 +1244,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(greataxe);
                 }
                 {
-                    var greatsword = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Greatsword,
+                    var greatsword = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Greatsword,
                         PathHelper.Weapons.MartialMeleeWeaponsPath);
                     greatsword.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Greatsword}";
                     greatsword.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Greatsword}.{NameHelper.Naming.Description}";
@@ -1256,7 +1257,7 @@ namespace DnD.Editor.Initializer
 
                     // Weapon properties
                     {
-                        var heavy = Common.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
+                        var heavy = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
                             greatsword);
                         heavy.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Heavy}";
                         heavy.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Heavy}.{NameHelper.Naming.Description}";
@@ -1264,7 +1265,7 @@ namespace DnD.Editor.Initializer
                         EditorUtility.SetDirty(heavy);
 
                         var twoHanded =
-                            Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                                 greatsword);
                         twoHanded.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}";
                         twoHanded.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}.{NameHelper.Naming.Description}";
@@ -1276,7 +1277,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var graze = Common.CreateScriptableObjectAndAddToObject<Graze>(NameHelper.MasteryProperty.Graze,
+                        var graze = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Graze>(NameHelper.MasteryProperty.Graze,
                             greatsword);
                         graze.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Graze}";
                         graze.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Graze}.{NameHelper.Naming.Description}";
@@ -1289,7 +1290,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(greatsword);
                 }
                 {
-                    var halberd = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Halberd,
+                    var halberd = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Halberd,
                         PathHelper.Weapons.MartialMeleeWeaponsPath);
                     halberd.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Halberd}";
                     halberd.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Halberd}.{NameHelper.Naming.Description}";
@@ -1302,7 +1303,7 @@ namespace DnD.Editor.Initializer
 
                     // Weapon properties
                     {
-                        var heavy = Common.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
+                        var heavy = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
                             halberd);
                         heavy.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Heavy}";
                         heavy.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Heavy}.{NameHelper.Naming.Description}";
@@ -1310,14 +1311,14 @@ namespace DnD.Editor.Initializer
                         EditorUtility.SetDirty(heavy);
 
                         var twoHanded =
-                            Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                                 halberd);
                         twoHanded.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}";
                         twoHanded.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}.{NameHelper.Naming.Description}";
                         
                         EditorUtility.SetDirty(twoHanded);
 
-                        var reach = Common.CreateScriptableObjectAndAddToObject<Reach>(NameHelper.WeaponProperty.Reach,
+                        var reach = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Reach>(NameHelper.WeaponProperty.Reach,
                             halberd);
                         reach.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Reach}";
                         reach.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Reach}.{NameHelper.Naming.Description}";
@@ -1330,7 +1331,7 @@ namespace DnD.Editor.Initializer
                     // Mastery property
                     {
                         var cleave =
-                            Common.CreateScriptableObjectAndAddToObject<Cleave>(NameHelper.MasteryProperty.Cleave, halberd);
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Cleave>(NameHelper.MasteryProperty.Cleave, halberd);
                         cleave.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Cleave}";
                         cleave.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Cleave}.{NameHelper.Naming.Description}";
                         
@@ -1342,7 +1343,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(halberd);
                 }
                 {
-                    var lance = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Lance,
+                    var lance = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Lance,
                         PathHelper.Weapons.MartialMeleeWeaponsPath);
                     lance.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Lance}";
                     lance.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Lance}.{NameHelper.Naming.Description}";
@@ -1355,7 +1356,7 @@ namespace DnD.Editor.Initializer
 
                     // Weapon properties
                     {
-                        var heavy = Common.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
+                        var heavy = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
                             lance);
                         heavy.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Heavy}";
                         heavy.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Heavy}.{NameHelper.Naming.Description}";
@@ -1363,14 +1364,14 @@ namespace DnD.Editor.Initializer
                         EditorUtility.SetDirty(heavy);
 
                         var twoHanded =
-                            Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                                 lance);
                         twoHanded.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}";
                         twoHanded.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}.{NameHelper.Naming.Description}";
                         
                         EditorUtility.SetDirty(twoHanded);
 
-                        var reach = Common.CreateScriptableObjectAndAddToObject<Reach>(NameHelper.WeaponProperty.Reach,
+                        var reach = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Reach>(NameHelper.WeaponProperty.Reach,
                             lance);
                         reach.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Reach}";
                         reach.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Reach}.{NameHelper.Naming.Description}";
@@ -1384,7 +1385,7 @@ namespace DnD.Editor.Initializer
                     // Mastery property
                     {
                         var topple =
-                            Common.CreateScriptableObjectAndAddToObject<Topple>(NameHelper.MasteryProperty.Topple, lance);
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Topple>(NameHelper.MasteryProperty.Topple, lance);
                         topple.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Topple}";
                         topple.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Topple}.{NameHelper.Naming.Description}";
                         
@@ -1396,7 +1397,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(lance);
                 }
                 {
-                    var longsword = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Longsword,
+                    var longsword = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Longsword,
                         PathHelper.Weapons.MartialMeleeWeaponsPath);
                     longsword.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Longsword}";
                     longsword.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Longsword}.{NameHelper.Naming.Description}";
@@ -1410,7 +1411,7 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var versatile =
-                            Common.CreateScriptableObjectAndAddToObject<Versatile>(NameHelper.WeaponProperty.Versatile,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Versatile>(NameHelper.WeaponProperty.Versatile,
                                 longsword);
                         versatile.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Versatile}";
                         versatile.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Versatile}.{NameHelper.Naming.Description}";
@@ -1424,7 +1425,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var sap = Common.CreateScriptableObjectAndAddToObject<Sap>(NameHelper.MasteryProperty.Sap,
+                        var sap = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Sap>(NameHelper.MasteryProperty.Sap,
                             longsword);
                         sap.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Sap}";
                         sap.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Sap}.{NameHelper.Naming.Description}";
@@ -1437,7 +1438,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(longsword);
                 }
                 {
-                    var maul = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Maul,
+                    var maul = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Maul,
                         PathHelper.Weapons.MartialMeleeWeaponsPath);
                     maul.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Maul}";
                     maul.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Maul}.{NameHelper.Naming.Description}";
@@ -1450,7 +1451,7 @@ namespace DnD.Editor.Initializer
 
                     // Weapon properties
                     {
-                        var heavy = Common.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
+                        var heavy = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
                             maul);
                         heavy.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Heavy}";
                         heavy.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Heavy}.{NameHelper.Naming.Description}";
@@ -1458,7 +1459,7 @@ namespace DnD.Editor.Initializer
                         EditorUtility.SetDirty(heavy);
 
                         var twoHanded =
-                            Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                                 maul);
                         twoHanded.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}";
                         twoHanded.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}.{NameHelper.Naming.Description}";
@@ -1471,7 +1472,7 @@ namespace DnD.Editor.Initializer
                     // Mastery property
                     {
                         var topple =
-                            Common.CreateScriptableObjectAndAddToObject<Topple>(NameHelper.MasteryProperty.Topple, maul);
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Topple>(NameHelper.MasteryProperty.Topple, maul);
                         topple.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Topple}";
                         topple.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Topple}.{NameHelper.Naming.Description}";
                         
@@ -1483,7 +1484,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(maul);
                 }
                 {
-                    var morningstar = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Morningstar,
+                    var morningstar = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Morningstar,
                         PathHelper.Weapons.MartialMeleeWeaponsPath);
                     morningstar.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Morningstar}";
                     morningstar.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Morningstar}.{NameHelper.Naming.Description}";
@@ -1496,7 +1497,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var sap = Common.CreateScriptableObjectAndAddToObject<Sap>(NameHelper.MasteryProperty.Sap,
+                        var sap = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Sap>(NameHelper.MasteryProperty.Sap,
                             morningstar);
                         sap.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Sap}";
                         sap.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Sap}.{NameHelper.Naming.Description}";
@@ -1509,7 +1510,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(morningstar);
                 }
                 {
-                    var pike = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Pike,
+                    var pike = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Pike,
                         PathHelper.Weapons.MartialMeleeWeaponsPath);
                     pike.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Pike}";
                     pike.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Pike}.{NameHelper.Naming.Description}";
@@ -1522,7 +1523,7 @@ namespace DnD.Editor.Initializer
 
                     // Weapon properties
                     {
-                        var heavy = Common.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
+                        var heavy = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Heavy>(NameHelper.WeaponProperty.Heavy,
                             pike);
                         heavy.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Heavy}";
                         heavy.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Heavy}.{NameHelper.Naming.Description}";
@@ -1530,14 +1531,14 @@ namespace DnD.Editor.Initializer
                         EditorUtility.SetDirty(heavy);
 
                         var twoHanded =
-                            Common.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<TwoHanded>(NameHelper.WeaponProperty.TwoHanded,
                                 pike);
                         twoHanded.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}";
                         twoHanded.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.TwoHanded}.{NameHelper.Naming.Description}";
                         
                         EditorUtility.SetDirty(twoHanded);
 
-                        var reach = Common.CreateScriptableObjectAndAddToObject<Reach>(NameHelper.WeaponProperty.Reach,
+                        var reach = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Reach>(NameHelper.WeaponProperty.Reach,
                             pike);
                         reach.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Reach}";
                         reach.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Reach}.{NameHelper.Naming.Description}";
@@ -1550,7 +1551,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var push = Common.CreateScriptableObjectAndAddToObject<Push>(NameHelper.MasteryProperty.Push, pike);
+                        var push = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Push>(NameHelper.MasteryProperty.Push, pike);
                         push.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Push}";
                         push.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Push}.{NameHelper.Naming.Description}";
                         push.Distance = 3.0f;
@@ -1563,7 +1564,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(pike);
                 }
                 {
-                    var rapier = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Rapier,
+                    var rapier = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Rapier,
                         PathHelper.Weapons.MartialMeleeWeaponsPath);
                     rapier.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Rapier}";
                     rapier.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Rapier}.{NameHelper.Naming.Description}";
@@ -1577,7 +1578,7 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var finesse =
-                            Common.CreateScriptableObjectAndAddToObject<Finesse>(NameHelper.WeaponProperty.Finesse, rapier);
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Finesse>(NameHelper.WeaponProperty.Finesse, rapier);
                         finesse.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Finesse}";
                         finesse.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Finesse}.{NameHelper.Naming.Description}";
                         
@@ -1588,7 +1589,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var vex = Common.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex, rapier);
+                        var vex = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex, rapier);
                         vex.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Vex}";
                         vex.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Vex}.{NameHelper.Naming.Description}";
                         
@@ -1600,7 +1601,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(rapier);
                 }
                 {
-                    var scimitar = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Scimitar,
+                    var scimitar = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Scimitar,
                         PathHelper.Weapons.MartialMeleeWeaponsPath);
                     scimitar.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Scimitar}";
                     scimitar.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Scimitar}.{NameHelper.Naming.Description}";
@@ -1614,14 +1615,14 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var finesse =
-                            Common.CreateScriptableObjectAndAddToObject<Finesse>(NameHelper.WeaponProperty.Finesse,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Finesse>(NameHelper.WeaponProperty.Finesse,
                                 scimitar);
                         finesse.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Finesse}";
                         finesse.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Finesse}.{NameHelper.Naming.Description}";
                         
                         EditorUtility.SetDirty(finesse);
 
-                        var light = Common.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light,
+                        var light = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light,
                             scimitar);
                         light.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Light}";
                         light.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Light}.{NameHelper.Naming.Description}";
@@ -1633,7 +1634,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var nick = Common.CreateScriptableObjectAndAddToObject<Nick>(NameHelper.MasteryProperty.Nick,
+                        var nick = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Nick>(NameHelper.MasteryProperty.Nick,
                             scimitar);
                         nick.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Nick}";
                         nick.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Nick}.{NameHelper.Naming.Description}";
@@ -1646,7 +1647,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(scimitar);
                 }
                 {
-                    var shortsword = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Shortsword,
+                    var shortsword = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Shortsword,
                         PathHelper.Weapons.MartialMeleeWeaponsPath);
                     shortsword.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Shortsword}";
                     shortsword.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Shortsword}.{NameHelper.Naming.Description}";
@@ -1660,14 +1661,14 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var finesse =
-                            Common.CreateScriptableObjectAndAddToObject<Finesse>(NameHelper.WeaponProperty.Finesse,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Finesse>(NameHelper.WeaponProperty.Finesse,
                                 shortsword);
                         finesse.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Finesse}";
                         finesse.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Finesse}.{NameHelper.Naming.Description}";
                         
                         EditorUtility.SetDirty(finesse);
 
-                        var light = Common.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light,
+                        var light = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Light>(NameHelper.WeaponProperty.Light,
                             shortsword);
                         light.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Light}";
                         light.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Light}.{NameHelper.Naming.Description}";
@@ -1679,7 +1680,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var vex = Common.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex,
+                        var vex = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Vex>(NameHelper.MasteryProperty.Vex,
                             shortsword);
                         vex.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Vex}";
                         vex.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Vex}.{NameHelper.Naming.Description}";
@@ -1692,7 +1693,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(shortsword);
                 }
                 {
-                    var trident = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Trident,
+                    var trident = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Trident,
                         PathHelper.Weapons.MartialMeleeWeaponsPath);
                     trident.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Trident}";
                     trident.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Trident}.{NameHelper.Naming.Description}";
@@ -1706,7 +1707,7 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var thrown =
-                            Common.CreateScriptableObjectAndAddToObject<Thrown>(NameHelper.WeaponProperty.Thrown, trident);
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Thrown>(NameHelper.WeaponProperty.Thrown, trident);
                         thrown.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Thrown}";
                         thrown.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Thrown}.{NameHelper.Naming.Description}";
                         thrown.Range = new Range() { Max = 18, Min = 6 };
@@ -1714,7 +1715,7 @@ namespace DnD.Editor.Initializer
                         EditorUtility.SetDirty(thrown);
 
                         var versatile =
-                            Common.CreateScriptableObjectAndAddToObject<Versatile>(NameHelper.WeaponProperty.Versatile,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Versatile>(NameHelper.WeaponProperty.Versatile,
                                 trident);
                         versatile.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Versatile}";
                         versatile.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Versatile}.{NameHelper.Naming.Description}";
@@ -1729,7 +1730,7 @@ namespace DnD.Editor.Initializer
                     // Mastery property
                     {
                         var topple =
-                            Common.CreateScriptableObjectAndAddToObject<Topple>(NameHelper.MasteryProperty.Topple, trident);
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Topple>(NameHelper.MasteryProperty.Topple, trident);
                         topple.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Topple}";
                         topple.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Topple}.{NameHelper.Naming.Description}";
                         
@@ -1741,7 +1742,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(trident);
                 }
                 {
-                    var warhammer = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Warhammer,
+                    var warhammer = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Warhammer,
                         PathHelper.Weapons.MartialMeleeWeaponsPath);
                     warhammer.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Warhammer}";
                     warhammer.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Warhammer}.{NameHelper.Naming.Description}";
@@ -1755,7 +1756,7 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var versatile =
-                            Common.CreateScriptableObjectAndAddToObject<Versatile>(NameHelper.WeaponProperty.Versatile,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Versatile>(NameHelper.WeaponProperty.Versatile,
                                 warhammer);
                         versatile.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Versatile}";
                         versatile.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Versatile}.{NameHelper.Naming.Description}";
@@ -1769,7 +1770,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var push = Common.CreateScriptableObjectAndAddToObject<Push>(NameHelper.MasteryProperty.Push,
+                        var push = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Push>(NameHelper.MasteryProperty.Push,
                             warhammer);
                         push.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Push}";
                         push.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Push}.{NameHelper.Naming.Description}";
@@ -1783,7 +1784,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(warhammer);
                 }
                 {
-                    var warpick = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.WarPick,
+                    var warpick = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.WarPick,
                         PathHelper.Weapons.MartialMeleeWeaponsPath);
                     warpick.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.WarPick}";
                     warpick.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.WarPick}.{NameHelper.Naming.Description}";
@@ -1797,7 +1798,7 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var versatile =
-                            Common.CreateScriptableObjectAndAddToObject<Versatile>(NameHelper.WeaponProperty.Versatile,
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Versatile>(NameHelper.WeaponProperty.Versatile,
                                 warpick);
                         versatile.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Versatile}";
                         versatile.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Versatile}.{NameHelper.Naming.Description}";
@@ -1811,7 +1812,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var sap = Common.CreateScriptableObjectAndAddToObject<Sap>(NameHelper.MasteryProperty.Sap, warpick);
+                        var sap = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Sap>(NameHelper.MasteryProperty.Sap, warpick);
                         sap.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Sap}";
                         sap.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Sap}.{NameHelper.Naming.Description}";
                         
@@ -1823,7 +1824,7 @@ namespace DnD.Editor.Initializer
                     EditorUtility.SetDirty(warpick);
                 }
                 {
-                    var whip = Common.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Whip,
+                    var whip = ScriptableObjectHelper.CreateScriptableObject<Weapon>(NameHelper.Weapons_MartialMelee.Whip,
                         PathHelper.Weapons.MartialMeleeWeaponsPath);
                     whip.DisplayName = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Whip}";
                     whip.DisplayDescription = $"{NameHelper.Naming.Weapons}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Weapons_MartialMelee.Whip}.{NameHelper.Naming.Description}";
@@ -1837,13 +1838,13 @@ namespace DnD.Editor.Initializer
                     // Weapon properties
                     {
                         var finesse =
-                            Common.CreateScriptableObjectAndAddToObject<Finesse>(NameHelper.WeaponProperty.Finesse, whip);
+                            ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Finesse>(NameHelper.WeaponProperty.Finesse, whip);
                         finesse.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Finesse}";
                         finesse.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Finesse}.{NameHelper.Naming.Description}";
                         
                         EditorUtility.SetDirty(finesse);
 
-                        var reach = Common.CreateScriptableObjectAndAddToObject<Reach>(NameHelper.WeaponProperty.Reach,
+                        var reach = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Reach>(NameHelper.WeaponProperty.Reach,
                             whip);
                         reach.DisplayName = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Reach}";
                         reach.DisplayDescription = $"{NameHelper.Naming.WeaponProperty}.{NameHelper.WeaponProperty.Reach}.{NameHelper.Naming.Description}";
@@ -1855,7 +1856,7 @@ namespace DnD.Editor.Initializer
 
                     // Mastery property
                     {
-                        var slow = Common.CreateScriptableObjectAndAddToObject<Slow>(NameHelper.MasteryProperty.Slow, whip);
+                        var slow = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Slow>(NameHelper.MasteryProperty.Slow, whip);
                         slow.DisplayName = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Slow}";
                         slow.DisplayDescription = $"{NameHelper.Naming.WeaponMasteryProperty}.{NameHelper.MasteryProperty.Slow}.{NameHelper.Naming.Description}";
                         slow.SlowBy = 3.0f;
@@ -1885,10 +1886,10 @@ namespace DnD.Editor.Initializer
             {
                 AssetDatabase.StartAssetEditing();
 
-                Common.EnsureFolderExists(PathHelper.Weapons.WeaponTypesPath);
+                FileSystemHelper.EnsureFolderExists(PathHelper.Weapons.WeaponTypesPath);
 
                 {
-                    var martialMeleeWeapon = Common.CreateScriptableObject<WeaponType>(NameHelper.WeaponTypes.MartialMeleeWeapon, PathHelper.Weapons.WeaponTypesPath);
+                    var martialMeleeWeapon = ScriptableObjectHelper.CreateScriptableObject<WeaponType>(NameHelper.WeaponTypes.MartialMeleeWeapon, PathHelper.Weapons.WeaponTypesPath);
                     martialMeleeWeapon.DisplayName = $"{NameHelper.Naming.WeaponTypes}.{NameHelper.WeaponTypes.MartialMeleeWeapon}";
                     martialMeleeWeapon.DisplayDescription = $"{NameHelper.Naming.WeaponTypes}.{NameHelper.WeaponTypes.MartialMeleeWeapon}.{NameHelper.Naming.Description}";
                     weaponTypes.Add(martialMeleeWeapon);
@@ -1897,7 +1898,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var simpleMeleeWeapon = Common.CreateScriptableObject<WeaponType>(NameHelper.WeaponTypes.SimpleMeleeWeapon, PathHelper.Weapons.WeaponTypesPath);
+                    var simpleMeleeWeapon = ScriptableObjectHelper.CreateScriptableObject<WeaponType>(NameHelper.WeaponTypes.SimpleMeleeWeapon, PathHelper.Weapons.WeaponTypesPath);
                     simpleMeleeWeapon.DisplayName = $"{NameHelper.Naming.WeaponTypes}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}";
                     simpleMeleeWeapon.DisplayDescription = $"{NameHelper.Naming.WeaponTypes}.{NameHelper.WeaponTypes.SimpleMeleeWeapon}.{NameHelper.Naming.Description}";
                     weaponTypes.Add(simpleMeleeWeapon);
@@ -1906,7 +1907,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var martialRangedWeapon = Common.CreateScriptableObject<WeaponType>(NameHelper.WeaponTypes.MartialRangedWeapon, PathHelper.Weapons.WeaponTypesPath);
+                    var martialRangedWeapon = ScriptableObjectHelper.CreateScriptableObject<WeaponType>(NameHelper.WeaponTypes.MartialRangedWeapon, PathHelper.Weapons.WeaponTypesPath);
                     martialRangedWeapon.DisplayName = $"{NameHelper.Naming.WeaponTypes}.{NameHelper.WeaponTypes.MartialRangedWeapon}";
                     martialRangedWeapon.DisplayDescription = $"{NameHelper.Naming.WeaponTypes}.{NameHelper.WeaponTypes.MartialRangedWeapon}.{NameHelper.Naming.Description}";
                     weaponTypes.Add(martialRangedWeapon);
@@ -1915,7 +1916,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var simpleRangedWeapon = Common.CreateScriptableObject<WeaponType>(NameHelper.WeaponTypes.SimpleRangedWeapon, PathHelper.Weapons.WeaponTypesPath);
+                    var simpleRangedWeapon = ScriptableObjectHelper.CreateScriptableObject<WeaponType>(NameHelper.WeaponTypes.SimpleRangedWeapon, PathHelper.Weapons.WeaponTypesPath);
                     simpleRangedWeapon.DisplayName = $"{NameHelper.Naming.WeaponTypes}.{NameHelper.WeaponTypes.SimpleRangedWeapon}";
                     simpleRangedWeapon.DisplayDescription = $"{NameHelper.Naming.WeaponTypes}.{NameHelper.WeaponTypes.SimpleRangedWeapon}.{NameHelper.Naming.Description}";
                     weaponTypes.Add(simpleRangedWeapon);
@@ -1943,10 +1944,10 @@ namespace DnD.Editor.Initializer
             {
                 AssetDatabase.StartAssetEditing();
 
-                Common.EnsureFolderExists(PathHelper.Weapons.AmmunitionTypesPath);
+                FileSystemHelper.EnsureFolderExists(PathHelper.Weapons.AmmunitionTypesPath);
 
                 {
-                    var arrows = Common.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.Arrows, PathHelper.Weapons.AmmunitionTypesPath);
+                    var arrows = ScriptableObjectHelper.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.Arrows, PathHelper.Weapons.AmmunitionTypesPath);
                     arrows.DisplayName = $"{NameHelper.Naming.AmmunitionTypes}.{NameHelper.AmmunitionTypes.Arrows}";
                     arrows.DisplayDescription = $"{NameHelper.Naming.AmmunitionTypes}.{NameHelper.AmmunitionTypes.Arrows}.{NameHelper.Naming.Description}";
                     arrows.Amount = 20;
@@ -1959,7 +1960,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var bolts = Common.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.Bolts, PathHelper.Weapons.AmmunitionTypesPath);
+                    var bolts = ScriptableObjectHelper.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.Bolts, PathHelper.Weapons.AmmunitionTypesPath);
                     bolts.DisplayName = $"{NameHelper.Naming.AmmunitionTypes}.{NameHelper.AmmunitionTypes.Bolts}";
                     bolts.DisplayDescription = $"{NameHelper.Naming.AmmunitionTypes}.{NameHelper.AmmunitionTypes.Bolts}.{NameHelper.Naming.Description}";
                     bolts.Amount = 20;
@@ -1972,7 +1973,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var bulletsFirearm = Common.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.BulletsFirearm, PathHelper.Weapons.AmmunitionTypesPath);
+                    var bulletsFirearm = ScriptableObjectHelper.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.BulletsFirearm, PathHelper.Weapons.AmmunitionTypesPath);
                     bulletsFirearm.DisplayName = $"{NameHelper.Naming.AmmunitionTypes}.{NameHelper.AmmunitionTypes.BulletsFirearm}";
                     bulletsFirearm.DisplayDescription = $"{NameHelper.Naming.AmmunitionTypes}.{NameHelper.AmmunitionTypes.BulletsFirearm}.{NameHelper.Naming.Description}";
                     bulletsFirearm.Amount = 10;
@@ -1985,7 +1986,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var bulletsSling = Common.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.BulletsSling, PathHelper.Weapons.AmmunitionTypesPath);
+                    var bulletsSling = ScriptableObjectHelper.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.BulletsSling, PathHelper.Weapons.AmmunitionTypesPath);
                     bulletsSling.DisplayName = $"{NameHelper.Naming.AmmunitionTypes}.{NameHelper.AmmunitionTypes.BulletsSling}";
                     bulletsSling.DisplayDescription = $"{NameHelper.Naming.AmmunitionTypes}.{NameHelper.AmmunitionTypes.BulletsSling}.{NameHelper.Naming.Description}";
                     bulletsSling.Amount = 20;
@@ -1998,7 +1999,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var needles = Common.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.Needles, PathHelper.Weapons.AmmunitionTypesPath);
+                    var needles = ScriptableObjectHelper.CreateScriptableObject<AmmunitionType>(NameHelper.AmmunitionTypes.Needles, PathHelper.Weapons.AmmunitionTypesPath);
                     needles.DisplayName = $"{NameHelper.Naming.AmmunitionTypes}.{NameHelper.AmmunitionTypes.Needles}";
                     needles.DisplayDescription = $"{NameHelper.Naming.AmmunitionTypes}.{NameHelper.AmmunitionTypes.Needles}.{NameHelper.Naming.Description}";
                     needles.Amount = 50;

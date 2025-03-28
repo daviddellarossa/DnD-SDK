@@ -1,4 +1,5 @@
 ﻿using DnD.Code.Scripts.Common;
+using DnD.Code.Scripts.Helpers;
 using DnD.Code.Scripts.Helpers.PathHelper;
 using DnD.Code.Scripts.Storage;
 using DnD.Code.Scripts.Weapons;
@@ -13,7 +14,7 @@ namespace DnD.Editor.Initializer
 
         public static Storage[] GetAllStorage()
         {
-            return Common.GetAllScriptableObjects<Storage>(PathHelper.StoragePath);
+            return ScriptableObjectHelper.GetAllScriptableObjects<Storage>(PathHelper.StoragePath);
         }
 
         [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Storage Data")]
@@ -23,22 +24,22 @@ namespace DnD.Editor.Initializer
             {
                 AssetDatabase.StartAssetEditing();
 
-                Common.EnsureFolderExists(PathHelper.StoragePath);
+                FileSystemHelper.EnsureFolderExists(PathHelper.StoragePath);
 
                 {
-                    var caseStorage = Common.CreateScriptableObject<Storage>(NameHelper.Storage.Case, PathHelper.StoragePath);
+                    var caseStorage = ScriptableObjectHelper.CreateScriptableObject<Storage>(NameHelper.Storage.Case, PathHelper.StoragePath);
                     caseStorage.DisplayName = $"{nameof(NameHelper.Storage)}.{NameHelper.Storage.Case}";
                     caseStorage.DisplayDescription = $"{nameof(NameHelper.Storage)}.{NameHelper.Storage.Case}.{NameHelper.Naming.Description}";
                     EditorUtility.SetDirty(caseStorage);
                 }
                 {
-                    var pouchStorage = Common.CreateScriptableObject<Storage>(NameHelper.Storage.Pouch, PathHelper.StoragePath);
+                    var pouchStorage = ScriptableObjectHelper.CreateScriptableObject<Storage>(NameHelper.Storage.Pouch, PathHelper.StoragePath);
                     pouchStorage.DisplayName = $"{nameof(NameHelper.Storage)}.{NameHelper.Storage.Pouch}";
                     pouchStorage.DisplayDescription = $"{nameof(NameHelper.Storage)}.{NameHelper.Storage.Pouch}.{NameHelper.Naming.Description}";
                     EditorUtility.SetDirty(pouchStorage);
                 }
                 {
-                    var quiverStorage = Common.CreateScriptableObject<Storage>(NameHelper.Storage.Quiver, PathHelper.StoragePath);
+                    var quiverStorage = ScriptableObjectHelper.CreateScriptableObject<Storage>(NameHelper.Storage.Quiver, PathHelper.StoragePath);
                     quiverStorage.DisplayName = $"{nameof(NameHelper.Storage)}.{NameHelper.Storage.Quiver}";
                     quiverStorage.DisplayDescription = $"{nameof(NameHelper.Storage)}.{NameHelper.Storage.Quiver}.{NameHelper.Naming.Description}";
                     EditorUtility.SetDirty(quiverStorage);

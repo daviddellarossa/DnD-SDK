@@ -3,18 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
-using Codice.Client.Common;
-using DnD.Code.Scripts.Common;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace DnD.Editor.Initializer
+namespace DnD.Code.Scripts.Helpers
 {
-    public static class Common
+    public static class ScriptableObjectHelper
     {
-        // public static readonly string FolderPath = "Assets/DnD/Code/Instances";
-        
         public static T CreateScriptableObject<T>(string fileName, string folderPath) where T : ScriptableObject
         {
             string assetPath = Path.Combine(folderPath, fileName + ".asset");
@@ -78,23 +74,6 @@ namespace DnD.Editor.Initializer
 
             Object[] subAssets = AssetDatabase.LoadAllAssetsAtPath(assetPath);
             return subAssets.OfType<T>().Any();
-        }
-        
-        public static void EnsureFolderExists(string folderPath, bool recursively = false)
-        {
-            if (!AssetDatabase.IsValidFolder(folderPath))
-            {
-                string parentFolder = Path.GetDirectoryName(folderPath);
-                string newFolder = Path.GetFileName(folderPath);
-
-                if (recursively && !string.IsNullOrEmpty(parentFolder) && !AssetDatabase.IsValidFolder(parentFolder))
-                {
-                    EnsureFolderExists(parentFolder, true); // Recursively create parent folders if needed
-                }
-
-                AssetDatabase.CreateFolder(parentFolder, newFolder);
-                AssetDatabase.Refresh();
-            }
         }
         
         public static T GetExistingScriptableObject<T>(string folderPath) where T : ScriptableObject

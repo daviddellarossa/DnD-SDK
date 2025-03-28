@@ -1,6 +1,7 @@
 ﻿using DnD.Code.Scripts.Common;
 using System;
 using System.Collections.Generic;
+using DnD.Code.Scripts.Helpers;
 using DnD.Code.Scripts.Helpers.PathHelper;
 using DnD.Code.Scripts.Languages;
 using UnityEditor;
@@ -14,7 +15,7 @@ namespace DnD.Editor.Initializer
 
         public static void InitializeLanguages()
         {
-            Common.EnsureFolderExists(PathHelper.Languages.LanguagesPath);
+            FileSystemHelper.EnsureFolderExists(PathHelper.Languages.LanguagesPath);
 
             var origins = InitializeOrigins();
 
@@ -29,10 +30,10 @@ namespace DnD.Editor.Initializer
             {
                 AssetDatabase.StartAssetEditing();
             
-                Common.EnsureFolderExists(PathHelper.Languages.StandardLanguagesPath);
+                FileSystemHelper.EnsureFolderExists(PathHelper.Languages.StandardLanguagesPath);
 
                 {
-                    var language = Common.CreateScriptableObject<StandardLanguage>(NameHelper.Languages.Common, PathHelper.Languages.StandardLanguagesPath);
+                    var language = ScriptableObjectHelper.CreateScriptableObject<StandardLanguage>(NameHelper.Languages.Common, PathHelper.Languages.StandardLanguagesPath);
                     language.DisplayName = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Common}";
                     language.DisplayDescription = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Common}.{NameHelper.Naming.Description}";
                     language.Origin = origins[NameHelper.LanguageOrigins.Sigil];
@@ -41,7 +42,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var language = Common.CreateScriptableObject<StandardLanguage>(NameHelper.Languages.CommonSign, PathHelper.Languages.StandardLanguagesPath);
+                    var language = ScriptableObjectHelper.CreateScriptableObject<StandardLanguage>(NameHelper.Languages.CommonSign, PathHelper.Languages.StandardLanguagesPath);
                     language.DisplayName = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.CommonSign}";
                     language.DisplayDescription = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.CommonSign}.{NameHelper.Naming.Description}";
                     language.Origin = origins[NameHelper.LanguageOrigins.Sigil];
@@ -50,7 +51,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var language = Common.CreateScriptableObject<StandardLanguage>(NameHelper.Languages.Draconic, PathHelper.Languages.StandardLanguagesPath);
+                    var language = ScriptableObjectHelper.CreateScriptableObject<StandardLanguage>(NameHelper.Languages.Draconic, PathHelper.Languages.StandardLanguagesPath);
                     language.DisplayName = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Draconic}";;
                     language.DisplayDescription = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Draconic}.{NameHelper.Naming.Description}";
                     language.Origin = origins[NameHelper.LanguageOrigins.Dragons];
@@ -59,7 +60,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var language = Common.CreateScriptableObject<StandardLanguage>(NameHelper.Languages.Dwarvish, PathHelper.Languages.StandardLanguagesPath);
+                    var language = ScriptableObjectHelper.CreateScriptableObject<StandardLanguage>(NameHelper.Languages.Dwarvish, PathHelper.Languages.StandardLanguagesPath);
                     language.DisplayName = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Dwarvish}";
                     language.DisplayDescription = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Dwarvish}.{NameHelper.Naming.Description}";
                     language.Origin = origins[NameHelper.LanguageOrigins.Dwarves];
@@ -68,7 +69,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var language = Common.CreateScriptableObject<StandardLanguage>(NameHelper.Languages.Elvish, PathHelper.Languages.StandardLanguagesPath);
+                    var language = ScriptableObjectHelper.CreateScriptableObject<StandardLanguage>(NameHelper.Languages.Elvish, PathHelper.Languages.StandardLanguagesPath);
                     language.DisplayName = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Elvish}";
                     language.DisplayDescription = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Elvish}.{NameHelper.Naming.Description}";
                     language.Origin = origins[NameHelper.LanguageOrigins.Elves];
@@ -77,7 +78,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var language = Common.CreateScriptableObject<StandardLanguage>(NameHelper.Languages.Giant, PathHelper.Languages.StandardLanguagesPath);
+                    var language = ScriptableObjectHelper.CreateScriptableObject<StandardLanguage>(NameHelper.Languages.Giant, PathHelper.Languages.StandardLanguagesPath);
                     language.DisplayName = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Giant}";
                     language.DisplayDescription = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Giant}.{NameHelper.Naming.Description}";
                     language.Origin = origins[NameHelper.LanguageOrigins.Giants];
@@ -86,7 +87,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var language = Common.CreateScriptableObject<StandardLanguage>(NameHelper.Languages.Gnomish, PathHelper.Languages.StandardLanguagesPath);
+                    var language = ScriptableObjectHelper.CreateScriptableObject<StandardLanguage>(NameHelper.Languages.Gnomish, PathHelper.Languages.StandardLanguagesPath);
                     language.DisplayName = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Gnomish}";
                     language.DisplayDescription = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Gnomish}.{NameHelper.Naming.Description}";
                     language.Origin = origins[NameHelper.LanguageOrigins.Gnomes];
@@ -95,7 +96,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var language = Common.CreateScriptableObject<StandardLanguage>(NameHelper.Languages.Goblin, PathHelper.Languages.StandardLanguagesPath);
+                    var language = ScriptableObjectHelper.CreateScriptableObject<StandardLanguage>(NameHelper.Languages.Goblin, PathHelper.Languages.StandardLanguagesPath);
                     language.DisplayName = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Goblin}";
                     language.DisplayDescription = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Goblin}.{NameHelper.Naming.Description}";
                     language.Origin = origins[NameHelper.LanguageOrigins.Goblinoids];
@@ -104,7 +105,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var language = Common.CreateScriptableObject<StandardLanguage>(NameHelper.Languages.Halfling, PathHelper.Languages.StandardLanguagesPath);
+                    var language = ScriptableObjectHelper.CreateScriptableObject<StandardLanguage>(NameHelper.Languages.Halfling, PathHelper.Languages.StandardLanguagesPath);
                     language.DisplayName = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Halfling}";
                     language.DisplayDescription = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Halfling}.{NameHelper.Naming.Description}";
                     language.Origin = origins[NameHelper.LanguageOrigins.Halflings];
@@ -113,7 +114,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var language = Common.CreateScriptableObject<StandardLanguage>(NameHelper.Languages.Orc, PathHelper.Languages.StandardLanguagesPath);
+                    var language = ScriptableObjectHelper.CreateScriptableObject<StandardLanguage>(NameHelper.Languages.Orc, PathHelper.Languages.StandardLanguagesPath);
                     language.DisplayName = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Orc}";
                     language.DisplayDescription = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Orc}.{NameHelper.Naming.Description}";
                     language.Origin = origins[NameHelper.LanguageOrigins.Orcs];
@@ -136,10 +137,10 @@ namespace DnD.Editor.Initializer
             {
                 AssetDatabase.StartAssetEditing();
 
-                Common.EnsureFolderExists(PathHelper.Languages.RareLanguagesPath);
+                FileSystemHelper.EnsureFolderExists(PathHelper.Languages.RareLanguagesPath);
 
                 {
-                    var language = Common.CreateScriptableObject<RareLanguage>(NameHelper.Languages.Abyssal, PathHelper.Languages.RareLanguagesPath);
+                    var language = ScriptableObjectHelper.CreateScriptableObject<RareLanguage>(NameHelper.Languages.Abyssal, PathHelper.Languages.RareLanguagesPath);
                     language.DisplayName = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Abyssal}";
                     language.DisplayDescription = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Abyssal}.{NameHelper.Naming.Description}";
                     language.Origin = origins[NameHelper.LanguageOrigins.DemonsOfTheAbyss];
@@ -148,7 +149,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var language = Common.CreateScriptableObject<RareLanguage>(NameHelper.Languages.Celestial, PathHelper.Languages.RareLanguagesPath);
+                    var language = ScriptableObjectHelper.CreateScriptableObject<RareLanguage>(NameHelper.Languages.Celestial, PathHelper.Languages.RareLanguagesPath);
                     language.DisplayName = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Celestial}";
                     language.DisplayDescription = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Celestial}.{NameHelper.Naming.Description}";
                     language.Origin = origins[NameHelper.LanguageOrigins.Celestials];
@@ -157,7 +158,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var language = Common.CreateScriptableObject<RareLanguage>(NameHelper.Languages.DeepSpeech, PathHelper.Languages.RareLanguagesPath);
+                    var language = ScriptableObjectHelper.CreateScriptableObject<RareLanguage>(NameHelper.Languages.DeepSpeech, PathHelper.Languages.RareLanguagesPath);
                     language.DisplayName = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.DeepSpeech}";
                     language.DisplayDescription = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.DeepSpeech}.{NameHelper.Naming.Description}";
                     language.Origin = origins[NameHelper.LanguageOrigins.Aberrations];
@@ -166,7 +167,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var language = Common.CreateScriptableObject<RareLanguage>(NameHelper.Languages.Druidic, PathHelper.Languages.RareLanguagesPath);
+                    var language = ScriptableObjectHelper.CreateScriptableObject<RareLanguage>(NameHelper.Languages.Druidic, PathHelper.Languages.RareLanguagesPath);
                     language.DisplayName = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Druidic}";
                     language.DisplayDescription = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Druidic}.{NameHelper.Naming.Description}";
                     language.Origin = origins[NameHelper.LanguageOrigins.DruidicCircles];
@@ -175,7 +176,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var language = Common.CreateScriptableObject<RareLanguage>(NameHelper.Languages.Infernal, PathHelper.Languages.RareLanguagesPath);
+                    var language = ScriptableObjectHelper.CreateScriptableObject<RareLanguage>(NameHelper.Languages.Infernal, PathHelper.Languages.RareLanguagesPath);
                     language.DisplayName = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Infernal}";
                     language.DisplayDescription = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Infernal}.{NameHelper.Naming.Description}";
                     language.Origin = origins[NameHelper.LanguageOrigins.DevilsOfTheNineHells];
@@ -184,7 +185,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var language = Common.CreateScriptableObject<RareLanguage>(NameHelper.Languages.Primordial, PathHelper.Languages.RareLanguagesPath);
+                    var language = ScriptableObjectHelper.CreateScriptableObject<RareLanguage>(NameHelper.Languages.Primordial, PathHelper.Languages.RareLanguagesPath);
                     language.DisplayName = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Primordial}";
                     language.DisplayDescription = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Primordial}.{NameHelper.Naming.Description}";
                     language.Origin = origins[NameHelper.LanguageOrigins.Elementals];
@@ -193,7 +194,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var language = Common.CreateScriptableObject<RareLanguage>(NameHelper.Languages.Sylvan, PathHelper.Languages.RareLanguagesPath);
+                    var language = ScriptableObjectHelper.CreateScriptableObject<RareLanguage>(NameHelper.Languages.Sylvan, PathHelper.Languages.RareLanguagesPath);
                     language.DisplayName = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Sylvan}";
                     language.DisplayDescription = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Sylvan}.{NameHelper.Naming.Description}";
                     language.Origin = origins[NameHelper.LanguageOrigins.TheFeywild];
@@ -202,7 +203,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var language = Common.CreateScriptableObject<RareLanguage>(NameHelper.Languages.ThievesCant, PathHelper.Languages.RareLanguagesPath);
+                    var language = ScriptableObjectHelper.CreateScriptableObject<RareLanguage>(NameHelper.Languages.ThievesCant, PathHelper.Languages.RareLanguagesPath);
                     language.DisplayName = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.ThievesCant}";
                     language.DisplayDescription = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.ThievesCant}.{NameHelper.Naming.Description}";
                     language.Origin = origins[NameHelper.LanguageOrigins.VariousCriminalGuilds];
@@ -211,7 +212,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var language = Common.CreateScriptableObject<RareLanguage>(NameHelper.Languages.Undercommon, PathHelper.Languages.RareLanguagesPath);
+                    var language = ScriptableObjectHelper.CreateScriptableObject<RareLanguage>(NameHelper.Languages.Undercommon, PathHelper.Languages.RareLanguagesPath);
                     language.DisplayName = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Undercommon}";
                     language.DisplayDescription = $"{nameof(NameHelper.Languages)}.{NameHelper.Languages.Undercommon}.{NameHelper.Naming.Description}";
                     language.Origin = origins[NameHelper.LanguageOrigins.TheUnderdark];
@@ -236,10 +237,10 @@ namespace DnD.Editor.Initializer
             {
                 AssetDatabase.StartAssetEditing();
 
-                Common.EnsureFolderExists(PathHelper.Languages.OriginsPath);
+                FileSystemHelper.EnsureFolderExists(PathHelper.Languages.OriginsPath);
 
                 {
-                    var origin = Common.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Aberrations, PathHelper.Languages.OriginsPath);
+                    var origin = ScriptableObjectHelper.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Aberrations, PathHelper.Languages.OriginsPath);
                     origin.DisplayName = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Aberrations}";
                     origin.DisplayDescription = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Aberrations}.{NameHelper.Naming.Description}";
                     languageOrigins.Add(NameHelper.LanguageOrigins.Aberrations, origin);
@@ -248,7 +249,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var origin = Common.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Celestials, PathHelper.Languages.OriginsPath);
+                    var origin = ScriptableObjectHelper.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Celestials, PathHelper.Languages.OriginsPath);
                     origin.DisplayName = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Celestials}";
                     origin.DisplayDescription = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Celestials}.{NameHelper.Naming.Description}";
                     languageOrigins.Add(NameHelper.LanguageOrigins.Celestials, origin);
@@ -257,7 +258,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var origin = Common.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.DemonsOfTheAbyss, PathHelper.Languages.OriginsPath);
+                    var origin = ScriptableObjectHelper.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.DemonsOfTheAbyss, PathHelper.Languages.OriginsPath);
                     origin.DisplayName = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.DemonsOfTheAbyss}";
                     origin.DisplayDescription = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.DemonsOfTheAbyss}.{NameHelper.Naming.Description}";
                     languageOrigins.Add(NameHelper.LanguageOrigins.DemonsOfTheAbyss, origin);
@@ -266,7 +267,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var origin = Common.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.DevilsOfTheNineHells, PathHelper.Languages.OriginsPath);
+                    var origin = ScriptableObjectHelper.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.DevilsOfTheNineHells, PathHelper.Languages.OriginsPath);
                     origin.DisplayName = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.DevilsOfTheNineHells}";
                     origin.DisplayDescription = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.DevilsOfTheNineHells}.{NameHelper.Naming.Description}";
                     languageOrigins.Add(NameHelper.LanguageOrigins.DevilsOfTheNineHells, origin);
@@ -275,7 +276,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var origin = Common.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Dragons, PathHelper.Languages.OriginsPath);
+                    var origin = ScriptableObjectHelper.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Dragons, PathHelper.Languages.OriginsPath);
                     origin.DisplayName = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Dragons}";
                     origin.DisplayDescription = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Dragons}.{NameHelper.Naming.Description}";
                     languageOrigins.Add(NameHelper.LanguageOrigins.Dragons, origin);
@@ -284,7 +285,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var origin = Common.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.DruidicCircles, PathHelper.Languages.OriginsPath);
+                    var origin = ScriptableObjectHelper.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.DruidicCircles, PathHelper.Languages.OriginsPath);
                     origin.DisplayName = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.DruidicCircles}";
                     origin.DisplayDescription = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.DruidicCircles}.{NameHelper.Naming.Description}";
                     languageOrigins.Add(NameHelper.LanguageOrigins.DruidicCircles, origin);
@@ -293,7 +294,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var origin = Common.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Dwarves, PathHelper.Languages.OriginsPath);
+                    var origin = ScriptableObjectHelper.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Dwarves, PathHelper.Languages.OriginsPath);
                     origin.DisplayName = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Dwarves}";
                     origin.DisplayDescription = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Dwarves}.{NameHelper.Naming.Description}";
                     languageOrigins.Add(NameHelper.LanguageOrigins.Dwarves, origin);
@@ -302,7 +303,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var origin = Common.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Elementals, PathHelper.Languages.OriginsPath);
+                    var origin = ScriptableObjectHelper.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Elementals, PathHelper.Languages.OriginsPath);
                     origin.DisplayName = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Elementals}";
                     origin.DisplayDescription = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Elementals}.{NameHelper.Naming.Description}";
                     languageOrigins.Add(NameHelper.LanguageOrigins.Elementals, origin);
@@ -311,7 +312,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var origin = Common.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Elves, PathHelper.Languages.OriginsPath);
+                    var origin = ScriptableObjectHelper.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Elves, PathHelper.Languages.OriginsPath);
                     origin.DisplayName = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Elves}";
                     origin.DisplayDescription = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Elves}.{NameHelper.Naming.Description}";
                     languageOrigins.Add(NameHelper.LanguageOrigins.Elves, origin);
@@ -320,7 +321,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var origin = Common.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Giants, PathHelper.Languages.OriginsPath);
+                    var origin = ScriptableObjectHelper.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Giants, PathHelper.Languages.OriginsPath);
                     origin.DisplayName = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Giants}";
                     origin.DisplayDescription = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Giants}.{NameHelper.Naming.Description}";
                     languageOrigins.Add(NameHelper.LanguageOrigins.Giants, origin);
@@ -329,7 +330,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var origin = Common.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Gnomes, PathHelper.Languages.OriginsPath);
+                    var origin = ScriptableObjectHelper.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Gnomes, PathHelper.Languages.OriginsPath);
                     origin.DisplayName = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Gnomes}";
                     origin.DisplayDescription = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Gnomes}.{NameHelper.Naming.Description}";
                     languageOrigins.Add(NameHelper.LanguageOrigins.Gnomes, origin);
@@ -338,7 +339,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var origin = Common.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Goblinoids, PathHelper.Languages.OriginsPath);
+                    var origin = ScriptableObjectHelper.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Goblinoids, PathHelper.Languages.OriginsPath);
                     origin.DisplayName = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Goblinoids}";
                     origin.DisplayDescription = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Goblinoids}.{NameHelper.Naming.Description}";
                     languageOrigins.Add(NameHelper.LanguageOrigins.Goblinoids, origin);
@@ -347,7 +348,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var origin = Common.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Halflings, PathHelper.Languages.OriginsPath);
+                    var origin = ScriptableObjectHelper.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Halflings, PathHelper.Languages.OriginsPath);
                     origin.DisplayName = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Halflings}";
                     origin.DisplayDescription = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Halflings}.{NameHelper.Naming.Description}";
                     languageOrigins.Add(NameHelper.LanguageOrigins.Halflings, origin);
@@ -356,7 +357,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var origin = Common.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Orcs, PathHelper.Languages.OriginsPath);
+                    var origin = ScriptableObjectHelper.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Orcs, PathHelper.Languages.OriginsPath);
                     origin.DisplayName = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Orcs}";
                     origin.DisplayDescription = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Orcs}.{NameHelper.Naming.Description}";
                     languageOrigins.Add(NameHelper.LanguageOrigins.Orcs, origin);
@@ -365,7 +366,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var origin = Common.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Sigil, PathHelper.Languages.OriginsPath);
+                    var origin = ScriptableObjectHelper.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.Sigil, PathHelper.Languages.OriginsPath);
                     origin.DisplayName = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Sigil}";
                     origin.DisplayDescription = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.Sigil}.{NameHelper.Naming.Description}";
                     languageOrigins.Add(NameHelper.LanguageOrigins.Sigil, origin);
@@ -374,7 +375,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var origin = Common.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.TheFeywild, PathHelper.Languages.OriginsPath);
+                    var origin = ScriptableObjectHelper.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.TheFeywild, PathHelper.Languages.OriginsPath);
                     origin.DisplayName = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.TheFeywild}";;
                     origin.DisplayDescription = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.TheFeywild}.{NameHelper.Naming.Description}";
                     languageOrigins.Add(NameHelper.LanguageOrigins.TheFeywild, origin);
@@ -383,7 +384,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var origin = Common.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.TheUnderdark, PathHelper.Languages.OriginsPath);
+                    var origin = ScriptableObjectHelper.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.TheUnderdark, PathHelper.Languages.OriginsPath);
                     origin.DisplayName = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.TheUnderdark}";
                     origin.DisplayDescription = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.TheUnderdark}.{NameHelper.Naming.Description}";
                     languageOrigins.Add(NameHelper.LanguageOrigins.TheUnderdark, origin);
@@ -392,7 +393,7 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var origin = Common.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.VariousCriminalGuilds, PathHelper.Languages.OriginsPath);
+                    var origin = ScriptableObjectHelper.CreateScriptableObject<LanguageOrigin>(NameHelper.LanguageOrigins.VariousCriminalGuilds, PathHelper.Languages.OriginsPath);
                     origin.DisplayName = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.VariousCriminalGuilds}";
                     origin.DisplayDescription = $"{NameHelper.Naming.LanguageOrigins}.{NameHelper.LanguageOrigins.VariousCriminalGuilds}.{NameHelper.Naming.Description}";
                     languageOrigins.Add(NameHelper.LanguageOrigins.VariousCriminalGuilds, origin);

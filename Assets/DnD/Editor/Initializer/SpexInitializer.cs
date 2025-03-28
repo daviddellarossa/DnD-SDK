@@ -1,6 +1,7 @@
 ﻿using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Feats;
+using DnD.Code.Scripts.Helpers;
 using DnD.Code.Scripts.Helpers.PathHelper;
 using DnD.Code.Scripts.Species;
 using DnD.Code.Scripts.Species.SpecialTraits;
@@ -29,7 +30,7 @@ namespace DnD.Editor.Initializer
         [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Species Data")]
         public static void InitializeSpecies()
         {
-            Common.EnsureFolderExists(PathHelper.Species.SpeciesPath);
+            FileSystemHelper.EnsureFolderExists(PathHelper.Species.SpeciesPath);
             
             var creatureTypes = CreatureTypesInitializer.GetAllCreatureTypes();
             
@@ -43,8 +44,8 @@ namespace DnD.Editor.Initializer
             {
                 AssetDatabase.StartAssetEditing();
             
-                Common.EnsureFolderExists(SpexPath);
-                Common.EnsureFolderExists(SpexSpecialTraitsPath);
+                FileSystemHelper.EnsureFolderExists(SpexPath);
+                FileSystemHelper.EnsureFolderExists(SpexSpecialTraitsPath);
                 
                 var spexInstance = CreateSpexInstance();
 

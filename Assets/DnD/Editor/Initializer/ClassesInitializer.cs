@@ -6,6 +6,7 @@ using DnD.Code.Scripts.Classes;
 using DnD.Code.Scripts.Classes.FeatureProperties;
 using DnD.Code.Scripts.Equipment;
 using DnD.Code.Scripts.Equipment.Coins;
+using DnD.Code.Scripts.Helpers;
 using DnD.Code.Scripts.Helpers.PathHelper;
 using DnD.Code.Scripts.Weapons;
 using UnityEditor;
@@ -18,7 +19,7 @@ namespace DnD.Editor.Initializer
     {
         protected Level InitializeLevel(string levelName, int levelNum, int proficiencyBonus, IClassFeatureTraits classFeatureTraits, string assetPath)
         {
-            var level = Common.CreateScriptableObject<Level>($"{levelName}.{levelNum:00}", assetPath);
+            var level = ScriptableObjectHelper.CreateScriptableObject<Level>($"{levelName}.{levelNum:00}", assetPath);
             level.DisplayName = $"{levelName}.{levelNum:00}";
             level.DisplayDescription = $"{levelName}.{levelNum:00}.{NameHelper.Naming.Description}";
             level.LevelNum = levelNum;
@@ -50,7 +51,7 @@ namespace DnD.Editor.Initializer
         [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Classes Data")]
         public static void InitializeClasses()
         {
-            Common.EnsureFolderExists(PathHelper.Classes.ClassesPath);
+            FileSystemHelper.EnsureFolderExists(PathHelper.Classes.ClassesPath);
             
             var barbarianInitializer = new ClassBarbarianInitializer();
             barbarianInitializer.InitializeBarbarian();
@@ -62,10 +63,10 @@ namespace DnD.Editor.Initializer
             {
                 AssetDatabase.StartAssetEditing();
             
-                Common.EnsureFolderExists(ClassPath);
-                Common.EnsureFolderExists(ClassLevelsPath);
-                Common.EnsureFolderExists(ClassStartingEquipmentPath);
-                Common.EnsureFolderExists(ClassSubClassesPath);
+                FileSystemHelper.EnsureFolderExists(ClassPath);
+                FileSystemHelper.EnsureFolderExists(ClassLevelsPath);
+                FileSystemHelper.EnsureFolderExists(ClassStartingEquipmentPath);
+                FileSystemHelper.EnsureFolderExists(ClassSubClassesPath);
                 
                 var classInstance = CreateClassInstance();
 
@@ -104,7 +105,7 @@ namespace DnD.Editor.Initializer
 
         protected StartingEquipment CreateStartingEquipmentOption(string optionName, string assetPath, StartingEquipment.ItemWithAmount[] itemsWithAmount)
         {
-            var startingEquipment = Common.CreateScriptableObject<StartingEquipment>(optionName, assetPath);
+            var startingEquipment = ScriptableObjectHelper.CreateScriptableObject<StartingEquipment>(optionName, assetPath);
 
             foreach (var item in itemsWithAmount)
             {
@@ -197,10 +198,10 @@ namespace DnD.Editor.Initializer
             
             public SubClass InitializeSubClass() 
             {
-                Common.EnsureFolderExists(SubClassPath);
-                Common.EnsureFolderExists(SubClassLevelsPath);
+                FileSystemHelper.EnsureFolderExists(SubClassPath);
+                FileSystemHelper.EnsureFolderExists(SubClassLevelsPath);
 
-                var subClass = Common.CreateScriptableObject<SubClass>(SubClassName, SubClassPath);
+                var subClass = ScriptableObjectHelper.CreateScriptableObject<SubClass>(SubClassName, SubClassPath);
                 subClass.DisplayName = $"{ClassName}.{SubClassName}";
                 subClass.DisplayDescription = $"{ClassName}.{SubClassName}.{NameHelper.Naming.Description}";
                 

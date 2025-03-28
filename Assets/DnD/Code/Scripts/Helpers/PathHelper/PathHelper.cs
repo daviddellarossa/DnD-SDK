@@ -10,6 +10,8 @@
         public static readonly string StoragePath = $"{FolderPath}/{NameHelper.NameHelper.Naming.Storage}";
         public static readonly string TypeTraitsPath = $"{FolderPath}/{NameHelper.NameHelper.Naming.TypeTraits}";
 
+        public static readonly string CharacterStatsPath =
+            $"{FolderPath}/{NameHelper.NameHelper.Naming.CharacterStats}";
         public static class Abilities
         {
             public static readonly string AbilitiesPath = $"{FolderPath}/{NameHelper.NameHelper.Naming.Abilities}";

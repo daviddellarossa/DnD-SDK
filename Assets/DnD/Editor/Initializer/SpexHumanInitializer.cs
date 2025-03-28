@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using DnD.Code.Scripts.Feats;
+using DnD.Code.Scripts.Helpers;
 using DnD.Code.Scripts.Helpers.PathHelper;
 using DnD.Code.Scripts.Species;
 using DnD.Code.Scripts.Species.SpecialTraits;
@@ -24,7 +25,7 @@ namespace DnD.Editor.Initializer
         
         protected override Spex CreateSpexInstance()
         {
-            var spexInstance =  Common.CreateScriptableObject<Spex>(SpexName, SpexPath);
+            var spexInstance =  ScriptableObjectHelper.CreateScriptableObject<Spex>(SpexName, SpexPath);
 
             // Initialize spex properties here
             spexInstance.DisplayName = $"{NameHelper.Naming.Species}.{SpexName}";
@@ -53,7 +54,7 @@ namespace DnD.Editor.Initializer
 
         private SpecialTrait InitializeResourceful()
         {
-            var resourceful = Common.CreateScriptableObject<SpecialTrait>(NameHelper.SpecialTraits.Resourceful, SpexSpecialTraitsPath);
+            var resourceful = ScriptableObjectHelper.CreateScriptableObject<SpecialTrait>(NameHelper.SpecialTraits.Resourceful, SpexSpecialTraitsPath);
             resourceful.DisplayName = $"{NameHelper.Naming.SpecialTraits}.{NameHelper.SpecialTraits.Resourceful}";
             resourceful.DisplayDescription = $"{NameHelper.Naming.SpecialTraits}.{NameHelper.SpecialTraits.Resourceful}.{NameHelper.Naming.Description}";
 
@@ -67,7 +68,7 @@ namespace DnD.Editor.Initializer
 
         private HeroicInspiration InitializeHeroicInspiration(ScriptableObject parent)
         {
-            var heroicInspiration = Common.CreateScriptableObjectAndAddToObject<HeroicInspiration>(NameHelper.TraitTypes.HeroicInspiration, parent);
+            var heroicInspiration = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<HeroicInspiration>(NameHelper.TraitTypes.HeroicInspiration, parent);
             heroicInspiration.DisplayName = $"{NameHelper.Naming.TypeTraits}.{NameHelper.TraitTypes.HeroicInspiration}";
             heroicInspiration.DisplayDescription = $"{NameHelper.Naming.TypeTraits}.{NameHelper.TraitTypes.HeroicInspiration}.{NameHelper.Naming.Description}";
 
@@ -79,7 +80,7 @@ namespace DnD.Editor.Initializer
 
         private SpecialTrait InitializeSkillful()
         {
-            var skillful = Common.CreateScriptableObject<SpecialTrait>(NameHelper.SpecialTraits.Skillful, SpexSpecialTraitsPath);
+            var skillful = ScriptableObjectHelper.CreateScriptableObject<SpecialTrait>(NameHelper.SpecialTraits.Skillful, SpexSpecialTraitsPath);
             skillful.DisplayName = $"{NameHelper.Naming.SpecialTraits}.{NameHelper.SpecialTraits.Skillful}";
             skillful.DisplayDescription = $"{NameHelper.Naming.SpecialTraits}.{NameHelper.SpecialTraits.Skillful}.{NameHelper.Naming.Description}";
 
@@ -93,7 +94,7 @@ namespace DnD.Editor.Initializer
 
         private Proficiency InitializeProficiency(ScriptableObject parent)
         {
-            var proficiency = Common.CreateScriptableObjectAndAddToObject<Proficiency>(NameHelper.TraitTypes.Proficiency, parent);
+            var proficiency = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Proficiency>(NameHelper.TraitTypes.Proficiency, parent);
             proficiency.DisplayName = $"{NameHelper.Naming.TypeTraits}.{NameHelper.TraitTypes.Proficiency}";
             proficiency.DisplayDescription = $"{NameHelper.Naming.TypeTraits}.{NameHelper.TraitTypes.Proficiency}.{NameHelper.Naming.Description}";
             
@@ -105,7 +106,7 @@ namespace DnD.Editor.Initializer
 
         private SpecialTrait InitializeVersatile(string featCategoryName)
         {
-            var versatile = Common.CreateScriptableObject<SpecialTrait>(NameHelper.SpecialTraits.Versatile, SpexSpecialTraitsPath);
+            var versatile = ScriptableObjectHelper.CreateScriptableObject<SpecialTrait>(NameHelper.SpecialTraits.Versatile, SpexSpecialTraitsPath);
             versatile.DisplayName = $"{NameHelper.Naming.SpecialTraits}.{NameHelper.SpecialTraits.Versatile}";
             versatile.DisplayDescription = $"{NameHelper.Naming.SpecialTraits}.{NameHelper.SpecialTraits.Versatile}.{NameHelper.Naming.Description}";
 
@@ -121,7 +122,7 @@ namespace DnD.Editor.Initializer
         {
             var featCategory = FeatCategories.Single(featCategory => featCategory.name == featCategoryName);
             
-            var hasFeatByCategory = Common.CreateScriptableObjectAndAddToObject<HasFeatByCategory>(NameHelper.TraitTypes.HasFeatByCategory, parent);
+            var hasFeatByCategory = ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<HasFeatByCategory>(NameHelper.TraitTypes.HasFeatByCategory, parent);
             hasFeatByCategory.DisplayName = $"{NameHelper.Naming.TypeTraits}.{NameHelper.TraitTypes.HasFeatByCategory}";
             hasFeatByCategory.DisplayDescription = $"{NameHelper.Naming.TypeTraits}.{NameHelper.TraitTypes.HasFeatByCategory}.{NameHelper.Naming.Description}";
             hasFeatByCategory.FeatCategory = featCategory;

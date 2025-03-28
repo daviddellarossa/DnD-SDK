@@ -42,9 +42,7 @@ namespace DnD.Code.Scripts.Helpers.NameHelper
             public const string Backgrounds = "Backgrounds";
             public const string Abilities = "Abilities";
             public const string Skills = "Skills";
-
-
-
+            public const string CharacterStats = "CharacterStats";
         }
         public static class Abilities
         {

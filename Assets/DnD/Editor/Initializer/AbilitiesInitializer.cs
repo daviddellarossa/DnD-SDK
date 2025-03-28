@@ -1,4 +1,5 @@
 ﻿using DnD.Code.Scripts.Abilities;
+using DnD.Code.Scripts.Helpers;
 using DnD.Code.Scripts.Helpers.PathHelper;
 using UnityEditor;
 using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
@@ -9,12 +10,12 @@ namespace DnD.Editor.Initializer
     {
         public static Ability[] GetAllAbilities()
         {
-            return Common.GetAllScriptableObjects<Ability>(PathHelper.Abilities.AbilitiesPath);
+            return ScriptableObjectHelper.GetAllScriptableObjects<Ability>(PathHelper.Abilities.AbilitiesPath);
         }
         
         public static Skill[] GetAllSkills()
         {
-            return Common.GetAllScriptableObjects<Skill>(PathHelper.Abilities.SkillsPath);
+            return ScriptableObjectHelper.GetAllScriptableObjects<Skill>(PathHelper.Abilities.SkillsPath);
         }
         
         [MenuItem("D&D Game/Game Data Initializer/Initializers/Initialize Abilities Data")]
@@ -24,19 +25,19 @@ namespace DnD.Editor.Initializer
             {
                 AssetDatabase.StartAssetEditing();
             
-                Common.EnsureFolderExists(PathHelper.Abilities.AbilitiesPath);
-                Common.EnsureFolderExists(PathHelper.Abilities.SkillsPath);
+                FileSystemHelper.EnsureFolderExists(PathHelper.Abilities.AbilitiesPath);
+                FileSystemHelper.EnsureFolderExists(PathHelper.Abilities.SkillsPath);
 
                 // Create Abilities
 
                 {
-                    var charisma = Common.CreateScriptableObject<Ability>(NameHelper.Abilities.Charisma, PathHelper.Abilities.AbilitiesPath);
+                    var charisma = ScriptableObjectHelper.CreateScriptableObject<Ability>(NameHelper.Abilities.Charisma, PathHelper.Abilities.AbilitiesPath);
                 
                     charisma.DisplayName = $"{nameof(NameHelper.Abilities)}.{NameHelper.Abilities.Charisma}";
                     charisma.DisplayDescription = $"{nameof(NameHelper.Abilities)}.{NameHelper.Abilities.Charisma}.{NameHelper.Naming.Description}";
 
                     {
-                        var deception = Common.CreateScriptableObject<Skill>(NameHelper.Skills.Deception, PathHelper.Abilities.SkillsPath);
+                        var deception = ScriptableObjectHelper.CreateScriptableObject<Skill>(NameHelper.Skills.Deception, PathHelper.Abilities.SkillsPath);
                         deception.DisplayName = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Deception}";
                         deception.DisplayDescription = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Deception}.{NameHelper.Naming.Description}";
                         deception.Ability = charisma;
@@ -46,7 +47,7 @@ namespace DnD.Editor.Initializer
                     }
 
                     {
-                        var intimidation = Common.CreateScriptableObject<Skill>(NameHelper.Skills.Intimidation, PathHelper.Abilities.SkillsPath);
+                        var intimidation = ScriptableObjectHelper.CreateScriptableObject<Skill>(NameHelper.Skills.Intimidation, PathHelper.Abilities.SkillsPath);
                         intimidation.DisplayName = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Intimidation}";
                         intimidation.DisplayDescription = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Intimidation}.{NameHelper.Naming.Description}";
                         intimidation.Ability = charisma;
@@ -56,7 +57,7 @@ namespace DnD.Editor.Initializer
                     }
 
                     {
-                        var performance = Common.CreateScriptableObject<Skill>(NameHelper.Skills.Performance, PathHelper.Abilities.SkillsPath);
+                        var performance = ScriptableObjectHelper.CreateScriptableObject<Skill>(NameHelper.Skills.Performance, PathHelper.Abilities.SkillsPath);
                         performance.DisplayName = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Performance}";
                         performance.DisplayDescription = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Performance}.{NameHelper.Naming.Description}";
                         performance.Ability = charisma;
@@ -66,7 +67,7 @@ namespace DnD.Editor.Initializer
                     }
 
                     {
-                        var persuasion = Common.CreateScriptableObject<Skill>(NameHelper.Skills.Persuasion, PathHelper.Abilities.SkillsPath);
+                        var persuasion = ScriptableObjectHelper.CreateScriptableObject<Skill>(NameHelper.Skills.Persuasion, PathHelper.Abilities.SkillsPath);
                         persuasion.DisplayName = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Persuasion}";
                         persuasion.DisplayDescription = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Persuasion}.{NameHelper.Naming.Description}";
                         persuasion.Ability = charisma;
@@ -79,19 +80,19 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var constitution = Common.CreateScriptableObject<Ability>(NameHelper.Abilities.Constitution, PathHelper.Abilities.AbilitiesPath);
+                    var constitution = ScriptableObjectHelper.CreateScriptableObject<Ability>(NameHelper.Abilities.Constitution, PathHelper.Abilities.AbilitiesPath);
                     constitution.DisplayName = $"{nameof(NameHelper.Abilities)}.{NameHelper.Abilities.Constitution}";
                     constitution.DisplayDescription = $"{nameof(NameHelper.Abilities)}.{NameHelper.Abilities.Constitution}.{NameHelper.Naming.Description}";
                     EditorUtility.SetDirty(constitution);
                 }
 
                 {
-                    var dexterity = Common.CreateScriptableObject<Ability>(NameHelper.Abilities.Dexterity, PathHelper.Abilities.AbilitiesPath);
+                    var dexterity = ScriptableObjectHelper.CreateScriptableObject<Ability>(NameHelper.Abilities.Dexterity, PathHelper.Abilities.AbilitiesPath);
                     dexterity.DisplayName = $"{nameof(NameHelper.Abilities)}.{NameHelper.Abilities.Dexterity}";
                     dexterity.DisplayDescription = $"{nameof(NameHelper.Abilities)}.{NameHelper.Abilities.Dexterity}.{NameHelper.Naming.Description}";
                     
                     {
-                        var acrobatics = Common.CreateScriptableObject<Skill>(NameHelper.Skills.Acrobatics, PathHelper.Abilities.SkillsPath);
+                        var acrobatics = ScriptableObjectHelper.CreateScriptableObject<Skill>(NameHelper.Skills.Acrobatics, PathHelper.Abilities.SkillsPath);
                         acrobatics.DisplayName = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Acrobatics}";
                         acrobatics.DisplayDescription = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Acrobatics}.{NameHelper.Naming.Description}";
                         acrobatics.Ability = dexterity;
@@ -101,7 +102,7 @@ namespace DnD.Editor.Initializer
                     }
 
                     {
-                        var sleightOfHand = Common.CreateScriptableObject<Skill>(NameHelper.Skills.SleightOfHand, PathHelper.Abilities.SkillsPath);
+                        var sleightOfHand = ScriptableObjectHelper.CreateScriptableObject<Skill>(NameHelper.Skills.SleightOfHand, PathHelper.Abilities.SkillsPath);
                         sleightOfHand.DisplayName = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.SleightOfHand}";
                         sleightOfHand.DisplayDescription = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.SleightOfHand}.{NameHelper.Naming.Description}";
                         sleightOfHand.Ability = dexterity;
@@ -111,7 +112,7 @@ namespace DnD.Editor.Initializer
                     }
 
                     {
-                        var stealth = Common.CreateScriptableObject<Skill>(NameHelper.Skills.Stealth, PathHelper.Abilities.SkillsPath);
+                        var stealth = ScriptableObjectHelper.CreateScriptableObject<Skill>(NameHelper.Skills.Stealth, PathHelper.Abilities.SkillsPath);
                         stealth.DisplayName = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Stealth}";
                         stealth.DisplayDescription = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Stealth}.{NameHelper.Naming.Description}";
                         stealth.Ability = dexterity;
@@ -124,12 +125,12 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var intelligence = Common.CreateScriptableObject<Ability>(NameHelper.Abilities.Intelligence, PathHelper.Abilities.AbilitiesPath);
+                    var intelligence = ScriptableObjectHelper.CreateScriptableObject<Ability>(NameHelper.Abilities.Intelligence, PathHelper.Abilities.AbilitiesPath);
                     intelligence.DisplayName = $"{nameof(NameHelper.Abilities)}.{NameHelper.Abilities.Intelligence}";
                     intelligence.DisplayDescription = $"{nameof(NameHelper.Abilities)}.{NameHelper.Abilities.Intelligence}.{NameHelper.Naming.Description}";
                     
                     {
-                        var arcana = Common.CreateScriptableObject<Skill>(NameHelper.Skills.Arcana, PathHelper.Abilities.SkillsPath);
+                        var arcana = ScriptableObjectHelper.CreateScriptableObject<Skill>(NameHelper.Skills.Arcana, PathHelper.Abilities.SkillsPath);
                         arcana.DisplayName = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Arcana}";
                         arcana.DisplayDescription = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Arcana}.{NameHelper.Naming.Description}";
                         arcana.Ability = intelligence;
@@ -139,7 +140,7 @@ namespace DnD.Editor.Initializer
                     }
 
                     {
-                        var history = Common.CreateScriptableObject<Skill>(NameHelper.Skills.History, PathHelper.Abilities.SkillsPath);
+                        var history = ScriptableObjectHelper.CreateScriptableObject<Skill>(NameHelper.Skills.History, PathHelper.Abilities.SkillsPath);
                         history.DisplayName = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.History}";
                         history.DisplayDescription = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.History}.{NameHelper.Naming.Description}";
                         history.Ability = intelligence;
@@ -149,7 +150,7 @@ namespace DnD.Editor.Initializer
                     }
 
                     {
-                        var investigation = Common.CreateScriptableObject<Skill>(NameHelper.Skills.Investigation, PathHelper.Abilities.SkillsPath);
+                        var investigation = ScriptableObjectHelper.CreateScriptableObject<Skill>(NameHelper.Skills.Investigation, PathHelper.Abilities.SkillsPath);
                         investigation.DisplayName = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Investigation}";
                         investigation.DisplayDescription = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Investigation}.{NameHelper.Naming.Description}";
                         investigation.Ability = intelligence;
@@ -159,7 +160,7 @@ namespace DnD.Editor.Initializer
                     }
 
                     {
-                        var nature = Common.CreateScriptableObject<Skill>(NameHelper.Skills.Nature, PathHelper.Abilities.SkillsPath);
+                        var nature = ScriptableObjectHelper.CreateScriptableObject<Skill>(NameHelper.Skills.Nature, PathHelper.Abilities.SkillsPath);
                         nature.DisplayName = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Nature}";
                         nature.DisplayDescription = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Nature}.{NameHelper.Naming.Description}";
                         nature.Ability = intelligence;
@@ -169,7 +170,7 @@ namespace DnD.Editor.Initializer
                     }
 
                     {
-                        var religion = Common.CreateScriptableObject<Skill>(NameHelper.Skills.Religion, PathHelper.Abilities.SkillsPath);
+                        var religion = ScriptableObjectHelper.CreateScriptableObject<Skill>(NameHelper.Skills.Religion, PathHelper.Abilities.SkillsPath);
                         religion.DisplayName = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Religion}";
                         religion.DisplayDescription = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Religion}.{NameHelper.Naming.Description}";
                         religion.Ability = intelligence;
@@ -182,12 +183,12 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var strength = Common.CreateScriptableObject<Ability>(NameHelper.Abilities.Strength, PathHelper.Abilities.AbilitiesPath);
+                    var strength = ScriptableObjectHelper.CreateScriptableObject<Ability>(NameHelper.Abilities.Strength, PathHelper.Abilities.AbilitiesPath);
                     strength.DisplayName = $"{nameof(NameHelper.Abilities)}.{NameHelper.Abilities.Strength}";
                     strength.DisplayDescription = $"{nameof(NameHelper.Abilities)}.{NameHelper.Abilities.Strength}.{NameHelper.Naming.Description}";
                     
                     {
-                        var athletics = Common.CreateScriptableObject<Skill>(NameHelper.Skills.Athletics, PathHelper.Abilities.SkillsPath);
+                        var athletics = ScriptableObjectHelper.CreateScriptableObject<Skill>(NameHelper.Skills.Athletics, PathHelper.Abilities.SkillsPath);
                         athletics.DisplayName = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Athletics}";
                         athletics.DisplayDescription = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Athletics}.{NameHelper.Naming.Description}";
                         athletics.Ability = strength;
@@ -200,12 +201,12 @@ namespace DnD.Editor.Initializer
                 }
 
                 {
-                    var wisdom = Common.CreateScriptableObject<Ability>(NameHelper.Abilities.Wisdom, PathHelper.Abilities.AbilitiesPath);
+                    var wisdom = ScriptableObjectHelper.CreateScriptableObject<Ability>(NameHelper.Abilities.Wisdom, PathHelper.Abilities.AbilitiesPath);
                     wisdom.DisplayName = $"{nameof(NameHelper.Abilities)}.{NameHelper.Abilities.Wisdom}";
                     wisdom.DisplayDescription = $"{nameof(NameHelper.Abilities)}.{NameHelper.Abilities.Wisdom}.{NameHelper.Naming.Description}";
                     
                     {
-                        var animalHandling = Common.CreateScriptableObject<Skill>(NameHelper.Skills.AnimalHandling, PathHelper.Abilities.SkillsPath);
+                        var animalHandling = ScriptableObjectHelper.CreateScriptableObject<Skill>(NameHelper.Skills.AnimalHandling, PathHelper.Abilities.SkillsPath);
                         animalHandling.DisplayName = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.AnimalHandling}";
                         animalHandling.DisplayDescription = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.AnimalHandling}.{NameHelper.Naming.Description}";
                         animalHandling.Ability = wisdom;
@@ -215,7 +216,7 @@ namespace DnD.Editor.Initializer
                     }
 
                     {
-                        var insight = Common.CreateScriptableObject<Skill>(NameHelper.Skills.Insight, PathHelper.Abilities.SkillsPath);
+                        var insight = ScriptableObjectHelper.CreateScriptableObject<Skill>(NameHelper.Skills.Insight, PathHelper.Abilities.SkillsPath);
                         insight.DisplayName = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Insight}";
                         insight.DisplayDescription = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Insight}.{NameHelper.Naming.Description}";
                         insight.Ability = wisdom;
@@ -225,7 +226,7 @@ namespace DnD.Editor.Initializer
                     }
 
                     {
-                        var medicine = Common.CreateScriptableObject<Skill>(NameHelper.Skills.Medicine, PathHelper.Abilities.SkillsPath);
+                        var medicine = ScriptableObjectHelper.CreateScriptableObject<Skill>(NameHelper.Skills.Medicine, PathHelper.Abilities.SkillsPath);
                         medicine.DisplayName = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Medicine}";
                         medicine.DisplayDescription = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Medicine}.{NameHelper.Naming.Description}";
                         medicine.Ability = wisdom;
@@ -235,7 +236,7 @@ namespace DnD.Editor.Initializer
                     }
 
                     {
-                        var perception = Common.CreateScriptableObject<Skill>(NameHelper.Skills.Perception, PathHelper.Abilities.SkillsPath);
+                        var perception = ScriptableObjectHelper.CreateScriptableObject<Skill>(NameHelper.Skills.Perception, PathHelper.Abilities.SkillsPath);
                         perception.DisplayName = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Perception}";
                         perception.DisplayDescription = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Perception}.{NameHelper.Naming.Description}";
                         perception.Ability = wisdom;
@@ -245,7 +246,7 @@ namespace DnD.Editor.Initializer
                     }
 
                     {
-                        var survival = Common.CreateScriptableObject<Skill>(NameHelper.Skills.Survival, PathHelper.Abilities.SkillsPath);
+                        var survival = ScriptableObjectHelper.CreateScriptableObject<Skill>(NameHelper.Skills.Survival, PathHelper.Abilities.SkillsPath);
                         survival.DisplayName = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Survival}";
                         survival.DisplayDescription = $"{nameof(NameHelper.Skills)}.{NameHelper.Skills.Survival}.{NameHelper.Naming.Description}";
                         survival.Ability = wisdom;

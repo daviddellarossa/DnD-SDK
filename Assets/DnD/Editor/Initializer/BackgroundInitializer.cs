@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using Assets.Scripts.Game.Equipment.Gear;
 using DnD.Code.Scripts.Backgrounds;
 using DnD.Code.Scripts.Common;
+using DnD.Code.Scripts.Helpers;
 using DnD.Code.Scripts.Helpers.PathHelper;
 using DnD.Code.Scripts.Tools;
 using UnityEditor;
@@ -21,7 +22,7 @@ namespace DnD.Editor.Initializer
                 
                 AssetDatabase.StartAssetEditing();
             
-                Common.EnsureFolderExists(PathHelper.Backgrounds.BackgroundsPath);
+                FileSystemHelper.EnsureFolderExists(PathHelper.Backgrounds.BackgroundsPath);
 
                 var abilities = AbilitiesInitializer.GetAllAbilities();
                 
@@ -30,12 +31,12 @@ namespace DnD.Editor.Initializer
                 var coins = EquipmentInitializer.GetAllCoinValues();
 
                 {
-                    Common.EnsureFolderExists(PathHelper.Backgrounds.AcolytePath);
-                    Common.EnsureFolderExists(PathHelper.Backgrounds.AcolyteToolsPath);
-                    Common.EnsureFolderExists(PathHelper.Backgrounds.AcolyteStartingEquipmentPath);
+                    FileSystemHelper.EnsureFolderExists(PathHelper.Backgrounds.AcolytePath);
+                    FileSystemHelper.EnsureFolderExists(PathHelper.Backgrounds.AcolyteToolsPath);
+                    FileSystemHelper.EnsureFolderExists(PathHelper.Backgrounds.AcolyteStartingEquipmentPath);
 
                     var acolyte =
-                        Common.CreateScriptableObject<Code.Scripts.Backgrounds.Background>(
+                        ScriptableObjectHelper.CreateScriptableObject<Code.Scripts.Backgrounds.Background>(
                             NameHelper.Backgrounds.Acolyte, PathHelper.Backgrounds.AcolytePath);
                     acolyte.DisplayName = $"{nameof(NameHelper.Backgrounds)}.{NameHelper.Backgrounds.Acolyte}";
                     acolyte.DisplayDescription = $"{nameof(NameHelper.Backgrounds)}.{NameHelper.Backgrounds.Acolyte}.{NameHelper.Naming.Description}";
@@ -49,10 +50,10 @@ namespace DnD.Editor.Initializer
                     acolyte.Feat =  feats.Single(feat => feat.name == NameHelper.Feats.MagicInitiate);
 
                     {
-                        var optionA = Common.CreateScriptableObject<StartingEquipment>(NameHelper.StartingEquipmentOptions.OptionA, PathHelper.Backgrounds.AcolyteStartingEquipmentPath);
+                        var optionA = ScriptableObjectHelper.CreateScriptableObject<StartingEquipment>(NameHelper.StartingEquipmentOptions.OptionA, PathHelper.Backgrounds.AcolyteStartingEquipmentPath);
                     
                         {
-                            var holySymbol = Common.CreateScriptableObject<HolySymbol>(NameHelper.Equipment.Gear.Acolyte.HolySymbol, PathHelper.Backgrounds.AcolyteToolsPath);
+                            var holySymbol = ScriptableObjectHelper.CreateScriptableObject<HolySymbol>(NameHelper.Equipment.Gear.Acolyte.HolySymbol, PathHelper.Backgrounds.AcolyteToolsPath);
                             holySymbol.DisplayName = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.HolySymbol}";
                             holySymbol.DisplayDescription = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.HolySymbol}.{NameHelper.Naming.Description}";
                             optionA.Items.Add(new StartingEquipment.EquipmentWithAmount(holySymbol, 1.0f));
@@ -60,7 +61,7 @@ namespace DnD.Editor.Initializer
                             EditorUtility.SetDirty(holySymbol);
                         }
                         {
-                            var parchment = Common.CreateScriptableObject<Parchment>(NameHelper.Equipment.Gear.Acolyte.Parchment, PathHelper.Backgrounds.AcolyteToolsPath);
+                            var parchment = ScriptableObjectHelper.CreateScriptableObject<Parchment>(NameHelper.Equipment.Gear.Acolyte.Parchment, PathHelper.Backgrounds.AcolyteToolsPath);
                             parchment.DisplayName = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.Parchment}";
                             parchment.DisplayDescription = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.Parchment}.{NameHelper.Naming.Description}";
                             optionA.Items.Add(new StartingEquipment.EquipmentWithAmount(parchment, 10.0f));
@@ -68,7 +69,7 @@ namespace DnD.Editor.Initializer
                             EditorUtility.SetDirty(parchment);
                         }
                         {
-                            var robe = Common.CreateScriptableObject<Robe>(NameHelper.Equipment.Gear.Acolyte.Robe, PathHelper.Backgrounds.AcolyteToolsPath);
+                            var robe = ScriptableObjectHelper.CreateScriptableObject<Robe>(NameHelper.Equipment.Gear.Acolyte.Robe, PathHelper.Backgrounds.AcolyteToolsPath);
                             robe.DisplayName = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.Robe}";
                             robe.DisplayDescription = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.Robe}.{NameHelper.Naming.Description}";
                             optionA.Items.Add(new StartingEquipment.EquipmentWithAmount(robe, 1.0f));
@@ -76,7 +77,7 @@ namespace DnD.Editor.Initializer
                             EditorUtility.SetDirty(robe);
                         }
                         {
-                            var prayersBook = Common.CreateScriptableObject<Book>(NameHelper.Equipment.Gear.Acolyte.Book, PathHelper.Backgrounds.AcolyteToolsPath);
+                            var prayersBook = ScriptableObjectHelper.CreateScriptableObject<Book>(NameHelper.Equipment.Gear.Acolyte.Book, PathHelper.Backgrounds.AcolyteToolsPath);
                             prayersBook.DisplayName = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.Book}";
                             prayersBook.DisplayDescription = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.Book}.{NameHelper.Naming.Description}";
                             optionA.Items.Add(new StartingEquipment.EquipmentWithAmount(prayersBook, 1.0f));
@@ -84,7 +85,7 @@ namespace DnD.Editor.Initializer
                             EditorUtility.SetDirty(prayersBook);
                         }
                         {
-                            var calligrapherTool = Common.CreateScriptableObject<CalligrapherTool>(NameHelper.Equipment.Tools.CalligrapherTool, PathHelper.Backgrounds.AcolyteToolsPath);
+                            var calligrapherTool = ScriptableObjectHelper.CreateScriptableObject<CalligrapherTool>(NameHelper.Equipment.Tools.CalligrapherTool, PathHelper.Backgrounds.AcolyteToolsPath);
                             calligrapherTool.DisplayName = $"{nameof(NameHelper.Equipment.Tools)}.{NameHelper.Equipment.Tools.CalligrapherTool}";
                             calligrapherTool.DisplayDescription = $"{nameof(NameHelper.Equipment.Tools)}.{NameHelper.Equipment.Tools.CalligrapherTool}.{NameHelper.Naming.Description}";
                             optionA.Items.Add(new StartingEquipment.EquipmentWithAmount(calligrapherTool, 1.0f));
@@ -102,7 +103,7 @@ namespace DnD.Editor.Initializer
                         
                     }
                     {
-                        var optionB = Common.CreateScriptableObject<StartingEquipment>(NameHelper.StartingEquipmentOptions.OptionB, PathHelper.Backgrounds.AcolyteStartingEquipmentPath);
+                        var optionB = ScriptableObjectHelper.CreateScriptableObject<StartingEquipment>(NameHelper.StartingEquipmentOptions.OptionB, PathHelper.Backgrounds.AcolyteStartingEquipmentPath);
                         {
                             optionB.Items.Add(new StartingEquipment.EquipmentWithAmount(coins.Single(coin => coin.name == NameHelper.CoinValues.GoldPiece), 50.0f));
                         }
