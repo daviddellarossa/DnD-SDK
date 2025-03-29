@@ -5,6 +5,7 @@ using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Armour;
 using DnD.Code.Scripts.Backgrounds;
 using DnD.Code.Scripts.Classes;
+using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Equipment;
 using DnD.Code.Scripts.Equipment.Coins;
 using DnD.Code.Scripts.Feats;
@@ -15,6 +16,7 @@ using DnD.Code.Scripts.Tools;
 using DnD.Code.Scripts.Weapons;
 using UnityEngine;
 using UnityEngine.Serialization;
+using StartingEquipment = DnD.Code.Scripts.Backgrounds.StartingEquipment;
 
 namespace DnD.Code.Scripts.Characters
 {
@@ -36,10 +38,16 @@ namespace DnD.Code.Scripts.Characters
         private Species.Spex spex;
         
         [SerializeField]
-        private int level = 1;
+        private int level;
 
         [SerializeField]
-        private int xp = 0;
+        private int xp;
+
+        [SerializeField]
+        private int proficiencyBonus;
+        
+        [SerializeField]
+        private Dictionary<Ability, int> abilityScores;
         
         [SerializeField]
         private List<BaseArmourType> armorTraining = new List<BaseArmourType>();
@@ -51,9 +59,13 @@ namespace DnD.Code.Scripts.Characters
         private List<Skill> skillProficiencies = new List<Skill>();
         
         [SerializeField]
-        // Review this data type
-        private List<string> toolProficiencies = new List<string>();
-
+        private List<Proficient> toolProficiencies = new List<Proficient>();
+        
+        [SerializeField]
+        private List<Ability> savingThrowProficiencies = new ();
+        
+        [SerializeField]
+        private List<StartingEquipment.EquipmentWithAmount> inventory = new (); //TODO: change from List<> to something more specific.
         
         [SerializeField]
         private HitPoints hitPoints;
@@ -64,6 +76,8 @@ namespace DnD.Code.Scripts.Characters
 
         [SerializeField]
         private DeathSaves deathSaves;
+        
+        public Ability PrimaryAbility => this.@class.PrimaryAbility;
         
         public Die HitPointDie => this.@class.HitPointDie;
         

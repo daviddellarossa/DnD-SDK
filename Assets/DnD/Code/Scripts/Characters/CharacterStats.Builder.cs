@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Backgrounds;
 using DnD.Code.Scripts.Classes;
 using DnD.Code.Scripts.Helpers;
@@ -14,13 +17,21 @@ namespace DnD.Code.Scripts.Characters
         public class Builder
         {
             public static readonly string CharacterStatsPath = "Assets/CharacterStats.asset";
+            private const int DefaultLevel = 1;
+            private const int DefaultXp = 0;
+            private const int DefaultProficiencyBonus = 2;
+            
             private string _name;
             private Class _class;
             private SubClass _subClass;
             private Spex _spex;
             private Background _background;
-            private int _level = 1;
-            private int _xp = 0;
+            private int _level = DefaultLevel;
+            private int _xp = DefaultXp;
+            private int _proficiencyBonus = DefaultProficiencyBonus;
+            private List<Skill> _skillProficienciesFromClass = new ();
+            private StartingEquipment _startingEquipmentFromClass;
+            private Dictionary<Ability, int> _abilityScores = new();
             
             public Builder SetName(string name)
             {
@@ -46,6 +57,18 @@ namespace DnD.Code.Scripts.Characters
                 this._background = background;
                 return this;
             }
+
+            public Builder SetSkillProficiencies(Skill[] skillProficiencies)
+            {
+                this._skillProficienciesFromClass.AddRange(skillProficiencies);
+                return this;
+            }
+
+            public Builder SetStartingEquipmentFromClass(StartingEquipment startingEquipment)
+            {
+                this._startingEquipmentFromClass = startingEquipment;
+                return this;
+            }
             
             public Builder SetSpex(Spex spex)
             {
@@ -53,6 +76,12 @@ namespace DnD.Code.Scripts.Characters
                 return this;
             }
 
+            public Builder SetAbilityScore(Ability ability, int score)
+            {
+                this._abilityScores[ability] = score;
+                return this;
+            }
+            
             public CharacterStats Build()
             {
                 if (!CheckAll())
@@ -73,15 +102,21 @@ namespace DnD.Code.Scripts.Characters
                 characterStats.background = this._background;
                 characterStats.level = this._level;
                 characterStats.xp = this._xp;
+                characterStats.proficiencyBonus = this._proficiencyBonus;
                 
                 // from class
                 characterStats.armorTraining.AddRange(this._class.ArmorTraining);
                 characterStats.weaponProficiencies.AddRange(this._class.WeaponProficiencies);
-                // TODO: add proficiencies from class
+                characterStats.skillProficiencies.AddRange(this._skillProficienciesFromClass);
+                characterStats.inventory.AddRange(this._startingEquipmentFromClass.Items);
+                characterStats.savingThrowProficiencies.AddRange(this._class.SavingThrowProficiencies);
                 
                 // from background
                 characterStats.skillProficiencies.AddRange(this._background.SkillProficiencies);
                 characterStats.toolProficiencies.Add(this._background.ToolProficiency);
+                
+                // others
+                characterStats.abilityScores = this._abilityScores;
                 
                 return characterStats;
             }
@@ -153,13 +188,63 @@ namespace DnD.Code.Scripts.Characters
                 return true;
             }
 
+            private bool CheckAbilityScores()
+            {
+                var abilities = Helpers.ScriptableObjectHelper.GetAllScriptableObjects<Ability>(PathHelper.Abilities.AbilitiesPath);
+
+                foreach (var ability in abilities)
+                {
+                    if (!this._abilityScores.ContainsKey(ability))
+                    {
+                        Debug.LogError($"Ability {ability.name} does not have a score for {this._name}");
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+            private bool CheckSkillProficienciesFromClass()
+            {
+                foreach (var skill in this._skillProficienciesFromClass)
+                {
+                    var skillAvailable = _class.SkillProficienciesAvailable.SingleOrDefault(skillAvailable =>
+                        skillAvailable.name == skill.name);
+                    if (skillAvailable is null)
+                    {
+                        Debug.LogError($"Skill ({skill}) is not among the available skills from the chosen class ({_class.name}).");
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            private bool CheckStartingEquipmentFromClass()
+            {
+                if (this._startingEquipmentFromClass is null)
+                {
+                    Debug.LogError("StartingEquipment cannot be null");
+                    return false;
+                }
+                
+                var startingEquipmentAvailable = this._class.StartingEquipmentOptions.SingleOrDefault(startingEquipment => startingEquipment.name == this._startingEquipmentFromClass.name);
+                if (startingEquipmentAvailable is null)
+                {
+                    Debug.LogError($"The chosen starting equipment is not among those available from the chosen class ({_class.name}).");
+                    return false;
+                }
+                return true;
+            }
+            
             private bool CheckAll()
             {
                 return CheckName()
                     && CheckClass()
                     && CheckSubClass()
                     && CheckBackground()
-                    && CheckSpex();
+                    && CheckSpex()
+                    && CheckSkillProficienciesFromClass()
+                    && CheckStartingEquipmentFromClass()
+                    && CheckAbilityScores();
             }
         }
     }

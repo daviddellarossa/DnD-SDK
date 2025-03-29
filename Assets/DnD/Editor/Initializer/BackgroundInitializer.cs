@@ -47,7 +47,7 @@ namespace DnD.Editor.Initializer
                     acolyte.SkillProficiencies[0] = skills.Single(skill => skill.name == NameHelper.Skills.Insight);
                     acolyte.SkillProficiencies[1] = skills.Single(skill => skill.name == NameHelper.Skills.Religion);
 
-                    acolyte.ToolProficiency = NameHelper.Equipment.Tools.CalligrapherTool;
+                    acolyte.ToolProficiency = Proficient.Of<CalligrapherTool>();
                     
                     acolyte.Feat =  feats.Single(feat => feat.name == NameHelper.Feats.MagicInitiate);
 
@@ -114,8 +114,6 @@ namespace DnD.Editor.Initializer
 
                         acolyte.StartingEquipment[1] = optionB;
                     }
-                    
-                    acolyte.ToolProficiency = NameHelper.Equipment.Tools.CalligrapherTool;
                     
                     EditorUtility.SetDirty(acolyte);
                 }

@@ -1,6 +1,7 @@
 ﻿using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Feats;
+using DnD.Code.Scripts.Tools;
 using UnityEngine;
 
 namespace DnD.Code.Scripts.Backgrounds
@@ -22,7 +23,7 @@ namespace DnD.Code.Scripts.Backgrounds
         
         [SerializeField]
         // TODO: use a more specific type for toolProficiency: string is not the safest type to use here
-        private string toolProficiency;
+        private Proficient toolProficiency;
         
         [SerializeField]
         private StartingEquipment[] startingEquipment = new StartingEquipment[2];
@@ -55,7 +56,7 @@ namespace DnD.Code.Scripts.Backgrounds
             set => skillProficiencies = value;
         }
 
-        public string ToolProficiency
+        public Proficient ToolProficiency
         {
             get => toolProficiency;
             set => toolProficiency = value;
