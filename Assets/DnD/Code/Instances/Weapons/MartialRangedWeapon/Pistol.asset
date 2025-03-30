@@ -1,37 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1664674285520501100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1de63446a39c28145a8b4eea8f194a7e, type: 3}
-  m_Name: Vex
-  m_EditorClassIdentifier: 
-  displayName: WeaponMasteryProperty.Vex
-  displayDescription: WeaponMasteryProperty.Vex.Description
---- !u!114 &-974887560009353606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8954e8761f4789b49a5fe892e72beeff, type: 3}
-  m_Name: Ammunition
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Ammunition
-  displayDescription: WeaponProperty.Ammunition.Description
-  Range:
-    Min: 9
-    Max: 27
-  Type: {fileID: 11400000, guid: d1c5027a62f3e8a4abb3ee61c531a993, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,14 +17,46 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 148ec924f8b04f54fb2cb6ad83ecc392, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: -974887560009353606}
-  - {fileID: 3025605300048068375}
-  MasteryProperty: {fileID: -1664674285520501100}
+  - {fileID: 7252116269754300347}
+  - {fileID: 9100972010749395362}
+  MasteryProperty: {fileID: 8704494432948729367}
   Weight: 1.5
   Cost: 25000
   displayName: Weapons.MartialRangedWeapon.Pistol
   displayDescription: Weapons.MartialRangedWeapon.Pistol.Description
---- !u!114 &3025605300048068375
+--- !u!114 &7252116269754300347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8954e8761f4789b49a5fe892e72beeff, type: 3}
+  m_Name: Ammunition
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Ammunition
+  displayDescription: WeaponProperty.Ammunition.Description
+  Range:
+    Min: 9
+    Max: 27
+  Type: {fileID: 11400000, guid: d1c5027a62f3e8a4abb3ee61c531a993, type: 2}
+--- !u!114 &8704494432948729367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1de63446a39c28145a8b4eea8f194a7e, type: 3}
+  m_Name: Vex
+  m_EditorClassIdentifier: 
+  displayName: WeaponMasteryProperty.Vex
+  displayDescription: WeaponMasteryProperty.Vex.Description
+--- !u!114 &9100972010749395362
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

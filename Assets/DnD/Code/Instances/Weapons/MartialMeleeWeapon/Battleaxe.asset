@@ -17,13 +17,13 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
   DamageType: {fileID: 11400000, guid: 9437bf1f986d56941b00734a2f0ec3ca, type: 2}
   Properties:
-  - {fileID: 1684352478764780729}
-  MasteryProperty: {fileID: 6462390480449742890}
+  - {fileID: 4279172104922213737}
+  MasteryProperty: {fileID: 8547619539637000320}
   Weight: 2
   Cost: 1000
   displayName: Weapons.MartialMeleeWeapon.Battleaxe
   displayDescription: Weapons.MartialMeleeWeapon.Battleaxe.Description
---- !u!114 &1684352478764780729
+--- !u!114 &4279172104922213737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -39,7 +39,7 @@ MonoBehaviour:
   displayDescription: WeaponProperty.Versatile.Description
   NumberOfDice: 1
   DieType: {fileID: 11400000, guid: 148ec924f8b04f54fb2cb6ad83ecc392, type: 2}
---- !u!114 &6462390480449742890
+--- !u!114 &8547619539637000320
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -12,25 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e2ece3541cae4fa08de39e85b166c, type: 3}
   m_Name: OptionA
   m_EditorClassIdentifier: 
-  Items:
-  - rid: 8746986146811347017
-  - rid: 8746986146811347018
-  - rid: 8746986146811347019
+  Items: []
   references:
     version: 2
-    RefIds:
-    - rid: 8746986146811347017
-      type: {class: StartingEquipment/ItemWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
-      data:
-        Item: {fileID: 11400000, guid: 5b0e01de068a6554fbfb195ba2024a7e, type: 2}
-        Amount: 1
-    - rid: 8746986146811347018
-      type: {class: StartingEquipment/ItemWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
-      data:
-        Item: {fileID: 11400000, guid: f6f2ebe82b588b141bc62f01b7eedf8e, type: 2}
-        Amount: 4
-    - rid: 8746986146811347019
-      type: {class: StartingEquipment/ItemWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
-      data:
-        Item: {fileID: 11400000, guid: 1db5925526c836b4bb86b5ef334241a5, type: 2}
-        Amount: 15
+    RefIds: []

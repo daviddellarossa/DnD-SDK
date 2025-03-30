@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 760c3175d147f34488c27c47d230bb07, type: 3}
   m_Name: PathOfTheWildHeart
   m_EditorClassIdentifier: 
-  Level03: {fileID: 11400000, guid: 196fda0c3689b984a98b1475ae0ec7a3, type: 2}
-  Level06: {fileID: 11400000, guid: dc548cf042ca5784da2710f26ab52eac, type: 2}
-  Level10: {fileID: 11400000, guid: 5a95cbace639b004bb5593844334af26, type: 2}
-  Level14: {fileID: 11400000, guid: 2754540f282557f4e932271ed2695332, type: 2}
-  displayName: Barbarian.PathOfTheWildHeart
-  displayDescription: Barbarian.PathOfTheWildHeart.Description
+  Level03: {fileID: 0}
+  Level06: {fileID: 0}
+  Level10: {fileID: 0}
+  Level14: {fileID: 0}
+  displayName: 
+  displayDescription: 

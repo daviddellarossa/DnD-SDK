@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8399947428984024253
+--- !u!114 &-3091329019470522121
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 972175a1f99609d41a0057c11c6bff3b, type: 3}
-  m_Name: Light
+  m_Script: {fileID: 11500000, guid: 6ebc4527f34bae1489fdaafed1f5dafc, type: 3}
+  m_Name: Finesse
   m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Light
-  displayDescription: WeaponProperty.Light.Description
+  displayName: WeaponProperty.Finesse
+  displayDescription: WeaponProperty.Finesse.Description
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31,28 +31,14 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
   DamageType: {fileID: 11400000, guid: 9437bf1f986d56941b00734a2f0ec3ca, type: 2}
   Properties:
-  - {fileID: 6253312751867622469}
-  - {fileID: -8399947428984024253}
-  MasteryProperty: {fileID: 9033274786885900465}
+  - {fileID: -3091329019470522121}
+  - {fileID: 7394652719584422433}
+  MasteryProperty: {fileID: 2275603485677161988}
   Weight: 1.5
   Cost: 2500
   displayName: Weapons.MartialMeleeWeapon.Scimitar
   displayDescription: Weapons.MartialMeleeWeapon.Scimitar.Description
---- !u!114 &6253312751867622469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ebc4527f34bae1489fdaafed1f5dafc, type: 3}
-  m_Name: Finesse
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Finesse
-  displayDescription: WeaponProperty.Finesse.Description
---- !u!114 &9033274786885900465
+--- !u!114 &2275603485677161988
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -66,3 +52,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponMasteryProperty.Nick
   displayDescription: WeaponMasteryProperty.Nick.Description
+--- !u!114 &7394652719584422433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 972175a1f99609d41a0057c11c6bff3b, type: 3}
+  m_Name: Light
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Light
+  displayDescription: WeaponProperty.Light.Description

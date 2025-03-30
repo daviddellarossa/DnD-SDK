@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8934498770554529363
+--- !u!114 &-8820058138023120163
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31,13 +31,13 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: 8513643567171794602}
-  MasteryProperty: {fileID: -8934498770554529363}
+  - {fileID: 2459937522235353468}
+  MasteryProperty: {fileID: -8820058138023120163}
   Weight: 1
   Cost: 2500
   displayName: Weapons.MartialMeleeWeapon.Rapier
   displayDescription: Weapons.MartialMeleeWeapon.Rapier.Description
---- !u!114 &8513643567171794602
+--- !u!114 &2459937522235353468
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

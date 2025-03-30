@@ -1,44 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4141235365407682380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb202eed58cbad5498c5cbc96f204e39, type: 3}
-  m_Name: Loading
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Loading
-  displayDescription: WeaponProperty.Loading.Description
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
-  m_Name: Blowgun
-  m_EditorClassIdentifier: 
-  Type: {fileID: 11400000, guid: 1244ffb235b46774bb36d1f048ecf652, type: 2}
-  NumOfDamageDice: 1
-  DamageDie: {fileID: 11400000, guid: 11278b0b14da46a51a9ed8754a0274ff, type: 2}
-  DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
-  Properties:
-  - {fileID: 5203179965772287631}
-  - {fileID: -4141235365407682380}
-  MasteryProperty: {fileID: 1916437393809593883}
-  Weight: 0.5
-  Cost: 1000
-  displayName: Weapons.MartialRangedWeapon.Blowgun
-  displayDescription: Weapons.MartialRangedWeapon.Blowgun.Description
---- !u!114 &1916437393809593883
+--- !u!114 &-5665135568206373396
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponMasteryProperty.Vex
   displayDescription: WeaponMasteryProperty.Vex.Description
---- !u!114 &5203179965772287631
+--- !u!114 &-2728421918150541334
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -70,3 +32,41 @@ MonoBehaviour:
     Min: 8
     Max: 32
   Type: {fileID: 11400000, guid: b2ea6cbce11728d4b817a348b68d8fa6, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b228b49f05eed419dc2dd729672913, type: 3}
+  m_Name: Blowgun
+  m_EditorClassIdentifier: 
+  Type: {fileID: 11400000, guid: 1244ffb235b46774bb36d1f048ecf652, type: 2}
+  NumOfDamageDice: 1
+  DamageDie: {fileID: 11400000, guid: 11278b0b14da46a51a9ed8754a0274ff, type: 2}
+  DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
+  Properties:
+  - {fileID: -2728421918150541334}
+  - {fileID: 6199202375627739659}
+  MasteryProperty: {fileID: -5665135568206373396}
+  Weight: 0.5
+  Cost: 1000
+  displayName: Weapons.MartialRangedWeapon.Blowgun
+  displayDescription: Weapons.MartialRangedWeapon.Blowgun.Description
+--- !u!114 &6199202375627739659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb202eed58cbad5498c5cbc96f204e39, type: 3}
+  m_Name: Loading
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Loading
+  displayDescription: WeaponProperty.Loading.Description

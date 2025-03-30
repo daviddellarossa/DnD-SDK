@@ -17,28 +17,13 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: 4714258696210493012}
-  MasteryProperty: {fileID: 1064980476486238015}
+  - {fileID: 8027681248466052052}
+  MasteryProperty: {fileID: 8700786271936489917}
   Weight: 1
   Cost: 500
   displayName: Weapons.SimpleMeleeWeapon.Javelin
   displayDescription: Weapons.SimpleMeleeWeapon.Javelin.Description
---- !u!114 &1064980476486238015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa496ce09c6415f44bd81d1ad15fb33b, type: 3}
-  m_Name: Slow
-  m_EditorClassIdentifier: 
-  displayName: WeaponMasteryProperty.Slow
-  displayDescription: WeaponMasteryProperty.Slow.Description
-  SlowBy: 3
---- !u!114 &4714258696210493012
+--- !u!114 &8027681248466052052
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,3 +40,18 @@ MonoBehaviour:
   Range:
     Min: 9
     Max: 36
+--- !u!114 &8700786271936489917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa496ce09c6415f44bd81d1ad15fb33b, type: 3}
+  m_Name: Slow
+  m_EditorClassIdentifier: 
+  displayName: WeaponMasteryProperty.Slow
+  displayDescription: WeaponMasteryProperty.Slow.Description
+  SlowBy: 3

@@ -12,34 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
   m_Name: Barbarian.Level.15
   m_EditorClassIdentifier: 
-  displayName: Barbarian.Level.15
-  displayDescription: Barbarian.Level.15.Description
-  LevelNum: 15
-  ProficiencyBonus: 5
-  ClassFeatures:
-  - {fileID: 8721919867763670153}
+  displayName: 
+  displayDescription: 
+  LevelNum: 0
+  ProficiencyBonus: 0
+  ClassFeatures: []
   ClassFeatureTraits:
-    rid: 8746986146811347040
+    rid: -2
   references:
     version: 2
     RefIds:
-    - rid: 8746986146811347040
-      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
-      data:
-        rages: 5
-        rageDamage: 3
-        weaponMastery: 4
---- !u!114 &8721919867763670153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e345144bdc0b4dc8b8aea9be68063043, type: 3}
-  m_Name: PersistentRage
-  m_EditorClassIdentifier: 
-  displayName: 
-  displayDescription: 
+    - rid: -2
+      type: {class: , ns: , asm: }

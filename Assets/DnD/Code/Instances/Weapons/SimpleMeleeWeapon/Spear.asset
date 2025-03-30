@@ -1,38 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9008175677394290833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 160fc646e2c4724418aa23deca8abc00, type: 3}
-  m_Name: Thrown
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Thrown
-  displayDescription: WeaponProperty.Thrown.Description
-  Range:
-    Min: 6
-    Max: 18
---- !u!114 &-2522432980480051213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cf3b03451dd2e44ba153e70d88aa1c1, type: 3}
-  m_Name: Versatile
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Versatile
-  displayDescription: WeaponProperty.Versatile.Description
-  NumberOfDice: 1
-  DieType: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50,14 +17,14 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: -9008175677394290833}
-  - {fileID: -2522432980480051213}
-  MasteryProperty: {fileID: 6088845234902152339}
+  - {fileID: 7793879941871144465}
+  - {fileID: 5951627651924889887}
+  MasteryProperty: {fileID: 2890853733448619041}
   Weight: 1.5
   Cost: 100
   displayName: Weapons.SimpleMeleeWeapon.Spear
   displayDescription: Weapons.SimpleMeleeWeapon.Spear.Description
---- !u!114 &6088845234902152339
+--- !u!114 &2890853733448619041
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,3 +38,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponMasteryProperty.Sap
   displayDescription: WeaponMasteryProperty.Sap.Description
+--- !u!114 &5951627651924889887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf3b03451dd2e44ba153e70d88aa1c1, type: 3}
+  m_Name: Versatile
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Versatile
+  displayDescription: WeaponProperty.Versatile.Description
+  NumberOfDice: 1
+  DieType: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
+--- !u!114 &7793879941871144465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 160fc646e2c4724418aa23deca8abc00, type: 3}
+  m_Name: Thrown
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Thrown
+  displayDescription: WeaponProperty.Thrown.Description
+  Range:
+    Min: 6
+    Max: 18

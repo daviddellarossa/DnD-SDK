@@ -76,7 +76,7 @@ namespace Tests.Backgrounds
             Assert.That(_acolyte.DisplayName, Is.EqualTo(data.DisplayName));
             Assert.That(_acolyte.DisplayDescription, Is.EqualTo(data.DisplayDescription));
             Assert.That(_acolyte.Feat.name, Is.EqualTo(data.FeatName));
-            Assert.That(_acolyte.ToolProficiency, Is.EqualTo(data.ToolProficiency));
+            Assert.That(_acolyte.ToolProficiency.ProficiencyName, Is.EqualTo(data.ToolProficiency));
         }
 
         [TestCaseSource(typeof(AcolyteData), nameof(AcolyteData.ToolsTestCases))]

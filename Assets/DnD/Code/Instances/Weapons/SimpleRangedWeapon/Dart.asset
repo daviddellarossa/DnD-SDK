@@ -1,20 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8854347422437499672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1de63446a39c28145a8b4eea8f194a7e, type: 3}
-  m_Name: Vex
-  m_EditorClassIdentifier: 
-  displayName: WeaponMasteryProperty.Vex
-  displayDescription: WeaponMasteryProperty.Vex.Description
---- !u!114 &-7603802476248701983
+--- !u!114 &-1036961959866877764
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31,20 +17,6 @@ MonoBehaviour:
   Range:
     Min: 6
     Max: 18
---- !u!114 &-3459669658836464563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ebc4527f34bae1489fdaafed1f5dafc, type: 3}
-  m_Name: Finesse
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Finesse
-  displayDescription: WeaponProperty.Finesse.Description
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,10 +34,38 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: e23ede8f2cf0b9b49b31d2e95b0a3d15, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: -3459669658836464563}
-  - {fileID: -7603802476248701983}
-  MasteryProperty: {fileID: -8854347422437499672}
+  - {fileID: 4577341258641459994}
+  - {fileID: -1036961959866877764}
+  MasteryProperty: {fileID: 1857876342685059187}
   Weight: 0.125
   Cost: 500
   displayName: Weapons.SimpleRangedWeapon.Dart
   displayDescription: Weapons.SimpleRangedWeapon.Dart.Description
+--- !u!114 &1857876342685059187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1de63446a39c28145a8b4eea8f194a7e, type: 3}
+  m_Name: Vex
+  m_EditorClassIdentifier: 
+  displayName: WeaponMasteryProperty.Vex
+  displayDescription: WeaponMasteryProperty.Vex.Description
+--- !u!114 &4577341258641459994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ebc4527f34bae1489fdaafed1f5dafc, type: 3}
+  m_Name: Finesse
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Finesse
+  displayDescription: WeaponProperty.Finesse.Description

@@ -12,55 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c5968dbe13d364cbe36aae694c3f82, type: 3}
   m_Name: Barbarian
   m_EditorClassIdentifier: 
-  displayName: Classes.Barbarian
-  displayDescription: Classes.Barbarian.Description
-  PrimaryAbility: {fileID: 11400000, guid: 1b0ab14d768ac0e458574c6cd37a5491, type: 2}
-  HitPointDie: {fileID: 11400000, guid: 55ea3d617514ced46bd8d6f580c4b8c9, type: 2}
-  SavingThrowProficiencies:
-  - {fileID: 11400000, guid: 1b0ab14d768ac0e458574c6cd37a5491, type: 2}
-  - {fileID: 11400000, guid: 201125b3e2d3a8b4980d203d6eb72657, type: 2}
-  SkillProficienciesAvailable:
-  - {fileID: 11400000, guid: 6e66807c4ae635c4cb57330fdcffc001, type: 2}
-  - {fileID: 11400000, guid: 19af576ee2343f24f835e8e62b922231, type: 2}
-  - {fileID: 11400000, guid: c487db87a3b29f94bb68d8221e7ee20f, type: 2}
-  - {fileID: 11400000, guid: c4168c8f94679ad46b0f29ecec06d9c9, type: 2}
-  - {fileID: 11400000, guid: a956dad4fbc185145bccff87c2460ca9, type: 2}
-  - {fileID: 11400000, guid: cb1465541ac074a44b35ca4df178ef6e, type: 2}
-  WeaponProficiencies:
-  - {fileID: 11400000, guid: 570d457c1172f5940bbf6fd5cd341e85, type: 2}
-  - {fileID: 11400000, guid: 1bdf88451f1635143bc1ed2818e20872, type: 2}
-  - {fileID: 11400000, guid: 7c4ea157468202348b5b520ad44015b9, type: 2}
-  - {fileID: 11400000, guid: 1244ffb235b46774bb36d1f048ecf652, type: 2}
-  ArmorTraining:
-  - {fileID: 11400000, guid: 88f9fae716238c44ba99c245c327c6c5, type: 2}
-  - {fileID: 11400000, guid: b2bbdf146f2796541ba4a2b150681300, type: 2}
-  - {fileID: 11400000, guid: 43e471904e85be840b4d26e75d00dd3a, type: 2}
-  StartingEquipmentOptions:
-  - {fileID: 11400000, guid: f6c0405bf260cca4aab7866f5d4a74bd, type: 2}
-  - {fileID: 11400000, guid: bad9b1c59ec8a944d9eea1416ebe9baf, type: 2}
-  Levels:
-  - {fileID: 11400000, guid: 7c73d56c3099cef478822a96fab0c03b, type: 2}
-  - {fileID: 11400000, guid: 5fb3312c81d8f8f4aa8f21138caff71d, type: 2}
-  - {fileID: 11400000, guid: bd46baba0ed461d4cb948534882f6953, type: 2}
-  - {fileID: 11400000, guid: 50ecae2befae2dd409852c0895904a66, type: 2}
-  - {fileID: 11400000, guid: c5e5b3fc5b1a7ee4a8fe8b35062f95e7, type: 2}
-  - {fileID: 11400000, guid: ec735e9a01f202f4fbb5b00daa688617, type: 2}
-  - {fileID: 11400000, guid: 0058c8d32dd285849bb3ae3536147eba, type: 2}
-  - {fileID: 11400000, guid: 7f74a2adb16e3d448a80b044de74d927, type: 2}
-  - {fileID: 11400000, guid: c33bb16278810b9468a55d0195c6dbf4, type: 2}
-  - {fileID: 11400000, guid: b13883138d0252942a81a79a73097963, type: 2}
-  - {fileID: 11400000, guid: 859bb8fb4f7b2e34dbb5e35db08a9cf7, type: 2}
-  - {fileID: 11400000, guid: 6318775c92e25f94b863b53872168edd, type: 2}
-  - {fileID: 11400000, guid: 2f4795e413c39c54ca5528ed5b71aeb4, type: 2}
-  - {fileID: 11400000, guid: 6c5a8198d60799e40962a896dafdb818, type: 2}
-  - {fileID: 11400000, guid: 4913a3829c80f034f954e90fb2febfde, type: 2}
-  - {fileID: 11400000, guid: c788d39e3a64a854daaabbc87f4362bf, type: 2}
-  - {fileID: 11400000, guid: f46e0ec12e0e66c4283a07509fef8f81, type: 2}
-  - {fileID: 11400000, guid: a458e464e5c831a4db0414e3a2cc4aa5, type: 2}
-  - {fileID: 11400000, guid: e3d6a785e3c373e4cb87a48bc7566dc7, type: 2}
-  - {fileID: 11400000, guid: 3c47fc7e260813943bb289e5608a690d, type: 2}
-  SubClasses:
-  - {fileID: 11400000, guid: 81b2f164caecae54dbcae1bd88cd65b6, type: 2}
-  - {fileID: 11400000, guid: 0fde8234c2da77546ab57209f9f276b1, type: 2}
-  - {fileID: 11400000, guid: 1e0b9c7356a7e064591aaca28e3f4527, type: 2}
-  - {fileID: 11400000, guid: 8aee6f386e4dce34984f2e04bfd52c20, type: 2}
+  displayName: 
+  displayDescription: 
+  primaryAbility: {fileID: 0}
+  hitPointDie: {fileID: 0}
+  savingThrowProficiencies: []
+  skillProficienciesAvailable: []
+  weaponProficiencies: []
+  armorTraining: []
+  startingEquipmentOptions: []
+  levels:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  subClasses: []

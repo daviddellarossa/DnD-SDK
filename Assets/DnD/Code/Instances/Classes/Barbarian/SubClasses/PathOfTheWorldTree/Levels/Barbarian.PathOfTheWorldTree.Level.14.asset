@@ -12,34 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
   m_Name: Barbarian.PathOfTheWorldTree.Level.14
   m_EditorClassIdentifier: 
-  displayName: Barbarian.PathOfTheWorldTree.Level.14
-  displayDescription: Barbarian.PathOfTheWorldTree.Level.14.Description
-  LevelNum: 14
-  ProficiencyBonus: 5
-  ClassFeatures:
-  - {fileID: 4864787843317491967}
+  displayName: 
+  displayDescription: 
+  LevelNum: 0
+  ProficiencyBonus: 0
+  ClassFeatures: []
   ClassFeatureTraits:
-    rid: 8746986146811347033
+    rid: -2
   references:
     version: 2
     RefIds:
-    - rid: 8746986146811347033
-      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
-      data:
-        rages: 5
-        rageDamage: 3
-        weaponMastery: 4
---- !u!114 &4864787843317491967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ee1992dd5284e6781b71793215dd383, type: 3}
-  m_Name: TravelAlongTheTree
-  m_EditorClassIdentifier: 
-  displayName: 
-  displayDescription: 
+    - rid: -2
+      type: {class: , ns: , asm: }

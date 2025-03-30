@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Backgrounds;
 using DnD.Code.Scripts.Classes;
@@ -121,29 +122,29 @@ namespace DnD.Code.Scripts.Characters
                 return characterStats;
             }
 
-            private bool CheckName()
+            protected bool CheckName()
             {
                 if (string.IsNullOrEmpty(this._name))
                 {
-                    Debug.LogError("Name cannot be null or empty.");
+                    Debug.Log($"{nameof(Builder)}: {nameof(Builder._name)} cannot be null or empty.");
                     return false;
                 }
 
                 return true;
             }
             
-            private bool CheckClass()
+            protected bool CheckClass()
             {
                 if (this._class is null)
                 {
-                    Debug.LogError("Class cannot be null");
+                    Debug.Log($"{nameof(Builder)}: Class cannot be null");
                     return false;
                 }
                 
                 return true;
             }
             
-            private bool CheckSubClass()
+            protected bool CheckSubClass()
             {
                 if (_class.SubClasses.Count == 0)
                 {
@@ -152,43 +153,42 @@ namespace DnD.Code.Scripts.Characters
                 
                 if (this._subClass is null)
                 {
-                    Debug.LogError("SubClass cannot be null");
+                    Debug.Log($"{nameof(Builder)}: SubClass cannot be null");
                     return false;
                 }
                 
                 if (!_class.SubClasses.Contains(this._subClass))
                 {
-                    Debug.LogError($"Class {_class.name} does not have a subclass with {this._subClass.name}");
+                    Debug.Log($"{nameof(Builder)}: Class {_class.name} does not have a subclass with {this._subClass.name}");
                     return false;
-                    
                 }
                 
                 return true;
             }
             
-            private bool CheckBackground()
+            protected bool CheckBackground()
             {
                 if (this._background is null)
                 {
-                    Debug.LogError("Background cannot be null");
+                    Debug.Log($"{nameof(Builder)}: Background cannot be null");
                     return false;
                 }
                 
                 return true;
             }
 
-            private bool CheckSpex()
+            protected bool CheckSpex()
             {
                 if (this._spex is null)
                 {
-                    Debug.LogError("Spex cannot be null");
+                    Debug.Log($"{nameof(Builder)}: Spex cannot be null");
                     return false;
                 }
                 
                 return true;
             }
 
-            private bool CheckAbilityScores()
+            protected bool CheckAbilityScores()
             {
                 var abilities = Helpers.ScriptableObjectHelper.GetAllScriptableObjects<Ability>(PathHelper.Abilities.AbilitiesPath);
 
@@ -196,14 +196,15 @@ namespace DnD.Code.Scripts.Characters
                 {
                     if (!this._abilityScores.ContainsKey(ability))
                     {
-                        Debug.LogError($"Ability {ability.name} does not have a score for {this._name}");
+                        Debug.Log($"{nameof(Builder)}: Ability {ability.name} does not have a score for {this._name}");
                         return false;
                     }
                 }
 
                 return true;
             }
-            private bool CheckSkillProficienciesFromClass()
+            
+            protected bool CheckSkillProficienciesFromClass()
             {
                 foreach (var skill in this._skillProficienciesFromClass)
                 {
@@ -211,14 +212,14 @@ namespace DnD.Code.Scripts.Characters
                         skillAvailable.name == skill.name);
                     if (skillAvailable is null)
                     {
-                        Debug.LogError($"Skill ({skill}) is not among the available skills from the chosen class ({_class.name}).");
+                        Debug.Log($"{nameof(Builder)}: Skill ({skill}) is not among the available skills from the chosen class ({_class.name}).");
                         return false;
                     }
                 }
                 return true;
             }
 
-            private bool CheckStartingEquipmentFromClass()
+            protected bool CheckStartingEquipmentFromClass()
             {
                 if (this._startingEquipmentFromClass is null)
                 {
@@ -229,13 +230,13 @@ namespace DnD.Code.Scripts.Characters
                 var startingEquipmentAvailable = this._class.StartingEquipmentOptions.SingleOrDefault(startingEquipment => startingEquipment.name == this._startingEquipmentFromClass.name);
                 if (startingEquipmentAvailable is null)
                 {
-                    Debug.LogError($"The chosen starting equipment is not among those available from the chosen class ({_class.name}).");
+                    Debug.Log($"{nameof(Builder)}: The chosen starting equipment is not among those available from the chosen class ({_class.name}).");
                     return false;
                 }
                 return true;
             }
             
-            private bool CheckAll()
+            protected bool CheckAll()
             {
                 return CheckName()
                     && CheckClass()
