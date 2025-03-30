@@ -1,24 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7063714968244996597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8954e8761f4789b49a5fe892e72beeff, type: 3}
-  m_Name: Ammunition
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Ammunition
-  displayDescription: WeaponProperty.Ammunition.Description
-  Range:
-    Min: 12
-    Max: 36
-  Type: {fileID: 11400000, guid: d1c5027a62f3e8a4abb3ee61c531a993, type: 2}
---- !u!114 &-691560656769527409
+--- !u!114 &-3447428940703850046
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,15 +32,15 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 55ea3d617514ced46bd8d6f580c4b8c9, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: -7063714968244996597}
-  - {fileID: 7087669751726016325}
-  - {fileID: 9128557486169798324}
-  MasteryProperty: {fileID: -691560656769527409}
+  - {fileID: 6634693119507709995}
+  - {fileID: 5165392488102387211}
+  - {fileID: 8346879242959377804}
+  MasteryProperty: {fileID: -3447428940703850046}
   Weight: 5
   Cost: 50000
   displayName: Weapons.MartialRangedWeapon.Musket
   displayDescription: Weapons.MartialRangedWeapon.Musket.Description
---- !u!114 &7087669751726016325
+--- !u!114 &5165392488102387211
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,7 +54,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponProperty.Loading
   displayDescription: WeaponProperty.Loading.Description
---- !u!114 &9128557486169798324
+--- !u!114 &6634693119507709995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8954e8761f4789b49a5fe892e72beeff, type: 3}
+  m_Name: Ammunition
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Ammunition
+  displayDescription: WeaponProperty.Ammunition.Description
+  Range:
+    Min: 12
+    Max: 36
+  Type: {fileID: 11400000, guid: d1c5027a62f3e8a4abb3ee61c531a993, type: 2}
+--- !u!114 &8346879242959377804
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

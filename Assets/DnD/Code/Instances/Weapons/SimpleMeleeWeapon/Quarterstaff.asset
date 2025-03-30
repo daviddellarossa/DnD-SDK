@@ -1,6 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5894187029581923612
+--- !u!114 &-7152853746909644969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf3b03451dd2e44ba153e70d88aa1c1, type: 3}
+  m_Name: Versatile
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Versatile
+  displayDescription: WeaponProperty.Versatile.Description
+  NumberOfDice: 1
+  DieType: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
+--- !u!114 &-7087943703210603114
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31,25 +47,9 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
   DamageType: {fileID: 11400000, guid: 4a6261dd04b0a8941a6be6453b8bbb47, type: 2}
   Properties:
-  - {fileID: 2793589260601031080}
-  MasteryProperty: {fileID: -5894187029581923612}
+  - {fileID: -7152853746909644969}
+  MasteryProperty: {fileID: -7087943703210603114}
   Weight: 2
   Cost: 200
   displayName: Weapons.SimpleMeleeWeapon.Quarterstaff
   displayDescription: Weapons.SimpleMeleeWeapon.Quarterstaff.Description
---- !u!114 &2793589260601031080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cf3b03451dd2e44ba153e70d88aa1c1, type: 3}
-  m_Name: Versatile
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Versatile
-  displayDescription: WeaponProperty.Versatile.Description
-  NumberOfDice: 1
-  DieType: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}

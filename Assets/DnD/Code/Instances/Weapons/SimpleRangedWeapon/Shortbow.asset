@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1696452638393075456
+--- !u!114 &-3487824469801656088
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31,14 +31,14 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: 7375076771028678988}
-  - {fileID: -1696452638393075456}
-  MasteryProperty: {fileID: 8856785454470209158}
+  - {fileID: 1328520398524769778}
+  - {fileID: -3487824469801656088}
+  MasteryProperty: {fileID: 3844864431190127210}
   Weight: 1
   Cost: 2500
   displayName: Weapons.SimpleRangedWeapon.Shortbow
   displayDescription: Weapons.SimpleRangedWeapon.Shortbow.Description
---- !u!114 &7375076771028678988
+--- !u!114 &1328520398524769778
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,7 +56,7 @@ MonoBehaviour:
     Min: 24
     Max: 96
   Type: {fileID: 11400000, guid: 7af87e900e9fcd94c905d12f73ca1e6c, type: 2}
---- !u!114 &8856785454470209158
+--- !u!114 &3844864431190127210
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

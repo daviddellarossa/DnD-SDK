@@ -9,46 +9,46 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20b6e3af0ebfb9f4682951854de34abf, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f9e2ece3541cae4fa08de39e85b166c, type: 3}
   m_Name: OptionA
   m_EditorClassIdentifier: 
-  Items:
-  - rid: 8535135618884960550
-  - rid: 8535135618884960551
-  - rid: 8535135618884960552
-  - rid: 8535135618884960553
-  - rid: 8535135618884960554
-  - rid: 8535135618884960555
+  EquipmentsWithAmountList:
+  - rid: 8535135623969243136
+  - rid: 8535135623969243137
+  - rid: 8535135623969243138
+  - rid: 8535135623969243139
+  - rid: 8535135623969243140
+  - rid: 8535135623969243141
   references:
     version: 2
     RefIds:
-    - rid: 8535135618884960550
-      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Backgrounds, asm: DnD}
+    - rid: 8535135623969243136
+      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
       data:
-        Item: {fileID: 11400000, guid: 8c25ffe2f40cf1a48a24cbf19adf4684, type: 2}
-        Amount: 1
-    - rid: 8535135618884960551
-      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Backgrounds, asm: DnD}
+        equipment: {fileID: 11400000, guid: 8c25ffe2f40cf1a48a24cbf19adf4684, type: 2}
+        amount: 1
+    - rid: 8535135623969243137
+      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
       data:
-        Item: {fileID: 11400000, guid: 72414c8b1699dd84a86af2b9d6aaf877, type: 2}
-        Amount: 10
-    - rid: 8535135618884960552
-      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Backgrounds, asm: DnD}
+        equipment: {fileID: 11400000, guid: 72414c8b1699dd84a86af2b9d6aaf877, type: 2}
+        amount: 10
+    - rid: 8535135623969243138
+      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
       data:
-        Item: {fileID: 11400000, guid: 5003266ab6262af4496382bbe12272ce, type: 2}
-        Amount: 1
-    - rid: 8535135618884960553
-      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Backgrounds, asm: DnD}
+        equipment: {fileID: 11400000, guid: 5003266ab6262af4496382bbe12272ce, type: 2}
+        amount: 1
+    - rid: 8535135623969243139
+      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
       data:
-        Item: {fileID: 11400000, guid: 29a543830e7d1864faf0feb2f5d2fc66, type: 2}
-        Amount: 1
-    - rid: 8535135618884960554
-      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Backgrounds, asm: DnD}
+        equipment: {fileID: 11400000, guid: 29a543830e7d1864faf0feb2f5d2fc66, type: 2}
+        amount: 1
+    - rid: 8535135623969243140
+      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
       data:
-        Item: {fileID: 11400000, guid: 06d2037f09a5e724782f74eed6481e9e, type: 2}
-        Amount: 1
-    - rid: 8535135618884960555
-      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Backgrounds, asm: DnD}
+        equipment: {fileID: 11400000, guid: 06d2037f09a5e724782f74eed6481e9e, type: 2}
+        amount: 1
+    - rid: 8535135623969243141
+      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
       data:
-        Item: {fileID: 11400000, guid: 1db5925526c836b4bb86b5ef334241a5, type: 2}
-        Amount: 8
+        equipment: {fileID: 11400000, guid: 1db5925526c836b4bb86b5ef334241a5, type: 2}
+        amount: 8

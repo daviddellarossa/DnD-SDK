@@ -46,11 +46,11 @@ namespace Tests.Backgrounds
             var option = _acolyte.StartingEquipment.SingleOrDefault(asset => asset.name == optionName);
             Assert.That(option, Is.Not.Null, $"Option {optionName} doesn't exist");
 
-            Assert.That(option.Items.Count, Is.EqualTo(equipment.Length),
+            Assert.That(option.EquipmentsWithAmountList.Count, Is.EqualTo(equipment.Length),
                 $"Items in option {optionName} don't equal expected length.");
             foreach (var equipmentItem in equipment)
             {
-                var item = option.Items.SingleOrDefault(x => x.Item.name == equipmentItem.Item1);
+                var item = option.EquipmentsWithAmountList.SingleOrDefault(x => x.Equipment.name == equipmentItem.Item1);
                 Assert.That(item, Is.Not.Null, $"Item {equipmentItem.Item1} doesn't exist");
                 Assert.That(item.Amount, Is.EqualTo(equipmentItem.Item2),
                     $"Item {equipmentItem.Item1} doesn't equal expected amount: {equipmentItem.Item2}. Found: {item.Amount}");

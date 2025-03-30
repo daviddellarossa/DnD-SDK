@@ -103,13 +103,13 @@ namespace DnD.Editor.Initializer
 
         protected abstract Class CreateClassInstance();
 
-        protected StartingEquipment CreateStartingEquipmentOption(string optionName, string assetPath, StartingEquipment.ItemWithAmount[] itemsWithAmount)
+        protected StartingEquipment CreateStartingEquipmentOption(string optionName, string assetPath, StartingEquipment.EquipmentWithAmount[] itemsWithAmount)
         {
             var startingEquipment = ScriptableObjectHelper.CreateScriptableObject<StartingEquipment>(optionName, assetPath);
 
             foreach (var item in itemsWithAmount)
             {
-                startingEquipment.Items.Add(item);
+                startingEquipment.EquipmentsWithAmountList.Add(item);
             }
             EditorUtility.SetDirty(startingEquipment);
             

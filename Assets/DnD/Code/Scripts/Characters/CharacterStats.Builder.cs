@@ -9,6 +9,7 @@ using DnD.Code.Scripts.Helpers;
 using DnD.Code.Scripts.Helpers.NameHelper;
 using DnD.Code.Scripts.Helpers.PathHelper;
 using DnD.Code.Scripts.Species;
+using UnityEditor;
 using UnityEngine;
 
 namespace DnD.Code.Scripts.Characters
@@ -18,9 +19,9 @@ namespace DnD.Code.Scripts.Characters
         public class Builder
         {
             public static readonly string CharacterStatsPath = "Assets/CharacterStats.asset";
-            private const int DefaultLevel = 1;
-            private const int DefaultXp = 0;
-            private const int DefaultProficiencyBonus = 2;
+            public static readonly int DefaultLevel = 1;
+            public static readonly int DefaultXp = 0;
+            public static readonly int DefaultProficiencyBonus = 2;
             
             private string _name;
             private Class _class;
@@ -31,7 +32,7 @@ namespace DnD.Code.Scripts.Characters
             private int _xp = DefaultXp;
             private int _proficiencyBonus = DefaultProficiencyBonus;
             private List<Skill> _skillProficienciesFromClass = new ();
-            private StartingEquipment _startingEquipmentFromClass;
+            private DnD.Code.Scripts.Equipment.StartingEquipment _startingEquipmentFromClass;
             private Dictionary<Ability, int> _abilityScores = new();
             
             public Builder SetName(string name)
@@ -59,13 +60,13 @@ namespace DnD.Code.Scripts.Characters
                 return this;
             }
 
-            public Builder SetSkillProficiencies(Skill[] skillProficiencies)
+            public Builder SetSkillProficienciesFromClass(Skill[] skillProficiencies)
             {
                 this._skillProficienciesFromClass.AddRange(skillProficiencies);
                 return this;
             }
 
-            public Builder SetStartingEquipmentFromClass(StartingEquipment startingEquipment)
+            public Builder SetStartingEquipmentFromClass(DnD.Code.Scripts.Equipment.StartingEquipment startingEquipment)
             {
                 this._startingEquipmentFromClass = startingEquipment;
                 return this;
@@ -87,7 +88,7 @@ namespace DnD.Code.Scripts.Characters
             {
                 if (!CheckAll())
                 {
-                    Debug.LogError("Cannot continue with the CharacterStats creation.");
+                    Debug.Log("Some checks failed. Cannot continue with the CharacterStats creation.");
                     return null;
                 }
                 
@@ -96,7 +97,7 @@ namespace DnD.Code.Scripts.Characters
                 var fileName = $"{NameHelper.Naming.CharacterStats}.{this._name}.{Guid.NewGuid().ToString()}";
                 var characterStats = ScriptableObjectHelper.CreateScriptableObject<CharacterStats>(fileName, PathHelper.CharacterStatsPath);
                 
-                characterStats.name = this._name;
+                characterStats.characterName = this._name;
                 characterStats.@class = this._class;
                 characterStats.subClass = this._subClass;
                 characterStats.spex = this._spex;
@@ -106,10 +107,10 @@ namespace DnD.Code.Scripts.Characters
                 characterStats.proficiencyBonus = this._proficiencyBonus;
                 
                 // from class
-                characterStats.armorTraining.AddRange(this._class.ArmorTraining);
+                characterStats.armorTraining.AddRange(this._class.ArmourTraining);
                 characterStats.weaponProficiencies.AddRange(this._class.WeaponProficiencies);
                 characterStats.skillProficiencies.AddRange(this._skillProficienciesFromClass);
-                characterStats.inventory.AddRange(this._startingEquipmentFromClass.Items);
+                characterStats.inventory.AddRange(this._startingEquipmentFromClass.EquipmentsWithAmountList);
                 characterStats.savingThrowProficiencies.AddRange(this._class.SavingThrowProficiencies);
                 
                 // from background
@@ -119,10 +120,12 @@ namespace DnD.Code.Scripts.Characters
                 // others
                 characterStats.abilityScores = this._abilityScores;
                 
+                EditorUtility.SetDirty(characterStats);
+                
                 return characterStats;
             }
 
-            protected bool CheckName()
+            public virtual bool CheckName()
             {
                 if (string.IsNullOrEmpty(this._name))
                 {
@@ -133,7 +136,7 @@ namespace DnD.Code.Scripts.Characters
                 return true;
             }
             
-            protected bool CheckClass()
+            public virtual bool CheckClass()
             {
                 if (this._class is null)
                 {
@@ -144,7 +147,7 @@ namespace DnD.Code.Scripts.Characters
                 return true;
             }
             
-            protected bool CheckSubClass()
+            public virtual bool CheckSubClass()
             {
                 if (_class.SubClasses.Count == 0)
                 {
@@ -166,7 +169,7 @@ namespace DnD.Code.Scripts.Characters
                 return true;
             }
             
-            protected bool CheckBackground()
+            public virtual bool CheckBackground()
             {
                 if (this._background is null)
                 {
@@ -177,7 +180,7 @@ namespace DnD.Code.Scripts.Characters
                 return true;
             }
 
-            protected bool CheckSpex()
+            public virtual bool CheckSpex()
             {
                 if (this._spex is null)
                 {
@@ -188,7 +191,7 @@ namespace DnD.Code.Scripts.Characters
                 return true;
             }
 
-            protected bool CheckAbilityScores()
+            public virtual bool CheckAbilityScores()
             {
                 var abilities = Helpers.ScriptableObjectHelper.GetAllScriptableObjects<Ability>(PathHelper.Abilities.AbilitiesPath);
 
@@ -204,8 +207,13 @@ namespace DnD.Code.Scripts.Characters
                 return true;
             }
             
-            protected bool CheckSkillProficienciesFromClass()
+            public virtual bool CheckSkillProficienciesFromClass()
             {
+                if (this._skillProficienciesFromClass.Count != _class.NumberOfSkillProficienciesToChoose)
+                {
+                    Debug.Log($@"The number of Skill proficiencies from class does not match: {this._skillProficienciesFromClass.Count}; expected: {_class.NumberOfSkillProficienciesToChoose}");
+                    return false;
+                }
                 foreach (var skill in this._skillProficienciesFromClass)
                 {
                     var skillAvailable = _class.SkillProficienciesAvailable.SingleOrDefault(skillAvailable =>
@@ -219,7 +227,7 @@ namespace DnD.Code.Scripts.Characters
                 return true;
             }
 
-            protected bool CheckStartingEquipmentFromClass()
+            public virtual bool CheckStartingEquipmentFromClass()
             {
                 if (this._startingEquipmentFromClass is null)
                 {
@@ -236,7 +244,7 @@ namespace DnD.Code.Scripts.Characters
                 return true;
             }
             
-            protected bool CheckAll()
+            public virtual bool CheckAll()
             {
                 return CheckName()
                     && CheckClass()

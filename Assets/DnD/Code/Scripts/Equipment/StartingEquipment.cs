@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using DnD.Code.Scripts.Items;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace DnD.Code.Scripts.Equipment
 {
@@ -8,20 +9,35 @@ namespace DnD.Code.Scripts.Equipment
     public class StartingEquipment : ScriptableObject
     {
         [SerializeReference]
-        public List<ItemWithAmount> Items = new ();
+        public List<EquipmentWithAmount> EquipmentsWithAmountList = new ();
 
-        public void AddItem(IItem item, int amount = 1)
+        public void AddEquipmentWithAmount(IEquipment equipment, int amount = 1)
         {
-            Items.Add(new ItemWithAmount { Item = item as ScriptableObject, Amount = amount });
+            EquipmentsWithAmountList.Add(new EquipmentWithAmount { Equipment = equipment as ScriptableObject, Amount = amount });
         }
 
         [System.Serializable]
-        public class ItemWithAmount
+        public class EquipmentWithAmount
         {
-            public ScriptableObject Item;
-            public int Amount;
+            [SerializeField]
+            private ScriptableObject equipment;
+            [SerializeField]
+            private float amount;
 
-            public IItem AsIItem => Item as IItem;
+            public ScriptableObject Equipment
+            {
+                get { return equipment; }
+                set { equipment = value; }
+            }
+
+            public float Amount
+            {
+                get { return amount; }
+                set { amount = value; }
+            }
+
+            public IEquipment AsIEquipment() => Equipment as IEquipment;
+
         }
     }
 }

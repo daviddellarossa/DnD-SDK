@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-277553670502228614
+--- !u!114 &-774295128317559129
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,4 +30,4 @@ MonoBehaviour:
   displayName: SpecialTraits.Versatile
   displayDescription: SpecialTraits.Versatile.Description
   TraitTypes:
-  - {fileID: -277553670502228614}
+  - {fileID: -774295128317559129}

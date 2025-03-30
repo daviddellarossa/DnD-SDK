@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-165357123599650703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9542e2ff13154ff9921b77559dba4ce0, type: 3}
+  m_Name: VitalityOfTheTree
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,15 +26,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
   m_Name: Barbarian.PathOfTheWorldTree.Level.03
   m_EditorClassIdentifier: 
-  displayName: 
-  displayDescription: 
-  LevelNum: 0
-  ProficiencyBonus: 0
-  ClassFeatures: []
+  displayName: Barbarian.PathOfTheWorldTree.Level.03
+  displayDescription: Barbarian.PathOfTheWorldTree.Level.03.Description
+  LevelNum: 3
+  ProficiencyBonus: 2
+  ClassFeatures:
+  - {fileID: -165357123599650703}
   ClassFeatureTraits:
-    rid: -2
+    rid: 8535135623969243144
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 8535135623969243144
+      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data:
+        rages: 2
+        rageDamage: 2
+        weaponMastery: 2

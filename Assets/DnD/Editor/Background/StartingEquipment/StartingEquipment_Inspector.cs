@@ -7,17 +7,16 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UIElements.Button;
-using StartingEquipment = DnD.Code.Scripts.Backgrounds.StartingEquipment;
 
 namespace DnD.Editor.Background.StartingEquipment
 {
-    [CustomEditor(typeof(Code.Scripts.Backgrounds.StartingEquipment))]
+    [CustomEditor(typeof(Code.Scripts.Equipment.StartingEquipment))]
     public class StartingEquipmentEditor : UnityEditor.Editor
     {
         private string uxmlFilePath;
         private VisualTreeAsset rootXML;
 
-        private Code.Scripts.Backgrounds.StartingEquipment startingEquipment;
+        private Code.Scripts.Equipment.StartingEquipment startingEquipment;
         private ListView lvItems;
 
         public override VisualElement CreateInspectorGUI()
@@ -38,7 +37,7 @@ namespace DnD.Editor.Background.StartingEquipment
             // Instantiate the UXML.
             root = rootXML.Instantiate();
 
-            startingEquipment = (Code.Scripts.Backgrounds.StartingEquipment)target;
+            startingEquipment = (Code.Scripts.Equipment.StartingEquipment)target;
 
             lvItems = root.Q<ListView>("lvItems");
 
@@ -66,8 +65,8 @@ namespace DnD.Editor.Background.StartingEquipment
             };
             lvItems.bindItem = (element, index) =>
             {
-                var item = startingEquipment.Items[index];
-                if (item is null || item.Item is null)
+                var equipmentWithAmount = startingEquipment.EquipmentsWithAmountList[index];
+                if (equipmentWithAmount is null || equipmentWithAmount.Equipment is null)
                 {
                     Debug.Log("Item or Item.Item is null");
                     return;
@@ -82,21 +81,21 @@ namespace DnD.Editor.Background.StartingEquipment
                 itemContainer.style.marginLeft = 200;
 
                 // Add the item's DisplayText (name)
-                var label = new Label(item.AsIEquipment().DisplayName);
+                var label = new Label(equipmentWithAmount.AsIEquipment().DisplayName);
                 label.style.flexGrow = 1;  // Allow label to take available space
                 label.style.unityTextAlign = TextAnchor.LowerLeft;
 
                 // Add the amount field
                 var amountField = new FloatField("Amount")
                 {
-                    value = item.Amount,
+                    value = equipmentWithAmount.Amount,
                 };
 
                 amountField.style.minWidth = 200;
 
                 amountField.RegisterValueChangedCallback(e =>
                 {
-                    item.Amount = e.newValue;
+                    equipmentWithAmount.Amount = e.newValue;
                     EditorUtility.SetDirty(startingEquipment);
                 });
 
@@ -137,7 +136,7 @@ namespace DnD.Editor.Background.StartingEquipment
         {
             if (popup.value != null)
             {
-                startingEquipment.AddItem(popup.value);
+                startingEquipment.AddEquipmentWithAmount(popup.value);
                 EditorUtility.SetDirty(startingEquipment);
             };
         }

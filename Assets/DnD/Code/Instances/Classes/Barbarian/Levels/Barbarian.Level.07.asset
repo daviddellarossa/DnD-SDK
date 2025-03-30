@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-734553144376812128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae33dde8f064188bfe29b6df51ab370, type: 3}
+  m_Name: InstinctivePounce
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,15 +26,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
   m_Name: Barbarian.Level.07
   m_EditorClassIdentifier: 
-  displayName: 
-  displayDescription: 
-  LevelNum: 0
-  ProficiencyBonus: 0
-  ClassFeatures: []
+  displayName: Barbarian.Level.07
+  displayDescription: Barbarian.Level.07.Description
+  LevelNum: 7
+  ProficiencyBonus: 3
+  ClassFeatures:
+  - {fileID: 1898986157194416704}
+  - {fileID: -734553144376812128}
   ClassFeatureTraits:
-    rid: -2
+    rid: 8535135623969243163
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 8535135623969243163
+      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data:
+        rages: 4
+        rageDamage: 2
+        weaponMastery: 3
+--- !u!114 &1898986157194416704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01f2eff6a49448de820a71d6eac2b7ba, type: 3}
+  m_Name: FeralInstinct
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 

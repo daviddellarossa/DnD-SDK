@@ -1,5 +1,6 @@
 ﻿using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Common;
+using DnD.Code.Scripts.Equipment;
 using DnD.Code.Scripts.Feats;
 using DnD.Code.Scripts.Tools;
 using UnityEngine;

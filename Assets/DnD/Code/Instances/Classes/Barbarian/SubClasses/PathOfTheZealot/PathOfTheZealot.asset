@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 760c3175d147f34488c27c47d230bb07, type: 3}
   m_Name: PathOfTheZealot
   m_EditorClassIdentifier: 
-  Level03: {fileID: 0}
-  Level06: {fileID: 0}
-  Level10: {fileID: 0}
-  Level14: {fileID: 0}
-  displayName: 
-  displayDescription: 
+  Level03: {fileID: 11400000, guid: 727bbaabfd5d1c749a0db8f20190a9b7, type: 2}
+  Level06: {fileID: 11400000, guid: ed170df3b5d5e4b4298e17fd23b21ead, type: 2}
+  Level10: {fileID: 11400000, guid: bb9e791479a916345bbd22bf9e5f509e, type: 2}
+  Level14: {fileID: 11400000, guid: 05d9627376b6a564d85bce9b701bc1ce, type: 2}
+  displayName: Barbarian.PathOfTheZealot
+  displayDescription: Barbarian.PathOfTheZealot.Description

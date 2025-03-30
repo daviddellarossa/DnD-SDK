@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using DnD.Code.Scripts.Abilities;
@@ -7,24 +6,19 @@ using DnD.Code.Scripts.Backgrounds;
 using DnD.Code.Scripts.Classes;
 using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Equipment;
-using DnD.Code.Scripts.Equipment.Coins;
 using DnD.Code.Scripts.Feats;
-using DnD.Code.Scripts.Languages;
-using DnD.Code.Scripts.Species;
-using DnD.Code.Scripts.Species.SpecialTraits.TraitTypes;
-using DnD.Code.Scripts.Tools;
 using DnD.Code.Scripts.Weapons;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
-using StartingEquipment = DnD.Code.Scripts.Backgrounds.StartingEquipment;
 
 namespace DnD.Code.Scripts.Characters
 {
     public partial class CharacterStats : ScriptableObject
     {
         [SerializeField]
-        private string name;
-
+        private string characterName;
+        
         [SerializeReference]
         private Class @class;
         
@@ -39,10 +33,10 @@ namespace DnD.Code.Scripts.Characters
         
         [SerializeField]
         private int level;
-
+        
         [SerializeField]
         private int xp;
-
+        
         [SerializeField]
         private int proficiencyBonus;
         
@@ -51,10 +45,10 @@ namespace DnD.Code.Scripts.Characters
         
         [SerializeField]
         private List<BaseArmourType> armorTraining = new List<BaseArmourType>();
-
+        
         [SerializeField]
         private List<WeaponType> weaponProficiencies = new ();
-        
+
         [SerializeField]
         private List<Skill> skillProficiencies = new List<Skill>();
         
@@ -65,24 +59,57 @@ namespace DnD.Code.Scripts.Characters
         private List<Ability> savingThrowProficiencies = new ();
         
         [SerializeField]
-        private List<StartingEquipment.EquipmentWithAmount> inventory = new (); //TODO: change from List<> to something more specific.
+        private List<StartingEquipment.EquipmentWithAmount> inventory = new ();
         
         [SerializeField]
         private HitPoints hitPoints;
-
+        
         [SerializeField]
         private string armorClass;
-
-
+        
         [SerializeField]
         private DeathSaves deathSaves;
+
+        
+        public string CharacterName => characterName;
+        
+        public Class Class => @class;
+        
+        public SubClass SubClass => subClass;
+        
+        public Background Background => background;
+        
+        public Species.Spex Spex => spex;
+        
+        public int Level => level;
+
+        public int Xp => xp;
+        public int ProficiencyBonus => proficiencyBonus;
+        
+        public KeyValuePair<Ability, int>[] AbilityScores => abilityScores.ToArray();
+        
+        public BaseArmourType[] ArmorTraining => armorTraining.ToArray();
+
+        public WeaponType[] WeaponProficiencies => weaponProficiencies.ToArray();
+
+        public Skill[] SkillProficiencies => skillProficiencies.ToArray();
+        public Proficient[] ToolProficiencies => toolProficiencies.ToArray();
+
+        public Ability[] SavingThrowProficiencies =>  savingThrowProficiencies.ToArray();
+
+        public StartingEquipment.EquipmentWithAmount[] Inventory => inventory.ToArray();
+
+        public HitPoints HitPoints => hitPoints;
+
+        public string ArmorClass => armorClass;
+
+        public DeathSaves DeathSaves => deathSaves;
         
         public Ability PrimaryAbility => this.@class.PrimaryAbility;
         
         public Die HitPointDie => this.@class.HitPointDie;
         
         public Feat Feat => this.background.Feat;
-        
         
         
         // public Dictionary<AbilityEnum, AbilityStats> Abilities = new Dictionary<AbilityEnum, AbilityStats>

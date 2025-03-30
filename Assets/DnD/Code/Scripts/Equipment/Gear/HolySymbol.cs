@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.Serialization;
+﻿using Assets.Scripts.Game.Equipment.Gear;
+using UnityEngine;
 
-namespace Assets.Scripts.Game.Equipment.Gear
+namespace DnD.Code.Scripts.Equipment.Gear
 {
     [CreateAssetMenu(fileName = "NewHolySymbol", menuName = "Game Entities/Equipment/Gear/Holy Symbol")]
     public class HolySymbol : ScriptableObject, IGear

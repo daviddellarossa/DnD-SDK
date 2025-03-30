@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5685285306203037807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db102df451b4243996ddc8ff16944fb, type: 3}
+  m_Name: SubclassFeature
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,15 +26,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
   m_Name: Barbarian.Level.14
   m_EditorClassIdentifier: 
-  displayName: 
-  displayDescription: 
-  LevelNum: 0
-  ProficiencyBonus: 0
-  ClassFeatures: []
+  displayName: Barbarian.Level.14
+  displayDescription: Barbarian.Level.14.Description
+  LevelNum: 14
+  ProficiencyBonus: 5
+  ClassFeatures:
+  - {fileID: -5685285306203037807}
   ClassFeatureTraits:
-    rid: -2
+    rid: 8535135623969243148
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 8535135623969243148
+      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data:
+        rages: 5
+        rageDamage: 3
+        weaponMastery: 4

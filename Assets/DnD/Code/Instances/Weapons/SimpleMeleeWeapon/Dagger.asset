@@ -1,20 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7550878576100052673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 736285003def7cc46b8f45a9970c9ed2, type: 3}
-  m_Name: Nick
-  m_EditorClassIdentifier: 
-  displayName: WeaponMasteryProperty.Nick
-  displayDescription: WeaponMasteryProperty.Nick.Description
---- !u!114 &-2821969800909419646
+--- !u!114 &-6987580035946582485
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31,6 +17,48 @@ MonoBehaviour:
   Range:
     Min: 6
     Max: 18
+--- !u!114 &-6904973025738325147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736285003def7cc46b8f45a9970c9ed2, type: 3}
+  m_Name: Nick
+  m_EditorClassIdentifier: 
+  displayName: WeaponMasteryProperty.Nick
+  displayDescription: WeaponMasteryProperty.Nick.Description
+--- !u!114 &-3773661299016824749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 972175a1f99609d41a0057c11c6bff3b, type: 3}
+  m_Name: Light
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Light
+  displayDescription: WeaponProperty.Light.Description
+--- !u!114 &-3067705870960012544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ebc4527f34bae1489fdaafed1f5dafc, type: 3}
+  m_Name: Finesse
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Finesse
+  displayDescription: WeaponProperty.Finesse.Description
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,39 +76,11 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: e23ede8f2cf0b9b49b31d2e95b0a3d15, type: 2}
   DamageType: {fileID: 11400000, guid: 15f65b106f069d142997c7da488493a9, type: 2}
   Properties:
-  - {fileID: -2821969800909419646}
-  - {fileID: 112711893116933561}
-  - {fileID: 3891527756267846736}
-  MasteryProperty: {fileID: -7550878576100052673}
+  - {fileID: -6987580035946582485}
+  - {fileID: -3067705870960012544}
+  - {fileID: -3773661299016824749}
+  MasteryProperty: {fileID: -6904973025738325147}
   Weight: 0.5
   Cost: 200
   displayName: Weapons.SimpleMeleeWeapon.Dagger
   displayDescription: Weapons.SimpleMeleeWeapon.Dagger.Description
---- !u!114 &112711893116933561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ebc4527f34bae1489fdaafed1f5dafc, type: 3}
-  m_Name: Finesse
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Finesse
-  displayDescription: WeaponProperty.Finesse.Description
---- !u!114 &3891527756267846736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 972175a1f99609d41a0057c11c6bff3b, type: 3}
-  m_Name: Light
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Light
-  displayDescription: WeaponProperty.Light.Description

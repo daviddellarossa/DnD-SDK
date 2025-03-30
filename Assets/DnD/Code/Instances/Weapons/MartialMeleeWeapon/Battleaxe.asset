@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7602911613222876272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf3b03451dd2e44ba153e70d88aa1c1, type: 3}
+  m_Name: Versatile
+  m_EditorClassIdentifier: 
+  displayName: WeaponProperty.Versatile
+  displayDescription: WeaponProperty.Versatile.Description
+  NumberOfDice: 1
+  DieType: {fileID: 11400000, guid: 148ec924f8b04f54fb2cb6ad83ecc392, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17,29 +33,13 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 2b26fd34e03536447a181f025d782ad8, type: 2}
   DamageType: {fileID: 11400000, guid: 9437bf1f986d56941b00734a2f0ec3ca, type: 2}
   Properties:
-  - {fileID: 4279172104922213737}
-  MasteryProperty: {fileID: 8547619539637000320}
+  - {fileID: -7602911613222876272}
+  MasteryProperty: {fileID: 6278571560044470922}
   Weight: 2
   Cost: 1000
   displayName: Weapons.MartialMeleeWeapon.Battleaxe
   displayDescription: Weapons.MartialMeleeWeapon.Battleaxe.Description
---- !u!114 &4279172104922213737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cf3b03451dd2e44ba153e70d88aa1c1, type: 3}
-  m_Name: Versatile
-  m_EditorClassIdentifier: 
-  displayName: WeaponProperty.Versatile
-  displayDescription: WeaponProperty.Versatile.Description
-  NumberOfDice: 1
-  DieType: {fileID: 11400000, guid: 148ec924f8b04f54fb2cb6ad83ecc392, type: 2}
---- !u!114 &8547619539637000320
+--- !u!114 &6278571560044470922
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

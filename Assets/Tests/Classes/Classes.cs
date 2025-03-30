@@ -9,6 +9,8 @@ namespace Tests.Classes
         public string DisplayDescription => $"{DisplayName}.{NameHelper.Naming.Description}";
         public string PrimaryAbility { get; set; }
         public string HitPointDie { get; set; }
+        
+        public int NumberOfSkillProficienciesToChoose { get; set; }
     }
 
     public class StartingEquipmentTestModel

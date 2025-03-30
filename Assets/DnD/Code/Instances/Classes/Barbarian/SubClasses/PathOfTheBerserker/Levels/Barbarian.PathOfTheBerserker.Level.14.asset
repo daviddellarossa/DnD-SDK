@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-542733081290957201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dbd73944eb44a63bb15570fbf64e9e3, type: 3}
+  m_Name: IntimidatingPresence
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,15 +26,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
   m_Name: Barbarian.PathOfTheBerserker.Level.14
   m_EditorClassIdentifier: 
-  displayName: 
-  displayDescription: 
-  LevelNum: 0
-  ProficiencyBonus: 0
-  ClassFeatures: []
+  displayName: Barbarian.PathOfTheBerserker.Level.14
+  displayDescription: Barbarian.PathOfTheBerserker.Level.14.Description
+  LevelNum: 14
+  ProficiencyBonus: 5
+  ClassFeatures:
+  - {fileID: -542733081290957201}
   ClassFeatureTraits:
-    rid: -2
+    rid: 8535135623969243179
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 8535135623969243179
+      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data:
+        rages: 5
+        rageDamage: 3
+        weaponMastery: 4

@@ -41,60 +41,60 @@ namespace Tests
     public class AmmunitionTypesData
     {
         public static IEnumerable AmmunitionTypesTestCases
+        {
+            get
+            {
+                yield return new TestCaseData(
+                    new AmmunitionTypeTestModel()
                     {
-                        get
-                        {
-                            yield return new TestCaseData(
-                                new AmmunitionTypeTestModel()
-                                {
-                                    Name =  NameHelper.AmmunitionTypes.Arrows,
-                                    Amount = 20,
-                                    Cost =  1f,
-                                    Weight = 0.5f,
-                                    Storage = NameHelper.Storage.Quiver
-                                });
-                            
-                            yield return new TestCaseData(
-                                new AmmunitionTypeTestModel()
-                                {
-                                    Name =  NameHelper.AmmunitionTypes.Bolts,
-                                    Amount = 20,
-                                    Cost =  1f,
-                                    Weight = 0.75f,
-                                    Storage = NameHelper.Storage.Case
-                                });
+                        Name =  NameHelper.AmmunitionTypes.Arrows,
+                        Amount = 20,
+                        Cost =  1f,
+                        Weight = 0.5f,
+                        Storage = NameHelper.Storage.Quiver
+                    });
+                
+                yield return new TestCaseData(
+                    new AmmunitionTypeTestModel()
+                    {
+                        Name =  NameHelper.AmmunitionTypes.Bolts,
+                        Amount = 20,
+                        Cost =  1f,
+                        Weight = 0.75f,
+                        Storage = NameHelper.Storage.Case
+                    });
 
-                            yield return new TestCaseData(
-                                new AmmunitionTypeTestModel()
-                                {
-                                    Name =  NameHelper.AmmunitionTypes.BulletsFirearm,
-                                    Amount = 10,
-                                    Cost =  3f,
-                                    Weight = 1f,
-                                    Storage = NameHelper.Storage.Pouch
-                                });
+                yield return new TestCaseData(
+                    new AmmunitionTypeTestModel()
+                    {
+                        Name =  NameHelper.AmmunitionTypes.BulletsFirearm,
+                        Amount = 10,
+                        Cost =  3f,
+                        Weight = 1f,
+                        Storage = NameHelper.Storage.Pouch
+                    });
 
-                            yield return new TestCaseData(
-                                new AmmunitionTypeTestModel()
-                                {
-                                    Name =  NameHelper.AmmunitionTypes.BulletsSling,
-                                    Amount = 20,
-                                    Cost =  4f,
-                                    Weight = 0.75f,
-                                    Storage = NameHelper.Storage.Pouch
-                                });
-                            
-                            yield return new TestCaseData(
-                                new AmmunitionTypeTestModel()
-                                {
-                                    Name =  NameHelper.AmmunitionTypes.Needles,
-                                    Amount = 50,
-                                    Cost =  1f,
-                                    Weight = 0.5f,
-                                    Storage = NameHelper.Storage.Pouch
-                                });
-                        }
-                    }
+                yield return new TestCaseData(
+                    new AmmunitionTypeTestModel()
+                    {
+                        Name =  NameHelper.AmmunitionTypes.BulletsSling,
+                        Amount = 20,
+                        Cost =  4f,
+                        Weight = 0.75f,
+                        Storage = NameHelper.Storage.Pouch
+                    });
+                
+                yield return new TestCaseData(
+                    new AmmunitionTypeTestModel()
+                    {
+                        Name =  NameHelper.AmmunitionTypes.Needles,
+                        Amount = 50,
+                        Cost =  1f,
+                        Weight = 0.5f,
+                        Storage = NameHelper.Storage.Pouch
+                    });
+            }
+        }
                     
     }
     

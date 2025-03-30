@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3091329019470522121
+--- !u!114 &-8568453567598575716
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31,14 +31,14 @@ MonoBehaviour:
   DamageDie: {fileID: 11400000, guid: 6015ef48688125b499f94c0e793beb2f, type: 2}
   DamageType: {fileID: 11400000, guid: 9437bf1f986d56941b00734a2f0ec3ca, type: 2}
   Properties:
-  - {fileID: -3091329019470522121}
-  - {fileID: 7394652719584422433}
-  MasteryProperty: {fileID: 2275603485677161988}
+  - {fileID: -8568453567598575716}
+  - {fileID: 8597898322514334309}
+  MasteryProperty: {fileID: 2469551830013801379}
   Weight: 1.5
   Cost: 2500
   displayName: Weapons.MartialMeleeWeapon.Scimitar
   displayDescription: Weapons.MartialMeleeWeapon.Scimitar.Description
---- !u!114 &2275603485677161988
+--- !u!114 &2469551830013801379
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,7 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: WeaponMasteryProperty.Nick
   displayDescription: WeaponMasteryProperty.Nick.Description
---- !u!114 &7394652719584422433
+--- !u!114 &8597898322514334309
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

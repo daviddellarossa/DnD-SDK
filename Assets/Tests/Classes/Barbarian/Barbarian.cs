@@ -33,6 +33,8 @@ namespace Tests.Classes.Barbarian
             Assert.That(_class.DisplayDescription, Is.EqualTo(expected.DisplayDescription),  $"{expected.DisplayName}: {nameof(expected.DisplayDescription)} not equal to {expected.DisplayDescription}.");
             Assert.That(_class.PrimaryAbility.name, Is.EqualTo(expected.PrimaryAbility),  $"{expected.DisplayName}: {nameof(expected.PrimaryAbility)} not equal to {expected.PrimaryAbility}.");
             Assert.That(_class.HitPointDie.name, Is.EqualTo(expected.HitPointDie),  $"{expected.DisplayName}: {nameof(expected.HitPointDie)} not equal to {expected.HitPointDie}.");
+            Assert.That(_class.NumberOfSkillProficienciesToChoose, Is.EqualTo(expected.NumberOfSkillProficienciesToChoose),  $"{expected.DisplayName}: {nameof(expected.NumberOfSkillProficienciesToChoose)} not equal to {expected.NumberOfSkillProficienciesToChoose}.");
+
         }
         
         [TestCaseSource(typeof(ClassData), nameof(ClassData.SavingThrowProficienciesTestCases))]
@@ -56,7 +58,7 @@ namespace Tests.Classes.Barbarian
         [TestCaseSource(typeof(ClassData), nameof(ClassData.ArmourTrainingTestCases))]
         public void TestArmourTrainingTestCases(string expected)
         {
-            Assert.That(_class.ArmorTraining.Cast<ScriptableObject>().Select(x => x.name), Does.Contain(expected),  $"{_class.DisplayName} ArmorTraining: {nameof(expected)} not found.");
+            Assert.That(_class.ArmourTraining.Cast<ScriptableObject>().Select(x => x.name), Does.Contain(expected),  $"{_class.DisplayName} ArmorTraining: {nameof(expected)} not found.");
         }
         
         [TestCaseSource(typeof(ClassData), nameof(ClassData.StartingEquipmentOptionsTestCases))]
@@ -67,7 +69,7 @@ namespace Tests.Classes.Barbarian
 
             foreach (var expectedItem in expected.Items)
             {
-                var item = startingEquipmentOption.Items.SingleOrDefault(item => item.Item.name == expectedItem.ItemName);
+                var item = startingEquipmentOption.EquipmentsWithAmountList.SingleOrDefault(item => item.Equipment.name == expectedItem.ItemName);
                 Assert.That(item, Is.Not.Null,  $"Item {expected.Name} was null.");
 
                 Assert.That(item.Amount, Is.EqualTo(expectedItem.Amount),
@@ -140,6 +142,7 @@ namespace Tests.Classes.Barbarian
                             Name = NameHelper.Classes.Barbarian,
                             PrimaryAbility = NameHelper.Abilities.Strength,
                             HitPointDie = NameHelper.Dice.D12,
+                            NumberOfSkillProficienciesToChoose = 2,
                         });
                 }
             }

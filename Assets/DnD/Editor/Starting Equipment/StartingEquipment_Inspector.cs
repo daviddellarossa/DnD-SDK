@@ -90,8 +90,8 @@ namespace Assets.Scripts.Game.Characters.Classes
             };
             lvItems.bindItem = (element, index) =>
             {
-                var item = startingEquipment.Items[index];
-                if (item is null || item.Item is null)
+                var item = startingEquipment.EquipmentsWithAmountList[index];
+                if (item is null || item.Equipment is null)
                 {
                     Debug.Log("Item or Item.Item is null");
                     return;
@@ -106,12 +106,12 @@ namespace Assets.Scripts.Game.Characters.Classes
                 itemContainer.style.marginLeft = 200;
 
                 // Add the item's DisplayText (name)
-                var label = new Label(item.AsIItem.DisplayName);
+                var label = new Label(item.AsIEquipment().DisplayName);
                 label.style.flexGrow = 1;  // Allow label to take available space
                 label.style.unityTextAlign = TextAnchor.LowerLeft;
 
                 // Add the amount field
-                var amountField = new IntegerField("Amount")
+                var amountField = new FloatField("Amount")
                 {
                     value = item.Amount,
                 };
@@ -132,7 +132,7 @@ namespace Assets.Scripts.Game.Characters.Classes
         }
 
         private void SetupItemSection<TType, TOrderType>(VisualElement root, string sectionTitle, Func<TType, string> displayName, Func<TType, TOrderType> orderBy)
-            where TType : ScriptableObject, IItem
+            where TType : ScriptableObject, IEquipment
         {
             var availableItems = FindAllIItemAssets<TType, TOrderType>(orderBy);
 
@@ -157,11 +157,11 @@ namespace Assets.Scripts.Game.Characters.Classes
         }
 
         private void AddButton_clicked<TType>(PopupField<TType> popup)
-            where TType : ScriptableObject, IItem
+            where TType : ScriptableObject, IEquipment
         {
             if (popup.value != null)
             {
-                startingEquipment.AddItem(popup.value);
+                startingEquipment.AddEquipmentWithAmount(popup.value);
                 EditorUtility.SetDirty(startingEquipment);
             };
         }
@@ -173,7 +173,7 @@ namespace Assets.Scripts.Game.Characters.Classes
             Func<UItem, string> displayText,
             Func<UItem, string> orderBy)
             where TType : ScriptableObject
-            where UItem : ScriptableObject, IItem
+            where UItem : ScriptableObject, IEquipment
         {
             // Get all available ArmourTypes
             var itemTypes = findAllItemTypes();

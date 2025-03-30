@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20b6e3af0ebfb9f4682951854de34abf, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f9e2ece3541cae4fa08de39e85b166c, type: 3}
   m_Name: OptionB
   m_EditorClassIdentifier: 
-  Items:
-  - rid: 8535135618884960556
+  EquipmentsWithAmountList:
+  - rid: 8535135623969243142
   references:
     version: 2
     RefIds:
-    - rid: 8535135618884960556
-      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Backgrounds, asm: DnD}
+    - rid: 8535135623969243142
+      type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
       data:
-        Item: {fileID: 11400000, guid: 1db5925526c836b4bb86b5ef334241a5, type: 2}
-        Amount: 50
+        equipment: {fileID: 11400000, guid: 1db5925526c836b4bb86b5ef334241a5, type: 2}
+        amount: 50

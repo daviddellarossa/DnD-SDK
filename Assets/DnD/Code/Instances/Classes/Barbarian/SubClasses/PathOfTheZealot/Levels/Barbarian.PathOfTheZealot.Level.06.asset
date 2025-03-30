@@ -12,15 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad2ba889c3a4fc449f959451642b41e, type: 3}
   m_Name: Barbarian.PathOfTheZealot.Level.06
   m_EditorClassIdentifier: 
-  displayName: 
-  displayDescription: 
-  LevelNum: 0
-  ProficiencyBonus: 0
-  ClassFeatures: []
+  displayName: Barbarian.PathOfTheZealot.Level.06
+  displayDescription: Barbarian.PathOfTheZealot.Level.06.Description
+  LevelNum: 6
+  ProficiencyBonus: 3
+  ClassFeatures:
+  - {fileID: 931487998696263366}
   ClassFeatureTraits:
-    rid: -2
+    rid: 8535135623969243176
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 8535135623969243176
+      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data:
+        rages: 4
+        rageDamage: 2
+        weaponMastery: 3
+--- !u!114 &931487998696263366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5808b6406b4e93b9c3459c61ce9c6c, type: 3}
+  m_Name: FanaticalFocus
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 

@@ -5,6 +5,7 @@ using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Equipment;
 using DnD.Code.Scripts.Weapons;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace DnD.Code.Scripts.Classes
 {
@@ -27,12 +28,14 @@ namespace DnD.Code.Scripts.Classes
         
         [SerializeField]
         private List<Skill> skillProficienciesAvailable = new List<Skill>();
+
+        [SerializeField] private int numberOfSkillProficienciesToChoose;
         
         [SerializeField]
         private List<WeaponType> weaponProficiencies = new ();
         
-        [SerializeField]
-        private List<BaseArmourType> armorTraining = new List<BaseArmourType>();
+        [FormerlySerializedAs("armorTraining")] [SerializeField]
+        private List<BaseArmourType> armourTraining = new List<BaseArmourType>();
         
         [SerializeField]
         private List<StartingEquipment> startingEquipmentOptions = new List<StartingEquipment>();
@@ -75,6 +78,12 @@ namespace DnD.Code.Scripts.Classes
             get => skillProficienciesAvailable;
             set => skillProficienciesAvailable = value;
         }
+        
+        public int NumberOfSkillProficienciesToChoose
+        {
+            get => numberOfSkillProficienciesToChoose;
+            set => numberOfSkillProficienciesToChoose = value;
+        }
 
         public List<WeaponType> WeaponProficiencies
         {
@@ -82,10 +91,10 @@ namespace DnD.Code.Scripts.Classes
             set => weaponProficiencies = value;
         }
         
-        public List<BaseArmourType> ArmorTraining
+        public List<BaseArmourType> ArmourTraining
         {
-            get => armorTraining;
-            set => armorTraining = value;
+            get => armourTraining;
+            set => armourTraining = value;
         }
 
         public List<StartingEquipment> StartingEquipmentOptions

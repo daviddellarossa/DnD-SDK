@@ -1,38 +1,50 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AutoFixture;
 using AutoFixture.Kernel;
 using AutoFixture.NUnit3;
+using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Backgrounds;
 using DnD.Code.Scripts.Characters;
 using DnD.Code.Scripts.Classes;
 using DnD.Code.Scripts.Helpers.PathHelper;
 using DnD.Code.Scripts.Helpers;
 using DnD.Code.Scripts.Species;
+using Moq;
+using Moq.Protected;
 using NUnit.Framework;
+using UnityEditor;
+using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Tests.Character
 {
     [TestFixture]
     public class Builder
     {
-        private BuilderTestModel _model;
+        private CharacterStats.Builder _model;
+        private CharacterStats _instance;
         private Fixture _fixture;
         
         private Class[] _classes;
         private Background[] _backgrounds;
         private Spex[] _species;
+        private Ability[] _abilities;
+        private Skill[] _skills;
 
-        [SetUp]
-        public void Setup()
+
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             _fixture = new Fixture();
-            _model = new BuilderTestModel();
-
+            
             SetupClassCollection();
             SetupBackgroundCollection();
             SetupSpeciesCollection();
+            SetupAbilitiesCollection();
+            SetupSkillsCollection();
             
             void SetupClassCollection()
             {
@@ -61,6 +73,45 @@ namespace Tests.Character
                 {
                     Assert.Inconclusive("Species not found.");
                 }
+            }
+            
+            void SetupAbilitiesCollection()
+            {
+                _abilities =
+                    ScriptableObjectHelper.GetAllScriptableObjects<Ability>(PathHelper.Abilities.AbilitiesPath);
+                if (_abilities is null || _abilities.Any() == false)
+                {
+                    Assert.Inconclusive("Abilities not found.");
+                }
+            }
+            
+            void SetupSkillsCollection()
+            {
+                _skills =
+                    ScriptableObjectHelper.GetAllScriptableObjects<Skill>(PathHelper.Abilities.SkillsPath);
+                if (_abilities is null || _abilities.Any() == false)
+                {
+                    Assert.Inconclusive("Skills not found.");
+                }
+            }
+        }
+
+        
+        [SetUp]
+        public void Setup()
+        {
+            _model = new CharacterStats.Builder();
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            if (_instance != null)
+            {
+                var filePath = AssetDatabase.GetAssetPath(_instance);
+                Object.DestroyImmediate(_instance, true);
+                AssetDatabase.DeleteAsset(filePath);
+                AssetDatabase.Refresh();
             }
         }
         
@@ -195,15 +246,272 @@ namespace Tests.Character
             Assert.That(_model.CheckSpex(), Is.False);
         }
 
+        [Test]
+        public void CheckAbilityScores_Should_Return_True_When_AbilityScores_Assigned()
+        {
+            foreach (var ability in _abilities)
+            {
+                _model.SetAbilityScore(ability, _fixture.Create<int>());
+            }
+            
+            Assert.That(_model.CheckAbilityScores(),  Is.True);
+        }
+
+        [TestCaseSource(typeof(CharacterStatsBuilderTestData), nameof(CharacterStatsBuilderTestData.AbilityScoresMinusOneTestCases))]
+        public void CheckAbilityScores_Should_Return_False_When_Any_AbilityScore_IsNot_Assigned(IEnumerable<Ability> abilities)
+        {
+            foreach (var ability in abilities)
+            {
+                _model.SetAbilityScore(ability, _fixture.Create<int>());
+            }
+            
+            Assert.That(_model.CheckAbilityScores(), Is.False);
+        }
+
+        [Test]
+        public void CheckSkillProficiencies_Should_Return_False_When_Number_DoesNot_Match()
+        {
+            var @class = _classes.First();
+            
+            _model.SetClass(@class);
+            
+            var skills = @class.SkillProficienciesAvailable.Take(@class.NumberOfSkillProficienciesToChoose + 1).ToArray();
+            
+            _model.SetSkillProficienciesFromClass(skills);
+            
+            Assert.That(_model.CheckSkillProficienciesFromClass(), Is.False);
+        }
+        [Test]
+        public void CheckSkillProficiencies_Should_Return_True_When_Skills_From_Class_Are_Assigned()
+        {
+            var @class = _classes.First();
+            
+            _model.SetClass(@class);
+            
+            _model.SetSkillProficienciesFromClass(@class.SkillProficienciesAvailable.Take(2).ToArray());
+            
+            Assert.That(_model.CheckSkillProficienciesFromClass(), Is.True);
+        }
+        
+        [Test]
+        public void CheckSkillProficiencies_Should_Return_False_When_Skills_Not_From_Class_Are_Assigned()
+        {
+            var @class = _classes.First();
+            
+            _model.SetClass(@class);
+            
+            var skills = _skills.Except(@class.SkillProficienciesAvailable).Take(2).ToArray();
+            
+            _model.SetSkillProficienciesFromClass(skills);
+            
+            Assert.That(_model.CheckSkillProficienciesFromClass(), Is.False);
+        }
+        [Test]
+        public void CheckSkillProficiencies_Should_Return_False_When_Mixed_Skills_Are_Assigned()
+        {
+            var @class = _classes.First();
+            
+            _model.SetClass(@class);
+            
+            var skills = _skills.Except(@class.SkillProficienciesAvailable).Take(1).Union(@class.SkillProficienciesAvailable.Skip(1)).ToArray();
+            
+            _model.SetSkillProficienciesFromClass(skills);
+            
+            Assert.That(_model.CheckSkillProficienciesFromClass(), Is.False);
+        }
+
+        [Test]
+        public void CheckStartingEquipment_Should_Return_false_When_StartingEquipment_Is_Not_Assigned()
+        {
+            var @class = _classes.First();
+            
+            _model.SetClass(@class);
+            
+            Assert.That(_model.CheckSkillProficienciesFromClass(), Is.False);
+        }
+        
+        [Test]
+        public void CheckStartingEquipment_Should_Return_True_When_StartingEquipment_from_Class_Is_Assigned()
+        {
+            var @class = _classes.First();
+            
+            _model.SetClass(@class);
+            
+            _model.SetStartingEquipmentFromClass(@class.StartingEquipmentOptions.First());
+        }
+        
+        [Test]
+        [Ignore("This test requires at least two different classes. At the moment, only one class is available.")]
+        public void CheckStartingEquipment_Should_Return_false_When_StartingEquipment_From_Other_Class_Is_Assigned()
+        {
+            var assignedClass = _classes.First();
+            var otherClass = _classes.Skip(1).First();
+            
+            _model.SetClass(@assignedClass);
+            _model.SetStartingEquipmentFromClass(otherClass.StartingEquipmentOptions.First());
+            
+            Assert.That(_model.CheckSkillProficienciesFromClass(), Is.False);
+        }
+
+        [TestCaseSource(typeof(CharacterStatsBuilderTestData), nameof(CharacterStatsBuilderTestData.CheckAllTestCases))]
+        public void CheckAll_Should_Return_False_When_Any_Check_Returns_False(CheckAllTestData checkData)
+        {
+            var modelMock = new Mock<CharacterStats.Builder>(){ CallBase = true, };
+            
+            modelMock.Setup(x => x.CheckName()).Returns(checkData.CheckNameResult);
+            modelMock.Setup(x => x.CheckClass()).Returns(checkData.CheckClassResult);
+            modelMock.Setup(x => x.CheckSubClass()).Returns(checkData.CheckSubClassResult);
+            modelMock.Setup(x => x.CheckBackground()).Returns(checkData.CheckBackgroundResult);
+            modelMock.Setup(x => x.CheckSpex()).Returns(checkData.CheckSpexResult);
+            modelMock.Setup(x => x.CheckAbilityScores()).Returns(checkData.CheckAbilityScoresResult);
+            modelMock.Setup(x => x.CheckSkillProficienciesFromClass()).Returns(checkData.CheckSkillProficienciesFromClassResult);
+            modelMock.Setup(x => x.CheckStartingEquipmentFromClass()).Returns(checkData.CheckStartingEquipmentResult);
+            
+            var model = modelMock.Object;
+            
+            Assert.That(model.CheckAll(), Is.EqualTo(checkData.ExpectedResult));
+        }
+
+        [Test]
+        public void Build_Should_Return_Null_When_Any_Check_Fails()
+        {
+            var modelMock = new Mock<CharacterStats.Builder>() { CallBase = true, };
+            modelMock.Setup(x => x.CheckAll()).Returns(false);
+            
+            var result = modelMock.Object.Build();
+            Assert.That(result, Is.Null);
+        }
+        
+        [Test]
+        public void Build_Should_Return_CharacterStats_When_All_Checks_Succeed()
+        {
+            var characterName = _fixture.Create<string>();
+            var @class = _classes.First();
+            var subClass = @class.SubClasses.First();
+            var background = _backgrounds.First();
+            var spex = _species.First();
+            var skillProficienciesFromClass = @class.SkillProficienciesAvailable.Take(@class.NumberOfSkillProficienciesToChoose).ToArray();
+            var startingEquipmentFromClass = @class.StartingEquipmentOptions.First();
+            var abilityScores = new Dictionary<Ability, int>();
+
+            foreach (var ability in _abilities)
+            {
+                abilityScores[ability] = _fixture.Create<int>();
+            }
+            
+            var builder = _model
+                .SetName(characterName)
+                .SetClass(@class)
+                .SetSubClass(subClass)
+                .SetBackground(background)
+                .SetSpex(spex)
+                .SetSkillProficienciesFromClass(skillProficienciesFromClass)
+                .SetStartingEquipmentFromClass(startingEquipmentFromClass);
+
+            foreach (var abilityScore in abilityScores)
+            {
+                builder.SetAbilityScore(abilityScore.Key, abilityScore.Value);
+            }
+                
+            _instance = builder.Build();
+            
+            // Assertions
+            Assert.That(_instance, Is.Not.Null);
+            Assert.That(_instance.CharacterName, Is.EqualTo(characterName));
+            Assert.That(_instance.Class, Is.EqualTo(@class));
+            Assert.That(_instance.SubClass, Is.EqualTo(subClass));
+            Assert.That(_instance.Spex, Is.EqualTo(spex));
+            Assert.That(_instance.Background, Is.EqualTo(background));
+            Assert.That(_instance.Level, Is.EqualTo(CharacterStats.Builder.DefaultLevel));
+            Assert.That(_instance.Xp, Is.EqualTo(CharacterStats.Builder.DefaultXp));
+            Assert.That(_instance.ProficiencyBonus, Is.EqualTo(CharacterStats.Builder.DefaultProficiencyBonus));
+            
+            Assert.That(_instance.ArmorTraining, Is.SupersetOf(@class.ArmourTraining));
+            Assert.That(_instance.WeaponProficiencies, Is.SupersetOf(@class.WeaponProficiencies));
+            Assert.That(_instance.SkillProficiencies, Is.SubsetOf(@class.SkillProficienciesAvailable.Union(background.SkillProficiencies)));
+            Assert.That(_instance.Inventory, Is.SupersetOf(@class.StartingEquipmentOptions.Single(x => x.Equals(startingEquipmentFromClass)).EquipmentsWithAmountList));
+            Assert.That(_instance.SavingThrowProficiencies, Is.SupersetOf(@class.SavingThrowProficiencies));
+            Assert.That(_instance.ToolProficiencies, Does.Contain(background.ToolProficiency));
+            Assert.That(_instance.AbilityScores, Is.EquivalentTo(abilityScores));
+        }
+    }
+    
+
+    public class CheckAllTestData
+    {
+        public bool CheckNameResult = true;
+        public bool CheckClassResult = true;
+        public bool CheckSubClassResult = true;
+        public bool CheckBackgroundResult = true;
+        public bool CheckSpexResult = true;
+        public bool CheckAbilityScoresResult = true;
+        public bool CheckSkillProficienciesFromClassResult = true;
+        public bool CheckStartingEquipmentResult = true;
+        public bool ExpectedResult = true;
     }
 
-    public class BuilderTestModel : CharacterStats.Builder
+    public class CharacterStatsBuilderTestData
     {
-        public new bool CheckName() => base.CheckName();
-        public new bool CheckClass() => base.CheckClass();
-        public new bool CheckSubClass() => base.CheckSubClass();
-        public new bool CheckBackground() => base.CheckBackground();
-        
-        public new bool CheckSpex() => base.CheckSpex();
+        public static IEnumerable AbilityScoresMinusOneTestCases
+        {
+            get
+            {
+                var abilities =
+                    ScriptableObjectHelper.GetAllScriptableObjects<Ability>(PathHelper.Abilities.AbilitiesPath);
+
+                foreach (var ability in abilities)
+                {
+                    yield return abilities.Except(new [] { ability });
+                }
+            }
+        }
+
+        public static IEnumerable CheckAllTestCases
+        {
+            get
+            {
+                yield return new CheckAllTestData()
+                {
+                    CheckBackgroundResult = false,
+                    ExpectedResult = false,
+                };
+                yield return new CheckAllTestData()
+                {
+                    CheckClassResult = false,
+                    ExpectedResult = false,
+                };
+                yield return new CheckAllTestData()
+                {
+                    CheckNameResult = false,
+                    ExpectedResult = false,
+                };
+                yield return new CheckAllTestData()
+                {
+                    CheckSpexResult = false,
+                    ExpectedResult = false,
+                };
+                yield return new CheckAllTestData()
+                {
+                    CheckStartingEquipmentResult = false,
+                    ExpectedResult = false,
+                };
+                yield return new CheckAllTestData()
+                {
+                    CheckAbilityScoresResult = false,
+                    ExpectedResult = false,
+                };
+                yield return new CheckAllTestData()
+                {
+                    CheckSubClassResult = false,
+                    ExpectedResult = false,
+                };
+                yield return new CheckAllTestData()
+                {
+                    CheckSkillProficienciesFromClassResult = false,
+                    ExpectedResult = false,
+                };
+                yield return new CheckAllTestData() { };
+            }
+        }
     }
 }

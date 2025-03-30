@@ -54,6 +54,8 @@ namespace DnD.Editor.Initializer
                 Skills.Single(skill => skill.name == NameHelper.Skills.Survival),
 
             });
+
+            cls.NumberOfSkillProficienciesToChoose = 2;
             
             cls.WeaponProficiencies.AddRange(new []
             {
@@ -64,7 +66,7 @@ namespace DnD.Editor.Initializer
 
             });
             
-            cls.ArmorTraining.AddRange(new []
+            cls.ArmourTraining.AddRange(new []
             {
                 ArmourTypes.Single(at => ((ScriptableObject)at).name == NameHelper.ArmourType.LightArmour),
                 ArmourTypes.Single(at => ((ScriptableObject)at).name == NameHelper.ArmourType.MediumArmour),
@@ -519,11 +521,11 @@ namespace DnD.Editor.Initializer
             var optionB = CreateStartingEquipmentOption(
                 NameHelper.StartingEquipmentOptions.OptionB,
                 ClassStartingEquipmentPath,
-                new StartingEquipment.ItemWithAmount[]
+                new StartingEquipment.EquipmentWithAmount[]
                 {
-                    new StartingEquipment.ItemWithAmount()
+                    new StartingEquipment.EquipmentWithAmount()
                     {
-                        Item = coins.Single(w => w.name == NameHelper.CoinValues.GoldPiece),
+                        Equipment = coins.Single(w => w.name == NameHelper.CoinValues.GoldPiece),
                         Amount = 75
                     }
                 });
@@ -535,24 +537,24 @@ namespace DnD.Editor.Initializer
             var optionA = CreateStartingEquipmentOption(
                 NameHelper.StartingEquipmentOptions.OptionA,
                 ClassStartingEquipmentPath,
-                new StartingEquipment.ItemWithAmount[]
+                new StartingEquipment.EquipmentWithAmount[]
                 {
-                    new StartingEquipment.ItemWithAmount()
+                    new StartingEquipment.EquipmentWithAmount()
                     {
-                        Item = weapons.Single(w => w.name == NameHelper.Weapons_MartialMelee.Greataxe),
+                        Equipment = weapons.Single(w => w.name == NameHelper.Weapons_MartialMelee.Greataxe),
                         Amount = 1
                     },
-                    new StartingEquipment.ItemWithAmount()
+                    new StartingEquipment.EquipmentWithAmount()
                     {
-                        Item = weapons.Single(w => w.name == NameHelper.Weapons_SimpleMelee.Handaxe),
+                        Equipment = weapons.Single(w => w.name == NameHelper.Weapons_SimpleMelee.Handaxe),
                         Amount = 4
                     },
                     
                     // TODO: Items missing here
                     
-                    new StartingEquipment.ItemWithAmount()
+                    new StartingEquipment.EquipmentWithAmount()
                     {
-                        Item = coins.Single(w => w.name == NameHelper.CoinValues.GoldPiece),
+                        Equipment = coins.Single(w => w.name == NameHelper.CoinValues.GoldPiece),
                         Amount = 15
                     }
                 });
