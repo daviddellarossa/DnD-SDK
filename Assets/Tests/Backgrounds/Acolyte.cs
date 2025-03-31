@@ -43,7 +43,7 @@ namespace Tests.Backgrounds
         [TestCaseSource(typeof(AcolyteData), nameof(AcolyteData.OptionsTestCases))]
         public void TestStartingEquipment(string optionName, (string, int)[] equipment)
         {
-            var option = _acolyte.StartingEquipment.SingleOrDefault(asset => asset.name == optionName);
+            var option = _acolyte.StartingEquipmentOptions.SingleOrDefault(asset => asset.name == optionName);
             Assert.That(option, Is.Not.Null, $"Option {optionName} doesn't exist");
 
             Assert.That(option.EquipmentsWithAmountList.Count, Is.EqualTo(equipment.Length),

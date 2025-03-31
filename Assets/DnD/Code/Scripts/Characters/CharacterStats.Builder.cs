@@ -32,7 +32,8 @@ namespace DnD.Code.Scripts.Characters
             private int _xp = DefaultXp;
             private int _proficiencyBonus = DefaultProficiencyBonus;
             private List<Skill> _skillProficienciesFromClass = new ();
-            private DnD.Code.Scripts.Equipment.StartingEquipment _startingEquipmentFromClass;
+            private Equipment.StartingEquipment _startingEquipmentFromClass;
+            private Equipment.StartingEquipment _startingEquipmentFromBackground;
             private Dictionary<Ability, int> _abilityScores = new();
             
             public Builder SetName(string name)
@@ -66,12 +67,18 @@ namespace DnD.Code.Scripts.Characters
                 return this;
             }
 
-            public Builder SetStartingEquipmentFromClass(DnD.Code.Scripts.Equipment.StartingEquipment startingEquipment)
+            public Builder SetStartingEquipmentFromClass(Equipment.StartingEquipment startingEquipment)
             {
                 this._startingEquipmentFromClass = startingEquipment;
                 return this;
             }
             
+            public Builder SetStartingEquipmentFromBackground(Equipment.StartingEquipment startingEquipment)
+            {
+                this._startingEquipmentFromBackground = startingEquipment;
+                return this;
+            }
+
             public Builder SetSpex(Spex spex)
             {
                 this._spex = spex;
@@ -116,7 +123,8 @@ namespace DnD.Code.Scripts.Characters
                 // from background
                 characterStats.skillProficiencies.AddRange(this._background.SkillProficiencies);
                 characterStats.toolProficiencies.Add(this._background.ToolProficiency);
-                
+                characterStats.inventory.AddRange(this._startingEquipmentFromBackground.EquipmentsWithAmountList);
+
                 // others
                 characterStats.abilityScores = this._abilityScores;
                 
@@ -231,7 +239,7 @@ namespace DnD.Code.Scripts.Characters
             {
                 if (this._startingEquipmentFromClass is null)
                 {
-                    Debug.LogError("StartingEquipment cannot be null");
+                    Debug.Log("StartingEquipment from Class cannot be null");
                     return false;
                 }
                 
@@ -244,6 +252,23 @@ namespace DnD.Code.Scripts.Characters
                 return true;
             }
             
+            public virtual bool CheckStartingEquipmentFromBackground()
+            {
+                if (this._startingEquipmentFromBackground is null)
+                {
+                    Debug.Log("StartingEquipment from Background cannot be null");
+                    return false;
+                }
+                
+                var startingEquipmentAvailable = this._background.StartingEquipmentOptions.SingleOrDefault(startingEquipment => startingEquipment.name == this._startingEquipmentFromBackground.name);
+                if (startingEquipmentAvailable is null)
+                {
+                    Debug.Log($"{nameof(Builder)}: The chosen starting equipment is not among those available from the chosen background ({_background.name}).");
+                    return false;
+                }
+                return true;
+            }
+
             public virtual bool CheckAll()
             {
                 return CheckName()
@@ -253,6 +278,7 @@ namespace DnD.Code.Scripts.Characters
                     && CheckSpex()
                     && CheckSkillProficienciesFromClass()
                     && CheckStartingEquipmentFromClass()
+                    && CheckStartingEquipmentFromBackground()
                     && CheckAbilityScores();
             }
         }

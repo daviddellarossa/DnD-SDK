@@ -4,6 +4,7 @@ using DnD.Code.Scripts.Equipment;
 using DnD.Code.Scripts.Feats;
 using DnD.Code.Scripts.Tools;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace DnD.Code.Scripts.Backgrounds
 {
@@ -26,8 +27,8 @@ namespace DnD.Code.Scripts.Backgrounds
         // TODO: use a more specific type for toolProficiency: string is not the safest type to use here
         private Proficient toolProficiency;
         
-        [SerializeField]
-        private StartingEquipment[] startingEquipment = new StartingEquipment[2];
+        [FormerlySerializedAs("startingEquipmentOptions")] [SerializeField]
+        private StartingEquipment[] startingEquipmentOptionsOptions = new StartingEquipment[2];
         
         [SerializeField]
         private Feat feat; // TODO: this must be a Origin Feat. Add a filter on the UI.
@@ -63,10 +64,10 @@ namespace DnD.Code.Scripts.Backgrounds
             set => toolProficiency = value;
         }
 
-        public StartingEquipment[] StartingEquipment
+        public StartingEquipment[] StartingEquipmentOptions
         {
-            get => startingEquipment;
-            set => startingEquipment = value;
+            get => startingEquipmentOptionsOptions;
+            set => startingEquipmentOptionsOptions = value;
         }
 
         public Feat Feat

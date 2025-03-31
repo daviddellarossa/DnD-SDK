@@ -321,28 +321,30 @@ namespace Tests.Character
         }
 
         [Test]
-        public void CheckStartingEquipment_Should_Return_false_When_StartingEquipment_Is_Not_Assigned()
+        public void CheckStartingEquipmentFromClass_Should_Return_false_When_StartingEquipment_Is_Not_Assigned()
         {
             var @class = _classes.First();
             
             _model.SetClass(@class);
             
-            Assert.That(_model.CheckSkillProficienciesFromClass(), Is.False);
+            Assert.That(_model.CheckStartingEquipmentFromClass(), Is.False);
         }
         
         [Test]
-        public void CheckStartingEquipment_Should_Return_True_When_StartingEquipment_from_Class_Is_Assigned()
+        public void CheckStartingEquipmentFromClass_Should_Return_True_When_StartingEquipment_from_Class_Is_Assigned()
         {
             var @class = _classes.First();
             
             _model.SetClass(@class);
             
             _model.SetStartingEquipmentFromClass(@class.StartingEquipmentOptions.First());
+            
+            Assert.That(_model.CheckStartingEquipmentFromClass(), Is.True);
         }
         
         [Test]
         [Ignore("This test requires at least two different classes. At the moment, only one class is available.")]
-        public void CheckStartingEquipment_Should_Return_false_When_StartingEquipment_From_Other_Class_Is_Assigned()
+        public void CheckStartingEquipmentFromClass_Should_Return_false_When_StartingEquipment_From_Other_Class_Is_Assigned()
         {
             var assignedClass = _classes.First();
             var otherClass = _classes.Skip(1).First();
@@ -350,7 +352,42 @@ namespace Tests.Character
             _model.SetClass(@assignedClass);
             _model.SetStartingEquipmentFromClass(otherClass.StartingEquipmentOptions.First());
             
-            Assert.That(_model.CheckSkillProficienciesFromClass(), Is.False);
+            Assert.That(_model.CheckStartingEquipmentFromBackground(), Is.False);
+        }
+
+        [Test]
+        public void CheckStartingEquipmentFromBackground_Should_Return_false_When_StartingEquipment_Is_Not_Assigned()
+        {
+            var background = _backgrounds.First();
+            
+            _model.SetBackground(@background);
+            
+            Assert.That(_model.CheckStartingEquipmentFromBackground(), Is.False);
+        }
+        
+        [Test]
+        public void CheckStartingEquipmentFromBackground_Should_Return_True_When_StartingEquipment_from_Background_Is_Assigned()
+        {
+            var background = _backgrounds.First();
+
+            _model.SetBackground(background);
+
+            _model.SetStartingEquipmentFromBackground(background.StartingEquipmentOptions.First());
+            
+            Assert.That(_model.CheckStartingEquipmentFromBackground(), Is.True);
+        }
+
+        [Test]
+        [Ignore("This test requires at least two different backgrounds. At the moment, only one background is available.")]
+        public void CheckStartingEquipmentFromBackground_Should_Return_false_When_StartingEquipment_From_Other_Background_Is_Assigned()
+        {
+            var assignedBackground = _backgrounds.First();
+            var otherBackground = _backgrounds.Skip(1).First();
+            
+            _model.SetBackground(assignedBackground);
+            _model.SetStartingEquipmentFromBackground(otherBackground.StartingEquipmentOptions.First());
+            
+            Assert.That(_model.CheckStartingEquipmentFromBackground(), Is.False);
         }
 
         [TestCaseSource(typeof(CharacterStatsBuilderTestData), nameof(CharacterStatsBuilderTestData.CheckAllTestCases))]
@@ -365,8 +402,9 @@ namespace Tests.Character
             modelMock.Setup(x => x.CheckSpex()).Returns(checkData.CheckSpexResult);
             modelMock.Setup(x => x.CheckAbilityScores()).Returns(checkData.CheckAbilityScoresResult);
             modelMock.Setup(x => x.CheckSkillProficienciesFromClass()).Returns(checkData.CheckSkillProficienciesFromClassResult);
-            modelMock.Setup(x => x.CheckStartingEquipmentFromClass()).Returns(checkData.CheckStartingEquipmentResult);
-            
+            modelMock.Setup(x => x.CheckStartingEquipmentFromClass()).Returns(checkData.CheckStartingEquipmentFromClassResult);
+            modelMock.Setup(x => x.CheckStartingEquipmentFromBackground()).Returns(checkData.CheckStartingEquipmentFromBackgroundResult);
+
             var model = modelMock.Object;
             
             Assert.That(model.CheckAll(), Is.EqualTo(checkData.ExpectedResult));
@@ -383,7 +421,27 @@ namespace Tests.Character
         }
         
         [Test]
-        public void Build_Should_Return_CharacterStats_When_All_Checks_Succeed()
+        public void CheckAll_Should_Return_True_When_All_Checks_Return_True()
+        {
+            var modelMock = new Mock<CharacterStats.Builder>(){ CallBase = true, };
+            
+            modelMock.Setup(x => x.CheckName()).Returns(true);
+            modelMock.Setup(x => x.CheckClass()).Returns(true);
+            modelMock.Setup(x => x.CheckSubClass()).Returns(true);
+            modelMock.Setup(x => x.CheckBackground()).Returns(true);
+            modelMock.Setup(x => x.CheckSpex()).Returns(true);
+            modelMock.Setup(x => x.CheckAbilityScores()).Returns(true);
+            modelMock.Setup(x => x.CheckSkillProficienciesFromClass()).Returns(true);
+            modelMock.Setup(x => x.CheckStartingEquipmentFromClass()).Returns(true);
+            modelMock.Setup(x => x.CheckStartingEquipmentFromBackground()).Returns(true);
+
+            var model = modelMock.Object;
+            
+            Assert.That(model.CheckAll(), Is.EqualTo(true));
+        }
+        
+        [Test]
+        public void Build_Should_Return_CharacterStats_When_All_Is_As_Expected()
         {
             var characterName = _fixture.Create<string>();
             var @class = _classes.First();
@@ -392,6 +450,7 @@ namespace Tests.Character
             var spex = _species.First();
             var skillProficienciesFromClass = @class.SkillProficienciesAvailable.Take(@class.NumberOfSkillProficienciesToChoose).ToArray();
             var startingEquipmentFromClass = @class.StartingEquipmentOptions.First();
+            var startingEquipmentFromBackground = background.StartingEquipmentOptions.First();
             var abilityScores = new Dictionary<Ability, int>();
 
             foreach (var ability in _abilities)
@@ -406,7 +465,8 @@ namespace Tests.Character
                 .SetBackground(background)
                 .SetSpex(spex)
                 .SetSkillProficienciesFromClass(skillProficienciesFromClass)
-                .SetStartingEquipmentFromClass(startingEquipmentFromClass);
+                .SetStartingEquipmentFromClass(startingEquipmentFromClass)
+                .SetStartingEquipmentFromBackground(startingEquipmentFromBackground);
 
             foreach (var abilityScore in abilityScores)
             {
@@ -430,6 +490,7 @@ namespace Tests.Character
             Assert.That(_instance.WeaponProficiencies, Is.SupersetOf(@class.WeaponProficiencies));
             Assert.That(_instance.SkillProficiencies, Is.SubsetOf(@class.SkillProficienciesAvailable.Union(background.SkillProficiencies)));
             Assert.That(_instance.Inventory, Is.SupersetOf(@class.StartingEquipmentOptions.Single(x => x.Equals(startingEquipmentFromClass)).EquipmentsWithAmountList));
+            Assert.That(_instance.Inventory, Is.SupersetOf(background.StartingEquipmentOptions.Single(x => x.Equals(startingEquipmentFromBackground)).EquipmentsWithAmountList));
             Assert.That(_instance.SavingThrowProficiencies, Is.SupersetOf(@class.SavingThrowProficiencies));
             Assert.That(_instance.ToolProficiencies, Does.Contain(background.ToolProficiency));
             Assert.That(_instance.AbilityScores, Is.EquivalentTo(abilityScores));
@@ -446,7 +507,8 @@ namespace Tests.Character
         public bool CheckSpexResult = true;
         public bool CheckAbilityScoresResult = true;
         public bool CheckSkillProficienciesFromClassResult = true;
-        public bool CheckStartingEquipmentResult = true;
+        public bool CheckStartingEquipmentFromClassResult = true;
+        public bool CheckStartingEquipmentFromBackgroundResult = true;
         public bool ExpectedResult = true;
     }
 
@@ -492,7 +554,7 @@ namespace Tests.Character
                 };
                 yield return new CheckAllTestData()
                 {
-                    CheckStartingEquipmentResult = false,
+                    CheckStartingEquipmentFromClassResult = false,
                     ExpectedResult = false,
                 };
                 yield return new CheckAllTestData()
@@ -508,6 +570,11 @@ namespace Tests.Character
                 yield return new CheckAllTestData()
                 {
                     CheckSkillProficienciesFromClassResult = false,
+                    ExpectedResult = false,
+                };
+                yield return new CheckAllTestData()
+                {
+                    CheckStartingEquipmentFromBackgroundResult = false,
                     ExpectedResult = false,
                 };
                 yield return new CheckAllTestData() { };

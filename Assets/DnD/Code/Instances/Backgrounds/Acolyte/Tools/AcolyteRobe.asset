@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e224ae0d415d30e4895b4b6ae8abdd19, type: 3}
   m_Name: AcolyteRobe
   m_EditorClassIdentifier: 
-  displayName: Gear.AcolyteRobe
-  displayDescription: Gear.AcolyteRobe.Description
+  displayName: 
+  displayDescription: 

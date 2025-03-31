@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70c51f45e25c0f744ada5869cacf20f8, type: 3}
   m_Name: AcolyteParchment
   m_EditorClassIdentifier: 
-  displayName: Gear.AcolyteParchment
-  displayDescription: Gear.AcolyteParchment.Description
+  displayName: 
+  displayDescription: 

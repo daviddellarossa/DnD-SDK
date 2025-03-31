@@ -127,7 +127,7 @@ namespace DnD.Editor.Initializer
                         
                         EditorUtility.SetDirty(optionA);
                     
-                        acolyte.StartingEquipment[0] = optionA;
+                        acolyte.StartingEquipmentOptions[0] = optionA;
                         
                     }
                     {
@@ -142,7 +142,7 @@ namespace DnD.Editor.Initializer
                         
                         EditorUtility.SetDirty(optionB);
 
-                        acolyte.StartingEquipment[1] = optionB;
+                        acolyte.StartingEquipmentOptions[1] = optionB;
                     }
                     
                     EditorUtility.SetDirty(acolyte);
