@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using AutoFixture;
 using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Backgrounds;
 using DnD.Code.Scripts.Classes;
 using DnD.Code.Scripts.Helpers;
 using DnD.Code.Scripts.Helpers.NameHelper;
 using DnD.Code.Scripts.Helpers.PathHelper;
+using DnD.Code.Scripts.Languages;
 using DnD.Code.Scripts.Species;
 using UnityEditor;
 using UnityEngine;
@@ -22,6 +24,7 @@ namespace DnD.Code.Scripts.Characters
             public static readonly int DefaultLevel = 1;
             public static readonly int DefaultXp = 0;
             public static readonly int DefaultProficiencyBonus = 2;
+            public static readonly int DefaultNumberOfLanguages = 3;
             
             private string _name;
             private Class _class;
@@ -35,6 +38,7 @@ namespace DnD.Code.Scripts.Characters
             private Equipment.StartingEquipment _startingEquipmentFromClass;
             private Equipment.StartingEquipment _startingEquipmentFromBackground;
             private Dictionary<Ability, int> _abilityScores = new();
+            private HashSet<StandardLanguage> _languages = new();
             
             public Builder SetName(string name)
             {
@@ -90,6 +94,12 @@ namespace DnD.Code.Scripts.Characters
                 this._abilityScores[ability] = score;
                 return this;
             }
+
+            public Builder SetLanguage(StandardLanguage language)
+            {
+                this._languages.Add(language);
+                return this;
+            }
             
             public CharacterStats Build()
             {
@@ -113,6 +123,11 @@ namespace DnD.Code.Scripts.Characters
                 characterStats.xp = this._xp;
                 characterStats.proficiencyBonus = this._proficiencyBonus;
                 
+                foreach (var standardLanguage in this._languages)
+                {
+                    characterStats.languages.Add(standardLanguage);
+                }
+                
                 // from class
                 characterStats.armorTraining.AddRange(this._class.ArmourTraining);
                 characterStats.weaponProficiencies.AddRange(this._class.WeaponProficiencies);
@@ -125,6 +140,9 @@ namespace DnD.Code.Scripts.Characters
                 characterStats.toolProficiencies.Add(this._background.ToolProficiency);
                 characterStats.inventory.AddRange(this._startingEquipmentFromBackground.EquipmentsWithAmountList);
 
+                // from species
+                
+                
                 // others
                 characterStats.abilityScores = this._abilityScores;
                 
@@ -269,6 +287,25 @@ namespace DnD.Code.Scripts.Characters
                 return true;
             }
 
+            public virtual bool CheckLanguages()
+            {
+                if (this._languages.Any(language => language.name == NameHelper.Languages.Common) == false)
+                {
+                    var standardLanguages = Helpers.ScriptableObjectHelper.GetAllScriptableObjects<StandardLanguage>(PathHelper.Languages.StandardLanguagesPath);
+                    var commonLanguage = standardLanguages.SingleOrDefault(language => language.name == NameHelper.Languages.Common);
+                    
+                    this._languages.Add(commonLanguage);
+                }
+
+                if (this._languages.Count() != DefaultNumberOfLanguages)
+                {
+                    Debug.Log($"The character builder needs {DefaultNumberOfLanguages} languages (2 + Common).");
+                    return false;
+                }
+
+                return true;
+            }
+
             public virtual bool CheckAll()
             {
                 return CheckName()
@@ -279,7 +316,8 @@ namespace DnD.Code.Scripts.Characters
                     && CheckSkillProficienciesFromClass()
                     && CheckStartingEquipmentFromClass()
                     && CheckStartingEquipmentFromBackground()
-                    && CheckAbilityScores();
+                    && CheckAbilityScores()
+                    && CheckLanguages();
             }
         }
     }

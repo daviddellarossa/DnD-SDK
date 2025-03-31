@@ -10,16 +10,26 @@ namespace DnD.Code.Scripts.Species
     [CreateAssetMenu(fileName = "NewSpex", menuName = "Game Entities/Character/Species/Spex")]
     public class Spex : ScriptableObject, ILocalizable
     {
-        public Spex InheritFrom;
-        public CreatureType CreatureType;
-        public Size Size;
-        public float Speed;
-        
         [SerializeField]
         private string displayName;
         [SerializeField]
         private string displayDescription;
-
+        
+        [SerializeField]
+        private Spex inheritFrom;
+        
+        [SerializeField]
+        private CreatureType creatureType;
+        
+        [SerializeField]
+        private Size size;
+        
+        [SerializeField]
+        private float speed;
+        
+        [SerializeField]
+        private List<SpecialTrait> specialTraits = new ();
+        
         public string DisplayName
         {
             get => displayName;
@@ -31,8 +41,36 @@ namespace DnD.Code.Scripts.Species
             get => displayDescription;
             set => displayDescription = value;
         }
+        
+        public Spex InheritFrom
+        {
+            get => inheritFrom;
+            set => inheritFrom = value;
+        }
+        
+        public CreatureType CreatureType
+        {
+            get => creatureType;
+            set => creatureType = value;
+        }
+        
+        public Size Size
+        {
+            get => size;
+            set => size = value;
+        }
+        
+        public float Speed
+        {
+            get => speed;
+            set => speed = value;
+        }
 
-        [FormerlySerializedAs("Traits")] public List<SpecialTrait> SpecialTraits = new ();
+        public List<SpecialTrait> SpecialTraits
+        {
+            get => specialTraits;
+            set => specialTraits = value;
+        }
     }
 
     [Flags]

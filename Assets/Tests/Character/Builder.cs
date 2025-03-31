@@ -11,6 +11,8 @@ using DnD.Code.Scripts.Characters;
 using DnD.Code.Scripts.Classes;
 using DnD.Code.Scripts.Helpers.PathHelper;
 using DnD.Code.Scripts.Helpers;
+using DnD.Code.Scripts.Helpers.NameHelper;
+using DnD.Code.Scripts.Languages;
 using DnD.Code.Scripts.Species;
 using Moq;
 using Moq.Protected;
@@ -33,7 +35,7 @@ namespace Tests.Character
         private Spex[] _species;
         private Ability[] _abilities;
         private Skill[] _skills;
-
+        private StandardLanguage[] _standardLanguages;
 
         [OneTimeSetUp]
         public void OneTimeSetup()
@@ -45,6 +47,7 @@ namespace Tests.Character
             SetupSpeciesCollection();
             SetupAbilitiesCollection();
             SetupSkillsCollection();
+            SetupStandardLanguagesCollection();
             
             void SetupClassCollection()
             {
@@ -89,9 +92,19 @@ namespace Tests.Character
             {
                 _skills =
                     ScriptableObjectHelper.GetAllScriptableObjects<Skill>(PathHelper.Abilities.SkillsPath);
-                if (_abilities is null || _abilities.Any() == false)
+                if (_skills is null || _skills.Any() == false)
                 {
                     Assert.Inconclusive("Skills not found.");
+                }
+            }
+            
+            void SetupStandardLanguagesCollection()
+            {
+                _standardLanguages =
+                    ScriptableObjectHelper.GetAllScriptableObjects<StandardLanguage>(PathHelper.Languages.StandardLanguagesPath);
+                if (_standardLanguages is null || _standardLanguages.Any() == false)
+                {
+                    Assert.Inconclusive("Standard Languages not found.");
                 }
             }
         }
@@ -390,6 +403,23 @@ namespace Tests.Character
             Assert.That(_model.CheckStartingEquipmentFromBackground(), Is.False);
         }
 
+        [Test]
+        [TestCaseSource(typeof(CharacterStatsBuilderTestData), nameof(CharacterStatsBuilderTestData.CheckLanguagesTestCases))]
+        public void CheckLanguages_Should_Return_false_When_Languages_Are_Not_As_Many_As_Expected(CheckLanguagesTestData testData)
+        {
+            foreach (var languageName in testData.Languages)
+            {
+                var standardLanguage = this._standardLanguages.SingleOrDefault(x => x.name == languageName);
+                if (standardLanguage == null)
+                {
+                    Assert.Fail($"Language '{languageName}' was not found.");
+                }
+                _model.SetLanguage(standardLanguage);
+            }
+            
+            Assert.That(_model.CheckLanguages(), Is.EqualTo(testData.ExpectedResult));
+        }
+        
         [TestCaseSource(typeof(CharacterStatsBuilderTestData), nameof(CharacterStatsBuilderTestData.CheckAllTestCases))]
         public void CheckAll_Should_Return_False_When_Any_Check_Returns_False(CheckAllTestData checkData)
         {
@@ -404,6 +434,7 @@ namespace Tests.Character
             modelMock.Setup(x => x.CheckSkillProficienciesFromClass()).Returns(checkData.CheckSkillProficienciesFromClassResult);
             modelMock.Setup(x => x.CheckStartingEquipmentFromClass()).Returns(checkData.CheckStartingEquipmentFromClassResult);
             modelMock.Setup(x => x.CheckStartingEquipmentFromBackground()).Returns(checkData.CheckStartingEquipmentFromBackgroundResult);
+            modelMock.Setup(x => x.CheckLanguages()).Returns(checkData.CheckLanguagesResult);
 
             var model = modelMock.Object;
             
@@ -434,6 +465,7 @@ namespace Tests.Character
             modelMock.Setup(x => x.CheckSkillProficienciesFromClass()).Returns(true);
             modelMock.Setup(x => x.CheckStartingEquipmentFromClass()).Returns(true);
             modelMock.Setup(x => x.CheckStartingEquipmentFromBackground()).Returns(true);
+            modelMock.Setup(x => x.CheckLanguages()).Returns(true);
 
             var model = modelMock.Object;
             
@@ -452,7 +484,13 @@ namespace Tests.Character
             var startingEquipmentFromClass = @class.StartingEquipmentOptions.First();
             var startingEquipmentFromBackground = background.StartingEquipmentOptions.First();
             var abilityScores = new Dictionary<Ability, int>();
-
+            var languages = new StandardLanguage[]
+            {
+                this._standardLanguages.Single(x => x.name == NameHelper.Languages.Common),
+                this._standardLanguages.Single(x => x.name == NameHelper.Languages.Draconic),
+                this._standardLanguages.Single(x => x.name == NameHelper.Languages.Elvish),
+            };
+            
             foreach (var ability in _abilities)
             {
                 abilityScores[ability] = _fixture.Create<int>();
@@ -471,6 +509,11 @@ namespace Tests.Character
             foreach (var abilityScore in abilityScores)
             {
                 builder.SetAbilityScore(abilityScore.Key, abilityScore.Value);
+            }
+
+            foreach (var language in languages)
+            {
+                builder.SetLanguage(language);
             }
                 
             _instance = builder.Build();
@@ -494,6 +537,7 @@ namespace Tests.Character
             Assert.That(_instance.SavingThrowProficiencies, Is.SupersetOf(@class.SavingThrowProficiencies));
             Assert.That(_instance.ToolProficiencies, Does.Contain(background.ToolProficiency));
             Assert.That(_instance.AbilityScores, Is.EquivalentTo(abilityScores));
+            Assert.That(_instance.Languages, Is.EquivalentTo(languages));
         }
     }
     
@@ -509,6 +553,13 @@ namespace Tests.Character
         public bool CheckSkillProficienciesFromClassResult = true;
         public bool CheckStartingEquipmentFromClassResult = true;
         public bool CheckStartingEquipmentFromBackgroundResult = true;
+        public bool CheckLanguagesResult = true;
+        public bool ExpectedResult = true;
+    }
+
+    public class CheckLanguagesTestData
+    {
+        public List<string> Languages { get; } = new ();
         public bool ExpectedResult = true;
     }
 
@@ -577,7 +628,91 @@ namespace Tests.Character
                     CheckStartingEquipmentFromBackgroundResult = false,
                     ExpectedResult = false,
                 };
+                yield return new CheckAllTestData()
+                {
+                    CheckLanguagesResult = false,
+                    ExpectedResult = false,
+                };
                 yield return new CheckAllTestData() { };
+            }
+        }
+
+        public static IEnumerable CheckLanguagesTestCases
+        {
+            get
+            {
+                yield return new CheckLanguagesTestData()
+                {
+                    Languages = { NameHelper.Languages.Common },
+                    ExpectedResult = false,
+                };
+                yield return new CheckLanguagesTestData()
+                {
+                    Languages = { NameHelper.Languages.Draconic },
+                    ExpectedResult = false,
+                };
+                yield return new CheckLanguagesTestData()
+                {
+                    Languages =
+                    {
+                        NameHelper.Languages.Common,
+                        NameHelper.Languages.Draconic,
+                    },
+                    ExpectedResult = false,
+                };
+                yield return new CheckLanguagesTestData()
+                {
+                    Languages =
+                    {
+                        NameHelper.Languages.Elvish,
+                        NameHelper.Languages.Draconic,
+                    },
+                    ExpectedResult = true,
+                };
+                yield return new CheckLanguagesTestData()
+                {
+                    Languages =
+                    {
+                        NameHelper.Languages.Common,
+                        NameHelper.Languages.Elvish,
+                        NameHelper.Languages.Draconic,
+                    },
+                    ExpectedResult = true,
+                };
+                yield return new CheckLanguagesTestData()
+                {
+                    Languages =
+                    {
+                        NameHelper.Languages.Common,
+                        NameHelper.Languages.Elvish,
+                        NameHelper.Languages.Draconic,
+                        NameHelper.Languages.Gnomish,
+                    },
+                    ExpectedResult = false,
+                };
+                
+                yield return new CheckLanguagesTestData()
+                {
+                    Languages =
+                    {
+                        NameHelper.Languages.Elvish,
+                        NameHelper.Languages.Draconic,
+                        NameHelper.Languages.Gnomish,
+                    },
+                    ExpectedResult = false,
+                };
+                
+                yield return new CheckLanguagesTestData()
+                {
+                    Languages =
+                    {
+                        NameHelper.Languages.Elvish,
+                        NameHelper.Languages.Draconic,
+                        NameHelper.Languages.Gnomish,
+                        NameHelper.Languages.Goblin,
+                    },
+                    ExpectedResult = false,
+                };
             }
         }
     }

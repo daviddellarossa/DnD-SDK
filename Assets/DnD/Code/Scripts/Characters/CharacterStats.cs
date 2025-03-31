@@ -7,6 +7,9 @@ using DnD.Code.Scripts.Classes;
 using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Equipment;
 using DnD.Code.Scripts.Feats;
+using DnD.Code.Scripts.Languages;
+using DnD.Code.Scripts.Species;
+using DnD.Code.Scripts.Species.SpecialTraits;
 using DnD.Code.Scripts.Weapons;
 using Unity.Collections;
 using UnityEngine;
@@ -70,6 +73,8 @@ namespace DnD.Code.Scripts.Characters
         [SerializeField]
         private DeathSaves deathSaves;
 
+        [SerializeField]
+        private HashSet<ILanguage> languages = new ();
         
         public string CharacterName => characterName;
         
@@ -98,6 +103,8 @@ namespace DnD.Code.Scripts.Characters
         public Ability[] SavingThrowProficiencies =>  savingThrowProficiencies.ToArray();
 
         public StartingEquipment.EquipmentWithAmount[] Inventory => inventory.ToArray();
+        
+        public ILanguage[] Languages => languages.ToArray();
 
         public HitPoints HitPoints => hitPoints;
 
@@ -110,6 +117,14 @@ namespace DnD.Code.Scripts.Characters
         public Die HitPointDie => this.@class.HitPointDie;
         
         public Feat Feat => this.background.Feat;
+        
+        public CreatureType CreatureType => this.spex.CreatureType;
+        
+        public Size Size => this.spex.Size;
+        
+        public float Speed => this.spex.Speed;
+        
+        public SpecialTrait[] SpecialTrait => this.spex.SpecialTraits.ToArray();
         
         
         // public Dictionary<AbilityEnum, AbilityStats> Abilities = new Dictionary<AbilityEnum, AbilityStats>
