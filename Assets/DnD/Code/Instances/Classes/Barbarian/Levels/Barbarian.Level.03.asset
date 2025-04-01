@@ -1,5 +1,33 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7027398301173596184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22652c7393549c79fefb427c61948ab, type: 3}
+  m_Name: BarbarianSubclass
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 
+--- !u!114 &-3820703693897978175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfb09a116904e599bc7072f141b226e, type: 3}
+  m_Name: PrimalKnowledge
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17,41 +45,16 @@ MonoBehaviour:
   levelNum: 3
   proficiencyBonus: 2
   classFeatures:
-  - {fileID: 3844162441532641079}
-  - {fileID: 8055608149684183082}
+  - {fileID: -7027398301173596184}
+  - {fileID: -3820703693897978175}
   classFeatureStats:
-    rid: 3678733936751018070
+    rid: 3678733954061172843
   references:
     version: 2
     RefIds:
-    - rid: 3678733936751018070
+    - rid: 3678733954061172843
       type: {class: BarbarianFeatureStats, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
-      data: 
---- !u!114 &3844162441532641079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e22652c7393549c79fefb427c61948ab, type: 3}
-  m_Name: BarbarianSubclass
-  m_EditorClassIdentifier: 
-  displayName: 
-  displayDescription: 
---- !u!114 &8055608149684183082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcfb09a116904e599bc7072f141b226e, type: 3}
-  m_Name: PrimalKnowledge
-  m_EditorClassIdentifier: 
-  displayName: 
-  displayDescription: 
+      data:
+        rages: 3
+        rageDamage: 2
+        weaponMastery: 2

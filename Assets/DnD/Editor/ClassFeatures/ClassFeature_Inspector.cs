@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 namespace DnD.Editor.ClassFeatures
 {
-    [CustomEditor(typeof(ClassFeature))]
+    //[CustomEditor(typeof(ClassFeature))]
     public class ClassFeature_Inspector : UnityEditor.Editor
     {
         // Path of the uxml file

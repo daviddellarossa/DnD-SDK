@@ -1,19 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7083096256179792810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ae33dde8f064188bfe29b6df51ab370, type: 3}
-  m_Name: InstinctivePounce
-  m_EditorClassIdentifier: 
-  displayName: 
-  displayDescription: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31,17 +17,34 @@ MonoBehaviour:
   levelNum: 7
   proficiencyBonus: 3
   classFeatures:
-  - {fileID: 5453011212854121936}
-  - {fileID: -7083096256179792810}
+  - {fileID: 4440597209213895358}
+  - {fileID: 2655061534629815433}
   classFeatureStats:
-    rid: 3678733936751018069
+    rid: 3678733954061172845
   references:
     version: 2
     RefIds:
-    - rid: 3678733936751018069
+    - rid: 3678733954061172845
       type: {class: BarbarianFeatureStats, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
-      data: 
---- !u!114 &5453011212854121936
+      data:
+        rages: 4
+        rageDamage: 2
+        weaponMastery: 3
+--- !u!114 &2655061534629815433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae33dde8f064188bfe29b6df51ab370, type: 3}
+  m_Name: InstinctivePounce
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 
+--- !u!114 &4440597209213895358
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

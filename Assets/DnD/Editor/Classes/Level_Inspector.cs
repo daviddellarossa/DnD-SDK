@@ -10,7 +10,7 @@ using UnityEngine.UIElements;
 
 namespace DnD.Editor.Classes
 {
-    [CustomEditor(typeof(Level))]
+    //[CustomEditor(typeof(Level))]
     public class Level_Inspector : UnityEditor.Editor
     {
         private string _uxmlFilePath;
