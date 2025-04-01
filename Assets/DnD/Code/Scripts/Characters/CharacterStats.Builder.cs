@@ -151,7 +151,7 @@ namespace DnD.Code.Scripts.Characters
                 foreach (var abilityStat in this._abilityStats)
                 {
                     abilityStat.SavingThrow = this._class.SavingThrowProficiencies.Contains(abilityStat.Ability);
-                    characterStats.abilities.Add(abilityStat.Ability, abilityStat);
+                    characterStats.abilities.Add(abilityStat.Ability.name, abilityStat);
                 }
                 //characterStats.abilities = this._abilityScores;
                 

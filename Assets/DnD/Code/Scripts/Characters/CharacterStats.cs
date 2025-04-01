@@ -46,7 +46,7 @@ namespace DnD.Code.Scripts.Characters
         private int xp;
         
         [SerializeField]
-        private Dictionary<Ability, AbilityStats> abilities = new ();
+        private Dictionary<string, AbilityStats> abilities = new ();
         
         [SerializeField]
         private List<BaseArmourType> armorTraining = new List<BaseArmourType>();
@@ -100,7 +100,7 @@ namespace DnD.Code.Scripts.Characters
         
         public int ProficiencyBonus => baseProficiencyBonus + (this.level - 1) / 4;
         
-        public IDictionary<Ability, AbilityStats> Abilities => abilities;
+        public IDictionary<string, AbilityStats> Abilities => abilities;
         
         public BaseArmourType[] ArmorTraining => armorTraining.ToArray();
 

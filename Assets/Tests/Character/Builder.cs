@@ -580,7 +580,7 @@ namespace Tests.Character
             Assert.That(_instance.Abilities.Values, Is.EquivalentTo(abilityStats));
             foreach (var ability in abilityStats)
             {
-                Assert.That(_instance.Abilities[ability.Ability].SavingThrow, Is.EqualTo(@class.SavingThrowProficiencies.Contains(ability.Ability)));
+                Assert.That(_instance.Abilities[ability.Ability.name].SavingThrow, Is.EqualTo(@class.SavingThrowProficiencies.Contains(ability.Ability)));
             };
             
             Assert.That(_instance.Languages, Is.EquivalentTo(languages));
