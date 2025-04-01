@@ -20,6 +20,9 @@ namespace DnD.Code.Scripts.Characters
     public partial class CharacterStats : ScriptableObject
     {
         [SerializeField]
+        private int baseProficiencyBonus = 2;
+        
+        [SerializeField]
         private string characterName;
         
         [SerializeReference]
@@ -41,10 +44,7 @@ namespace DnD.Code.Scripts.Characters
         private int xp;
         
         [SerializeField]
-        private int proficiencyBonus;
-        
-        [SerializeField]
-        private Dictionary<Ability, int> abilityScores;
+        private Dictionary<Ability, AbilityStats> abilities = new ();
         
         [SerializeField]
         private List<BaseArmourType> armorTraining = new List<BaseArmourType>();
@@ -89,15 +89,17 @@ namespace DnD.Code.Scripts.Characters
         public int Level => level;
 
         public int Xp => xp;
-        public int ProficiencyBonus => proficiencyBonus;
         
-        public KeyValuePair<Ability, int>[] AbilityScores => abilityScores.ToArray();
+        public int ProficiencyBonus => baseProficiencyBonus + (this.level - 1) / 4;
+        
+        public IDictionary<Ability, AbilityStats> Abilities => abilities;
         
         public BaseArmourType[] ArmorTraining => armorTraining.ToArray();
 
         public WeaponType[] WeaponProficiencies => weaponProficiencies.ToArray();
 
         public Skill[] SkillProficiencies => skillProficiencies.ToArray();
+        
         public Proficient[] ToolProficiencies => toolProficiencies.ToArray();
 
         public Ability[] SavingThrowProficiencies =>  savingThrowProficiencies.ToArray();
@@ -126,33 +128,8 @@ namespace DnD.Code.Scripts.Characters
         
         public SpecialTrait[] SpecialTrait => this.spex.SpecialTraits.ToArray();
         
-        
-        // public Dictionary<AbilityEnum, AbilityStats> Abilities = new Dictionary<AbilityEnum, AbilityStats>
-        //     {
-        //         // TODO: fix this
-        //         // [AbilityEnum.Strength] = new AbilityStats(AbilityEnum.Strength),
-        //         // [AbilityEnum.Dexterity] = new AbilityStats(AbilityEnum.Dexterity),
-        //         // [AbilityEnum.Constitution] = new AbilityStats(AbilityEnum.Constitution),
-        //         // [AbilityEnum.Intelligence] = new AbilityStats(AbilityEnum.Intelligence),
-        //         // [AbilityEnum.Wisdom] = new AbilityStats(AbilityEnum.Wisdom),
-        //         // [AbilityEnum.Charisma] = new AbilityStats(AbilityEnum.Charisma),
-        // };
-        //
-        // public int ProficiencyBonus => 2 + (this.level - 1) / 4;
-        //
-        // public HashSet<BaseArmourType> ArmourTypeProficiencies;
-        //
-        // public HashSet<ITool> ToolProficiencies; //TODO: Not sure about this ITool
-        //
-        // public List<Feat> Feats = new List<Feat>();
-        //
-        // public List<IEquipment> Equipment = new List<IEquipment>();
-        //
+
         // public Dictionary<CoinValue, int> Coins = new Dictionary<CoinValue, int>();
-        //
-        // public int Speed;
-        //
-        // public Size Size;
         //
         // public List<TypeTrait> SpeciesTraits = new List<TypeTrait>();
         //
@@ -166,10 +143,6 @@ namespace DnD.Code.Scripts.Characters
         //         //return heroicInspirationTrait?.IsInspired ?? false;
         //     }
         // }
-        //
-        // [SerializeReference]
-        // public HashSet<ILanguage> Languages = new HashSet<ILanguage>();
-        //
         //
         // public int GetSavingThrowProficiency(AbilityEnum ability)
         // {
@@ -199,25 +172,12 @@ namespace DnD.Code.Scripts.Characters
         //
         // public string PassivePerception;
         //
-        //
-        //
         // public string Initiative;
-        //
-        // [SerializeField]
-        // public string HitDice;
         //
         // [SerializeField]
         // public string WeaponsDamageCantrips;
         //
         // [SerializeField]
         // public string ClassFeatures;
-        //
-        // [SerializeField]
-        // public string Appearance;
-        //
-        // [SerializeField]
-        // public string BackstoryAndPersonality;
-
-
     }
 }

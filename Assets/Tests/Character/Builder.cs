@@ -259,26 +259,65 @@ namespace Tests.Character
             Assert.That(_model.CheckSpex(), Is.False);
         }
 
+        // [Test]
+        // public void CheckAbilityScores_Should_Return_True_When_AbilityScores_Assigned()
+        // {
+        //     foreach (var ability in _abilities)
+        //     {
+        //         _model.SetAbilityStats(ability, _fixture.Create<int>());
+        //     }
+        //     
+        //     Assert.That(_model.CheckAbilityScores(),  Is.True);
+        // }
+
+        // [TestCaseSource(typeof(CharacterStatsBuilderTestData), nameof(CharacterStatsBuilderTestData.AbilityScoresMinusOneTestCases))]
+        // public void CheckAbilityScores_Should_Return_False_When_Any_AbilityScore_IsNot_Assigned(IEnumerable<Ability> abilities)
+        // {
+        //     foreach (var ability in abilities)
+        //     {
+        //         _model.SetAbilityStats(ability, _fixture.Create<int>());
+        //     }
+        //     
+        //     Assert.That(_model.CheckAbilityScores(), Is.False);
+        // }
+        
         [Test]
-        public void CheckAbilityScores_Should_Return_True_When_AbilityScores_Assigned()
+        public void CheckAbilityStats_Should_Return_True_When_AbilityStats_Assigned()
         {
             foreach (var ability in _abilities)
             {
-                _model.SetAbilityScore(ability, _fixture.Create<int>());
+                _model.SetAbilityStats(this.GetValidAbilityStats(ability));
             }
             
-            Assert.That(_model.CheckAbilityScores(),  Is.True);
+            Assert.That(_model.CheckAbilityStats(),  Is.True);
         }
-
+        
         [TestCaseSource(typeof(CharacterStatsBuilderTestData), nameof(CharacterStatsBuilderTestData.AbilityScoresMinusOneTestCases))]
-        public void CheckAbilityScores_Should_Return_False_When_Any_AbilityScore_IsNot_Assigned(IEnumerable<Ability> abilities)
+        public void CheckAbilityStats_Should_Return_False_When_Any_AbilityStats_IsNot_Assigned(IEnumerable<Ability> abilities, Ability excludedAbility)
         {
             foreach (var ability in abilities)
             {
-                _model.SetAbilityScore(ability, _fixture.Create<int>());
+                _model.SetAbilityStats(this.GetValidAbilityStats(ability));
             }
             
-            Assert.That(_model.CheckAbilityScores(), Is.False);
+            Assert.That(_model.CheckAbilityStats(), Is.False);
+        }
+        
+        [TestCaseSource(typeof(CharacterStatsBuilderTestData), nameof(CharacterStatsBuilderTestData.AbilityScoresMinusOneTestCases))]
+        public void CheckAbilityStats_Should_Return_False_When_Any_AbilityStats_Has_Score_0(IEnumerable<Ability> abilities, Ability excludedAbility)
+        {
+            foreach (var ability in abilities)
+            {
+                _model.SetAbilityStats(this.GetValidAbilityStats(ability));
+            }
+
+            _model.SetAbilityStats(_fixture
+                .Build<AbilityStats>()
+                .With(x => x.Score, 0)
+                .With(x => x.Ability, excludedAbility)
+                .Create());
+            
+            Assert.That(_model.CheckAbilityStats(), Is.False);
         }
 
         [Test]
@@ -430,7 +469,8 @@ namespace Tests.Character
             modelMock.Setup(x => x.CheckSubClass()).Returns(checkData.CheckSubClassResult);
             modelMock.Setup(x => x.CheckBackground()).Returns(checkData.CheckBackgroundResult);
             modelMock.Setup(x => x.CheckSpex()).Returns(checkData.CheckSpexResult);
-            modelMock.Setup(x => x.CheckAbilityScores()).Returns(checkData.CheckAbilityScoresResult);
+            //modelMock.Setup(x => x.CheckAbilityScores()).Returns(checkData.CheckAbilityScoresResult);
+            modelMock.Setup(x => x.CheckAbilityStats()).Returns(checkData.CheckAbilityStatsResult);
             modelMock.Setup(x => x.CheckSkillProficienciesFromClass()).Returns(checkData.CheckSkillProficienciesFromClassResult);
             modelMock.Setup(x => x.CheckStartingEquipmentFromClass()).Returns(checkData.CheckStartingEquipmentFromClassResult);
             modelMock.Setup(x => x.CheckStartingEquipmentFromBackground()).Returns(checkData.CheckStartingEquipmentFromBackgroundResult);
@@ -461,7 +501,7 @@ namespace Tests.Character
             modelMock.Setup(x => x.CheckSubClass()).Returns(true);
             modelMock.Setup(x => x.CheckBackground()).Returns(true);
             modelMock.Setup(x => x.CheckSpex()).Returns(true);
-            modelMock.Setup(x => x.CheckAbilityScores()).Returns(true);
+            modelMock.Setup(x => x.CheckAbilityStats()).Returns(true);
             modelMock.Setup(x => x.CheckSkillProficienciesFromClass()).Returns(true);
             modelMock.Setup(x => x.CheckStartingEquipmentFromClass()).Returns(true);
             modelMock.Setup(x => x.CheckStartingEquipmentFromBackground()).Returns(true);
@@ -483,7 +523,7 @@ namespace Tests.Character
             var skillProficienciesFromClass = @class.SkillProficienciesAvailable.Take(@class.NumberOfSkillProficienciesToChoose).ToArray();
             var startingEquipmentFromClass = @class.StartingEquipmentOptions.First();
             var startingEquipmentFromBackground = background.StartingEquipmentOptions.First();
-            var abilityScores = new Dictionary<Ability, int>();
+            var abilityStats = new List<AbilityStats>();
             var languages = new StandardLanguage[]
             {
                 this._standardLanguages.Single(x => x.name == NameHelper.Languages.Common),
@@ -493,7 +533,7 @@ namespace Tests.Character
             
             foreach (var ability in _abilities)
             {
-                abilityScores[ability] = _fixture.Create<int>();
+                abilityStats.Add(this.GetValidAbilityStats(ability));
             }
             
             var builder = _model
@@ -505,12 +545,12 @@ namespace Tests.Character
                 .SetSkillProficienciesFromClass(skillProficienciesFromClass)
                 .SetStartingEquipmentFromClass(startingEquipmentFromClass)
                 .SetStartingEquipmentFromBackground(startingEquipmentFromBackground);
-
-            foreach (var abilityScore in abilityScores)
+            
+            foreach (var abilityStat in abilityStats)
             {
-                builder.SetAbilityScore(abilityScore.Key, abilityScore.Value);
+                builder.SetAbilityStats(abilityStat);
             }
-
+            
             foreach (var language in languages)
             {
                 builder.SetLanguage(language);
@@ -527,7 +567,7 @@ namespace Tests.Character
             Assert.That(_instance.Background, Is.EqualTo(background));
             Assert.That(_instance.Level, Is.EqualTo(CharacterStats.Builder.DefaultLevel));
             Assert.That(_instance.Xp, Is.EqualTo(CharacterStats.Builder.DefaultXp));
-            Assert.That(_instance.ProficiencyBonus, Is.EqualTo(CharacterStats.Builder.DefaultProficiencyBonus));
+            Assert.That(_instance.ProficiencyBonus, Is.EqualTo(CharacterStats.Builder.BaseProficiencyBonus));
             
             Assert.That(_instance.ArmorTraining, Is.SupersetOf(@class.ArmourTraining));
             Assert.That(_instance.WeaponProficiencies, Is.SupersetOf(@class.WeaponProficiencies));
@@ -536,9 +576,16 @@ namespace Tests.Character
             Assert.That(_instance.Inventory, Is.SupersetOf(background.StartingEquipmentOptions.Single(x => x.Equals(startingEquipmentFromBackground)).EquipmentsWithAmountList));
             Assert.That(_instance.SavingThrowProficiencies, Is.SupersetOf(@class.SavingThrowProficiencies));
             Assert.That(_instance.ToolProficiencies, Does.Contain(background.ToolProficiency));
-            Assert.That(_instance.AbilityScores, Is.EquivalentTo(abilityScores));
+            Assert.That(_instance.Abilities.Values, Is.EquivalentTo(abilityStats));
             Assert.That(_instance.Languages, Is.EquivalentTo(languages));
         }
+        
+        private AbilityStats GetValidAbilityStats(Ability ability)
+            =>_fixture
+                .Build<AbilityStats>()
+                .With(x => x.Score,  _fixture.Create<int>() % 20 + 1)
+                .With(x => x.Ability, ability)
+                .Create();
     }
     
 
@@ -549,7 +596,7 @@ namespace Tests.Character
         public bool CheckSubClassResult = true;
         public bool CheckBackgroundResult = true;
         public bool CheckSpexResult = true;
-        public bool CheckAbilityScoresResult = true;
+        public bool CheckAbilityStatsResult = true;
         public bool CheckSkillProficienciesFromClassResult = true;
         public bool CheckStartingEquipmentFromClassResult = true;
         public bool CheckStartingEquipmentFromBackgroundResult = true;
@@ -574,7 +621,7 @@ namespace Tests.Character
 
                 foreach (var ability in abilities)
                 {
-                    yield return abilities.Except(new [] { ability });
+                    yield return new TestCaseData(abilities.Except(new [] { ability }), ability);
                 }
             }
         }
@@ -610,7 +657,7 @@ namespace Tests.Character
                 };
                 yield return new CheckAllTestData()
                 {
-                    CheckAbilityScoresResult = false,
+                    CheckAbilityStatsResult = false,
                     ExpectedResult = false,
                 };
                 yield return new CheckAllTestData()

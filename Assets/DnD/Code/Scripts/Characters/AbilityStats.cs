@@ -8,18 +8,32 @@ namespace DnD.Code.Scripts.Characters
     [Serializable]
     public class AbilityStats
     {
-        public Ability Ability;
+        private Ability ability;
 
-        public int Score;
-        public int Modifier => Mathf.FloorToInt((Score - 10) / 2f);
+        private int score;
+        
+        private bool savingThrow;
 
-        public bool SavingThrow;
+        //public Dictionary<Skill, Proficiency<Skill>> SkillProficiencies = new Dictionary<Skill, Proficiency<Skill>>();
 
-        public Dictionary<Skill, Proficiency<Skill>> SkillProficiencies = new Dictionary<Skill, Proficiency<Skill>>();
-
-        public AbilityStats(Ability ability)
+        public Ability Ability
         {
-            this.Ability = ability;
+            get => ability;
+            set => ability = value;
+        }
+
+        public int Score
+        {
+            get => score;
+            set => score = value;
+        }
+        
+        public int Modifier => Mathf.FloorToInt((score - 10) / 2f);
+
+        public bool SavingThrow
+        {
+            get => savingThrow;
+            set => savingThrow = value;
         }
     }
 }

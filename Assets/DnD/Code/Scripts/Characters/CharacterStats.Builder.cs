@@ -23,9 +23,9 @@ namespace DnD.Code.Scripts.Characters
             public static readonly string CharacterStatsPath = "Assets/CharacterStats.asset";
             public static readonly int DefaultLevel = 1;
             public static readonly int DefaultXp = 0;
-            public static readonly int DefaultProficiencyBonus = 2;
             public static readonly int DefaultNumberOfLanguages = 3;
-            
+            public static readonly int BaseProficiencyBonus = 2;
+
             private string _name;
             private Class _class;
             private SubClass _subClass;
@@ -33,11 +33,11 @@ namespace DnD.Code.Scripts.Characters
             private Background _background;
             private int _level = DefaultLevel;
             private int _xp = DefaultXp;
-            private int _proficiencyBonus = DefaultProficiencyBonus;
             private List<Skill> _skillProficienciesFromClass = new ();
             private Equipment.StartingEquipment _startingEquipmentFromClass;
             private Equipment.StartingEquipment _startingEquipmentFromBackground;
-            private Dictionary<Ability, int> _abilityScores = new();
+            //private Dictionary<Ability, AbilityStats> _abilityScores = new();
+            private List<AbilityStats> _abilityStats = new();
             private HashSet<StandardLanguage> _languages = new();
             
             public Builder SetName(string name)
@@ -89,9 +89,9 @@ namespace DnD.Code.Scripts.Characters
                 return this;
             }
 
-            public Builder SetAbilityScore(Ability ability, int score)
+            public Builder SetAbilityStats(AbilityStats abilityStats)
             {
-                this._abilityScores[ability] = score;
+                this._abilityStats.Add(abilityStats);
                 return this;
             }
 
@@ -121,7 +121,7 @@ namespace DnD.Code.Scripts.Characters
                 characterStats.background = this._background;
                 characterStats.level = this._level;
                 characterStats.xp = this._xp;
-                characterStats.proficiencyBonus = this._proficiencyBonus;
+                characterStats.baseProficiencyBonus = BaseProficiencyBonus;
                 
                 foreach (var standardLanguage in this._languages)
                 {
@@ -144,7 +144,11 @@ namespace DnD.Code.Scripts.Characters
                 
                 
                 // others
-                characterStats.abilityScores = this._abilityScores;
+                foreach (var abilityStat in this._abilityStats)
+                {
+                    characterStats.abilities.Add(abilityStat.Ability, abilityStat);
+                }
+                //characterStats.abilities = this._abilityScores;
                 
                 EditorUtility.SetDirty(characterStats);
                 
@@ -217,15 +221,42 @@ namespace DnD.Code.Scripts.Characters
                 return true;
             }
 
-            public virtual bool CheckAbilityScores()
+            // public virtual bool CheckAbilityScores()
+            // {
+            //     var abilities = Helpers.ScriptableObjectHelper.GetAllScriptableObjects<Ability>(PathHelper.Abilities.AbilitiesPath);
+            //
+            //     foreach (var ability in abilities)
+            //     {
+            //         if (!this._abilityScores.ContainsKey(ability))
+            //         {
+            //             Debug.Log($"{nameof(Builder)}: Ability {ability.name} does not have a score for {this._name}");
+            //             return false;
+            //         }
+            //         
+            //         var abilityStats = this._abilityScores[ability];
+            //         
+            //         
+            //     }
+            //
+            //     return true;
+            // }
+            
+            public virtual bool CheckAbilityStats()
             {
                 var abilities = Helpers.ScriptableObjectHelper.GetAllScriptableObjects<Ability>(PathHelper.Abilities.AbilitiesPath);
 
                 foreach (var ability in abilities)
                 {
-                    if (!this._abilityScores.ContainsKey(ability))
+                    var abilityStat = this._abilityStats.SingleOrDefault(abilityStat => abilityStat.Ability == ability);
+                    if (abilityStat is null)
                     {
-                        Debug.Log($"{nameof(Builder)}: Ability {ability.name} does not have a score for {this._name}");
+                        Debug.Log($"{nameof(Builder)}: Ability stats for ability {ability.name} not set for {this._name}");
+                        return false;
+                    }
+
+                    if (abilityStat.Score == 0)
+                    {
+                        Debug.Log($"{nameof(Builder)}: Ability score for ability {abilityStat.Ability.name} not set for {this._name}");
                         return false;
                     }
                 }
@@ -316,7 +347,8 @@ namespace DnD.Code.Scripts.Characters
                     && CheckSkillProficienciesFromClass()
                     && CheckStartingEquipmentFromClass()
                     && CheckStartingEquipmentFromBackground()
-                    && CheckAbilityScores()
+                    //&& CheckAbilityScores()
+                    && CheckAbilityStats()
                     && CheckLanguages();
             }
         }

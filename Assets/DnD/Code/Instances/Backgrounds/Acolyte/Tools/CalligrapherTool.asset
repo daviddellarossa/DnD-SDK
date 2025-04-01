@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5708ed09b4b088d46bfdb4161c48453f, type: 3}
   m_Name: CalligrapherTool
   m_EditorClassIdentifier: 
-  displayName: 
-  displayDescription: 
+  displayName: Tools.CalligrapherTool
+  displayDescription: Tools.CalligrapherTool.Description
