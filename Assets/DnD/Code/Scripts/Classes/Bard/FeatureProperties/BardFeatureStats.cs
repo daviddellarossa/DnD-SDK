@@ -6,7 +6,7 @@ using UnityEngine;
 namespace DnD.Code.Scripts.Classes.Bard.FeatureProperties
 {
     [Serializable]
-    public class BardFP : IClassFeatureTraits
+    public class BardFeatureStats : IClassFeatureStats
     {
         [SerializeField]
         private Die bardicDie;
@@ -57,7 +57,5 @@ namespace DnD.Code.Scripts.Classes.Bard.FeatureProperties
 
             return this.spellSlots.SpellSlots[spellLevel];
         }
-
-        public string DisplayText => "Bard Class Features";
     }
 }

@@ -57,7 +57,7 @@ namespace DnD.Editor.Classes
             // Find the Class Features DropDownList
             ddfClassFeatureTraits = root.Q<DropdownField>("ddfClassFeatureTraits");
             
-            var availableItems = GetDerivedTypes<IClassFeatureTraits>();
+            var availableItems = GetDerivedTypes<IClassFeatureStats>();
             
             ddfClassFeatureTraits.choices.Clear();
             ddfClassFeatureTraits.choices = availableItems.Select(x => x.FullName).ToList();

@@ -2,6 +2,7 @@
 using DnD.Code.Scripts.Classes.ClassFeatures;
 using DnD.Code.Scripts.Classes.FeatureProperties;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace DnD.Code.Scripts.Classes
 {
@@ -13,14 +14,19 @@ namespace DnD.Code.Scripts.Classes
         [SerializeField]
         private string displayDescription;
         
-        public int LevelNum;
-        public int ProficiencyBonus;
-        
+        [SerializeField]
+        private int levelNum;
+        [SerializeField]
+        private int proficiencyBonus;
+
         [SerializeReference]
-        public List<ClassFeature> ClassFeatures = new ();
+        [SerializeField]
+        private List<ClassFeature> classFeatures = new ();
         
+        [FormerlySerializedAs("classFeatureTraits")]
         [SerializeReference]
-        public IClassFeatureTraits ClassFeatureTraits;
+        [SerializeField]
+        private IClassFeatureStats classFeatureStats;
         
         public string DisplayName
         {
@@ -32,6 +38,30 @@ namespace DnD.Code.Scripts.Classes
         {
             get => displayDescription;
             set => displayDescription = value;
+        }
+        
+        public int LevelNum
+        {
+            get => this.levelNum;
+            set => this.levelNum = value;
+        }
+
+        public int ProficiencyBonus
+        {
+            get => this.proficiencyBonus;
+            set => this.proficiencyBonus = value;
+        }
+
+        public List<ClassFeature> ClassFeatures
+        {
+            get => this.classFeatures;
+            set => this.classFeatures = value;
+        }
+
+        public IClassFeatureStats ClassFeatureStats
+        {
+            get => this.classFeatureStats;
+            set => this.classFeatureStats = value;
         }
     }
 }

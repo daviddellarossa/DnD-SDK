@@ -119,11 +119,11 @@ namespace DnD.Editor.Initializer
                     $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     3,
                     2,
-                    new BarbarianFp()
+                    new BarbarianFeatureStats()
                     {
-                        rages = 2,
-                        rageDamage = 2,
-                        weaponMastery = 2
+                        Rages = 2,
+                        RageDamage = 2,
+                        WeaponMastery = 2
                     },
                     SubClassLevelsPath);
             
@@ -142,11 +142,11 @@ namespace DnD.Editor.Initializer
                     $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     6,
                     3,
-                    new BarbarianFp()
+                    new BarbarianFeatureStats()
                     {
-                        rages = 4,
-                        rageDamage = 2,
-                        weaponMastery = 3
+                        Rages = 4,
+                        RageDamage = 2,
+                        WeaponMastery = 3
                     },
                     SubClassLevelsPath);
 
@@ -164,11 +164,11 @@ namespace DnD.Editor.Initializer
                     $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     10,
                     4,
-                    new BarbarianFp()
+                    new BarbarianFeatureStats()
                     {
-                        rages = 4,
-                        rageDamage = 3,
-                        weaponMastery = 4
+                        Rages = 4,
+                        RageDamage = 3,
+                        WeaponMastery = 4
                     },
                     SubClassLevelsPath);
             
@@ -186,11 +186,11 @@ namespace DnD.Editor.Initializer
                     $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     14,
                     5,
-                    new BarbarianFp()
+                    new BarbarianFeatureStats()
                     {
-                        rages = 5,
-                        rageDamage = 3,
-                        weaponMastery = 4
+                        Rages = 5,
+                        RageDamage = 3,
+                        WeaponMastery = 4
                     },
                     SubClassLevelsPath);
 
@@ -223,11 +223,11 @@ namespace DnD.Editor.Initializer
                     $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     3,
                     2,
-                    new BarbarianFp()
+                    new BarbarianFeatureStats()
                     {
-                        rages = 2,
-                        rageDamage = 2,
-                        weaponMastery = 2
+                        Rages = 2,
+                        RageDamage = 2,
+                        WeaponMastery = 2
                     },
                     SubClassLevelsPath);
             
@@ -246,11 +246,11 @@ namespace DnD.Editor.Initializer
                     $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     6,
                     3,
-                    new BarbarianFp()
+                    new BarbarianFeatureStats()
                     {
-                        rages = 4,
-                        rageDamage = 2,
-                        weaponMastery = 3
+                        Rages = 4,
+                        RageDamage = 2,
+                        WeaponMastery = 3
                     },
                     SubClassLevelsPath);
 
@@ -268,11 +268,11 @@ namespace DnD.Editor.Initializer
                     $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     10,
                     4,
-                    new BarbarianFp()
+                    new BarbarianFeatureStats()
                     {
-                        rages = 4,
-                        rageDamage = 3,
-                        weaponMastery = 4
+                        Rages = 4,
+                        RageDamage = 3,
+                        WeaponMastery = 4
                     },
                     SubClassLevelsPath);
             
@@ -290,11 +290,11 @@ namespace DnD.Editor.Initializer
                     $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     14,
                     5,
-                    new BarbarianFp()
+                    new BarbarianFeatureStats()
                     {
-                        rages = 5,
-                        rageDamage = 3,
-                        weaponMastery = 4
+                        Rages = 5,
+                        RageDamage = 3,
+                        WeaponMastery = 4
                     },
                     SubClassLevelsPath);
 
@@ -327,11 +327,11 @@ namespace DnD.Editor.Initializer
                     $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     3,
                     2,
-                    new BarbarianFp()
+                    new BarbarianFeatureStats()
                     {
-                        rages = 2,
-                        rageDamage = 2,
-                        weaponMastery = 2
+                        Rages = 2,
+                        RageDamage = 2,
+                        WeaponMastery = 2
                     },
                     SubClassLevelsPath);
             
@@ -351,11 +351,11 @@ namespace DnD.Editor.Initializer
                     $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     6,
                     3,
-                    new BarbarianFp()
+                    new BarbarianFeatureStats()
                     {
-                        rages = 4,
-                        rageDamage = 2,
-                        weaponMastery = 3
+                        Rages = 4,
+                        RageDamage = 2,
+                        WeaponMastery = 3
                     },
                     SubClassLevelsPath);
 
@@ -373,11 +373,11 @@ namespace DnD.Editor.Initializer
                     $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     10,
                     4,
-                    new BarbarianFp()
+                    new BarbarianFeatureStats()
                     {
-                        rages = 4,
-                        rageDamage = 3,
-                        weaponMastery = 4
+                        Rages = 4,
+                        RageDamage = 3,
+                        WeaponMastery = 4
                     },
                     SubClassLevelsPath);
             
@@ -395,11 +395,11 @@ namespace DnD.Editor.Initializer
                     $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     14,
                     5,
-                    new BarbarianFp()
+                    new BarbarianFeatureStats()
                     {
-                        rages = 5,
-                        rageDamage = 3,
-                        weaponMastery = 4
+                        Rages = 5,
+                        RageDamage = 3,
+                        WeaponMastery = 4
                     },
                     SubClassLevelsPath);
 
@@ -432,11 +432,11 @@ namespace DnD.Editor.Initializer
                     $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     3,
                     2,
-                    new BarbarianFp()
+                    new BarbarianFeatureStats()
                     {
-                        rages = 2,
-                        rageDamage = 2,
-                        weaponMastery = 2
+                        Rages = 2,
+                        RageDamage = 2,
+                        WeaponMastery = 2
                     },
                     SubClassLevelsPath);
             
@@ -454,11 +454,11 @@ namespace DnD.Editor.Initializer
                     $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     6,
                     3,
-                    new BarbarianFp()
+                    new BarbarianFeatureStats()
                     {
-                        rages = 4,
-                        rageDamage = 2,
-                        weaponMastery = 3
+                        Rages = 4,
+                        RageDamage = 2,
+                        WeaponMastery = 3
                     },
                     SubClassLevelsPath);
 
@@ -476,11 +476,11 @@ namespace DnD.Editor.Initializer
                     $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     10,
                     4,
-                    new BarbarianFp()
+                    new BarbarianFeatureStats()
                     {
-                        rages = 4,
-                        rageDamage = 3,
-                        weaponMastery = 4
+                        Rages = 4,
+                        RageDamage = 3,
+                        WeaponMastery = 4
                     },
                     SubClassLevelsPath);
             
@@ -498,11 +498,11 @@ namespace DnD.Editor.Initializer
                     $"{ClassName}.{SubClassName}.{NameHelper.Naming.Level}",
                     14,
                     5,
-                    new BarbarianFp()
+                    new BarbarianFeatureStats()
                     {
-                        rages = 5,
-                        rageDamage = 3,
-                        weaponMastery = 4
+                        Rages = 5,
+                        RageDamage = 3,
+                        WeaponMastery = 4
                     },
                     SubClassLevelsPath);
 
@@ -567,11 +567,11 @@ namespace DnD.Editor.Initializer
                 $"{ClassName}.{NameHelper.Naming.Level}",
                 1,
                 2,
-                new BarbarianFp()
+                new BarbarianFeatureStats()
                 {
-                    rages = 2,
-                    rageDamage = 2,
-                    weaponMastery = 2
+                    Rages = 2,
+                    RageDamage = 2,
+                    WeaponMastery = 2
                 },
                 ClassLevelsPath);
             
@@ -591,11 +591,11 @@ namespace DnD.Editor.Initializer
                 $"{ClassName}.{NameHelper.Naming.Level}",
                 2,
                 2,
-                new BarbarianFp()
+                new BarbarianFeatureStats()
                 {
-                    rages = 2,
-                    rageDamage = 2,
-                    weaponMastery = 2
+                    Rages = 2,
+                    RageDamage = 2,
+                    WeaponMastery = 2
                 },
                 ClassLevelsPath);
 
@@ -613,11 +613,11 @@ namespace DnD.Editor.Initializer
                 $"{ClassName}.{NameHelper.Naming.Level}",
                 3,
                 2,
-                new BarbarianFp()
+                new BarbarianFeatureStats()
                 {
-                    rages = 3,
-                    rageDamage = 2,
-                    weaponMastery = 2
+                    Rages = 3,
+                    RageDamage = 2,
+                    WeaponMastery = 2
                 },
                 ClassLevelsPath);
 
@@ -635,11 +635,11 @@ namespace DnD.Editor.Initializer
                 $"{ClassName}.{NameHelper.Naming.Level}",
                 4,
                 2,
-                new BarbarianFp()
+                new BarbarianFeatureStats()
                 {
-                    rages = 3,
-                    rageDamage = 2,
-                    weaponMastery = 3
+                    Rages = 3,
+                    RageDamage = 2,
+                    WeaponMastery = 3
                 },
                 ClassLevelsPath);
 
@@ -656,11 +656,11 @@ namespace DnD.Editor.Initializer
                 $"{ClassName}.{NameHelper.Naming.Level}",
                 5,
                 3,
-                new BarbarianFp()
+                new BarbarianFeatureStats()
                 {
-                    rages = 3,
-                    rageDamage = 2,
-                    weaponMastery = 3
+                    Rages = 3,
+                    RageDamage = 2,
+                    WeaponMastery = 3
                 },
                 ClassLevelsPath);
 
@@ -678,11 +678,11 @@ namespace DnD.Editor.Initializer
                 $"{ClassName}.{NameHelper.Naming.Level}",
                 6,
                 3,
-                new BarbarianFp()
+                new BarbarianFeatureStats()
                 {
-                    rages = 4,
-                    rageDamage = 2,
-                    weaponMastery = 3
+                    Rages = 4,
+                    RageDamage = 2,
+                    WeaponMastery = 3
                 },
                 ClassLevelsPath);
 
@@ -699,11 +699,11 @@ namespace DnD.Editor.Initializer
                 $"{ClassName}.{NameHelper.Naming.Level}",
                 7,
                 3,
-                new BarbarianFp()
+                new BarbarianFeatureStats()
                 {
-                    rages = 4,
-                    rageDamage = 2,
-                    weaponMastery = 3
+                    Rages = 4,
+                    RageDamage = 2,
+                    WeaponMastery = 3
                 },
                 ClassLevelsPath);
 
@@ -721,11 +721,11 @@ namespace DnD.Editor.Initializer
                 $"{ClassName}.{NameHelper.Naming.Level}",
                 8,
                 3,
-                new BarbarianFp()
+                new BarbarianFeatureStats()
                 {
-                    rages = 4,
-                    rageDamage = 2,
-                    weaponMastery = 3
+                    Rages = 4,
+                    RageDamage = 2,
+                    WeaponMastery = 3
                 },
                 ClassLevelsPath);
 
@@ -742,11 +742,11 @@ namespace DnD.Editor.Initializer
                 $"{ClassName}.{NameHelper.Naming.Level}",
                 9,
                 4,
-                new BarbarianFp()
+                new BarbarianFeatureStats()
                 {
-                    rages = 4,
-                    rageDamage = 3,
-                    weaponMastery = 3
+                    Rages = 4,
+                    RageDamage = 3,
+                    WeaponMastery = 3
                 },
                 ClassLevelsPath);
 
@@ -763,11 +763,11 @@ namespace DnD.Editor.Initializer
                 $"{ClassName}.{NameHelper.Naming.Level}",
                 10,
                 4,
-                new BarbarianFp()
+                new BarbarianFeatureStats()
                 {
-                    rages = 4,
-                    rageDamage = 3,
-                    weaponMastery = 4
+                    Rages = 4,
+                    RageDamage = 3,
+                    WeaponMastery = 4
                 },
                 ClassLevelsPath);
 
@@ -784,11 +784,11 @@ namespace DnD.Editor.Initializer
                 $"{ClassName}.{NameHelper.Naming.Level}",
                 11,
                 4,
-                new BarbarianFp()
+                new BarbarianFeatureStats()
                 {
-                    rages = 4,
-                    rageDamage = 3,
-                    weaponMastery = 4
+                    Rages = 4,
+                    RageDamage = 3,
+                    WeaponMastery = 4
                 },
                 ClassLevelsPath);
 
@@ -805,11 +805,11 @@ namespace DnD.Editor.Initializer
                 $"{ClassName}.{NameHelper.Naming.Level}",
                 12,
                 4,
-                new BarbarianFp()
+                new BarbarianFeatureStats()
                 {
-                    rages = 5,
-                    rageDamage = 3,
-                    weaponMastery = 4
+                    Rages = 5,
+                    RageDamage = 3,
+                    WeaponMastery = 4
                 },
                 ClassLevelsPath);
 
@@ -826,11 +826,11 @@ namespace DnD.Editor.Initializer
                 $"{ClassName}.{NameHelper.Naming.Level}",
                 13,
                 5,
-                new BarbarianFp()
+                new BarbarianFeatureStats()
                 {
-                    rages = 5,
-                    rageDamage = 3,
-                    weaponMastery = 4
+                    Rages = 5,
+                    RageDamage = 3,
+                    WeaponMastery = 4
                 },
                 ClassLevelsPath);
 
@@ -847,11 +847,11 @@ namespace DnD.Editor.Initializer
                 $"{ClassName}.{NameHelper.Naming.Level}",
                 14,
                 5,
-                new BarbarianFp()
+                new BarbarianFeatureStats()
                 {
-                    rages = 5,
-                    rageDamage = 3,
-                    weaponMastery = 4
+                    Rages = 5,
+                    RageDamage = 3,
+                    WeaponMastery = 4
                 },
                 ClassLevelsPath);
 
@@ -868,11 +868,11 @@ namespace DnD.Editor.Initializer
                 $"{ClassName}.{NameHelper.Naming.Level}",
                 15,
                 5,
-                new BarbarianFp()
+                new BarbarianFeatureStats()
                 {
-                    rages = 5,
-                    rageDamage = 3,
-                    weaponMastery = 4
+                    Rages = 5,
+                    RageDamage = 3,
+                    WeaponMastery = 4
                 },
                 ClassLevelsPath);
 
@@ -889,11 +889,11 @@ namespace DnD.Editor.Initializer
                 $"{ClassName}.{NameHelper.Naming.Level}",
                 16,
                 5,
-                new BarbarianFp()
+                new BarbarianFeatureStats()
                 {
-                    rages = 5,
-                    rageDamage = 4,
-                    weaponMastery = 4
+                    Rages = 5,
+                    RageDamage = 4,
+                    WeaponMastery = 4
                 },
                 ClassLevelsPath);
 
@@ -910,11 +910,11 @@ namespace DnD.Editor.Initializer
                 $"{ClassName}.{NameHelper.Naming.Level}",
                 17,
                 6,
-                new BarbarianFp()
+                new BarbarianFeatureStats()
                 {
-                    rages = 6,
-                    rageDamage = 4,
-                    weaponMastery = 4
+                    Rages = 6,
+                    RageDamage = 4,
+                    WeaponMastery = 4
                 },
                 ClassLevelsPath);
 
@@ -931,11 +931,11 @@ namespace DnD.Editor.Initializer
                 $"{ClassName}.{NameHelper.Naming.Level}",
                 18,
                 6,
-                new BarbarianFp()
+                new BarbarianFeatureStats()
                 {
-                    rages = 6,
-                    rageDamage = 4,
-                    weaponMastery = 4
+                    Rages = 6,
+                    RageDamage = 4,
+                    WeaponMastery = 4
                 },
                 ClassLevelsPath);
 
@@ -952,11 +952,11 @@ namespace DnD.Editor.Initializer
                 $"{ClassName}.{NameHelper.Naming.Level}",
                 19,
                 6,
-                new BarbarianFp()
+                new BarbarianFeatureStats()
                 {
-                    rages = 6,
-                    rageDamage = 4,
-                    weaponMastery = 4
+                    Rages = 6,
+                    RageDamage = 4,
+                    WeaponMastery = 4
                 },
                 ClassLevelsPath);
 
@@ -973,11 +973,11 @@ namespace DnD.Editor.Initializer
                 $"{ClassName}.{NameHelper.Naming.Level}",
                 20,
                 6,
-                new BarbarianFp()
+                new BarbarianFeatureStats()
                 {
-                    rages = 6,
-                    rageDamage = 4,
-                    weaponMastery = 4
+                    Rages = 6,
+                    RageDamage = 4,
+                    WeaponMastery = 4
                 },
                 ClassLevelsPath);
 

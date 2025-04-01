@@ -12,6 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2298edb0b712f784f9fd3b5a7213da5b, type: 3}
   m_Name: Resourceful
   m_EditorClassIdentifier: 
-  displayName: 
-  displayDescription: 
-  TraitTypes: []
+  displayName: SpecialTraits.Resourceful
+  displayDescription: SpecialTraits.Resourceful.Description
+  TraitTypes:
+  - {fileID: 8990984098174446465}
+--- !u!114 &8990984098174446465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55e76bb04bc46fa4fb4337d9d45c05ff, type: 3}
+  m_Name: HeroicInspiration
+  m_EditorClassIdentifier: 
+  displayName: TypeTraits.HeroicInspiration
+  displayDescription: TypeTraits.HeroicInspiration.Description

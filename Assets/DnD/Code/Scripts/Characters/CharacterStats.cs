@@ -4,6 +4,8 @@ using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Armour;
 using DnD.Code.Scripts.Backgrounds;
 using DnD.Code.Scripts.Classes;
+using DnD.Code.Scripts.Classes.ClassFeatures;
+using DnD.Code.Scripts.Classes.FeatureProperties;
 using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Equipment;
 using DnD.Code.Scripts.Feats;
@@ -76,6 +78,12 @@ namespace DnD.Code.Scripts.Characters
         [SerializeField]
         private HashSet<ILanguage> languages = new ();
         
+        [SerializeReference]
+        private IClassFeatureStats classFeatureStats;
+        
+        [SerializeField]
+        private List<ClassFeature> classFeatures = new List<ClassFeature>();
+        
         public string CharacterName => characterName;
         
         public Class Class => @class;
@@ -126,9 +134,37 @@ namespace DnD.Code.Scripts.Characters
         
         public float Speed => this.spex.Speed;
         
+        /// <summary>
+        /// Special traits are defined in the Species
+        /// </summary>
         public SpecialTrait[] SpecialTrait => this.spex.SpecialTraits.ToArray();
-        
 
+        public IClassFeatureStats ClassFeatureStats
+        {
+            get => classFeatureStats;
+            set => classFeatureStats = value;
+        }
+
+        public List<ClassFeature> ClassFeatures
+        {
+            get => classFeatures;
+            set => classFeatures = value;
+        }
+
+        // TODO: to implement PassivePerception, I need to fetch the AbilityStats first. Task: DnD #9
+        // public int PassivePerception =>
+        //     10 + this.abilities[]
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         // public Dictionary<CoinValue, int> Coins = new Dictionary<CoinValue, int>();
         //
         // public List<TypeTrait> SpeciesTraits = new List<TypeTrait>();
@@ -176,8 +212,6 @@ namespace DnD.Code.Scripts.Characters
         //
         // [SerializeField]
         // public string WeaponsDamageCantrips;
-        //
-        // [SerializeField]
-        // public string ClassFeatures;
+
     }
 }

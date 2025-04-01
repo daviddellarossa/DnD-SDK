@@ -17,14 +17,14 @@ namespace DnD.Editor.Initializer
 {
     public abstract class BaseClassInitializer
     {
-        protected Level InitializeLevel(string levelName, int levelNum, int proficiencyBonus, IClassFeatureTraits classFeatureTraits, string assetPath)
+        protected Level InitializeLevel(string levelName, int levelNum, int proficiencyBonus, IClassFeatureStats classFeatureStats, string assetPath)
         {
             var level = ScriptableObjectHelper.CreateScriptableObject<Level>($"{levelName}.{levelNum:00}", assetPath);
             level.DisplayName = $"{levelName}.{levelNum:00}";
             level.DisplayDescription = $"{levelName}.{levelNum:00}.{NameHelper.Naming.Description}";
             level.LevelNum = levelNum;
             level.ProficiencyBonus = proficiencyBonus;
-            level.ClassFeatureTraits = classFeatureTraits;
+            level.ClassFeatureStats = classFeatureStats;
 
             EditorUtility.SetDirty(level);
             

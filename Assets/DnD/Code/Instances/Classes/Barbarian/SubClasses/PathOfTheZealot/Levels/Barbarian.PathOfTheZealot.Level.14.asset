@@ -14,22 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Barbarian.PathOfTheZealot.Level.14
   displayDescription: Barbarian.PathOfTheZealot.Level.14.Description
-  LevelNum: 14
-  ProficiencyBonus: 5
-  ClassFeatures:
-  - {fileID: 3184964718795715768}
-  ClassFeatureTraits:
-    rid: 8535135623969243155
+  levelNum: 14
+  proficiencyBonus: 5
+  classFeatures:
+  - {fileID: 7538100502639610735}
+  classFeatureStats:
+    rid: 3678733936751018061
   references:
     version: 2
     RefIds:
-    - rid: 8535135623969243155
-      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
-      data:
-        rages: 5
-        rageDamage: 3
-        weaponMastery: 4
---- !u!114 &3184964718795715768
+    - rid: 3678733936751018061
+      type: {class: BarbarianFeatureStats, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data: 
+--- !u!114 &7538100502639610735
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -121,13 +121,13 @@ namespace Tests.Classes.Barbarian
                 Assert.That(levelClassFeatureNames, Does.Contain(classFeature));
             }
             
-            Assert.That(actual.ClassFeatureTraits, Is.TypeOf<BarbarianFp>(), $"{expected.LevelNum}.{nameof(actual.ClassFeatureTraits)} is of the wrong type. Expected: {nameof(BarbarianFp)}.");
+            Assert.That(actual.ClassFeatureStats, Is.TypeOf<BarbarianFeatureStats>(), $"{expected.LevelNum}.{nameof(actual.ClassFeatureStats)} is of the wrong type. Expected: {nameof(BarbarianFeatureStats)}.");
             
-            var classFeatureTraits = (BarbarianFp)actual.ClassFeatureTraits;
+            var classFeatureTraits = (BarbarianFeatureStats)actual.ClassFeatureStats;
             var expectedClassFeatureTraits = (BarbarianClassFeatureTraitsTestModel)expected.ClassFeatureTraits;
-            Assert.That(classFeatureTraits.rages, Is.EqualTo(expectedClassFeatureTraits.Rages), $"{expected.LevelNum}.{nameof(actual.ClassFeatureTraits)}.Rages: {nameof(expectedClassFeatureTraits.Rages)} not equal to {expectedClassFeatureTraits.Rages}.");
-            Assert.That(classFeatureTraits.rageDamage, Is.EqualTo(expectedClassFeatureTraits.RageDamage), $"{expected.LevelNum}.{nameof(actual.ClassFeatureTraits)}.{nameof(expectedClassFeatureTraits.RageDamage)}: {nameof(expectedClassFeatureTraits.RageDamage)} not equal to {expectedClassFeatureTraits.RageDamage}.");
-            Assert.That(classFeatureTraits.weaponMastery, Is.EqualTo(expectedClassFeatureTraits.WeaponMastery), $"{expected.LevelNum}.{nameof(actual.ClassFeatureTraits)}.{nameof(expectedClassFeatureTraits.WeaponMastery)}: {nameof(expectedClassFeatureTraits.WeaponMastery)} not equal to {expectedClassFeatureTraits.WeaponMastery}.");
+            Assert.That(classFeatureTraits.Rages, Is.EqualTo(expectedClassFeatureTraits.Rages), $"{expected.LevelNum}.{nameof(actual.ClassFeatureStats)}.Rages: {nameof(expectedClassFeatureTraits.Rages)} not equal to {expectedClassFeatureTraits.Rages}.");
+            Assert.That(classFeatureTraits.RageDamage, Is.EqualTo(expectedClassFeatureTraits.RageDamage), $"{expected.LevelNum}.{nameof(actual.ClassFeatureStats)}.{nameof(expectedClassFeatureTraits.RageDamage)}: {nameof(expectedClassFeatureTraits.RageDamage)} not equal to {expectedClassFeatureTraits.RageDamage}.");
+            Assert.That(classFeatureTraits.WeaponMastery, Is.EqualTo(expectedClassFeatureTraits.WeaponMastery), $"{expected.LevelNum}.{nameof(actual.ClassFeatureStats)}.{nameof(expectedClassFeatureTraits.WeaponMastery)}: {nameof(expectedClassFeatureTraits.WeaponMastery)} not equal to {expectedClassFeatureTraits.WeaponMastery}.");
         }
         
         private class ClassData

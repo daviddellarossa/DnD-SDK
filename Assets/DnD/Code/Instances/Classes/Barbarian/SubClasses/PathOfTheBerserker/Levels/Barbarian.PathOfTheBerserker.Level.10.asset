@@ -1,19 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3088188749528699784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d25dc873afe45cc8219f8ca779bca76, type: 3}
-  m_Name: Retaliation
-  m_EditorClassIdentifier: 
-  displayName: 
-  displayDescription: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28,18 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Barbarian.PathOfTheBerserker.Level.10
   displayDescription: Barbarian.PathOfTheBerserker.Level.10.Description
-  LevelNum: 10
-  ProficiencyBonus: 4
-  ClassFeatures:
-  - {fileID: -3088188749528699784}
-  ClassFeatureTraits:
-    rid: 8535135623969243172
+  levelNum: 10
+  proficiencyBonus: 4
+  classFeatures:
+  - {fileID: 6875378095036651212}
+  classFeatureStats:
+    rid: 3678733936751018078
   references:
     version: 2
     RefIds:
-    - rid: 8535135623969243172
-      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
-      data:
-        rages: 4
-        rageDamage: 3
-        weaponMastery: 4
+    - rid: 3678733936751018078
+      type: {class: BarbarianFeatureStats, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data: 
+--- !u!114 &6875378095036651212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d25dc873afe45cc8219f8ca779bca76, type: 3}
+  m_Name: Retaliation
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 

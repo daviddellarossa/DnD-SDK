@@ -135,6 +135,10 @@ namespace DnD.Code.Scripts.Characters
                 characterStats.inventory.AddRange(this._startingEquipmentFromClass.EquipmentsWithAmountList);
                 characterStats.savingThrowProficiencies.AddRange(this._class.SavingThrowProficiencies);
                 
+                var currentLevel = this._class.Levels.Single(lvl => lvl.LevelNum == this._level);
+                characterStats.ClassFeatureStats = currentLevel.ClassFeatureStats;
+                characterStats.classFeatures.AddRange(currentLevel.ClassFeatures);
+                
                 // from background
                 characterStats.skillProficiencies.AddRange(this._background.SkillProficiencies);
                 characterStats.toolProficiencies.Add(this._background.ToolProficiency);
@@ -146,6 +150,7 @@ namespace DnD.Code.Scripts.Characters
                 // others
                 foreach (var abilityStat in this._abilityStats)
                 {
+                    abilityStat.SavingThrow = this._class.SavingThrowProficiencies.Contains(abilityStat.Ability);
                     characterStats.abilities.Add(abilityStat.Ability, abilityStat);
                 }
                 //characterStats.abilities = this._abilityScores;

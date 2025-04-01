@@ -576,8 +576,18 @@ namespace Tests.Character
             Assert.That(_instance.Inventory, Is.SupersetOf(background.StartingEquipmentOptions.Single(x => x.Equals(startingEquipmentFromBackground)).EquipmentsWithAmountList));
             Assert.That(_instance.SavingThrowProficiencies, Is.SupersetOf(@class.SavingThrowProficiencies));
             Assert.That(_instance.ToolProficiencies, Does.Contain(background.ToolProficiency));
+            
             Assert.That(_instance.Abilities.Values, Is.EquivalentTo(abilityStats));
+            foreach (var ability in abilityStats)
+            {
+                Assert.That(_instance.Abilities[ability.Ability].SavingThrow, Is.EqualTo(@class.SavingThrowProficiencies.Contains(ability.Ability)));
+            };
+            
             Assert.That(_instance.Languages, Is.EquivalentTo(languages));
+            
+            var currentLevel = @class.Levels.Single(lvl => lvl.LevelNum == CharacterStats.Builder.DefaultLevel);
+            Assert.That(_instance.ClassFeatures, Is.EquivalentTo(currentLevel.ClassFeatures));
+            Assert.That(_instance.ClassFeatureStats, Is.EqualTo(currentLevel.ClassFeatureStats));
         }
         
         private AbilityStats GetValidAbilityStats(Ability ability)

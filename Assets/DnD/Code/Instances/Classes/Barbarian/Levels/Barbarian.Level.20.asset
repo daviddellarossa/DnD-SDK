@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2550813285424793946
+--- !u!114 &-4410664115417637556
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28,18 +28,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Barbarian.Level.20
   displayDescription: Barbarian.Level.20.Description
-  LevelNum: 20
-  ProficiencyBonus: 6
-  ClassFeatures:
-  - {fileID: -2550813285424793946}
-  ClassFeatureTraits:
-    rid: 8535135623969243154
+  levelNum: 20
+  proficiencyBonus: 6
+  classFeatures:
+  - {fileID: -4410664115417637556}
+  classFeatureStats:
+    rid: 3678733936751018060
   references:
     version: 2
     RefIds:
-    - rid: 8535135623969243154
-      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
-      data:
-        rages: 6
-        rageDamage: 4
-        weaponMastery: 4
+    - rid: 3678733936751018060
+      type: {class: BarbarianFeatureStats, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data: 

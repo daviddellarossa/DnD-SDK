@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-604513747605949511
+--- !u!114 &-6544379943996622013
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4811aea968440029737a1b8267d9308, type: 3}
-  m_Name: RageOfTheWilds
+  m_Script: {fileID: 11500000, guid: 22e2ad7e30d645ca9d49ac3b5b88f760, type: 3}
+  m_Name: AnimalSpeaker
   m_EditorClassIdentifier: 
   displayName: 
   displayDescription: 
@@ -28,23 +28,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Barbarian.PathOfTheWildHeart.Level.03
   displayDescription: Barbarian.PathOfTheWildHeart.Level.03.Description
-  LevelNum: 3
-  ProficiencyBonus: 2
-  ClassFeatures:
-  - {fileID: 1548076590895188334}
-  - {fileID: -604513747605949511}
-  ClassFeatureTraits:
-    rid: 8535135623969243147
+  levelNum: 3
+  proficiencyBonus: 2
+  classFeatures:
+  - {fileID: -6544379943996622013}
+  - {fileID: 4243640246241001103}
+  classFeatureStats:
+    rid: 3678733936751018053
   references:
     version: 2
     RefIds:
-    - rid: 8535135623969243147
-      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
-      data:
-        rages: 2
-        rageDamage: 2
-        weaponMastery: 2
---- !u!114 &1548076590895188334
+    - rid: 3678733936751018053
+      type: {class: BarbarianFeatureStats, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data: 
+--- !u!114 &4243640246241001103
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,8 +50,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22e2ad7e30d645ca9d49ac3b5b88f760, type: 3}
-  m_Name: AnimalSpeaker
+  m_Script: {fileID: 11500000, guid: a4811aea968440029737a1b8267d9308, type: 3}
+  m_Name: RageOfTheWilds
   m_EditorClassIdentifier: 
   displayName: 
   displayDescription: 

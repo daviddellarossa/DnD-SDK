@@ -14,22 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Barbarian.Level.09
   displayDescription: Barbarian.Level.09.Description
-  LevelNum: 9
-  ProficiencyBonus: 4
-  ClassFeatures:
-  - {fileID: 2525454644886578829}
-  ClassFeatureTraits:
-    rid: 8535135623969243150
+  levelNum: 9
+  proficiencyBonus: 4
+  classFeatures:
+  - {fileID: 6867723518229692180}
+  classFeatureStats:
+    rid: 3678733936751018056
   references:
     version: 2
     RefIds:
-    - rid: 8535135623969243150
-      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
-      data:
-        rages: 4
-        rageDamage: 3
-        weaponMastery: 3
---- !u!114 &2525454644886578829
+    - rid: 3678733936751018056
+      type: {class: BarbarianFeatureStats, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data: 
+--- !u!114 &6867723518229692180
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4388859245634492210
+--- !u!114 &-1203865927002475587
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28,18 +28,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Barbarian.PathOfTheWildHeart.Level.14
   displayDescription: Barbarian.PathOfTheWildHeart.Level.14.Description
-  LevelNum: 14
-  ProficiencyBonus: 5
-  ClassFeatures:
-  - {fileID: -4388859245634492210}
-  ClassFeatureTraits:
-    rid: 8535135623969243168
+  levelNum: 14
+  proficiencyBonus: 5
+  classFeatures:
+  - {fileID: -1203865927002475587}
+  classFeatureStats:
+    rid: 3678733936751018074
   references:
     version: 2
     RefIds:
-    - rid: 8535135623969243168
-      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
-      data:
-        rages: 5
-        rageDamage: 3
-        weaponMastery: 4
+    - rid: 3678733936751018074
+      type: {class: BarbarianFeatureStats, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data: 

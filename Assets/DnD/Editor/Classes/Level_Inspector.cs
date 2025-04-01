@@ -167,7 +167,7 @@ namespace DnD.Editor.Classes
         private void SetupClassFeatureTraitsSection(VisualElement root)
         {
             var obj = new SerializedObject(target);
-            SerializedProperty arrayProperty = obj.FindProperty("ClassFeatureTraits");
+            SerializedProperty arrayProperty = obj.FindProperty("classFeatureStats");
 
             // Create a PropertyField for the array
 
@@ -178,7 +178,7 @@ namespace DnD.Editor.Classes
 
         private void ClassFeatureTraits_RemoveButton_clicked()
         {
-            _level.ClassFeatureTraits = null;
+            _level.ClassFeatureStats = null;
             EditorUtility.SetDirty(_level);
 
             var propertyField = _veClassFeatureTraits.Q<PropertyField>("pfClassFeatureTraits");
@@ -194,7 +194,7 @@ namespace DnD.Editor.Classes
             {
                 var selectedType = GetType(selectedOption);
                 var instance = Activator.CreateInstance(selectedType);
-                _level.ClassFeatureTraits = (IClassFeatureTraits)instance;
+                _level.ClassFeatureStats = (IClassFeatureStats)instance;
                 EditorUtility.SetDirty(_level);
 
                 var propertyField = _veClassFeatureTraits.Q<PropertyField>("pfClassFeatureTraits");

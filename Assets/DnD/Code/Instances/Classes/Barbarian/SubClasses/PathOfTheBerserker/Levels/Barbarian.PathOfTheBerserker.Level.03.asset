@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7523188102091745260
+--- !u!114 &-1950104401183736717
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28,18 +28,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Barbarian.PathOfTheBerserker.Level.03
   displayDescription: Barbarian.PathOfTheBerserker.Level.03.Description
-  LevelNum: 3
-  ProficiencyBonus: 2
-  ClassFeatures:
-  - {fileID: -7523188102091745260}
-  ClassFeatureTraits:
-    rid: 8535135623969243166
+  levelNum: 3
+  proficiencyBonus: 2
+  classFeatures:
+  - {fileID: -1950104401183736717}
+  classFeatureStats:
+    rid: 3678733936751018072
   references:
     version: 2
     RefIds:
-    - rid: 8535135623969243166
-      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
-      data:
-        rages: 2
-        rageDamage: 2
-        weaponMastery: 2
+    - rid: 3678733936751018072
+      type: {class: BarbarianFeatureStats, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data: 

@@ -14,22 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Barbarian.Level.17
   displayDescription: Barbarian.Level.17.Description
-  LevelNum: 17
-  ProficiencyBonus: 6
-  ClassFeatures:
-  - {fileID: 3767435064904305459}
-  ClassFeatureTraits:
-    rid: 8535135623969243156
+  levelNum: 17
+  proficiencyBonus: 6
+  classFeatures:
+  - {fileID: 7961344872006083231}
+  classFeatureStats:
+    rid: 3678733936751018062
   references:
     version: 2
     RefIds:
-    - rid: 8535135623969243156
-      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
-      data:
-        rages: 6
-        rageDamage: 4
-        weaponMastery: 4
---- !u!114 &3767435064904305459
+    - rid: 3678733936751018062
+      type: {class: BarbarianFeatureStats, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data: 
+--- !u!114 &7961344872006083231
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

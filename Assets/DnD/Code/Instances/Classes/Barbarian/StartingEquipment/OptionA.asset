@@ -13,23 +13,23 @@ MonoBehaviour:
   m_Name: OptionA
   m_EditorClassIdentifier: 
   EquipmentsWithAmountList:
-  - rid: 8535135623969243169
-  - rid: 8535135623969243170
-  - rid: 8535135623969243171
+  - rid: 3678733936751018075
+  - rid: 3678733936751018076
+  - rid: 3678733936751018077
   references:
     version: 2
     RefIds:
-    - rid: 8535135623969243169
+    - rid: 3678733936751018075
       type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
       data:
         equipment: {fileID: 11400000, guid: 5b0e01de068a6554fbfb195ba2024a7e, type: 2}
         amount: 1
-    - rid: 8535135623969243170
+    - rid: 3678733936751018076
       type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
       data:
         equipment: {fileID: 11400000, guid: f6f2ebe82b588b141bc62f01b7eedf8e, type: 2}
         amount: 4
-    - rid: 8535135623969243171
+    - rid: 3678733936751018077
       type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
       data:
         equipment: {fileID: 11400000, guid: 1db5925526c836b4bb86b5ef334241a5, type: 2}

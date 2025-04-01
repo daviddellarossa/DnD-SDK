@@ -1,19 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2932559186810429771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e5a2e156863400fbfb7192df7081e2f, type: 3}
-  m_Name: NatureSpeaker
-  m_EditorClassIdentifier: 
-  displayName: 
-  displayDescription: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28,18 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Barbarian.PathOfTheWildHeart.Level.10
   displayDescription: Barbarian.PathOfTheWildHeart.Level.10.Description
-  LevelNum: 10
-  ProficiencyBonus: 4
-  ClassFeatures:
-  - {fileID: -2932559186810429771}
-  ClassFeatureTraits:
-    rid: 8535135623969243151
+  levelNum: 10
+  proficiencyBonus: 4
+  classFeatures:
+  - {fileID: 3652504114947763449}
+  classFeatureStats:
+    rid: 3678733936751018057
   references:
     version: 2
     RefIds:
-    - rid: 8535135623969243151
-      type: {class: BarbarianFp, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
-      data:
-        rages: 4
-        rageDamage: 3
-        weaponMastery: 4
+    - rid: 3678733936751018057
+      type: {class: BarbarianFeatureStats, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
+      data: 
+--- !u!114 &3652504114947763449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e5a2e156863400fbfb7192df7081e2f, type: 3}
+  m_Name: NatureSpeaker
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 
