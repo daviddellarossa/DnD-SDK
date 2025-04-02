@@ -171,7 +171,7 @@ namespace DnD.Code.Scripts.Characters
             }
         }
 
-
+        public int Initiative => this.abilities[NameHelper.Abilities.Dexterity].Modifier;
 
         public int MaxHitPoints => this.HitPointDie.NumOfFaces * this.level + this.abilities[NameHelper.Abilities.Constitution].Modifier;
 
