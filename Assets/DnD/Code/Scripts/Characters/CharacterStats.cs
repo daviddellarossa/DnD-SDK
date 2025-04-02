@@ -68,6 +68,9 @@ namespace DnD.Code.Scripts.Characters
         private int hitPoints;
         
         [SerializeField]
+        private int temporaryHitPoints;
+        
+        [SerializeField]
         private string armorClass;
         
         [SerializeField]
