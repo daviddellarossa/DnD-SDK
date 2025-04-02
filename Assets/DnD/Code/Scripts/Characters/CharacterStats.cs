@@ -65,7 +65,7 @@ namespace DnD.Code.Scripts.Characters
         private List<StartingEquipment.EquipmentWithAmount> inventory = new ();
         
         [SerializeField]
-        private HitPoints hitPoints;
+        private int hitPoints;
         
         [SerializeField]
         private string armorClass;
@@ -83,16 +83,24 @@ namespace DnD.Code.Scripts.Characters
         private List<ClassFeature> classFeatures = new List<ClassFeature>();
         
         public string CharacterName => characterName;
-        
-        public Class Class => @class;
+
+        public Class Class
+        {
+            get => @class;
+            protected set => @class = value;
+        }
         
         public SubClass SubClass => subClass;
         
         public Background Background => background;
         
         public Species.Spex Spex => spex;
-        
-        public int Level => level;
+
+        public int Level
+        {
+            get => level;
+            protected set => level = value;
+        }
 
         public int Xp => xp;
         
@@ -114,7 +122,7 @@ namespace DnD.Code.Scripts.Characters
         
         public ILanguage[] Languages => languages.ToArray();
 
-        public HitPoints HitPoints => hitPoints;
+        public int HitPoints => hitPoints;
 
         public string ArmorClass => armorClass;
 
@@ -162,7 +170,7 @@ namespace DnD.Code.Scripts.Characters
 
 
 
-
+        public int MaxHitPoints => this.HitPointDie.NumOfFaces * this.level + this.abilities[NameHelper.Abilities.Constitution].Modifier;
 
         
 
