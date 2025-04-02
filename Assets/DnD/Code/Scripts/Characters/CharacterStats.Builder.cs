@@ -24,8 +24,7 @@ namespace DnD.Code.Scripts.Characters
             public static readonly int DefaultLevel = 1;
             public static readonly int DefaultXp = 0;
             public static readonly int DefaultNumberOfLanguages = 3;
-            public static readonly int BaseProficiencyBonus = 2;
-
+            
             private string _name;
             private Class _class;
             private SubClass _subClass;
@@ -36,7 +35,6 @@ namespace DnD.Code.Scripts.Characters
             private List<Skill> _skillProficienciesFromClass = new ();
             private Equipment.StartingEquipment _startingEquipmentFromClass;
             private Equipment.StartingEquipment _startingEquipmentFromBackground;
-            //private Dictionary<Ability, AbilityStats> _abilityScores = new();
             private List<AbilityStats> _abilityStats = new();
             private HashSet<StandardLanguage> _languages = new();
             
@@ -112,17 +110,18 @@ namespace DnD.Code.Scripts.Characters
                 FileSystemHelper.EnsureFolderExists(PathHelper.CharacterStatsPath);
 
                 var fileName = $"{NameHelper.Naming.CharacterStats}.{this._name}.{Guid.NewGuid().ToString()}";
-                var characterStats = ScriptableObjectHelper.CreateScriptableObject<CharacterStats>(fileName, PathHelper.CharacterStatsPath);
-                
-                characterStats.characterName = this._name;
-                characterStats.@class = this._class;
-                characterStats.subClass = this._subClass;
-                characterStats.spex = this._spex;
-                characterStats.background = this._background;
-                characterStats.level = this._level;
-                characterStats.xp = this._xp;
-                characterStats.baseProficiencyBonus = BaseProficiencyBonus;
-                
+                //var characterStats = ScriptableObjectHelper.CreateScriptableObject<CharacterStats>(fileName, PathHelper.CharacterStatsPath);
+                var characterStats = new CharacterStats
+                {
+                    characterName = this._name,
+                    @class = this._class,
+                    subClass = this._subClass,
+                    spex = this._spex,
+                    background = this._background,
+                    level = this._level,
+                    xp = this._xp
+                };
+
                 foreach (var standardLanguage in this._languages)
                 {
                     characterStats.languages.Add(standardLanguage);
@@ -151,11 +150,18 @@ namespace DnD.Code.Scripts.Characters
                 foreach (var abilityStat in this._abilityStats)
                 {
                     abilityStat.SavingThrow = this._class.SavingThrowProficiencies.Contains(abilityStat.Ability);
+
+                    foreach (var skillProficiency in this._skillProficienciesFromClass.Union(this._background.SkillProficiencies).Where(x => x.Ability == abilityStat.Ability))
+                    {
+                        abilityStat.SkillProficiencies[skillProficiency.name] = new SkillStats()
+                        {
+                            Skill = skillProficiency,
+                        };
+                    }
                     characterStats.abilities.Add(abilityStat.Ability.name, abilityStat);
                 }
-                //characterStats.abilities = this._abilityScores;
                 
-                EditorUtility.SetDirty(characterStats);
+                //EditorUtility.SetDirty(characterStats);
                 
                 return characterStats;
             }
