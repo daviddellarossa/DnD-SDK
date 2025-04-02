@@ -161,7 +161,7 @@ namespace DnD.Code.Scripts.Characters
                     characterStats.abilities.Add(abilityStat.Ability.name, abilityStat);
                 }
                 
-                //EditorUtility.SetDirty(characterStats);
+                characterStats.hitPoints = characterStats.MaxHitPoints;
                 
                 return characterStats;
             }
@@ -231,26 +231,6 @@ namespace DnD.Code.Scripts.Characters
                 
                 return true;
             }
-
-            // public virtual bool CheckAbilityScores()
-            // {
-            //     var abilities = Helpers.ScriptableObjectHelper.GetAllScriptableObjects<Ability>(PathHelper.Abilities.AbilitiesPath);
-            //
-            //     foreach (var ability in abilities)
-            //     {
-            //         if (!this._abilityScores.ContainsKey(ability))
-            //         {
-            //             Debug.Log($"{nameof(Builder)}: Ability {ability.name} does not have a score for {this._name}");
-            //             return false;
-            //         }
-            //         
-            //         var abilityStats = this._abilityScores[ability];
-            //         
-            //         
-            //     }
-            //
-            //     return true;
-            // }
             
             public virtual bool CheckAbilityStats()
             {
@@ -358,7 +338,6 @@ namespace DnD.Code.Scripts.Characters
                     && CheckSkillProficienciesFromClass()
                     && CheckStartingEquipmentFromClass()
                     && CheckStartingEquipmentFromBackground()
-                    //&& CheckAbilityScores()
                     && CheckAbilityStats()
                     && CheckLanguages();
             }

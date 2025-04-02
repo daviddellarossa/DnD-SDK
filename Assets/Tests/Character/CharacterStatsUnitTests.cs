@@ -110,6 +110,22 @@ namespace Tests.Character
             return model.MaxHitPoints;
         }
 
+        [TestCaseSource(typeof(CharacterStatsTestData), nameof(CharacterStatsTestData.InitiativeTestData))]
+        public void Initiative_Should_Equal_DexterityModifier(int dexterityScore)
+        {
+            var model = new CharacterStats();
+            
+            var abilityStat = new AbilityStats()
+            {
+                Ability =  this._abilities.Single(x => x.name == NameHelper.Abilities.Dexterity),
+                Score = dexterityScore,
+            };
+            
+            model.Abilities[NameHelper.Abilities.Dexterity] = abilityStat;
+            
+            Assert.That(model.Initiative, Is.EqualTo(abilityStat.Modifier));
+        }
+
         private AbilityStats GetValidAbilityStats(Ability ability)
             =>_fixture
                 .Build<AbilityStats>()
@@ -250,6 +266,25 @@ namespace Tests.Character
                     classes.Single(x => x.name == NameHelper.Classes.Barbarian),
                     18,
                     19).Returns(220);
+            }
+        }
+
+        public static IEnumerable InitiativeTestData
+        {
+            get
+            {
+                yield return new TestCaseData(5);
+                yield return new TestCaseData(6);
+                yield return new TestCaseData(8);
+                yield return new TestCaseData(9);
+                yield return new TestCaseData(10);
+                yield return new TestCaseData(11);
+                yield return new TestCaseData(12);
+                yield return new TestCaseData(14);
+                yield return new TestCaseData(16);
+                yield return new TestCaseData(18);
+                yield return new TestCaseData(20);
+
             }
         }
     }

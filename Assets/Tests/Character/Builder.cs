@@ -563,6 +563,8 @@ namespace Tests.Character
             var currentLevel = @class.Levels.Single(lvl => lvl.LevelNum == CharacterStats.Builder.DefaultLevel);
             Assert.That(_instance.ClassFeatures, Is.EquivalentTo(currentLevel.ClassFeatures));
             Assert.That(_instance.ClassFeatureStats, Is.EqualTo(currentLevel.ClassFeatureStats));
+            
+            Assert.That(_instance.HitPoints, Is.EqualTo(_instance.MaxHitPoints));
         }
         
         private AbilityStats GetValidAbilityStats(Ability ability)
