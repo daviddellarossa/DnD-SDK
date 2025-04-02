@@ -21,5 +21,10 @@
         /// Step used in the calculation of Ability Modifier.
         /// </summary>
         public const int BaseScoreModifierStep = 2;
+
+        /// <summary>
+        /// Base value for calculating Armour Class
+        /// </summary>
+        public const int BaseArmourClass = 10;
     }
 }

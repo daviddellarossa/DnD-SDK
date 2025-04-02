@@ -125,6 +125,22 @@ namespace Tests.Character
             
             Assert.That(model.Initiative, Is.EqualTo(abilityStat.Modifier));
         }
+        
+        [TestCaseSource(typeof(CharacterStatsTestData), nameof(CharacterStatsTestData.InitiativeTestData))]
+        public void ArmourClass_Should_Return_CorrectValue(int dexterityScore)
+        {
+            var model = new CharacterStats();
+            
+            var abilityStat = new AbilityStats()
+            {
+                Ability =  this._abilities.Single(x => x.name == NameHelper.Abilities.Dexterity),
+                Score = dexterityScore,
+            };
+            
+            model.Abilities[NameHelper.Abilities.Dexterity] = abilityStat;
+            
+            Assert.That(model.ArmourClass, Is.EqualTo(abilityStat.Modifier + Constants.BaseArmourClass));
+        }
 
         private AbilityStats GetValidAbilityStats(Ability ability)
             =>_fixture

@@ -71,9 +71,6 @@ namespace DnD.Code.Scripts.Characters
         private int temporaryHitPoints;
         
         [SerializeField]
-        private string armorClass;
-        
-        [SerializeField]
         private DeathSaves deathSaves;
 
         [SerializeField]
@@ -127,8 +124,6 @@ namespace DnD.Code.Scripts.Characters
 
         public int HitPoints => hitPoints;
 
-        public string ArmorClass => armorClass;
-
         public DeathSaves DeathSaves => deathSaves;
         
         public Ability PrimaryAbility => this.@class.PrimaryAbility;
@@ -175,7 +170,7 @@ namespace DnD.Code.Scripts.Characters
 
         public int MaxHitPoints => this.HitPointDie.NumOfFaces * this.level + this.abilities[NameHelper.Abilities.Constitution].Modifier;
 
-        
+        public int ArmourClass => Constants.BaseArmourClass + this.abilities[NameHelper.Abilities.Dexterity].Modifier;
 
         // public Dictionary<CoinValue, int> Coins = new Dictionary<CoinValue, int>();
         //
@@ -217,10 +212,7 @@ namespace DnD.Code.Scripts.Characters
         //
         //     throw new NotImplementedException();
         // }
-        //
-        // public string PassivePerception;
-        //
-        // public string Initiative;
+
         //
         // [SerializeField]
         // public string WeaponsDamageCantrips;
