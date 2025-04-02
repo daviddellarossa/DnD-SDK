@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AutoFixture;
-using AutoFixture.Kernel;
 using AutoFixture.NUnit3;
 using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Backgrounds;
@@ -15,11 +14,7 @@ using DnD.Code.Scripts.Helpers.NameHelper;
 using DnD.Code.Scripts.Languages;
 using DnD.Code.Scripts.Species;
 using Moq;
-using Moq.Protected;
 using NUnit.Framework;
-using UnityEditor;
-using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Tests.Character
 {
@@ -121,10 +116,10 @@ namespace Tests.Character
         {
             if (_instance != null)
             {
-                var filePath = AssetDatabase.GetAssetPath(_instance);
-                Object.DestroyImmediate(_instance, true);
-                AssetDatabase.DeleteAsset(filePath);
-                AssetDatabase.Refresh();
+                // var filePath = AssetDatabase.GetAssetPath(_instance);
+                // Object.DestroyImmediate(_instance, true);
+                // AssetDatabase.DeleteAsset(filePath);
+                // AssetDatabase.Refresh();
             }
         }
         
@@ -258,28 +253,6 @@ namespace Tests.Character
         {
             Assert.That(_model.CheckSpex(), Is.False);
         }
-
-        // [Test]
-        // public void CheckAbilityScores_Should_Return_True_When_AbilityScores_Assigned()
-        // {
-        //     foreach (var ability in _abilities)
-        //     {
-        //         _model.SetAbilityStats(ability, _fixture.Create<int>());
-        //     }
-        //     
-        //     Assert.That(_model.CheckAbilityScores(),  Is.True);
-        // }
-
-        // [TestCaseSource(typeof(CharacterStatsBuilderTestData), nameof(CharacterStatsBuilderTestData.AbilityScoresMinusOneTestCases))]
-        // public void CheckAbilityScores_Should_Return_False_When_Any_AbilityScore_IsNot_Assigned(IEnumerable<Ability> abilities)
-        // {
-        //     foreach (var ability in abilities)
-        //     {
-        //         _model.SetAbilityStats(ability, _fixture.Create<int>());
-        //     }
-        //     
-        //     Assert.That(_model.CheckAbilityScores(), Is.False);
-        // }
         
         [Test]
         public void CheckAbilityStats_Should_Return_True_When_AbilityStats_Assigned()
@@ -315,6 +288,7 @@ namespace Tests.Character
                 .Build<AbilityStats>()
                 .With(x => x.Score, 0)
                 .With(x => x.Ability, excludedAbility)
+                .Without(x => x.SkillProficiencies)
                 .Create());
             
             Assert.That(_model.CheckAbilityStats(), Is.False);
@@ -469,7 +443,6 @@ namespace Tests.Character
             modelMock.Setup(x => x.CheckSubClass()).Returns(checkData.CheckSubClassResult);
             modelMock.Setup(x => x.CheckBackground()).Returns(checkData.CheckBackgroundResult);
             modelMock.Setup(x => x.CheckSpex()).Returns(checkData.CheckSpexResult);
-            //modelMock.Setup(x => x.CheckAbilityScores()).Returns(checkData.CheckAbilityScoresResult);
             modelMock.Setup(x => x.CheckAbilityStats()).Returns(checkData.CheckAbilityStatsResult);
             modelMock.Setup(x => x.CheckSkillProficienciesFromClass()).Returns(checkData.CheckSkillProficienciesFromClassResult);
             modelMock.Setup(x => x.CheckStartingEquipmentFromClass()).Returns(checkData.CheckStartingEquipmentFromClassResult);
@@ -567,7 +540,6 @@ namespace Tests.Character
             Assert.That(_instance.Background, Is.EqualTo(background));
             Assert.That(_instance.Level, Is.EqualTo(CharacterStats.Builder.DefaultLevel));
             Assert.That(_instance.Xp, Is.EqualTo(CharacterStats.Builder.DefaultXp));
-            Assert.That(_instance.ProficiencyBonus, Is.EqualTo(CharacterStats.Builder.BaseProficiencyBonus));
             
             Assert.That(_instance.ArmorTraining, Is.SupersetOf(@class.ArmourTraining));
             Assert.That(_instance.WeaponProficiencies, Is.SupersetOf(@class.WeaponProficiencies));
@@ -581,6 +553,9 @@ namespace Tests.Character
             foreach (var ability in abilityStats)
             {
                 Assert.That(_instance.Abilities[ability.Ability.name].SavingThrow, Is.EqualTo(@class.SavingThrowProficiencies.Contains(ability.Ability)));
+                Assert.That(
+                    _instance.Abilities[ability.Ability.name].SkillProficiencies.Select(x =>x.Value.Skill), 
+                    Is.EquivalentTo(_instance.SkillProficiencies.Where(x => x.Ability == ability.Ability)));
             };
             
             Assert.That(_instance.Languages, Is.EquivalentTo(languages));
@@ -595,6 +570,7 @@ namespace Tests.Character
                 .Build<AbilityStats>()
                 .With(x => x.Score,  _fixture.Create<int>() % 20 + 1)
                 .With(x => x.Ability, ability)
+                .Without(x => x.SkillProficiencies)
                 .Create();
     }
     

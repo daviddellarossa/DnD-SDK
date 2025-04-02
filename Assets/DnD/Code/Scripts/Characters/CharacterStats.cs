@@ -9,6 +9,7 @@ using DnD.Code.Scripts.Classes.FeatureProperties;
 using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Equipment;
 using DnD.Code.Scripts.Feats;
+using DnD.Code.Scripts.Helpers.NameHelper;
 using DnD.Code.Scripts.Languages;
 using DnD.Code.Scripts.Species;
 using DnD.Code.Scripts.Species.SpecialTraits;
@@ -19,11 +20,8 @@ using UnityEngine.Serialization;
 
 namespace DnD.Code.Scripts.Characters
 {
-    public partial class CharacterStats : ScriptableObject
+    public partial class CharacterStats
     {
-        [SerializeField]
-        private int baseProficiencyBonus = 2;
-        
         [SerializeField]
         private string characterName;
         
@@ -98,7 +96,7 @@ namespace DnD.Code.Scripts.Characters
 
         public int Xp => xp;
         
-        public int ProficiencyBonus => baseProficiencyBonus + (this.level - 1) / 4;
+        public int ProficiencyBonus => Constants.BaseProficiencyBonus + (this.level - 1) / 4;
         
         public IDictionary<string, AbilityStats> Abilities => abilities;
         
@@ -151,20 +149,23 @@ namespace DnD.Code.Scripts.Characters
             set => classFeatures = value;
         }
 
-        // TODO: to implement PassivePerception, I need to fetch the AbilityStats first. Task: DnD #9
-        // public int PassivePerception =>
-        //     10 + this.abilities[]
+        public int PassivePerception
+        {
+            get
+            {
+                var abilityStats = this.abilities[NameHelper.Abilities.Wisdom];
+                return Constants.BasePassivePerception
+                       + abilityStats.Modifier
+                       + (abilityStats.SkillProficiencies.ContainsKey(NameHelper.Skills.Perception) ? this.ProficiencyBonus : 0);
+            }
+        }
+
+
+
+
 
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         // public Dictionary<CoinValue, int> Coins = new Dictionary<CoinValue, int>();
         //
         // public List<TypeTrait> SpeciesTraits = new List<TypeTrait>();

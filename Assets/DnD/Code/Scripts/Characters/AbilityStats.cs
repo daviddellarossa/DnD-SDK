@@ -8,13 +8,16 @@ namespace DnD.Code.Scripts.Characters
     [Serializable]
     public class AbilityStats
     {
+        [SerializeField]
         private Ability ability;
 
+        [SerializeField]
         private int score;
         
+        [SerializeField]
         private bool savingThrow;
 
-        //public Dictionary<Skill, Proficiency<Skill>> SkillProficiencies = new Dictionary<Skill, Proficiency<Skill>>();
+        private Dictionary<string, SkillStats> skillProficiencies = new ();
 
         public Ability Ability
         {
@@ -28,12 +31,18 @@ namespace DnD.Code.Scripts.Characters
             set => score = value;
         }
         
-        public int Modifier => Mathf.FloorToInt((score - 10) / 2f);
+        public int Modifier => Mathf.FloorToInt((score - Constants.BaseScoreModifierThreshold) /  (float)Constants.BaseScoreModifierStep);
 
         public bool SavingThrow
         {
             get => savingThrow;
             set => savingThrow = value;
+        }
+
+        public Dictionary<string, SkillStats> SkillProficiencies
+        {
+            get => skillProficiencies;
+            set => skillProficiencies = value;
         }
     }
 }
