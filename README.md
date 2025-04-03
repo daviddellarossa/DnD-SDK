@@ -32,6 +32,8 @@ It is **not** meant to be a full game or a finished toolset, but rather a **lear
 This SDK's **code** is licensed under the [MIT License](LICENSE).  
 You may use, modify, and redistribute it freely, provided proper attribution is given.
 
+If you use this SDK in your own project, please consider crediting the author — it helps support and recognize the work behind it.
+
 ### Game Content License
 
 This project reuses elements from the *System Reference Document (SRD) 5.1*, which is available under the  
