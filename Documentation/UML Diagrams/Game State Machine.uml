@@ -1,0 +1,9 @@
+@startuml
+[*] --> MainMenu: StartGame
+MainMenu--> CharacterBuild: NewGame
+MainMenu--> SelectGame : ContinueGame
+CharacterBuild--> Play : CharacterBuilt
+SelectGame --> Play: GameSelected
+Play--> MainMenu : BackToMainmenu
+MainMenu--> [*] : QuitGame
+@enduml
