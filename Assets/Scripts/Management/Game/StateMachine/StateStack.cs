@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 
-namespace GameManagement.StateMachine
+namespace Management.Game.StateMachine
 {
     /// <summary>
     /// This is a Stack for states.
@@ -27,13 +26,13 @@ namespace GameManagement.StateMachine
         protected IStack<GameManagerCore.State> Stack = new Stack<GameManagerCore.State>();
 
         /// <summary>
-        /// Expose the Peek method from the stack instance.  <see cref="Stack{T}.Peek(T)"></see>
+        /// Expose the Peek method from the stack instance.  <see cref="Management.Game.StateMachine.Stack{T}.Peek(T)"></see>
         /// </summary>
         /// <returns></returns>
         public virtual GameManagerCore.State Peek() => Stack.Peek();
 
         /// <summary>
-        /// Decorator for the Pop method of the stack instance.  <see cref="Stack{T}.Pop(T)"></see>
+        /// Decorator for the Pop method of the stack instance.  <see cref="Management.Game.StateMachine.Stack{T}.Pop(T)"></see>
         /// </summary>
         /// <returns></returns>
         public virtual GameManagerCore.State Pop()
@@ -53,10 +52,10 @@ namespace GameManagement.StateMachine
         }
 
         /// <summary>
-        /// Decorator for the Push method of the stack instance. <see cref="Stack{T}.Push(T)"></see>
+        /// Decorator for the Push method of the stack instance. <see cref="Management.Game.StateMachine.Stack{T}.Push(T)"></see>
         /// </summary>
         /// <param name="state">New state to push into the stack</param>
-        public virtual void Push(GameManagerCore.State state)
+        public virtual void Push(Management.Game.GameManagerCore.State state)
         {
             if (Stack.Count > 0)
             {
@@ -86,12 +85,12 @@ namespace GameManagement.StateMachine
         /// Raise a PoppingStateEvent
         /// </summary>
         /// <param name="state">The Event popped</param>
-        protected void RaisePoppingStateEvent(GameManagerCore.State state) => PoppingStateEvent?.Invoke(this, state);
+        protected void RaisePoppingStateEvent(Management.Game.GameManagerCore.State state) => PoppingStateEvent?.Invoke(this, state);
 
         /// <summary>
         /// Raise a PushingStateEvent
         /// </summary>
         /// <param name="state">The event pushed</param>
-        protected void RaisePushingStateEvent(GameManagerCore.State state) => PushingStateEvent?.Invoke(this, state);
+        protected void RaisePushingStateEvent(Management.Game.GameManagerCore.State state) => PushingStateEvent?.Invoke(this, state);
     }
 }

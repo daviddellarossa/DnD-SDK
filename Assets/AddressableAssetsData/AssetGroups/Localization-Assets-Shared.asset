@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9ab995ff8837ed489ea6ae1229db2ca
+    m_Address: Assets/DnD/Localization/CharacterUI Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 9dc79a5f458ec9c41965ee3f03643800, type: 2}
   m_SchemaSet:

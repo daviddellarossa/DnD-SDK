@@ -1,10 +1,8 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using SceneManager = SceneManagement.SceneManager;
+using Scene_SceneManager = Management.Scene.SceneManager;
 
-namespace GameManagement
+namespace Management.Game
 {
-    public class GameManager : SceneManager
+    public class GameManager : Scene_SceneManager
     {
         public GameManagerCore Core { get; protected set; }
         

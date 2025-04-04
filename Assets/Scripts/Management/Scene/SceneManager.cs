@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SceneManagement
+namespace Management.Scene
 {
     public abstract class SceneManager : MonoBehaviour
     {

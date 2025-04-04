@@ -1,4 +1,4 @@
-namespace GameManagement.StateMachine
+namespace Management.Game.StateMachine
 {
     public class StateFactory : IStateFactory
     {
@@ -9,7 +9,7 @@ namespace GameManagement.StateMachine
         // public GameManagerCore.PlayState PlayState { get; }
         // public GameManagerCore.PreRollState PreRollState { get; }
         // public GameManagerCore.QuitState QuitState { get; }
-        public GameManagerCore.SampleSceneState SampleSceneState { get; }
+        public GameManagerCore.MainMenuState MainMenuState { get; }
 
         public StateFactory(GameManagerCore gameManagerCore)
         {
@@ -20,7 +20,7 @@ namespace GameManagement.StateMachine
             // this.PlayState = new GameManagerCore.PlayState(gameManagerCore);
             // this.PreRollState = new GameManagerCore.PreRollState(gameManagerCore);
             // this.QuitState = new GameManagerCore.QuitState(gameManagerCore);
-            this.SampleSceneState = new GameManagerCore.SampleSceneState(gameManagerCore);
+            this.MainMenuState = new GameManagerCore.MainMenuState(gameManagerCore);
         }
     }
 }

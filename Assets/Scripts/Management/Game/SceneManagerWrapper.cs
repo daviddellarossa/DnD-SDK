@@ -1,31 +1,31 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace GameManagement
+namespace Management.Game
 {
-    public delegate void SceneLoadedEventArgs(Scene scene, LoadSceneMode loadSceneMode);
-    public delegate void SceneUnloadedEventArgs(Scene scene);
+    public delegate void SceneLoadedEventArgs(UnityEngine.SceneManagement.Scene scene, LoadSceneMode loadSceneMode);
+    public delegate void SceneUnloadedEventArgs(UnityEngine.SceneManagement.Scene scene);
     
-    public class UnitySceneManagerWrapper
+    public class SceneManagerWrapper
     {
         public event SceneLoadedEventArgs SceneLoaded;
         public event SceneUnloadedEventArgs SceneUnloaded;
         
-        private static UnitySceneManagerWrapper _instance;
+        private static SceneManagerWrapper _instance;
         
-        public static UnitySceneManagerWrapper Instance
+        public static SceneManagerWrapper Instance
         {
             get
             {
                 if (_instance == null)
                 {
-                    _instance = new UnitySceneManagerWrapper();
+                    _instance = new SceneManagerWrapper();
                 }
                 return _instance;
             }
         }
         
-        private UnitySceneManagerWrapper()
+        private SceneManagerWrapper()
         {
             SceneManager.sceneLoaded += (scene, mode) => SceneLoaded?.Invoke(scene, mode);
             SceneManager.sceneUnloaded += scene => SceneUnloaded?.Invoke(scene);

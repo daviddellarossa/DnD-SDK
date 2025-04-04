@@ -1,8 +1,7 @@
-using GameManagement.StateMachine;
-using UnityEngine;
+using Management.Game.StateMachine;
 using UnityEngine.SceneManagement;
 
-namespace GameManagement
+namespace Management.Game
 {
     public partial class GameManagerCore
     {
@@ -12,11 +11,11 @@ namespace GameManagement
             
             stateFactory = new StateFactory(this);
 
-            sceneManagerWrapper = UnitySceneManagerWrapper.Instance;
+            sceneManagerWrapper = SceneManagerWrapper.Instance;
         }
 
         internal readonly GameManager Parent;
-        private readonly UnitySceneManagerWrapper sceneManagerWrapper;
+        private readonly SceneManagerWrapper sceneManagerWrapper;
         
         private readonly StateStack stateStack = new ();
 
@@ -45,7 +44,7 @@ namespace GameManagement
             sceneManagerWrapper.SceneLoaded += SceneLoaded;
             sceneManagerWrapper.SceneUnloaded += SceneUnloaded;
 
-            PushState(stateFactory.SampleSceneState);
+            PushState(stateFactory.MainMenuState);
         }
         
         protected virtual void StateStack_PushingStateEvent(object sender, GameManagerCore.State state)
@@ -56,7 +55,7 @@ namespace GameManagement
         {
         }
 
-        private void SceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+        private void SceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode loadSceneMode)
         {
             var currentState = stateStack.Peek();
             if (currentState == null)
@@ -67,7 +66,7 @@ namespace GameManagement
 
         }
 
-        private void SceneUnloaded(Scene scene)
+        private void SceneUnloaded(UnityEngine.SceneManagement.Scene scene)
         {
             var currentState = stateStack.Peek();
             if (currentState == null)
@@ -80,14 +79,14 @@ namespace GameManagement
         
         #region Handler methods for StateStack
 
-        protected virtual void ReplaceState(State state)
+        protected virtual void ReplaceState(GameManagerCore.State state)
         {
             PopState();
 
             PushState(state);
         }
 
-        protected virtual void PushState(State state)
+        protected virtual void PushState(GameManagerCore.State state)
         {
             stateStack.Push(state);
         }

@@ -1,4 +1,4 @@
-﻿namespace GameManagement.StateMachine
+﻿namespace Management.Game.StateMachine
 {
     internal interface IStateFactory
     {
@@ -9,6 +9,6 @@
         // GameManagerCore.PlayState PlayState { get; }
         // GameManagerCore.PreRollState PreRollState { get; }
         // GameManagerCore.QuitState QuitState { get; }
-        GameManagerCore.SampleSceneState SampleSceneState { get; }
+        Management.Game.GameManagerCore.MainMenuState MainMenuState { get; }
     }
 }

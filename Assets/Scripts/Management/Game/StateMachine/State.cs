@@ -1,19 +1,19 @@
 ﻿using System;
 using UnityEngine.SceneManagement;
 
-namespace GameManagement
+namespace Management.Game
 {
     partial class GameManagerCore
     {
         [Serializable]
         public abstract class State
         {
-            public GameManagerCore Core { get; private set; }
+            public Management.Game.GameManagerCore Core { get; private set; }
 
             public StateStateEnum StateState { get; protected set; } = StateStateEnum.NotInStack;
 
 
-            protected State(GameManagerCore core)
+            protected State(Management.Game.GameManagerCore core)
             {
                 this.Core = core;
             }
@@ -38,11 +38,11 @@ namespace GameManagement
                 StateState = StateStateEnum.InStack;
             }
 
-            public virtual void SceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+            public virtual void SceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode loadSceneMode)
             {
             }
 
-            public virtual void SceneUnloaded(Scene scene)
+            public virtual void SceneUnloaded(UnityEngine.SceneManagement.Scene scene)
             {
             }
 

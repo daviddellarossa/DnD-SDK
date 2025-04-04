@@ -1,4 +1,4 @@
-﻿namespace GameManagement.StateMachine
+﻿namespace Management.Game.StateMachine
 {
     /// <summary>
     /// Bridge pattern is applied here to decouple the code from the actual implementation of the Stack class.

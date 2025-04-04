@@ -1,4 +1,4 @@
-﻿namespace GameManagement.StateMachine
+﻿namespace Management.Game.StateMachine
 {
     public interface IStack<T>
     {

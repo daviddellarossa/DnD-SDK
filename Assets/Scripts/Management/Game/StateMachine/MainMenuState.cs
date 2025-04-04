@@ -1,17 +1,19 @@
-﻿using UnityEngine.SceneManagement;
+﻿// ReSharper disable once CheckNamespace
+
+using UnityEngine.SceneManagement;
 
 // ReSharper disable once CheckNamespace
-namespace GameManagement
+namespace Management.Game
 {
     public partial class GameManagerCore
     {
-        public class SampleSceneState : State
+        public class MainMenuState : GameManagerCore.State
         {
             private readonly string sceneName = "MainMenu";
 
             //protected IPreRollManager _menuManager;
 
-            internal SampleSceneState(GameManagerCore core) : base(core)
+            internal MainMenuState(Management.Game.GameManagerCore core) : base(core)
             {
             }
 
@@ -37,7 +39,7 @@ namespace GameManagement
             // }
 
 
-            public override void SceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+            public override void SceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode loadSceneMode)
             {
                 // _menuManager = GetMenuManagerFromScene(scene);
                 // if (_menuManager == null)
