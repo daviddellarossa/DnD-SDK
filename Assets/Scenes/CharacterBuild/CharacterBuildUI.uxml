@@ -1,0 +1,7 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:Label text="Label">
+        <Bindings>
+            <UnityEngine.Localization.LocalizedString property="text" table="GUID:b9ab995ff8837ed489ea6ae1229db2ca" entry="Id(86774898688)" />
+        </Bindings>
+    </engine:Label>
+</engine:UXML>

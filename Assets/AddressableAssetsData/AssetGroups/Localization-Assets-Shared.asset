@@ -15,8 +15,18 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-Shared
   m_GUID: 21b464d8d711d3142b7055a81bbd417c
   m_SerializeEntries:
+  - m_GUID: 1e98efcaa7b18d5438d0d8117b7cc674
+    m_Address: Assets/Menus Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4302cb2128077c94e87d49e847df4181
     m_Address: Assets/DnD/Localization/GameTexts Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9ab995ff8837ed489ea6ae1229db2ca
+    m_Address: Assets/DnD/Localization/CharacterUI Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
