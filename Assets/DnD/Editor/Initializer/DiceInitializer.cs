@@ -11,8 +11,6 @@ namespace DnD.Editor.Initializer
 {
     public static class DiceInitializer
     {
-        // public static readonly string PathHelper.DicePath = $"{Common.FolderPath}/{NameHelper.Naming.Dice}";
-
         public static Die[] GetAllDice()
         {
             return ScriptableObjectHelper.GetAllScriptableObjects<Die>(PathHelper.DicePath);

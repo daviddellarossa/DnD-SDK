@@ -36,7 +36,7 @@ namespace DnD.Editor.Initializer
                 Debug.LogException(e);
             }
             
-            Debug.Log("Game Data initialized successfully");
+            Debug.Log("Game Data initialization completed");
         }
 
     }
