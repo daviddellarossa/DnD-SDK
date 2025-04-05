@@ -17,8 +17,6 @@ namespace Management.Menus.Main
 
             Core.OnAwake();
             
-            
-            
             uiDocument = gameObject.GetComponent<UIDocument>();
 
             if (uiDocument != null)

@@ -63,7 +63,7 @@ namespace MessageBroker.Editor
                     }
                     
                     {
-                        var messageName = "GameStart";
+                        var messageName = "GameStarted";
                         var message = ScriptableObjectHelper.CreateScriptableObject<Message>(messageName, MessagesPath);
                         message.MessageName = messageName;
                         message.MessageCategory = MessagesCategory;

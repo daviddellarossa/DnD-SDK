@@ -34,7 +34,7 @@ namespace Management.Game
         
         void OnDestroy()
         {
-            //UnRegisterMessageBrokerHandlers();
+            UnRegisterMessageBrokerHandlers();
         }
         
         private void RegisterMessageBrokerHandlers()

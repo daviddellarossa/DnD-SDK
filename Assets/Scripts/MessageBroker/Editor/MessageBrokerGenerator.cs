@@ -45,7 +45,7 @@ namespace MessageBroker.Editor
                 var messageBrokerCategoryGenerator = new MessageBrokerCategoryGenerator(messageInfos);
                 messageBrokerCategoryGenerator.Generate();
 
-                var messageBrokerInterfaceGenerator = new MessageBrokerGenerator.MessageBrokerInterfaceGenerator(messageInfos);
+                var messageBrokerInterfaceGenerator = new MessageBrokerInterfaceGenerator(messageInfos);
                 messageBrokerInterfaceGenerator.Generate();
 
                 var messageBrokerCommonGenerator = new MessageBrokerCommonGenerator(messageInfos);
