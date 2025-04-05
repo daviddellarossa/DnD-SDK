@@ -1,0 +1,9 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/MessageBroker/Editor/MessageBrokerGeneratorUI.uss?fileID=7433441132597879392&amp;guid=96225bda03488624aa236f98ad7c9b10&amp;type=3#MessageBrokerGeneratorUI" />
+    <engine:Label text="Message Broker Generator" class="custom-label" />
+    <engine:TextField label="Namespace" placeholder-text="DeeDeeR.MessageBroker" name="txtNamespace" value="DeeDeeR.MessageBroker" />
+    <engine:TextField label="Output Folder" placeholder-text="Assets/Scripts/MessageBroker" name="txtOutputFolder" value="Assets/Scripts/MessageBroker" />
+    <engine:TextField label="Category Prefix" placeholder-text="MB" name="txtCategoryPrefix" value="MB" />
+    <engine:TextField label="Default Category Name" placeholder-text="UnnamedCategory" name="txtDefaultCategoryName" value="UnnamedCategory" />
+    <engine:Button text="Start" name="btnStart" />
+</engine:UXML>
