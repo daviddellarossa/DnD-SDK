@@ -79,7 +79,7 @@ namespace MessageBroker.Editor
                 stringBuilder.AppendLine($"{Indent.Get()}/// <summary>");
                 stringBuilder.AppendLine($"{Indent.Get()}/// Interface for the Message Broker component.");
                 stringBuilder.AppendLine($"{Indent.Get()}/// </summary>");
-                stringBuilder.AppendLine($"{Indent.Get()}public interface I{ClassName}");
+                stringBuilder.AppendLine($"{Indent.Get()}public partial interface I{ClassName}");
                 stringBuilder.AppendLine($"{Indent.Get()}{{");
             }
 

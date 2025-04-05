@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5805e57f46109de4c81d11b5013eba85, type: 3}
   m_Name: StartGame
   m_EditorClassIdentifier: 
-  messageName: 
-  messageCategory: 
+  messageName: StartGame
+  messageCategory: Menus
   sendMethodComment: 
   eventComment: 
   inputParameters: []

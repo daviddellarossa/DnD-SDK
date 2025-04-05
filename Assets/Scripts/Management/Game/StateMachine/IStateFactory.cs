@@ -9,6 +9,7 @@
         // GameManagerCore.PlayState PlayState { get; }
         // GameManagerCore.PreRollState PreRollState { get; }
         // GameManagerCore.QuitState QuitState { get; }
-        Management.Game.GameManagerCore.MainMenuState MainMenuState { get; }
+        GameManagerCore.MainMenuState MainMenuState { get; }
+        GameManagerCore.CharacterBuildState CharacterBuildState { get; }
     }
 }

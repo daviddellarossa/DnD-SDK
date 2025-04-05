@@ -10,6 +10,7 @@ namespace Management.Game.StateMachine
         // public GameManagerCore.PreRollState PreRollState { get; }
         // public GameManagerCore.QuitState QuitState { get; }
         public GameManagerCore.MainMenuState MainMenuState { get; }
+        public GameManagerCore.CharacterBuildState CharacterBuildState { get; }
 
         public StateFactory(GameManagerCore gameManagerCore)
         {
@@ -21,6 +22,8 @@ namespace Management.Game.StateMachine
             // this.PreRollState = new GameManagerCore.PreRollState(gameManagerCore);
             // this.QuitState = new GameManagerCore.QuitState(gameManagerCore);
             this.MainMenuState = new GameManagerCore.MainMenuState(gameManagerCore);
+            this.CharacterBuildState = new GameManagerCore.CharacterBuildState(gameManagerCore);
+
         }
     }
 }

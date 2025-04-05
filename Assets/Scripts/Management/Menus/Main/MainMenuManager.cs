@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Management.Game;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Management.Menus.Main
@@ -53,7 +54,7 @@ namespace Management.Menus.Main
         {
             Debug.Log("New Game Clicked!");
             // Implement your game logic here
-            this.StartGame();
+            DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.Send_StartGame(this, nameof(GameManager));
         }
 
     }

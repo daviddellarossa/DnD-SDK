@@ -1,39 +1,36 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class MainMenu : MonoBehaviour
+namespace Scenes.Menus
 {
-    private UIDocument uiDocument;
-    private Button btnNewGame;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    public class MainMenu : MonoBehaviour
     {
-        uiDocument = GetComponent<UIDocument>();
+        private UIDocument uiDocument;
+        private Button btnNewGame;
 
-        if (uiDocument != null)
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        void Awake()
         {
-            var root = uiDocument.rootVisualElement;
+            uiDocument = GetComponent<UIDocument>();
 
-            // Get a reference to the button by name (from UXML)
-            btnNewGame = root.Q<Button>("btnNewGame"); // Must match the name in UXML
-
-            if (btnNewGame != null)
+            if (uiDocument != null)
             {
-                btnNewGame.clicked += OnNewGameClicked;
+                var root = uiDocument.rootVisualElement;
+
+                // Get a reference to the button by name (from UXML)
+                btnNewGame = root.Q<Button>("btnNewGame"); // Must match the name in UXML
+
+                if (btnNewGame != null)
+                {
+                    btnNewGame.clicked += OnNewGameClicked;
+                }
             }
         }
-    }
-    
-    private void OnNewGameClicked()
-    {
-        Debug.Log("New Game Clicked!");
-        // Implement your game logic here
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void OnNewGameClicked()
+        {
+            Debug.Log("New Game Clicked!");
+            // Implement your game logic here
+        }
     }
 }

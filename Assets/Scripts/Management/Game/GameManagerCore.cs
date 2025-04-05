@@ -97,5 +97,10 @@ namespace Management.Game
         }
 
         #endregion
+        
+        public void StartGame_EventHandler(object sender, object target)
+        {
+            ReplaceState(stateFactory.CharacterBuildState);
+        }
     }
 }
