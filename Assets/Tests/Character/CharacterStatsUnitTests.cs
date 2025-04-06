@@ -6,9 +6,9 @@ using DnD.Code.Scripts;
 using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Characters;
 using DnD.Code.Scripts.Classes;
-using DnD.Code.Scripts.Helpers;
 using DnD.Code.Scripts.Helpers.NameHelper;
 using DnD.Code.Scripts.Helpers.PathHelper;
+using Infrastructure.Helpers;
 using Moq;
 using NUnit.Framework;
 

@@ -1,13 +1,10 @@
 ﻿using DnD.Code.Scripts.Abilities;
-using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Feats;
-using DnD.Code.Scripts.Helpers;
 using DnD.Code.Scripts.Helpers.PathHelper;
 using DnD.Code.Scripts.Species;
 using DnD.Code.Scripts.Species.SpecialTraits;
-using Unity.VisualScripting;
+using Infrastructure.Helpers;
 using UnityEditor;
-using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
 
 namespace DnD.Editor.Initializer
 {

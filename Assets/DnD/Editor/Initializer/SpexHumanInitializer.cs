@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using DnD.Code.Scripts.Feats;
-using DnD.Code.Scripts.Helpers;
 using DnD.Code.Scripts.Helpers.PathHelper;
 using DnD.Code.Scripts.Species;
 using DnD.Code.Scripts.Species.SpecialTraits;
 using DnD.Code.Scripts.Species.SpecialTraits.TraitTypes;
+using Infrastructure.Helpers;
 using UnityEditor;
 using UnityEngine;
 using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;

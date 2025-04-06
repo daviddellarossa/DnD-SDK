@@ -1,7 +1,8 @@
 {
-    "name": "DnD",
+    "name": "DnD.Editor",
     "rootNamespace": "",
     "references": [
+        "GUID:928119c26d7f9783992a0bc4da0e65a8",
         "GUID:8132b7426762da041989c533cf601af4",
         "GUID:5f4fd5d8be326c34b8f69ab1f1147223"
     ],
