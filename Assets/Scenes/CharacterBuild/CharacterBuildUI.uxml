@@ -4,4 +4,6 @@
             <UnityEngine.Localization.LocalizedString property="text" table="GUID:b9ab995ff8837ed489ea6ae1229db2ca" entry="Id(86774898688)" />
         </Bindings>
     </engine:Label>
+    <engine:TextField label="Character Name" placeholder-text="filler text" name="txtCharacterName" />
+    <engine:DropdownField label="Species" name="ddfSpecies" />
 </engine:UXML>

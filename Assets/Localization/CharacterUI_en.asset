@@ -10,16 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: CharacterUI_it
+  m_Name: CharacterUI_en
   m_EditorClassIdentifier: 
   m_LocaleId:
-    m_Code: it
+    m_Code: en
   m_SharedData: {fileID: 11400000, guid: b9ab995ff8837ed489ea6ae1229db2ca, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
   - m_Id: 86774898688
-    m_Localized: Costruisci il tuo personaggio
+    m_Localized: Build your character
+    m_Metadata:
+      m_Items: []
+  - m_Id: 522478672666624
+    m_Localized: Character name
     m_Metadata:
       m_Items: []
   references:
