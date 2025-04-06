@@ -4,16 +4,16 @@ using UnityEngine.UIElements;
 
 namespace Management.Menus.Main
 {
-    public class MainMenuManager : MenuManager
+    public class MainMenuSceneManager : MenuManager
     {
-        public MainMenuManagerCore Core { get; protected set; }
+        public MainMenuSceneManagerCore Core { get; protected set; }
         
         private UIDocument uiDocument;
         private Button btnNewGame;
         
         void Awake()
         {
-            Core = new MainMenuManagerCore(this);
+            Core = new MainMenuSceneManagerCore(this);
 
             Core.OnAwake();
             

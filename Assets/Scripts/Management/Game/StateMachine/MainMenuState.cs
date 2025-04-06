@@ -9,7 +9,7 @@ namespace Management.Game
     {
         public class MainMenuState : GameManagerCore.State
         {
-            private readonly string sceneName = "MainMenu";
+            private readonly string sceneName = "MainMenuScene";
 
             //protected IPreRollManager _menuManager;
 

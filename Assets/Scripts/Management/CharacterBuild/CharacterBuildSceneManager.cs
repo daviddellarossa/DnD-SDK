@@ -2,7 +2,7 @@
 
 namespace Management.CharacterBuild
 {
-    public class CharacterBuildManager : MonoBehaviour
+    public class CharacterBuildSceneManager : MonoBehaviour
     {
         
     }

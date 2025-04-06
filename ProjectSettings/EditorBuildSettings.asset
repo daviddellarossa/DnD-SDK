@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Persistent/MainScene.unity
     guid: d758635f0cb6f2c4087d48b447cad11c
   - enabled: 1
-    path: Assets/Scenes/Menus/MainMenu.unity
+    path: Assets/Scenes/Menus/MainMenuScene.unity
     guid: 19608b632712e374e8673119ba0351ab
   - enabled: 1
-    path: Assets/Scenes/CharacterBuild/CharacterBuild.unity
+    path: Assets/Scenes/CharacterBuild/CharacterBuildScene.unity
     guid: 4861b7dd3092e884285c312bd8a642f5
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 93e2b21221c18c647a1ae3e32842ed1a, type: 2}

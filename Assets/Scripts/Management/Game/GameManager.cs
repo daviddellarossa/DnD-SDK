@@ -56,7 +56,7 @@ namespace Management.Game
             }
             else
             {
-                Debug.LogWarning("MessageBroker instance is null");
+                Debug.LogError("MessageBroker instance is null");
             }
         }
 
