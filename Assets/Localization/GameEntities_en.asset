@@ -558,6 +558,10 @@ MonoBehaviour:
     m_Localized: Silver Piece
     m_Metadata:
       m_Items: []
+  - m_Id: 9271684715503616
+    m_Localized: Species
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

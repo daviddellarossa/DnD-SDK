@@ -20,7 +20,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 522478672666624
-    m_Key: UI.CharacterBuild.CharacterName
+    m_Key: UI.CharacterBuild.CharacterName.Label
+    m_Metadata:
+      m_Items: []
+  - m_Id: 573590175997952
+    m_Key: UI.CharacterBuild.Species.Label
     m_Metadata:
       m_Items: []
   m_Metadata:

@@ -22,6 +22,50 @@ MonoBehaviour:
     m_Localized: 
     m_Metadata:
       m_Items: []
+  - m_Id: 132852099309568
+    m_Localized: Umano
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132837339553792
+    m_Localized: Halfling
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132823808729088
+    m_Localized: Goliath
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132807341891584
+    m_Localized: Gnomo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132793609740288
+    m_Localized: Elfo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132777998540800
+    m_Localized: Nano
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132753101152256
+    m_Localized: Dragonborn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132722868609024
+    m_Localized: Aasimar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132869425979392
+    m_Localized: Orco
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132883128770560
+    m_Localized: Tiefling
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9271684715503616
+    m_Localized: Specie
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

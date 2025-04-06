@@ -6,4 +6,5 @@
     </engine:Label>
     <engine:TextField label="Character Name" placeholder-text="filler text" name="txtCharacterName" />
     <engine:DropdownField label="Species" name="ddfSpecies" />
+    <engine:DropdownField label="Class" name="ddfClasses" />
 </engine:UXML>

@@ -559,6 +559,10 @@ MonoBehaviour:
     m_Key: CoinValues.SilverPiece
     m_Metadata:
       m_Items: []
+  - m_Id: 9271684715503616
+    m_Key: Species
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

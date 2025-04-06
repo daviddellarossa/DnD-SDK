@@ -26,6 +26,10 @@ MonoBehaviour:
     m_Localized: Nome del personaggio
     m_Metadata:
       m_Items: []
+  - m_Id: 573590175997952
+    m_Localized: Specie
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
