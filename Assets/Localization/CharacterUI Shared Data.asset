@@ -19,12 +19,36 @@ MonoBehaviour:
     m_Key: UI.CharacterBuild.Title
     m_Metadata:
       m_Items: []
-  - m_Id: 522478672666624
-    m_Key: UI.CharacterBuild.CharacterName.Label
+  - m_Id: 674781115441152
+    m_Key: UI.CharacterBuild.SubClasses.Label
+    m_Metadata:
+      m_Items: []
+  - m_Id: 688592610385920
+    m_Key: UI.CharacterBuild.StartingEquipmentFromClass.Label
+    m_Metadata:
+      m_Items: []
+  - m_Id: 688744565825536
+    m_Key: UI.CharacterBuild.StartingEquipmentFromBackground.Label
     m_Metadata:
       m_Items: []
   - m_Id: 573590175997952
     m_Key: UI.CharacterBuild.Species.Label
+    m_Metadata:
+      m_Items: []
+  - m_Id: 688351756673024
+    m_Key: UI.CharacterBuild.SkillProficiencies.Label
+    m_Metadata:
+      m_Items: []
+  - m_Id: 587658844692480
+    m_Key: UI.CharacterBuild.Classes.Label
+    m_Metadata:
+      m_Items: []
+  - m_Id: 522478672666624
+    m_Key: UI.CharacterBuild.CharacterName.Label
+    m_Metadata:
+      m_Items: []
+  - m_Id: 678231987445760
+    m_Key: UI.CharacterBuild.Background.Label
     m_Metadata:
       m_Items: []
   m_Metadata:

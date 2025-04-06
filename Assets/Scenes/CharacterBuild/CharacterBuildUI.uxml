@@ -7,4 +7,19 @@
     <engine:TextField label="Character Name" placeholder-text="filler text" name="txtCharacterName" />
     <engine:DropdownField label="Species" name="ddfSpecies" />
     <engine:DropdownField label="Class" name="ddfClasses" />
+    <engine:DropdownField label="SubClass" name="ddfSubClasses" />
+    <engine:DropdownField label="Background" name="ddfBackground" />
+    <engine:VisualElement name="veSkillProficiencies" style="flex-grow: 1;">
+        <engine:Label text="Skill Proficiencies" name="lblSkillProficiencies" />
+        <engine:ListView name="lvSkillProficiencies" />
+    </engine:VisualElement>
+    <engine:VisualElement name="veStartingEquipmentFromClass" style="flex-grow: 1;">
+        <engine:Label text="Starting Equipment from Class" name="lblStartingEquipmentFromClass" />
+        <engine:ListView name="lvStartingEquipmentFromClass" />
+    </engine:VisualElement>
+    <engine:VisualElement name="veStartingEquipmentFromBackground" style="flex-grow: 1;">
+        <engine:Label text="StartingEquipmentFromBackground" name="lblStartingEquipmentFromBackground" />
+        <engine:ListView name="lvStartingEquipmentFromBackground" />
+    </engine:VisualElement>
+    <engine:Button text="Create Character" name="btnCreate" />
 </engine:UXML>

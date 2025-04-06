@@ -562,6 +562,26 @@ MonoBehaviour:
     m_Localized: Species
     m_Metadata:
       m_Items: []
+  - m_Id: 9375014561243136
+    m_Localized: Path of the Berserker
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9375338579615744
+    m_Localized: Path of the wild heart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9375348322983936
+    m_Localized: Path of the World Tree
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9375627017707520
+    m_Localized: Path of the Zealot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9381584502251520
+    m_Localized: Acolyte
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: b9ab995ff8837ed489ea6ae1229db2ca, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 3678734051308994962
   m_TableData:
   - m_Id: 86774898688
     m_Localized: Build your character
@@ -30,6 +31,37 @@ MonoBehaviour:
     m_Localized: Species
     m_Metadata:
       m_Items: []
+  - m_Id: 587658844692480
+    m_Localized: Class
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674781115441152
+    m_Localized: Subclass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 678231987445760
+    m_Localized: Background
+    m_Metadata:
+      m_Items: []
+  - m_Id: 688351756673024
+    m_Localized: Skill proficiencies (select {num})
+    m_Metadata:
+      m_Items:
+      - rid: 3678734051308994962
+  - m_Id: 688592610385920
+    m_Localized: Starting equipment from class
+    m_Metadata:
+      m_Items: []
+  - m_Id: 688744565825536
+    m_Localized: Starting equipment from background
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3678734051308994962
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 688351756673024

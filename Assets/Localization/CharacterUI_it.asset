@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: it
   m_SharedData: {fileID: 11400000, guid: b9ab995ff8837ed489ea6ae1229db2ca, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 3678734051308994963
   m_TableData:
   - m_Id: 86774898688
     m_Localized: Costruisci il tuo personaggio
@@ -30,6 +31,37 @@ MonoBehaviour:
     m_Localized: Specie
     m_Metadata:
       m_Items: []
+  - m_Id: 587658844692480
+    m_Localized: Classe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 674781115441152
+    m_Localized: Sotto-classe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 678231987445760
+    m_Localized: Background
+    m_Metadata:
+      m_Items: []
+  - m_Id: 688351756673024
+    m_Localized: Padronanza skill (seleziona {num})
+    m_Metadata:
+      m_Items:
+      - rid: 3678734051308994963
+  - m_Id: 688592610385920
+    m_Localized: Equipaggiamento iniziale dalla classe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 688744565825536
+    m_Localized: Equipaggiamento iniziale dal background
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3678734051308994963
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 688351756673024

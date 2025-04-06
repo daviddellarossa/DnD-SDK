@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 50225733632
-    m_Localized: 
+    m_Localized: "Acrobaticit\xE0"
     m_Metadata:
       m_Items: []
   - m_Id: 132852099309568
@@ -64,6 +64,98 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 9271684715503616
     m_Localized: Specie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133379277185024
+    m_Localized: Barbaro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9375014561243136
+    m_Localized: Il percorso del Berserker
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9375627017707520
+    m_Localized: Il percorso dello Zelota
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9375348322983936
+    m_Localized: Il percorso dell'albero del mondo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9375338579615744
+    m_Localized: Il percorso del cuore selvaggio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9381584502251520
+    m_Localized: Accolito
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9412692402176
+    m_Localized: Addestrare Animali
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9559606288384
+    m_Localized: Arcano
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9606054010880
+    m_Localized: Atletica
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9632012558336
+    m_Localized: Inganno
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9656293384192
+    m_Localized: Storia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9674924482560
+    m_Localized: Intuizione
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9709737205760
+    m_Localized: Intimidazione
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9740129132544
+    m_Localized: Indagare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9760999989248
+    m_Localized: Medicina
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9781577244672
+    m_Localized: Natura
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9799453368320
+    m_Localized: Percezione
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9828167573504
+    m_Localized: Intrattenimento
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9858249121792
+    m_Localized: Persuasione
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9886703280128
+    m_Localized: Religione
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9908924702720
+    m_Localized: "Rapidit\xE0 di mano"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9967003230208
+    m_Localized: "Furtivit\xE0"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10002436710400
+    m_Localized: Sopravvivenza
     m_Metadata:
       m_Items: []
   references:
