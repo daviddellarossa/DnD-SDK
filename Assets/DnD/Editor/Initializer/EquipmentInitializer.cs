@@ -1,10 +1,7 @@
-using Codice.Client.BaseCommands.Acl;
-using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Equipment.Coins;
-using DnD.Code.Scripts.Helpers;
 using DnD.Code.Scripts.Helpers.PathHelper;
+using Infrastructure.Helpers;
 using UnityEditor;
-using static DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
 using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
 
 namespace DnD.Editor.Initializer

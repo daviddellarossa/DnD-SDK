@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using UnityEditor;
 
-namespace DnD.Code.Scripts.Helpers
+namespace Infrastructure.Helpers
 {
     public static class FileSystemHelper
     {

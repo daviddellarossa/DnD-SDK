@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using AutoFixture;
+using Codice.Client.Common;
 using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Backgrounds;
 using DnD.Code.Scripts.Classes;
-using DnD.Code.Scripts.Helpers;
 using DnD.Code.Scripts.Helpers.NameHelper;
-using DnD.Code.Scripts.Helpers.PathHelper;
 using DnD.Code.Scripts.Languages;
 using DnD.Code.Scripts.Species;
+using Infrastructure.Helpers;
 using UnityEditor;
 using UnityEngine;
+using PathHelper = DnD.Code.Scripts.Helpers.PathHelper.PathHelper;
 
 namespace DnD.Code.Scripts.Characters
 {
@@ -234,7 +233,7 @@ namespace DnD.Code.Scripts.Characters
             
             public virtual bool CheckAbilityStats()
             {
-                var abilities = Helpers.ScriptableObjectHelper.GetAllScriptableObjects<Ability>(PathHelper.Abilities.AbilitiesPath);
+                var abilities = ScriptableObjectHelper.GetAllScriptableObjects<Ability>(PathHelper.Abilities.AbilitiesPath);
 
                 foreach (var ability in abilities)
                 {
@@ -313,7 +312,7 @@ namespace DnD.Code.Scripts.Characters
             {
                 if (this._languages.Any(language => language.name == NameHelper.Languages.Common) == false)
                 {
-                    var standardLanguages = Helpers.ScriptableObjectHelper.GetAllScriptableObjects<StandardLanguage>(PathHelper.Languages.StandardLanguagesPath);
+                    var standardLanguages = ScriptableObjectHelper.GetAllScriptableObjects<StandardLanguage>(PathHelper.Languages.StandardLanguagesPath);
                     var commonLanguage = standardLanguages.SingleOrDefault(language => language.name == NameHelper.Languages.Common);
                     
                     this._languages.Add(commonLanguage);

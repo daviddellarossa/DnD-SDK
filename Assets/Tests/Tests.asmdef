@@ -5,7 +5,8 @@
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "DnD",
-        "DnD.Helpers"
+        "DnD.Helpers",
+        "Infrastructure.Helpers"
     ],
     "includePlatforms": [
         "Editor"
