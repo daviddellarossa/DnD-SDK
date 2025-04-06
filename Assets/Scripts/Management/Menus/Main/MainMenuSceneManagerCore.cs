@@ -1,10 +1,10 @@
 ﻿namespace Management.Menus.Main
 {
-    public class MainMenuManagerCore
+    public class MainMenuSceneManagerCore
     {
-        public MainMenuManager Parent { get; set; }
+        public MainMenuSceneManager Parent { get; set; }
         
-        public MainMenuManagerCore(MainMenuManager parent)
+        public MainMenuSceneManagerCore(MainMenuSceneManager parent)
         {
             Parent = parent;
         }

@@ -9,7 +9,7 @@ namespace Management.Game
     {
         public class CharacterBuildState : GameManagerCore.State
         {
-            private readonly string sceneName = "CharacterBuild";
+            private readonly string sceneName = "CharacterBuildScene";
 
             //protected IPreRollManager _menuManager;
 
