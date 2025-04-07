@@ -12,24 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e2ece3541cae4fa08de39e85b166c, type: 3}
   m_Name: OptionA
   m_EditorClassIdentifier: 
-  EquipmentsWithAmountList:
-  - rid: 3678733954061172851
-  - rid: 3678733954061172852
-  - rid: 3678733954061172853
+  displayName: StartingEquipmentOptions.OptionA
+  displayDescription: StartingEquipmentOptions.OptionA.Description
+  equipmentsWithAmountList:
+  - rid: 3678734084545184063
+  - rid: 3678734084545184064
+  - rid: 3678734084545184065
   references:
     version: 2
     RefIds:
-    - rid: 3678733954061172851
+    - rid: 3678734084545184063
       type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
       data:
         equipment: {fileID: 11400000, guid: 5b0e01de068a6554fbfb195ba2024a7e, type: 2}
         amount: 1
-    - rid: 3678733954061172852
+    - rid: 3678734084545184064
       type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
       data:
         equipment: {fileID: 11400000, guid: f6f2ebe82b588b141bc62f01b7eedf8e, type: 2}
         amount: 4
-    - rid: 3678733954061172853
+    - rid: 3678734084545184065
       type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
       data:
         equipment: {fileID: 11400000, guid: 1db5925526c836b4bb86b5ef334241a5, type: 2}

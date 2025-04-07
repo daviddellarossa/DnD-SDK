@@ -1,19 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-675821905424742064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ee1992dd5284e6781b71793215dd383, type: 3}
-  m_Name: TravelAlongTheTree
-  m_EditorClassIdentifier: 
-  displayName: 
-  displayDescription: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31,15 +17,29 @@ MonoBehaviour:
   levelNum: 14
   proficiencyBonus: 5
   classFeatures:
-  - {fileID: -675821905424742064}
+  - {fileID: 7651433219201432547}
   classFeatureStats:
-    rid: 3678733954061172866
+    rid: 3678734084545184039
   references:
     version: 2
     RefIds:
-    - rid: 3678733954061172866
+    - rid: 3678734084545184039
       type: {class: BarbarianFeatureStats, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
         rages: 5
         rageDamage: 3
         weaponMastery: 4
+--- !u!114 &7651433219201432547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ee1992dd5284e6781b71793215dd383, type: 3}
+  m_Name: TravelAlongTheTree
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 

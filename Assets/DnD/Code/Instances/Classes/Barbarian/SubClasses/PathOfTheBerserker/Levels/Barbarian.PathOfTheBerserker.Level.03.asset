@@ -17,19 +17,19 @@ MonoBehaviour:
   levelNum: 3
   proficiencyBonus: 2
   classFeatures:
-  - {fileID: 2404090226824508745}
+  - {fileID: 139300312991386452}
   classFeatureStats:
-    rid: 3678733954061172878
+    rid: 3678734084545184060
   references:
     version: 2
     RefIds:
-    - rid: 3678733954061172878
+    - rid: 3678734084545184060
       type: {class: BarbarianFeatureStats, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
         rages: 2
         rageDamage: 2
         weaponMastery: 2
---- !u!114 &2404090226824508745
+--- !u!114 &139300312991386452
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

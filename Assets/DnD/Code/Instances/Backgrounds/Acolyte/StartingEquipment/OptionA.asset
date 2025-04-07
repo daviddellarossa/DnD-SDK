@@ -12,42 +12,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9e2ece3541cae4fa08de39e85b166c, type: 3}
   m_Name: OptionA
   m_EditorClassIdentifier: 
-  EquipmentsWithAmountList:
-  - rid: 1270101575534379071
-  - rid: 1270101575534379072
-  - rid: 1270101575534379073
-  - rid: 1270101575534379074
-  - rid: 1270101575534379075
-  - rid: 1270101575534379076
+  displayName: StartingEquipmentOptions.OptionA
+  displayDescription: StartingEquipmentOptions.OptionA.Description
+  equipmentsWithAmountList:
+  - rid: 3678734084545184030
+  - rid: 3678734084545184031
+  - rid: 3678734084545184032
+  - rid: 3678734084545184033
+  - rid: 3678734084545184034
+  - rid: 3678734084545184035
   references:
     version: 2
     RefIds:
-    - rid: 1270101575534379071
+    - rid: 3678734084545184030
       type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
       data:
         equipment: {fileID: 11400000, guid: 8c25ffe2f40cf1a48a24cbf19adf4684, type: 2}
         amount: 1
-    - rid: 1270101575534379072
+    - rid: 3678734084545184031
       type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
       data:
         equipment: {fileID: 11400000, guid: 72414c8b1699dd84a86af2b9d6aaf877, type: 2}
         amount: 10
-    - rid: 1270101575534379073
+    - rid: 3678734084545184032
       type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
       data:
         equipment: {fileID: 11400000, guid: 5003266ab6262af4496382bbe12272ce, type: 2}
         amount: 1
-    - rid: 1270101575534379074
+    - rid: 3678734084545184033
       type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
       data:
         equipment: {fileID: 11400000, guid: 29a543830e7d1864faf0feb2f5d2fc66, type: 2}
         amount: 1
-    - rid: 1270101575534379075
+    - rid: 3678734084545184034
       type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
       data:
         equipment: {fileID: 11400000, guid: 06d2037f09a5e724782f74eed6481e9e, type: 2}
         amount: 1
-    - rid: 1270101575534379076
+    - rid: 3678734084545184035
       type: {class: StartingEquipment/EquipmentWithAmount, ns: DnD.Code.Scripts.Equipment, asm: DnD}
       data:
         equipment: {fileID: 11400000, guid: 1db5925526c836b4bb86b5ef334241a5, type: 2}

@@ -41,10 +41,12 @@ namespace Tests.Backgrounds
         }
 
         [TestCaseSource(typeof(AcolyteData), nameof(AcolyteData.OptionsTestCases))]
-        public void TestStartingEquipment(string optionName, (string, int)[] equipment)
+        public void TestStartingEquipment(string optionName, string displayName, string displayDescription, (string, int)[] equipment)
         {
             var option = _acolyte.StartingEquipmentOptions.SingleOrDefault(asset => asset.name == optionName);
             Assert.That(option, Is.Not.Null, $"Option {optionName} doesn't exist");
+            Assert.That(option.DisplayName, Is.EqualTo(displayName));
+            Assert.That(option.DisplayDescription, Is.EqualTo(displayDescription));
 
             Assert.That(option.EquipmentsWithAmountList.Count, Is.EqualTo(equipment.Length),
                 $"Items in option {optionName} don't equal expected length.");
@@ -100,6 +102,8 @@ namespace Tests.Backgrounds
                 {
                     yield return new TestCaseData(
                         NameHelper.StartingEquipmentOptions.OptionA,
+                        $"{nameof(NameHelper.StartingEquipmentOptions)}.{NameHelper.StartingEquipmentOptions.OptionA}",
+                        $"{nameof(NameHelper.StartingEquipmentOptions)}.{NameHelper.StartingEquipmentOptions.OptionA}.{NameHelper.Naming.Description}",
                         new (string, int)[]
                         {
                             (NameHelper.Equipment.Tools.CalligrapherTool, 1),
@@ -111,6 +115,8 @@ namespace Tests.Backgrounds
                         });
                     yield return new TestCaseData(
                         NameHelper.StartingEquipmentOptions.OptionB,
+                        $"{nameof(NameHelper.StartingEquipmentOptions)}.{NameHelper.StartingEquipmentOptions.OptionB}",
+                        $"{nameof(NameHelper.StartingEquipmentOptions)}.{NameHelper.StartingEquipmentOptions.OptionB}.{NameHelper.Naming.Description}",
                         new (string, int)[]
                         {
                             (NameHelper.CoinValues.GoldPiece, 50)

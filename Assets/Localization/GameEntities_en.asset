@@ -582,6 +582,14 @@ MonoBehaviour:
     m_Localized: Acolyte
     m_Metadata:
       m_Items: []
+  - m_Id: 9774780851937280
+    m_Localized: Option A
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9774871608287232
+    m_Localized: Option B
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

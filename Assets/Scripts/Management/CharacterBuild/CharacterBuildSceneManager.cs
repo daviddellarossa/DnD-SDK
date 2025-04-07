@@ -2,6 +2,7 @@
 using System.Linq;
 using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Classes;
+using DnD.Code.Scripts.Equipment;
 using DnD.Code.Scripts.Species;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -34,6 +35,9 @@ namespace Management.CharacterBuild
 
         private List<string> skillProficienciesLocalizedNames = new();
         private Dictionary<string, Skill> keyToSkillProficiencies = new();
+
+        private List<string> startingEquipmentFromClassLocalizedNames = new();
+        private Dictionary<string, StartingEquipment> keyToStartingEquipmentFromClass = new();
 
         private VisualElement root;
         private TextField txtCharacterName;
@@ -71,6 +75,8 @@ namespace Management.CharacterBuild
 
             
             lvSkillProficiencies  = root.Q<ListView>("lvSkillProficiencies");
+            lvSkillProficiencies.selectionChanged += LvSkillProficienciesOnselectionChanged;
+            
             lvStartingEquipmentFromClass  = root.Q<ListView>("lvStartingEquipmentFromClass");
             lvStartingEquipmentFromBackground  = root.Q<ListView>("lvStartingEquipmentFromBackground");
             
@@ -98,6 +104,7 @@ namespace Management.CharacterBuild
                 
                 ddfClasses.RegisterValueChangedCallback(SetSubClasses);
                 ddfClasses.RegisterValueChangedCallback(SetSkillProficiencies);
+                ddfClasses.RegisterValueChangedCallback(SetStartingEquipmentFromClass);
 
                 var ddfClassesLabel = new LocalizedString(CharacterUILocalizationTable, "UI.CharacterBuild.Classes.Label");
                 ddfClassesLabel.StringChanged += (localizedText) => ddfClasses.label = localizedText;
@@ -269,6 +276,78 @@ namespace Management.CharacterBuild
             }
         }
         
+        private void LvSkillProficienciesOnselectionChanged(IEnumerable<object> obj)
+        {
+            var maxSelectionCount = 0;
+            var selectedClass = keyToClasses[ddfClasses.value];
+                
+            if (selectedClass != null)
+            {
+                maxSelectionCount = selectedClass.NumberOfSkillProficienciesToChoose;
+            }
+
+            //var selectedItems = obj.ToList();
+                
+            var selectedIndices = lvSkillProficiencies.selectedIndices.ToList();
+                
+            if (selectedIndices.Count() > maxSelectionCount)
+            {
+                // Revert the last selection by trimming the list
+                selectedIndices = selectedIndices.Take(maxSelectionCount).ToList();
+
+                // Update selection without triggering the callback again
+                lvSkillProficiencies.SetSelectionWithoutNotify(selectedIndices);
+            }
+        }
+
+        
+        private void SetStartingEquipmentFromClassLabel()
+        {
+            var lblStartingEquipmentFromClassLabel = new LocalizedString(CharacterUILocalizationTable, "UI.CharacterBuild.StartingEquipmentFromClass.Label");
+            lblStartingEquipmentFromClassLabel.StringChanged += (localizedText) => lblStartingEquipmentFromClass.text = localizedText;
+            lblStartingEquipmentFromClassLabel.RefreshString();
+        }
+
+        private void SetStartingEquipmentFromClass(ChangeEvent<string> selectedClassChangeEvent)
+        {
+            if (string.IsNullOrEmpty(selectedClassChangeEvent.newValue))
+            {
+                return;
+            }
+            
+            var selectedClass = keyToClasses.FirstOrDefault(x => x.Key == selectedClassChangeEvent.newValue);
+            if (selectedClass.Value == null)
+            {
+                return;
+            }
+            
+            var startingEquipmentOptions = selectedClass.Value.StartingEquipmentOptions.ToArray();
+            
+            SetStartingEquipmentFromClassLabel();
+            
+            int pending = startingEquipmentOptions.Length;
+            foreach (var startingEquipment in startingEquipmentOptions)
+            {
+                var localizedString = new LocalizedString(GameEntitiesLocalizationTable, startingEquipment.DisplayName);
+                localizedString.StringChanged += (localizedText) =>
+                {
+                    startingEquipmentFromClassLocalizedNames.Add(localizedText);
+                    keyToStartingEquipmentFromClass[localizedText] = startingEquipment;
+
+                    pending--;
+                    if (pending == 0)
+                    {
+                        lvStartingEquipmentFromClass.itemsSource = startingEquipmentFromClassLocalizedNames;
+                        lvStartingEquipmentFromClass.makeItem = () => new Label();
+                        lvStartingEquipmentFromClass.bindItem =
+                            (element, i) => ((Label)element).text = startingEquipmentFromClassLocalizedNames[i];
+                        lvStartingEquipmentFromClass.selectionType = SelectionType.Single;
+
+                    }
+                };
+            }
+        }
+
         private void SetBackground()
         {
             var backgrounds =
@@ -293,11 +372,6 @@ namespace Management.CharacterBuild
                     }
                 };
             }
-        }
-        
-        private void OnLocaleChanged(Locale obj)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

@@ -17,19 +17,19 @@ MonoBehaviour:
   levelNum: 10
   proficiencyBonus: 4
   classFeatures:
-  - {fileID: 307653680817113745}
+  - {fileID: 780959252400955911}
   classFeatureStats:
-    rid: 3678733954061172848
+    rid: 3678734084545184043
   references:
     version: 2
     RefIds:
-    - rid: 3678733954061172848
+    - rid: 3678734084545184043
       type: {class: BarbarianFeatureStats, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
         rages: 4
         rageDamage: 3
         weaponMastery: 4
---- !u!114 &307653680817113745
+--- !u!114 &780959252400955911
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

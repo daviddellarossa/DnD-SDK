@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6498687485820441719
+--- !u!114 &-6906473906559542257
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cda25f610254d7fb3173176f7fc56c0, type: 3}
-  m_Name: DangerSense
+  m_Script: {fileID: 11500000, guid: 36ad6fe1035542fbb1e4f9400c702003, type: 3}
+  m_Name: RecklessAttack
   m_EditorClassIdentifier: 
   displayName: 
   displayDescription: 
@@ -31,20 +31,20 @@ MonoBehaviour:
   levelNum: 2
   proficiencyBonus: 2
   classFeatures:
-  - {fileID: -6498687485820441719}
-  - {fileID: 205314491332650335}
+  - {fileID: 6432343681727062171}
+  - {fileID: -6906473906559542257}
   classFeatureStats:
-    rid: 3678733954061172847
+    rid: 3678734084545184075
   references:
     version: 2
     RefIds:
-    - rid: 3678733954061172847
+    - rid: 3678734084545184075
       type: {class: BarbarianFeatureStats, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
         rages: 2
         rageDamage: 2
         weaponMastery: 2
---- !u!114 &205314491332650335
+--- !u!114 &6432343681727062171
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,8 +53,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36ad6fe1035542fbb1e4f9400c702003, type: 3}
-  m_Name: RecklessAttack
+  m_Script: {fileID: 11500000, guid: 0cda25f610254d7fb3173176f7fc56c0, type: 3}
+  m_Name: DangerSense
   m_EditorClassIdentifier: 
   displayName: 
   displayDescription: 

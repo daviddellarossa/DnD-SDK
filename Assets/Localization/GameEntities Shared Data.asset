@@ -583,6 +583,14 @@ MonoBehaviour:
     m_Key: Backgrounds.Acolyte
     m_Metadata:
       m_Items: []
+  - m_Id: 9774780851937280
+    m_Key: StartingEquipmentOptions.OptionA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9774871608287232
+    m_Key: StartingEquipmentOptions.OptionB
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

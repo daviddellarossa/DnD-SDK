@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4289463422465656724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4997781114e49648884dc5fe82b3b8e, type: 3}
+  m_Name: AspectOfTheWilds
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17,29 +31,15 @@ MonoBehaviour:
   levelNum: 6
   proficiencyBonus: 3
   classFeatures:
-  - {fileID: 7626276332669227362}
+  - {fileID: -4289463422465656724}
   classFeatureStats:
-    rid: 3678733954061172880
+    rid: 3678734084545184061
   references:
     version: 2
     RefIds:
-    - rid: 3678733954061172880
+    - rid: 3678734084545184061
       type: {class: BarbarianFeatureStats, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
         rages: 4
         rageDamage: 2
         weaponMastery: 3
---- !u!114 &7626276332669227362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4997781114e49648884dc5fe82b3b8e, type: 3}
-  m_Name: AspectOfTheWilds
-  m_EditorClassIdentifier: 
-  displayName: 
-  displayDescription: 

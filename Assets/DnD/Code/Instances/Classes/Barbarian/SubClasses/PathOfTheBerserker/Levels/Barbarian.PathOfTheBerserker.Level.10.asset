@@ -1,19 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3352816838056679844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d25dc873afe45cc8219f8ca779bca76, type: 3}
-  m_Name: Retaliation
-  m_EditorClassIdentifier: 
-  displayName: 
-  displayDescription: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31,15 +17,29 @@ MonoBehaviour:
   levelNum: 10
   proficiencyBonus: 4
   classFeatures:
-  - {fileID: -3352816838056679844}
+  - {fileID: 976200654004350369}
   classFeatureStats:
-    rid: 3678733954061172855
+    rid: 3678734084545184066
   references:
     version: 2
     RefIds:
-    - rid: 3678733954061172855
+    - rid: 3678734084545184066
       type: {class: BarbarianFeatureStats, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
         rages: 4
         rageDamage: 3
         weaponMastery: 4
+--- !u!114 &976200654004350369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d25dc873afe45cc8219f8ca779bca76, type: 3}
+  m_Name: Retaliation
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 

@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3464655031130215596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 169fd5d601f14794a2ee850e41a0cc3d, type: 3}
+  m_Name: BranchesOfTheTree
+  m_EditorClassIdentifier: 
+  displayName: 
+  displayDescription: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17,29 +31,15 @@ MonoBehaviour:
   levelNum: 6
   proficiencyBonus: 3
   classFeatures:
-  - {fileID: 7003299731908911759}
+  - {fileID: -3464655031130215596}
   classFeatureStats:
-    rid: 3678733954061172857
+    rid: 3678734084545184068
   references:
     version: 2
     RefIds:
-    - rid: 3678733954061172857
+    - rid: 3678734084545184068
       type: {class: BarbarianFeatureStats, ns: DnD.Code.Scripts.Classes.Barbarian.FeatureProperties, asm: DnD}
       data:
         rages: 4
         rageDamage: 2
         weaponMastery: 3
---- !u!114 &7003299731908911759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 169fd5d601f14794a2ee850e41a0cc3d, type: 3}
-  m_Name: BranchesOfTheTree
-  m_EditorClassIdentifier: 
-  displayName: 
-  displayDescription: 
