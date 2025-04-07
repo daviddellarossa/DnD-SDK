@@ -166,6 +166,30 @@ MonoBehaviour:
     m_Localized: Opzione B
     m_Metadata:
       m_Items: []
+  - m_Id: 10491802935296
+    m_Localized: Carisma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10532689010688
+    m_Localized: Costituzione
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10553803137024
+    m_Localized: Destrezza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10573185015808
+    m_Localized: Intelligenza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10597293875200
+    m_Localized: Forza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10618219257856
+    m_Localized: Saggezza
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

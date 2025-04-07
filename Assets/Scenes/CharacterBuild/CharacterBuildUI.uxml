@@ -18,8 +18,20 @@
         <engine:ListView name="lvStartingEquipmentFromClass" />
     </engine:VisualElement>
     <engine:VisualElement name="veStartingEquipmentFromBackground" style="flex-grow: 1; flex-direction: row;">
-        <engine:Label text="StartingEquipmentFromBackground" name="lblStartingEquipmentFromBackground" style="-unity-text-align: middle-left;" />
+        <engine:Label text="Starting Equipment from Background" name="lblStartingEquipmentFromBackground" double-click-selects-word="false" style="-unity-text-align: middle-left;" />
         <engine:ListView name="lvStartingEquipmentFromBackground" />
+    </engine:VisualElement>
+    <engine:VisualElement name="veAbilityScores" style="flex-grow: 1; flex-direction: column; flex-shrink: 1; flex-wrap: wrap;">
+        <engine:SliderInt label="Charisma" value="20" high-value="20" name="siCharisma" show-input-field="true" style="flex-shrink: 0; min-width: 400px; width: 400px; max-width: 400px;" />
+        <engine:SliderInt label="Constitution&#10;" value="42" high-value="20" name="siConstitution" show-input-field="true" style="width: 400px; min-width: 400px; max-width: 400px;" />
+        <engine:SliderInt label="Dexterity" value="42" high-value="20" name="siDexterity" show-input-field="true" style="width: 400px; min-width: 400px; max-width: 400px;" />
+        <engine:SliderInt label="Intelligence" value="42" high-value="20" name="siIntelligence" show-input-field="true" style="width: 400px; min-width: 400px; max-width: 400px;" />
+        <engine:SliderInt label="Strength" value="42" high-value="20" name="siStrength" show-input-field="true" style="width: 400px; min-width: 400px; max-width: 400px;" />
+        <engine:SliderInt label="Wisdom" value="42" high-value="20" name="siWisdom" show-input-field="true" style="width: 400px; min-width: 400px; max-width: 400px;" />
+    </engine:VisualElement>
+    <engine:VisualElement name="veLanguages" style="flex-grow: 1; flex-direction: row;">
+        <engine:Label text="Languages" name="lblLanguages" style="-unity-text-align: middle-left;" />
+        <engine:ListView name="lvLanguages" />
     </engine:VisualElement>
     <engine:Button text="Create Character" name="btnCreate" />
 </engine:UXML>

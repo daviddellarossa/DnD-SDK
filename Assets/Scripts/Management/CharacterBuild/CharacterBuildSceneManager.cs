@@ -21,23 +21,26 @@ namespace Management.CharacterBuild
         
         private UIDocument uiDocument;
         
-        private List<string> speciesLocalizedNames = new();
-        private Dictionary<string, Spex> keyToSpecies = new();
+        private readonly List<string> speciesLocalizedNames = new();
+        private readonly Dictionary<string, Spex> keyToSpecies = new();
         
-        private List<string> classesLocalizedNames = new();
-        private Dictionary<string, Class> keyToClasses = new();
+        private readonly List<string> classesLocalizedNames = new();
+        private readonly Dictionary<string, Class> keyToClasses = new();
             
-        private List<string> subClassesLocalizedNames = new();
-        private Dictionary<string, SubClass> keyToSubClasses = new();
+        private readonly List<string> subClassesLocalizedNames = new();
+        private readonly Dictionary<string, SubClass> keyToSubClasses = new();
         
-        private List<string> backgroundLocalizedNames = new();
-        private Dictionary<string, Background> keyToBackgrounds = new();
+        private readonly List<string> backgroundLocalizedNames = new();
+        private readonly Dictionary<string, Background> keyToBackgrounds = new();
 
-        private List<string> skillProficienciesLocalizedNames = new();
-        private Dictionary<string, Skill> keyToSkillProficiencies = new();
+        private readonly List<string> skillProficienciesLocalizedNames = new();
+        private readonly Dictionary<string, Skill> keyToSkillProficiencies = new();
 
-        private List<string> startingEquipmentFromClassLocalizedNames = new();
-        private Dictionary<string, StartingEquipment> keyToStartingEquipmentFromClass = new();
+        private readonly List<string> startingEquipmentFromClassLocalizedNames = new();
+        private readonly Dictionary<string, StartingEquipment> keyToStartingEquipmentFromClass = new();
+
+        private readonly List<string> startingEquipmentFromBackgroundLocalizedNames = new();
+        private readonly Dictionary<string, StartingEquipment> keyToStartingEquipmentFromBackground = new();
 
         private VisualElement root;
         private TextField txtCharacterName;
@@ -48,10 +51,19 @@ namespace Management.CharacterBuild
         private Label lblSkillProficiencies;
         private Label lblStartingEquipmentFromClass;
         private Label lblStartingEquipmentFromBackground;
+        private Label lblLanguages;
 
         private ListView lvSkillProficiencies;
         private ListView lvStartingEquipmentFromClass;
         private ListView lvStartingEquipmentFromBackground;
+        private ListView lvLanguages;
+
+        private SliderInt siCharisma;
+        private SliderInt siConstitution;
+        private SliderInt siDexterity;
+        private SliderInt siIntelligence;
+        private SliderInt siStrength;
+        private SliderInt siWisdom;
         
         void Awake()
         {
@@ -72,13 +84,21 @@ namespace Management.CharacterBuild
             lblSkillProficiencies = root.Q<Label>("lblSkillProficiencies");
             lblStartingEquipmentFromClass = root.Q<Label>("lblStartingEquipmentFromClass");
             lblStartingEquipmentFromBackground = root.Q<Label>("lblStartingEquipmentFromBackground");
-
+            lblLanguages = root.Q<Label>("lblLanguages");
             
             lvSkillProficiencies  = root.Q<ListView>("lvSkillProficiencies");
-            lvSkillProficiencies.selectionChanged += LvSkillProficienciesOnselectionChanged;
+            lvSkillProficiencies.selectionChanged += LvSkillProficienciesOnSelectionChanged;
             
             lvStartingEquipmentFromClass  = root.Q<ListView>("lvStartingEquipmentFromClass");
             lvStartingEquipmentFromBackground  = root.Q<ListView>("lvStartingEquipmentFromBackground");
+            lvLanguages = root.Q<ListView>("lvLanguages");
+            
+            siCharisma = root.Q<SliderInt>("siCharisma");
+            siConstitution = root.Q<SliderInt>("siConstitution");
+            siDexterity = root.Q<SliderInt>("siDexterity");
+            siIntelligence = root.Q<SliderInt>("siIntelligence");
+            siStrength = root.Q<SliderInt>("siStrength");
+            siWisdom = root.Q<SliderInt>("siWisdom");
             
             // Set localized text for Character Name
             {
@@ -121,6 +141,8 @@ namespace Management.CharacterBuild
                 ddfBackgroundLabel.StringChanged += (localizedText) => ddfBackground.label = localizedText;
 
                 SetBackground();
+                
+                ddfBackground.RegisterValueChangedCallback(SetStartingEquipmentFromBackground);
             }
 
             {
@@ -133,6 +155,36 @@ namespace Management.CharacterBuild
             {
                 var lblStartingEquipmentFromBackgroundLabel = new LocalizedString(CharacterUILocalizationTable, "UI.CharacterBuild.StartingEquipmentFromBackground.Label");
                 lblStartingEquipmentFromBackgroundLabel.StringChanged += (localizedText) => lblStartingEquipmentFromBackground.text = localizedText;
+            }
+
+            {
+                var siCharismaLabel = new LocalizedString(GameEntitiesLocalizationTable, "Abilities.Charisma");
+                siCharismaLabel.StringChanged += (localizedText) => siCharisma.label = localizedText;
+            }
+
+            {
+                var siConstitutionLabel = new LocalizedString(GameEntitiesLocalizationTable, "Abilities.Constitution");
+                siConstitutionLabel.StringChanged += (localizedText) => siConstitution.label = localizedText;
+            }
+
+            {
+                var siDexterityLabel = new LocalizedString(GameEntitiesLocalizationTable, "Abilities.Dexterity");
+                siDexterityLabel.StringChanged += (localizedText) => siDexterity.label = localizedText;
+            }
+
+            {
+                var siIntelligenceLabel = new LocalizedString(GameEntitiesLocalizationTable, "Abilities.Intelligence");
+                siIntelligenceLabel.StringChanged += (localizedText) => siIntelligence.label = localizedText;
+            }
+
+            {
+                var siStrengthLabel = new LocalizedString(GameEntitiesLocalizationTable, "Abilities.Strength");
+                siStrengthLabel.StringChanged += (localizedText) => siStrength.label = localizedText;
+            }
+
+            {
+                var siWisdomLabel = new LocalizedString(GameEntitiesLocalizationTable, "Abilities.Wisdom");
+                siWisdomLabel.StringChanged += (localizedText) => siWisdom.label = localizedText;
             }
         }
 
@@ -276,7 +328,7 @@ namespace Management.CharacterBuild
             }
         }
         
-        private void LvSkillProficienciesOnselectionChanged(IEnumerable<object> obj)
+        private void LvSkillProficienciesOnSelectionChanged(IEnumerable<object> obj)
         {
             var maxSelectionCount = 0;
             var selectedClass = keyToClasses[ddfClasses.value];
@@ -372,6 +424,52 @@ namespace Management.CharacterBuild
                     }
                 };
             }
+        }
+        
+        private void SetStartingEquipmentFromBackground(ChangeEvent<string> selectedBackgroundChangeEvent)
+        {
+            if (string.IsNullOrEmpty(selectedBackgroundChangeEvent.newValue))
+            {
+                return;
+            }
+            
+            var selectedBackground = keyToBackgrounds.FirstOrDefault(x => x.Key == selectedBackgroundChangeEvent.newValue);
+            if (selectedBackground.Value == null)
+            {
+                return;
+            }
+            
+            var startingEquipmentOptions = selectedBackground.Value.StartingEquipmentOptions.ToArray();
+            
+            SetStartingEquipmentFromBackgroundLabel();
+            
+            int pending = startingEquipmentOptions.Length;
+            foreach (var startingEquipment in startingEquipmentOptions)
+            {
+                var localizedString = new LocalizedString(GameEntitiesLocalizationTable, startingEquipment.DisplayName);
+                localizedString.StringChanged += (localizedText) =>
+                {
+                    startingEquipmentFromBackgroundLocalizedNames.Add(localizedText);
+                    keyToStartingEquipmentFromBackground[localizedText] = startingEquipment;
+
+                    pending--;
+                    if (pending == 0)
+                    {
+                        lvStartingEquipmentFromBackground.itemsSource = startingEquipmentFromBackgroundLocalizedNames;
+                        lvStartingEquipmentFromBackground.makeItem = () => new Label();
+                        lvStartingEquipmentFromBackground.bindItem =
+                            (element, i) => ((Label)element).text = startingEquipmentFromBackgroundLocalizedNames[i];
+                        lvStartingEquipmentFromBackground.selectionType = SelectionType.Single;
+                    }
+                };
+            }
+        }
+        
+        private void SetStartingEquipmentFromBackgroundLabel()
+        {
+            var lblStartingEquipmentFromBackgroundLabel = new LocalizedString(CharacterUILocalizationTable, "UI.CharacterBuild.StartingEquipmentFromBackground.Label");
+            lblStartingEquipmentFromBackgroundLabel.StringChanged += (localizedText) => lblStartingEquipmentFromBackground.text = localizedText;
+            lblStartingEquipmentFromBackgroundLabel.RefreshString();
         }
     }
 }
