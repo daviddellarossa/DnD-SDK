@@ -51,6 +51,10 @@ MonoBehaviour:
     m_Key: UI.CharacterBuild.Background.Label
     m_Metadata:
       m_Items: []
+  - m_Id: 1239252372283392
+    m_Key: UI.CharacterBuild.Languages.Label
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

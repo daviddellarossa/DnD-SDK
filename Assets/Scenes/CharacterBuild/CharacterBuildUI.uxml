@@ -5,33 +5,39 @@
         </Bindings>
     </engine:Label>
     <engine:TextField label="Character Name" placeholder-text="filler text" name="txtCharacterName" />
-    <engine:DropdownField label="Species" name="ddfSpecies" />
-    <engine:DropdownField label="Class" name="ddfClasses" />
-    <engine:DropdownField label="SubClass" name="ddfSubClasses" />
-    <engine:DropdownField label="Background" name="ddfBackground" />
-    <engine:VisualElement name="veSkillProficiencies" style="flex-grow: 1; flex-direction: row;">
+    <engine:VisualElement name="veSpeciesBackground" style="flex-grow: 1; flex-direction: row; width: 98%; height: 40px;">
+        <engine:DropdownField label="Species" name="ddfSpecies" style="width: 50%; height: 40px;" />
+        <engine:DropdownField label="Background" name="ddfBackground" style="width: 50%; height: 40px;" />
+    </engine:VisualElement>
+    <engine:VisualElement name="veClassSubclass" style="flex-grow: 1; flex-direction: row; width: 98%; height: 40px;">
+        <engine:DropdownField label="Class" name="ddfClasses" style="width: 50%; height: 40px;" />
+        <engine:DropdownField label="SubClass" name="ddfSubClasses" style="width: 50%; height: 40px;" />
+    </engine:VisualElement>
+    <engine:VisualElement name="veSkillProficiencies" style="flex-grow: 1; flex-direction: row; align-self: center; width: 98%; -unity-text-align: upper-left; align-items: center;">
         <engine:Label text="Skill Proficiencies" name="lblSkillProficiencies" style="-unity-text-align: middle-left;" />
         <engine:ListView name="lvSkillProficiencies" />
     </engine:VisualElement>
-    <engine:VisualElement name="veStartingEquipmentFromClass" style="flex-grow: 1; flex-direction: row;">
-        <engine:Label text="Starting Equipment from Class" name="lblStartingEquipmentFromClass" style="-unity-text-align: middle-left;" />
-        <engine:ListView name="lvStartingEquipmentFromClass" />
+    <engine:VisualElement name="veStartingEquipments" style="flex-grow: 1; flex-direction: row; width: 98%;">
+        <engine:VisualElement name="veStartingEquipmentFromClass" style="flex-grow: 1; flex-direction: row; width: 50%; align-self: auto; align-items: center;">
+            <engine:Label text="Starting Equipment from Class" name="lblStartingEquipmentFromClass" style="-unity-text-align: middle-left;" />
+            <engine:ListView name="lvStartingEquipmentFromClass" />
+        </engine:VisualElement>
+        <engine:VisualElement name="veStartingEquipmentFromBackground" style="flex-grow: 1; flex-direction: row; width: 50%; align-self: auto; align-items: center;">
+            <engine:Label text="Starting Equipment from Background" name="lblStartingEquipmentFromBackground" double-click-selects-word="false" style="-unity-text-align: middle-left;" />
+            <engine:ListView name="lvStartingEquipmentFromBackground" />
+        </engine:VisualElement>
     </engine:VisualElement>
-    <engine:VisualElement name="veStartingEquipmentFromBackground" style="flex-grow: 1; flex-direction: row;">
-        <engine:Label text="Starting Equipment from Background" name="lblStartingEquipmentFromBackground" double-click-selects-word="false" style="-unity-text-align: middle-left;" />
-        <engine:ListView name="lvStartingEquipmentFromBackground" />
+    <engine:VisualElement name="veAbilityScores" style="flex-grow: 1; flex-direction: column; flex-shrink: 1; flex-wrap: wrap; height: 80px; width: 98%;">
+        <engine:SliderInt label="Charisma" value="10" high-value="20" name="siCharisma" show-input-field="true" style="flex-shrink: 0; min-width: auto; width: 33%; max-width: none;" />
+        <engine:SliderInt label="Constitution&#10;" value="10" high-value="20" name="siConstitution" show-input-field="true" style="width: 33%; min-width: auto; max-width: none;" />
+        <engine:SliderInt label="Dexterity" value="10" high-value="20" name="siDexterity" show-input-field="true" style="width: 33%; min-width: auto; max-width: none;" />
+        <engine:SliderInt label="Intelligence" value="10" high-value="20" name="siIntelligence" show-input-field="true" style="width: 33%; min-width: auto; max-width: none;" />
+        <engine:SliderInt label="Strength" value="10" high-value="20" name="siStrength" show-input-field="true" style="width: 33%; min-width: auto; max-width: none;" />
+        <engine:SliderInt label="Wisdom" value="10" high-value="20" name="siWisdom" show-input-field="true" style="width: 33%; min-width: auto; max-width: none;" />
     </engine:VisualElement>
-    <engine:VisualElement name="veAbilityScores" style="flex-grow: 1; flex-direction: column; flex-shrink: 1; flex-wrap: wrap;">
-        <engine:SliderInt label="Charisma" value="20" high-value="20" name="siCharisma" show-input-field="true" style="flex-shrink: 0; min-width: 400px; width: 400px; max-width: 400px;" />
-        <engine:SliderInt label="Constitution&#10;" value="42" high-value="20" name="siConstitution" show-input-field="true" style="width: 400px; min-width: 400px; max-width: 400px;" />
-        <engine:SliderInt label="Dexterity" value="42" high-value="20" name="siDexterity" show-input-field="true" style="width: 400px; min-width: 400px; max-width: 400px;" />
-        <engine:SliderInt label="Intelligence" value="42" high-value="20" name="siIntelligence" show-input-field="true" style="width: 400px; min-width: 400px; max-width: 400px;" />
-        <engine:SliderInt label="Strength" value="42" high-value="20" name="siStrength" show-input-field="true" style="width: 400px; min-width: 400px; max-width: 400px;" />
-        <engine:SliderInt label="Wisdom" value="42" high-value="20" name="siWisdom" show-input-field="true" style="width: 400px; min-width: 400px; max-width: 400px;" />
-    </engine:VisualElement>
-    <engine:VisualElement name="veLanguages" style="flex-grow: 1; flex-direction: row;">
+    <engine:VisualElement name="veLanguages" style="flex-grow: 1; flex-direction: row; align-items: center; width: 98%;">
         <engine:Label text="Languages" name="lblLanguages" style="-unity-text-align: middle-left;" />
         <engine:ListView name="lvLanguages" />
     </engine:VisualElement>
-    <engine:Button text="Create Character" name="btnCreate" />
+    <engine:Button text="Create Character" name="btnCreateCharacter" />
 </engine:UXML>

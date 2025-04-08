@@ -1,9 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DnD.Code.Scripts.Abilities;
+using DnD.Code.Scripts.Characters;
 using DnD.Code.Scripts.Classes;
 using DnD.Code.Scripts.Equipment;
+using DnD.Code.Scripts.Helpers.NameHelper;
+using DnD.Code.Scripts.Helpers.PathHelper;
+using DnD.Code.Scripts.Languages;
 using DnD.Code.Scripts.Species;
+using Infrastructure.Helpers;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.SmartFormat.PersistentVariables;
@@ -42,6 +48,9 @@ namespace Management.CharacterBuild
         private readonly List<string> startingEquipmentFromBackgroundLocalizedNames = new();
         private readonly Dictionary<string, StartingEquipment> keyToStartingEquipmentFromBackground = new();
 
+        private readonly List<string> languagesLocalizedNames = new();
+        private readonly Dictionary<string, StandardLanguage> keyToLanguages = new();
+
         private VisualElement root;
         private TextField txtCharacterName;
         private DropdownField ddfSpecies;
@@ -65,9 +74,10 @@ namespace Management.CharacterBuild
         private SliderInt siStrength;
         private SliderInt siWisdom;
         
+        private Button btnCreateCharacter;
+        
         void Awake()
         {
-            
             Core = new CharacterBuildSceneManagerCore(this);
 
             Core.OnAwake();
@@ -81,6 +91,9 @@ namespace Management.CharacterBuild
             
             root = uiDocument.rootVisualElement;
             
+            btnCreateCharacter = root.Q<Button>("btnCreateCharacter");
+            btnCreateCharacter.clicked += BtnCreateCharacterOnclicked;
+            
             lblSkillProficiencies = root.Q<Label>("lblSkillProficiencies");
             lblStartingEquipmentFromClass = root.Q<Label>("lblStartingEquipmentFromClass");
             lblStartingEquipmentFromBackground = root.Q<Label>("lblStartingEquipmentFromBackground");
@@ -92,7 +105,8 @@ namespace Management.CharacterBuild
             lvStartingEquipmentFromClass  = root.Q<ListView>("lvStartingEquipmentFromClass");
             lvStartingEquipmentFromBackground  = root.Q<ListView>("lvStartingEquipmentFromBackground");
             lvLanguages = root.Q<ListView>("lvLanguages");
-            
+            lvLanguages.selectionChanged += LvLanguagesOnSelectionChanged;
+
             siCharisma = root.Q<SliderInt>("siCharisma");
             siConstitution = root.Q<SliderInt>("siConstitution");
             siDexterity = root.Q<SliderInt>("siDexterity");
@@ -157,6 +171,7 @@ namespace Management.CharacterBuild
                 lblStartingEquipmentFromBackgroundLabel.StringChanged += (localizedText) => lblStartingEquipmentFromBackground.text = localizedText;
             }
 
+            // Abilities
             {
                 var siCharismaLabel = new LocalizedString(GameEntitiesLocalizationTable, "Abilities.Charisma");
                 siCharismaLabel.StringChanged += (localizedText) => siCharisma.label = localizedText;
@@ -186,6 +201,102 @@ namespace Management.CharacterBuild
                 var siWisdomLabel = new LocalizedString(GameEntitiesLocalizationTable, "Abilities.Wisdom");
                 siWisdomLabel.StringChanged += (localizedText) => siWisdom.label = localizedText;
             }
+            
+            // Languages
+            {
+                var lblLanguagesLabel = new LocalizedString(CharacterUILocalizationTable, "UI.CharacterBuild.Languages.Label");
+                lblLanguagesLabel.StringChanged += (localizedText) => lblLanguages.text = localizedText;
+
+                SetLanguages();
+            }
+        }
+
+        private void BtnCreateCharacterOnclicked()
+        {
+            try
+            {
+                var abilities = ScriptableObjectHelper.GetAllScriptableObjects<Ability>(PathHelper.Abilities.AbilitiesPath);
+                var builder = new CharacterStats.Builder();
+
+                builder
+                    .SetName(txtCharacterName.value)
+                    .SetClass(keyToClasses[ddfClasses.value])
+                    .SetSubClass(keyToSubClasses[ddfSubClasses.value])
+                    .SetBackground(keyToBackgrounds[ddfBackground.value])
+                    .SetSpex(keyToSpecies[ddfSpecies.value])
+                    .SetSkillProficienciesFromClass(lvSkillProficiencies.selectedItems.Cast<string>()
+                        .Select(x => keyToSkillProficiencies[x]).ToArray())
+                    .SetStartingEquipmentFromClass(
+                        keyToStartingEquipmentFromClass[(string)lvStartingEquipmentFromClass.selectedItem])
+                    .SetStartingEquipmentFromBackground(
+                        keyToStartingEquipmentFromBackground[(string)lvStartingEquipmentFromBackground.selectedItem])
+                    .SetAbilityStats(new AbilityStats()
+                    {
+                        Ability = abilities.Single(ability => ability.name == NameHelper.Abilities.Charisma),
+                        Score = siCharisma.value,
+                        SkillProficiencies = lvSkillProficiencies.selectedItems.Cast<string>()
+                            .Select(sk => keyToSkillProficiencies[sk])
+                            .Where(sk => sk.Ability.name == NameHelper.Abilities.Charisma)
+                            .ToDictionary(x => x.name, x => new SkillStats() { Skill = x }),
+                    })
+                    .SetAbilityStats(new AbilityStats()
+                    {
+                        Ability = abilities.Single(ability => ability.name == NameHelper.Abilities.Constitution),
+                        Score = siCharisma.value,
+                        SkillProficiencies = lvSkillProficiencies.selectedItems.Cast<string>()
+                            .Select(sk => keyToSkillProficiencies[sk])
+                            .Where(sk => sk.Ability.name == NameHelper.Abilities.Constitution)
+                            .ToDictionary(x => x.name, x => new SkillStats() { Skill = x }),
+                    })
+                    .SetAbilityStats(new AbilityStats()
+                    {
+                        Ability = abilities.Single(ability => ability.name == NameHelper.Abilities.Dexterity),
+                        Score = siCharisma.value,
+                        SkillProficiencies = lvSkillProficiencies.selectedItems.Cast<string>()
+                            .Select(sk => keyToSkillProficiencies[sk])
+                            .Where(sk => sk.Ability.name == NameHelper.Abilities.Dexterity)
+                            .ToDictionary(x => x.name, x => new SkillStats() { Skill = x }),
+                    })
+                    .SetAbilityStats(new AbilityStats()
+                    {
+                        Ability = abilities.Single(ability => ability.name == NameHelper.Abilities.Intelligence),
+                        Score = siCharisma.value,
+                        SkillProficiencies = lvSkillProficiencies.selectedItems.Cast<string>()
+                            .Select(sk => keyToSkillProficiencies[sk])
+                            .Where(sk => sk.Ability.name == NameHelper.Abilities.Intelligence)
+                            .ToDictionary(x => x.name, x => new SkillStats() { Skill = x }),
+                    })
+                    .SetAbilityStats(new AbilityStats()
+                    {
+                        Ability = abilities.Single(ability => ability.name == NameHelper.Abilities.Strength),
+                        Score = siCharisma.value,
+                        SkillProficiencies = lvSkillProficiencies.selectedItems.Cast<string>()
+                            .Select(sk => keyToSkillProficiencies[sk])
+                            .Where(sk => sk.Ability.name == NameHelper.Abilities.Strength)
+                            .ToDictionary(x => x.name, x => new SkillStats() { Skill = x }),
+                    })
+                    .SetAbilityStats(new AbilityStats()
+                    {
+                        Ability = abilities.Single(ability => ability.name == NameHelper.Abilities.Wisdom),
+                        Score = siCharisma.value,
+                        SkillProficiencies = lvSkillProficiencies.selectedItems.Cast<string>()
+                            .Select(sk => keyToSkillProficiencies[sk])
+                            .Where(sk => sk.Ability.name == NameHelper.Abilities.Wisdom)
+                            .ToDictionary(x => x.name, x => new SkillStats() { Skill = x }),
+                    });
+                
+                foreach (var language in lvLanguages.selectedItems.Cast<string>())
+                {
+                    builder.SetLanguage(keyToLanguages[language]);
+                }
+                
+                var instance = builder.Build();
+
+            }
+            catch (Exception ex)
+            {
+                Debug.LogWarning(ex.Message);
+            }
         }
 
         private void SetSpecies()
@@ -209,6 +320,36 @@ namespace Management.CharacterBuild
                     {
                         ddfSpecies.choices = speciesLocalizedNames;
                         ddfSpecies.value = speciesLocalizedNames[0];
+                    }
+                };
+            }
+        }
+
+        private void SetLanguages()
+        {
+            var languages =
+                Infrastructure.Helpers.ScriptableObjectHelper.GetAllScriptableObjects<StandardLanguage>(DnD.Code.Scripts.Helpers
+                    .PathHelper.PathHelper.Languages.StandardLanguagesPath);
+            
+            int pending = languages.Length;
+            
+            foreach (var language in languages)
+            {
+                var localizedString = new LocalizedString(GameEntitiesLocalizationTable, language.DisplayName);
+                localizedString.StringChanged += (localizedText) =>
+                {
+                    languagesLocalizedNames.Add(localizedText);
+                    keyToLanguages[localizedText] = language;
+
+                    pending--;
+                    if (pending == 0)
+                    {
+                        lvLanguages.itemsSource = languagesLocalizedNames;
+                        lvLanguages.makeItem = () => new Label();
+                        lvLanguages.bindItem =
+                            (element, i) => ((Label)element).text = languagesLocalizedNames[i];
+                        lvLanguages.selectionType = SelectionType.Multiple;
+                        lvLanguages.selectedIndex = 0;
                     }
                 };
             }
@@ -349,6 +490,29 @@ namespace Management.CharacterBuild
 
                 // Update selection without triggering the callback again
                 lvSkillProficiencies.SetSelectionWithoutNotify(selectedIndices);
+            }
+        }
+        
+        private void LvLanguagesOnSelectionChanged(IEnumerable<object> obj)
+        {
+            var maxSelectionCount = 3;
+            
+            var selectedItems = lvLanguages.selectedItems.ToList();
+            var selectedIndices = lvLanguages.selectedIndices.ToList();
+
+            if (!selectedIndices.Contains(0))
+            {
+                selectedIndices.Add(0);
+                lvLanguages.SetSelectionWithoutNotify(selectedIndices);
+            }
+                
+            if (selectedIndices.Count() > maxSelectionCount)
+            {
+                // Revert the last selection by trimming the list
+                selectedIndices = selectedIndices.Take(maxSelectionCount).ToList();
+
+                // Update selection without triggering the callback again
+                lvLanguages.SetSelectionWithoutNotify(selectedIndices);
             }
         }
 

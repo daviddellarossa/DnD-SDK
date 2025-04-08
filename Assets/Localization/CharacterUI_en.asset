@@ -56,6 +56,10 @@ MonoBehaviour:
     m_Localized: Starting equipment from background
     m_Metadata:
       m_Items: []
+  - m_Id: 1239252372283392
+    m_Localized: Languages
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
