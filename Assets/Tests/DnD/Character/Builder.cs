@@ -542,19 +542,20 @@ namespace Tests.Character
             
             Assert.That(_instance.ArmorTraining, Is.SupersetOf(@class.ArmourTraining));
             Assert.That(_instance.WeaponProficiencies, Is.SupersetOf(@class.WeaponProficiencies));
-            Assert.That(_instance.SkillProficiencies, Is.SubsetOf(@class.SkillProficienciesAvailable.Union(background.SkillProficiencies)));
             Assert.That(_instance.Inventory, Is.SupersetOf(@class.StartingEquipmentOptions.Single(x => x.Equals(startingEquipmentFromClass)).EquipmentsWithAmountList));
             Assert.That(_instance.Inventory, Is.SupersetOf(background.StartingEquipmentOptions.Single(x => x.Equals(startingEquipmentFromBackground)).EquipmentsWithAmountList));
             Assert.That(_instance.SavingThrowProficiencies, Is.SupersetOf(@class.SavingThrowProficiencies));
             Assert.That(_instance.ToolProficiencies, Does.Contain(background.ToolProficiency));
             
             Assert.That(_instance.Abilities.Values, Is.EquivalentTo(abilityStats));
+
+            var allSkillProficiencies = skillProficienciesFromClass.Union(background.SkillProficiencies).ToArray();
             foreach (var ability in abilityStats)
             {
                 Assert.That(_instance.Abilities[ability.Ability.name].SavingThrow, Is.EqualTo(@class.SavingThrowProficiencies.Contains(ability.Ability)));
                 Assert.That(
                     _instance.Abilities[ability.Ability.name].SkillProficiencies.Select(x =>x.Value.Skill), 
-                    Is.EquivalentTo(_instance.SkillProficiencies.Where(x => x.Ability == ability.Ability)));
+                    Is.EquivalentTo(allSkillProficiencies.Where(x => x.Ability == ability.Ability)));
             };
             
             Assert.That(_instance.Languages, Is.EquivalentTo(languages));

@@ -44,25 +44,22 @@ namespace DnD.Code.Scripts.Characters
         private int xp;
         
         [SerializeField]
-        private Dictionary<string, AbilityStats> abilities = new ();
+        private readonly Dictionary<string, AbilityStats> abilities = new ();
         
         [SerializeField]
-        private List<BaseArmourType> armorTraining = new List<BaseArmourType>();
+        private readonly List<BaseArmourType> armorTraining = new List<BaseArmourType>();
         
         [SerializeField]
-        private List<WeaponType> weaponProficiencies = new ();
-
-        [SerializeField]
-        private List<Skill> skillProficiencies = new List<Skill>();
+        private readonly List<WeaponType> weaponProficiencies = new ();
         
         [SerializeField]
-        private List<Proficient> toolProficiencies = new List<Proficient>();
+        private readonly List<Proficient> toolProficiencies = new List<Proficient>();
         
         [SerializeField]
-        private List<Ability> savingThrowProficiencies = new ();
+        private readonly List<Ability> savingThrowProficiencies = new ();
         
         [SerializeField]
-        private List<StartingEquipment.EquipmentWithAmount> inventory = new ();
+        private readonly List<StartingEquipment.EquipmentWithAmount> inventory = new ();
         
         [SerializeField]
         private int hitPoints;
@@ -111,8 +108,6 @@ namespace DnD.Code.Scripts.Characters
         public BaseArmourType[] ArmorTraining => armorTraining.ToArray();
 
         public WeaponType[] WeaponProficiencies => weaponProficiencies.ToArray();
-
-        public Skill[] SkillProficiencies => skillProficiencies.ToArray();
         
         public Proficient[] ToolProficiencies => toolProficiencies.ToArray();
 
