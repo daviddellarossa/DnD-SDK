@@ -52,6 +52,10 @@ namespace MessageBroker.Editor
                 messageBrokerCommonGenerator.Generate();
 
             }
+            catch (Exception ex)
+            {
+                Debug.LogException(ex);
+            }
             finally
             {
                 RemoveDefaultInputParametersToMessages(messageInfos);

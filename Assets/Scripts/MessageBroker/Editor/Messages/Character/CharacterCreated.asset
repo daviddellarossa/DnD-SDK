@@ -10,13 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5805e57f46109de4c81d11b5013eba85, type: 3}
-  m_Name: GameStart
+  m_Name: CharacterCreated
   m_EditorClassIdentifier: 
-  messageName: GameStart
-  messageCategory: Game
+  messageName: CharacterCreated
+  messageCategory: Character
   sendMethodComment: 
   eventComment: 
-  inputParameters: []
+  inputParameters:
+  - parameterName: characterStatsInstance
+    multiplicity: 0
+    parameterType: 11
+    otherType: DnD.Code.Scripts.Characters.CharacterStats
+    parameterComment: 
   returnParameter:
     multiplicity: 0
     parameterType: 0

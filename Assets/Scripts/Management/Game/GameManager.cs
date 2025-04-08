@@ -1,3 +1,4 @@
+using DnD.Code.Scripts.Characters;
 using UnityEngine;
 using Scene_SceneManager = Management.Scene.SceneManager;
 
@@ -53,11 +54,18 @@ namespace Management.Game
             if (DeeDeeR.MessageBroker.MessageBroker.Instance != null)
             {
                 DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.StartGame += StartGame_EventHandler;
+                
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Character.CharacterCreated += CharacterOnCharacterCreated;
             }
             else
             {
                 Debug.LogError("MessageBroker instance is null");
             }
+        }
+
+        private void CharacterOnCharacterCreated(object arg1, object arg2, CharacterStats arg3)
+        {
+            Debug.Log("TODO: create a savegame.");
         }
 
         private void UnRegisterMessageBrokerHandlers()

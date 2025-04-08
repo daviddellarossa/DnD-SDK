@@ -22,22 +22,27 @@ namespace DeeDeeR.MessageBroker
 		/// <summary>
 		/// 
 		/// </summary>
-		public event Action<object, object> GameOver;
+		public event Action<object, object, object, object> GameOver;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public event Action<object, object> GamePaused;
+		public event Action<object, object, object, object> GamePaused;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public event Action<object, object> GameResumed;
+		public event Action<object, object, object, object> GameResumed;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public event Action<object, object> GameStart;
+		public event Action<object, object, object, object> GameStart;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public event Action<object, object> GameStarted;
 
 
 		#endregion
@@ -46,6 +51,8 @@ namespace DeeDeeR.MessageBroker
 
 		/// <summary>
 		/// Send a message of type GameOver.
+		/// <param name="sender">The sender of the message. Required.</param>
+		/// <param name="target">The target of the message. Optional.</param>
 		/// <param name="sender">The sender of the message. Required.</param>
 		/// <param name="target">The target of the message. Optional.</param>
 		/// </summary>
@@ -57,11 +64,13 @@ namespace DeeDeeR.MessageBroker
 				return;
 			}
 
-			GameOver?.Invoke(sender, target);
+			GameOver?.Invoke(sender, target, sender, target);
 		}
 
 		/// <summary>
 		/// Send a message of type GamePaused.
+		/// <param name="sender">The sender of the message. Required.</param>
+		/// <param name="target">The target of the message. Optional.</param>
 		/// <param name="sender">The sender of the message. Required.</param>
 		/// <param name="target">The target of the message. Optional.</param>
 		/// </summary>
@@ -73,11 +82,13 @@ namespace DeeDeeR.MessageBroker
 				return;
 			}
 
-			GamePaused?.Invoke(sender, target);
+			GamePaused?.Invoke(sender, target, sender, target);
 		}
 
 		/// <summary>
 		/// Send a message of type GameResumed.
+		/// <param name="sender">The sender of the message. Required.</param>
+		/// <param name="target">The target of the message. Optional.</param>
 		/// <param name="sender">The sender of the message. Required.</param>
 		/// <param name="target">The target of the message. Optional.</param>
 		/// </summary>
@@ -89,11 +100,13 @@ namespace DeeDeeR.MessageBroker
 				return;
 			}
 
-			GameResumed?.Invoke(sender, target);
+			GameResumed?.Invoke(sender, target, sender, target);
 		}
 
 		/// <summary>
 		/// Send a message of type GameStart.
+		/// <param name="sender">The sender of the message. Required.</param>
+		/// <param name="target">The target of the message. Optional.</param>
 		/// <param name="sender">The sender of the message. Required.</param>
 		/// <param name="target">The target of the message. Optional.</param>
 		/// </summary>
@@ -105,7 +118,23 @@ namespace DeeDeeR.MessageBroker
 				return;
 			}
 
-			GameStart?.Invoke(sender, target);
+			GameStart?.Invoke(sender, target, sender, target);
+		}
+
+		/// <summary>
+		/// Send a message of type GameStarted.
+		/// <param name="sender">The sender of the message. Required.</param>
+		/// <param name="target">The target of the message. Optional.</param>
+		/// </summary>
+		public void Send_GameStarted(object sender, object target)
+		{
+			if (sender == null)
+			{
+				Debug.LogError("sender is required.");
+				return;
+			}
+
+			GameStarted?.Invoke(sender, target);
 		}
 
 

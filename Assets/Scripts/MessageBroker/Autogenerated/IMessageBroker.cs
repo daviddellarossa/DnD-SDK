@@ -14,6 +14,11 @@ namespace DeeDeeR.MessageBroker
 	public partial interface IMessageBroker
 	{
 		/// <summary>
+		/// Message Broker for `Character` category
+		/// </summary>
+		MBCharacter Character { get; }
+
+		/// <summary>
 		/// Message Broker for `Game` category
 		/// </summary>
 		MBGame Game { get; }

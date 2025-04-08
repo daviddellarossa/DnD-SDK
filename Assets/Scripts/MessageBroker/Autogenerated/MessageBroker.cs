@@ -17,6 +17,9 @@ namespace DeeDeeR.MessageBroker
 	public sealed partial class MessageBroker : MonoBehaviour, IMessageBroker
 	{
 		/// <inheritdoc/>
+		public MBCharacter Character { get; } = new MBCharacter();
+
+		/// <inheritdoc/>
 		public MBGame Game { get; } = new MBGame();
 
 		/// <inheritdoc/>
