@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Items;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -6,14 +7,23 @@ using UnityEngine.Serialization;
 namespace DnD.Code.Scripts.Equipment
 {
 [CreateAssetMenu(fileName = "NewStartingEquipment", menuName = "Game Entities/Character/Classes/Starting Equipment")]
-    public class StartingEquipment : ScriptableObject
+    public class StartingEquipment : ScriptableObject, ILocalizable
     {
-        [SerializeReference]
-        public List<EquipmentWithAmount> EquipmentsWithAmountList = new ();
+        [SerializeField] private string displayName;
 
+        [SerializeField] private string displayDescription;
+        
+        [SerializeReference]
+        private List<EquipmentWithAmount> equipmentsWithAmountList = new ();
+
+        public List<EquipmentWithAmount> EquipmentsWithAmountList
+        {
+            get => equipmentsWithAmountList;
+            set => equipmentsWithAmountList = value;
+        }
         public void AddEquipmentWithAmount(IEquipment equipment, int amount = 1)
         {
-            EquipmentsWithAmountList.Add(new EquipmentWithAmount { Equipment = equipment as ScriptableObject, Amount = amount });
+            equipmentsWithAmountList.Add(new EquipmentWithAmount { Equipment = equipment as ScriptableObject, Amount = amount });
         }
 
         [System.Serializable]
@@ -38,6 +48,18 @@ namespace DnD.Code.Scripts.Equipment
 
             public IEquipment AsIEquipment() => Equipment as IEquipment;
 
+        }
+
+        public string DisplayName
+        {
+            get => displayName;
+            set => displayName = value;
+        }
+
+        public string DisplayDescription
+        {
+            get => displayDescription;
+            set => displayDescription = value;
         }
     }
 }

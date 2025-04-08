@@ -53,7 +53,9 @@ namespace DnD.Editor.Initializer
 
                     {
                         var optionA = ScriptableObjectHelper.CreateScriptableObject<StartingEquipment>(NameHelper.StartingEquipmentOptions.OptionA, PathHelper.Backgrounds.AcolyteStartingEquipmentPath);
-                    
+                        optionA.DisplayName = $"{nameof(NameHelper.StartingEquipmentOptions)}.{NameHelper.StartingEquipmentOptions.OptionA}";
+                        optionA.DisplayDescription = $"{nameof(NameHelper.StartingEquipmentOptions)}.{NameHelper.StartingEquipmentOptions.OptionA}.{NameHelper.Naming.Description}";
+                        
                         {
                             var holySymbol = ScriptableObjectHelper.CreateScriptableObject<HolySymbol>(NameHelper.Equipment.Gear.Acolyte.HolySymbol, PathHelper.Backgrounds.AcolyteToolsPath);
                             holySymbol.DisplayName = $"{nameof(NameHelper.Equipment.Gear)}.{NameHelper.Equipment.Gear.Acolyte.HolySymbol}";
@@ -130,6 +132,9 @@ namespace DnD.Editor.Initializer
                     }
                     {
                         var optionB = ScriptableObjectHelper.CreateScriptableObject<StartingEquipment>(NameHelper.StartingEquipmentOptions.OptionB, PathHelper.Backgrounds.AcolyteStartingEquipmentPath);
+                        optionB.DisplayName = $"{nameof(NameHelper.StartingEquipmentOptions)}.{NameHelper.StartingEquipmentOptions.OptionB}";
+                        optionB.DisplayDescription = $"{nameof(NameHelper.StartingEquipmentOptions)}.{NameHelper.StartingEquipmentOptions.OptionB}.{NameHelper.Naming.Description}";
+
                         {
                             optionB.EquipmentsWithAmountList.Add(new StartingEquipment.EquipmentWithAmount()
                             {

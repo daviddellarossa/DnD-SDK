@@ -107,6 +107,9 @@ namespace DnD.Editor.Initializer
         {
             var startingEquipment = ScriptableObjectHelper.CreateScriptableObject<StartingEquipment>(optionName, assetPath);
 
+            startingEquipment.DisplayName = $"{nameof(NameHelper.StartingEquipmentOptions)}.{optionName}";
+            startingEquipment.DisplayDescription = $"{nameof(NameHelper.StartingEquipmentOptions)}.{optionName}.{NameHelper.Naming.Description}";
+
             foreach (var item in itemsWithAmount)
             {
                 startingEquipment.EquipmentsWithAmountList.Add(item);

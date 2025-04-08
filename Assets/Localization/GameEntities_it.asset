@@ -19,7 +19,251 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 50225733632
-    m_Localized: 
+    m_Localized: "Acrobaticit\xE0"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132852099309568
+    m_Localized: Umano
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132837339553792
+    m_Localized: Halfling
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132823808729088
+    m_Localized: Goliath
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132807341891584
+    m_Localized: Gnomo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132793609740288
+    m_Localized: Elfo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132777998540800
+    m_Localized: Nano
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132753101152256
+    m_Localized: Dragonborn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132722868609024
+    m_Localized: Aasimar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132869425979392
+    m_Localized: Orco
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132883128770560
+    m_Localized: Tiefling
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9271684715503616
+    m_Localized: Specie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133379277185024
+    m_Localized: Barbaro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9375014561243136
+    m_Localized: Il percorso del Berserker
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9375627017707520
+    m_Localized: Il percorso dello Zelota
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9375348322983936
+    m_Localized: Il percorso dell'albero del mondo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9375338579615744
+    m_Localized: Il percorso del cuore selvaggio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9381584502251520
+    m_Localized: Accolito
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9412692402176
+    m_Localized: Addestrare Animali
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9559606288384
+    m_Localized: Arcano
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9606054010880
+    m_Localized: Atletica
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9632012558336
+    m_Localized: Inganno
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9656293384192
+    m_Localized: Storia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9674924482560
+    m_Localized: Intuizione
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9709737205760
+    m_Localized: Intimidazione
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9740129132544
+    m_Localized: Indagare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9760999989248
+    m_Localized: Medicina
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9781577244672
+    m_Localized: Natura
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9799453368320
+    m_Localized: Percezione
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9828167573504
+    m_Localized: Intrattenimento
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9858249121792
+    m_Localized: Persuasione
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9886703280128
+    m_Localized: Religione
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9908924702720
+    m_Localized: "Rapidit\xE0 di mano"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9967003230208
+    m_Localized: "Furtivit\xE0"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10002436710400
+    m_Localized: Sopravvivenza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9774780851937280
+    m_Localized: Opzione A
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9774871608287232
+    m_Localized: Opzione B
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10491802935296
+    m_Localized: Carisma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10532689010688
+    m_Localized: Costituzione
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10553803137024
+    m_Localized: Destrezza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10573185015808
+    m_Localized: Intelligenza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10597293875200
+    m_Localized: Forza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10618219257856
+    m_Localized: Saggezza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131174868443136
+    m_Localized: Comune
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131195768659968
+    m_Localized: Comune dei segni
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131221311971328
+    m_Localized: Draconico
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131251318022144
+    m_Localized: Nanico
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131271660396544
+    m_Localized: Elfico
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131292808077312
+    m_Localized: Gigante
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131312735215616
+    m_Localized: Gnomesco
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131331999653888
+    m_Localized: Goblin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131353180889088
+    m_Localized: Halfling
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131372197863424
+    m_Localized: Orchesco
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131395585302528
+    m_Localized: Abissale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131418226155520
+    m_Localized: Celestiale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131437721280512
+    m_Localized: Linguaggio senziente profondo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131490137497600
+    m_Localized: Druidico
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131508873453568
+    m_Localized: Infernale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131528729288704
+    m_Localized: Primordiale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131547918229504
+    m_Localized: Silvano
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131567551766528
+    m_Localized: Linguaggio Segreto dei Ladri
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131597994024960
+    m_Localized: Sottocomune
     m_Metadata:
       m_Items: []
   references:

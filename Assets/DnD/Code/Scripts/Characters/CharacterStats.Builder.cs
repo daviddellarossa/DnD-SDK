@@ -62,6 +62,7 @@ namespace DnD.Code.Scripts.Characters
                 return this;
             }
 
+            [Obsolete]
             public Builder SetSkillProficienciesFromClass(Skill[] skillProficiencies)
             {
                 this._skillProficienciesFromClass.AddRange(skillProficiencies);
