@@ -62,7 +62,6 @@ namespace DnD.Code.Scripts.Characters
                 return this;
             }
 
-            [Obsolete]
             public Builder SetSkillProficienciesFromClass(Skill[] skillProficiencies)
             {
                 this._skillProficienciesFromClass.AddRange(skillProficiencies);
@@ -130,7 +129,6 @@ namespace DnD.Code.Scripts.Characters
                 // from class
                 characterStats.armorTraining.AddRange(this._class.ArmourTraining);
                 characterStats.weaponProficiencies.AddRange(this._class.WeaponProficiencies);
-                characterStats.skillProficiencies.AddRange(this._skillProficienciesFromClass);
                 characterStats.inventory.AddRange(this._startingEquipmentFromClass.EquipmentsWithAmountList);
                 characterStats.savingThrowProficiencies.AddRange(this._class.SavingThrowProficiencies);
                 
@@ -139,25 +137,25 @@ namespace DnD.Code.Scripts.Characters
                 characterStats.classFeatures.AddRange(currentLevel.ClassFeatures);
                 
                 // from background
-                characterStats.skillProficiencies.AddRange(this._background.SkillProficiencies);
                 characterStats.toolProficiencies.Add(this._background.ToolProficiency);
                 characterStats.inventory.AddRange(this._startingEquipmentFromBackground.EquipmentsWithAmountList);
-
-                // from species
-                
                 
                 // others
                 foreach (var abilityStat in this._abilityStats)
                 {
                     abilityStat.SavingThrow = this._class.SavingThrowProficiencies.Contains(abilityStat.Ability);
 
-                    foreach (var skillProficiency in this._skillProficienciesFromClass.Union(this._background.SkillProficiencies).Where(x => x.Ability == abilityStat.Ability))
+                    foreach (var skillProficiency in 
+                             this._skillProficienciesFromClass
+                                 .Union(this._background.SkillProficiencies)
+                                 .Where(x => x.Ability == abilityStat.Ability))
                     {
                         abilityStat.SkillProficiencies[skillProficiency.name] = new SkillStats()
                         {
                             Skill = skillProficiency,
                         };
                     }
+                    
                     characterStats.abilities.Add(abilityStat.Ability.name, abilityStat);
                 }
                 
