@@ -1,17 +1,21 @@
 ﻿using System.IO;
 using UnityEngine;
+using ProtoBuf;
 
 namespace Infrastructure.SaveManager
 {
     public static class SaveManager
     {
-        private static string SavePath => Path.Combine(Application.persistentDataPath, "savegame.json");
+        private static string SavePath => Path.Combine(Application.persistentDataPath, "savegame.dat");
         
         public static void Save(SaveGameData data)
         {
-            string json = JsonUtility.ToJson(data, true);
-            File.WriteAllText(SavePath, json);
-            Debug.Log("Game saved to: " + SavePath);
+            using (var file = File.Create(SavePath))
+            {
+                Serializer.Serialize(file, data);
+            }
+
+            Debug.Log("Game saved with Protobuf to: " + SavePath);
         }
 
         public static SaveGameData Load()
@@ -22,10 +26,11 @@ namespace Infrastructure.SaveManager
                 return null;
             }
 
-            string json = File.ReadAllText(SavePath);
-            return JsonUtility.FromJson<SaveGameData>(json);
+            using (var file = File.OpenRead(SavePath))
+            {
+                return Serializer.Deserialize<SaveGameData>(file);
+            }
         }
-
         public static void DeleteSave()
         {
             if (File.Exists(SavePath))

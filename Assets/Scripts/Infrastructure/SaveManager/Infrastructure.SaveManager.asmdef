@@ -1,0 +1,17 @@
+{
+    "name": "Infrastructure.SaveManager",
+    "rootNamespace": "",
+    "references": [
+        "Infrastructure.Helpers",
+        "ProtobufNet"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

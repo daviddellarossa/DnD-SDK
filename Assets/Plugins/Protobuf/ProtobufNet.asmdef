@@ -1,14 +1,15 @@
 {
-    "name": "Infrastructure",
+    "name": "ProtobufNet",
     "rootNamespace": "",
-    "references": [
-        "Infrastructure.Helpers"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
-    "overrideReferences": false,
-    "precompiledReferences": [],
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "protobuf-net.dll",
+        "protobuf-net.Core.dll"
+    ],
     "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [],
