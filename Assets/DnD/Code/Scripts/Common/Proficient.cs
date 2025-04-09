@@ -28,7 +28,12 @@ namespace DnD.Code.Scripts.Common
         public static Proficient Of<T>()
             where T: ScriptableObject, IProficiency
         {
-            return new Proficient(typeof(T).FullName, typeof(T).Name);
+            return Of(typeof(T));
+        }
+
+        internal static Proficient Of(Type type)
+        {
+            return new Proficient(type.FullName, type.Name);
         }
     }
 }
