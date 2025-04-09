@@ -20,6 +20,7 @@ namespace MessageBroker.Editor
                 
                 GameMessagesInitializer.InitializeGameMessages();
                 MenusMessagesInitializer.InitializeMenusMessages();
+                CharacterMessagesInitializer.InitializeCharacterMessages();
 
             }
             catch (Exception e)

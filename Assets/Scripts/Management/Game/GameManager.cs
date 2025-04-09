@@ -1,3 +1,6 @@
+using DnD.Code.Scripts.Characters;
+using Infrastructure;
+using Infrastructure.SaveManager;
 using UnityEngine;
 using Scene_SceneManager = Management.Scene.SceneManager;
 
@@ -53,6 +56,8 @@ namespace Management.Game
             if (DeeDeeR.MessageBroker.MessageBroker.Instance != null)
             {
                 DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.StartGame += StartGame_EventHandler;
+                
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Character.CharacterCreated += CharacterOnCharacterCreated;
             }
             else
             {
@@ -87,6 +92,25 @@ namespace Management.Game
         public void StartGame_EventHandler(object sender, object target)
         {
             this.Core.StartGame_EventHandler(sender, target);
+        }
+        
+        private void CharacterOnCharacterCreated(object sender, object target, CharacterStats characterStats)
+        {
+            Debug.Log("TODO: create a savegame.");
+            SaveGameData data = new SaveGameData()
+            {
+                Level = characterStats.Level,
+                Xp = characterStats.Xp,
+                BackgroundName = characterStats.Background.name,
+                CharacterName = characterStats.CharacterName,
+                ClassName = characterStats.Class.name,
+                HitPoints = characterStats.HitPoints,
+                SpexName = characterStats.Spex.name,
+                SubClassName = characterStats.SubClass.name,
+                TemporaryHitPoints = 0
+            };
+
+            SaveManager.Save(data);
         }
     }
 }

@@ -1,14 +1,15 @@
 {
-    "name": "MessageBroker",
+    "name": "ProtobufNet",
     "rootNamespace": "",
-    "references": [
-        "GUID:928119c26d7f9783992a0bc4da0e65a8"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
-    "overrideReferences": false,
-    "precompiledReferences": [],
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "protobuf-net.dll",
+        "protobuf-net.Core.dll"
+    ],
     "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [],

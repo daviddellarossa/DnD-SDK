@@ -151,12 +151,12 @@ namespace Management.CharacterBuild
             
             {
                 ddfBackground = root.Q<DropdownField>("ddfBackground");
+                ddfBackground.RegisterValueChangedCallback(SetStartingEquipmentFromBackground);
+                
                 var ddfBackgroundLabel = new LocalizedString(CharacterUILocalizationTable, "UI.CharacterBuild.Background.Label");
                 ddfBackgroundLabel.StringChanged += (localizedText) => ddfBackground.label = localizedText;
 
                 SetBackground();
-                
-                ddfBackground.RegisterValueChangedCallback(SetStartingEquipmentFromBackground);
             }
 
             {
@@ -292,6 +292,12 @@ namespace Management.CharacterBuild
                 
                 var instance = builder.Build();
 
+                if (instance == null)
+                {
+                    Debug.LogError("CharacterStat instance is null");
+                }
+                
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Character.Send_CharacterCreated(this, null, instance);
             }
             catch (Exception ex)
             {
