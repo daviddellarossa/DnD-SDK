@@ -5,10 +5,10 @@ using DnD.Code.Scripts.Weapons;
 using NUnit.Framework;
 using UnityEditor;
 
-namespace Tests
+namespace Tests.DnD
 {
     [TestFixture]
-    public class AmmunitionTypes
+    public class AmmunitionTypesUnitTests
     {
         private AmmunitionType[] _ammunitionTypes;
 

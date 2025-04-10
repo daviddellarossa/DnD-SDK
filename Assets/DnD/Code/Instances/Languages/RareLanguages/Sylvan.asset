@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7a44792d596ee429a8d4f009940006, type: 3}
   m_Name: Sylvan
   m_EditorClassIdentifier: 
-  Origin: {fileID: 11400000, guid: 0194c3c8db087b846acfeca8600eb4b3, type: 2}
   displayName: Languages.Sylvan
   displayDescription: Languages.Sylvan.Description
+  origin: {fileID: 11400000, guid: 0194c3c8db087b846acfeca8600eb4b3, type: 2}

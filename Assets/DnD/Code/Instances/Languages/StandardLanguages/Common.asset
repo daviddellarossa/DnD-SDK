@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae3504c206a99f41a667412865a7a80, type: 3}
   m_Name: Common
   m_EditorClassIdentifier: 
-  Origin: {fileID: 11400000, guid: 7f21c78da62e67b40b1606553739f47d, type: 2}
   displayName: Languages.Common
   displayDescription: Languages.Common.Description
+  origin: {fileID: 11400000, guid: 7f21c78da62e67b40b1606553739f47d, type: 2}

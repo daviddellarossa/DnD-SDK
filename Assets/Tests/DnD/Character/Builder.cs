@@ -7,18 +7,18 @@ using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Backgrounds;
 using DnD.Code.Scripts.Characters;
 using DnD.Code.Scripts.Classes;
-using DnD.Code.Scripts.Helpers.PathHelper;
 using DnD.Code.Scripts.Helpers.NameHelper;
+using DnD.Code.Scripts.Helpers.PathHelper;
 using DnD.Code.Scripts.Languages;
 using DnD.Code.Scripts.Species;
 using Infrastructure.Helpers;
 using Moq;
 using NUnit.Framework;
 
-namespace Tests.Character
+namespace Tests.DnD.Character
 {
     [TestFixture]
-    public class Builder
+    public class BuilderUnitTests
     {
         private CharacterStats.Builder _model;
         private CharacterStats _instance;

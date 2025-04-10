@@ -106,6 +106,7 @@ namespace Management.Game
             SaveManager.Save(data);
 
             var loadedObject = SaveManager.Load();
+            var loadedCharacterStats = loadedObject.CharacterStats.ToGameData();
             Debug.Log("Savegame loaded");
         }
     }

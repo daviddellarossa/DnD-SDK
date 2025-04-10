@@ -17,7 +17,7 @@ namespace DnD.Code.Scripts.Common
 
         public string ProficiencyName => proficiencyName;
 
-        private Proficient(string proficiencyFullName, string proficiencyName)
+        internal Proficient(string proficiencyFullName, string proficiencyName)
         {
             this.proficiencyFullName = proficiencyFullName;
             this.proficiencyName = proficiencyName;

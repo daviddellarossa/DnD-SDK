@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae3504c206a99f41a667412865a7a80, type: 3}
   m_Name: Draconic
   m_EditorClassIdentifier: 
-  Origin: {fileID: 11400000, guid: 73e88f7c86bf6324687c4778272fe22b, type: 2}
   displayName: Languages.Draconic
   displayDescription: Languages.Draconic.Description
+  origin: {fileID: 11400000, guid: 73e88f7c86bf6324687c4778272fe22b, type: 2}

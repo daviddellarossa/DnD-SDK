@@ -1,24 +1,24 @@
 using System.Collections;
 using System.Linq;
-using DnD.Code.Scripts.Common;
+using DnD.Code.Scripts.Storage;
 using NUnit.Framework;
 using UnityEditor;
 using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
 
-namespace Tests
+namespace Tests.DnD
 {
     [TestFixture]
-    public class Storage
+    public class StorageUnitTests
     {
-        private DnD.Code.Scripts.Storage.Storage[] _storages;
+        private Storage[] _storages;
 
         [SetUp]
         public void Setup()
         {
-            string[] guids = AssetDatabase.FindAssets($"t:{nameof(DnD.Code.Scripts.Storage.Storage)}");
+            string[] guids = AssetDatabase.FindAssets($"t:{nameof(Storage)}");
             _storages =  guids
                 .Select(AssetDatabase.GUIDToAssetPath)
-                .Select(AssetDatabase.LoadAssetAtPath<DnD.Code.Scripts.Storage.Storage>)
+                .Select(AssetDatabase.LoadAssetAtPath<Storage>)
                 .Where(asset => asset != null)
                 .ToArray();
         }

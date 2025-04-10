@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Armour;
@@ -68,10 +69,10 @@ namespace DnD.Code.Scripts.Characters
         private int temporaryHitPoints;
         
         [SerializeField]
-        private DeathSaves deathSaves;
+        private DeathSaves deathSaves = new DeathSaves();
 
         [SerializeField]
-        private HashSet<ILanguage> languages = new ();
+        private HashSet<Language> languages = new ();
         
         [SerializeReference]
         private IClassFeatureStats classFeatureStats;
@@ -82,48 +83,61 @@ namespace DnD.Code.Scripts.Characters
         public string CharacterName
         {
             get => characterName;
-            set => characterName = value;
+            internal set => characterName = value;
         }
 
         public Class Class
         {
             get => @class;
-            set => @class = value;
+            internal set => @class = value;
         }
 
         public SubClass SubClass
         {
             get => subClass;
-            set => subClass = value;
+            internal set => subClass = value;
         }
 
         public Background Background
         {
             get => background;
-            set => background = value;
+            internal set => background = value;
         }
 
         public Species.Spex Spex
         {
             get => spex;
-            set => spex = value;
+            internal set => spex = value;
         }
 
         public int Level
         {
             get => level;
-            set => level = value;
+            internal set => level = value;
         }
 
         public int Xp
         {
             get => xp;
-            set => xp = value;
+            internal set => xp = value;
         }
         
         public int ProficiencyBonus => Constants.BaseProficiencyBonus + (this.level - 1) / 4;
         
-        public IDictionary<string, AbilityStats> Abilities => abilities;
+        public ImmutableDictionary<string, AbilityStats> Abilities => abilities.ToImmutableDictionary();
+
+        public void SetAbilityStats(AbilityStats abilityStats)
+        {
+            abilities[abilityStats.Ability.name] = abilityStats;
+        }
+        internal void ResetAbilityStats(AbilityStats[] abilityStats)
+        {
+            abilities.Clear();
+            foreach (var abilityStat in abilityStats)
+            {
+                abilities.Add(abilityStat.Ability.name, abilityStat);
+            }
+        }
         
         public BaseArmourType[] ArmorTraining => armorTraining.ToArray();
 
@@ -149,27 +163,41 @@ namespace DnD.Code.Scripts.Characters
         }
         
         public Ability[] SavingThrowProficiencies =>  savingThrowProficiencies.ToArray();
+        internal void SetSavingThrowProficiencies(IEnumerable<Ability> proficiencies)
+        {
+            this.savingThrowProficiencies.Clear();
+            this.savingThrowProficiencies.AddRange(proficiencies);
+        }
 
         public StartingEquipment.EquipmentWithAmount[] Inventory => inventory.ToArray();
         
-        public ILanguage[] Languages => languages.ToArray();
+        public Language[] Languages => languages.ToArray();
+
+        internal void SetLanguages(IEnumerable<Language> languages)
+        {
+            this.languages.Clear();
+            foreach (var language in languages)
+            {
+                this.languages.Add(language);
+            }
+        }
 
         public int HitPoints
         {
             get => hitPoints;
-            set => hitPoints = value;
+            internal set => hitPoints = value;
         }
 
         public int TemporaryHitPoints
         {
             get => temporaryHitPoints;
-            set => temporaryHitPoints = value;
+            internal set => temporaryHitPoints = value;
         }
 
         public DeathSaves DeathSaves
         {
             get => deathSaves;
-            set => deathSaves = value;
+            internal set => deathSaves = value;
         }
         
         public Ability PrimaryAbility => this.@class.PrimaryAbility;

@@ -1,15 +1,14 @@
 using System.Collections;
 using System.Linq;
 using DnD.Code.Scripts.Armour;
-using DnD.Code.Scripts.Common;
 using NUnit.Framework;
 using UnityEditor;
 using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
 
-namespace Tests
+namespace Tests.DnD
 {
     [TestFixture]
-    public class ArmourTypes
+    public class ArmourTypesUnitTests
     {
         private ArmourType[] _armourTypes;
         private ShieldType[] _shieldTypes;

@@ -5,10 +5,10 @@ using DnD.Code.Scripts.Helpers.NameHelper;
 using NUnit.Framework;
 using UnityEditor;
 
-namespace Tests
+namespace Tests.DnD
 {
     [TestFixture]
-    public class Feats
+    public class FeatsUnitTests
     {
         private FeatCategory[] _featCategories;
         private Feat[] _feats;

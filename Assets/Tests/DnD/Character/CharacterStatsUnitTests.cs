@@ -9,10 +9,9 @@ using DnD.Code.Scripts.Classes;
 using DnD.Code.Scripts.Helpers.NameHelper;
 using DnD.Code.Scripts.Helpers.PathHelper;
 using Infrastructure.Helpers;
-using Moq;
 using NUnit.Framework;
 
-namespace Tests.Character
+namespace Tests.DnD.Character
 {
     [TestFixture]
     public class CharacterStatsUnitTests
@@ -81,11 +80,12 @@ namespace Tests.Character
             
             var abilityStat = new AbilityStats()
             {
+                Ability = _abilities.Single(x => x.name == NameHelper.Abilities.Wisdom),
                 Score = wisdomScore,
                 SkillProficiencies = skillProficiencies,
             };
             
-            model.Abilities[NameHelper.Abilities.Wisdom] = abilityStat;
+            model.SetAbilityStats(abilityStat);
 
             return model.PassivePerception;
         }
@@ -101,7 +101,7 @@ namespace Tests.Character
                 Score = constitutionScore,
             };
             
-            model.Abilities[NameHelper.Abilities.Constitution] = abilityStat;
+            model.SetAbilityStats(abilityStat);
             
             model.SetLevel(level);
 
@@ -121,7 +121,7 @@ namespace Tests.Character
                 Score = dexterityScore,
             };
             
-            model.Abilities[NameHelper.Abilities.Dexterity] = abilityStat;
+            model.SetAbilityStats(abilityStat);
             
             Assert.That(model.Initiative, Is.EqualTo(abilityStat.Modifier));
         }
@@ -137,7 +137,7 @@ namespace Tests.Character
                 Score = dexterityScore,
             };
             
-            model.Abilities[NameHelper.Abilities.Dexterity] = abilityStat;
+            model.SetAbilityStats(abilityStat);
             
             Assert.That(model.ArmourClass, Is.EqualTo(abilityStat.Modifier + Constants.BaseArmourClass));
         }

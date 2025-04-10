@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7a44792d596ee429a8d4f009940006, type: 3}
   m_Name: Infernal
   m_EditorClassIdentifier: 
-  Origin: {fileID: 11400000, guid: acb1cef2a1ff674448beb1909d4e1940, type: 2}
   displayName: Languages.Infernal
   displayDescription: Languages.Infernal.Description
+  origin: {fileID: 11400000, guid: acb1cef2a1ff674448beb1909d4e1940, type: 2}

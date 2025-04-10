@@ -7,10 +7,10 @@ using NUnit.Framework;
 using UnityEditor;
 using UnityEngine;
 
-namespace Tests.Classes.Barbarian
+namespace Tests.DnD.Classes.Barbarian
 {
     [TestFixture]
-    public class Barbarian
+    public class BarbarianUnitTests
     {
         private static readonly string ClassName = NameHelper.Classes.Barbarian;
         private Class _class;

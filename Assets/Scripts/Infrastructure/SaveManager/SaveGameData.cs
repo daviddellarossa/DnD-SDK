@@ -39,7 +39,7 @@ namespace Infrastructure.SaveManager
         [ProtoMember(11)]
         public List<string> WeaponProficiencies;
         [ProtoMember(12)]
-        public List<string> ToolProficiencies;
+        public List<ProficientGameData> ToolProficiencies;
         [ProtoMember(13)]
         public List<string> SavingThrowsProficiencies;
         [ProtoMember(14)]
@@ -72,20 +72,35 @@ namespace Infrastructure.SaveManager
         public int WeaponMastery;
     }
 
-    [Serializable]
-    public class AbilitySaveGameData
+    [ProtoContract]
+    public class ProficientGameData
     {
-        public string abilityName;
-        public int score;
-        public bool savingThrow;
-        public List<SkillSaveGameData> skillsSaveGameData = new List<SkillSaveGameData>();
+        [ProtoMember(1)]
+        public string ProficiencyFullName;
+        [ProtoMember(2)]
+        public string ProficiencyName;
     }
 
-    [Serializable]
+    [ProtoContract]
+    public class AbilitySaveGameData
+    {
+        [ProtoMember(1)]
+        public string AbilityName;
+        [ProtoMember(2)]
+        public int Score;
+        [ProtoMember(3)]
+        public bool SavingThrow;
+        [ProtoMember(4)]
+        public List<SkillSaveGameData> SkillsSaveGameData = new List<SkillSaveGameData>();
+    }
+
+    [ProtoContract]
     public class SkillSaveGameData
     {
-        public string skillName;
-        public bool isExpert;
+        [ProtoMember(1)]
+        public string SkillName;
+        [ProtoMember(2)]
+        public bool IsExpert;
     }
 
     [Serializable]

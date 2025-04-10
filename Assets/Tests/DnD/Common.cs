@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Tests
+namespace Tests.DnD
 {
     public static class Common
     {
