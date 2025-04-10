@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Characters;
@@ -7,9 +8,9 @@ using DnD.Code.Scripts.Classes.FeatureProperties;
 
 namespace Infrastructure.SaveManager
 {
-    public static class ExtensionsForSaveGameData
+    public class EntityToSaveGameDataConverter : ISaveGameDataConverter
     {
-        public static CharacterStatsGameData ToSaveGameData(this CharacterStats characterStats)
+        public CharacterStatsGameData Convert(CharacterStats characterStats)
         {
             return new CharacterStatsGameData()
             {
@@ -31,29 +32,29 @@ namespace Infrastructure.SaveManager
                 HitPoints = characterStats.HitPoints,
                 TemporaryHitPoints = characterStats.TemporaryHitPoints,
                 Languages = new(characterStats.Languages.Select(x => x.name)),
-                ClassFeatureStats = characterStats.ClassFeatureStats.ToSaveGameData(),
+                ClassFeatureStats = Convert(characterStats.ClassFeatureStats),
                 DeathSavesSaveGameData = new DeathSavesSaveGameData()
                 {
                     Failures = characterStats.DeathSaves.Failures,
                     Successes = characterStats.DeathSaves.Successes,
                 },
-                AbilitiesSaveGameData = characterStats.Abilities.Values.ToSaveGameData()
+                AbilitiesSaveGameData = this.Convert(characterStats.Abilities.Values)
             };
         }
-
-        private static List<AbilitySaveGameData> ToSaveGameData(this IEnumerable<AbilityStats> abilityStats)
+        
+        public List<AbilityStatsSaveGameData> Convert(IEnumerable<AbilityStats> abilityStats)
         {
-            var abilitySaveGameDataList = new List<AbilitySaveGameData>();
+            var abilitySaveGameDataList = new List<AbilityStatsSaveGameData>();
             foreach (var abilityStat in abilityStats)
             {
-                abilitySaveGameDataList.Add(abilityStat.ToSaveGameData());
+                abilitySaveGameDataList.Add(this.Convert(abilityStat));
             }
             return abilitySaveGameDataList;
         }
         
-        private static AbilitySaveGameData ToSaveGameData(this AbilityStats abilityStats)
+        public AbilityStatsSaveGameData Convert(AbilityStats abilityStats)
         {
-            var abilitySaveGameData = new AbilitySaveGameData()
+            var abilitySaveGameData = new AbilityStatsSaveGameData()
             {
                 Score = abilityStats.Score,
                 AbilityName = abilityStats.Ability.name,
@@ -72,8 +73,8 @@ namespace Infrastructure.SaveManager
             
             return abilitySaveGameData;
         }
-        
-        private static ClassFeatureStatsGameDataBase ToSaveGameData(this IClassFeatureStats stats)
+
+        public ClassFeatureStatsGameDataBase Convert(IClassFeatureStats stats)
         {
             return stats switch
             {

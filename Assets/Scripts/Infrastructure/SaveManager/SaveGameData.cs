@@ -31,7 +31,7 @@ namespace Infrastructure.SaveManager
         [ProtoMember(7)]
         public int Xp;
         [ProtoMember(8)]
-        public List<AbilitySaveGameData> AbilitiesSaveGameData;
+        public List<AbilityStatsSaveGameData> AbilitiesSaveGameData;
         [ProtoMember(9)]
         public List<string> InventoryItems;
         [ProtoMember(10)]
@@ -82,7 +82,7 @@ namespace Infrastructure.SaveManager
     }
 
     [ProtoContract]
-    public class AbilitySaveGameData
+    public class AbilityStatsSaveGameData
     {
         [ProtoMember(1)]
         public string AbilityName;
