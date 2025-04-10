@@ -12,8 +12,8 @@ namespace Tests.DnD
     {
         private DamageType[] _damageTypes;
         
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             string[] guids = AssetDatabase.FindAssets($"t:{nameof(DamageType)}");
             _damageTypes =  guids

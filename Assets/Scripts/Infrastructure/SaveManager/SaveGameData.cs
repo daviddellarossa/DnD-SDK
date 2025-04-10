@@ -91,11 +91,11 @@ namespace Infrastructure.SaveManager
         [ProtoMember(3)]
         public bool SavingThrow;
         [ProtoMember(4)]
-        public List<SkillSaveGameData> SkillsSaveGameData = new List<SkillSaveGameData>();
+        public List<SkillStatsSaveGameData> SkillsSaveGameData = new List<SkillStatsSaveGameData>();
     }
 
     [ProtoContract]
-    public class SkillSaveGameData
+    public class SkillStatsSaveGameData
     {
         [ProtoMember(1)]
         public string SkillName;

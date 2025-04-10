@@ -13,8 +13,8 @@ namespace Tests.DnD
         private ArmourType[] _armourTypes;
         private ShieldType[] _shieldTypes;
         
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             string[] guids = AssetDatabase.FindAssets($"t:{nameof(ArmourType)}");
             _armourTypes =  guids

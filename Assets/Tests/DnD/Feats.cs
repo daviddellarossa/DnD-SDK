@@ -13,8 +13,8 @@ namespace Tests.DnD
         private FeatCategory[] _featCategories;
         private Feat[] _feats;
 
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             string[] guids = AssetDatabase.FindAssets($"t:{nameof(FeatCategory)}");
             _featCategories =  guids

@@ -14,8 +14,8 @@ namespace Tests.DnD
         private Shield[] _shields;
 
         
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             string[] guids = AssetDatabase.FindAssets($"t:{nameof(Armour)}");
             _armours =  guids

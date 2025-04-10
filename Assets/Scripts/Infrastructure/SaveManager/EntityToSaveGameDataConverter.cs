@@ -64,7 +64,7 @@ namespace Infrastructure.SaveManager
             foreach (var skillProficiency in abilityStats.SkillProficiencies.Values)
             {
                 abilitySaveGameData.SkillsSaveGameData.Add(
-                    new  SkillSaveGameData()
+                    new  SkillStatsSaveGameData()
                     {
                         IsExpert = skillProficiency.IsExpert,
                         SkillName = skillProficiency.Skill.name,

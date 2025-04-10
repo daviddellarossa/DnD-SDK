@@ -18,8 +18,8 @@ namespace Tests.DnD.Backgrounds
         private IEnumerable<ScriptableObject> _tools ;
         private static readonly string _className = NameHelper.Backgrounds.Acolyte;
 
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             string[] guids = AssetDatabase.FindAssets($"t:{nameof(Background)}");
             _acolyte = guids

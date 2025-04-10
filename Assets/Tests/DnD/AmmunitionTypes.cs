@@ -12,8 +12,8 @@ namespace Tests.DnD
     {
         private AmmunitionType[] _ammunitionTypes;
 
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             string[] guids = AssetDatabase.FindAssets($"t:{nameof(AmmunitionType)}");
             _ammunitionTypes =  guids

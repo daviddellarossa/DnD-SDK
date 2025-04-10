@@ -12,8 +12,8 @@ namespace Tests.DnD
     {
         private Ability[] _abilities;
         
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             string[] guids = AssetDatabase.FindAssets($"t:{nameof(Ability)}");
             _abilities =  guids
