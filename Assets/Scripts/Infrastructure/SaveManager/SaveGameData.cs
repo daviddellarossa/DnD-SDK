@@ -33,7 +33,7 @@ namespace Infrastructure.SaveManager
         [ProtoMember(8)]
         public List<AbilityStatsSaveGameData> AbilitiesSaveGameData;
         [ProtoMember(9)]
-        public List<string> InventoryItems;
+        public ClassFeatureStatsGameDataBase ClassFeatureStats;
         [ProtoMember(10)]
         public List<string> ArmourTraining;
         [ProtoMember(11)]
@@ -52,9 +52,6 @@ namespace Infrastructure.SaveManager
         public DeathSavesSaveGameData DeathSavesSaveGameData;
         [ProtoMember(18)]
         public List<string> Languages;
-        [ProtoMember(19)]
-        public ClassFeatureStatsGameDataBase ClassFeatureStats;
-
     }
     
     [ProtoContract]

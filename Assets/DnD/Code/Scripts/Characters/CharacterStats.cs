@@ -139,7 +139,7 @@ namespace DnD.Code.Scripts.Characters
             }
         }
         
-        public BaseArmourType[] ArmorTraining => armorTraining.ToArray();
+        public BaseArmourType[] ArmourTraining => armorTraining.ToArray();
 
         internal void SetArmourTraining(IEnumerable<BaseArmourType> armourTraining)
         {
@@ -170,6 +170,12 @@ namespace DnD.Code.Scripts.Characters
         }
 
         public StartingEquipment.EquipmentWithAmount[] Inventory => inventory.ToArray();
+
+        internal void SetInventory(IEnumerable<StartingEquipment.EquipmentWithAmount> inventory)
+        {
+            this.inventory.Clear();
+            this.inventory.AddRange(inventory);
+        }
         
         public Language[] Languages => languages.ToArray();
 

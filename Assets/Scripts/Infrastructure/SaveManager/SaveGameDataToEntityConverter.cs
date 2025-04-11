@@ -66,6 +66,7 @@ namespace Infrastructure.SaveManager
                 ClassFeatureStats = this.Convert(characterStatsGameData.ClassFeatureStats),
             };
 
+            // characterStats.SetInventory(GetInventory()); Not implemented
             characterStats.SetArmourTraining(GetArmourTypes());
             characterStats.SetWeaponProficiencies(GetWeaponTypes());
             characterStats.SetToolProficiencies(GetToolProficiencies());

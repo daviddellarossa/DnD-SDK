@@ -540,7 +540,7 @@ namespace Tests.DnD.Character
             Assert.That(_instance.Level, Is.EqualTo(CharacterStats.Builder.DefaultLevel));
             Assert.That(_instance.Xp, Is.EqualTo(CharacterStats.Builder.DefaultXp));
             
-            Assert.That(_instance.ArmorTraining, Is.SupersetOf(@class.ArmourTraining));
+            Assert.That(_instance.ArmourTraining, Is.SupersetOf(@class.ArmourTraining));
             Assert.That(_instance.WeaponProficiencies, Is.SupersetOf(@class.WeaponProficiencies));
             Assert.That(_instance.Inventory, Is.SupersetOf(@class.StartingEquipmentOptions.Single(x => x.Equals(startingEquipmentFromClass)).EquipmentsWithAmountList));
             Assert.That(_instance.Inventory, Is.SupersetOf(background.StartingEquipmentOptions.Single(x => x.Equals(startingEquipmentFromBackground)).EquipmentsWithAmountList));

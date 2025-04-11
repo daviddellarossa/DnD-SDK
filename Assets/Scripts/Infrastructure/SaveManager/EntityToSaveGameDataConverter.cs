@@ -21,7 +21,7 @@ namespace Infrastructure.SaveManager
                 SpexName = characterStats.Spex.name,
                 Level = characterStats.Level,
                 Xp = characterStats.Xp,
-                ArmourTraining = new(characterStats.ArmorTraining.Select(x => x.name)),
+                ArmourTraining = new(characterStats.ArmourTraining.Select(x => x.name)),
                 WeaponProficiencies = new(characterStats.WeaponProficiencies.Select(x => x.name)),
                 ToolProficiencies = new(characterStats.ToolProficiencies.Select(x => new ProficientGameData()
                 {
