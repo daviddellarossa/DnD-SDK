@@ -12,8 +12,8 @@ namespace Tests.DnD
     {
         private WeaponType[] _weaponTypes;
 
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
 
             var guids = AssetDatabase.FindAssets($"t:{nameof(WeaponType)}");

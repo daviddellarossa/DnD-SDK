@@ -14,8 +14,8 @@ namespace Tests.DnD.Species
         private Spex _spex;
         private CreatureType[] _creatureTypes;
         
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             string[] guids = AssetDatabase.FindAssets($"t:{nameof(Spex)}");
             _spex =  guids

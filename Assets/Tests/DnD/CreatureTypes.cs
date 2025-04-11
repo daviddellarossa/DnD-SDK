@@ -12,8 +12,8 @@ namespace Tests.DnD
     {
         private CreatureType[] _creatureTypes;
         
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             string[] guids = AssetDatabase.FindAssets($"t:{nameof(CreatureType)}");
             _creatureTypes =  guids

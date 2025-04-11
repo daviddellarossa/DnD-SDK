@@ -11,8 +11,8 @@ namespace Tests.DnD.Classes.Barbarian
     {
         private Level[] _levels;
         
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             string[] guids = AssetDatabase.FindAssets($"t:{nameof(Level)}", new []{ "Assets/DnD/Code/Instances/Classes/Barbarian/Levels"});
             _levels =  guids

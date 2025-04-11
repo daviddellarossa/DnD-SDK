@@ -1,0 +1,36 @@
+{
+    "name": "Tests.Infrastructure.SaveManager",
+    "rootNamespace": "",
+    "references": [
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "DnD",
+        "DnD.Helpers",
+        "Infrastructure.Helpers",
+        "Infrastructure.SaveManager"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "AutoFixture.dll",
+        "AutoFixture.NUnit3.dll",
+        "Moq.dll",
+        "System.Diagnostics.EventLog.dll",
+        "Fare.dll",
+        "Castle.Core.dll",
+        "System.Runtime.CompilerServices.Unsafe.dll",
+        "nunit.framework.dll",
+        "AutoFixture.AutoMoq.dll",
+        "System.Collections.Immutable.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

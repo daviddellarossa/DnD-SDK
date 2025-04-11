@@ -31,9 +31,9 @@ namespace Infrastructure.SaveManager
         [ProtoMember(7)]
         public int Xp;
         [ProtoMember(8)]
-        public List<AbilitySaveGameData> AbilitiesSaveGameData;
+        public List<AbilityStatsSaveGameData> AbilitiesSaveGameData;
         [ProtoMember(9)]
-        public List<string> InventoryItems;
+        public ClassFeatureStatsGameDataBase ClassFeatureStats;
         [ProtoMember(10)]
         public List<string> ArmourTraining;
         [ProtoMember(11)]
@@ -41,7 +41,7 @@ namespace Infrastructure.SaveManager
         [ProtoMember(12)]
         public List<ProficientGameData> ToolProficiencies;
         [ProtoMember(13)]
-        public List<string> SavingThrowsProficiencies;
+        public List<string> SavingThrowProficiencies;
         [ProtoMember(14)]
         public List<EquipmentSaveGameData> InventorySaveGameData;
         [ProtoMember(15)]
@@ -52,9 +52,6 @@ namespace Infrastructure.SaveManager
         public DeathSavesSaveGameData DeathSavesSaveGameData;
         [ProtoMember(18)]
         public List<string> Languages;
-        [ProtoMember(19)]
-        public ClassFeatureStatsGameDataBase ClassFeatureStats;
-
     }
     
     [ProtoContract]
@@ -82,7 +79,7 @@ namespace Infrastructure.SaveManager
     }
 
     [ProtoContract]
-    public class AbilitySaveGameData
+    public class AbilityStatsSaveGameData
     {
         [ProtoMember(1)]
         public string AbilityName;
@@ -91,11 +88,11 @@ namespace Infrastructure.SaveManager
         [ProtoMember(3)]
         public bool SavingThrow;
         [ProtoMember(4)]
-        public List<SkillSaveGameData> SkillsSaveGameData = new List<SkillSaveGameData>();
+        public List<SkillStatsSaveGameData> SkillsSaveGameData = new List<SkillStatsSaveGameData>();
     }
 
     [ProtoContract]
-    public class SkillSaveGameData
+    public class SkillStatsSaveGameData
     {
         [ProtoMember(1)]
         public string SkillName;
