@@ -1,22 +1,21 @@
 using System.Collections;
 using System.Linq;
 using DnD.Code.Scripts.Armour;
-using DnD.Code.Scripts.Common;
 using NUnit.Framework;
 using UnityEditor;
 using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
 
-namespace Tests
+namespace Tests.DnD
 {
     [TestFixture]
-    public class Armours
+    public class ArmoursUnitTests
     {
         private Armour[] _armours;
         private Shield[] _shields;
 
         
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             string[] guids = AssetDatabase.FindAssets($"t:{nameof(Armour)}");
             _armours =  guids

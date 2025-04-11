@@ -5,15 +5,15 @@ using NUnit.Framework;
 using UnityEditor;
 using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
 
-namespace Tests
+namespace Tests.DnD
 {
     [TestFixture]
-    public class Weapons
+    public class WeaponsUnitTests
     {
         private Weapon[] _weapons;
         
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             var guids = AssetDatabase.FindAssets($"t:{nameof(Weapon)}");
             _weapons =  guids

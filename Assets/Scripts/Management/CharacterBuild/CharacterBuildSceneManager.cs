@@ -242,7 +242,7 @@ namespace Management.CharacterBuild
                     .SetAbilityStats(new AbilityStats()
                     {
                         Ability = abilities.Single(ability => ability.name == NameHelper.Abilities.Constitution),
-                        Score = siCharisma.value,
+                        Score = siConstitution.value,
                         SkillProficiencies = lvSkillProficiencies.selectedItems.Cast<string>()
                             .Select(sk => keyToSkillProficiencies[sk])
                             .Where(sk => sk.Ability.name == NameHelper.Abilities.Constitution)
@@ -251,7 +251,7 @@ namespace Management.CharacterBuild
                     .SetAbilityStats(new AbilityStats()
                     {
                         Ability = abilities.Single(ability => ability.name == NameHelper.Abilities.Dexterity),
-                        Score = siCharisma.value,
+                        Score = siDexterity.value,
                         SkillProficiencies = lvSkillProficiencies.selectedItems.Cast<string>()
                             .Select(sk => keyToSkillProficiencies[sk])
                             .Where(sk => sk.Ability.name == NameHelper.Abilities.Dexterity)
@@ -260,7 +260,7 @@ namespace Management.CharacterBuild
                     .SetAbilityStats(new AbilityStats()
                     {
                         Ability = abilities.Single(ability => ability.name == NameHelper.Abilities.Intelligence),
-                        Score = siCharisma.value,
+                        Score = siIntelligence.value,
                         SkillProficiencies = lvSkillProficiencies.selectedItems.Cast<string>()
                             .Select(sk => keyToSkillProficiencies[sk])
                             .Where(sk => sk.Ability.name == NameHelper.Abilities.Intelligence)
@@ -269,7 +269,7 @@ namespace Management.CharacterBuild
                     .SetAbilityStats(new AbilityStats()
                     {
                         Ability = abilities.Single(ability => ability.name == NameHelper.Abilities.Strength),
-                        Score = siCharisma.value,
+                        Score = siStrength.value,
                         SkillProficiencies = lvSkillProficiencies.selectedItems.Cast<string>()
                             .Select(sk => keyToSkillProficiencies[sk])
                             .Where(sk => sk.Ability.name == NameHelper.Abilities.Strength)
@@ -278,7 +278,7 @@ namespace Management.CharacterBuild
                     .SetAbilityStats(new AbilityStats()
                     {
                         Ability = abilities.Single(ability => ability.name == NameHelper.Abilities.Wisdom),
-                        Score = siCharisma.value,
+                        Score = siWisdom.value,
                         SkillProficiencies = lvSkillProficiencies.selectedItems.Cast<string>()
                             .Select(sk => keyToSkillProficiencies[sk])
                             .Where(sk => sk.Ability.name == NameHelper.Abilities.Wisdom)

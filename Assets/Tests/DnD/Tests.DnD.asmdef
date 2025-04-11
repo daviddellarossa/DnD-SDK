@@ -23,7 +23,8 @@
         "Castle.Core.dll",
         "System.Runtime.CompilerServices.Unsafe.dll",
         "nunit.framework.dll",
-        "AutoFixture.AutoMoq.dll"
+        "AutoFixture.AutoMoq.dll",
+        "System.Collections.Immutable.dll"
     ],
     "autoReferenced": false,
     "defineConstraints": [

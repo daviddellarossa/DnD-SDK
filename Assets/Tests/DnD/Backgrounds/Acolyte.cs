@@ -2,28 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Assets.Scripts.Game.Equipment.Gear;
 using DnD.Code.Scripts.Backgrounds;
 using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Helpers.PathHelper;
 using NUnit.Framework;
-
 using UnityEditor;
-
 using UnityEngine;
-
 using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
 
-namespace Tests.Backgrounds
+namespace Tests.DnD.Backgrounds
 {
-    public class Acolyte
+    public class AcolyteUnitTests
     {
         private Background _acolyte;
         private IEnumerable<ScriptableObject> _tools ;
         private static readonly string _className = NameHelper.Backgrounds.Acolyte;
 
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             string[] guids = AssetDatabase.FindAssets($"t:{nameof(Background)}");
             _acolyte = guids

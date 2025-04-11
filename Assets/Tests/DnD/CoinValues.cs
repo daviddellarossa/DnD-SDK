@@ -5,15 +5,15 @@ using DnD.Code.Scripts.Helpers.NameHelper;
 using NUnit.Framework;
 using UnityEditor;
 
-namespace Tests
+namespace Tests.DnD
 {
     [TestFixture]
-    public class CoinValues
+    public class CoinValuesUnitTests
     {
         private CoinValue[] _coinValues;
 
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             string[] guids = AssetDatabase.FindAssets($"t:{nameof(CoinValue)}");
             _coinValues =  guids

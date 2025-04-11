@@ -1,20 +1,19 @@
 using System.Collections;
 using System.Linq;
 using DnD.Code.Scripts.Combat;
-using DnD.Code.Scripts.Common;
 using NUnit.Framework;
 using UnityEditor;
 using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
 
-namespace Tests
+namespace Tests.DnD
 {
     [TestFixture]
-    public class DamageTypes
+    public class DamageTypesUnitTests
     {
         private DamageType[] _damageTypes;
         
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             string[] guids = AssetDatabase.FindAssets($"t:{nameof(DamageType)}");
             _damageTypes =  guids

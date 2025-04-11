@@ -1,11 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using DnD.Code.Scripts.Characters;
+using DnD.Code.Scripts.Classes.Barbarian.FeatureProperties;
 using ProtoBuf;
 
 namespace Infrastructure.SaveManager
 {
     [ProtoContract]
     public class SaveGameData
+    {
+        [ProtoMember(1)]
+        public CharacterStatsGameData CharacterStats;
+    }
+    
+    [ProtoContract]
+    public class CharacterStatsGameData
     {
         [ProtoMember(1)]
         public string CharacterName;
@@ -21,38 +30,74 @@ namespace Infrastructure.SaveManager
         public int Level;
         [ProtoMember(7)]
         public int Xp;
-        // public List<AbilitySaveGameData> abilitiesSaveGameData = new List<AbilitySaveGameData>();
-        // public List<string> inventoryItems;
-        // public List<string> armourTraining;
-        // public List<string> weaponProficiencies;
-        // public List<string> toolProficiencies;
-        // public List<string> savingThrowsProficiencies;
-        // public List<EquipmentSaveGameData> inventorySaveGameData = new List<EquipmentSaveGameData>();
         [ProtoMember(8)]
-        public int HitPoints;
+        public List<AbilityStatsSaveGameData> AbilitiesSaveGameData;
         [ProtoMember(9)]
+        public ClassFeatureStatsGameDataBase ClassFeatureStats;
+        [ProtoMember(10)]
+        public List<string> ArmourTraining;
+        [ProtoMember(11)]
+        public List<string> WeaponProficiencies;
+        [ProtoMember(12)]
+        public List<ProficientGameData> ToolProficiencies;
+        [ProtoMember(13)]
+        public List<string> SavingThrowProficiencies;
+        [ProtoMember(14)]
+        public List<EquipmentSaveGameData> InventorySaveGameData;
+        [ProtoMember(15)]
+        public int HitPoints;
+        [ProtoMember(16)]
         public int TemporaryHitPoints;
-        // public DeathSavesSaveGameData deathSavesSaveGameData;
-        // public List<string> languages = new List<string>();
-        // public List<string> classFeatureStats = new List<string>();
-        
+        [ProtoMember(17)]
+        public DeathSavesSaveGameData DeathSavesSaveGameData;
+        [ProtoMember(18)]
+        public List<string> Languages;
+    }
+    
+    [ProtoContract]
+    [ProtoInclude(1, typeof(BarbarianFeatureStatsGameData))]
+    public abstract class ClassFeatureStatsGameDataBase {}
 
+    [ProtoContract]
+    public class BarbarianFeatureStatsGameData : ClassFeatureStatsGameDataBase
+    {
+        [ProtoMember(1)]
+        public int Rages;
+        [ProtoMember(2)]
+        public int RageDamage;
+        [ProtoMember(3)]
+        public int WeaponMastery;
     }
 
-    [Serializable]
-    public class AbilitySaveGameData
+    [ProtoContract]
+    public class ProficientGameData
     {
-        public string abilityName;
-        public int score;
-        public bool savingThrow;
-        public List<SkillSaveGameData> skillsSaveGameData = new List<SkillSaveGameData>();
+        [ProtoMember(1)]
+        public string ProficiencyFullName;
+        [ProtoMember(2)]
+        public string ProficiencyName;
     }
 
-    [Serializable]
-    public class SkillSaveGameData
+    [ProtoContract]
+    public class AbilityStatsSaveGameData
     {
-        public string skillName;
-        public bool isExpert;
+        [ProtoMember(1)]
+        public string AbilityName;
+        [ProtoMember(2)]
+        public int Score;
+        [ProtoMember(3)]
+        public bool SavingThrow;
+        [ProtoMember(4)]
+        public List<SkillStatsSaveGameData> SkillsSaveGameData = new List<SkillStatsSaveGameData>();
+    }
+
+    [ProtoContract]
+    public class SkillStatsSaveGameData
+    {
+        [ProtoMember(1)]
+        public string SkillName;
+        [ProtoMember(2)]
+        public bool IsExpert;
     }
 
     [Serializable]
@@ -62,10 +107,12 @@ namespace Infrastructure.SaveManager
         public float amount;
     }
 
-    [Serializable]
+    [ProtoContract]
     public class DeathSavesSaveGameData
     {
-        public int successes;
+        [ProtoMember(1)]
+        public int Successes;
+        [ProtoMember(2)]
         public int Failures;
     }
 }

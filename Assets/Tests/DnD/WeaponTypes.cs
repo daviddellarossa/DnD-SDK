@@ -5,15 +5,15 @@ using DnD.Code.Scripts.Weapons;
 using NUnit.Framework;
 using UnityEditor;
 
-namespace Tests
+namespace Tests.DnD
 {
     [TestFixture]
-    public class WeaponTypes
+    public class WeaponTypesUnitTests
     {
         private WeaponType[] _weaponTypes;
 
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
 
             var guids = AssetDatabase.FindAssets($"t:{nameof(WeaponType)}");

@@ -2,7 +2,7 @@
 using DnD.Code.Scripts.Species;
 using DnD.Code.Scripts.Species.SpecialTraits.TraitTypes;
 
-namespace Tests.Species
+namespace Tests.DnD.Species
 {
     public class SpexTestModel
     {

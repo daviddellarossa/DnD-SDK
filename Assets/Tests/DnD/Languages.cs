@@ -1,22 +1,21 @@
 using System.Collections;
 using System.Linq;
-using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Languages;
 using NUnit.Framework;
 using UnityEditor;
 using NameHelper = DnD.Code.Scripts.Helpers.NameHelper.NameHelper;
 
-namespace Tests
+namespace Tests.DnD
 {
     [TestFixture]
-    public class Languages
+    public class LanguagesUnitTests
     {
         private LanguageOrigin[] _languageOrigins;
         private RareLanguage[] _rareLanguages;
         private StandardLanguage[] _standardLanguages;
 
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             string[] guids = AssetDatabase.FindAssets($"t:{nameof(LanguageOrigin)}");
             _languageOrigins =  guids
@@ -58,7 +57,7 @@ namespace Tests
             Assert.That(rareLanguage, Is.Not.Null, Common.GetNotFoundLogInfo(NameHelper.Naming.Languages, expected.Name));
             Assert.That(rareLanguage.DisplayName, Is.EqualTo(expected.DisplayName), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayName), expected.DisplayName));
             Assert.That(rareLanguage.DisplayDescription, Is.EqualTo(expected.DisplayDescription), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayDescription), expected.DisplayDescription));
-            Assert.That(rareLanguage.Origin.name, Is.EqualTo(expected.Origin), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.Origin), expected.Origin));
+            Assert.That(rareLanguage.Origin.name, Is.EqualTo(expected.Origin), Common.GetUnexpectedValueLogInfo(expected.Name, nameof(expected.Origin), expected.Origin));
         }
         
         [TestCaseSource(typeof(AbilitiesData), nameof(AbilitiesData.StandardLanguagesTestCases))]
@@ -69,7 +68,7 @@ namespace Tests
             Assert.That(standardLanguage, Is.Not.Null, Common.GetNotFoundLogInfo(NameHelper.Naming.Languages, expected.Name));
             Assert.That(standardLanguage.DisplayName, Is.EqualTo(expected.DisplayName), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayName), expected.DisplayName));
             Assert.That(standardLanguage.DisplayDescription, Is.EqualTo(expected.DisplayDescription), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.DisplayDescription), expected.DisplayDescription));
-            Assert.That(standardLanguage.Origin.name, Is.EqualTo(expected.Origin), Common.GetUnexpectedValueLogInfo(expected.DisplayName, nameof(expected.Origin), expected.Origin));
+            Assert.That(standardLanguage.Origin.name, Is.EqualTo(expected.Origin), Common.GetUnexpectedValueLogInfo(expected.Name, nameof(expected.Origin), expected.Origin));
         }
         
         private class AbilitiesData

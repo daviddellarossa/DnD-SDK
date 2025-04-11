@@ -3,7 +3,9 @@
     "rootNamespace": "",
     "references": [
         "Infrastructure.Helpers",
-        "ProtobufNet"
+        "ProtobufNet",
+        "DnD",
+        "DnD.Helpers"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

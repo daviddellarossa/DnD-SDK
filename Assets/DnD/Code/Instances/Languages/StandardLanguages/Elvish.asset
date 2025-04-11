@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae3504c206a99f41a667412865a7a80, type: 3}
   m_Name: Elvish
   m_EditorClassIdentifier: 
-  Origin: {fileID: 11400000, guid: 7157bb45754d9fc4e9bb4aa2d34fab2f, type: 2}
   displayName: Languages.Elvish
   displayDescription: Languages.Elvish.Description
+  origin: {fileID: 11400000, guid: 7157bb45754d9fc4e9bb4aa2d34fab2f, type: 2}

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7a44792d596ee429a8d4f009940006, type: 3}
   m_Name: ThievesCant
   m_EditorClassIdentifier: 
-  Origin: {fileID: 11400000, guid: 1b9aaec1b4be21c4b8c13aa15cf6f477, type: 2}
   displayName: Languages.ThievesCant
   displayDescription: Languages.ThievesCant.Description
+  origin: {fileID: 11400000, guid: 1b9aaec1b4be21c4b8c13aa15cf6f477, type: 2}

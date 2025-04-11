@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -103,6 +104,12 @@ namespace Infrastructure.Helpers
             }
 
             return assets.ToArray();
+        }
+
+        [CanBeNull]
+        public static T GetScriptableObject<T>(string folderPath, string name) where T : ScriptableObject
+        {
+            return GetAllScriptableObjects<T>(folderPath).SingleOrDefault(scriptableObject => scriptableObject.name == name);
         }
         
         public static T[] GetAllScriptableObjectsImplementingInterface<T,I>(string folderPath) 

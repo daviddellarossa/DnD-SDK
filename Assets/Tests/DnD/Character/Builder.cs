@@ -7,18 +7,18 @@ using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Backgrounds;
 using DnD.Code.Scripts.Characters;
 using DnD.Code.Scripts.Classes;
-using DnD.Code.Scripts.Helpers.PathHelper;
 using DnD.Code.Scripts.Helpers.NameHelper;
+using DnD.Code.Scripts.Helpers.PathHelper;
 using DnD.Code.Scripts.Languages;
 using DnD.Code.Scripts.Species;
 using Infrastructure.Helpers;
 using Moq;
 using NUnit.Framework;
 
-namespace Tests.Character
+namespace Tests.DnD.Character
 {
     [TestFixture]
-    public class Builder
+    public class BuilderUnitTests
     {
         private CharacterStats.Builder _model;
         private CharacterStats _instance;
@@ -540,7 +540,7 @@ namespace Tests.Character
             Assert.That(_instance.Level, Is.EqualTo(CharacterStats.Builder.DefaultLevel));
             Assert.That(_instance.Xp, Is.EqualTo(CharacterStats.Builder.DefaultXp));
             
-            Assert.That(_instance.ArmorTraining, Is.SupersetOf(@class.ArmourTraining));
+            Assert.That(_instance.ArmourTraining, Is.SupersetOf(@class.ArmourTraining));
             Assert.That(_instance.WeaponProficiencies, Is.SupersetOf(@class.WeaponProficiencies));
             Assert.That(_instance.Inventory, Is.SupersetOf(@class.StartingEquipmentOptions.Single(x => x.Equals(startingEquipmentFromClass)).EquipmentsWithAmountList));
             Assert.That(_instance.Inventory, Is.SupersetOf(background.StartingEquipmentOptions.Single(x => x.Equals(startingEquipmentFromBackground)).EquipmentsWithAmountList));

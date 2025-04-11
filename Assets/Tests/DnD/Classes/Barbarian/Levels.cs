@@ -4,15 +4,15 @@ using DnD.Code.Scripts.Classes;
 using NUnit.Framework;
 using UnityEditor;
 
-namespace Tests.Classes.Barbarian
+namespace Tests.DnD.Classes.Barbarian
 {
     [TestFixture]
-    public class Levels
+    public class LevelsUnitTests
     {
         private Level[] _levels;
         
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             string[] guids = AssetDatabase.FindAssets($"t:{nameof(Level)}", new []{ "Assets/DnD/Code/Instances/Classes/Barbarian/Levels"});
             _levels =  guids

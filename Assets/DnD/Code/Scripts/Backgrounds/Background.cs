@@ -24,7 +24,6 @@ namespace DnD.Code.Scripts.Backgrounds
         private Skill[] skillProficiencies = new Skill[2];
         
         [SerializeField]
-        // TODO: use a more specific type for toolProficiency: string is not the safest type to use here
         private Proficient toolProficiency;
         
         [FormerlySerializedAs("startingEquipmentOptions")] [SerializeField]

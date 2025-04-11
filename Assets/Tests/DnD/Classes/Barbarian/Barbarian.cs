@@ -7,16 +7,16 @@ using NUnit.Framework;
 using UnityEditor;
 using UnityEngine;
 
-namespace Tests.Classes.Barbarian
+namespace Tests.DnD.Classes.Barbarian
 {
     [TestFixture]
-    public class Barbarian
+    public class BarbarianUnitTests
     {
         private static readonly string ClassName = NameHelper.Classes.Barbarian;
         private Class _class;
         
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             string[] guids = AssetDatabase.FindAssets($"t:{nameof(Class)}");
             _class =  guids

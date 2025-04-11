@@ -1,22 +1,21 @@
 ﻿using System.Collections;
 using System.Linq;
-using DnD.Code.Scripts.Equipment.Coins;
 using DnD.Code.Scripts.Helpers.NameHelper;
 using DnD.Code.Scripts.Species;
 using DnD.Code.Scripts.Species.SpecialTraits.TraitTypes;
 using NUnit.Framework;
 using UnityEditor;
 
-namespace Tests.Species
+namespace Tests.DnD.Species
 {
     [TestFixture]
-    public class SpexHuman
+    public class SpexHumanUnitTests
     {
         private Spex _spex;
         private CreatureType[] _creatureTypes;
         
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetup()
         {
             string[] guids = AssetDatabase.FindAssets($"t:{nameof(Spex)}");
             _spex =  guids

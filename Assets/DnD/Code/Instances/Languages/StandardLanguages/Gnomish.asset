@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae3504c206a99f41a667412865a7a80, type: 3}
   m_Name: Gnomish
   m_EditorClassIdentifier: 
-  Origin: {fileID: 11400000, guid: 77c3e4ff323f29d4e8e1e70edeec9180, type: 2}
   displayName: Languages.Gnomish
   displayDescription: Languages.Gnomish.Description
+  origin: {fileID: 11400000, guid: 77c3e4ff323f29d4e8e1e70edeec9180, type: 2}

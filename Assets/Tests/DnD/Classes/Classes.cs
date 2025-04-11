@@ -1,6 +1,6 @@
 ﻿using DnD.Code.Scripts.Helpers.NameHelper;
 
-namespace Tests.Classes
+namespace Tests.DnD.Classes
 {
     public class ClassTestModel
     {

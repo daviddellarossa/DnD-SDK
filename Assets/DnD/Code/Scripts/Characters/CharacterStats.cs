@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Armour;
@@ -68,10 +69,10 @@ namespace DnD.Code.Scripts.Characters
         private int temporaryHitPoints;
         
         [SerializeField]
-        private DeathSaves deathSaves;
+        private DeathSaves deathSaves = new DeathSaves();
 
         [SerializeField]
-        private HashSet<ILanguage> languages = new ();
+        private HashSet<Language> languages = new ();
         
         [SerializeReference]
         private IClassFeatureStats classFeatureStats;
@@ -79,50 +80,134 @@ namespace DnD.Code.Scripts.Characters
         [SerializeField]
         private List<ClassFeature> classFeatures = new List<ClassFeature>();
         
-        public string CharacterName => characterName;
+        public string CharacterName
+        {
+            get => characterName;
+            internal set => characterName = value;
+        }
 
         public Class Class
         {
             get => @class;
-            protected set => @class = value;
+            internal set => @class = value;
         }
-        
-        public SubClass SubClass => subClass;
-        
-        public Background Background => background;
-        
-        public Species.Spex Spex => spex;
+
+        public SubClass SubClass
+        {
+            get => subClass;
+            internal set => subClass = value;
+        }
+
+        public Background Background
+        {
+            get => background;
+            internal set => background = value;
+        }
+
+        public Species.Spex Spex
+        {
+            get => spex;
+            internal set => spex = value;
+        }
 
         public int Level
         {
             get => level;
-            protected set => level = value;
+            internal set => level = value;
         }
 
-        public int Xp => xp;
+        public int Xp
+        {
+            get => xp;
+            internal set => xp = value;
+        }
         
         public int ProficiencyBonus => Constants.BaseProficiencyBonus + (this.level - 1) / 4;
         
-        public IDictionary<string, AbilityStats> Abilities => abilities;
-        
-        public BaseArmourType[] ArmorTraining => armorTraining.ToArray();
+        public ImmutableDictionary<string, AbilityStats> Abilities => abilities.ToImmutableDictionary();
 
+        public void SetAbilityStats(AbilityStats abilityStats)
+        {
+            abilities[abilityStats.Ability.name] = abilityStats;
+        }
+        internal void ResetAbilityStats(AbilityStats[] abilityStats)
+        {
+            abilities.Clear();
+            foreach (var abilityStat in abilityStats)
+            {
+                abilities.Add(abilityStat.Ability.name, abilityStat);
+            }
+        }
+        
+        public BaseArmourType[] ArmourTraining => armorTraining.ToArray();
+
+        internal void SetArmourTraining(IEnumerable<BaseArmourType> armourTraining)
+        {
+            this.armorTraining.Clear();
+            this.armorTraining.AddRange(armourTraining);
+        }
         public WeaponType[] WeaponProficiencies => weaponProficiencies.ToArray();
+        
+        internal void SetWeaponProficiencies(IEnumerable<WeaponType> weaponTypes)
+        {
+            this.weaponProficiencies.Clear();
+            this.weaponProficiencies.AddRange(weaponTypes);
+        }
         
         public Proficient[] ToolProficiencies => toolProficiencies.ToArray();
 
+        internal void SetToolProficiencies(IEnumerable<Proficient> proficiencies)
+        {
+            this.toolProficiencies.Clear();
+            this.toolProficiencies.AddRange(proficiencies);
+        }
+        
         public Ability[] SavingThrowProficiencies =>  savingThrowProficiencies.ToArray();
+        internal void SetSavingThrowProficiencies(IEnumerable<Ability> proficiencies)
+        {
+            this.savingThrowProficiencies.Clear();
+            this.savingThrowProficiencies.AddRange(proficiencies);
+        }
 
         public StartingEquipment.EquipmentWithAmount[] Inventory => inventory.ToArray();
+
+        internal void SetInventory(IEnumerable<StartingEquipment.EquipmentWithAmount> inventory)
+        {
+            this.inventory.Clear();
+            this.inventory.AddRange(inventory);
+        }
         
-        public ILanguage[] Languages => languages.ToArray();
+        public Language[] Languages => languages.ToArray();
 
-        public int HitPoints => hitPoints;
+        internal void SetLanguages(IEnumerable<Language> languages)
+        {
+            this.languages.Clear();
+            foreach (var language in languages)
+            {
+                this.languages.Add(language);
+            }
+        }
 
-        public DeathSaves DeathSaves => deathSaves;
+        public int HitPoints
+        {
+            get => hitPoints;
+            internal set => hitPoints = value;
+        }
+
+        public int TemporaryHitPoints
+        {
+            get => temporaryHitPoints;
+            internal set => temporaryHitPoints = value;
+        }
+
+        public DeathSaves DeathSaves
+        {
+            get => deathSaves;
+            internal set => deathSaves = value;
+        }
         
         public Ability PrimaryAbility => this.@class.PrimaryAbility;
-        
+
         public Die HitPointDie => this.@class.HitPointDie;
         
         public Feat Feat => this.background.Feat;

@@ -1,10 +1,9 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using DnD.Code.Scripts;
 using DnD.Code.Scripts.Characters;
 using NUnit.Framework;
 
-namespace Tests.Character
+namespace Tests.DnD.Character
 {
     [TestFixture]
     public class AbilityStatsUnitTests

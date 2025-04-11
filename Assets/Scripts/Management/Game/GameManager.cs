@@ -1,3 +1,4 @@
+using System.Linq;
 using DnD.Code.Scripts.Characters;
 using Infrastructure;
 using Infrastructure.SaveManager;
@@ -97,20 +98,23 @@ namespace Management.Game
         private void CharacterOnCharacterCreated(object sender, object target, CharacterStats characterStats)
         {
             Debug.Log("TODO: create a savegame.");
-            SaveGameData data = new SaveGameData()
+            
+            var entityToSaveGameDataConverter = new EntityToSaveGameDataConverter();
+            
+            SaveGameData savegameData = new SaveGameData()
             {
-                Level = characterStats.Level,
-                Xp = characterStats.Xp,
-                BackgroundName = characterStats.Background.name,
-                CharacterName = characterStats.CharacterName,
-                ClassName = characterStats.Class.name,
-                HitPoints = characterStats.HitPoints,
-                SpexName = characterStats.Spex.name,
-                SubClassName = characterStats.SubClass.name,
-                TemporaryHitPoints = 0
+                CharacterStats =  entityToSaveGameDataConverter.Convert(characterStats),
             };
 
-            SaveManager.Save(data);
+            SaveManager.Save(savegameData);
+
+            var loadedObject = SaveManager.Load();
+            
+            var saveGameDataToEntityDataConverter = new SaveGameDataToEntityConverter();
+            
+            var loadedCharacterStats = saveGameDataToEntityDataConverter.Convert(loadedObject.CharacterStats);
+            
+            Debug.Log("Savegame loaded");
         }
     }
 }
