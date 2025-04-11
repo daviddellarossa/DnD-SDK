@@ -41,7 +41,7 @@ namespace Infrastructure.SaveManager
         [ProtoMember(12)]
         public List<ProficientGameData> ToolProficiencies;
         [ProtoMember(13)]
-        public List<string> SavingThrowsProficiencies;
+        public List<string> SavingThrowProficiencies;
         [ProtoMember(14)]
         public List<EquipmentSaveGameData> InventorySaveGameData;
         [ProtoMember(15)]

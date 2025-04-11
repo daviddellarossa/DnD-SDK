@@ -28,7 +28,7 @@ namespace Infrastructure.SaveManager
                     ProficiencyName = x.ProficiencyName,
                     ProficiencyFullName = x.ProficiencyFullName,
                 })),
-                SavingThrowsProficiencies = new(characterStats.SavingThrowProficiencies.Select(x => x.name)),
+                SavingThrowProficiencies = new(characterStats.SavingThrowProficiencies.Select(x => x.name)),
                 HitPoints = characterStats.HitPoints,
                 TemporaryHitPoints = characterStats.TemporaryHitPoints,
                 Languages = new(characterStats.Languages.Select(x => x.name)),

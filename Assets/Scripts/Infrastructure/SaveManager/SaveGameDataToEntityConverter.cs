@@ -142,7 +142,7 @@ namespace Infrastructure.SaveManager
                 var savingThrowProficiencies = Helpers.ScriptableObjectHelper.GetAllScriptableObjects<Ability>(
                         DnD.Code.Scripts.Helpers.PathHelper.PathHelper.Abilities.AbilitiesPath)
                     .Join(
-                        characterStatsGameData.SavingThrowsProficiencies,
+                        characterStatsGameData.SavingThrowProficiencies,
                         ability => ability.name,
                         selected => selected,
                         (ability, _) => ability);

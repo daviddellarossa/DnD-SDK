@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using AutoFixture;
 using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Armour;
@@ -18,9 +17,6 @@ using Infrastructure.SaveManager;
 using soHelper = Infrastructure.Helpers.ScriptableObjectHelper;
 using pathHelper = DnD.Code.Scripts.Helpers.PathHelper.PathHelper;
 using NUnit.Framework;
-using UnityEditor;
-using UnityEditor.VersionControl;
-using UnityEngine;
 using Tool = DnD.Code.Scripts.Tools.Tool;
 
 namespace Tests.Infrastructure.SaveManager
@@ -66,12 +62,6 @@ namespace Tests.Infrastructure.SaveManager
             
             _characterStatsGameData = CreateCharacterStatsGameData(characterStatTestData);
             _characterStats = _saveGameDataToEntityConverter.Convert(_characterStatsGameData);
-        }
-
-        [SetUp]
-        public void Setup()
-        {
-             
         }
         
         [Test]
@@ -123,9 +113,8 @@ namespace Tests.Infrastructure.SaveManager
             {
                 var ability = _characterStats.Abilities[abilityGameData.AbilityName];
                 Assert.That(ability, Is.Not.Null);
-                AssertAbilityStats(ability, abilityGameData);
+                Common.AssertAbilityStats(ability, abilityGameData);
             }
-
         }
         
         [Test]
@@ -135,7 +124,7 @@ namespace Tests.Infrastructure.SaveManager
             {
                 case BarbarianFeatureStatsGameData barbarianFeatureStatsGameData:
                 {
-                    AssertBarbarianClassFeatureStats(_characterStats.ClassFeatureStats,
+                    Common.AssertBarbarianClassFeatureStats(_characterStats.ClassFeatureStats,
                         barbarianFeatureStatsGameData);
                     break;
                 }
@@ -166,14 +155,14 @@ namespace Tests.Infrastructure.SaveManager
             {
                 var toolProficiency = _characterStats.ToolProficiencies.SingleOrDefault(x => x.ProficiencyFullName == toolProficiencyGameData.ProficiencyFullName);
                 Assert.That(toolProficiency, Is.Not.Null);
-                AssertProficient(toolProficiency, toolProficiencyGameData);
+                Common.AssertProficient(toolProficiency, toolProficiencyGameData);
             }
         }
         
         [Test]
         public void Convert_CharacterStats_To_CharacterStats_SavingThrowsProficiencies()
         {
-            Assert.That(_characterStats.SavingThrowProficiencies.Select(x => x.name), Is.EquivalentTo(_characterStatsGameData.SavingThrowsProficiencies));
+            Assert.That(_characterStats.SavingThrowProficiencies.Select(x => x.name), Is.EquivalentTo(_characterStatsGameData.SavingThrowProficiencies));
 
         }
         
@@ -208,6 +197,38 @@ namespace Tests.Infrastructure.SaveManager
             Assert.That(_characterStats.Languages.Select(x => x.name), Is.EquivalentTo(_characterStatsGameData.Languages));
         }
         
+        [Test]
+        public void ConvertBarbarianFeatureStatsGameData_To_BarbarianClassFeatureStats_IsSuccessful()
+        {
+            var barbarianFeatureStats = _fixture.Create<BarbarianFeatureStatsGameData>();
+            
+            var classFeatureStats = _saveGameDataToEntityConverter.Convert(barbarianFeatureStats);
+            
+            Common.AssertBarbarianClassFeatureStats(classFeatureStats, barbarianFeatureStats);
+        }
+        
+        [Test]
+        public void Convert_AbilityStatsGameData_To_AbilityStatsSave_IsSuccessful()
+        {
+            var ability = _abilities.First();
+            var abilityStatsSaveGameData = new AbilityStatsSaveGameData()
+            {
+                Score = _fixture.Create<int>(),
+                SavingThrow = _fixture.Create<bool>(),
+                AbilityName = ability.name,
+                SkillsSaveGameData = ability.SkillList.Select(x => new SkillStatsSaveGameData()
+                {
+                    IsExpert = true,
+                    SkillName =  x.name,
+                }).ToList(),
+
+            };
+            
+            var abilityStats = _saveGameDataToEntityConverter.Convert(abilityStatsSaveGameData);
+            
+            Common.AssertAbilityStats(abilityStats, abilityStatsSaveGameData);
+        }
+        
         private CharacterStatsGameData CreateCharacterStatsGameData(CharacterStatsTestData characterStatsTestData)
         {
             var characterStatsGameData = _fixture
@@ -219,7 +240,7 @@ namespace Tests.Infrastructure.SaveManager
                 .With(x => x.ArmourTraining, _armourTypes.Take(2).Select(x => x.name).ToList())
                 .With(x => x.Languages, _languages.Take(2).Select(x => x.name).ToList())
                 .With(x => x.WeaponProficiencies, _weaponTypes.Take(2).Select(x => x.name).ToList())
-                .With(x => x.SavingThrowsProficiencies, _abilities.Take(2).Select(x => x.name).ToList())
+                .With(x => x.SavingThrowProficiencies, _abilities.Take(2).Select(x => x.name).ToList())
                 .With(x => x.ToolProficiencies, characterStatsTestData.Tools.Take(2).Select(x => new ProficientGameData(){ ProficiencyName = x.GetType().Name, ProficiencyFullName = x.GetType().FullName }).ToList())
                 .With(x => x.ClassFeatureStats, this._fixture.Create<BarbarianFeatureStatsGameData>())
                 .With(x => x.AbilitiesSaveGameData, _fixture.Build<IEnumerable<AbilityStatsSaveGameData>>()
@@ -255,87 +276,5 @@ namespace Tests.Infrastructure.SaveManager
                 .Create();
             return characterStatsGameData;
         }
-        
-        [Test]
-        public void ConvertBarbarianFeatureStatsGameData_To_BarbarianClassFeatureStats_IsSuccessful()
-        {
-            var barbarianFeatureStats = _fixture.Create<BarbarianFeatureStatsGameData>();
-            
-            var classFeatureStats = _saveGameDataToEntityConverter.Convert(barbarianFeatureStats);
-            
-            AssertBarbarianClassFeatureStats(classFeatureStats, barbarianFeatureStats);
-        }
-
-        public void AssertEquipment(StartingEquipment.EquipmentWithAmount equipmentWithAmount, EquipmentSaveGameData proficientGameData)
-        {
-            Assert.That(equipmentWithAmount, Is.Not.Null);
-            Assert.That(proficientGameData, Is.Not.Null);
-            Assert.That(proficientGameData.amount, Is.EqualTo(equipmentWithAmount.Amount));
-            Assert.That(proficientGameData.equipmentName, Is.EqualTo(equipmentWithAmount.Equipment.name));
-        }
-        
-        public void AssertProficient(Proficient proficient, ProficientGameData proficientGameData)
-        {
-            Assert.That(proficient, Is.Not.Null);
-            Assert.That(proficientGameData, Is.Not.Null);
-            Assert.That(proficientGameData.ProficiencyName, Is.EqualTo(proficient.ProficiencyName));
-            Assert.That(proficientGameData.ProficiencyFullName, Is.EqualTo(proficient.ProficiencyFullName));
-        }
-
-        public void AssertBarbarianClassFeatureStats(IClassFeatureStats classFeatureStats, BarbarianFeatureStatsGameData classFeatureStatsGameData)
-        {
-            Assert.That(classFeatureStats, Is.Not.Null);
-            Assert.That(classFeatureStatsGameData, Is.Not.Null);
-            Assert.That(classFeatureStats, Is.InstanceOf<BarbarianFeatureStats>());
-            var barbarianClassFeatureStats = (BarbarianFeatureStats)classFeatureStats;
-            Assert.That(barbarianClassFeatureStats.Rages, Is.EqualTo(barbarianClassFeatureStats.Rages));
-            Assert.That(barbarianClassFeatureStats.RageDamage, Is.EqualTo(barbarianClassFeatureStats.RageDamage));
-            Assert.That(barbarianClassFeatureStats.WeaponMastery, Is.EqualTo(barbarianClassFeatureStats.WeaponMastery));
-        }
-        
-        [Test]
-        public void Convert_AbilityStatsGameData_To_AbilityStatsSave_IsSuccessful()
-        {
-            var ability = _abilities.First();
-            var abilityStatsSaveGameData = new AbilityStatsSaveGameData()
-            {
-                Score = _fixture.Create<int>(),
-                SavingThrow = _fixture.Create<bool>(),
-                AbilityName = ability.name,
-                SkillsSaveGameData = ability.SkillList.Select(x => new SkillStatsSaveGameData()
-                {
-                    IsExpert = true,
-                    SkillName =  x.name,
-                }).ToList(),
-
-            };
-            
-            var abilityStats = _saveGameDataToEntityConverter.Convert(abilityStatsSaveGameData);
-            
-            AssertAbilityStats(abilityStats, abilityStatsSaveGameData);
-        }
-
-        private void AssertAbilityStats(AbilityStats abilityStats, AbilityStatsSaveGameData abilityStatsSaveGameData)
-        {
-            Assert.That(abilityStats, Is.Not.Null);
-            Assert.That(abilityStatsSaveGameData, Is.Not.Null);
-            Assert.That(abilityStats.Modifier, Is.EqualTo(abilityStats.Modifier));
-            Assert.That(abilityStats.Score, Is.EqualTo(abilityStats.Score));
-            Assert.That(abilityStats.SavingThrow, Is.EqualTo(abilityStats.SavingThrow));
-            Assert.That(abilityStats.Ability.name, Is.EqualTo(abilityStatsSaveGameData.AbilityName));
-            Assert.That(
-                abilityStats.SkillProficiencies.Values.Select(x => new { SkillName = x.Skill.name, IsExpert = x.IsExpert}), 
-                Is.EquivalentTo(abilityStatsSaveGameData.SkillsSaveGameData.Select(x => new { SkillName = x.SkillName, IsExpert = x.IsExpert })));
-        }
-    }
-    
-    public class CharacterStatsTestData
-    {
-        public Background Background;
-        public Class Class;
-        public Spex Spex;
-        public SubClass SubClass;
-        public string CharacterName;
-        public List<Tool> Tools;
     }
 }
