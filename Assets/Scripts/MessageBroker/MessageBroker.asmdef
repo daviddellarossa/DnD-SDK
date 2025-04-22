@@ -2,7 +2,8 @@
     "name": "MessageBroker",
     "rootNamespace": "",
     "references": [
-        "GUID:928119c26d7f9783992a0bc4da0e65a8"
+        "GUID:928119c26d7f9783992a0bc4da0e65a8",
+        "GUID:35b88e74074fbc3438c3acb9a3d21683"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -10,6 +10,7 @@ namespace Management.Menus.Main
         
         private UIDocument uiDocument;
         private Button btnNewGame;
+        private Button btnLoadGame;
         
         void Awake()
         {
@@ -29,6 +30,14 @@ namespace Management.Menus.Main
                 if (btnNewGame != null)
                 {
                     btnNewGame.clicked += OnNewGameClicked;
+                }
+                
+                // Get a reference to the button by name (from UXML)
+                btnLoadGame = root.Q<Button>("btnLoadGame"); // Must match the name in UXML
+
+                if (btnLoadGame != null)
+                {
+                    btnLoadGame.clicked += OnLoadGameClicked;
                 }
             }
         }
@@ -55,5 +64,11 @@ namespace Management.Menus.Main
             DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.Send_StartGame(this, nameof(GameManager));
         }
 
+        private void OnLoadGameClicked()
+        {
+            Debug.Log("Load Game Clicked!");
+            // Implement your game logic here
+            //DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.Send_LoadGame(this, null);
+        }
     }
 }

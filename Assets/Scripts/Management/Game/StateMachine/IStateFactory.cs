@@ -11,5 +11,7 @@
         // GameManagerCore.QuitState QuitState { get; }
         GameManagerCore.MainMenuState MainMenuState { get; }
         GameManagerCore.CharacterBuildState CharacterBuildState { get; }
+        
+        GameManagerCore.PlayGameState PlayGameState { get; }
     }
 }

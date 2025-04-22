@@ -1,3 +1,4 @@
+using Infrastructure.SaveManager;
 using Management.Game.StateMachine;
 using UnityEngine.SceneManagement;
 
@@ -98,9 +99,14 @@ namespace Management.Game
 
         #endregion
         
-        public void StartGame_EventHandler(object sender, object target)
+        public void StartNewGame_EventHandler(object sender, object target)
         {
             ReplaceState(stateFactory.CharacterBuildState);
+        }
+
+        public void StartGame_EventHandler(object sender, object target, SaveGameData saveGameData)
+        {
+            ReplaceState(stateFactory.PlayGameState);
         }
     }
 }

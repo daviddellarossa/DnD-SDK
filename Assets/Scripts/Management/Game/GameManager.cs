@@ -56,7 +56,7 @@ namespace Management.Game
             
             if (DeeDeeR.MessageBroker.MessageBroker.Instance != null)
             {
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.StartGame += StartGame_EventHandler;
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.StartGame += StartNewGame_EventHandler;
                 
                 DeeDeeR.MessageBroker.MessageBroker.Instance.Character.CharacterCreated += CharacterOnCharacterCreated;
             }
@@ -70,7 +70,7 @@ namespace Management.Game
         {
             if (DeeDeeR.MessageBroker.MessageBroker.Instance != null)
             {
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.StartGame -= StartGame_EventHandler;
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.StartGame -= StartNewGame_EventHandler;
 
             }
             else
@@ -90,9 +90,9 @@ namespace Management.Game
             //this.StaticObjects.MessageBroker.Input.TogglePause -= TogglePause_EventHandler;
         }
         
-        public void StartGame_EventHandler(object sender, object target)
+        public void StartNewGame_EventHandler(object sender, object target)
         {
-            this.Core.StartGame_EventHandler(sender, target);
+            this.Core.StartNewGame_EventHandler(sender, target);
         }
         
         private void CharacterOnCharacterCreated(object sender, object target, CharacterStats characterStats)
@@ -108,13 +108,17 @@ namespace Management.Game
 
             SaveManager.Save(savegameData);
 
-            var loadedObject = SaveManager.Load();
+            //var loadedObject = SaveManager.Load();
             
-            var saveGameDataToEntityDataConverter = new SaveGameDataToEntityConverter();
+            //var saveGameDataToEntityDataConverter = new SaveGameDataToEntityConverter();
             
-            var loadedCharacterStats = saveGameDataToEntityDataConverter.Convert(loadedObject.CharacterStats);
+            //var loadedCharacterStats = saveGameDataToEntityDataConverter.Convert(loadedObject.CharacterStats);
             
-            Debug.Log("Savegame loaded");
+            // Debug.Log("Savegame loaded");
+            
+            this.Core.StartGame_EventHandler(sender, target, savegameData);
         }
+        
+        //private void LoadGame
     }
 }

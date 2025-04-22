@@ -22,12 +22,55 @@ namespace DeeDeeR.MessageBroker
 		/// <summary>
 		/// 
 		/// </summary>
+		public event Action<object, object, Infrastructure.SaveManager.SaveGameData> LoadGame;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public event Action<object, object> LoadLatestGame;
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public event Action<object, object> StartGame;
 
 
 		#endregion
 
 		#region Send methods
+
+		/// <summary>
+		/// Send a message of type LoadGame.
+		/// <param name="sender">The sender of the message. Required.</param>
+		/// <param name="target">The target of the message. Optional.</param>
+		/// <param name="saveGameData">The savegame data structure containing the game data to load</param>
+		/// </summary>
+		public void Send_LoadGame(object sender, object target, Infrastructure.SaveManager.SaveGameData saveGameData)
+		{
+			if (sender == null)
+			{
+				Debug.LogError("sender is required.");
+				return;
+			}
+
+			LoadGame?.Invoke(sender, target, saveGameData);
+		}
+
+		/// <summary>
+		/// Send a message of type LoadLatestGame.
+		/// <param name="sender">The sender of the message. Required.</param>
+		/// <param name="target">The target of the message. Optional.</param>
+		/// </summary>
+		public void Send_LoadLatestGame(object sender, object target)
+		{
+			if (sender == null)
+			{
+				Debug.LogError("sender is required.");
+				return;
+			}
+
+			LoadLatestGame?.Invoke(sender, target);
+		}
 
 		/// <summary>
 		/// Send a message of type StartGame.

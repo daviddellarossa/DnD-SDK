@@ -22,8 +22,7 @@ namespace Management.CharacterBuild
     public class CharacterBuildSceneManager : MonoBehaviour
     {
         private static readonly string GameEntitiesLocalizationTable = "GameEntities";
-        private static readonly string CharacterUILocalizationTable = "CharacterUI";
-
+        
         public CharacterBuildSceneManagerCore Core { get; protected set; }
         
         private UIDocument uiDocument;
