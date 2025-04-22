@@ -4,40 +4,115 @@
             <UnityEngine.Localization.LocalizedString property="text" table="GUID:b9ab995ff8837ed489ea6ae1229db2ca" entry="Id(86774898688)" />
         </Bindings>
     </engine:Label>
-    <engine:TextField label="Character Name" placeholder-text="filler text" name="txtCharacterName" />
+    <engine:TextField label="Character Name" placeholder-text="filler text" name="txtCharacterName">
+        <Bindings>
+            <UnityEngine.Localization.LocalizedString property="label" table="GUID:b9ab995ff8837ed489ea6ae1229db2ca" entry="Id(522478672666624)" />
+        </Bindings>
+    </engine:TextField>
     <engine:VisualElement name="veSpeciesBackground" style="flex-grow: 1; flex-direction: row; width: 98%; height: 40px;">
-        <engine:DropdownField label="Species" name="ddfSpecies" style="width: 50%; height: 40px;" />
-        <engine:DropdownField label="Background" name="ddfBackground" style="width: 50%; height: 40px;" />
+        <engine:DropdownField label="Species" name="ddfSpecies" style="width: 50%; height: 40px;">
+            <Bindings>
+                <UnityEngine.Localization.LocalizedString property="label" table="GUID:b9ab995ff8837ed489ea6ae1229db2ca" entry="Id(573590175997952)" />
+            </Bindings>
+        </engine:DropdownField>
+        <engine:DropdownField label="Background" name="ddfBackground" style="width: 50%; height: 40px;">
+            <Bindings>
+                <UnityEngine.Localization.LocalizedString property="label" table="GUID:b9ab995ff8837ed489ea6ae1229db2ca" entry="Id(688744565825536)" />
+            </Bindings>
+        </engine:DropdownField>
     </engine:VisualElement>
     <engine:VisualElement name="veClassSubclass" style="flex-grow: 1; flex-direction: row; width: 98%; height: 40px;">
-        <engine:DropdownField label="Class" name="ddfClasses" style="width: 50%; height: 40px;" />
-        <engine:DropdownField label="SubClass" name="ddfSubClasses" style="width: 50%; height: 40px;" />
+        <engine:DropdownField label="Class" name="ddfClasses" style="width: 50%; height: 40px;">
+            <Bindings>
+                <UnityEngine.Localization.LocalizedString property="label" table="GUID:b9ab995ff8837ed489ea6ae1229db2ca" entry="Id(587658844692480)" />
+            </Bindings>
+        </engine:DropdownField>
+        <engine:DropdownField label="SubClass" name="ddfSubClasses" style="width: 50%; height: 40px;">
+            <Bindings>
+                <UnityEngine.Localization.LocalizedString property="label" table="GUID:b9ab995ff8837ed489ea6ae1229db2ca" entry="Id(674781115441152)" />
+            </Bindings>
+        </engine:DropdownField>
     </engine:VisualElement>
     <engine:VisualElement name="veSkillProficiencies" style="flex-grow: 1; flex-direction: row; align-self: center; width: 98%; -unity-text-align: upper-left; align-items: center;">
-        <engine:Label text="Skill Proficiencies" name="lblSkillProficiencies" style="-unity-text-align: middle-left;" />
+        <engine:Label text="Skill Proficiencies" name="lblSkillProficiencies" style="-unity-text-align: middle-left;">
+            <Bindings>
+                <UnityEngine.Localization.LocalizedString property="text" table="GUID:b9ab995ff8837ed489ea6ae1229db2ca" entry="Id(688351756673024)">
+                    <variables>
+                        <UnityEngine.Localization.LocalVariable name="lblSkillProficiencies" text="Skill Proficiencies" style="-unity-text-align: middle-left;">
+                            <UnityEngine.Localization.SmartFormat.PersistentVariables.IntVariable />
+                        </UnityEngine.Localization.LocalVariable>
+                    </variables>
+                </UnityEngine.Localization.LocalizedString>
+            </Bindings>
+        </engine:Label>
         <engine:ListView name="lvSkillProficiencies" />
     </engine:VisualElement>
     <engine:VisualElement name="veStartingEquipments" style="flex-grow: 1; flex-direction: row; width: 98%;">
         <engine:VisualElement name="veStartingEquipmentFromClass" style="flex-grow: 1; flex-direction: row; width: 50%; align-self: auto; align-items: center;">
-            <engine:Label text="Starting Equipment from Class" name="lblStartingEquipmentFromClass" style="-unity-text-align: middle-left;" />
+            <engine:Label text="Starting Equipment from Class" name="lblStartingEquipmentFromClass" style="-unity-text-align: middle-left;">
+                <Bindings>
+                    <UnityEngine.Localization.LocalizedString property="text" table="GUID:b9ab995ff8837ed489ea6ae1229db2ca" entry="Id(688592610385920)" />
+                </Bindings>
+            </engine:Label>
             <engine:ListView name="lvStartingEquipmentFromClass" />
         </engine:VisualElement>
         <engine:VisualElement name="veStartingEquipmentFromBackground" style="flex-grow: 1; flex-direction: row; width: 50%; align-self: auto; align-items: center;">
-            <engine:Label text="Starting Equipment from Background" name="lblStartingEquipmentFromBackground" double-click-selects-word="false" style="-unity-text-align: middle-left;" />
+            <engine:Label text="Starting Equipment from Background" name="lblStartingEquipmentFromBackground" double-click-selects-word="false" style="-unity-text-align: middle-left;">
+                <Bindings>
+                    <UnityEngine.Localization.LocalizedString property="text" table="GUID:b9ab995ff8837ed489ea6ae1229db2ca" entry="Id(688744565825536)" />
+                </Bindings>
+            </engine:Label>
             <engine:ListView name="lvStartingEquipmentFromBackground" />
         </engine:VisualElement>
     </engine:VisualElement>
     <engine:VisualElement name="veAbilityScores" style="flex-grow: 1; flex-direction: column; flex-shrink: 1; flex-wrap: wrap; height: 80px; width: 98%;">
-        <engine:SliderInt label="Charisma" value="10" high-value="20" name="siCharisma" show-input-field="true" style="flex-shrink: 0; min-width: auto; width: 33%; max-width: none;" />
-        <engine:SliderInt label="Constitution&#10;" value="10" high-value="20" name="siConstitution" show-input-field="true" style="width: 33%; min-width: auto; max-width: none;" />
-        <engine:SliderInt label="Dexterity" value="10" high-value="20" name="siDexterity" show-input-field="true" style="width: 33%; min-width: auto; max-width: none;" />
-        <engine:SliderInt label="Intelligence" value="10" high-value="20" name="siIntelligence" show-input-field="true" style="width: 33%; min-width: auto; max-width: none;" />
-        <engine:SliderInt label="Strength" value="10" high-value="20" name="siStrength" show-input-field="true" style="width: 33%; min-width: auto; max-width: none;" />
-        <engine:SliderInt label="Wisdom" value="10" high-value="20" name="siWisdom" show-input-field="true" style="width: 33%; min-width: auto; max-width: none;" />
+        <engine:SliderInt label="Charisma" value="10" high-value="20" name="siCharisma" show-input-field="true" style="flex-shrink: 0; min-width: auto; width: 33%; max-width: none;">
+            <Bindings>
+                <UnityEngine.Localization.LocalizedString property="label" table="GUID:4302cb2128077c94e87d49e847df4181" entry="Id(10491802935296)" />
+            </Bindings>
+        </engine:SliderInt>
+        <engine:SliderInt label="Constitution" value="10" high-value="20" name="siConstitution" show-input-field="true" style="width: 33%; min-width: auto; max-width: none;">
+            <Bindings>
+                <UnityEngine.Localization.LocalizedString property="label" table="GUID:4302cb2128077c94e87d49e847df4181" entry="Id(10532689010688)" />
+            </Bindings>
+        </engine:SliderInt>
+        <engine:SliderInt label="Dexterity" value="10" high-value="20" name="siDexterity" show-input-field="true" style="width: 33%; min-width: auto; max-width: none;">
+            <Bindings>
+                <UnityEngine.Localization.LocalizedString property="label" table="GUID:4302cb2128077c94e87d49e847df4181" entry="Id(10553803137024)" />
+            </Bindings>
+        </engine:SliderInt>
+        <engine:SliderInt label="Intelligence" value="10" high-value="20" name="siIntelligence" show-input-field="true" focusable="true" style="width: 33%; min-width: auto; max-width: none;">
+            <Bindings>
+                <UnityEngine.Localization.LocalizedString property="label" table="GUID:4302cb2128077c94e87d49e847df4181" entry="Id(10573185015808)" />
+            </Bindings>
+        </engine:SliderInt>
+        <engine:SliderInt label="Strength" value="10" high-value="20" name="siStrength" show-input-field="true" style="width: 33%; min-width: auto; max-width: none;">
+            <Bindings>
+                <UnityEngine.Localization.LocalizedString property="label" table="GUID:4302cb2128077c94e87d49e847df4181" entry="Id(10597293875200)" />
+            </Bindings>
+        </engine:SliderInt>
+        <engine:SliderInt label="Wisdom" value="10" high-value="20" name="siWisdom" show-input-field="true" style="width: 33%; min-width: auto; max-width: none;">
+            <Bindings>
+                <UnityEngine.Localization.LocalizedString property="label" table="GUID:4302cb2128077c94e87d49e847df4181" entry="Id(10618219257856)" />
+            </Bindings>
+        </engine:SliderInt>
     </engine:VisualElement>
     <engine:VisualElement name="veLanguages" style="flex-grow: 1; flex-direction: row; align-items: center; width: 98%;">
-        <engine:Label text="Languages" name="lblLanguages" style="-unity-text-align: middle-left;" />
+        <engine:Label text="Languages" name="lblLanguages" style="-unity-text-align: middle-left;">
+            <Bindings>
+                <UnityEngine.Localization.LocalizedString property="text" table="GUID:b9ab995ff8837ed489ea6ae1229db2ca" entry="Id(1239252372283392)" />
+            </Bindings>
+        </engine:Label>
         <engine:ListView name="lvLanguages" />
     </engine:VisualElement>
-    <engine:Button text="Create Character" name="btnCreateCharacter" />
+    <engine:Button text="Create Character" name="btnCreateCharacter">
+        <Bindings>
+            <UnityEngine.Localization.LocalizedString property="text" table="GUID:1e98efcaa7b18d5438d0d8117b7cc674" entry="Id(6309157920563200)" />
+        </Bindings>
+    </engine:Button>
+    <engine:Button text="Button" name="btnBackToMain">
+        <Bindings>
+            <UnityEngine.Localization.LocalizedString property="text" table="GUID:1e98efcaa7b18d5438d0d8117b7cc674" entry="Id(6309307942428672)" />
+        </Bindings>
+    </engine:Button>
 </engine:UXML>
