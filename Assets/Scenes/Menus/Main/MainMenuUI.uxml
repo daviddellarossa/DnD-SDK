@@ -4,6 +4,11 @@
             <UnityEngine.Localization.LocalizedString property="text" table="GUID:1e98efcaa7b18d5438d0d8117b7cc674" entry="Id(16323174400)" />
         </Bindings>
     </engine:Label>
+    <engine:Button text="Button" name="btnContinueGame">
+        <Bindings>
+            <UnityEngine.Localization.LocalizedString property="text" table="GUID:1e98efcaa7b18d5438d0d8117b7cc674" entry="Id(6308068827586560)" />
+        </Bindings>
+    </engine:Button>
     <engine:Button text="Button" name="btnNewGame">
         <Bindings>
             <UnityEngine.Localization.LocalizedString property="text" table="GUID:1e98efcaa7b18d5438d0d8117b7cc674" entry="Id(763500683264)" />

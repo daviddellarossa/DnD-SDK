@@ -1,4 +1,7 @@
+using DnD.Code.Scripts.Characters;
+using Infrastructure.SaveManager;
 using Management.Game.StateMachine;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Management.Game
@@ -98,9 +101,67 @@ namespace Management.Game
 
         #endregion
         
-        public void StartGame_EventHandler(object sender, object target)
+        public void StartNewGame_EventHandler(object sender, object target)
         {
             ReplaceState(stateFactory.CharacterBuildState);
+        }
+
+        public void StartGame_EventHandler(object sender, object target, SaveGameData saveGameData)
+        {
+            // NOTE: Review how the saveGameData is passed to the PlayGameState.
+            // Currently, the states are reused and they can share state among calls.
+            // Evaluate if PlayGameState is an exception and needs to be instantiated every time.
+            stateFactory.PlayGameState.SetSaveGameData(saveGameData);
+            ReplaceState(stateFactory.PlayGameState);
+        }
+        
+        public void BackToMainMenu_EventHandler(object sender, object target)
+        {
+            ReplaceState(stateFactory.MainMenuState);
+        }
+
+        public void QuitGame_EventHandler(object sender, object target)
+        {
+            Application.Quit();
+            
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+        }
+
+        public void Character_OnCharacterCreated_EventHandler(object sender, object target, CharacterStats characterStats)
+        {
+            var entityToSaveGameDataConverter = new EntityToSaveGameDataConverter();
+            
+            SaveGameData savegameData = new SaveGameData()
+            {
+                CharacterStats =  entityToSaveGameDataConverter.Convert(characterStats),
+            };
+
+            SaveManager.Save(savegameData);
+            
+            Debug.Log("Savegame created.");
+            
+            this.StartGame_EventHandler(sender, target, savegameData);
+        }
+
+        public void LoadLatestGame_EventHandler(object sender, object target)
+        {
+            var loadedObject = SaveManager.Load();
+
+            if (loadedObject == null)
+            {
+                Debug.LogError("Savegame not found.");
+                return;
+            }
+            
+            // var saveGameDataToEntityDataConverter = new SaveGameDataToEntityConverter();
+            
+            //var savegameData = saveGameDataToEntityDataConverter.Convert(loadedObject);
+            
+            Debug.Log("Savegame loaded");
+            
+            this.StartGame_EventHandler(sender, target, loadedObject);
         }
     }
 }

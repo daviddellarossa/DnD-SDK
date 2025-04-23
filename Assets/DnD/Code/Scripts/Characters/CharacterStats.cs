@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
@@ -21,6 +22,7 @@ using UnityEngine.Serialization;
 
 namespace DnD.Code.Scripts.Characters
 {
+    [Serializable]
     public partial class CharacterStats
     {
         [SerializeField]

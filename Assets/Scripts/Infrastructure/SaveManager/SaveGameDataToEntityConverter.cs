@@ -45,6 +45,7 @@ namespace Infrastructure.SaveManager
             this._abilities = abilities;
             this._skills = skills;
         }
+        
         public CharacterStats Convert(CharacterStatsGameData characterStatsGameData)
         {
             var characterStats = new CharacterStats()

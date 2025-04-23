@@ -23,11 +23,31 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 763500683264
-    m_Localized: Nuovo Gioco
+    m_Localized: Nuovo gioco
     m_Metadata:
       m_Items: []
   - m_Id: 854760349696
     m_Localized: Esci dal gioco
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6308068827586560
+    m_Localized: Continua gioco
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6309157920563200
+    m_Localized: Crea il personaggio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6309307942428672
+    m_Localized: Torna al menu principale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6310865677574144
+    m_Localized: Equipaggiamento iniziale dalla classe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6311018404765696
+    m_Localized: Equipaggiamento iniziale dal background
     m_Metadata:
       m_Items: []
   references:

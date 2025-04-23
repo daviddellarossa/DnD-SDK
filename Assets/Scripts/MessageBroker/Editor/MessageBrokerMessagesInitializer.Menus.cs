@@ -1,4 +1,5 @@
-﻿using Infrastructure.Helpers;
+﻿using System.Collections.Generic;
+using Infrastructure.Helpers;
 using UnityEditor;
 
 namespace MessageBroker.Editor
@@ -20,6 +21,79 @@ namespace MessageBroker.Editor
                     
                     {
                         var messageName = "StartGame";
+                        var message = ScriptableObjectHelper.CreateScriptableObject<Message>(messageName, MessagesPath);
+                        message.MessageName = messageName;
+                        message.MessageCategory = MessagesCategory;
+                        message.SendMethodComment = string.Empty;
+                        message.EventComment = string.Empty;
+                        message.ReturnParameter = new ReturnParameter()
+                        {
+                            multiplicity = Multiplicity.Single,
+                            parameterType = ParameterType.VoidType,
+                        };
+                        EditorUtility.SetDirty(message);
+                    }
+                    
+                    {
+                        var messageName = "LoadGame";
+                        var message = ScriptableObjectHelper.CreateScriptableObject<Message>(messageName, MessagesPath);
+                        message.MessageName = messageName;
+                        message.MessageCategory = MessagesCategory;
+                        message.SendMethodComment = string.Empty;
+                        message.EventComment = string.Empty;
+                        message.InputParameters = new List<InputParameter>()
+                        {
+                            new InputParameter()
+                            {
+                                multiplicity = Multiplicity.Single,
+                                parameterType = ParameterType.OtherType,
+                                parameterName = "saveGameData",
+                                parameterComment = "The savegame data structure containing the game data to load",
+                                otherType = "Infrastructure.SaveManager.SaveGameData"
+                            }
+                        };
+                        
+                        message.ReturnParameter = new ReturnParameter()
+                        {
+                            multiplicity = Multiplicity.Single,
+                            parameterType = ParameterType.VoidType,
+                        };
+                        EditorUtility.SetDirty(message);
+                    }
+                    
+                    {
+                        var messageName = "LoadLatestGame";
+                        var message = ScriptableObjectHelper.CreateScriptableObject<Message>(messageName, MessagesPath);
+                        message.MessageName = messageName;
+                        message.MessageCategory = MessagesCategory;
+                        message.SendMethodComment = string.Empty;
+                        message.EventComment = string.Empty;
+                        
+                        message.ReturnParameter = new ReturnParameter()
+                        {
+                            multiplicity = Multiplicity.Single,
+                            parameterType = ParameterType.VoidType,
+                        };
+                        EditorUtility.SetDirty(message);
+                    }
+                    
+                    {
+                        var messageName = "BackToMainMenu";
+                        var message = ScriptableObjectHelper.CreateScriptableObject<Message>(messageName, MessagesPath);
+                        message.MessageName = messageName;
+                        message.MessageCategory = MessagesCategory;
+                        message.SendMethodComment = string.Empty;
+                        message.EventComment = string.Empty;
+                        message.ReturnParameter = new ReturnParameter()
+                        {
+                            multiplicity = Multiplicity.Single,
+                            parameterType = ParameterType.VoidType,
+                        };
+                        EditorUtility.SetDirty(message);
+                    }
+                    
+                    {
+                        var messageName = "QuitGame";
                         var message = ScriptableObjectHelper.CreateScriptableObject<Message>(messageName, MessagesPath);
                         message.MessageName = messageName;
                         message.MessageCategory = MessagesCategory;

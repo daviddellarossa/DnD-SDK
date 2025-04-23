@@ -13,6 +13,7 @@ using Infrastructure.Helpers;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.SmartFormat.PersistentVariables;
+using UnityEngine.Localization.SmartFormat.Utilities;
 using UnityEngine.UIElements;
 using Background = DnD.Code.Scripts.Backgrounds.Background;
 
@@ -21,8 +22,7 @@ namespace Management.CharacterBuild
     public class CharacterBuildSceneManager : MonoBehaviour
     {
         private static readonly string GameEntitiesLocalizationTable = "GameEntities";
-        private static readonly string CharacterUILocalizationTable = "CharacterUI";
-
+        
         public CharacterBuildSceneManagerCore Core { get; protected set; }
         
         private UIDocument uiDocument;
@@ -75,7 +75,8 @@ namespace Management.CharacterBuild
         private SliderInt siWisdom;
         
         private Button btnCreateCharacter;
-        
+        private Button btnBackToMainMenu;
+
         void Awake()
         {
             Core = new CharacterBuildSceneManagerCore(this);
@@ -92,7 +93,12 @@ namespace Management.CharacterBuild
             root = uiDocument.rootVisualElement;
             
             btnCreateCharacter = root.Q<Button>("btnCreateCharacter");
-            btnCreateCharacter.clicked += BtnCreateCharacterOnclicked;
+            btnCreateCharacter.clicked += BtnCreateCharacterOnClicked;
+            
+            btnBackToMainMenu = root.Q<Button>("btnBackToMainMenu");
+            btnBackToMainMenu.clicked += BtnBackToMainMenuOnClicked;
+            
+            txtCharacterName = root.Q<TextField>("txtCharacterName");
             
             lblSkillProficiencies = root.Q<Label>("lblSkillProficiencies");
             lblStartingEquipmentFromClass = root.Q<Label>("lblStartingEquipmentFromClass");
@@ -114,104 +120,33 @@ namespace Management.CharacterBuild
             siStrength = root.Q<SliderInt>("siStrength");
             siWisdom = root.Q<SliderInt>("siWisdom");
             
-            // Set localized text for Character Name
-            {
-                txtCharacterName = root.Q<TextField>("txtCharacterName");
-                var txtCharacterNameLabel =
-                    new LocalizedString(CharacterUILocalizationTable, "UI.CharacterBuild.CharacterName.Label");
-                txtCharacterNameLabel.StringChanged += (localizedText) => txtCharacterName.label = localizedText;
-            }
+            ddfSpecies = root.Q<DropdownField>("ddfSpecies");
             
-            {
-                ddfSpecies = root.Q<DropdownField>("ddfSpecies");
-                var ddfSpeciesLabel = new LocalizedString(CharacterUILocalizationTable, "UI.CharacterBuild.Species.Label");
-                ddfSpeciesLabel.StringChanged += (localizedText) => ddfSpecies.label = localizedText;
-
-                SetSpecies();
-            }
+            SetSpecies();
             
-            {
-                // Set up class
-
-                ddfClasses = root.Q<DropdownField>("ddfClasses");
-                ddfSubClasses = root.Q<DropdownField>("ddfSubClasses");
-                
-                ddfClasses.RegisterValueChangedCallback(SetSubClasses);
-                ddfClasses.RegisterValueChangedCallback(SetSkillProficiencies);
-                ddfClasses.RegisterValueChangedCallback(SetStartingEquipmentFromClass);
-
-                var ddfClassesLabel = new LocalizedString(CharacterUILocalizationTable, "UI.CharacterBuild.Classes.Label");
-                ddfClassesLabel.StringChanged += (localizedText) => ddfClasses.label = localizedText;
-                
-                var ddfSubClassesLabel = new LocalizedString(CharacterUILocalizationTable, "UI.CharacterBuild.SubClasses.Label");
-                ddfSubClassesLabel.StringChanged += (localizedText) => ddfSubClasses.label = localizedText;
-                
-                SetClasses();
-            }
+            ddfClasses = root.Q<DropdownField>("ddfClasses");
+            ddfSubClasses = root.Q<DropdownField>("ddfSubClasses");
             
-            {
-                ddfBackground = root.Q<DropdownField>("ddfBackground");
-                ddfBackground.RegisterValueChangedCallback(SetStartingEquipmentFromBackground);
-                
-                var ddfBackgroundLabel = new LocalizedString(CharacterUILocalizationTable, "UI.CharacterBuild.Background.Label");
-                ddfBackgroundLabel.StringChanged += (localizedText) => ddfBackground.label = localizedText;
-
-                SetBackground();
-            }
-
-            {
-                // Skill proficiency is managed by the Class setting.
-            }
-            {
-                var lblStartingEquipmentFromClassLabel = new LocalizedString(CharacterUILocalizationTable, "UI.CharacterBuild.StartingEquipmentFromClass.Label");
-                lblStartingEquipmentFromClassLabel.StringChanged += (localizedText) => lblStartingEquipmentFromClass.text = localizedText;
-            }
-            {
-                var lblStartingEquipmentFromBackgroundLabel = new LocalizedString(CharacterUILocalizationTable, "UI.CharacterBuild.StartingEquipmentFromBackground.Label");
-                lblStartingEquipmentFromBackgroundLabel.StringChanged += (localizedText) => lblStartingEquipmentFromBackground.text = localizedText;
-            }
-
-            // Abilities
-            {
-                var siCharismaLabel = new LocalizedString(GameEntitiesLocalizationTable, "Abilities.Charisma");
-                siCharismaLabel.StringChanged += (localizedText) => siCharisma.label = localizedText;
-            }
-
-            {
-                var siConstitutionLabel = new LocalizedString(GameEntitiesLocalizationTable, "Abilities.Constitution");
-                siConstitutionLabel.StringChanged += (localizedText) => siConstitution.label = localizedText;
-            }
-
-            {
-                var siDexterityLabel = new LocalizedString(GameEntitiesLocalizationTable, "Abilities.Dexterity");
-                siDexterityLabel.StringChanged += (localizedText) => siDexterity.label = localizedText;
-            }
-
-            {
-                var siIntelligenceLabel = new LocalizedString(GameEntitiesLocalizationTable, "Abilities.Intelligence");
-                siIntelligenceLabel.StringChanged += (localizedText) => siIntelligence.label = localizedText;
-            }
-
-            {
-                var siStrengthLabel = new LocalizedString(GameEntitiesLocalizationTable, "Abilities.Strength");
-                siStrengthLabel.StringChanged += (localizedText) => siStrength.label = localizedText;
-            }
-
-            {
-                var siWisdomLabel = new LocalizedString(GameEntitiesLocalizationTable, "Abilities.Wisdom");
-                siWisdomLabel.StringChanged += (localizedText) => siWisdom.label = localizedText;
-            }
+            ddfClasses.RegisterValueChangedCallback(SetSubClasses);
+            ddfClasses.RegisterValueChangedCallback(SetSkillProficiencies);
+            ddfClasses.RegisterValueChangedCallback(SetStartingEquipmentFromClass);
             
-            // Languages
-            {
-                var lblLanguagesLabel = new LocalizedString(CharacterUILocalizationTable, "UI.CharacterBuild.Languages.Label");
-                lblLanguagesLabel.StringChanged += (localizedText) => lblLanguages.text = localizedText;
+            SetClasses();
+            
+            ddfBackground = root.Q<DropdownField>("ddfBackground");
+            ddfBackground.RegisterValueChangedCallback(SetStartingEquipmentFromBackground);
 
-                SetLanguages();
-            }
+            SetBackground();
+            
+            SetLanguages();
         }
 
-        private void BtnCreateCharacterOnclicked()
+        private void BtnBackToMainMenuOnClicked()
+        {
+            DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.Send_BackToMainMenu(this, null);
+        }
+
+        private void BtnCreateCharacterOnClicked()
         {
             try
             {
@@ -422,17 +357,22 @@ namespace Management.CharacterBuild
 
         private void SetSkillProficienciesLabel(int numberOfSkillProficienciesToChoose = 0)
         {
-            var lblSkillProficienciesLabel = new LocalizedString(CharacterUILocalizationTable, "UI.CharacterBuild.SkillProficiencies.Label");
-            lblSkillProficienciesLabel.Arguments = new[]
+            var bindingInfos = lblSkillProficiencies.GetBindingInfos().ToArray();
+            if (!bindingInfos.Any())
             {
-                new Dictionary<string, IVariable>
-                {
-                    ["num"] = new IntVariable {  Value = numberOfSkillProficienciesToChoose},
-                }
-            };
+                Debug.LogWarning("Binding for Skill Proficiencies label not found");
+                return;
+            }
+            var bindingInfo = bindingInfos.First();
+            var localizedString = bindingInfo.binding as LocalizedString;
+            if (localizedString == null)
+            {
+                Debug.LogWarning("Unable to find LocalizedString for Skill Proficiencies label");
+                return;
+            }
+            localizedString["num"] = new IntVariable { Value = numberOfSkillProficienciesToChoose };
             
-            lblSkillProficienciesLabel.StringChanged += (localizedText) => lblSkillProficiencies.text = localizedText;
-            lblSkillProficienciesLabel.RefreshString();
+            localizedString.RefreshString();
         }
         
         private void SetSkillProficiencies(ChangeEvent<string> selectedClassChangeEvent)
@@ -522,14 +462,6 @@ namespace Management.CharacterBuild
             }
         }
 
-        
-        private void SetStartingEquipmentFromClassLabel()
-        {
-            var lblStartingEquipmentFromClassLabel = new LocalizedString(CharacterUILocalizationTable, "UI.CharacterBuild.StartingEquipmentFromClass.Label");
-            lblStartingEquipmentFromClassLabel.StringChanged += (localizedText) => lblStartingEquipmentFromClass.text = localizedText;
-            lblStartingEquipmentFromClassLabel.RefreshString();
-        }
-
         private void SetStartingEquipmentFromClass(ChangeEvent<string> selectedClassChangeEvent)
         {
             if (string.IsNullOrEmpty(selectedClassChangeEvent.newValue))
@@ -544,8 +476,6 @@ namespace Management.CharacterBuild
             }
             
             var startingEquipmentOptions = selectedClass.Value.StartingEquipmentOptions.ToArray();
-            
-            SetStartingEquipmentFromClassLabel();
             
             int pending = startingEquipmentOptions.Length;
             foreach (var startingEquipment in startingEquipmentOptions)
@@ -611,8 +541,6 @@ namespace Management.CharacterBuild
             
             var startingEquipmentOptions = selectedBackground.Value.StartingEquipmentOptions.ToArray();
             
-            SetStartingEquipmentFromBackgroundLabel();
-            
             int pending = startingEquipmentOptions.Length;
             foreach (var startingEquipment in startingEquipmentOptions)
             {
@@ -633,13 +561,6 @@ namespace Management.CharacterBuild
                     }
                 };
             }
-        }
-        
-        private void SetStartingEquipmentFromBackgroundLabel()
-        {
-            var lblStartingEquipmentFromBackgroundLabel = new LocalizedString(CharacterUILocalizationTable, "UI.CharacterBuild.StartingEquipmentFromBackground.Label");
-            lblStartingEquipmentFromBackgroundLabel.StringChanged += (localizedText) => lblStartingEquipmentFromBackground.text = localizedText;
-            lblStartingEquipmentFromBackgroundLabel.RefreshString();
         }
     }
 }

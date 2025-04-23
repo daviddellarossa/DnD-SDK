@@ -75,6 +75,11 @@ namespace MessageBroker.Editor
         {
             foreach(var messageInfo in messageInfos)
             {
+                if (messageInfo.Message.InputParameters is null)
+                {
+                    messageInfo.Message.InputParameters = new List<InputParameter>();
+                }
+                
                 messageInfo.Message.InputParameters.Insert(0,
                     new InputParameter()
                     {
