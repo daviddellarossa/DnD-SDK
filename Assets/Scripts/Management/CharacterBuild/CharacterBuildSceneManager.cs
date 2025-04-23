@@ -75,7 +75,8 @@ namespace Management.CharacterBuild
         private SliderInt siWisdom;
         
         private Button btnCreateCharacter;
-        
+        private Button btnBackToMainMenu;
+
         void Awake()
         {
             Core = new CharacterBuildSceneManagerCore(this);
@@ -93,6 +94,11 @@ namespace Management.CharacterBuild
             
             btnCreateCharacter = root.Q<Button>("btnCreateCharacter");
             btnCreateCharacter.clicked += BtnCreateCharacterOnClicked;
+            
+            btnBackToMainMenu = root.Q<Button>("btnBackToMainMenu");
+            btnBackToMainMenu.clicked += BtnBackToMainMenuOnClicked;
+            
+            txtCharacterName = root.Q<TextField>("txtCharacterName");
             
             lblSkillProficiencies = root.Q<Label>("lblSkillProficiencies");
             lblStartingEquipmentFromClass = root.Q<Label>("lblStartingEquipmentFromClass");
@@ -133,6 +139,11 @@ namespace Management.CharacterBuild
             SetBackground();
             
             SetLanguages();
+        }
+
+        private void BtnBackToMainMenuOnClicked()
+        {
+            DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.Send_BackToMainMenu(this, null);
         }
 
         private void BtnCreateCharacterOnClicked()

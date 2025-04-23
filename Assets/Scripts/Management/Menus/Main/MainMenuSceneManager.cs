@@ -10,8 +10,9 @@ namespace Management.Menus.Main
         
         private UIDocument uiDocument;
         private Button btnNewGame;
-        private Button btnLoadGame;
-        
+        private Button btnContinueGame;
+        private Button btnQuitGame;
+
         void Awake()
         {
             Core = new MainMenuSceneManagerCore(this);
@@ -33,15 +34,28 @@ namespace Management.Menus.Main
                 }
                 
                 // Get a reference to the button by name (from UXML)
-                btnLoadGame = root.Q<Button>("btnLoadGame"); // Must match the name in UXML
+                btnContinueGame = root.Q<Button>("btnContinueGame"); // Must match the name in UXML
 
-                if (btnLoadGame != null)
+                if (btnContinueGame != null)
                 {
-                    btnLoadGame.clicked += OnLoadGameClicked;
+                    btnContinueGame.clicked += OnContinueGameClicked;
+                }
+                
+                // Get a reference to the button by name (from UXML)
+                btnQuitGame = root.Q<Button>("btnQuitGame"); // Must match the name in UXML
+
+                if (btnQuitGame != null)
+                {
+                    btnQuitGame.clicked += OnQuitGameClicked;
                 }
             }
         }
-        
+
+        private void OnQuitGameClicked()
+        {
+            DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.Send_QuitGame(this, nameof(GameManager));
+        }
+
         void Start()
         {
             Core.OnStart();
@@ -52,11 +66,6 @@ namespace Management.Menus.Main
             Core.StartGame();
         }
         
-        public void QuitGame()
-        { 
-            Core.QuitGame();
-        }
-        
         private void OnNewGameClicked()
         {
             Debug.Log("New Game Clicked!");
@@ -64,11 +73,11 @@ namespace Management.Menus.Main
             DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.Send_StartGame(this, nameof(GameManager));
         }
 
-        private void OnLoadGameClicked()
+        private void OnContinueGameClicked()
         {
-            Debug.Log("Load Game Clicked!");
+            Debug.Log("Continue Game Clicked!");
             // Implement your game logic here
-            //DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.Send_LoadGame(this, null);
+            DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.Send_LoadLatestGame(this, null);
         }
     }
 }

@@ -22,6 +22,11 @@ namespace DeeDeeR.MessageBroker
 		/// <summary>
 		/// 
 		/// </summary>
+		public event Action<object, object> BackToMainMenu;
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public event Action<object, object, Infrastructure.SaveManager.SaveGameData> LoadGame;
 
 		/// <summary>
@@ -32,12 +37,33 @@ namespace DeeDeeR.MessageBroker
 		/// <summary>
 		/// 
 		/// </summary>
+		public event Action<object, object> QuitGame;
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public event Action<object, object> StartGame;
 
 
 		#endregion
 
 		#region Send methods
+
+		/// <summary>
+		/// Send a message of type BackToMainMenu.
+		/// <param name="sender">The sender of the message. Required.</param>
+		/// <param name="target">The target of the message. Optional.</param>
+		/// </summary>
+		public void Send_BackToMainMenu(object sender, object target)
+		{
+			if (sender == null)
+			{
+				Debug.LogError("sender is required.");
+				return;
+			}
+
+			BackToMainMenu?.Invoke(sender, target);
+		}
 
 		/// <summary>
 		/// Send a message of type LoadGame.
@@ -70,6 +96,22 @@ namespace DeeDeeR.MessageBroker
 			}
 
 			LoadLatestGame?.Invoke(sender, target);
+		}
+
+		/// <summary>
+		/// Send a message of type QuitGame.
+		/// <param name="sender">The sender of the message. Required.</param>
+		/// <param name="target">The target of the message. Optional.</param>
+		/// </summary>
+		public void Send_QuitGame(object sender, object target)
+		{
+			if (sender == null)
+			{
+				Debug.LogError("sender is required.");
+				return;
+			}
+
+			QuitGame?.Invoke(sender, target);
 		}
 
 		/// <summary>

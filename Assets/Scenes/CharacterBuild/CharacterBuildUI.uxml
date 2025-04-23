@@ -110,7 +110,7 @@
             <UnityEngine.Localization.LocalizedString property="text" table="GUID:1e98efcaa7b18d5438d0d8117b7cc674" entry="Id(6309157920563200)" />
         </Bindings>
     </engine:Button>
-    <engine:Button text="Button" name="btnBackToMain">
+    <engine:Button text="Button" name="btnBackToMainMenu">
         <Bindings>
             <UnityEngine.Localization.LocalizedString property="text" table="GUID:1e98efcaa7b18d5438d0d8117b7cc674" entry="Id(6309307942428672)" />
         </Bindings>

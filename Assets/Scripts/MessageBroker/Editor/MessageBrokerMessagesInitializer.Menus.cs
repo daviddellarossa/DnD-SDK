@@ -77,6 +77,36 @@ namespace MessageBroker.Editor
                         EditorUtility.SetDirty(message);
                     }
                     
+                    {
+                        var messageName = "BackToMainMenu";
+                        var message = ScriptableObjectHelper.CreateScriptableObject<Message>(messageName, MessagesPath);
+                        message.MessageName = messageName;
+                        message.MessageCategory = MessagesCategory;
+                        message.SendMethodComment = string.Empty;
+                        message.EventComment = string.Empty;
+                        message.ReturnParameter = new ReturnParameter()
+                        {
+                            multiplicity = Multiplicity.Single,
+                            parameterType = ParameterType.VoidType,
+                        };
+                        EditorUtility.SetDirty(message);
+                    }
+                    
+                    {
+                        var messageName = "QuitGame";
+                        var message = ScriptableObjectHelper.CreateScriptableObject<Message>(messageName, MessagesPath);
+                        message.MessageName = messageName;
+                        message.MessageCategory = MessagesCategory;
+                        message.SendMethodComment = string.Empty;
+                        message.EventComment = string.Empty;
+                        message.ReturnParameter = new ReturnParameter()
+                        {
+                            multiplicity = Multiplicity.Single,
+                            parameterType = ParameterType.VoidType,
+                        };
+                        EditorUtility.SetDirty(message);
+                    }
+                    
                     AssetDatabase.SaveAssets();
                     AssetDatabase.Refresh();
                 }

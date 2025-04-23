@@ -11,7 +11,6 @@ namespace Management.Game.StateMachine
         // public GameManagerCore.QuitState QuitState { get; }
         public GameManagerCore.MainMenuState MainMenuState { get; }
         public GameManagerCore.CharacterBuildState CharacterBuildState { get; }
-
         public GameManagerCore.PlayGameState PlayGameState { get; }
 
         public StateFactory(GameManagerCore gameManagerCore)
@@ -25,6 +24,7 @@ namespace Management.Game.StateMachine
             // this.QuitState = new GameManagerCore.QuitState(gameManagerCore);
             this.MainMenuState = new GameManagerCore.MainMenuState(gameManagerCore);
             this.PlayGameState = new GameManagerCore.PlayGameState(gameManagerCore);
+            this.CharacterBuildState = new GameManagerCore.CharacterBuildState(gameManagerCore);
 
         }
     }

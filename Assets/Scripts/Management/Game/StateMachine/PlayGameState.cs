@@ -1,5 +1,9 @@
-﻿// ReSharper disable once CheckNamespace
+﻿
 
+using System.Linq;
+using Infrastructure.SaveManager;
+using UnityEngine;
+// ReSharper disable once CheckNamespace
 using UnityEngine.SceneManagement;
 
 // ReSharper disable once CheckNamespace
@@ -11,8 +15,10 @@ namespace Management.Game
         {
             private readonly string sceneName = "TestCharacter";
 
-            //protected IPreRollManager _menuManager;
+            private SaveGameData saveGameData;
 
+            public void SetSaveGameData(SaveGameData data) => this.saveGameData = data;
+            
             internal PlayGameState(Management.Game.GameManagerCore core) : base(core)
             {
             }
@@ -41,21 +47,22 @@ namespace Management.Game
 
             public override void SceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode loadSceneMode)
             {
-                // _menuManager = GetMenuManagerFromScene(scene);
-                // if (_menuManager == null)
-                //    return;
+                var sceneManager = GetSceneManagerFromScene(scene);
+                if (sceneManager == null)
+                {
+                    Debug.LogError($"SceneManager for scene \"{sceneName}\" not found");
+                }
+                sceneManager.SetSaveGameData(saveGameData);
             }
 
-            // protected virtual IPreRollManager GetMenuManagerFromScene(Scene scene)
-            // {
-            //     if (scene.name != _sceneName)
-            //         return null;
-            //
-            //     var rootGameObjects = scene.GetRootGameObjects();
-            //     var sceneManagerGo = rootGameObjects.Single(x => x.name == "SceneManager");
-            //     var menuManager = sceneManagerGo.GetComponent<PreRollManager>();
-            //     return menuManager;
-            // }
+            protected virtual Management.Levels.LevelManager GetSceneManagerFromScene(UnityEngine.SceneManagement.Scene scene)
+            {
+                var rootGameObjects = scene.GetRootGameObjects();
+                var sceneManagerGo = rootGameObjects.Single(x => x.name == "SceneManager");
+                var sceneManager = sceneManagerGo.GetComponent<Management.Levels.LevelManager>();
+                
+                return sceneManager;
+            }
 
         }
     }
