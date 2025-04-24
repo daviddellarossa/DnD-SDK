@@ -1,0 +1,18 @@
+{
+    "name": "MessageLogger",
+    "rootNamespace": "",
+    "references": [
+        "GUID:0cb5a2ec7dbee8242a2d0c66387ac361",
+        "GUID:928119c26d7f9783992a0bc4da0e65a8",
+        "GUID:35b88e74074fbc3438c3acb9a3d21683"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
