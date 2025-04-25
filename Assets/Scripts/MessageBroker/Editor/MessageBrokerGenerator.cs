@@ -18,7 +18,7 @@ namespace MessageBroker.Editor
         private static string _categoryPrefix;
         private static string _defaultCategoryName;
         
-        [MenuItem("DeeDeeR/MessageBroker/Generate Message Broker")]
+        [MenuItem("DeeDeeR/Message Broker/Generate Message Broker")]
         static async Task GenerateMessageBroker()
         {
             _packageVersion = GetPackageVersion();

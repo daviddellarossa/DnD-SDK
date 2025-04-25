@@ -24,26 +24,22 @@ namespace MessageLogger.Editor
 
 		private void Handle_GameOver(System.Object arg1, System.Object arg2)
 		{
-			Logger.LogEvent("Game", arg1?.ToString(), "GameOver");
-			Logger.LogEvent("Game", arg1?.ToString(), "GameOver");
+			Logger.LogEvent(arg1?.ToString() ?? string.Empty, arg2?.ToString() ?? string.Empty, "Game Over");
 		}
 
 		private void Handle_GamePaused(System.Object arg1, System.Object arg2)
 		{
-			Logger.LogEvent("Game", arg1?.ToString(), "GamePaused");
-			Logger.LogEvent("Game", arg1?.ToString(), "GamePaused");
+			Logger.LogEvent(arg1?.ToString() ?? string.Empty, arg2?.ToString() ?? string.Empty, "Game Paused");
 		}
 
 		private void Handle_GameResumed(System.Object arg1, System.Object arg2)
 		{
-			Logger.LogEvent("Game", arg1?.ToString(), "GameResumed");
-			Logger.LogEvent("Game", arg1?.ToString(), "GameResumed");
+			Logger.LogEvent(arg1?.ToString() ?? string.Empty, arg2?.ToString() ?? string.Empty, "Game Resumed");
 		}
 
 		private void Handle_GameStarted(System.Object arg1, System.Object arg2)
 		{
-			Logger.LogEvent("Game", arg1?.ToString(), "GameStarted");
-			Logger.LogEvent("Game", arg1?.ToString(), "GameStarted");
+			Logger.LogEvent(arg1?.ToString() ?? string.Empty, arg2?.ToString() ?? string.Empty, "Game Started");
 		}
 	}
 }

@@ -23,6 +23,9 @@ namespace DeeDeeR.MessageBroker
 		public MBGame Game { get; } = new MBGame();
 
 		/// <inheritdoc/>
+		public MBLogger Logger { get; } = new MBLogger();
+
+		/// <inheritdoc/>
 		public MBMenus Menus { get; } = new MBMenus();
 
 	}

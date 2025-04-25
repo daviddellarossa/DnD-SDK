@@ -1,5 +1,5 @@
 {
-    "name": "MessageLogger",
+    "name": "MessageLogger.Editor",
     "rootNamespace": "",
     "references": [
         "GUID:0cb5a2ec7dbee8242a2d0c66387ac361",

@@ -64,17 +64,6 @@ namespace MessageBroker.Editor
         {
             return String.IsNullOrWhiteSpace(messageName) ? name : messageName;
         }
-
-        //public string GetCategory()
-        //{
-        //    var currentScriptGuid = AssetDatabase.FindAssets($"t:Script {nameof(MessageBrokerGenerator)}");
-        //    var currentScriptLocation = AssetDatabase.GUIDToAssetPath(currentScriptGuid[0]);
-        //    var currentFolder = currentScriptLocation.Substring(0, currentScriptLocation.LastIndexOf('/'));
-
-            //    string[] guids = AssetDatabase.FindAssets($"{this.name} t:{typeof(Message).Name}", new[] { currentFolder });
-
-            //    return "Default"; // this.Category;
-        //}
     }
 
     [Serializable]
