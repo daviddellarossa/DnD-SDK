@@ -24,7 +24,6 @@ namespace DeeDeeR.MessageBroker
 		/// </summary>
 		public event Action<object, object, DnD.Code.Scripts.Characters.CharacterStats> CharacterCreated;
 
-
 		#endregion
 
 		#region Send methods
@@ -45,7 +44,6 @@ namespace DeeDeeR.MessageBroker
 
 			CharacterCreated?.Invoke(sender, target, characterStatsInstance);
 		}
-
 
 		#endregion
 

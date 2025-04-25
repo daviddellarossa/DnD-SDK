@@ -39,7 +39,6 @@ namespace DeeDeeR.MessageBroker
 		/// </summary>
 		public event Action<object, object> GameStarted;
 
-
 		#endregion
 
 		#region Send methods
@@ -107,7 +106,6 @@ namespace DeeDeeR.MessageBroker
 
 			GameStarted?.Invoke(sender, target);
 		}
-
 
 		#endregion
 

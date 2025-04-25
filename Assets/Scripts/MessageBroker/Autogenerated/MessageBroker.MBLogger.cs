@@ -24,7 +24,6 @@ namespace DeeDeeR.MessageBroker
 		/// </summary>
 		public event Action<object, object, string, UnityEngine.LogType> Log;
 
-
 		#endregion
 
 		#region Send methods
@@ -46,7 +45,6 @@ namespace DeeDeeR.MessageBroker
 
 			Log?.Invoke(sender, target, message, logLevel);
 		}
-
 
 		#endregion
 

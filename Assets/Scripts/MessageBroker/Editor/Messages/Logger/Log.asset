@@ -12,11 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5805e57f46109de4c81d11b5013eba85, type: 3}
   m_Name: Log
   m_EditorClassIdentifier: 
-  messageName: 
-  messageCategory: 
+  messageName: Log
+  messageCategory: Logger
   sendMethodComment: 
   eventComment: 
-  inputParameters: []
+  inputParameters:
+  - parameterName: message
+    multiplicity: 0
+    parameterType: 8
+    otherType: 
+    parameterComment: 
+  - parameterName: logLevel
+    multiplicity: 0
+    parameterType: 11
+    otherType: UnityEngine.LogType
+    parameterComment: 
   returnParameter:
     multiplicity: 0
     parameterType: 0
