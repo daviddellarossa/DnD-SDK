@@ -24,6 +24,11 @@ namespace DeeDeeR.MessageBroker
 		MBGame Game { get; }
 
 		/// <summary>
+		/// Message Broker for `Logger` category
+		/// </summary>
+		MBLogger Logger { get; }
+
+		/// <summary>
 		/// Message Broker for `Menus` category
 		/// </summary>
 		MBMenus Menus { get; }

@@ -205,15 +205,18 @@ namespace MessageLogger.Editor
 
                 foreach (var evt in events)
                 {
-                    var parameters = evt.EventHandlerType.GetMethod("Invoke").GetParameters();
+                    var parameters = evt.EventHandlerType.GetMethod("Invoke")!.GetParameters();
                     string paramList = string.Join(", ", parameters.Select(p => p.ParameterType.FullName + " " + p.Name));
                     string paramNames = string.Join(", ", parameters.Select(p => p.Name));
 
+                    string logMessage = parameters.Length > 2 && parameters[2].ParameterType == typeof(string) 
+                        ? parameters[2].Name 
+                        : $"\"{evt.Name.ToHumanReadable()}\"";
+                    
                     sb.AppendLine();
                     sb.AppendLine($"{Indent.Get()}private void Handle_{evt.Name}({paramList})");
                     sb.AppendLine($"{Indent.Get()}{{");
-                    sb.AppendLine($"{Indent.Push()}Logger.LogEvent(\"{categoryName}\", {parameters[0].Name}?.ToString(), \"{evt.Name}\");");
-                    sb.AppendLine($"{Indent.Get()}Logger.LogEvent(\"{categoryName}\", {parameters[0].Name}?.ToString(), \"{evt.Name}\");");
+                    sb.AppendLine($"{Indent.Push()}Logger.LogEvent({parameters[0].Name}?.ToString() ?? string.Empty, {parameters[1].Name}?.ToString() ?? string.Empty, {logMessage});");
                     sb.AppendLine($"{Indent.Pop()}}}");
                 }
 
@@ -226,6 +229,33 @@ namespace MessageLogger.Editor
 
             AssetDatabase.Refresh();
             Debug.Log("✅ MessageCategory classes generated.");
+        }
+    }
+
+    public static class MessageExtensionMethods
+    {
+        public static string ToHumanReadable(this string input)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+                return string.Empty;
+
+            var builder = new System.Text.StringBuilder();
+            builder.Append(input[0]);
+
+            for (int i = 1; i < input.Length; i++)
+            {
+                char current = input[i];
+                char previous = input[i - 1];
+
+                if (char.IsUpper(current) && !char.IsWhiteSpace(previous) && !char.IsUpper(previous))
+                {
+                    builder.Append(' ');
+                }
+
+                builder.Append(current);
+            }
+
+            return builder.ToString();
         }
     }
 }

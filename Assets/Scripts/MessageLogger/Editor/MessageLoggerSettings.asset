@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: MessageLoggerSettings
   m_EditorClassIdentifier: 
   globalLoggingEnabled: 1
-  filterLevel: 2
+  filterLevel: 1
   categoryConfigs:
   - categoryTypeName: MessageLogger.Editor.GameCategory
+    enabled: 1
+  - categoryTypeName: MessageLogger.Editor.CharacterCategory
+    enabled: 1
+  - categoryTypeName: MessageLogger.Editor.MenusCategory
     enabled: 1

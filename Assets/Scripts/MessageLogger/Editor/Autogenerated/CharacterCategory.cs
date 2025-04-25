@@ -18,8 +18,7 @@ namespace MessageLogger.Editor
 
 		private void Handle_CharacterCreated(System.Object arg1, System.Object arg2, DnD.Code.Scripts.Characters.CharacterStats arg3)
 		{
-			Logger.LogEvent("Character", arg1?.ToString(), "CharacterCreated");
-			Logger.LogEvent("Character", arg1?.ToString(), "CharacterCreated");
+			Logger.LogEvent(arg1?.ToString() ?? string.Empty, arg2?.ToString() ?? string.Empty, "Character Created");
 		}
 	}
 }
