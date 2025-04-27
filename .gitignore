@@ -74,3 +74,6 @@ crashlytics-build.properties
 
 # Code Coverage
 /CodeCoverage/
+
+# Packages folder in Unity3D
+/[Aa]ssets/[Pp]ackages/*

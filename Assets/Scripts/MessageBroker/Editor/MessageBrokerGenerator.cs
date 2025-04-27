@@ -41,7 +41,17 @@ namespace MessageBroker.Editor
             try
             {
                 AddDefaultInputParametersToMessages(messageInfos);
+                
+                var messageInfosGroupedByCategory = messageInfos.GroupBy(x => x.Message.MessageCategory);
 
+                foreach (var messageGroup in messageInfosGroupedByCategory)
+                {
+                    var categoryGenerator = new CategoryGenerator(messageGroup.Key, messageGroup);
+                    categoryGenerator.Generate();
+                }
+                
+                
+                /*
                 var messageBrokerCategoryGenerator = new MessageBrokerCategoryGenerator(messageInfos);
                 messageBrokerCategoryGenerator.Generate();
 
@@ -50,7 +60,7 @@ namespace MessageBroker.Editor
 
                 var messageBrokerCommonGenerator = new MessageBrokerCommonGenerator(messageInfos);
                 messageBrokerCommonGenerator.Generate();
-
+*/
             }
             catch (Exception ex)
             {
@@ -83,19 +93,19 @@ namespace MessageBroker.Editor
                 messageInfo.Message.InputParameters.Insert(0,
                     new InputParameter()
                     {
-                        multiplicity = Multiplicity.Single,
-                        parameterName = "target",
-                        parameterType = ParameterType.ObjectType,
-                        parameterComment = "The target of the message. Optional."
+                        Multiplicity = Multiplicity.Single,
+                        ParameterName = "target",
+                        ParameterType = ParameterType.ObjectType,
+                        ParameterComment = "The target of the message. Optional."
                     });
 
                 messageInfo.Message.InputParameters.Insert(0,
                     new InputParameter()
                     {
-                        multiplicity = Multiplicity.Single,
-                        parameterName = "sender",
-                        parameterType = ParameterType.ObjectType,
-                        parameterComment = "The sender of the message. Required."
+                        Multiplicity = Multiplicity.Single,
+                        ParameterName = "sender",
+                        ParameterType = ParameterType.ObjectType,
+                        ParameterComment = "The sender of the message. Required."
                     }
                     );
             }

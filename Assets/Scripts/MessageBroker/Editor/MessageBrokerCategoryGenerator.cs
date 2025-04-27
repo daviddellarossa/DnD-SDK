@@ -43,15 +43,24 @@ namespace MessageBroker.Editor
                 
                 
                 using (new HeaderHandler(stringBuilder)) { /* Deliberately empty */ }
-                using (new UsingHandler(stringBuilder)) { /* Deliberately empty */ }
-                using (new NamespaceHandler(stringBuilder))
+
+                using (new UsingHandler(new[] { "System", "UnityEngine", "UnityEditor" }, stringBuilder)) { /* Deliberately empty */ }
+                using (new NamespaceHandler(MessageBrokerGenerator._namespace, stringBuilder))
                 {
+                    using (new SingleLineCommentSummaryHandler(stringBuilder))
+                    {
+                        using (new SingleLineCommentLineHandler($"MessageBroker publisher for {categoryName} category.", stringBuilder)) { /* Deliberately empty */ }
+                    }
                     using (new ClassHandler(categoryName, stringBuilder))
                     {
                         using (new RegionHandler("Event declaration", stringBuilder))
                         {
                             foreach (var messageInfo in messageInfoGroup)
                             {
+                                using (new SingleLineCommentSummaryHandler(stringBuilder))
+                                {
+                                    using (new SingleLineCommentLineHandler(messageInfo.Message.EventComment, stringBuilder)) { /* Deliberately empty */ }
+                                }
                                 using (new MessageEventHandler(messageInfo, stringBuilder)) { /* Deliberately empty */ }
                             }
                         }
@@ -61,10 +70,24 @@ namespace MessageBroker.Editor
                             
                             foreach (var messageInfo in messageInfoGroup)
                             {
+                                using (new SingleLineCommentSummaryHandler(stringBuilder))
+                                {
+                                    var messageName = MessageBrokerGenerator.CleanName(messageInfo.Message.GetName());
+
+                                    using (new SingleLineCommentLineHandler($"Send a message of type {messageName}.", stringBuilder)) { /* Deliberately empty */ }
+                                    
+                                    foreach(var inputParameter in messageInfo.Message.InputParameters)
+                                    {
+                                        using (new SingleLineCommentParamHandler(inputParameter.ParameterName, inputParameter.ParameterComment, stringBuilder)) { /* Deliberately empty */ }
+                                    }
+                                    if(messageInfo.Message.ReturnParameter.ParameterType != ParameterType.VoidType)
+                                    {
+                                        using (new SingleLineCommentReturnHandler(messageInfo.Message.ReturnParameter.ParameterComment, stringBuilder)) { /* Deliberately empty */ }
+                                    }
+                                }
                                 using (new InvokeMethodHandler(messageInfo, stringBuilder)) { /* Deliberately empty */ }
                             }
                         }
-                        
                     }
                 }
                 using (new CreateFileWithCategoryHandler(categoryName, stringBuilder)) { /* Deliberately empty */ }
@@ -72,7 +95,7 @@ namespace MessageBroker.Editor
             
             internal static object ReturnNull(MessageInfo messageInfo)
             {
-                if(messageInfo.Message.ReturnParameter.parameterType == ParameterType.VoidType)
+                if(messageInfo.Message.ReturnParameter.ParameterType == ParameterType.VoidType)
                 {
                     return "return;";
                 }
@@ -94,12 +117,12 @@ namespace MessageBroker.Editor
 
             internal static string GetInputParametersNamesAsString(MessageInfo messageInfo)
             {
-                return string.Join(", ", messageInfo.Message.InputParameters.Select(x => MessageBrokerGenerator.CleanName(x.parameterName)));
+                return string.Join(", ", messageInfo.Message.InputParameters.Select(x => MessageBrokerGenerator.CleanName(x.ParameterName)));
             }
 
             internal static string GetInputParametersTypeNameAsString(MessageInfo messageInfo)
             {
-                return string.Join(", ", messageInfo.Message.InputParameters.Select(x => $"{GetParameterType(x)} {MessageBrokerGenerator.CleanName(x.parameterName)}"));
+                return string.Join(", ", messageInfo.Message.InputParameters.Select(x => $"{GetParameterType(x)} {MessageBrokerGenerator.CleanName(x.ParameterName)}"));
             }
 
             internal static string GetOutputParameter(MessageInfo messageInfo)
@@ -109,18 +132,18 @@ namespace MessageBroker.Editor
             
             internal static string GetParameterType(InputParameter inputParameter)
             {
-                var parameterType = inputParameter.parameterType.ToParameterTypeString(System.Data.ParameterDirection.Input, false, inputParameter.otherType);
+                var parameterType = inputParameter.ParameterType.ToParameterTypeString(System.Data.ParameterDirection.Input, false, inputParameter.OtherType);
 
-                var multiplicity = inputParameter.multiplicity.ToTypeString();
+                var multiplicity = inputParameter.Multiplicity.ToTypeString();
 
                 return string.Format(multiplicity, parameterType);
             }
 
             internal static string GetReturnType(ReturnParameter inputParameter)
             {
-                var parameterType = inputParameter.parameterType.ToParameterTypeString(ParameterDirection.ReturnValue, true, inputParameter.otherType);
+                var parameterType = inputParameter.ParameterType.ToParameterTypeString(ParameterDirection.ReturnValue, true, inputParameter.OtherType);
                 
-                var multiplicity = inputParameter.multiplicity.ToTypeString();
+                var multiplicity = inputParameter.Multiplicity.ToTypeString();
 
                 return string.Format(multiplicity, parameterType);
             }
@@ -155,24 +178,26 @@ namespace MessageBroker.Editor
 
         class UsingHandler : BaseHandler
         {
-            public UsingHandler(StringBuilder stringBuilder) : base(stringBuilder)
+            public UsingHandler(string[] usings, StringBuilder stringBuilder) : base(stringBuilder)
             {
-                stringBuilder.AppendLine($"using System;");
-                stringBuilder.AppendLine($"using UnityEngine;");
-                stringBuilder.AppendLine($"using UnityEditor;");
+                foreach (var useDirective in usings)
+                {
+                    stringBuilder.AppendLine($"using {useDirective};");
+                }
+
                 stringBuilder.AppendLine();
             }
         }
 
         class NamespaceHandler : BaseHandler
         {
-            public NamespaceHandler(StringBuilder stringBuilder) : base(stringBuilder)
+            public NamespaceHandler(string namespaceName, StringBuilder stringBuilder) : base(stringBuilder)
             {
-                stringBuilder.AppendLine($"namespace {MessageBrokerGenerator._namespace}");
+                stringBuilder.AppendLine($"namespace {namespaceName}");
                 stringBuilder.AppendLine($"{{");
                 Indent.Push();
             }
-            
+
             public override void Dispose()
             {
                 StringBuilder.AppendLine($"{Indent.Pop()}}}");
@@ -183,9 +208,6 @@ namespace MessageBroker.Editor
         {
             public ClassHandler(string categoryName, StringBuilder stringBuilder) : base(stringBuilder)
             {
-                stringBuilder.AppendLine($"{Indent.Get()}/// <summary>");
-                stringBuilder.AppendLine($"{Indent.Get()}/// MessageBroker publisher for {categoryName} category.");
-                stringBuilder.AppendLine($"{Indent.Get()}/// </summary>");
                 stringBuilder.AppendLine($"{Indent.Get()} public class {MessageBrokerGenerator._categoryPrefix}{categoryName}");
                 stringBuilder.AppendLine($"{Indent.Get()}{{");
                 Indent.Push();
@@ -193,6 +215,26 @@ namespace MessageBroker.Editor
             public override void Dispose()
             {
                 StringBuilder.AppendLine($"{Indent.Pop()}}}");
+            }
+        }
+        
+        class SingleLineCommentSummaryHandler : BaseHandler
+        {
+            public SingleLineCommentSummaryHandler(StringBuilder stringBuilder) : base(stringBuilder)
+            {
+                stringBuilder.AppendLine($"{Indent.Get()}/// <summary>");
+            }
+            public override void Dispose()
+            {
+                StringBuilder.AppendLine($"{Indent.Get()}/// </summary>");
+            }
+        }
+        
+        class SingleLineCommentLineHandler : BaseHandler
+        {
+            public SingleLineCommentLineHandler(string line, StringBuilder stringBuilder) : base(stringBuilder)
+            {
+                stringBuilder.AppendLine($"{Indent.Get()}/// {line}");
             }
         }
 
@@ -215,11 +257,8 @@ namespace MessageBroker.Editor
         {
             public MessageEventHandler(MessageInfo messageInfo, StringBuilder stringBuilder) : base(stringBuilder)
             {
-                stringBuilder.AppendLine($"{Indent.Get()}/// <summary>");
-                stringBuilder.AppendLine($"{Indent.Get()}/// { messageInfo.Message.EventComment }");
-                stringBuilder.AppendLine($"{Indent.Get()}/// </summary>");
                 stringBuilder.Append($"{Indent.Get()}public event ");
-                if(messageInfo.Message.ReturnParameter.parameterType == ParameterType.VoidType)
+                if(messageInfo.Message.ReturnParameter.ParameterType == ParameterType.VoidType)
                 {
                     stringBuilder.Append($"Action<");
                     for(int i = 0; i < messageInfo.Message.InputParameters.Count; ++i )
@@ -259,24 +298,27 @@ namespace MessageBroker.Editor
                 stringBuilder.AppendLine();
             }
         }
-
+        
+        class SingleLineCommentParamHandler : BaseHandler
+        {
+            public SingleLineCommentParamHandler(string parameterName, string parameterComment, StringBuilder stringBuilder) : base(stringBuilder)
+            {
+                stringBuilder.AppendLine($"{Indent.Get()}/// <param name=\"{parameterName}\">{parameterComment}</param>");
+            }
+        }
+        
+        class SingleLineCommentReturnHandler : BaseHandler
+        {
+            public SingleLineCommentReturnHandler(string returnString, StringBuilder stringBuilder) : base(stringBuilder)
+            {
+                stringBuilder.AppendLine($"{Indent.Get()}/// <returns>{returnString}</returns>");
+            }
+        }
         class InvokeMethodHandler : BaseHandler
         {
             public InvokeMethodHandler(MessageInfo messageInfo, StringBuilder stringBuilder) : base(stringBuilder)
             {
                 var name = MessageBrokerGenerator.CleanName(messageInfo.Message.GetName());
-
-                stringBuilder.AppendLine($"{Indent.Get()}/// <summary>");
-                stringBuilder.AppendLine($"{Indent.Get()}/// Send a message of type {name}.");
-                foreach(var inputParameter in messageInfo.Message.InputParameters)
-                {
-                    stringBuilder.AppendLine($"{Indent.Get()}/// <param name=\"{inputParameter.parameterName}\">{inputParameter.parameterComment}</param>");
-                }
-                if(messageInfo.Message.ReturnParameter.parameterType != ParameterType.VoidType)
-                {
-                    stringBuilder.AppendLine($"{Indent.Get()}/// <returns>{messageInfo.Message.ReturnParameter.parameterComment}</returns>");
-                }
-                stringBuilder.AppendLine($"{Indent.Get()}/// </summary>");
 
                 stringBuilder.AppendLine($"{Indent.Get()}public {MessageBrokerCategoryGenerator.GetOutputParameter(messageInfo)} Send_{name}({MessageBrokerCategoryGenerator.GetInputParametersTypeNameAsString(messageInfo)})");
                 stringBuilder.AppendLine($"{Indent.Get()}{{");
@@ -297,7 +339,7 @@ namespace MessageBroker.Editor
 
                 string CheckForReturn()
                 {
-                    return messageInfo.Message.ReturnParameter.parameterType != ParameterType.VoidType ? "return " : string.Empty;
+                    return messageInfo.Message.ReturnParameter.ParameterType != ParameterType.VoidType ? "return " : string.Empty;
                 }
             }
         }

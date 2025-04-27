@@ -25,8 +25,14 @@ namespace DeeDeeR.MessageBroker
 		public event Action<object, object> GameOver;
 
 		/// <summary>
-		/// 
+		/// Event invoked when the game is paused.
 		/// </summary>
+		/// <remarks>
+		/// This event can be subscribed to in order to respond when the game enters a paused state.
+		/// It provides two parameters:
+		/// - <c>sender</c>: The object responsible for triggering the event.
+		/// - <c>target</c>: The optional target related to the pause action.
+		/// </remarks>
 		public event Action<object, object> GamePaused;
 
 		/// <summary>

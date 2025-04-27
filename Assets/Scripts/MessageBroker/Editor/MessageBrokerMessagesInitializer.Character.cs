@@ -30,16 +30,16 @@ namespace MessageBroker.Editor
                         {
                             new InputParameter()
                             {
-                                parameterName = "characterStatsInstance",
-                                multiplicity = Multiplicity.Single,
-                                parameterType = ParameterType.OtherType,
-                                otherType = typeof(DnD.Code.Scripts.Characters.CharacterStats).FullName,
+                                ParameterName = "characterStatsInstance",
+                                Multiplicity = Multiplicity.Single,
+                                ParameterType = ParameterType.OtherType,
+                                OtherType = typeof(DnD.Code.Scripts.Characters.CharacterStats).FullName,
                             }
                         };
                         message.ReturnParameter = new ReturnParameter()
                         {
-                            multiplicity = Multiplicity.Single,
-                            parameterType = ParameterType.VoidType,
+                            Multiplicity = Multiplicity.Single,
+                            ParameterType = ParameterType.VoidType,
                         };
                         EditorUtility.SetDirty(message);
                     }

@@ -67,22 +67,67 @@ namespace MessageBroker.Editor
     }
 
     [Serializable]
-    public struct InputParameter
+    public abstract class ParameterBase
     {
-        public string parameterName;
-        public Multiplicity multiplicity;
-        public ParameterType parameterType;
-        public string otherType;
-        public string parameterComment;
+        [SerializeField]
+        private Multiplicity multiplicity;
+        [SerializeField]
+        private ParameterType parameterType;
+        [SerializeField]
+        private bool isNullable;
+        [SerializeField]
+        private string otherType;
+        [SerializeField]
+        private string parameterComment;
+
+        // Properties for each field
+        public Multiplicity Multiplicity
+        {
+            get => multiplicity;
+            set => multiplicity = value;
+        }
+
+        public ParameterType ParameterType
+        {
+            get => parameterType;
+            set => parameterType = value;
+        }
+
+        public bool IsNullable
+        {
+            get => isNullable;
+            set => isNullable = value;
+        }
+
+        public string OtherType
+        {
+            get => otherType;
+            set => otherType = value;
+        }
+
+        public string ParameterComment
+        {
+            get => parameterComment;
+            set => parameterComment = value;
+        }
     }
 
     [Serializable]
-    public struct ReturnParameter
+    public class InputParameter : ParameterBase
     {
-        public Multiplicity multiplicity;
-        public ParameterType parameterType;
-        public string otherType;
-        public string parameterComment;
+        [SerializeField]
+        private string parameterName;
+
+        // Property for the field
+        public string ParameterName
+        {
+            get => parameterName;
+            set => parameterName = value;
+        }
+    }
+    [Serializable]
+    public class ReturnParameter : ParameterBase
+    {
     }
 
     public enum ParameterType
