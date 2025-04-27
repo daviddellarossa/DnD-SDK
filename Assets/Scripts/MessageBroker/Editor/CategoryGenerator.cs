@@ -55,12 +55,87 @@ namespace MessageBroker.Editor
                 var str = compilationUnit.ToFullString();
             }
 
+            internal SyntaxTriviaList GetSummary(string summary)
+            {
+                return SyntaxFactory.TriviaList(
+                    SyntaxFactory.Trivia(
+                        SyntaxFactory.DocumentationCommentTrivia(
+                            SyntaxKind.SingleLineDocumentationCommentTrivia,
+                            SyntaxFactory.List<XmlNodeSyntax>(
+                                new XmlNodeSyntax[]
+                                {
+                                    SyntaxFactory.XmlText()
+                                        .WithTextTokens(
+                                            SyntaxFactory.TokenList(
+                                                SyntaxFactory.XmlTextLiteral(
+                                                    SyntaxFactory.TriviaList(
+                                                        SyntaxFactory.DocumentationCommentExterior(
+                                                            "///")),
+                                                    " ",
+                                                    " ",
+                                                    SyntaxFactory.TriviaList()))),
+                                    SyntaxFactory.XmlExampleElement(
+                                            SyntaxFactory.SingletonList<XmlNodeSyntax>(
+                                                SyntaxFactory.XmlText()
+                                                    .WithTextTokens(
+                                                        SyntaxFactory.TokenList(
+                                                            new[]
+                                                            {
+                                                                SyntaxFactory.XmlTextNewLine(
+                                                                    SyntaxFactory.TriviaList(),
+                                                                    Environment.NewLine,
+                                                                    Environment.NewLine,
+                                                                    SyntaxFactory.TriviaList()),
+                                                                SyntaxFactory.XmlTextLiteral(
+                                                                    SyntaxFactory.TriviaList(
+                                                                        SyntaxFactory.DocumentationCommentExterior("    ///")),
+                                                                    $" {summary}",
+                                                                    $" {summary}",
+                                                                    SyntaxFactory.TriviaList()),
+                                                                SyntaxFactory.XmlTextNewLine(
+                                                                    SyntaxFactory.TriviaList(),
+                                                                    Environment.NewLine,
+                                                                    Environment.NewLine,
+                                                                    SyntaxFactory.TriviaList()),
+                                                                SyntaxFactory.XmlTextLiteral(
+                                                                    SyntaxFactory.TriviaList(
+                                                                        SyntaxFactory
+                                                                            .DocumentationCommentExterior(
+                                                                                "    ///")),
+                                                                    " ",
+                                                                    " ",
+                                                                    SyntaxFactory.TriviaList())
+                                                            }))))
+                                        .WithStartTag(
+                                            SyntaxFactory.XmlElementStartTag(
+                                                SyntaxFactory.XmlName(
+                                                    SyntaxFactory.Identifier("summary"))))
+                                        .WithEndTag(
+                                            SyntaxFactory.XmlElementEndTag(
+                                                SyntaxFactory.XmlName(
+                                                    SyntaxFactory.Identifier("summary")))),
+                                    SyntaxFactory.XmlText()
+                                        .WithTextTokens(
+                                            SyntaxFactory.TokenList(
+                                                SyntaxFactory.XmlTextNewLine(
+                                                    SyntaxFactory.TriviaList(),
+                                                    Environment.NewLine,
+                                                    Environment.NewLine,
+                                                    SyntaxFactory.TriviaList())))
+                                }))));
+            }
+
             internal ClassDeclarationSyntax GenerateCategoryClass(string categoryName, MessageInfo[] messageInfos)
             {
                 var newClassName =
                     $"{Indent.Get()} public class {MessageBrokerGenerator._categoryPrefix}{categoryName}";
                 var newClass = SyntaxFactory.ClassDeclaration(newClassName)
-                        .AddModifiers(SyntaxFactory.Token(SyntaxKind.PublicKeyword))
+                        .WithModifiers(
+                            SyntaxFactory.TokenList(
+                                SyntaxFactory.Token(
+                                    GetSummary(string.Empty),
+                                    SyntaxKind.PublicKeyword,
+                                    SyntaxFactory.TriviaList())))
                         // Add events
                         .AddMembers(messageInfos.Select(x =>
                         {
@@ -74,11 +149,15 @@ namespace MessageBroker.Editor
                                                             SyntaxFactory.IdentifierName(GetEventArgsClassName(x))))))
                                         .WithVariables(
                                             SyntaxFactory.SingletonSeparatedList<VariableDeclaratorSyntax>(
-                                                SyntaxFactory.VariableDeclarator(SyntaxFactory.Identifier(GetEventName(x)))))
+                                                SyntaxFactory.VariableDeclarator(
+                                                    SyntaxFactory.Identifier(GetEventName(x)))))
                                 )
                                 .WithModifiers(
                                     SyntaxFactory.TokenList(
-                                        SyntaxFactory.Token(SyntaxKind.PublicKeyword)));
+                                        SyntaxFactory.Token(
+                                            GetSummary(x.Message.EventComment),
+                                            SyntaxKind.PublicKeyword,
+                                            SyntaxFactory.TriviaList())));
                         }).Cast<MemberDeclarationSyntax>().ToArray())
                         // Add methods
                         .AddMembers(messageInfos.Select(GenerateSendMethod).Cast<MemberDeclarationSyntax>().ToArray())
@@ -201,6 +280,7 @@ namespace MessageBroker.Editor
                         SyntaxFactory.PredefinedType(
                             SyntaxFactory.Token(SyntaxKind.VoidKeyword)),
                         SyntaxFactory.Identifier($"Send_{GetEventName(messageInfo)}"))
+                    
                     .WithModifiers(
                         SyntaxFactory.TokenList(
                             SyntaxFactory.Token(SyntaxKind.PublicKeyword)))
@@ -330,7 +410,12 @@ namespace MessageBroker.Editor
                     // Create new EventArgs class
                     var newClassName = GetEventArgsClassName(messageInfo);
                     var newClass = SyntaxFactory.ClassDeclaration(newClassName)
-                        .AddModifiers(SyntaxFactory.Token(SyntaxKind.PublicKeyword))
+                        .WithModifiers(
+                            SyntaxFactory.TokenList(
+                                SyntaxFactory.Token(
+                                    GetSummary(string.Empty),
+                                    SyntaxKind.PublicKeyword,
+                                    SyntaxFactory.TriviaList())))
                         .AddBaseListTypes(new[]
                         {
                             SyntaxFactory.SimpleBaseType(SyntaxFactory.ParseTypeName(nameof(MessageBrokerEventArgs))),
