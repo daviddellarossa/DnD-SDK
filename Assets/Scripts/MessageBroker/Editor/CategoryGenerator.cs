@@ -5,7 +5,8 @@ using DeeDeeR.MessageBroker;
 using Microsoft.CodeAnalysis; // Core Roslyn APIs
 using Microsoft.CodeAnalysis.CSharp; // C#-specific APIs
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Palmmedia.ReportGenerator.Core.Parser.Analysis; // For working with syntax nodes
+using Palmmedia.ReportGenerator.Core.Parser.Analysis;
+using UnityEngine; // For working with syntax nodes
 //using Microsoft.CodeAnalysis.Formatting; // Formatting utilities (optional)
 
 namespace MessageBroker.Editor
@@ -249,51 +250,47 @@ namespace MessageBroker.Editor
                                                                                                     .IdentifierName(GetEventArgsClassName(messageInfo)))))),
                                                                         SyntaxFactory.IdentifierName("Rent"))))))))
 
-                                })));
-                /*
-SyntaxFactory.ExpressionStatement(
-SyntaxFactory.AssignmentExpression(
-SyntaxKind.SimpleAssignmentExpression,
-SyntaxFactory.MemberAccessExpression(
-SyntaxKind.SimpleMemberAccessExpression,
-SyntaxFactory.IdentifierName("eventArgs"),
-SyntaxFactory.IdentifierName("Sender")),
-SyntaxFactory.IdentifierName("sender"))),
-SyntaxFactory.ExpressionStatement(
-SyntaxFactory.AssignmentExpression(
-SyntaxKind.SimpleAssignmentExpression,
-SyntaxFactory.MemberAccessExpression(
-SyntaxKind.SimpleMemberAccessExpression,
-SyntaxFactory.IdentifierName("eventArgs"),
-SyntaxFactory.IdentifierName("Target")),
-SyntaxFactory.IdentifierName("target"))),
-SyntaxFactory.ExpressionStatement(
-SyntaxFactory.AssignmentExpression(
-SyntaxKind.SimpleAssignmentExpression,
-SyntaxFactory.MemberAccessExpression(
-SyntaxKind.SimpleMemberAccessExpression,
-SyntaxFactory.IdentifierName("eventArgs"),
-SyntaxFactory.IdentifierName("CharacterStats")),
-SyntaxFactory.IdentifierName("characterStats"))),
-SyntaxFactory.ExpressionStatement(
-SyntaxFactory.ConditionalAccessExpression(
-SyntaxFactory.IdentifierName("OnCharacterCreated"),
-SyntaxFactory.InvocationExpression(
-SyntaxFactory.MemberBindingExpression(
- SyntaxFactory.IdentifierName("Invoke")))
-.WithArgumentList(
-SyntaxFactory.ArgumentList(
- SyntaxFactory.SeparatedList<ArgumentSyntax>(
-     new SyntaxNodeOrToken[]
-     {
-         SyntaxFactory.Argument(
-             SyntaxFactory.IdentifierName("sender")),
-         SyntaxFactory.Token(SyntaxKind.CommaToken),
-         SyntaxFactory.Argument(
-             SyntaxFactory.IdentifierName("eventArgs"))
-     })))))));
-
-*/
+                                })
+                                .Concat(
+                                    messageInfo.Message.InputParameters
+                                        .Select(x =>
+                                        {
+                                            var expression = SyntaxFactory.ExpressionStatement(
+                                                SyntaxFactory.AssignmentExpression(
+                                                    SyntaxKind.SimpleAssignmentExpression,
+                                                    SyntaxFactory.MemberAccessExpression(
+                                                        SyntaxKind.SimpleMemberAccessExpression,
+                                                        SyntaxFactory.IdentifierName("eventArgs"),
+                                                        SyntaxFactory.IdentifierName(
+                                                            SanitizePropertyName(x.ParameterName))),
+                                                    SyntaxFactory.IdentifierName(x.ParameterName)));
+                                            return expression;
+                                        })
+                                )
+                                .Concat(new[]
+                                    {
+                                        SyntaxFactory
+                                            .ExpressionStatement(
+                                            SyntaxFactory.ConditionalAccessExpression(
+                                                SyntaxFactory.IdentifierName(GetEventName(messageInfo)),
+                                                SyntaxFactory.InvocationExpression(
+                                                        SyntaxFactory.MemberBindingExpression(
+                                                            SyntaxFactory.IdentifierName("Invoke")))
+                                                    .WithArgumentList(
+                                                        SyntaxFactory.ArgumentList(
+                                                            SyntaxFactory.SeparatedList<ArgumentSyntax>(
+                                                                new SyntaxNodeOrToken[]
+                                                                {
+                                                                    SyntaxFactory.Argument(
+                                                                        SyntaxFactory.IdentifierName("sender")),
+                                                                    SyntaxFactory.Token(SyntaxKind.CommaToken),
+                                                                    SyntaxFactory.Argument(
+                                                                        SyntaxFactory.IdentifierName("eventArgs"))
+                                                                }))))
+                                                
+                                                )
+                                    })
+                            ));
             }
 
             private static string GetEventName(MessageInfo x)
