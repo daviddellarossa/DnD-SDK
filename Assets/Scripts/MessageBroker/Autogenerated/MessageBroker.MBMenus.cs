@@ -15,7 +15,7 @@ namespace DeeDeeR.MessageBroker
 	/// <summary>
 	/// MessageBroker publisher for Menus category.
 	/// </summary>
-	 public class MBMenus
+	 public class MBMenus2
 	{
 		#region Event declaration
 

@@ -15,7 +15,7 @@ namespace DeeDeeR.MessageBroker
 	/// <summary>
 	/// MessageBroker publisher for Logger category.
 	/// </summary>
-	 public class MBLogger
+	 public class MBLogger2
 	{
 		#region Event declaration
 

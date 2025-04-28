@@ -143,7 +143,7 @@ namespace Management.CharacterBuild
 
         private void BtnBackToMainMenuOnClicked()
         {
-            DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.Send_BackToMainMenu(this, null);
+            DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.Send_OnBackToMainMenu(this, null);
         }
 
         private void BtnCreateCharacterOnClicked()
@@ -232,7 +232,7 @@ namespace Management.CharacterBuild
                     Debug.LogError("CharacterStat instance is null");
                 }
                 
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Character.Send_CharacterCreated(this, null, instance);
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Character.Send_OnCharacterCreated(this, null, instance);
             }
             catch (Exception ex)
             {

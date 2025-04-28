@@ -1,13 +1,12 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using DeeDeeR.MessageBroker;
 using Microsoft.CodeAnalysis; // Core Roslyn APIs
 using Microsoft.CodeAnalysis.CSharp; // C#-specific APIs
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Palmmedia.ReportGenerator.Core.Parser.Analysis;
-using UnityEngine; // For working with syntax nodes
-//using Microsoft.CodeAnalysis.Formatting; // Formatting utilities (optional)
+using static Microsoft.CodeAnalysis.CSharp.SyntaxFactory;
 
 namespace MessageBroker.Editor
 {
@@ -43,121 +42,136 @@ namespace MessageBroker.Editor
                 var categoryClass = GenerateCategoryClass(this._categoryName, this._messageInfos.ToArray());
                 
                 var usings = GetUsings();
-                var @namespace = SyntaxFactory.NamespaceDeclaration(SyntaxFactory.ParseName(MessageBrokerGenerator._namespace))
+                var @namespace = NamespaceDeclaration(ParseName(MessageBrokerGenerator._namespace))
                     .AddMembers(classes.Cast<MemberDeclarationSyntax>().ToArray())
                     .AddMembers(categoryClass);
                 
-                var compilationUnit = SyntaxFactory.CompilationUnit()
+                var compilationUnit = CompilationUnit()
                     .AddUsings(usings)
                     .AddMembers(@namespace)
                     .NormalizeWhitespace();
 
-                var str = compilationUnit.ToFullString();
+                // var str = compilationUnit.ToFullString();
+                
+                var outputPath = System.IO.Path.Combine(MessageBrokerGenerator._outputFolder, $"{MessageBrokerGenerator.ClassName}_TestRoslyn.{MessageBrokerGenerator._categoryPrefix}{this._categoryName}.cs");
+
+                this.CreateFile(compilationUnit.ToFullString(), outputPath);
+            }
+
+            internal AttributeListSyntax GenerateGeneratedCodeAttribute()
+            {
+                var generatedCodeAttribute = AttributeList(SingletonSeparatedList(
+                    Attribute(IdentifierName("GeneratedCode"))
+                        .AddArgumentListArguments(
+                            AttributeArgument(LiteralExpression(SyntaxKind.StringLiteralExpression, Literal(nameof(MessageBrokerGenerator)))),
+                            AttributeArgument(LiteralExpression(SyntaxKind.StringLiteralExpression, Literal(MessageBrokerGenerator._packageVersion)))
+                        )
+                ));
+                return generatedCodeAttribute;
             }
 
             internal SyntaxTriviaList GetSummary(string summary)
             {
-                return SyntaxFactory.TriviaList(
-                    SyntaxFactory.Trivia(
-                        SyntaxFactory.DocumentationCommentTrivia(
+                return TriviaList(
+                    Trivia(
+                        DocumentationCommentTrivia(
                             SyntaxKind.SingleLineDocumentationCommentTrivia,
-                            SyntaxFactory.List<XmlNodeSyntax>(
+                            List<XmlNodeSyntax>(
                                 new XmlNodeSyntax[]
                                 {
-                                    SyntaxFactory.XmlText()
+                                    XmlText()
                                         .WithTextTokens(
-                                            SyntaxFactory.TokenList(
-                                                SyntaxFactory.XmlTextLiteral(
-                                                    SyntaxFactory.TriviaList(
-                                                        SyntaxFactory.DocumentationCommentExterior(
+                                            TokenList(
+                                                XmlTextLiteral(
+                                                    TriviaList(
+                                                        DocumentationCommentExterior(
                                                             "///")),
                                                     " ",
                                                     " ",
-                                                    SyntaxFactory.TriviaList()))),
-                                    SyntaxFactory.XmlExampleElement(
-                                            SyntaxFactory.SingletonList<XmlNodeSyntax>(
-                                                SyntaxFactory.XmlText()
+                                                    TriviaList()))),
+                                    XmlExampleElement(
+                                            SingletonList<XmlNodeSyntax>(
+                                                XmlText()
                                                     .WithTextTokens(
-                                                        SyntaxFactory.TokenList(
+                                                        TokenList(
                                                             new[]
                                                             {
-                                                                SyntaxFactory.XmlTextNewLine(
-                                                                    SyntaxFactory.TriviaList(),
+                                                                XmlTextNewLine(
+                                                                    TriviaList(),
                                                                     Environment.NewLine,
                                                                     Environment.NewLine,
-                                                                    SyntaxFactory.TriviaList()),
-                                                                SyntaxFactory.XmlTextLiteral(
-                                                                    SyntaxFactory.TriviaList(
-                                                                        SyntaxFactory.DocumentationCommentExterior("    ///")),
+                                                                    TriviaList()),
+                                                                XmlTextLiteral(
+                                                                    TriviaList(
+                                                                        DocumentationCommentExterior("    ///")),
                                                                     $" {summary}",
                                                                     $" {summary}",
-                                                                    SyntaxFactory.TriviaList()),
-                                                                SyntaxFactory.XmlTextNewLine(
-                                                                    SyntaxFactory.TriviaList(),
+                                                                    TriviaList()),
+                                                                XmlTextNewLine(
+                                                                    TriviaList(),
                                                                     Environment.NewLine,
                                                                     Environment.NewLine,
-                                                                    SyntaxFactory.TriviaList()),
-                                                                SyntaxFactory.XmlTextLiteral(
-                                                                    SyntaxFactory.TriviaList(
+                                                                    TriviaList()),
+                                                                XmlTextLiteral(
+                                                                    TriviaList(
                                                                         SyntaxFactory
                                                                             .DocumentationCommentExterior(
                                                                                 "    ///")),
                                                                     " ",
                                                                     " ",
-                                                                    SyntaxFactory.TriviaList())
+                                                                    TriviaList())
                                                             }))))
                                         .WithStartTag(
-                                            SyntaxFactory.XmlElementStartTag(
-                                                SyntaxFactory.XmlName(
-                                                    SyntaxFactory.Identifier("summary"))))
+                                            XmlElementStartTag(
+                                                XmlName(
+                                                    Identifier("summary"))))
                                         .WithEndTag(
-                                            SyntaxFactory.XmlElementEndTag(
-                                                SyntaxFactory.XmlName(
-                                                    SyntaxFactory.Identifier("summary")))),
-                                    SyntaxFactory.XmlText()
+                                            XmlElementEndTag(
+                                                XmlName(
+                                                    Identifier("summary")))),
+                                    XmlText()
                                         .WithTextTokens(
-                                            SyntaxFactory.TokenList(
-                                                SyntaxFactory.XmlTextNewLine(
-                                                    SyntaxFactory.TriviaList(),
+                                            TokenList(
+                                                XmlTextNewLine(
+                                                    TriviaList(),
                                                     Environment.NewLine,
                                                     Environment.NewLine,
-                                                    SyntaxFactory.TriviaList())))
+                                                    TriviaList())))
                                 }))));
             }
 
             internal ClassDeclarationSyntax GenerateCategoryClass(string categoryName, MessageInfo[] messageInfos)
             {
-                var newClassName =
-                    $"{Indent.Get()} public class {MessageBrokerGenerator._categoryPrefix}{categoryName}";
-                var newClass = SyntaxFactory.ClassDeclaration(newClassName)
+                var newClassName = $"{MessageBrokerGenerator._categoryPrefix}{categoryName}";
+                var newClass = ClassDeclaration(newClassName)
                         .WithModifiers(
-                            SyntaxFactory.TokenList(
-                                SyntaxFactory.Token(
+                            TokenList(
+                                Token(
                                     GetSummary(string.Empty),
                                     SyntaxKind.PublicKeyword,
-                                    SyntaxFactory.TriviaList())))
+                                    TriviaList())))
                         // Add events
                         .AddMembers(messageInfos.Select(x =>
                         {
-                            return SyntaxFactory.EventFieldDeclaration(
-                                    SyntaxFactory.VariableDeclaration(
-                                            SyntaxFactory.GenericName(
-                                                    SyntaxFactory.Identifier(nameof(EventHandler)))
+                            return EventFieldDeclaration(
+                                    VariableDeclaration(
+                                            GenericName(
+                                                    Identifier(nameof(EventHandler)))
                                                 .WithTypeArgumentList(
-                                                    SyntaxFactory.TypeArgumentList(
-                                                        SyntaxFactory.SingletonSeparatedList<TypeSyntax>(
-                                                            SyntaxFactory.IdentifierName(GetEventArgsClassName(x))))))
+                                                    TypeArgumentList(
+                                                        SingletonSeparatedList<TypeSyntax>(
+                                                            IdentifierName(GetEventArgsClassName(x))))))
                                         .WithVariables(
-                                            SyntaxFactory.SingletonSeparatedList<VariableDeclaratorSyntax>(
-                                                SyntaxFactory.VariableDeclarator(
-                                                    SyntaxFactory.Identifier(GetEventName(x)))))
+                                            SingletonSeparatedList<VariableDeclaratorSyntax>(
+                                                VariableDeclarator(
+                                                    Identifier(GetEventName(x)))))
                                 )
                                 .WithModifiers(
-                                    SyntaxFactory.TokenList(
-                                        SyntaxFactory.Token(
+                                    TokenList(
+                                        Token(
                                             GetSummary(x.Message.EventComment),
                                             SyntaxKind.PublicKeyword,
-                                            SyntaxFactory.TriviaList())));
+                                            TriviaList())));
                         }).Cast<MemberDeclarationSyntax>().ToArray())
                         // Add methods
                         .AddMembers(messageInfos.Select(GenerateSendMethod).Cast<MemberDeclarationSyntax>().ToArray())
@@ -173,121 +187,124 @@ namespace MessageBroker.Editor
 
                 for (int index = 0; index < inputParameters.Count; index++)
                 {
-                    var parameterSyntax = SyntaxFactory.Parameter(
-                            SyntaxFactory.Identifier(inputParameters[index].ParameterName))
-                        .WithType(SyntaxFactory.ParseTypeName(GetParameterType(inputParameters[index])));
+                    var parameterSyntax = Parameter(
+                            Identifier(inputParameters[index].ParameterName))
+                        .WithType(ParseTypeName(GetParameterType(inputParameters[index])));
                     
                     parameterSyntaxList.Add(parameterSyntax);
 
                     if (index < inputParameters.Count - 1)
                     {
-                        parameterSyntaxList.Add(SyntaxFactory.Token(SyntaxKind.CommaToken));
+                        parameterSyntaxList.Add(Token(SyntaxKind.CommaToken));
                     }
                 }
 
-                return SyntaxFactory.SeparatedList<ParameterSyntax>(parameterSyntaxList);
+                return SeparatedList<ParameterSyntax>(parameterSyntaxList);
             }
 
             internal IfStatementSyntax CheckForNull(InputParameter inputParameter)
             {
-                var ifStatement = SyntaxFactory.IfStatement(
-                    SyntaxFactory.BinaryExpression(
+                var ifStatement = IfStatement(
+                    BinaryExpression(
                         SyntaxKind.EqualsExpression,
-                        SyntaxFactory.IdentifierName(inputParameter.ParameterName),
-                        SyntaxFactory.LiteralExpression(
+                        IdentifierName(inputParameter.ParameterName),
+                        LiteralExpression(
                             SyntaxKind.NullLiteralExpression)),
-                    SyntaxFactory.Block(
-                        SyntaxFactory.LocalDeclarationStatement(
-                            SyntaxFactory.VariableDeclaration(
-                                    SyntaxFactory.IdentifierName(
-                                        SyntaxFactory.Identifier(
-                                            SyntaxFactory.TriviaList(),
+                    Block(
+                        LocalDeclarationStatement(
+                            VariableDeclaration(
+                                    IdentifierName(
+                                        Identifier(
+                                            TriviaList(),
                                             SyntaxKind.VarKeyword,
                                             "var",
                                             "var",
-                                            SyntaxFactory.TriviaList())))
+                                            TriviaList())))
                                 .WithVariables(
-                                    SyntaxFactory.SingletonSeparatedList<VariableDeclaratorSyntax>(
-                                        SyntaxFactory.VariableDeclarator(
-                                                SyntaxFactory.Identifier("errorEventArgs"))
+                                    SingletonSeparatedList<VariableDeclaratorSyntax>(
+                                        VariableDeclarator(
+                                                Identifier("errorEventArgs"))
                                             .WithInitializer(
-                                                SyntaxFactory.EqualsValueClause(
-                                                    SyntaxFactory.InvocationExpression(
-                                                            SyntaxFactory.MemberAccessExpression(
+                                                EqualsValueClause(
+                                                    InvocationExpression(
+                                                            MemberAccessExpression(
                                                                 SyntaxKind.SimpleMemberAccessExpression,
-                                                                SyntaxFactory.IdentifierName(nameof(Common)),
-                                                                SyntaxFactory.IdentifierName(
+                                                                IdentifierName(nameof(Common)),
+                                                                IdentifierName(
                                                                     nameof(Common.CreateArgumentNullExceptionEventArgs))))
                                                         .WithArgumentList(
-                                                            SyntaxFactory.ArgumentList(
-                                                                SyntaxFactory.SeparatedList<ArgumentSyntax>(
+                                                            ArgumentList(
+                                                                SeparatedList<ArgumentSyntax>(
                                                                     new SyntaxNodeOrToken[]
                                                                     {
-                                                                        SyntaxFactory.Argument(
-                                                                            SyntaxFactory.LiteralExpression(
+                                                                        Argument(
+                                                                            LiteralExpression(
                                                                                 SyntaxKind.StringLiteralExpression,
-                                                                                SyntaxFactory.Literal(
+                                                                                Literal(
                                                                                     _categoryName))),
-                                                                        SyntaxFactory.Token(SyntaxKind.CommaToken),
-                                                                        SyntaxFactory.Argument(
-                                                                            SyntaxFactory.IdentifierName("target")),
-                                                                        SyntaxFactory.Token(SyntaxKind.CommaToken),
-                                                                        SyntaxFactory.Argument(
-                                                                            SyntaxFactory.LiteralExpression(
+                                                                        Token(SyntaxKind.CommaToken),
+                                                                        Argument(
+                                                                            IdentifierName("target")),
+                                                                        Token(SyntaxKind.CommaToken),
+                                                                        Argument(
+                                                                            LiteralExpression(
                                                                                 SyntaxKind.StringLiteralExpression,
-                                                                                SyntaxFactory.Literal(inputParameter.ParameterName)))
+                                                                                Literal(inputParameter.ParameterName)))
                                                                     })))))))),
-                        SyntaxFactory.ExpressionStatement(
-                            SyntaxFactory.InvocationExpression(
-                                    SyntaxFactory.MemberAccessExpression(
+                        ExpressionStatement(
+                            InvocationExpression(
+                                    MemberAccessExpression(
                                         SyntaxKind.SimpleMemberAccessExpression,
-                                        SyntaxFactory.MemberAccessExpression(
+                                        MemberAccessExpression(
                                             SyntaxKind.SimpleMemberAccessExpression,
-                                            SyntaxFactory.MemberAccessExpression(
+                                            MemberAccessExpression(
                                                 SyntaxKind.SimpleMemberAccessExpression,
-                                                SyntaxFactory.MemberAccessExpression(
+                                                MemberAccessExpression(
                                                     SyntaxKind.SimpleMemberAccessExpression,
-                                                    SyntaxFactory.MemberAccessExpression(
+                                                    MemberAccessExpression(
                                                         SyntaxKind.SimpleMemberAccessExpression,
-                                                        SyntaxFactory.IdentifierName("DeeDeeR"),
-                                                        SyntaxFactory.IdentifierName("MessageBroker")),
-                                                    SyntaxFactory.IdentifierName("MessageBroker")),
-                                                SyntaxFactory.IdentifierName("Instance")),
-                                            SyntaxFactory.IdentifierName("Logger_Test")),
-                                        SyntaxFactory.IdentifierName("Send_OnLogException")))
+                                                        IdentifierName("DeeDeeR"),
+                                                        IdentifierName("MessageBroker")),
+                                                    IdentifierName("MessageBroker")),
+                                                IdentifierName("Instance")),
+                                            IdentifierName("Logger")),
+                                        IdentifierName("Send_OnLogException")))
                                 .WithArgumentList(
-                                    SyntaxFactory.ArgumentList(
-                                        SyntaxFactory.SeparatedList<ArgumentSyntax>(
+                                    ArgumentList(
+                                        SeparatedList<ArgumentSyntax>(
                                             new SyntaxNodeOrToken[]
                                             {
-                                                SyntaxFactory.Argument(
-                                                    SyntaxFactory.IdentifierName("sender")),
-                                                SyntaxFactory.Token(SyntaxKind.CommaToken),
-                                                SyntaxFactory.Argument(
-                                                    SyntaxFactory.IdentifierName("target")),
-                                                SyntaxFactory.Token(SyntaxKind.CommaToken),
-                                                SyntaxFactory.Argument(
-                                                    SyntaxFactory.IdentifierName("errorEventArgs"))
+                                                Argument(
+                                                    IdentifierName("sender")),
+                                                Token(SyntaxKind.CommaToken),
+                                                Argument(
+                                                    IdentifierName("target")),
+                                                Token(SyntaxKind.CommaToken),
+                                                Argument(
+                                                    IdentifierName("errorEventArgs"))
                                             })))),
-                        SyntaxFactory.ReturnStatement()));
+                        ReturnStatement()));
                 
                 return ifStatement;
             }
             
             internal MethodDeclarationSyntax GenerateSendMethod(MessageInfo messageInfo)
             {
-                return SyntaxFactory.MethodDeclaration(
-                        SyntaxFactory.PredefinedType(
-                            SyntaxFactory.Token(SyntaxKind.VoidKeyword)),
-                        SyntaxFactory.Identifier($"Send_{GetEventName(messageInfo)}"))
-                    
+                var eventArgsInnerParameterName = "__eventArgs__";
+                return MethodDeclaration(
+                        PredefinedType(
+                            Token(SyntaxKind.VoidKeyword)),
+                        Identifier($"Send_{GetEventName(messageInfo)}"))
                     .WithModifiers(
-                        SyntaxFactory.TokenList(
-                            SyntaxFactory.Token(SyntaxKind.PublicKeyword)))
+                        TokenList(
+                            Token(
+                                GetSummary(messageInfo.Message.SendMethodComment),
+                                SyntaxKind.PublicKeyword,
+                                TriviaList())))
                     .WithParameterList(
-                        SyntaxFactory.ParameterList(GetParameterList(messageInfo)))
+                        ParameterList(GetParameterList(messageInfo)))
                     .WithBody(
-                        SyntaxFactory.Block(
+                        Block(
                             messageInfo.Message.InputParameters
                                 .Where(x => !x.IsNullable)
                                 .Select(x =>
@@ -297,53 +314,53 @@ namespace MessageBroker.Editor
                                 .Cast<StatementSyntax>()
                                 .Concat(new []
                                 {
-                                    SyntaxFactory.LocalDeclarationStatement(
-                                        SyntaxFactory.VariableDeclaration(
-                                                SyntaxFactory.IdentifierName(
-                                                    SyntaxFactory.Identifier(
-                                                        SyntaxFactory.TriviaList(),
+                                    LocalDeclarationStatement(
+                                        VariableDeclaration(
+                                                IdentifierName(
+                                                    Identifier(
+                                                        TriviaList(),
                                                         SyntaxKind.VarKeyword,
                                                         "var",
                                                         "var",
-                                                        SyntaxFactory.TriviaList())))
+                                                        TriviaList())))
                                             .WithVariables(
-                                                SyntaxFactory.SingletonSeparatedList<VariableDeclaratorSyntax>(
-                                                    SyntaxFactory.VariableDeclarator(
-                                                            SyntaxFactory.Identifier("eventArgs"))
+                                                SingletonSeparatedList<VariableDeclaratorSyntax>(
+                                                    VariableDeclarator(
+                                                            Identifier(eventArgsInnerParameterName))
                                                         .WithInitializer(
-                                                            SyntaxFactory.EqualsValueClause(
-                                                                SyntaxFactory.InvocationExpression(
-                                                                    SyntaxFactory.MemberAccessExpression(
+                                                            EqualsValueClause(
+                                                                InvocationExpression(
+                                                                    MemberAccessExpression(
                                                                         SyntaxKind.SimpleMemberAccessExpression,
-                                                                        SyntaxFactory.MemberAccessExpression(
+                                                                        MemberAccessExpression(
                                                                             SyntaxKind.SimpleMemberAccessExpression,
-                                                                            SyntaxFactory.IdentifierName(
+                                                                            IdentifierName(
                                                                                 nameof(MessageBrokerEventArgs)),
-                                                                            SyntaxFactory.GenericName(
-                                                                                    SyntaxFactory.Identifier("Pool"))
+                                                                            GenericName(
+                                                                                    Identifier("Pool"))
                                                                                 .WithTypeArgumentList(
-                                                                                    SyntaxFactory.TypeArgumentList(
+                                                                                    TypeArgumentList(
                                                                                         SyntaxFactory
                                                                                             .SingletonSeparatedList<
                                                                                                 TypeSyntax>(
                                                                                                 SyntaxFactory
                                                                                                     .IdentifierName(GetEventArgsClassName(messageInfo)))))),
-                                                                        SyntaxFactory.IdentifierName("Rent"))))))))
+                                                                        IdentifierName("Rent"))))))))
 
                                 })
                                 .Concat(
                                     messageInfo.Message.InputParameters
                                         .Select(x =>
                                         {
-                                            var expression = SyntaxFactory.ExpressionStatement(
-                                                SyntaxFactory.AssignmentExpression(
+                                            var expression = ExpressionStatement(
+                                                AssignmentExpression(
                                                     SyntaxKind.SimpleAssignmentExpression,
-                                                    SyntaxFactory.MemberAccessExpression(
+                                                    MemberAccessExpression(
                                                         SyntaxKind.SimpleMemberAccessExpression,
-                                                        SyntaxFactory.IdentifierName("eventArgs"),
-                                                        SyntaxFactory.IdentifierName(
+                                                        IdentifierName(eventArgsInnerParameterName),
+                                                        IdentifierName(
                                                             SanitizePropertyName(x.ParameterName))),
-                                                    SyntaxFactory.IdentifierName(x.ParameterName)));
+                                                    IdentifierName(x.ParameterName)));
                                             return expression;
                                         })
                                 )
@@ -351,21 +368,21 @@ namespace MessageBroker.Editor
                                     {
                                         SyntaxFactory
                                             .ExpressionStatement(
-                                            SyntaxFactory.ConditionalAccessExpression(
-                                                SyntaxFactory.IdentifierName(GetEventName(messageInfo)),
-                                                SyntaxFactory.InvocationExpression(
-                                                        SyntaxFactory.MemberBindingExpression(
-                                                            SyntaxFactory.IdentifierName("Invoke")))
+                                            ConditionalAccessExpression(
+                                                IdentifierName(GetEventName(messageInfo)),
+                                                InvocationExpression(
+                                                        MemberBindingExpression(
+                                                            IdentifierName("Invoke")))
                                                     .WithArgumentList(
-                                                        SyntaxFactory.ArgumentList(
-                                                            SyntaxFactory.SeparatedList<ArgumentSyntax>(
+                                                        ArgumentList(
+                                                            SeparatedList<ArgumentSyntax>(
                                                                 new SyntaxNodeOrToken[]
                                                                 {
-                                                                    SyntaxFactory.Argument(
-                                                                        SyntaxFactory.IdentifierName("sender")),
-                                                                    SyntaxFactory.Token(SyntaxKind.CommaToken),
-                                                                    SyntaxFactory.Argument(
-                                                                        SyntaxFactory.IdentifierName("eventArgs"))
+                                                                    Argument(
+                                                                        IdentifierName("sender")),
+                                                                    Token(SyntaxKind.CommaToken),
+                                                                    Argument(
+                                                                        IdentifierName(eventArgsInnerParameterName))
                                                                 }))))
                                                 
                                                 )
@@ -409,91 +426,91 @@ namespace MessageBroker.Editor
                 {
                     // Create new EventArgs class
                     var newClassName = GetEventArgsClassName(messageInfo);
-                    var newClass = SyntaxFactory.ClassDeclaration(newClassName)
+                    var newClass = ClassDeclaration(newClassName)
                         .WithModifiers(
-                            SyntaxFactory.TokenList(
-                                SyntaxFactory.Token(
+                            TokenList(
+                                Token(
                                     GetSummary(string.Empty),
                                     SyntaxKind.PublicKeyword,
-                                    SyntaxFactory.TriviaList())))
+                                    TriviaList())))
                         .AddBaseListTypes(new[]
                         {
-                            SyntaxFactory.SimpleBaseType(SyntaxFactory.ParseTypeName(nameof(MessageBrokerEventArgs))),
-                            SyntaxFactory.SimpleBaseType(SyntaxFactory.ParseTypeName(nameof(IResettable)))
+                            SimpleBaseType(ParseTypeName(nameof(MessageBrokerEventArgs))),
+                            SimpleBaseType(ParseTypeName(nameof(IResettable)))
                         })
                         .AddMembers(extraInputParameters.Select(x =>
                         {
                             var parameterName = SanitizePropertyName(x.ParameterName);
                             var parameterType = GetParameterType(x);
                             TypeSyntax typeSyntax = x.IsNullable
-                                ? SyntaxFactory.NullableType(SyntaxFactory.ParseTypeName(parameterType))
-                                : SyntaxFactory.ParseTypeName(parameterType);
+                                ? NullableType(ParseTypeName(parameterType))
+                                : ParseTypeName(parameterType);
 
 
-                            var propertyDeclaration = SyntaxFactory.PropertyDeclaration(typeSyntax, parameterName)
-                                .AddModifiers(SyntaxFactory.Token(SyntaxKind.PublicKeyword))
+                            var propertyDeclaration = PropertyDeclaration(typeSyntax, parameterName)
+                                .AddModifiers(Token(SyntaxKind.PublicKeyword))
                                 .AddAccessorListAccessors(
-                                    SyntaxFactory.AccessorDeclaration(SyntaxKind.GetAccessorDeclaration)
-                                        .WithSemicolonToken(SyntaxFactory.Token(SyntaxKind.SemicolonToken)),
-                                    SyntaxFactory.AccessorDeclaration(SyntaxKind.SetAccessorDeclaration)
-                                        .WithSemicolonToken(SyntaxFactory.Token(SyntaxKind.SemicolonToken)));
+                                    AccessorDeclaration(SyntaxKind.GetAccessorDeclaration)
+                                        .WithSemicolonToken(Token(SyntaxKind.SemicolonToken)),
+                                    AccessorDeclaration(SyntaxKind.SetAccessorDeclaration)
+                                        .WithSemicolonToken(Token(SyntaxKind.SemicolonToken)));
 
                             return propertyDeclaration;
                         }).Cast<MemberDeclarationSyntax>().ToArray())
-                        .AddMembers(SyntaxFactory.MethodDeclaration(
-                                    SyntaxFactory.PredefinedType(
-                                        SyntaxFactory.Token(SyntaxKind.VoidKeyword)),
-                                    SyntaxFactory.Identifier(nameof(IResettable.ResetState)))
-                                .WithModifiers(SyntaxFactory.TokenList(
-                                    SyntaxFactory.Token(
-                                        SyntaxFactory.TriviaList(
-                                            SyntaxFactory.Trivia(
-                                                SyntaxFactory.DocumentationCommentTrivia(
+                        .AddMembers(MethodDeclaration(
+                                    PredefinedType(
+                                        Token(SyntaxKind.VoidKeyword)),
+                                    Identifier(nameof(IResettable.ResetState)))
+                                .WithModifiers(TokenList(
+                                    Token(
+                                        TriviaList(
+                                            Trivia(
+                                                DocumentationCommentTrivia(
                                             SyntaxKind.SingleLineDocumentationCommentTrivia,
-                                            SyntaxFactory.List<XmlNodeSyntax>(
+                                            List<XmlNodeSyntax>(
                                                 new XmlNodeSyntax[]{
-                                                    SyntaxFactory.XmlText()
+                                                    XmlText()
                                                     .WithTextTokens(
-                                                        SyntaxFactory.TokenList(
-                                                            SyntaxFactory.XmlTextLiteral(
-                                                                SyntaxFactory.TriviaList(
-                                                                    SyntaxFactory.DocumentationCommentExterior("///")),
+                                                        TokenList(
+                                                            XmlTextLiteral(
+                                                                TriviaList(
+                                                                    DocumentationCommentExterior("///")),
                                                                 " ",
                                                                 " ",
-                                                                SyntaxFactory.TriviaList()))),
-                                                    SyntaxFactory.XmlNullKeywordElement()
+                                                                TriviaList()))),
+                                                    XmlNullKeywordElement()
                                                     .WithName(
-                                                        SyntaxFactory.XmlName(
-                                                            SyntaxFactory.Identifier("inheritdoc")))
+                                                        XmlName(
+                                                            Identifier("inheritdoc")))
                                                     .WithAttributes(
-                                                        SyntaxFactory.SingletonList<XmlAttributeSyntax>(
-                                                            SyntaxFactory.XmlCrefAttribute(
-                                                                SyntaxFactory.QualifiedCref(
-                                                                    SyntaxFactory.IdentifierName(nameof(IResettable)),
-                                                                    SyntaxFactory.NameMemberCref(
-                                                                        SyntaxFactory.IdentifierName(nameof(IResettable.ResetState))))))),
-                                                    SyntaxFactory.XmlText()
+                                                        SingletonList<XmlAttributeSyntax>(
+                                                            XmlCrefAttribute(
+                                                                QualifiedCref(
+                                                                    IdentifierName(nameof(IResettable)),
+                                                                    NameMemberCref(
+                                                                        IdentifierName(nameof(IResettable.ResetState))))))),
+                                                    XmlText()
                                                     .WithTextTokens(
-                                                        SyntaxFactory.TokenList(
-                                                            SyntaxFactory.XmlTextNewLine(
-                                                                SyntaxFactory.TriviaList(),
+                                                        TokenList(
+                                                            XmlTextNewLine(
+                                                                TriviaList(),
                                                                 Environment.NewLine,
                                                                 Environment.NewLine,
-                                                                SyntaxFactory.TriviaList())))})))),
+                                                                TriviaList())))})))),
                                 SyntaxKind.PublicKeyword,
-                                SyntaxFactory.TriviaList())))
-                                .WithBody(SyntaxFactory.Block(
-                                    extraInputParameters.Select(x => SyntaxFactory.ExpressionStatement(
-                                        SyntaxFactory.AssignmentExpression(
+                                TriviaList())))
+                                .WithBody(Block(
+                                    extraInputParameters.Select(x => ExpressionStatement(
+                                        AssignmentExpression(
                                             SyntaxKind.SimpleAssignmentExpression,
-                                            SyntaxFactory.MemberAccessExpression(
+                                            MemberAccessExpression(
                                                 SyntaxKind.SimpleMemberAccessExpression,
-                                                SyntaxFactory.ThisExpression(),
-                                                SyntaxFactory.IdentifierName(
+                                                ThisExpression(),
+                                                IdentifierName(
                                                     SanitizePropertyName(x.ParameterName))),
-                                            SyntaxFactory.LiteralExpression(
+                                            LiteralExpression(
                                                 SyntaxKind.DefaultLiteralExpression,
-                                                SyntaxFactory.Token(SyntaxKind.DefaultKeyword))))).Cast<StatementSyntax>().ToArray()))
+                                                Token(SyntaxKind.DefaultKeyword))))).Cast<StatementSyntax>().ToArray()))
                         );
                     return newClass;
                 }
@@ -511,17 +528,17 @@ namespace MessageBroker.Editor
             {
                 return inputParameter.ParameterType switch
                 {
-                    ParameterType.BooleanType => SyntaxFactory.Token(SyntaxKind.BoolKeyword).ValueText,
-                    ParameterType.ByteType => SyntaxFactory.Token(SyntaxKind.ByteKeyword).ValueText,
-                    ParameterType.DoubleType => SyntaxFactory.Token(SyntaxKind.DoubleKeyword).ValueText,
-                    ParameterType.FloatType => SyntaxFactory.Token(SyntaxKind.FloatKeyword).ValueText,
-                    ParameterType.IntType => SyntaxFactory.Token(SyntaxKind.IntKeyword).ValueText,
-                    ParameterType.LongType => SyntaxFactory.Token(SyntaxKind.LongKeyword).ValueText,
-                    ParameterType.ShortType => SyntaxFactory.Token(SyntaxKind.ShortKeyword).ValueText,
-                    ParameterType.StringType => SyntaxFactory.Token(SyntaxKind.StringKeyword).ValueText,
-                    ParameterType.VoidType => SyntaxFactory.Token(SyntaxKind.VoidKeyword).ValueText,
-                    ParameterType.TransformType => SyntaxFactory.QualifiedName(SyntaxFactory.IdentifierName("UnityEngine"), SyntaxFactory.IdentifierName("Transform")).ToFullString(),
-                    ParameterType.ObjectType => SyntaxFactory.Token(SyntaxKind.ObjectKeyword).ValueText,
+                    ParameterType.BooleanType => Token(SyntaxKind.BoolKeyword).ValueText,
+                    ParameterType.ByteType => Token(SyntaxKind.ByteKeyword).ValueText,
+                    ParameterType.DoubleType => Token(SyntaxKind.DoubleKeyword).ValueText,
+                    ParameterType.FloatType => Token(SyntaxKind.FloatKeyword).ValueText,
+                    ParameterType.IntType => Token(SyntaxKind.IntKeyword).ValueText,
+                    ParameterType.LongType => Token(SyntaxKind.LongKeyword).ValueText,
+                    ParameterType.ShortType => Token(SyntaxKind.ShortKeyword).ValueText,
+                    ParameterType.StringType => Token(SyntaxKind.StringKeyword).ValueText,
+                    ParameterType.VoidType => Token(SyntaxKind.VoidKeyword).ValueText,
+                    ParameterType.TransformType => QualifiedName(IdentifierName("UnityEngine"), IdentifierName("Transform")).ToFullString(),
+                    ParameterType.ObjectType => Token(SyntaxKind.ObjectKeyword).ValueText,
                     ParameterType.OtherType => inputParameter.OtherType,
                     _ => throw new NotImplementedException(),
                 };
@@ -555,15 +572,15 @@ namespace MessageBroker.Editor
                     sendMethodsMembers.Add(GenerateSendCharacterCreatedMethod(messageInfo.Message.GetName()));
                 }
                 
-                var @class = SyntaxFactory.ClassDeclaration($"{MessageBrokerGenerator._categoryPrefix}{categoryName}" + "_Test")
-                    .AddModifiers(SyntaxFactory.Token(SyntaxKind.PublicKeyword));
+                var @class = ClassDeclaration($"{MessageBrokerGenerator._categoryPrefix}{categoryName}" + "_Test")
+                    .AddModifiers(Token(SyntaxKind.PublicKeyword));
                 
                 eventMembers.ForEach(x => @class = @class.AddMembers(x));
                 
                 // Add a blank line as trivia
-                var blankLineTrivia = SyntaxFactory.TriviaList(
-                    SyntaxFactory.ElasticCarriageReturnLineFeed, // Adds a blank line
-                    SyntaxFactory.ElasticCarriageReturnLineFeed
+                var blankLineTrivia = TriviaList(
+                    ElasticCarriageReturnLineFeed, // Adds a blank line
+                    ElasticCarriageReturnLineFeed
                 );
 
 
@@ -571,11 +588,11 @@ namespace MessageBroker.Editor
 
                     //.AddMembers(eventField, method);
                 
-                var @namespace = SyntaxFactory.NamespaceDeclaration(SyntaxFactory.ParseName(MessageBrokerGenerator._namespace))
+                var @namespace = NamespaceDeclaration(ParseName(MessageBrokerGenerator._namespace))
                     .AddMembers(@class);
                 
                 // Attach the header trivia to the CompilationUnit
-                var compilationUnit = SyntaxFactory.CompilationUnit()
+                var compilationUnit = CompilationUnit()
                     .AddUsings(usings)
                     .AddMembers(@namespace)
                     .WithLeadingTrivia(headerTrivia)
@@ -590,44 +607,45 @@ namespace MessageBroker.Editor
             {
                 return new[]
                 {
-                    SyntaxFactory.UsingDirective(SyntaxFactory.ParseName("System"))
+                    UsingDirective(ParseName("System"))
                         .WithUsingKeyword(
-                            SyntaxFactory.Token(
+                            Token(
                                 GetFileHeader(),
                                 SyntaxKind.UsingKeyword,
-                                SyntaxFactory.TriviaList())),
-                    SyntaxFactory.UsingDirective(SyntaxFactory.ParseName("UnityEngine")),
-                    SyntaxFactory.UsingDirective(SyntaxFactory.ParseName("UnityEditor")),
+                                TriviaList())),
+                    UsingDirective(ParseName("UnityEngine")),
+                    UsingDirective(ParseName("UnityEditor")),
+                    UsingDirective(ParseName("MessageBroker")),
                 };
             }
 
             private SyntaxTriviaList GetFileHeader()
             {
                 return
-                    SyntaxFactory.TriviaList(
+                    TriviaList(
                         new[]
                         {
-                            SyntaxFactory.Comment("//------------------------------------------------------------------------------"),
-                            SyntaxFactory.Comment("// <auto-generated>"),
-                            SyntaxFactory.Comment("// Code auto-generated by CategoryGenerator version <version undefined>."),
-                            SyntaxFactory.Comment("// Re-run the generator every time a new Message is added or removed."),
-                            SyntaxFactory.Comment("// Changes to this file may cause incorrect behavior and will be lost if the code is regenerated."),
-                            SyntaxFactory.Comment("// </auto-generated>"),
-                            SyntaxFactory.Comment("//------------------------------------------------------------------------------")
+                            Comment("//------------------------------------------------------------------------------"),
+                            Comment("// <auto-generated>"),
+                            Comment("// Code auto-generated by CategoryGenerator version <version undefined>."),
+                            Comment("// Re-run the generator every time a new Message is added or removed."),
+                            Comment("// Changes to this file may cause incorrect behavior and will be lost if the code is regenerated."),
+                            Comment("// </auto-generated>"),
+                            Comment("//------------------------------------------------------------------------------")
                         });
             }
 
             private static SyntaxTriviaList GetHeader()
             {
-                return SyntaxFactory.TriviaList(
-                    SyntaxFactory.Comment("//------------------------------------------------------------------------------"),
-                    SyntaxFactory.Comment("// <auto-generated>"),
-                    SyntaxFactory.Comment($"// Code auto-generated by {nameof(CategoryGenerator)} version {MessageBrokerGenerator._packageVersion}."),
-                    SyntaxFactory.Comment($"// Re-run the generator every time a new {nameof(Message)} is added or removed."),
-                    SyntaxFactory.Comment("// Changes to this file may cause incorrect behavior and will be lost if the code is regenerated."),
-                    SyntaxFactory.Comment("// </auto-generated>"),
-                    SyntaxFactory.Comment("//------------------------------------------------------------------------------"),
-                    SyntaxFactory.ElasticCarriageReturnLineFeed // add a blank line
+                return TriviaList(
+                    Comment("//------------------------------------------------------------------------------"),
+                    Comment("// <auto-generated>"),
+                    Comment($"// Code auto-generated by {nameof(CategoryGenerator)} version {MessageBrokerGenerator._packageVersion}."),
+                    Comment($"// Re-run the generator every time a new {nameof(Message)} is added or removed."),
+                    Comment("// Changes to this file may cause incorrect behavior and will be lost if the code is regenerated."),
+                    Comment("// </auto-generated>"),
+                    Comment("//------------------------------------------------------------------------------"),
+                    ElasticCarriageReturnLineFeed // add a blank line
                 );
             }
 
@@ -647,33 +665,33 @@ namespace MessageBroker.Editor
             {
                 var contentList = new List<XmlNodeSyntax>();
 
-                contentList.Add(SyntaxFactory.XmlText()
+                contentList.Add(XmlText()
                     .AddTextTokens(
-                        SyntaxFactory.XmlTextNewLine("\n", false),
-                        SyntaxFactory.XmlTextLiteral(" ")
+                        XmlTextNewLine("\n", false),
+                        XmlTextLiteral(" ")
                     ));
 
                 // Add each line of the summary
                 foreach (var line in lines)
                 {
-                    contentList.Add(SyntaxFactory.XmlText(line));
-                    contentList.Add(SyntaxFactory.XmlText()
+                    contentList.Add(XmlText(line));
+                    contentList.Add(XmlText()
                         .AddTextTokens(
-                            SyntaxFactory.XmlTextNewLine("\n", false),
-                            SyntaxFactory.XmlTextLiteral(" ")
+                            XmlTextNewLine("\n", false),
+                            XmlTextLiteral(" ")
                         ));
                 }
 
-                var summaryElement = SyntaxFactory.XmlElement(
-                    SyntaxFactory.XmlElementStartTag(SyntaxFactory.XmlName("summary")),
-                    SyntaxFactory.List(contentList),
-                    SyntaxFactory.XmlElementEndTag(SyntaxFactory.XmlName("summary"))
+                var summaryElement = XmlElement(
+                    XmlElementStartTag(XmlName("summary")),
+                    List(contentList),
+                    XmlElementEndTag(XmlName("summary"))
                 );
 
-                return SyntaxFactory.TriviaList(
-                    SyntaxFactory.DocumentationCommentExterior("/// "),
-                    SyntaxFactory.Trivia(
-                        SyntaxFactory.DocumentationCommentTrivia(SyntaxKind.SingleLineDocumentationCommentTrivia)
+                return TriviaList(
+                    DocumentationCommentExterior("/// "),
+                    Trivia(
+                        DocumentationCommentTrivia(SyntaxKind.SingleLineDocumentationCommentTrivia)
                             .AddContent(summaryElement)
                     )
                 );
@@ -681,156 +699,156 @@ namespace MessageBroker.Editor
             
             private MemberDeclarationSyntax GenerateEventHandlerEvent(MessageInfo messageInfo)
             {
-                var efd = SyntaxFactory.EventFieldDeclaration(
-                    SyntaxFactory.VariableDeclaration(
-                        SyntaxFactory.GenericName(
-                            SyntaxFactory.Identifier("EventHandler"))
+                var efd = EventFieldDeclaration(
+                    VariableDeclaration(
+                        GenericName(
+                            Identifier("EventHandler"))
                         .WithTypeArgumentList(
-                            SyntaxFactory.TypeArgumentList(
-                                SyntaxFactory.SingletonSeparatedList<TypeSyntax>(
-                                    SyntaxFactory.IdentifierName("MessageBrokerEventArgs")))))
+                            TypeArgumentList(
+                                SingletonSeparatedList<TypeSyntax>(
+                                    IdentifierName("MessageBrokerEventArgs")))))
                     .WithVariables(
-                        SyntaxFactory.SingletonSeparatedList<VariableDeclaratorSyntax>(
-                            SyntaxFactory.VariableDeclarator(
-                                SyntaxFactory.Identifier("OnGameOver")))))
+                        SingletonSeparatedList<VariableDeclaratorSyntax>(
+                            VariableDeclarator(
+                                Identifier("OnGameOver")))))
                     .WithModifiers(
-                        SyntaxFactory.TokenList(
-                            SyntaxFactory.Token(
-                                SyntaxFactory.TriviaList(
+                        TokenList(
+                            Token(
+                                TriviaList(
                                     new[]
                                     {
-                                        SyntaxFactory.Trivia(
-                                            SyntaxFactory.RegionDirectiveTrivia(true)
+                                        Trivia(
+                                            RegionDirectiveTrivia(true)
                                                 .WithEndOfDirectiveToken(
-                                                    SyntaxFactory.Token(
-                                                        SyntaxFactory.TriviaList(
-                                                            SyntaxFactory.PreprocessingMessage("Event declaration")),
+                                                    Token(
+                                                        TriviaList(
+                                                            PreprocessingMessage("Event declaration")),
                                                         SyntaxKind.EndOfDirectiveToken,
-                                                        SyntaxFactory.TriviaList()))),
-                                        SyntaxFactory.Trivia(
-                                            SyntaxFactory.DocumentationCommentTrivia(
+                                                        TriviaList()))),
+                                        Trivia(
+                                            DocumentationCommentTrivia(
                                                 SyntaxKind.SingleLineDocumentationCommentTrivia,
-                                                SyntaxFactory.List<XmlNodeSyntax>(
+                                                List<XmlNodeSyntax>(
                                                     new XmlNodeSyntax[]
                                                     {
-                                                        SyntaxFactory.XmlText()
+                                                        XmlText()
                                                             .WithTextTokens(
-                                                                SyntaxFactory.TokenList(
-                                                                    SyntaxFactory.XmlTextLiteral(
-                                                                        SyntaxFactory.TriviaList(
-                                                                            SyntaxFactory.DocumentationCommentExterior("///")),
+                                                                TokenList(
+                                                                    XmlTextLiteral(
+                                                                        TriviaList(
+                                                                            DocumentationCommentExterior("///")),
                                                                         " ",
                                                                         " ",
-                                                                        SyntaxFactory.TriviaList()))),
-                                                        SyntaxFactory.XmlExampleElement(
-                                                            SyntaxFactory.SingletonList<XmlNodeSyntax>(
-                                                                SyntaxFactory.XmlText()
+                                                                        TriviaList()))),
+                                                        XmlExampleElement(
+                                                            SingletonList<XmlNodeSyntax>(
+                                                                XmlText()
                                                                     .WithTextTokens(
-                                                                        SyntaxFactory.TokenList(
+                                                                        TokenList(
                                                                             new[]
                                                                             {
-                                                                                SyntaxFactory.XmlTextNewLine(
-                                                                                    SyntaxFactory.TriviaList(),
+                                                                                XmlTextNewLine(
+                                                                                    TriviaList(),
                                                                                     Environment.NewLine,
                                                                                     Environment.NewLine,
-                                                                                    SyntaxFactory.TriviaList()),
-                                                                                SyntaxFactory.XmlTextLiteral(
-                                                                                    SyntaxFactory.TriviaList(
-                                                                                        SyntaxFactory.DocumentationCommentExterior(
+                                                                                    TriviaList()),
+                                                                                XmlTextLiteral(
+                                                                                    TriviaList(
+                                                                                        DocumentationCommentExterior(
                                                                                             "        ///")),
                                                                                     " Description for onGameOver",
                                                                                     " Description for onGameOver",
-                                                                                    SyntaxFactory.TriviaList()),
-                                                                                SyntaxFactory.XmlTextNewLine(
-                                                                                    SyntaxFactory.TriviaList(),
+                                                                                    TriviaList()),
+                                                                                XmlTextNewLine(
+                                                                                    TriviaList(),
                                                                                     Environment.NewLine,
                                                                                     Environment.NewLine,
-                                                                                    SyntaxFactory.TriviaList()),
-                                                                                SyntaxFactory.XmlTextLiteral(
-                                                                                    SyntaxFactory.TriviaList(
-                                                                                        SyntaxFactory.DocumentationCommentExterior(
+                                                                                    TriviaList()),
+                                                                                XmlTextLiteral(
+                                                                                    TriviaList(
+                                                                                        DocumentationCommentExterior(
                                                                                             "        ///")),
                                                                                     " ",
                                                                                     " ",
-                                                                                    SyntaxFactory.TriviaList())
+                                                                                    TriviaList())
                                                                             }))))
                                                             .WithStartTag(
-                                                                SyntaxFactory.XmlElementStartTag(
-                                                                    SyntaxFactory.XmlName(
-                                                                        SyntaxFactory.Identifier("summary"))))
+                                                                XmlElementStartTag(
+                                                                    XmlName(
+                                                                        Identifier("summary"))))
                                                             .WithEndTag(
-                                                                SyntaxFactory.XmlElementEndTag(
-                                                                    SyntaxFactory.XmlName(
-                                                                        SyntaxFactory.Identifier("summary")))),
-                                                        SyntaxFactory.XmlText()
+                                                                XmlElementEndTag(
+                                                                    XmlName(
+                                                                        Identifier("summary")))),
+                                                        XmlText()
                                                             .WithTextTokens(
-                                                                SyntaxFactory.TokenList(
-                                                                    SyntaxFactory.XmlTextNewLine(
-                                                                        SyntaxFactory.TriviaList(),
+                                                                TokenList(
+                                                                    XmlTextNewLine(
+                                                                        TriviaList(),
                                                                         Environment.NewLine,
                                                                         Environment.NewLine,
-                                                                        SyntaxFactory.TriviaList())))
+                                                                        TriviaList())))
                                                     })))
                                     }),
                                 SyntaxKind.PublicKeyword,
-                                SyntaxFactory.TriviaList())));
+                                TriviaList())));
                 return null;
             }
 
             public MethodDeclarationSyntax GenerateSendCharacterCreatedMethod(string methodName)
             {
                 // Define method parameters
-                var senderParameter = SyntaxFactory.Parameter(SyntaxFactory.Identifier("sender"))
-                    .WithType(SyntaxFactory.ParseTypeName("object"));
+                var senderParameter = Parameter(Identifier("sender"))
+                    .WithType(ParseTypeName("object"));
 
-                var targetParameter = SyntaxFactory.Parameter(SyntaxFactory.Identifier("target"))
-                    .WithType(SyntaxFactory.ParseTypeName("object"));
+                var targetParameter = Parameter(Identifier("target"))
+                    .WithType(ParseTypeName("object"));
 
-                var characterStatsParameter = SyntaxFactory.Parameter(SyntaxFactory.Identifier("characterStatsInstance"))
-                    .WithType(SyntaxFactory.ParseTypeName("DnD.Code.Scripts.Characters.CharacterStats"));
+                var characterStatsParameter = Parameter(Identifier("characterStatsInstance"))
+                    .WithType(ParseTypeName("DnD.Code.Scripts.Characters.CharacterStats"));
 
                 // Define method signature
-                var method = SyntaxFactory.MethodDeclaration(
-                        SyntaxFactory.PredefinedType(SyntaxFactory.Token(SyntaxKind.VoidKeyword)), 
+                var method = MethodDeclaration(
+                        PredefinedType(Token(SyntaxKind.VoidKeyword)), 
                         "Send_OnCharacterCreated")
-                    .AddModifiers(SyntaxFactory.Token(SyntaxKind.PublicKeyword))
+                    .AddModifiers(Token(SyntaxKind.PublicKeyword))
                     .AddParameterListParameters(senderParameter, targetParameter, characterStatsParameter);
 
                 // Create: if (sender == null)
-                var ifCondition = SyntaxFactory.IfStatement(
-                    SyntaxFactory.BinaryExpression(
+                var ifCondition = IfStatement(
+                    BinaryExpression(
                         SyntaxKind.EqualsExpression,
-                        SyntaxFactory.IdentifierName("sender"),
-                        SyntaxFactory.LiteralExpression(SyntaxKind.NullLiteralExpression)),
-                    SyntaxFactory.Block(
-                        SyntaxFactory.ExpressionStatement(
-                            SyntaxFactory.InvocationExpression(
-                                SyntaxFactory.MemberAccessExpression(
+                        IdentifierName("sender"),
+                        LiteralExpression(SyntaxKind.NullLiteralExpression)),
+                    Block(
+                        ExpressionStatement(
+                            InvocationExpression(
+                                MemberAccessExpression(
                                     SyntaxKind.SimpleMemberAccessExpression,
-                                    SyntaxFactory.IdentifierName("Debug"),
-                                    SyntaxFactory.IdentifierName("LogError")))
+                                    IdentifierName("Debug"),
+                                    IdentifierName("LogError")))
                                 .AddArgumentListArguments(
-                                    SyntaxFactory.Argument(
-                                        SyntaxFactory.LiteralExpression(SyntaxKind.StringLiteralExpression, SyntaxFactory.Literal("sender is required."))))),
-                        SyntaxFactory.ReturnStatement()
+                                    Argument(
+                                        LiteralExpression(SyntaxKind.StringLiteralExpression, Literal("sender is required."))))),
+                        ReturnStatement()
                     )
                 );
 
                 // Create: CharacterCreated?.Invoke(sender, target, characterStatsInstance)
-                var invokeStatement = SyntaxFactory.ExpressionStatement(
-                    SyntaxFactory.ConditionalAccessExpression(
-                        SyntaxFactory.IdentifierName(methodName),
-                        SyntaxFactory.InvocationExpression(SyntaxFactory.IdentifierName("Invoke"))
+                var invokeStatement = ExpressionStatement(
+                    ConditionalAccessExpression(
+                        IdentifierName(methodName),
+                        InvocationExpression(IdentifierName("Invoke"))
                             .AddArgumentListArguments(
-                                SyntaxFactory.Argument(SyntaxFactory.IdentifierName("sender")),
-                                SyntaxFactory.Argument(SyntaxFactory.IdentifierName("target")),
-                                SyntaxFactory.Argument(SyntaxFactory.IdentifierName("characterStatsInstance"))
+                                Argument(IdentifierName("sender")),
+                                Argument(IdentifierName("target")),
+                                Argument(IdentifierName("characterStatsInstance"))
                             )
                     )
                 );
 
                 // Define method body
-                var methodBody = SyntaxFactory.Block(ifCondition, invokeStatement);
+                var methodBody = Block(ifCondition, invokeStatement);
 
                 // Add the body to the method and return it
                 return method.WithBody(methodBody);

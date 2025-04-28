@@ -15,7 +15,7 @@ namespace DeeDeeR.MessageBroker
 	/// <summary>
 	/// MessageBroker publisher for Character category.
 	/// </summary>
-	 public class MBCharacter
+	 public class MBCharacter2
 	{
 		#region Event declaration
 

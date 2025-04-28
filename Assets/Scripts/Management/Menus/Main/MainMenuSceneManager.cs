@@ -53,7 +53,7 @@ namespace Management.Menus.Main
 
         private void OnQuitGameClicked()
         {
-            DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.Send_QuitGame(this, nameof(GameManager));
+            DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.Send_OnQuitGame(this, nameof(GameManager));
         }
 
         void Start()
@@ -70,14 +70,14 @@ namespace Management.Menus.Main
         {
             Debug.Log("New Game Clicked!");
             // Implement your game logic here
-            DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.Send_StartGame(this, nameof(GameManager));
+            DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.Send_OnStartGame(this, nameof(GameManager));
         }
 
         private void OnContinueGameClicked()
         {
             Debug.Log("Continue Game Clicked!");
             // Implement your game logic here
-            DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.Send_LoadLatestGame(this, null);
+            DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.Send_OnLoadLatestGame(this, null);
         }
     }
 }

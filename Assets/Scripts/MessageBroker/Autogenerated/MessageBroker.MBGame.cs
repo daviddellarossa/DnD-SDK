@@ -15,7 +15,7 @@ namespace DeeDeeR.MessageBroker
 	/// <summary>
 	/// MessageBroker publisher for Game category.
 	/// </summary>
-	 public class MBGame
+	 public class MBGame2
 	{
 		#region Event declaration
 
