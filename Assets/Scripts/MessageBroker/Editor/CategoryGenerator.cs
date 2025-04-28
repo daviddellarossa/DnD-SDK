@@ -1,5 +1,4 @@
 ﻿using System;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using DeeDeeR.MessageBroker;
@@ -42,7 +41,7 @@ namespace MessageBroker.Editor
                 var categoryClass = GenerateCategoryClass(this._categoryName, this._messageInfos.ToArray());
                 
                 var usings = GetUsings();
-                var @namespace = NamespaceDeclaration(ParseName(MessageBrokerGenerator._namespace))
+                var @namespace = NamespaceDeclaration(ParseName(_namespace))
                     .AddMembers(classes.Cast<MemberDeclarationSyntax>().ToArray())
                     .AddMembers(categoryClass);
                 
@@ -50,8 +49,6 @@ namespace MessageBroker.Editor
                     .AddUsings(usings)
                     .AddMembers(@namespace)
                     .NormalizeWhitespace();
-
-                // var str = compilationUnit.ToFullString();
                 
                 var outputPath = System.IO.Path.Combine(MessageBrokerGenerator._outputFolder, $"{MessageBrokerGenerator.ClassName}_TestRoslyn.{MessageBrokerGenerator._categoryPrefix}{this._categoryName}.cs");
 
@@ -70,13 +67,13 @@ namespace MessageBroker.Editor
                 return generatedCodeAttribute;
             }
 
-            internal SyntaxTriviaList GetSummary(string summary)
+            private SyntaxTriviaList GetSummary(string summary)
             {
                 return TriviaList(
                     Trivia(
                         DocumentationCommentTrivia(
                             SyntaxKind.SingleLineDocumentationCommentTrivia,
-                            List<XmlNodeSyntax>(
+                            List(
                                 new XmlNodeSyntax[]
                                 {
                                     XmlText()
@@ -140,9 +137,9 @@ namespace MessageBroker.Editor
                                 }))));
             }
 
-            internal ClassDeclarationSyntax GenerateCategoryClass(string categoryName, MessageInfo[] messageInfos)
+            private ClassDeclarationSyntax GenerateCategoryClass(string categoryName, MessageInfo[] messageInfos)
             {
-                var newClassName = $"{MessageBrokerGenerator._categoryPrefix}{categoryName}";
+                var newClassName = $"{_categoryPrefix}{categoryName}";
                 var newClass = ClassDeclaration(newClassName)
                         .WithModifiers(
                             TokenList(
@@ -151,28 +148,25 @@ namespace MessageBroker.Editor
                                     SyntaxKind.PublicKeyword,
                                     TriviaList())))
                         // Add events
-                        .AddMembers(messageInfos.Select(x =>
-                        {
-                            return EventFieldDeclaration(
-                                    VariableDeclaration(
-                                            GenericName(
-                                                    Identifier(nameof(EventHandler)))
-                                                .WithTypeArgumentList(
-                                                    TypeArgumentList(
-                                                        SingletonSeparatedList<TypeSyntax>(
-                                                            IdentifierName(GetEventArgsClassName(x))))))
-                                        .WithVariables(
-                                            SingletonSeparatedList<VariableDeclaratorSyntax>(
-                                                VariableDeclarator(
-                                                    Identifier(GetEventName(x)))))
-                                )
-                                .WithModifiers(
-                                    TokenList(
-                                        Token(
-                                            GetSummary(x.Message.EventComment),
-                                            SyntaxKind.PublicKeyword,
-                                            TriviaList())));
-                        }).Cast<MemberDeclarationSyntax>().ToArray())
+                        .AddMembers(messageInfos.Select(x => EventFieldDeclaration(
+                                VariableDeclaration(
+                                        GenericName(
+                                                Identifier(nameof(EventHandler)))
+                                            .WithTypeArgumentList(
+                                                TypeArgumentList(
+                                                    SingletonSeparatedList<TypeSyntax>(
+                                                        IdentifierName(GetEventArgsClassName(x))))))
+                                    .WithVariables(
+                                        SingletonSeparatedList(
+                                            VariableDeclarator(
+                                                Identifier(GetEventName(x)))))
+                            )
+                            .WithModifiers(
+                                TokenList(
+                                    Token(
+                                        GetSummary(x.Message.EventComment),
+                                        SyntaxKind.PublicKeyword,
+                                        TriviaList())))).Cast<MemberDeclarationSyntax>().ToArray())
                         // Add methods
                         .AddMembers(messageInfos.Select(GenerateSendMethod).Cast<MemberDeclarationSyntax>().ToArray())
                     ;
@@ -180,7 +174,7 @@ namespace MessageBroker.Editor
                 return newClass;
             }
 
-            internal SeparatedSyntaxList<ParameterSyntax> GetParameterList(MessageInfo messageInfo)
+            private SeparatedSyntaxList<ParameterSyntax> GetParameterList(MessageInfo messageInfo)
             {
                 var parameterSyntaxList = new List<SyntaxNodeOrToken>();
                 var inputParameters = messageInfo.Message.InputParameters;
@@ -202,7 +196,7 @@ namespace MessageBroker.Editor
                 return SeparatedList<ParameterSyntax>(parameterSyntaxList);
             }
 
-            internal IfStatementSyntax CheckForNull(InputParameter inputParameter)
+            private IfStatementSyntax CheckForNull(InputParameter inputParameter)
             {
                 var ifStatement = IfStatement(
                     BinaryExpression(
@@ -221,7 +215,7 @@ namespace MessageBroker.Editor
                                             "var",
                                             TriviaList())))
                                 .WithVariables(
-                                    SingletonSeparatedList<VariableDeclaratorSyntax>(
+                                    SingletonSeparatedList(
                                         VariableDeclarator(
                                                 Identifier("errorEventArgs"))
                                             .WithInitializer(
@@ -287,8 +281,8 @@ namespace MessageBroker.Editor
                 
                 return ifStatement;
             }
-            
-            internal MethodDeclarationSyntax GenerateSendMethod(MessageInfo messageInfo)
+
+            private MethodDeclarationSyntax GenerateSendMethod(MessageInfo messageInfo)
             {
                 var eventArgsInnerParameterName = "__eventArgs__";
                 return MethodDeclaration(
@@ -307,10 +301,7 @@ namespace MessageBroker.Editor
                         Block(
                             messageInfo.Message.InputParameters
                                 .Where(x => !x.IsNullable)
-                                .Select(x =>
-                                {
-                                    return CheckForNull(x);
-                                })
+                                .Select(CheckForNull)
                                 .Cast<StatementSyntax>()
                                 .Concat(new []
                                 {
@@ -324,7 +315,7 @@ namespace MessageBroker.Editor
                                                         "var",
                                                         TriviaList())))
                                             .WithVariables(
-                                                SingletonSeparatedList<VariableDeclaratorSyntax>(
+                                                SingletonSeparatedList(
                                                     VariableDeclarator(
                                                             Identifier(eventArgsInnerParameterName))
                                                         .WithInitializer(
@@ -408,7 +399,7 @@ namespace MessageBroker.Editor
                 }
             }
 
-            public static InputParameter[] GetExtraParameters(MessageInfo messageInfo)
+            private static InputParameter[] GetExtraParameters(MessageInfo messageInfo)
             {
                 var senderParameter = messageInfo.Message.InputParameters.SingleOrDefault(x => x.ParameterName == "sender");
                 var targetParameter = messageInfo.Message.InputParameters.SingleOrDefault(x => x.ParameterName == "target");
@@ -418,7 +409,7 @@ namespace MessageBroker.Editor
                 return extraInputParameters;
             }
 
-            internal ClassDeclarationSyntax GenerateEventArgsClass(MessageInfo messageInfo)
+            private ClassDeclarationSyntax GenerateEventArgsClass(MessageInfo messageInfo)
             {
                 var extraInputParameters = GetExtraParameters(messageInfo);
 
@@ -433,11 +424,9 @@ namespace MessageBroker.Editor
                                     GetSummary(string.Empty),
                                     SyntaxKind.PublicKeyword,
                                     TriviaList())))
-                        .AddBaseListTypes(new[]
-                        {
-                            SimpleBaseType(ParseTypeName(nameof(MessageBrokerEventArgs))),
-                            SimpleBaseType(ParseTypeName(nameof(IResettable)))
-                        })
+                        .AddBaseListTypes(
+                            SimpleBaseType(ParseTypeName(nameof(MessageBrokerEventArgs))), 
+                            SimpleBaseType(ParseTypeName(nameof(IResettable))))
                         .AddMembers(extraInputParameters.Select(x =>
                         {
                             var parameterName = SanitizePropertyName(x.ParameterName);
@@ -467,7 +456,7 @@ namespace MessageBroker.Editor
                                             Trivia(
                                                 DocumentationCommentTrivia(
                                             SyntaxKind.SingleLineDocumentationCommentTrivia,
-                                            List<XmlNodeSyntax>(
+                                            List(
                                                 new XmlNodeSyntax[]{
                                                     XmlText()
                                                     .WithTextTokens(
@@ -523,86 +512,44 @@ namespace MessageBroker.Editor
                 var cleanPropertyName = MessageBrokerGenerator.CleanName(propertyName);
                 return char.ToUpper(cleanPropertyName[0]) + cleanPropertyName.Substring(1);
             }
-            
-            internal static string GetParameterType(InputParameter inputParameter)
+
+            private static string GetParameterType(InputParameter inputParameter)
             {
+                var multiplicity = inputParameter.Multiplicity.ToTypeString();
+                
                 return inputParameter.ParameterType switch
                 {
-                    ParameterType.BooleanType => Token(SyntaxKind.BoolKeyword).ValueText,
-                    ParameterType.ByteType => Token(SyntaxKind.ByteKeyword).ValueText,
-                    ParameterType.DoubleType => Token(SyntaxKind.DoubleKeyword).ValueText,
-                    ParameterType.FloatType => Token(SyntaxKind.FloatKeyword).ValueText,
-                    ParameterType.IntType => Token(SyntaxKind.IntKeyword).ValueText,
-                    ParameterType.LongType => Token(SyntaxKind.LongKeyword).ValueText,
-                    ParameterType.ShortType => Token(SyntaxKind.ShortKeyword).ValueText,
-                    ParameterType.StringType => Token(SyntaxKind.StringKeyword).ValueText,
+                    ParameterType.BooleanType => string.Format(multiplicity, Token(SyntaxKind.BoolKeyword).ValueText),
+                    ParameterType.ByteType => string.Format(multiplicity, Token(SyntaxKind.ByteKeyword).ValueText),
+                    ParameterType.DoubleType => string.Format(multiplicity, Token(SyntaxKind.DoubleKeyword).ValueText),
+                    ParameterType.FloatType => string.Format(multiplicity, Token(SyntaxKind.FloatKeyword).ValueText),
+                    ParameterType.IntType => string.Format(multiplicity, Token(SyntaxKind.IntKeyword).ValueText),
+                    ParameterType.LongType => string.Format(multiplicity, Token(SyntaxKind.LongKeyword).ValueText),
+                    ParameterType.ShortType => string.Format(multiplicity, Token(SyntaxKind.ShortKeyword).ValueText),
+                    ParameterType.StringType => string.Format(multiplicity, Token(SyntaxKind.StringKeyword).ValueText),
                     ParameterType.VoidType => Token(SyntaxKind.VoidKeyword).ValueText,
-                    ParameterType.TransformType => QualifiedName(IdentifierName("UnityEngine"), IdentifierName("Transform")).ToFullString(),
-                    ParameterType.ObjectType => Token(SyntaxKind.ObjectKeyword).ValueText,
-                    ParameterType.OtherType => inputParameter.OtherType,
+                    ParameterType.TransformType => string.Format(multiplicity, QualifiedName(IdentifierName("UnityEngine"), IdentifierName("Transform")).ToFullString()),
+                    ParameterType.ObjectType => string.Format(multiplicity, Token(SyntaxKind.ObjectKeyword).ValueText),
+                    ParameterType.OtherType => string.Format(multiplicity, inputParameter.OtherType),
                     _ => throw new NotImplementedException(),
                 };
-                var parameterType = inputParameter.ParameterType.ToParameterTypeString(System.Data.ParameterDirection.Input, false, inputParameter.OtherType);
-
-                var multiplicity = inputParameter.Multiplicity.ToTypeString();
-
-                return string.Format(multiplicity, parameterType);
             }
-
-            private void GenerateFilePerCategory(IGrouping<string, MessageInfo> messageGroup)
+            
+            public static string ToTypeString(Multiplicity multiplicity)
             {
-                var messageInfoGroup = messageGroup.ToArray();
-
-                var categoryName = MessageBrokerGenerator.CleanName(string.IsNullOrWhiteSpace(messageGroup.Key) ? MessageBrokerGenerator._defaultCategoryName : messageGroup.Key);
-
-                var headerTrivia = GetHeader();
-
-                var usings = GetUsings();
-                
-                var eventMembers = new List<MemberDeclarationSyntax>();
-                
-                var sendMethodsMembers = new List<MemberDeclarationSyntax>();
-
-                
-                foreach (var messageInfo in messageInfoGroup)
+                return multiplicity switch
                 {
-                    // create <messageInfoName>EventArgs
-                    //eventMembers.Add(GenerateEventHandlerEvent(messageInfo.Message.GetName()));
-                    
-                    sendMethodsMembers.Add(GenerateSendCharacterCreatedMethod(messageInfo.Message.GetName()));
-                }
-                
-                var @class = ClassDeclaration($"{MessageBrokerGenerator._categoryPrefix}{categoryName}" + "_Test")
-                    .AddModifiers(Token(SyntaxKind.PublicKeyword));
-                
-                eventMembers.ForEach(x => @class = @class.AddMembers(x));
-                
-                // Add a blank line as trivia
-                var blankLineTrivia = TriviaList(
-                    ElasticCarriageReturnLineFeed, // Adds a blank line
-                    ElasticCarriageReturnLineFeed
-                );
-
-
-                sendMethodsMembers.ForEach(x => @class = @class.AddMembers(x));
-
-                    //.AddMembers(eventField, method);
-                
-                var @namespace = NamespaceDeclaration(ParseName(MessageBrokerGenerator._namespace))
-                    .AddMembers(@class);
-                
-                // Attach the header trivia to the CompilationUnit
-                var compilationUnit = CompilationUnit()
-                    .AddUsings(usings)
-                    .AddMembers(@namespace)
-                    .WithLeadingTrivia(headerTrivia)
-                    .NormalizeWhitespace();
-                
-                var outputPath = System.IO.Path.Combine(MessageBrokerGenerator._outputFolder, $"{MessageBrokerGenerator.ClassName}_Test.{MessageBrokerGenerator._categoryPrefix}{categoryName}.cs");
-
-                this.CreateFile(compilationUnit.ToFullString(), outputPath);
+                    Multiplicity.Single => "{0}",
+                    Multiplicity.Array => "{0}[]",
+                    Multiplicity.Collection => "Collection<{0}>",
+                    Multiplicity.ICollection => "ICollection<{0}>",
+                    Multiplicity.IList => "IList<{0}>",
+                    Multiplicity.List => "List<{0}>",
+                    Multiplicity.IEnumerable => "IEnumerable<{0}>",
+                    _ => throw new NotSupportedException("Type not supported")
+                };
             }
-
+            
             private UsingDirectiveSyntax[] GetUsings()
             {
                 return new[]
@@ -610,31 +557,16 @@ namespace MessageBroker.Editor
                     UsingDirective(ParseName("System"))
                         .WithUsingKeyword(
                             Token(
-                                GetFileHeader(),
+                                GetHeader(),
                                 SyntaxKind.UsingKeyword,
                                 TriviaList())),
                     UsingDirective(ParseName("UnityEngine")),
                     UsingDirective(ParseName("UnityEditor")),
                     UsingDirective(ParseName("MessageBroker")),
+                    UsingDirective(ParseName("System.Collections.Generic")),
                 };
             }
-
-            private SyntaxTriviaList GetFileHeader()
-            {
-                return
-                    TriviaList(
-                        new[]
-                        {
-                            Comment("//------------------------------------------------------------------------------"),
-                            Comment("// <auto-generated>"),
-                            Comment("// Code auto-generated by CategoryGenerator version <version undefined>."),
-                            Comment("// Re-run the generator every time a new Message is added or removed."),
-                            Comment("// Changes to this file may cause incorrect behavior and will be lost if the code is regenerated."),
-                            Comment("// </auto-generated>"),
-                            Comment("//------------------------------------------------------------------------------")
-                        });
-            }
-
+            
             private static SyntaxTriviaList GetHeader()
             {
                 return TriviaList(
@@ -648,8 +580,7 @@ namespace MessageBroker.Editor
                     ElasticCarriageReturnLineFeed // add a blank line
                 );
             }
-
-
+            
             private void CreateFile(string fileContent, string outputPath)
             {
                 if (!System.IO.Directory.Exists(MessageBrokerGenerator._outputFolder))
@@ -657,203 +588,8 @@ namespace MessageBroker.Editor
                     System.IO.Directory.CreateDirectory(MessageBrokerGenerator._outputFolder);
                 }
 
-                System.IO.File.WriteAllText(outputPath, fileContent.ToString());
+                System.IO.File.WriteAllText(outputPath, fileContent);
             }
-            
-            /// <remarks>Does not work as expected</remarks>
-            public static SyntaxTriviaList CreateMultilineSummaryComment(string[] lines)
-            {
-                var contentList = new List<XmlNodeSyntax>();
-
-                contentList.Add(XmlText()
-                    .AddTextTokens(
-                        XmlTextNewLine("\n", false),
-                        XmlTextLiteral(" ")
-                    ));
-
-                // Add each line of the summary
-                foreach (var line in lines)
-                {
-                    contentList.Add(XmlText(line));
-                    contentList.Add(XmlText()
-                        .AddTextTokens(
-                            XmlTextNewLine("\n", false),
-                            XmlTextLiteral(" ")
-                        ));
-                }
-
-                var summaryElement = XmlElement(
-                    XmlElementStartTag(XmlName("summary")),
-                    List(contentList),
-                    XmlElementEndTag(XmlName("summary"))
-                );
-
-                return TriviaList(
-                    DocumentationCommentExterior("/// "),
-                    Trivia(
-                        DocumentationCommentTrivia(SyntaxKind.SingleLineDocumentationCommentTrivia)
-                            .AddContent(summaryElement)
-                    )
-                );
-            }
-            
-            private MemberDeclarationSyntax GenerateEventHandlerEvent(MessageInfo messageInfo)
-            {
-                var efd = EventFieldDeclaration(
-                    VariableDeclaration(
-                        GenericName(
-                            Identifier("EventHandler"))
-                        .WithTypeArgumentList(
-                            TypeArgumentList(
-                                SingletonSeparatedList<TypeSyntax>(
-                                    IdentifierName("MessageBrokerEventArgs")))))
-                    .WithVariables(
-                        SingletonSeparatedList<VariableDeclaratorSyntax>(
-                            VariableDeclarator(
-                                Identifier("OnGameOver")))))
-                    .WithModifiers(
-                        TokenList(
-                            Token(
-                                TriviaList(
-                                    new[]
-                                    {
-                                        Trivia(
-                                            RegionDirectiveTrivia(true)
-                                                .WithEndOfDirectiveToken(
-                                                    Token(
-                                                        TriviaList(
-                                                            PreprocessingMessage("Event declaration")),
-                                                        SyntaxKind.EndOfDirectiveToken,
-                                                        TriviaList()))),
-                                        Trivia(
-                                            DocumentationCommentTrivia(
-                                                SyntaxKind.SingleLineDocumentationCommentTrivia,
-                                                List<XmlNodeSyntax>(
-                                                    new XmlNodeSyntax[]
-                                                    {
-                                                        XmlText()
-                                                            .WithTextTokens(
-                                                                TokenList(
-                                                                    XmlTextLiteral(
-                                                                        TriviaList(
-                                                                            DocumentationCommentExterior("///")),
-                                                                        " ",
-                                                                        " ",
-                                                                        TriviaList()))),
-                                                        XmlExampleElement(
-                                                            SingletonList<XmlNodeSyntax>(
-                                                                XmlText()
-                                                                    .WithTextTokens(
-                                                                        TokenList(
-                                                                            new[]
-                                                                            {
-                                                                                XmlTextNewLine(
-                                                                                    TriviaList(),
-                                                                                    Environment.NewLine,
-                                                                                    Environment.NewLine,
-                                                                                    TriviaList()),
-                                                                                XmlTextLiteral(
-                                                                                    TriviaList(
-                                                                                        DocumentationCommentExterior(
-                                                                                            "        ///")),
-                                                                                    " Description for onGameOver",
-                                                                                    " Description for onGameOver",
-                                                                                    TriviaList()),
-                                                                                XmlTextNewLine(
-                                                                                    TriviaList(),
-                                                                                    Environment.NewLine,
-                                                                                    Environment.NewLine,
-                                                                                    TriviaList()),
-                                                                                XmlTextLiteral(
-                                                                                    TriviaList(
-                                                                                        DocumentationCommentExterior(
-                                                                                            "        ///")),
-                                                                                    " ",
-                                                                                    " ",
-                                                                                    TriviaList())
-                                                                            }))))
-                                                            .WithStartTag(
-                                                                XmlElementStartTag(
-                                                                    XmlName(
-                                                                        Identifier("summary"))))
-                                                            .WithEndTag(
-                                                                XmlElementEndTag(
-                                                                    XmlName(
-                                                                        Identifier("summary")))),
-                                                        XmlText()
-                                                            .WithTextTokens(
-                                                                TokenList(
-                                                                    XmlTextNewLine(
-                                                                        TriviaList(),
-                                                                        Environment.NewLine,
-                                                                        Environment.NewLine,
-                                                                        TriviaList())))
-                                                    })))
-                                    }),
-                                SyntaxKind.PublicKeyword,
-                                TriviaList())));
-                return null;
-            }
-
-            public MethodDeclarationSyntax GenerateSendCharacterCreatedMethod(string methodName)
-            {
-                // Define method parameters
-                var senderParameter = Parameter(Identifier("sender"))
-                    .WithType(ParseTypeName("object"));
-
-                var targetParameter = Parameter(Identifier("target"))
-                    .WithType(ParseTypeName("object"));
-
-                var characterStatsParameter = Parameter(Identifier("characterStatsInstance"))
-                    .WithType(ParseTypeName("DnD.Code.Scripts.Characters.CharacterStats"));
-
-                // Define method signature
-                var method = MethodDeclaration(
-                        PredefinedType(Token(SyntaxKind.VoidKeyword)), 
-                        "Send_OnCharacterCreated")
-                    .AddModifiers(Token(SyntaxKind.PublicKeyword))
-                    .AddParameterListParameters(senderParameter, targetParameter, characterStatsParameter);
-
-                // Create: if (sender == null)
-                var ifCondition = IfStatement(
-                    BinaryExpression(
-                        SyntaxKind.EqualsExpression,
-                        IdentifierName("sender"),
-                        LiteralExpression(SyntaxKind.NullLiteralExpression)),
-                    Block(
-                        ExpressionStatement(
-                            InvocationExpression(
-                                MemberAccessExpression(
-                                    SyntaxKind.SimpleMemberAccessExpression,
-                                    IdentifierName("Debug"),
-                                    IdentifierName("LogError")))
-                                .AddArgumentListArguments(
-                                    Argument(
-                                        LiteralExpression(SyntaxKind.StringLiteralExpression, Literal("sender is required."))))),
-                        ReturnStatement()
-                    )
-                );
-
-                // Create: CharacterCreated?.Invoke(sender, target, characterStatsInstance)
-                var invokeStatement = ExpressionStatement(
-                    ConditionalAccessExpression(
-                        IdentifierName(methodName),
-                        InvocationExpression(IdentifierName("Invoke"))
-                            .AddArgumentListArguments(
-                                Argument(IdentifierName("sender")),
-                                Argument(IdentifierName("target")),
-                                Argument(IdentifierName("characterStatsInstance"))
-                            )
-                    )
-                );
-
-                // Define method body
-                var methodBody = Block(ifCondition, invokeStatement);
-
-                // Add the body to the method and return it
-                return method.WithBody(methodBody);
-            }
-
         }
     }
 }

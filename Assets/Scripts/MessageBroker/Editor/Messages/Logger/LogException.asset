@@ -22,7 +22,7 @@ MonoBehaviour:
     isNullable: 0
     otherType: DeeDeeR.MessageBroker.ExceptionMessageBrokerEventArgs
     parameterComment: 
-    parameterName: eventArgs
+    parameterName: exceptionMessageEventArgs
   returnParameter:
     multiplicity: 0
     parameterType: 0
