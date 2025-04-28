@@ -36,8 +36,6 @@ namespace MessageBroker.Editor
                     }
                 }
 
-                // TODO: Generate the Category class here
-                
                 var categoryClass = GenerateCategoryClass(this._categoryName, this._messageInfos.ToArray());
                 
                 var usings = GetUsings();
@@ -583,9 +581,9 @@ namespace MessageBroker.Editor
             
             private void CreateFile(string fileContent, string outputPath)
             {
-                if (!System.IO.Directory.Exists(MessageBrokerGenerator._outputFolder))
+                if (!System.IO.Directory.Exists(_outputFolder))
                 {
-                    System.IO.Directory.CreateDirectory(MessageBrokerGenerator._outputFolder);
+                    System.IO.Directory.CreateDirectory(_outputFolder);
                 }
 
                 System.IO.File.WriteAllText(outputPath, fileContent);

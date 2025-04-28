@@ -42,14 +42,16 @@ namespace MessageBroker.Editor
             {
                 AddDefaultInputParametersToMessages(messageInfos);
                 
-                var messageInfosGroupedByCategory = messageInfos.GroupBy(x => x.Message.MessageCategory);
+                var messageInfosGroupedByCategory = messageInfos.GroupBy(x => x.Message.MessageCategory).ToDictionary(x => x.Key, x => x.ToArray());
 
                 foreach (var messageGroup in messageInfosGroupedByCategory)
                 {
-                    var categoryGenerator = new CategoryGenerator(messageGroup.Key, messageGroup);
+                    var categoryGenerator = new CategoryGenerator(messageGroup.Key, messageGroup.Value);
                     categoryGenerator.Generate();
                 }
                 
+                var interfaceGenerator = new InterfaceGenerator(messageInfosGroupedByCategory.Keys.ToArray());
+                interfaceGenerator.Generate();
                 
                 /*
                 var messageBrokerCategoryGenerator = new MessageBrokerCategoryGenerator(messageInfos);
