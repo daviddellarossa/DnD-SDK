@@ -28,8 +28,8 @@ namespace MessageBroker.Editor
                         message.EventComment = string.Empty;
                         message.ReturnParameter = new ReturnParameter()
                         {
-                            multiplicity = Multiplicity.Single,
-                            parameterType = ParameterType.VoidType,
+                            Multiplicity = Multiplicity.Single,
+                            ParameterType = ParameterType.VoidType,
                         };
                         EditorUtility.SetDirty(message);
                     }
@@ -45,18 +45,18 @@ namespace MessageBroker.Editor
                         {
                             new InputParameter()
                             {
-                                multiplicity = Multiplicity.Single,
-                                parameterType = ParameterType.OtherType,
-                                parameterName = "saveGameData",
-                                parameterComment = "The savegame data structure containing the game data to load",
-                                otherType = "Infrastructure.SaveManager.SaveGameData"
+                                Multiplicity = Multiplicity.Single,
+                                ParameterType = ParameterType.OtherType,
+                                ParameterName = "saveGameData",
+                                ParameterComment = "The savegame data structure containing the game data to load",
+                                OtherType = "Infrastructure.SaveManager.SaveGameData"
                             }
                         };
                         
                         message.ReturnParameter = new ReturnParameter()
                         {
-                            multiplicity = Multiplicity.Single,
-                            parameterType = ParameterType.VoidType,
+                            Multiplicity = Multiplicity.Single,
+                            ParameterType = ParameterType.VoidType,
                         };
                         EditorUtility.SetDirty(message);
                     }
@@ -71,8 +71,8 @@ namespace MessageBroker.Editor
                         
                         message.ReturnParameter = new ReturnParameter()
                         {
-                            multiplicity = Multiplicity.Single,
-                            parameterType = ParameterType.VoidType,
+                            Multiplicity = Multiplicity.Single,
+                            ParameterType = ParameterType.VoidType,
                         };
                         EditorUtility.SetDirty(message);
                     }
@@ -86,8 +86,8 @@ namespace MessageBroker.Editor
                         message.EventComment = string.Empty;
                         message.ReturnParameter = new ReturnParameter()
                         {
-                            multiplicity = Multiplicity.Single,
-                            parameterType = ParameterType.VoidType,
+                            Multiplicity = Multiplicity.Single,
+                            ParameterType = ParameterType.VoidType,
                         };
                         EditorUtility.SetDirty(message);
                     }
@@ -101,8 +101,8 @@ namespace MessageBroker.Editor
                         message.EventComment = string.Empty;
                         message.ReturnParameter = new ReturnParameter()
                         {
-                            multiplicity = Multiplicity.Single,
-                            parameterType = ParameterType.VoidType,
+                            Multiplicity = Multiplicity.Single,
+                            ParameterType = ParameterType.VoidType,
                         };
                         EditorUtility.SetDirty(message);
                     }

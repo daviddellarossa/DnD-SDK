@@ -17,13 +17,15 @@ MonoBehaviour:
   sendMethodComment: 
   eventComment: 
   inputParameters:
-  - parameterName: characterStatsInstance
-    multiplicity: 0
+  - multiplicity: 0
     parameterType: 11
+    isNullable: 0
     otherType: DnD.Code.Scripts.Characters.CharacterStats
     parameterComment: 
+    parameterName: characterStats
   returnParameter:
     multiplicity: 0
     parameterType: 0
+    isNullable: 0
     otherType: 
     parameterComment: 

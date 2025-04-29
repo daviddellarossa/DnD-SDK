@@ -10,25 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5805e57f46109de4c81d11b5013eba85, type: 3}
-  m_Name: Log
+  m_Name: LogException
   m_EditorClassIdentifier: 
-  messageName: Log
+  messageName: LogException
   messageCategory: Logger
   sendMethodComment: 
   eventComment: 
   inputParameters:
   - multiplicity: 0
-    parameterType: 8
-    isNullable: 0
+    parameterType: 9
+    isNullable: 1
     otherType: 
     parameterComment: 
-    parameterName: message
+    parameterName: sender
+  - multiplicity: 0
+    parameterType: 9
+    isNullable: 1
+    otherType: 
+    parameterComment: 
+    parameterName: target
   - multiplicity: 0
     parameterType: 11
-    isNullable: 0
-    otherType: UnityEngine.LogType
+    isNullable: 1
+    otherType: DeeDeeR.MessageBroker.ExceptionMessageBrokerEventArgs
     parameterComment: 
-    parameterName: logLevel
+    parameterName: exceptionMessageEventArgs
   returnParameter:
     multiplicity: 0
     parameterType: 0
