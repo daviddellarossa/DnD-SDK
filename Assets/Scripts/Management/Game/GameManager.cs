@@ -97,7 +97,7 @@ namespace Management.Game
         
         private void Character_OnCharacterCreated_EventHandler(object sender, CharacterCreatedEventArgs e)
         {
-            this.Core.Character_OnCharacterCreated_EventHandler(sender, e.Target, e.CharacterStatsInstance);
+            this.Core.Character_OnCharacterCreated_EventHandler(sender, e.Target, e.CharacterStats);
         }
         
         //private void LoadGame

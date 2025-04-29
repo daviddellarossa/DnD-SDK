@@ -17,13 +17,15 @@ MonoBehaviour:
   sendMethodComment: 
   eventComment: 
   inputParameters:
-  - parameterName: saveGameData
-    multiplicity: 0
+  - multiplicity: 0
     parameterType: 11
+    isNullable: 0
     otherType: Infrastructure.SaveManager.SaveGameData
     parameterComment: The savegame data structure containing the game data to load
+    parameterName: saveGameData
   returnParameter:
     multiplicity: 0
     parameterType: 0
+    isNullable: 0
     otherType: 
     parameterComment: 

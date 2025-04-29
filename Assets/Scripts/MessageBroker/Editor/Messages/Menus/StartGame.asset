@@ -20,5 +20,6 @@ MonoBehaviour:
   returnParameter:
     multiplicity: 0
     parameterType: 0
+    isNullable: 0
     otherType: 
     parameterComment: 

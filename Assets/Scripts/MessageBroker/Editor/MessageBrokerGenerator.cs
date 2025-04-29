@@ -21,6 +21,7 @@ namespace MessageBroker.Editor
         [MenuItem("DeeDeeR/Message Broker/Generate Message Broker")]
         static async Task GenerateMessageBroker()
         {
+            Debug.Log("MessageBrokerGenerator started.");
             _packageVersion = GetPackageVersion();
 
             var userInput = await MessageBrokerGeneratorUI.ShowDialog();
@@ -66,6 +67,8 @@ namespace MessageBroker.Editor
                 var messageBrokerCommonGenerator = new MessageBrokerCommonGenerator(messageInfos);
                 messageBrokerCommonGenerator.Generate();
 */
+                
+                Debug.Log("MessageBrokerGenerator finished.");
             }
             catch (Exception ex)
             {
