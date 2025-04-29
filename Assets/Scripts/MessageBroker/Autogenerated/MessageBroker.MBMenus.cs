@@ -18,7 +18,7 @@ namespace DeeDeeR.MessageBroker
     /// </summary>
     public class LoadGameEventArgs : MessageBrokerEventArgs, IResettable
     {
-        public Infrastructure.SaveManager.SaveGameData SaveGameData { get; set; }
+        public Infrastructure.SaveManager.Models.SaveGameData SaveGameData { get; set; }
 
         /// <inheritdoc cref = "IResettable.ResetState"/>
         public void ResetState()
@@ -73,7 +73,7 @@ namespace DeeDeeR.MessageBroker
         /// <summary>
         /// 
         /// </summary>
-        public void Send_OnLoadGame(object sender, object target, Infrastructure.SaveManager.SaveGameData saveGameData)
+        public void Send_OnLoadGame(object sender, object target, Infrastructure.SaveManager.Models.SaveGameData saveGameData)
         {
             if (sender == null)
             {

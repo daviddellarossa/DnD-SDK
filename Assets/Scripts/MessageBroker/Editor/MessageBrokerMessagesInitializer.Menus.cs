@@ -49,7 +49,7 @@ namespace MessageBroker.Editor
                                 ParameterType = ParameterType.OtherType,
                                 ParameterName = "saveGameData",
                                 ParameterComment = "The savegame data structure containing the game data to load",
-                                OtherType = "Infrastructure.SaveManager.SaveGameData"
+                                OtherType = "Infrastructure.SaveManager.Models.SaveGameData"
                             }
                         };
                         

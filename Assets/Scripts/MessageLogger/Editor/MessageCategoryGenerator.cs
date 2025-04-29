@@ -71,37 +71,6 @@ namespace MessageLogger.Editor
 
         private void OnGUI()
         {
-            // var outputPathSavedValue = EditorPrefs.GetString(PrefKey_OutputPath, outputPath);
-            // var namespaceToScanSavedValue = EditorPrefs.GetString(PrefKey_Namespace, namespaceToScan);
-            // var outputNamespaceSavedValue = EditorPrefs.GetString(PrefKey_OutputNamespace, outputNamespace);
-            // var assemblyNameSavedValue = EditorPrefs.GetString(PrefKey_Assembly, assemblyName);
-            //
-            // if (!string.IsNullOrEmpty(outputPathSavedValue))
-            // {
-            //     outputPath = outputPathSavedValue;
-            // }
-            //
-            // if (!string.IsNullOrEmpty(namespaceToScanSavedValue))
-            // {
-            //     namespaceToScan = namespaceToScanSavedValue;
-            // }
-            //
-            // if (!string.IsNullOrEmpty(assemblyNameSavedValue))
-            // {
-            //     assemblyName = assemblyNameSavedValue;
-            // }
-            //
-            // if (!string.IsNullOrEmpty(outputNamespaceSavedValue))
-            // {
-            //     outputNamespace = outputNamespaceSavedValue;
-            // }
-            //
-            // if (string.IsNullOrEmpty(outputPath)) outputPath = EditorPrefs.GetString(PrefKey_OutputPath, outputPath);
-            // if (string.IsNullOrEmpty(namespaceToScan)) namespaceToScan = EditorPrefs.GetString(PrefKey_Namespace, namespaceToScan);
-            // if (string.IsNullOrEmpty(assemblyName)) assemblyName = EditorPrefs.GetString(PrefKey_Assembly, assemblyName);
-            // if (string.IsNullOrEmpty(outputNamespace)) outputNamespace = EditorPrefs.GetString(PrefKey_OutputNamespace, outputNamespace);
-            //
-
             GUILayout.Label("Auto-generate MessageCategory classes from MB* types.", EditorStyles.wordWrappedLabel);
             GUILayout.Space(10);
 

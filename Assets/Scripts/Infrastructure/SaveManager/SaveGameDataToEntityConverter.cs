@@ -12,6 +12,7 @@ using DnD.Code.Scripts.Equipment;
 using DnD.Code.Scripts.Languages;
 using DnD.Code.Scripts.Species;
 using DnD.Code.Scripts.Weapons;
+using Infrastructure.SaveManager.Models;
 using UnityEditor;
 using Tool = DnD.Code.Scripts.Tools.Tool;
 

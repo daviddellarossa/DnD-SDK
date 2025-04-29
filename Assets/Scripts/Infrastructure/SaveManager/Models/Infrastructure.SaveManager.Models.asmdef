@@ -1,12 +1,8 @@
 {
-    "name": "Infrastructure.SaveManager",
+    "name": "Infrastructure.SaveManager.Models",
     "rootNamespace": "",
     "references": [
-        "Infrastructure.Helpers",
-        "ProtobufNet",
-        "DnD",
-        "DnD.Helpers",
-        "Infrastructure.SaveManager.Models"
+        "GUID:2fb1e57d90919f146991b527e2a85ec8"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

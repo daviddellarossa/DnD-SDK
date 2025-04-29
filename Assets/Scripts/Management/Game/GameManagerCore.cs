@@ -1,5 +1,6 @@
 using DnD.Code.Scripts.Characters;
 using Infrastructure.SaveManager;
+using Infrastructure.SaveManager.Models;
 using Management.Game.StateMachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -140,7 +141,7 @@ namespace Management.Game
 
             SaveManager.Save(savegameData);
             
-            Debug.Log("Savegame created.");
+            DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLog(this, nameof(Logger), $"Savegame created.", LogType.Log);
             
             this.StartGame_EventHandler(sender, target, savegameData);
         }
@@ -151,15 +152,11 @@ namespace Management.Game
 
             if (loadedObject == null)
             {
-                Debug.LogError("Savegame not found.");
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLog(this, nameof(Logger), $"Savegame not found.", LogType.Error);
                 return;
             }
             
-            // var saveGameDataToEntityDataConverter = new SaveGameDataToEntityConverter();
-            
-            //var savegameData = saveGameDataToEntityDataConverter.Convert(loadedObject);
-            
-            Debug.Log("Savegame loaded");
+            DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLog(this, nameof(Logger), $"Savegame loaded.", LogType.Log);
             
             this.StartGame_EventHandler(sender, target, loadedObject);
         }
