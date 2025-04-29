@@ -48,7 +48,7 @@ namespace MessageBroker.Editor
                     .AddMembers(@namespace)
                     .NormalizeWhitespace();
                 
-                var outputPath = System.IO.Path.Combine(MessageBrokerGenerator._outputFolder, $"{MessageBrokerGenerator.ClassName}_TestRoslyn.{MessageBrokerGenerator._categoryPrefix}{this._categoryName}.cs");
+                var outputPath = System.IO.Path.Combine(MessageBrokerGenerator._outputFolder, $"{MessageBrokerGenerator.ClassName}.{MessageBrokerGenerator._categoryPrefix}{this._categoryName}.g.cs");
 
                 this.CreateFile(compilationUnit.ToFullString(), outputPath);
             }
@@ -298,7 +298,20 @@ namespace MessageBroker.Editor
                     .WithBody(
                         Block(
                             messageInfo.Message.InputParameters
-                                .Where(x => !x.IsNullable)
+                                .Where(x =>
+                                {
+                                    var parameterTypeString = GetParameterType(x);
+                                    var parameterType = AppDomain.CurrentDomain.GetAssemblies()
+                                        .Select(a => a.GetType(parameterTypeString))
+                                        .FirstOrDefault(t => t != null);
+
+                                    if (parameterType is { IsValueType: true })
+                                    {
+                                        return false;
+                                    }
+
+                                    return !x.IsNullable && parameterType is not { IsValueType: true };
+                                })
                                 .Select(CheckForNull)
                                 .Cast<StatementSyntax>()
                                 .Concat(new []

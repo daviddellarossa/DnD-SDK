@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DeeDeeR.MessageBroker;
 using Microsoft.CodeAnalysis; // Core Roslyn APIs
 using Microsoft.CodeAnalysis.CSharp; // C#-specific APIs
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -33,9 +32,12 @@ namespace MessageBroker.Editor
                     .AddMembers(@namespace)
                     .NormalizeWhitespace();
                 
-                var outputPath = System.IO.Path.Combine(_outputFolder, $"I{nameof(MessageBroker)}_Test.cs");
+                var outputPath = System.IO.Path.Combine(_outputFolder, InterfaceFilename);
                 this.CreateFile(compilationUnit.ToFullString(), outputPath);
             }
+            
+            private static string InterfaceName => $"I{nameof(MessageBroker)}";
+            private static string InterfaceFilename => $"{InterfaceName}.g.cs";
             
             private void CreateFile(string fileContent, string outputPath)
             {
@@ -77,9 +79,7 @@ namespace MessageBroker.Editor
 
             private InterfaceDeclarationSyntax GenerateMessageBrokerInterface(string[] categories)
             {
-                var interfaceName = "IMessageBroker";
-                
-                var @interface = InterfaceDeclaration(interfaceName)
+                var @interface = InterfaceDeclaration(InterfaceName)
                     .WithModifiers(GetSummary())
                     .WithMembers(
                         List(
@@ -104,7 +104,7 @@ namespace MessageBroker.Editor
                                         Trivia(
                                             DocumentationCommentTrivia(
                                                 SyntaxKind.SingleLineDocumentationCommentTrivia,
-                                                List<XmlNodeSyntax>(
+                                                List(
                                                     new XmlNodeSyntax[]
                                                     {
                                                         XmlText()
@@ -170,7 +170,7 @@ namespace MessageBroker.Editor
                             Identifier(propertyName))
                         .WithAccessorList(
                             AccessorList(
-                                SingletonList<AccessorDeclarationSyntax>(
+                                SingletonList(
                                     AccessorDeclaration(
                                             SyntaxKind.GetAccessorDeclaration)
                                         .WithSemicolonToken(
@@ -192,7 +192,7 @@ namespace MessageBroker.Editor
                                 Trivia(
                                     DocumentationCommentTrivia(
                                         SyntaxKind.SingleLineDocumentationCommentTrivia,
-                                        List<XmlNodeSyntax>(
+                                        List(
                                             new XmlNodeSyntax[]
                                             {
                                                 XmlText()

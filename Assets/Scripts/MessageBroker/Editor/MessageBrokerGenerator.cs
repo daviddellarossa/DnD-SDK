@@ -52,7 +52,10 @@ namespace MessageBroker.Editor
                 
                 var interfaceGenerator = new InterfaceGenerator(messageInfosGroupedByCategory.Keys.ToArray());
                 interfaceGenerator.Generate();
-                
+
+                var classGenerator = new ClassGenerator(messageInfosGroupedByCategory.Keys.ToArray());
+                classGenerator.Generate();
+
                 /*
                 var messageBrokerCategoryGenerator = new MessageBrokerCategoryGenerator(messageInfos);
                 messageBrokerCategoryGenerator.Generate();

@@ -17,18 +17,21 @@ MonoBehaviour:
   sendMethodComment: 
   eventComment: 
   inputParameters:
-  - parameterName: message
-    multiplicity: 0
+  - multiplicity: 0
     parameterType: 8
+    isNullable: 0
     otherType: 
     parameterComment: 
-  - parameterName: logLevel
-    multiplicity: 0
+    parameterName: message
+  - multiplicity: 0
     parameterType: 11
+    isNullable: 0
     otherType: UnityEngine.LogType
     parameterComment: 
+    parameterName: logLevel
   returnParameter:
     multiplicity: 0
     parameterType: 0
+    isNullable: 0
     otherType: 
     parameterComment: 

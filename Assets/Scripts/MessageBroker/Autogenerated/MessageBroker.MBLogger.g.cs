@@ -82,13 +82,6 @@ namespace DeeDeeR.MessageBroker
                 return;
             }
 
-            if (logLevel == null)
-            {
-                var errorEventArgs = Common.CreateArgumentNullExceptionEventArgs("Logger", target, "logLevel");
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLogException(sender, target, errorEventArgs);
-                return;
-            }
-
             var __eventArgs__ = MessageBrokerEventArgs.Pool<LogEventArgs>.Rent();
             __eventArgs__.Sender = sender;
             __eventArgs__.Target = target;
