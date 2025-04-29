@@ -52,6 +52,31 @@ namespace MessageBroker.Editor
                         EditorUtility.SetDirty(message);
                     }
                     
+                    {
+                        var messageName = "LogException";
+                        var message = ScriptableObjectHelper.CreateScriptableObject<Message>(messageName, MessagesPath);
+                        message.MessageName = messageName;
+                        message.MessageCategory = MessagesCategory;
+                        message.SendMethodComment = string.Empty;
+                        message.EventComment = string.Empty;
+                        message.InputParameters = new List<InputParameter>()
+                        {
+                            new InputParameter()
+                            {
+                                ParameterName = "exceptionMessageEventArgs",
+                                Multiplicity = Multiplicity.Single,
+                                ParameterType = ParameterType.OtherType,
+                                OtherType = typeof(DeeDeeR.MessageBroker.ExceptionMessageBrokerEventArgs).FullName,
+                            }
+                        };
+                        message.ReturnParameter = new ReturnParameter()
+                        {
+                            Multiplicity = Multiplicity.Single,
+                            ParameterType = ParameterType.VoidType,
+                        };
+                        EditorUtility.SetDirty(message);
+                    }
+                    
                     AssetDatabase.SaveAssets();
                     AssetDatabase.Refresh();
                 }

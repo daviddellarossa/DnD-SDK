@@ -30,7 +30,7 @@ namespace MessageBroker.Editor
                         {
                             new InputParameter()
                             {
-                                ParameterName = "characterStatsInstance",
+                                ParameterName = "characterStats",
                                 Multiplicity = Multiplicity.Single,
                                 ParameterType = ParameterType.OtherType,
                                 OtherType = typeof(DnD.Code.Scripts.Characters.CharacterStats).FullName,

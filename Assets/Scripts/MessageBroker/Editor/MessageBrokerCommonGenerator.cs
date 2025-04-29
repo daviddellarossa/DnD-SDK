@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -6,7 +7,10 @@ namespace MessageBroker.Editor
 {
     public static partial class MessageBrokerGenerator
     {
-
+        /// <summary>
+        /// <remarks>This Generator is obsolete. Use <see cref="ClassGenerator"/> instead. </remarks>
+        /// </summary>
+        [Obsolete("Use ClassGenerator.")]
         internal class MessageBrokerCommonGenerator
         {
             private readonly IEnumerable<MessageInfo> messageInfos;

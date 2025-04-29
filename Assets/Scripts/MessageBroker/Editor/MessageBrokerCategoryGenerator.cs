@@ -11,7 +11,9 @@ namespace MessageBroker.Editor
     {
         /// <summary>
         /// Create the MessageBroker sub-class per each category of Messages.
+        /// <remarks>This Generator is obsolete. Use <see cref="CategoryGenerator"/> instead. </remarks>
         /// </summary>
+        [Obsolete("Use CategoryGenerator.")]
         internal class MessageBrokerCategoryGenerator
         {
             private readonly IEnumerable<MessageInfo> _messageInfosByCategory;
