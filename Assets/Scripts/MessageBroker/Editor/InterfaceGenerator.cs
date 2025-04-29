@@ -37,7 +37,7 @@ namespace MessageBroker.Editor
             }
             
             private static string InterfaceName => $"I{nameof(MessageBroker)}";
-            private static string InterfaceFilename => $"{InterfaceName}.g.cs";
+            private static string InterfaceFilename => $"{InterfaceName}.cs";
             
             private void CreateFile(string fileContent, string outputPath)
             {

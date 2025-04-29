@@ -48,7 +48,7 @@ namespace MessageBroker.Editor
                     .AddMembers(@namespace)
                     .NormalizeWhitespace();
                 
-                var outputPath = System.IO.Path.Combine(MessageBrokerGenerator._outputFolder, $"{MessageBrokerGenerator.ClassName}.{MessageBrokerGenerator._categoryPrefix}{this._categoryName}.g.cs");
+                var outputPath = System.IO.Path.Combine(MessageBrokerGenerator._outputFolder, $"{MessageBrokerGenerator.ClassName}.{MessageBrokerGenerator._categoryPrefix}{this._categoryName}.cs");
 
                 this.CreateFile(compilationUnit.ToFullString(), outputPath);
             }

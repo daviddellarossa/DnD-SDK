@@ -40,7 +40,7 @@ namespace MessageBroker.Editor
             }
             
             private static string ClassName => $"{nameof(MessageBroker)}";
-            private static string ClassFilename => $"{ClassName}.g.cs";
+            private static string ClassFilename => $"{ClassName}.cs";
             
             private void CreateFile(string fileContent, string outputPath)
             {
