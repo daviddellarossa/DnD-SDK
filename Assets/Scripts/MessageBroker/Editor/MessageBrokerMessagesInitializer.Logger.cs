@@ -63,10 +63,25 @@ namespace MessageBroker.Editor
                         {
                             new InputParameter()
                             {
+                                ParameterName = "sender",
+                                Multiplicity = Multiplicity.Single,
+                                ParameterType = ParameterType.ObjectType,
+                                IsNullable = true
+                            },
+                            new InputParameter()
+                            {
+                                ParameterName = "target",
+                                Multiplicity = Multiplicity.Single,
+                                ParameterType = ParameterType.ObjectType,
+                                IsNullable = true
+                            },
+                            new InputParameter()
+                            {
                                 ParameterName = "exceptionMessageEventArgs",
                                 Multiplicity = Multiplicity.Single,
                                 ParameterType = ParameterType.OtherType,
                                 OtherType = typeof(DeeDeeR.MessageBroker.ExceptionMessageBrokerEventArgs).FullName,
+                                IsNullable = true
                             }
                         };
                         message.ReturnParameter = new ReturnParameter()

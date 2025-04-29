@@ -18,9 +18,17 @@ namespace MessageBroker.Editor
         private static string _categoryPrefix;
         private static string _defaultCategoryName;
         
+        public static readonly string TargetParameterName = "target";
+        public static readonly string SenderParameterName = "sender";
+        public static readonly string MessageParameterName = "message";
+        public static readonly string LogTypeParameterName = "logLevel";
+        public static readonly string ExceptionParameterName = "exceptionMessageEventArgs";
+        
         [MenuItem("DeeDeeR/Message Broker/Generate Message Broker")]
         static async Task GenerateMessageBroker()
         {
+
+            
             Debug.Log("MessageBrokerGenerator started.");
             _packageVersion = GetPackageVersion();
 
@@ -97,25 +105,31 @@ namespace MessageBroker.Editor
                 {
                     messageInfo.Message.InputParameters = new List<InputParameter>();
                 }
-                
-                messageInfo.Message.InputParameters.Insert(0,
-                    new InputParameter()
-                    {
-                        Multiplicity = Multiplicity.Single,
-                        ParameterName = "target",
-                        ParameterType = ParameterType.ObjectType,
-                        ParameterComment = "The target of the message. Optional."
-                    });
 
-                messageInfo.Message.InputParameters.Insert(0,
-                    new InputParameter()
-                    {
-                        Multiplicity = Multiplicity.Single,
-                        ParameterName = "sender",
-                        ParameterType = ParameterType.ObjectType,
-                        ParameterComment = "The sender of the message. Required."
-                    }
-                    );
+                if (messageInfo.Message.InputParameters.Any(x => x.ParameterName == SenderParameterName) == false)
+                {
+                    messageInfo.Message.InputParameters.Insert(0,
+                        new InputParameter()
+                        {
+                            Multiplicity = Multiplicity.Single,
+                            ParameterName = SenderParameterName,
+                            ParameterType = ParameterType.ObjectType,
+                            ParameterComment = "The sender of the message. Required."
+                        });
+                }
+                
+                if (messageInfo.Message.InputParameters.Any(x => x.ParameterName == TargetParameterName) == false)
+                {
+                    messageInfo.Message.InputParameters.Insert(1,
+                        new InputParameter()
+                        {
+                            Multiplicity = Multiplicity.Single,
+                            ParameterName = TargetParameterName,
+                            ParameterType = ParameterType.ObjectType,
+                            ParameterComment = "The target of the message. Optional.",
+                            IsNullable = true
+                        });
+                }
             }
         }
 

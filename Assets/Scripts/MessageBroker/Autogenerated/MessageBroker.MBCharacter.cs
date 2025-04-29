@@ -48,13 +48,6 @@ namespace DeeDeeR.MessageBroker
                 return;
             }
 
-            if (target == null)
-            {
-                var errorEventArgs = Common.CreateArgumentNullExceptionEventArgs("Character", target, "target");
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLogException(sender, target, errorEventArgs);
-                return;
-            }
-
             if (characterStats == null)
             {
                 var errorEventArgs = Common.CreateArgumentNullExceptionEventArgs("Character", target, "characterStats");

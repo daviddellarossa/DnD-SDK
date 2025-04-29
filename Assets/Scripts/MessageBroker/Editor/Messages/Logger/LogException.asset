@@ -18,8 +18,20 @@ MonoBehaviour:
   eventComment: 
   inputParameters:
   - multiplicity: 0
+    parameterType: 9
+    isNullable: 1
+    otherType: 
+    parameterComment: 
+    parameterName: sender
+  - multiplicity: 0
+    parameterType: 9
+    isNullable: 1
+    otherType: 
+    parameterComment: 
+    parameterName: target
+  - multiplicity: 0
     parameterType: 11
-    isNullable: 0
+    isNullable: 1
     otherType: DeeDeeR.MessageBroker.ExceptionMessageBrokerEventArgs
     parameterComment: 
     parameterName: exceptionMessageEventArgs

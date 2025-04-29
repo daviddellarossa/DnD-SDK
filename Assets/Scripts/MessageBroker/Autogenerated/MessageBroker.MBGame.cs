@@ -46,13 +46,6 @@ namespace DeeDeeR.MessageBroker
                 return;
             }
 
-            if (target == null)
-            {
-                var errorEventArgs = Common.CreateArgumentNullExceptionEventArgs("Game", target, "target");
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLogException(sender, target, errorEventArgs);
-                return;
-            }
-
             var __eventArgs__ = MessageBrokerEventArgs.Pool<MessageBrokerEventArgs>.Rent();
             __eventArgs__.Sender = sender;
             __eventArgs__.Target = target;
@@ -67,13 +60,6 @@ namespace DeeDeeR.MessageBroker
             if (sender == null)
             {
                 var errorEventArgs = Common.CreateArgumentNullExceptionEventArgs("Game", target, "sender");
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLogException(sender, target, errorEventArgs);
-                return;
-            }
-
-            if (target == null)
-            {
-                var errorEventArgs = Common.CreateArgumentNullExceptionEventArgs("Game", target, "target");
                 DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLogException(sender, target, errorEventArgs);
                 return;
             }
@@ -96,13 +82,6 @@ namespace DeeDeeR.MessageBroker
                 return;
             }
 
-            if (target == null)
-            {
-                var errorEventArgs = Common.CreateArgumentNullExceptionEventArgs("Game", target, "target");
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLogException(sender, target, errorEventArgs);
-                return;
-            }
-
             var __eventArgs__ = MessageBrokerEventArgs.Pool<MessageBrokerEventArgs>.Rent();
             __eventArgs__.Sender = sender;
             __eventArgs__.Target = target;
@@ -117,13 +96,6 @@ namespace DeeDeeR.MessageBroker
             if (sender == null)
             {
                 var errorEventArgs = Common.CreateArgumentNullExceptionEventArgs("Game", target, "sender");
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLogException(sender, target, errorEventArgs);
-                return;
-            }
-
-            if (target == null)
-            {
-                var errorEventArgs = Common.CreateArgumentNullExceptionEventArgs("Game", target, "target");
                 DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLogException(sender, target, errorEventArgs);
                 return;
             }

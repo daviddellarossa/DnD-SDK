@@ -34,7 +34,7 @@ namespace DeeDeeR.MessageBroker
     /// </summary>
     public class LogExceptionEventArgs : MessageBrokerEventArgs, IResettable
     {
-        public DeeDeeR.MessageBroker.ExceptionMessageBrokerEventArgs ExceptionMessageEventArgs { get; set; }
+        public DeeDeeR.MessageBroker.ExceptionMessageBrokerEventArgs? ExceptionMessageEventArgs { get; set; }
 
         /// <inheritdoc cref = "IResettable.ResetState"/>
         public void ResetState()
@@ -68,13 +68,6 @@ namespace DeeDeeR.MessageBroker
                 return;
             }
 
-            if (target == null)
-            {
-                var errorEventArgs = Common.CreateArgumentNullExceptionEventArgs("Logger", target, "target");
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLogException(sender, target, errorEventArgs);
-                return;
-            }
-
             if (message == null)
             {
                 var errorEventArgs = Common.CreateArgumentNullExceptionEventArgs("Logger", target, "message");
@@ -95,27 +88,6 @@ namespace DeeDeeR.MessageBroker
         /// </summary>
         public void Send_OnLogException(object sender, object target, DeeDeeR.MessageBroker.ExceptionMessageBrokerEventArgs exceptionMessageEventArgs)
         {
-            if (sender == null)
-            {
-                var errorEventArgs = Common.CreateArgumentNullExceptionEventArgs("Logger", target, "sender");
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLogException(sender, target, errorEventArgs);
-                return;
-            }
-
-            if (target == null)
-            {
-                var errorEventArgs = Common.CreateArgumentNullExceptionEventArgs("Logger", target, "target");
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLogException(sender, target, errorEventArgs);
-                return;
-            }
-
-            if (exceptionMessageEventArgs == null)
-            {
-                var errorEventArgs = Common.CreateArgumentNullExceptionEventArgs("Logger", target, "exceptionMessageEventArgs");
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLogException(sender, target, errorEventArgs);
-                return;
-            }
-
             var __eventArgs__ = MessageBrokerEventArgs.Pool<LogExceptionEventArgs>.Rent();
             __eventArgs__.Sender = sender;
             __eventArgs__.Target = target;
