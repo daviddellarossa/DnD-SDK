@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Codice.Client.Common;
 using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Backgrounds;
 using DnD.Code.Scripts.Classes;
@@ -9,7 +7,6 @@ using DnD.Code.Scripts.Helpers.NameHelper;
 using DnD.Code.Scripts.Languages;
 using DnD.Code.Scripts.Species;
 using Infrastructure.Helpers;
-using UnityEditor;
 using UnityEngine;
 using PathHelper = DnD.Code.Scripts.Helpers.PathHelper.PathHelper;
 
@@ -108,8 +105,7 @@ namespace DnD.Code.Scripts.Characters
                 
                 FileSystemHelper.EnsureFolderExists(PathHelper.CharacterStatsPath);
 
-                var fileName = $"{NameHelper.Naming.CharacterStats}.{this._name}.{Guid.NewGuid().ToString()}";
-                //var characterStats = ScriptableObjectHelper.CreateScriptableObject<CharacterStats>(fileName, PathHelper.CharacterStatsPath);
+                //var fileName = $"{NameHelper.Naming.CharacterStats}.{this._name}.{Guid.NewGuid().ToString()}";
                 var characterStats = new CharacterStats
                 {
                     characterName = this._name,
