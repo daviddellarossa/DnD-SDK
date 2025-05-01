@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using MessageBroker;
 using UnityEditor;
 using UnityEngine;
 
@@ -111,17 +112,14 @@ namespace MessageLogger.Editor
             return logType >= FilterLevel;
         }
         
-        public void LogEvent(string sender, string target, string message, Level level = Level.Event, UnityEngine.Object context = null)
+        public void LogEvent(MessageBrokerEventArgs message, Level level = Level.Event, UnityEngine.Object context = null)
         {
             if (settings == null || !settings.globalLoggingEnabled)
                 return;
 
             if (level < settings.filterLevel)
                 return;
-
-            string formatted = $"{sender} → {target}: {message}";
-            
-            this.Log(formatted, level, context);
+            this.Log(message.ToString(), level, context);
         }
         
         public void Log(string message, Level level = Level.Event, UnityEngine.Object context = null)

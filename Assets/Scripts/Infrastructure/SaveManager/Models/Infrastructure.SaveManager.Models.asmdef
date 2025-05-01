@@ -1,0 +1,16 @@
+{
+    "name": "Infrastructure.SaveManager.Models",
+    "rootNamespace": "",
+    "references": [
+        "GUID:2fb1e57d90919f146991b527e2a85ec8"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

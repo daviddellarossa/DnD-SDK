@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DeeDeeR.MessageBroker;
 using DnD.Code.Scripts.Abilities;
 using DnD.Code.Scripts.Characters;
 using DnD.Code.Scripts.Classes;
@@ -143,7 +144,7 @@ namespace Management.CharacterBuild
 
         private void BtnBackToMainMenuOnClicked()
         {
-            DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.Send_BackToMainMenu(this, null);
+            DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.Send_OnBackToMainMenu(this, null);
         }
 
         private void BtnCreateCharacterOnClicked()
@@ -229,14 +230,20 @@ namespace Management.CharacterBuild
 
                 if (instance == null)
                 {
-                    Debug.LogError("CharacterStat instance is null");
+                    DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLog(this, "Logger","CharacterStat instance is null.", LogType.Error);;
                 }
                 
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Character.Send_CharacterCreated(this, null, instance);
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Character.Send_OnCharacterCreated(this, null, instance);
             }
             catch (Exception ex)
             {
-                Debug.LogWarning(ex.Message);
+                var exceptionEventArgs = new ExceptionMessageBrokerEventArgs()
+                {
+                    Exception = ex,
+                    Sender = this,
+                    Target = "Logger"
+                };
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLogException(this, "Logger", exceptionEventArgs);
             }
         }
 
@@ -360,14 +367,14 @@ namespace Management.CharacterBuild
             var bindingInfos = lblSkillProficiencies.GetBindingInfos().ToArray();
             if (!bindingInfos.Any())
             {
-                Debug.LogWarning("Binding for Skill Proficiencies label not found");
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLog(this, "Logger", "Binding for Skill Proficiencies label not found.", LogType.Warning);
                 return;
             }
             var bindingInfo = bindingInfos.First();
             var localizedString = bindingInfo.binding as LocalizedString;
             if (localizedString == null)
             {
-                Debug.LogWarning("Unable to find LocalizedString for Skill Proficiencies label");
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLog(this, "Logger", "Unable to find LocalizedString for Skill Proficiencies label.", LogType.Warning);
                 return;
             }
             localizedString["num"] = new IntVariable { Value = numberOfSkillProficienciesToChoose };

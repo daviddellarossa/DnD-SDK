@@ -31,23 +31,63 @@ namespace MessageBroker.Editor
                         {
                             new InputParameter()
                             {
-                                parameterName = "message",
-                                multiplicity = Multiplicity.Single,
-                                parameterType = ParameterType.StringType,
+                                ParameterName = "message",
+                                Multiplicity = Multiplicity.Single,
+                                ParameterType = ParameterType.StringType,
                             },
                             
                             new InputParameter()
                             {
-                            parameterName = "logLevel",
-                            multiplicity = Multiplicity.Single,
-                            parameterType = ParameterType.OtherType,
-                            otherType = typeof(LogType).FullName,
+                            ParameterName = "logLevel",
+                            Multiplicity = Multiplicity.Single,
+                            ParameterType = ParameterType.OtherType,
+                            OtherType = typeof(LogType).FullName,
                         }
                         };
                         message.ReturnParameter = new ReturnParameter()
                         {
-                            multiplicity = Multiplicity.Single,
-                            parameterType = ParameterType.VoidType,
+                            Multiplicity = Multiplicity.Single,
+                            ParameterType = ParameterType.VoidType,
+                        };
+                        EditorUtility.SetDirty(message);
+                    }
+                    
+                    {
+                        var messageName = "LogException";
+                        var message = ScriptableObjectHelper.CreateScriptableObject<Message>(messageName, MessagesPath);
+                        message.MessageName = messageName;
+                        message.MessageCategory = MessagesCategory;
+                        message.SendMethodComment = string.Empty;
+                        message.EventComment = string.Empty;
+                        message.InputParameters = new List<InputParameter>()
+                        {
+                            new InputParameter()
+                            {
+                                ParameterName = "sender",
+                                Multiplicity = Multiplicity.Single,
+                                ParameterType = ParameterType.ObjectType,
+                                IsNullable = true
+                            },
+                            new InputParameter()
+                            {
+                                ParameterName = "target",
+                                Multiplicity = Multiplicity.Single,
+                                ParameterType = ParameterType.ObjectType,
+                                IsNullable = true
+                            },
+                            new InputParameter()
+                            {
+                                ParameterName = "exceptionMessageEventArgs",
+                                Multiplicity = Multiplicity.Single,
+                                ParameterType = ParameterType.OtherType,
+                                OtherType = typeof(DeeDeeR.MessageBroker.ExceptionMessageBrokerEventArgs).FullName,
+                                IsNullable = true
+                            }
+                        };
+                        message.ReturnParameter = new ReturnParameter()
+                        {
+                            Multiplicity = Multiplicity.Single,
+                            ParameterType = ParameterType.VoidType,
                         };
                         EditorUtility.SetDirty(message);
                     }

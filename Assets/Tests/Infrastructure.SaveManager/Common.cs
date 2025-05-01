@@ -5,6 +5,7 @@ using DnD.Code.Scripts.Classes.FeatureProperties;
 using DnD.Code.Scripts.Common;
 using DnD.Code.Scripts.Equipment;
 using Infrastructure.SaveManager;
+using Infrastructure.SaveManager.Models;
 using NUnit.Framework;
 
 namespace Tests.Infrastructure.SaveManager

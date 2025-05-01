@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using DnD.Code.Scripts.Characters;
 using Infrastructure.SaveManager;
+using Infrastructure.SaveManager.Models;
 using Management.Scene;
 using UnityEngine;
 
@@ -20,7 +21,7 @@ namespace Management.Levels
 
             if (playerObject is null)
             {
-                Debug.LogError("PlayerCharacter GameObject not found.");
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLog(this, nameof(Logger), $"PlayerCharacter GameObject not found.", LogType.Error);
                 return;
             }
             
@@ -28,7 +29,7 @@ namespace Management.Levels
             
             if (character is null)
             {
-                Debug.LogError("Player not found");
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLog(this, nameof(Logger), $"Player not found.", LogType.Error);
                 return;
             }
             
@@ -37,7 +38,7 @@ namespace Management.Levels
 
             if (characterStats is null)
             {
-                Debug.LogError("Unable to extract characterStats from saveGameData");
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLog(this, nameof(Logger), $"Unable to extract characterStats from saveGameData.", LogType.Error);
                 return;
             }
             character.CharacterStats = characterStats;

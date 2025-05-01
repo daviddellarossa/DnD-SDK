@@ -1,4 +1,5 @@
 using System.Linq;
+using DeeDeeR.MessageBroker;
 using DnD.Code.Scripts.Characters;
 using Infrastructure;
 using Infrastructure.SaveManager;
@@ -45,19 +46,19 @@ namespace Management.Game
         {
             if (DeeDeeR.MessageBroker.MessageBroker.Instance != null)
             {
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.StartGame += StartNewGame_EventHandler;
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.LoadLatestGame += LoadLatestGame_EventHandler;
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.BackToMainMenu += BackToMainMenu_EventHandler;
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.QuitGame += QuitGame_EventHandler;
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.OnStartGame += StartNewGame_EventHandler;
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.OnLoadLatestGame += LoadLatestGame_EventHandler;
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.OnBackToMainMenu += BackToMainMenu_EventHandler;
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.OnQuitGame += QuitGame_EventHandler;
 
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Character.CharacterCreated += Character_OnCharacterCreated_EventHandler;
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Character.OnCharacterCreated += Character_OnCharacterCreated_EventHandler;
             }
             else
             {
                 Debug.LogError("MessageBroker instance is null");
             }
         }
-
+        
         private void LoadLatestGame_EventHandler(object sender, object target)
         {
             this.Core.LoadLatestGame_EventHandler(sender, target);
@@ -77,11 +78,11 @@ namespace Management.Game
         {
             if (DeeDeeR.MessageBroker.MessageBroker.Instance != null)
             {
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.StartGame -= StartNewGame_EventHandler;
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.BackToMainMenu -= BackToMainMenu_EventHandler;
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.QuitGame -= QuitGame_EventHandler;
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.OnStartGame -= StartNewGame_EventHandler;
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.OnBackToMainMenu -= BackToMainMenu_EventHandler;
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.OnQuitGame -= QuitGame_EventHandler;
 
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Character.CharacterCreated -= Character_OnCharacterCreated_EventHandler;
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Character.OnCharacterCreated -= Character_OnCharacterCreated_EventHandler;
             }
             else
             {
@@ -94,9 +95,9 @@ namespace Management.Game
             this.Core.StartNewGame_EventHandler(sender, target);
         }
         
-        private void Character_OnCharacterCreated_EventHandler(object sender, object target, CharacterStats characterStats)
+        private void Character_OnCharacterCreated_EventHandler(object sender, CharacterCreatedEventArgs e)
         {
-            this.Core.Character_OnCharacterCreated_EventHandler(sender, target, characterStats);
+            this.Core.Character_OnCharacterCreated_EventHandler(sender, e.Target, e.CharacterStats);
         }
         
         //private void LoadGame

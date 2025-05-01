@@ -5,7 +5,8 @@
         "Infrastructure.Helpers",
         "ProtobufNet",
         "DnD",
-        "DnD.Helpers"
+        "DnD.Helpers",
+        "Infrastructure.SaveManager.Models"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

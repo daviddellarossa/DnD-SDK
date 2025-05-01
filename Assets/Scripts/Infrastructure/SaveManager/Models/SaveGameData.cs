@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using DnD.Code.Scripts.Characters;
-using DnD.Code.Scripts.Classes.Barbarian.FeatureProperties;
 using ProtoBuf;
 
-namespace Infrastructure.SaveManager
+namespace Infrastructure.SaveManager.Models
 {
     [ProtoContract]
     public class SaveGameData

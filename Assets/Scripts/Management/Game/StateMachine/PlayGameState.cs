@@ -2,6 +2,7 @@
 
 using System.Linq;
 using Infrastructure.SaveManager;
+using Infrastructure.SaveManager.Models;
 using UnityEngine;
 // ReSharper disable once CheckNamespace
 using UnityEngine.SceneManagement;
@@ -50,7 +51,7 @@ namespace Management.Game
                 var sceneManager = GetSceneManagerFromScene(scene);
                 if (sceneManager == null)
                 {
-                    Debug.LogError($"SceneManager for scene \"{sceneName}\" not found");
+                    DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLog(this, nameof(Logger), $"SceneManager for scene \"{sceneName}\" not found", LogType.Error);
                 }
                 sceneManager.SetSaveGameData(saveGameData);
             }
