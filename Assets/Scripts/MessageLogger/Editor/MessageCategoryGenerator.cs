@@ -136,64 +136,18 @@ namespace MessageLogger.Editor
 
             var types = assembly.GetTypes()
                 .Where(t => t.IsClass && t.Namespace == namespaceToScan && t.Name.StartsWith("MB"));
-
+            
             foreach (var type in types)
             {
                 string categoryName = type.Name.Substring(2); // e.g., MBGame -> Game
                 string className = categoryName + "Category";
-                string brokerAccess = $"{namespaceToScan}.MessageBroker.Instance.{categoryName}";
+                string messageBrokerTypeName = $"{namespaceToScan}.MessageBroker.Instance.{categoryName}";
 
                 var events = type.GetEvents(BindingFlags.Public | BindingFlags.Instance);
-
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine("// Auto-generated MessageCategory");
-                sb.AppendLine("using System;");
-                sb.AppendLine();
-                sb.AppendLine($"{Indent.Get()}namespace {outputNamespace}");
-                sb.AppendLine($"{Indent.Get()}{{");
-                sb.AppendLine($"{Indent.Push()}internal class " + className + " : MessageCategory");
-                sb.AppendLine($"{Indent.Get()}{{");
-
-                sb.AppendLine($"{Indent.Push()}protected override void Subscribe()");
-                sb.AppendLine($"{Indent.Get()}{{");
-                sb.AppendLine($"{Indent.Push()}var instance = {brokerAccess};");
-                foreach (var evt in events)
-                {
-                    sb.AppendLine($"{Indent.Get()}instance.{evt.Name} += Handle_{evt.Name};");
-                }
-                sb.AppendLine($"{Indent.Pop()}}}");
-
-                sb.AppendLine($"{Indent.Get()}protected override void Unsubscribe()");
-                sb.AppendLine($"{Indent.Get()}{{");
-                sb.AppendLine($"{Indent.Push()}var instance = {brokerAccess};");
-                foreach (var evt in events)
-                {
-                    sb.AppendLine($"{Indent.Get()}instance.{evt.Name} -= Handle_{evt.Name};");
-                }
-                sb.AppendLine($"{Indent.Pop()}}}");
-
-                foreach (var evt in events)
-                {
-                    var parameters = evt.EventHandlerType.GetMethod("Invoke")!.GetParameters();
-                    string paramList = string.Join(", ", parameters.Select(p => p.ParameterType.FullName + " " + p.Name));
-                    string paramNames = string.Join(", ", parameters.Select(p => p.Name));
-
-                    string logMessage = parameters.Length > 2 && parameters[2].ParameterType == typeof(string) 
-                        ? parameters[2].Name 
-                        : $"\"{evt.Name.ToHumanReadable()}\"";
-                    
-                    sb.AppendLine();
-                    sb.AppendLine($"{Indent.Get()}private void Handle_{evt.Name}({paramList})");
-                    sb.AppendLine($"{Indent.Get()}{{");
-                    sb.AppendLine($"{Indent.Push()}Logger.LogEvent({parameters[0].Name}?.ToString() ?? string.Empty, {parameters[1].Name}?.ToString() ?? string.Empty, {logMessage});");
-                    sb.AppendLine($"{Indent.Pop()}}}");
-                }
-
-                sb.AppendLine($"{Indent.Pop()}}}");
-                sb.AppendLine($"{Indent.Pop()}}}");
-            
-                string filePath = Path.Combine(outputPath, className + ".cs");
-                File.WriteAllText(filePath, sb.ToString());
+                
+                var categoryGenerator = new CategoryGenerator(categoryName, outputNamespace, outputPath, events, messageBrokerTypeName);
+                
+                categoryGenerator.Generate();
             }
 
             AssetDatabase.Refresh();

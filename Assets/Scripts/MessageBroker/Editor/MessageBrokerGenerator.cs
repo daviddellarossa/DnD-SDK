@@ -27,8 +27,6 @@ namespace MessageBroker.Editor
         [MenuItem("DeeDeeR/Message Broker/Generate Message Broker")]
         static async Task GenerateMessageBroker()
         {
-
-            
             Debug.Log("MessageBrokerGenerator started.");
             _packageVersion = GetPackageVersion();
 

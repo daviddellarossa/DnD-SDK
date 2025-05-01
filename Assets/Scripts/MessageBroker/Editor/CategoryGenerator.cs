@@ -11,7 +11,6 @@ namespace MessageBroker.Editor
 {
     public static partial class MessageBrokerGenerator
     {
-        
         internal class CategoryGenerator
         {
             private readonly IEnumerable<MessageInfo> _messageInfos;
@@ -29,10 +28,10 @@ namespace MessageBroker.Editor
                 foreach (var messageInfo in this._messageInfos)
                 {
                     // Generate EventArgs-derived class from messageInfo
-                    var eventArgsNewClassToAdd = GenerateEventArgsClass(messageInfo);
+                    var eventArgsNewClassToAdd = GenerateEventArgsClass(_categoryName, messageInfo);
                     if (eventArgsNewClassToAdd != null)
                     {
-                        classes.Add(GenerateEventArgsClass(messageInfo));
+                        classes.Add(eventArgsNewClassToAdd);
                     }
                 }
 
@@ -50,7 +49,8 @@ namespace MessageBroker.Editor
                 
                 var outputPath = System.IO.Path.Combine(MessageBrokerGenerator._outputFolder, $"{MessageBrokerGenerator.ClassName}.{MessageBrokerGenerator._categoryPrefix}{this._categoryName}.cs");
 
-                this.CreateFile(compilationUnit.ToFullString(), outputPath);
+                var content = compilationUnit.ToFullString();
+                this.CreateFile(content, outputPath);
             }
 
             internal AttributeListSyntax GenerateGeneratedCodeAttribute()
@@ -181,7 +181,7 @@ namespace MessageBroker.Editor
                 {
                     var parameterSyntax = Parameter(
                             Identifier(inputParameters[index].ParameterName))
-                        .WithType(ParseTypeName(GetParameterType(inputParameters[index])));
+                        .WithType(ParseTypeName(GetParameterTypeName(inputParameters[index])));
                     
                     parameterSyntaxList.Add(parameterSyntax);
 
@@ -300,10 +300,8 @@ namespace MessageBroker.Editor
                             messageInfo.Message.InputParameters
                                 .Where(x =>
                                 {
-                                    var parameterTypeString = GetParameterType(x);
-                                    var parameterType = AppDomain.CurrentDomain.GetAssemblies()
-                                        .Select(a => a.GetType(parameterTypeString))
-                                        .FirstOrDefault(t => t != null);
+                                    var parameterTypeString = GetParameterTypeName(x);
+                                    var parameterType = GetParameterType(parameterTypeString);
 
                                     if (parameterType is { IsValueType: true })
                                     {
@@ -365,6 +363,20 @@ namespace MessageBroker.Editor
                                                     IdentifierName(x.ParameterName)));
                                             return expression;
                                         })
+                                        .Concat(new []
+                                        {
+                                            ExpressionStatement(
+                                                AssignmentExpression(
+                                                    SyntaxKind.SimpleAssignmentExpression,
+                                                    MemberAccessExpression(
+                                                        SyntaxKind.SimpleMemberAccessExpression,
+                                                        IdentifierName(eventArgsInnerParameterName),
+                                                        IdentifierName(
+                                                            SanitizePropertyName(nameof(MessageBrokerEventArgs.EventName)))),
+                                                    LiteralExpression(
+                                                        SyntaxKind.StringLiteralExpression,
+                                                        Literal($"{GetEventName(messageInfo)}"))))
+                                        })
                                 )
                                 .Concat(new[]
                                     {
@@ -390,6 +402,13 @@ namespace MessageBroker.Editor
                                                 )
                                     })
                             ));
+            }
+
+            private static Type GetParameterType(string parameterTypeString)
+            {
+                return AppDomain.CurrentDomain.GetAssemblies()
+                    .Select(a => a.GetType(parameterTypeString))
+                    .FirstOrDefault(t => t != null);
             }
 
             private static string GetEventName(MessageInfo x)
@@ -420,7 +439,7 @@ namespace MessageBroker.Editor
                 return extraInputParameters;
             }
 
-            private ClassDeclarationSyntax GenerateEventArgsClass(MessageInfo messageInfo)
+            private ClassDeclarationSyntax GenerateEventArgsClass(string categoryName, MessageInfo messageInfo)
             {
                 var extraInputParameters = GetExtraParameters(messageInfo);
 
@@ -436,17 +455,18 @@ namespace MessageBroker.Editor
                                     SyntaxKind.PublicKeyword,
                                     TriviaList())))
                         .AddBaseListTypes(
-                            SimpleBaseType(ParseTypeName(nameof(MessageBrokerEventArgs))), 
+                            SimpleBaseType(ParseTypeName(nameof(MessageBrokerEventArgs))),
                             SimpleBaseType(ParseTypeName(nameof(IResettable))))
                         .AddMembers(extraInputParameters.Select(x =>
                         {
                             var parameterName = SanitizePropertyName(x.ParameterName);
-                            var parameterType = GetParameterType(x);
-                            TypeSyntax typeSyntax = x.IsNullable
-                                ? NullableType(ParseTypeName(parameterType))
-                                : ParseTypeName(parameterType);
-
-
+                            var parameterTypeName = GetParameterTypeName(x);
+                            var parameterType = GetParameterType(parameterTypeName);
+                            
+                            TypeSyntax typeSyntax = x.IsNullable && parameterType is { IsValueType: true }
+                                ? NullableType(ParseTypeName(parameterTypeName))
+                                : ParseTypeName(parameterTypeName);
+                            
                             var propertyDeclaration = PropertyDeclaration(typeSyntax, parameterName)
                                 .AddModifiers(Token(SyntaxKind.PublicKeyword))
                                 .AddAccessorListAccessors(
@@ -457,7 +477,8 @@ namespace MessageBroker.Editor
 
                             return propertyDeclaration;
                         }).Cast<MemberDeclarationSyntax>().ToArray())
-                        .AddMembers(MethodDeclaration(
+                        .AddMembers(
+                            MethodDeclaration(
                                     PredefinedType(
                                         Token(SyntaxKind.VoidKeyword)),
                                     Identifier(nameof(IResettable.ResetState)))
@@ -466,39 +487,43 @@ namespace MessageBroker.Editor
                                         TriviaList(
                                             Trivia(
                                                 DocumentationCommentTrivia(
-                                            SyntaxKind.SingleLineDocumentationCommentTrivia,
-                                            List(
-                                                new XmlNodeSyntax[]{
-                                                    XmlText()
-                                                    .WithTextTokens(
-                                                        TokenList(
-                                                            XmlTextLiteral(
-                                                                TriviaList(
-                                                                    DocumentationCommentExterior("///")),
-                                                                " ",
-                                                                " ",
-                                                                TriviaList()))),
-                                                    XmlNullKeywordElement()
-                                                    .WithName(
-                                                        XmlName(
-                                                            Identifier("inheritdoc")))
-                                                    .WithAttributes(
-                                                        SingletonList<XmlAttributeSyntax>(
-                                                            XmlCrefAttribute(
-                                                                QualifiedCref(
-                                                                    IdentifierName(nameof(IResettable)),
-                                                                    NameMemberCref(
-                                                                        IdentifierName(nameof(IResettable.ResetState))))))),
-                                                    XmlText()
-                                                    .WithTextTokens(
-                                                        TokenList(
-                                                            XmlTextNewLine(
-                                                                TriviaList(),
-                                                                Environment.NewLine,
-                                                                Environment.NewLine,
-                                                                TriviaList())))})))),
-                                SyntaxKind.PublicKeyword,
-                                TriviaList())))
+                                                    SyntaxKind.SingleLineDocumentationCommentTrivia,
+                                                    List(
+                                                        new XmlNodeSyntax[]
+                                                        {
+                                                            XmlText()
+                                                                .WithTextTokens(
+                                                                    TokenList(
+                                                                        XmlTextLiteral(
+                                                                            TriviaList(
+                                                                                DocumentationCommentExterior("///")),
+                                                                            " ",
+                                                                            " ",
+                                                                            TriviaList()))),
+                                                            XmlNullKeywordElement()
+                                                                .WithName(
+                                                                    XmlName(
+                                                                        Identifier("inheritdoc")))
+                                                                .WithAttributes(
+                                                                    SingletonList<XmlAttributeSyntax>(
+                                                                        XmlCrefAttribute(
+                                                                            QualifiedCref(
+                                                                                IdentifierName(nameof(IResettable)),
+                                                                                NameMemberCref(
+                                                                                    IdentifierName(
+                                                                                        nameof(IResettable
+                                                                                            .ResetState))))))),
+                                                            XmlText()
+                                                                .WithTextTokens(
+                                                                    TokenList(
+                                                                        XmlTextNewLine(
+                                                                            TriviaList(),
+                                                                            Environment.NewLine,
+                                                                            Environment.NewLine,
+                                                                            TriviaList())))
+                                                        })))),
+                                        SyntaxKind.PublicKeyword,
+                                        TriviaList())))
                                 .WithBody(Block(
                                     extraInputParameters.Select(x => ExpressionStatement(
                                         AssignmentExpression(
@@ -511,11 +536,60 @@ namespace MessageBroker.Editor
                                             LiteralExpression(
                                                 SyntaxKind.DefaultLiteralExpression,
                                                 Token(SyntaxKind.DefaultKeyword))))).Cast<StatementSyntax>().ToArray()))
-                        );
+                        )
+                        .AddMembers(GenerateToStringMethod(categoryName, messageInfo));
+                        
                     return newClass;
                 }
 
                 return null;
+            }
+
+            private MethodDeclarationSyntax GenerateToStringMethod(string categoryName, MessageInfo messageInfo)
+            {
+                ReturnStatementSyntax GenerateReturnStatement()
+                {
+                    return ReturnStatement(GenerateInterpolatedStringExpression());
+                }
+
+                InterpolatedStringExpressionSyntax GenerateInterpolatedStringExpression()
+                {
+                    return InterpolatedStringExpression(
+                            Token(SyntaxKind.InterpolatedStringStartToken))
+                        .WithContents(List<InterpolatedStringContentSyntax>(
+                            messageInfo.Message.InputParameters.Select(x =>
+                            {
+                                var parameterName = SanitizePropertyName(x.ParameterName);
+                                return new InterpolatedStringContentSyntax[]
+                                {
+                                    InterpolatedStringText()
+                                        .WithTextToken(
+                                            Token(
+                                                TriviaList(),
+                                                SyntaxKind.InterpolatedStringTextToken,
+                                                $", {parameterName}: ",
+                                                $", {parameterName}: ",
+                                                TriviaList())),
+                                    Interpolation(IdentifierName(parameterName))
+                                };
+                            }).SelectMany(x => x).ToArray()));
+                }
+                
+                return MethodDeclaration(
+                        PredefinedType(
+                            Token(SyntaxKind.StringKeyword)),
+                        Identifier("ToString"))
+                    .WithModifiers(
+                        TokenList(
+                            new[]
+                            {
+                                Token(SyntaxKind.PublicKeyword),
+                                Token(SyntaxKind.OverrideKeyword)
+                            }))
+                    .WithBody(
+                        Block(
+                            SingletonList<StatementSyntax>(
+                                GenerateReturnStatement())));
             }
 
             private string SanitizePropertyName(string propertyName)
@@ -524,7 +598,7 @@ namespace MessageBroker.Editor
                 return char.ToUpper(cleanPropertyName[0]) + cleanPropertyName.Substring(1);
             }
 
-            private static string GetParameterType(InputParameter inputParameter)
+            private static string GetParameterTypeName(InputParameter inputParameter)
             {
                 var multiplicity = inputParameter.Multiplicity.ToTypeString();
                 
