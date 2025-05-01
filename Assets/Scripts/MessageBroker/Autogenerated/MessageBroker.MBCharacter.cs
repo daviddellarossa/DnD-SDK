@@ -25,6 +25,11 @@ namespace DeeDeeR.MessageBroker
         {
             this.CharacterStats = default;
         }
+
+        public override string ToString()
+        {
+            return $", Sender: {Sender}, Target: {Target}, CharacterStats: {CharacterStats}";
+        }
     }
 
     /// <summary>
@@ -59,6 +64,7 @@ namespace DeeDeeR.MessageBroker
             __eventArgs__.Sender = sender;
             __eventArgs__.Target = target;
             __eventArgs__.CharacterStats = characterStats;
+            __eventArgs__.EventName = "OnCharacterCreated";
             OnCharacterCreated?.Invoke(sender, __eventArgs__);
         }
     }

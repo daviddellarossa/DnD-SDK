@@ -7,6 +7,7 @@ namespace MessageBroker
     {
         public object Sender { get; set; }
         public object Target { get; set; }
+        public string EventName { get; set; }
 
         public MessageBrokerEventArgs()
         {
@@ -59,6 +60,11 @@ namespace MessageBroker
 
                 PoolBag.Add(instance);
             }
+        }
+
+        public override string ToString()
+        {
+            return $"Message Type: {EventName},  Sender: {Sender ?? string.Empty}, Target: {Target ?? string.Empty}";
         }
     }
 

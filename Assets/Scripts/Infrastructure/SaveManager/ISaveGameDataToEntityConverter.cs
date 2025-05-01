@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using DnD.Code.Scripts.Characters;
 using DnD.Code.Scripts.Classes.FeatureProperties;
+using Infrastructure.SaveManager.Models;
 
 namespace Infrastructure.SaveManager
 {

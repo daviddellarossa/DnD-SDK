@@ -16,9 +16,7 @@ using DnD.Code.Scripts.Languages;
 using DnD.Code.Scripts.Species;
 using DnD.Code.Scripts.Species.SpecialTraits;
 using DnD.Code.Scripts.Weapons;
-using Unity.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace DnD.Code.Scripts.Characters
 {

@@ -68,14 +68,14 @@ namespace Management.Menus.Main
         
         private void OnNewGameClicked()
         {
-            Debug.Log("New Game Clicked!");
+            DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLog(this, nameof(Logger), $"New Game Clicked!", LogType.Log);
             // Implement your game logic here
             DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.Send_OnStartGame(this, nameof(GameManager));
         }
 
         private void OnContinueGameClicked()
         {
-            Debug.Log("Continue Game Clicked!");
+            DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLog(this, nameof(Logger), $"Continue Game Clicked!", LogType.Log);
             // Implement your game logic here
             DeeDeeR.MessageBroker.MessageBroker.Instance.Menus.Send_OnLoadLatestGame(this, null);
         }

@@ -18,12 +18,17 @@ namespace DeeDeeR.MessageBroker
     /// </summary>
     public class LoadGameEventArgs : MessageBrokerEventArgs, IResettable
     {
-        public Infrastructure.SaveManager.SaveGameData SaveGameData { get; set; }
+        public Infrastructure.SaveManager.Models.SaveGameData SaveGameData { get; set; }
 
         /// <inheritdoc cref = "IResettable.ResetState"/>
         public void ResetState()
         {
             this.SaveGameData = default;
+        }
+
+        public override string ToString()
+        {
+            return $", Sender: {Sender}, Target: {Target}, SaveGameData: {SaveGameData}";
         }
     }
 
@@ -67,13 +72,14 @@ namespace DeeDeeR.MessageBroker
             var __eventArgs__ = MessageBrokerEventArgs.Pool<MessageBrokerEventArgs>.Rent();
             __eventArgs__.Sender = sender;
             __eventArgs__.Target = target;
+            __eventArgs__.EventName = "OnBackToMainMenu";
             OnBackToMainMenu?.Invoke(sender, __eventArgs__);
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public void Send_OnLoadGame(object sender, object target, Infrastructure.SaveManager.SaveGameData saveGameData)
+        public void Send_OnLoadGame(object sender, object target, Infrastructure.SaveManager.Models.SaveGameData saveGameData)
         {
             if (sender == null)
             {
@@ -93,6 +99,7 @@ namespace DeeDeeR.MessageBroker
             __eventArgs__.Sender = sender;
             __eventArgs__.Target = target;
             __eventArgs__.SaveGameData = saveGameData;
+            __eventArgs__.EventName = "OnLoadGame";
             OnLoadGame?.Invoke(sender, __eventArgs__);
         }
 
@@ -111,6 +118,7 @@ namespace DeeDeeR.MessageBroker
             var __eventArgs__ = MessageBrokerEventArgs.Pool<MessageBrokerEventArgs>.Rent();
             __eventArgs__.Sender = sender;
             __eventArgs__.Target = target;
+            __eventArgs__.EventName = "OnLoadLatestGame";
             OnLoadLatestGame?.Invoke(sender, __eventArgs__);
         }
 
@@ -129,6 +137,7 @@ namespace DeeDeeR.MessageBroker
             var __eventArgs__ = MessageBrokerEventArgs.Pool<MessageBrokerEventArgs>.Rent();
             __eventArgs__.Sender = sender;
             __eventArgs__.Target = target;
+            __eventArgs__.EventName = "OnQuitGame";
             OnQuitGame?.Invoke(sender, __eventArgs__);
         }
 
@@ -147,6 +156,7 @@ namespace DeeDeeR.MessageBroker
             var __eventArgs__ = MessageBrokerEventArgs.Pool<MessageBrokerEventArgs>.Rent();
             __eventArgs__.Sender = sender;
             __eventArgs__.Target = target;
+            __eventArgs__.EventName = "OnStartGame";
             OnStartGame?.Invoke(sender, __eventArgs__);
         }
     }

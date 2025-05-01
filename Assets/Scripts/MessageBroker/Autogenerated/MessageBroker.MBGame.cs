@@ -49,6 +49,7 @@ namespace DeeDeeR.MessageBroker
             var __eventArgs__ = MessageBrokerEventArgs.Pool<MessageBrokerEventArgs>.Rent();
             __eventArgs__.Sender = sender;
             __eventArgs__.Target = target;
+            __eventArgs__.EventName = "OnGameOver";
             OnGameOver?.Invoke(sender, __eventArgs__);
         }
 
@@ -67,6 +68,7 @@ namespace DeeDeeR.MessageBroker
             var __eventArgs__ = MessageBrokerEventArgs.Pool<MessageBrokerEventArgs>.Rent();
             __eventArgs__.Sender = sender;
             __eventArgs__.Target = target;
+            __eventArgs__.EventName = "OnGamePaused";
             OnGamePaused?.Invoke(sender, __eventArgs__);
         }
 
@@ -85,6 +87,7 @@ namespace DeeDeeR.MessageBroker
             var __eventArgs__ = MessageBrokerEventArgs.Pool<MessageBrokerEventArgs>.Rent();
             __eventArgs__.Sender = sender;
             __eventArgs__.Target = target;
+            __eventArgs__.EventName = "OnGameResumed";
             OnGameResumed?.Invoke(sender, __eventArgs__);
         }
 
@@ -103,6 +106,7 @@ namespace DeeDeeR.MessageBroker
             var __eventArgs__ = MessageBrokerEventArgs.Pool<MessageBrokerEventArgs>.Rent();
             __eventArgs__.Sender = sender;
             __eventArgs__.Target = target;
+            __eventArgs__.EventName = "OnGameStarted";
             OnGameStarted?.Invoke(sender, __eventArgs__);
         }
     }

@@ -20,7 +20,7 @@ MonoBehaviour:
   - multiplicity: 0
     parameterType: 11
     isNullable: 0
-    otherType: Infrastructure.SaveManager.SaveGameData
+    otherType: Infrastructure.SaveManager.Models.SaveGameData
     parameterComment: The savegame data structure containing the game data to load
     parameterName: saveGameData
   returnParameter:

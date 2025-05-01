@@ -7,7 +7,8 @@
         "DnD",
         "DnD.Helpers",
         "Infrastructure.Helpers",
-        "Infrastructure.SaveManager"
+        "Infrastructure.SaveManager",
+        "Infrastructure.SaveManager.Models"
     ],
     "includePlatforms": [
         "Editor"
