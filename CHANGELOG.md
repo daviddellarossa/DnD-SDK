@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Save/Load system for characters
 - Unit tests for Save/Load functionality
 - Logging system with categorized logging
+- Unit tests for Barbarian class features
+- Deserialization system for savegames
+- Deserialization support for CharacterStat from savegames
+- Comprehensive test coverage for save/load operations
 
 ### Changed
 - Refactored Message Broker with Roslyn
@@ -24,14 +28,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Standardized Barbarian class features naming conventions
 - Updated display name and description formatting for class features
 
-### Added (Technical)
-- Deserialization system for savegames
-- Deserialization support for CharacterStat from savegames
-- Comprehensive test coverage for save/load operations
-
 ### Removed
 - Obsolete MessageBroker generators
 
 ### Technical Improvements
 - Enhanced code coverage implementation
 - Restructured logging system with category-based approach
+- New Message Logger system with Category Generator
+- Code coverage implementation for testing
+- Character creation flow system
+- Test Character level creation
+- New Player object in Test scene
+- Save/Load system for characters
+- Unit tests for Save/Load functionality
+- Logging system with categorized logging
+- Unit tests for Barbarian class features
