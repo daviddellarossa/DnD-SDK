@@ -43,6 +43,7 @@ namespace DnD.Code.Scripts.Helpers.NameHelper
             public const string Abilities = "Abilities";
             public const string Skills = "Skills";
             public const string CharacterStats = "CharacterStats";
+            public const string ClassFeatures = "ClassFeatures";
         }
         public static class Abilities
         {
@@ -281,7 +282,7 @@ namespace DnD.Code.Scripts.Helpers.NameHelper
             public const string OptionB = "OptionB";
         }
 
-        public static class ClassFeatures_Barbarian
+        public static class ClassFeaturesBarbarian
         {
             public const string AbilityScoreImprovement = "AbilityScoreImprovement";
             public const string AnimalSpeaker = "AnimalSpeaker";

@@ -204,9 +204,9 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.Rage,
-                                NameHelper.ClassFeatures_Barbarian.UnarmouredDefense,
-                                NameHelper.ClassFeatures_Barbarian.WeaponMastery,
+                                NameHelper.ClassFeaturesBarbarian.Rage,
+                                NameHelper.ClassFeaturesBarbarian.UnarmouredDefense,
+                                NameHelper.ClassFeaturesBarbarian.WeaponMastery,
                             }
                         });
                     yield return new TestCaseData(
@@ -223,8 +223,8 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.DangerSense,
-                                NameHelper.ClassFeatures_Barbarian.RecklessAttack,
+                                NameHelper.ClassFeaturesBarbarian.DangerSense,
+                                NameHelper.ClassFeaturesBarbarian.RecklessAttack,
                             }
                         });
                     yield return new TestCaseData(
@@ -241,8 +241,8 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.BarbarianSubclass,
-                                NameHelper.ClassFeatures_Barbarian.PrimalKnowledge,
+                                NameHelper.ClassFeaturesBarbarian.BarbarianSubclass,
+                                NameHelper.ClassFeaturesBarbarian.PrimalKnowledge,
                             }
                         });
                     yield return new TestCaseData(
@@ -259,7 +259,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.AbilityScoreImprovement,
+                                NameHelper.ClassFeaturesBarbarian.AbilityScoreImprovement,
                             }
                         });
                     yield return new TestCaseData(
@@ -276,8 +276,8 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.ExtraAttack,
-                                NameHelper.ClassFeatures_Barbarian.FastMovement,
+                                NameHelper.ClassFeaturesBarbarian.ExtraAttack,
+                                NameHelper.ClassFeaturesBarbarian.FastMovement,
                             }
                         });
                     yield return new TestCaseData(
@@ -294,7 +294,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.SubclassFeature,
+                                NameHelper.ClassFeaturesBarbarian.SubclassFeature,
                             }
                         });
                     yield return new TestCaseData(
@@ -311,8 +311,8 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.FeralInstinct,
-                                NameHelper.ClassFeatures_Barbarian.InstinctivePounce,
+                                NameHelper.ClassFeaturesBarbarian.FeralInstinct,
+                                NameHelper.ClassFeaturesBarbarian.InstinctivePounce,
                             }
                         });
                     yield return new TestCaseData(
@@ -329,7 +329,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.AbilityScoreImprovement,
+                                NameHelper.ClassFeaturesBarbarian.AbilityScoreImprovement,
                             }
                         });
                     yield return new TestCaseData(
@@ -346,7 +346,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.BrutalStrike,
+                                NameHelper.ClassFeaturesBarbarian.BrutalStrike,
                             }
                         });
                     yield return new TestCaseData(
@@ -363,7 +363,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.SubclassFeature,
+                                NameHelper.ClassFeaturesBarbarian.SubclassFeature,
                             }
                         });
                     yield return new TestCaseData(
@@ -380,7 +380,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.RelentlessRage,
+                                NameHelper.ClassFeaturesBarbarian.RelentlessRage,
                             }
                         });
                     yield return new TestCaseData(
@@ -397,7 +397,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.AbilityScoreImprovement,
+                                NameHelper.ClassFeaturesBarbarian.AbilityScoreImprovement,
                             }
                         });
                     yield return new TestCaseData(
@@ -414,7 +414,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.ImprovedBrutalStrike,
+                                NameHelper.ClassFeaturesBarbarian.ImprovedBrutalStrike,
                             }
                         });
                     yield return new TestCaseData(
@@ -431,7 +431,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.SubclassFeature,
+                                NameHelper.ClassFeaturesBarbarian.SubclassFeature,
                             }
                         });
                     yield return new TestCaseData(
@@ -448,7 +448,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.PersistentRage,
+                                NameHelper.ClassFeaturesBarbarian.PersistentRage,
                             }
                         });
                     yield return new TestCaseData(
@@ -465,7 +465,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.AbilityScoreImprovement,
+                                NameHelper.ClassFeaturesBarbarian.AbilityScoreImprovement,
                             }
                         });
                     yield return new TestCaseData(
@@ -482,7 +482,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.ImprovedBrutalStrike,
+                                NameHelper.ClassFeaturesBarbarian.ImprovedBrutalStrike,
                             }
                         });
                     yield return new TestCaseData(
@@ -499,7 +499,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.SubclassFeature,
+                                NameHelper.ClassFeaturesBarbarian.SubclassFeature,
                             }
                         });
                     yield return new TestCaseData(
@@ -516,7 +516,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.EpicBoon,
+                                NameHelper.ClassFeaturesBarbarian.EpicBoon,
                             }
                         });
                     yield return new TestCaseData(
@@ -533,7 +533,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.PrimalChampion,
+                                NameHelper.ClassFeaturesBarbarian.PrimalChampion,
                             }
                         });
                 }
@@ -588,8 +588,8 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.DivineFury,
-                                NameHelper.ClassFeatures_Barbarian.WarriorOfTheGods,
+                                NameHelper.ClassFeaturesBarbarian.DivineFury,
+                                NameHelper.ClassFeaturesBarbarian.WarriorOfTheGods,
                             }
                         });
                     yield return new TestCaseData(
@@ -607,7 +607,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.FanaticalFocus,
+                                NameHelper.ClassFeaturesBarbarian.FanaticalFocus,
                             }
                         });
                     yield return new TestCaseData(
@@ -625,7 +625,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.ZealousPresence,
+                                NameHelper.ClassFeaturesBarbarian.ZealousPresence,
                             }
                         });
                     yield return new TestCaseData(
@@ -643,7 +643,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.RageOfTheGods,
+                                NameHelper.ClassFeaturesBarbarian.RageOfTheGods,
                             }
                         });
                     
@@ -663,8 +663,8 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.AnimalSpeaker,
-                                NameHelper.ClassFeatures_Barbarian.RageOfTheWilds,
+                                NameHelper.ClassFeaturesBarbarian.AnimalSpeaker,
+                                NameHelper.ClassFeaturesBarbarian.RageOfTheWilds,
                             }
                         });
                     yield return new TestCaseData(
@@ -682,7 +682,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.AspectOfTheWilds,
+                                NameHelper.ClassFeaturesBarbarian.AspectOfTheWilds,
                             }
                         });
                     yield return new TestCaseData(
@@ -700,7 +700,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.NatureSpeaker,
+                                NameHelper.ClassFeaturesBarbarian.NatureSpeaker,
                             }
                         });
                     yield return new TestCaseData(
@@ -718,7 +718,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.PowerOfTheWilds,
+                                NameHelper.ClassFeaturesBarbarian.PowerOfTheWilds,
                             }
                         });
                     
@@ -738,7 +738,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.VitalityOfTheTree,
+                                NameHelper.ClassFeaturesBarbarian.VitalityOfTheTree,
                             }
                         });
                     yield return new TestCaseData(
@@ -756,7 +756,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.BranchesOfTheTree,
+                                NameHelper.ClassFeaturesBarbarian.BranchesOfTheTree,
                             }
                         });
                     yield return new TestCaseData(
@@ -774,7 +774,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.BatteringRoots,
+                                NameHelper.ClassFeaturesBarbarian.BatteringRoots,
                             }
                         });
                     yield return new TestCaseData(
@@ -792,7 +792,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.TravelAlongTheTree,
+                                NameHelper.ClassFeaturesBarbarian.TravelAlongTheTree,
                             }
                         });
                     
@@ -812,7 +812,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.Frenzy,
+                                NameHelper.ClassFeaturesBarbarian.Frenzy,
                             }
                         });
                     yield return new TestCaseData(
@@ -830,7 +830,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.MindlessRage,
+                                NameHelper.ClassFeaturesBarbarian.MindlessRage,
                             }
                         });
                     yield return new TestCaseData(
@@ -848,7 +848,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.Retaliation,
+                                NameHelper.ClassFeaturesBarbarian.Retaliation,
                             }
                         });
                     yield return new TestCaseData(
@@ -866,7 +866,7 @@ namespace Tests.DnD.Classes.Barbarian
                             },
                             ClassFeatures = new[]
                             {
-                                NameHelper.ClassFeatures_Barbarian.IntimidatingPresence,
+                                NameHelper.ClassFeaturesBarbarian.IntimidatingPresence,
                             }
                         });
                 }
