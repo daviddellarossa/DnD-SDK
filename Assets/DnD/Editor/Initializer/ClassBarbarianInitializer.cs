@@ -129,8 +129,8 @@ namespace DnD.Editor.Initializer
             
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<DivineFury>(NameHelper.ClassFeatures_Barbarian.DivineFury, level),
-                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<WarriorOfTheGods>(NameHelper.ClassFeatures_Barbarian.WarriorOfTheGods, level),
+                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<DivineFury>(NameHelper.ClassFeaturesBarbarian.DivineFury, level),
+                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<WarriorOfTheGods>(NameHelper.ClassFeaturesBarbarian.WarriorOfTheGods, level),
                 });
                 
                 return level;
@@ -152,7 +152,7 @@ namespace DnD.Editor.Initializer
 
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<FanaticalFocus>(NameHelper.ClassFeatures_Barbarian.FanaticalFocus, level),
+                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<FanaticalFocus>(NameHelper.ClassFeaturesBarbarian.FanaticalFocus, level),
                 });
                 
                 return level;
@@ -174,7 +174,7 @@ namespace DnD.Editor.Initializer
             
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<ZealousPresence>(NameHelper.ClassFeatures_Barbarian.ZealousPresence, level),
+                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<ZealousPresence>(NameHelper.ClassFeaturesBarbarian.ZealousPresence, level),
                 });
                 
                 return level;
@@ -196,7 +196,7 @@ namespace DnD.Editor.Initializer
 
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<RageOfTheGods>(NameHelper.ClassFeatures_Barbarian.RageOfTheGods, level),
+                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<RageOfTheGods>(NameHelper.ClassFeaturesBarbarian.RageOfTheGods, level),
 
                 });
                 
@@ -233,7 +233,7 @@ namespace DnD.Editor.Initializer
             
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<VitalityOfTheTree>(NameHelper.ClassFeatures_Barbarian.VitalityOfTheTree, level),
+                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<VitalityOfTheTree>(NameHelper.ClassFeaturesBarbarian.VitalityOfTheTree, level),
 
                 });
                 
@@ -256,7 +256,7 @@ namespace DnD.Editor.Initializer
 
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<BranchesOfTheTree>(NameHelper.ClassFeatures_Barbarian.BranchesOfTheTree, level),
+                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<BranchesOfTheTree>(NameHelper.ClassFeaturesBarbarian.BranchesOfTheTree, level),
                 });
                 
                 return level;
@@ -278,7 +278,7 @@ namespace DnD.Editor.Initializer
             
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<BatteringRoots>(NameHelper.ClassFeatures_Barbarian.BatteringRoots, level),
+                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<BatteringRoots>(NameHelper.ClassFeaturesBarbarian.BatteringRoots, level),
                 });
                 
                 return level;
@@ -300,7 +300,7 @@ namespace DnD.Editor.Initializer
 
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<TravelAlongTheTree>(NameHelper.ClassFeatures_Barbarian.TravelAlongTheTree, level),
+                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<TravelAlongTheTree>(NameHelper.ClassFeaturesBarbarian.TravelAlongTheTree, level),
 
                 });
                 
@@ -337,8 +337,8 @@ namespace DnD.Editor.Initializer
             
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<AnimalSpeaker>(NameHelper.ClassFeatures_Barbarian.AnimalSpeaker, level),
-                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<RageOfTheWilds>(NameHelper.ClassFeatures_Barbarian.RageOfTheWilds, level),
+                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<AnimalSpeaker>(NameHelper.ClassFeaturesBarbarian.AnimalSpeaker, level),
+                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<RageOfTheWilds>(NameHelper.ClassFeaturesBarbarian.RageOfTheWilds, level),
 
                 });
                 
@@ -361,7 +361,7 @@ namespace DnD.Editor.Initializer
 
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<AspectOfTheWilds>(NameHelper.ClassFeatures_Barbarian.AspectOfTheWilds, level),
+                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<AspectOfTheWilds>(NameHelper.ClassFeaturesBarbarian.AspectOfTheWilds, level),
                 });
                 
                 return level;
@@ -383,7 +383,7 @@ namespace DnD.Editor.Initializer
             
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<NatureSpeaker>(NameHelper.ClassFeatures_Barbarian.NatureSpeaker, level),
+                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<NatureSpeaker>(NameHelper.ClassFeaturesBarbarian.NatureSpeaker, level),
                 });
                 
                 return level;
@@ -405,7 +405,7 @@ namespace DnD.Editor.Initializer
 
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<PowerOfTheWilds>(NameHelper.ClassFeatures_Barbarian.PowerOfTheWilds, level),
+                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<PowerOfTheWilds>(NameHelper.ClassFeaturesBarbarian.PowerOfTheWilds, level),
 
                 });
                 
@@ -442,7 +442,7 @@ namespace DnD.Editor.Initializer
             
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Frenzy>($"{NameHelper.ClassFeatures_Barbarian.Frenzy}", level),
+                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Frenzy>($"{NameHelper.ClassFeaturesBarbarian.Frenzy}", level),
                 });
                 
                 return level;
@@ -464,7 +464,7 @@ namespace DnD.Editor.Initializer
 
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<MindlessRage>(NameHelper.ClassFeatures_Barbarian.MindlessRage, level),
+                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<MindlessRage>(NameHelper.ClassFeaturesBarbarian.MindlessRage, level),
                 });
                 
                 return level;
@@ -486,7 +486,7 @@ namespace DnD.Editor.Initializer
             
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Retaliation>(NameHelper.ClassFeatures_Barbarian.Retaliation, level),
+                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Retaliation>(NameHelper.ClassFeaturesBarbarian.Retaliation, level),
                 });
                 
                 return level;
@@ -508,7 +508,7 @@ namespace DnD.Editor.Initializer
 
                 level.ClassFeatures.AddRange(new ClassFeature []
                 {
-                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<IntimidatingPresence>(NameHelper.ClassFeatures_Barbarian.IntimidatingPresence, level),
+                    ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<IntimidatingPresence>(NameHelper.ClassFeaturesBarbarian.IntimidatingPresence, level),
 
                 });
                 
@@ -577,9 +577,9 @@ namespace DnD.Editor.Initializer
             
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Rage>(NameHelper.ClassFeatures_Barbarian.Rage, level),
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<UnarmouredDefense>(NameHelper.ClassFeatures_Barbarian.UnarmouredDefense, level),
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<WeaponMastery>(NameHelper.ClassFeatures_Barbarian.WeaponMastery, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<Rage>(NameHelper.ClassFeaturesBarbarian.Rage, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<UnarmouredDefense>(NameHelper.ClassFeaturesBarbarian.UnarmouredDefense, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<WeaponMastery>(NameHelper.ClassFeaturesBarbarian.WeaponMastery, level),
             });
             
             return level;
@@ -601,8 +601,8 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<DangerSense>(NameHelper.ClassFeatures_Barbarian.DangerSense, level),
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<RecklessAttack>(NameHelper.ClassFeatures_Barbarian.RecklessAttack, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<DangerSense>(NameHelper.ClassFeaturesBarbarian.DangerSense, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<RecklessAttack>(NameHelper.ClassFeaturesBarbarian.RecklessAttack, level),
             });
             return level;
         }
@@ -623,8 +623,8 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<BarbarianSubclass>(NameHelper.ClassFeatures_Barbarian.BarbarianSubclass, level),
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<PrimalKnowledge>(NameHelper.ClassFeatures_Barbarian.PrimalKnowledge, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<BarbarianSubclass>(NameHelper.ClassFeaturesBarbarian.BarbarianSubclass, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<PrimalKnowledge>(NameHelper.ClassFeaturesBarbarian.PrimalKnowledge, level),
             });
             return level;
         }
@@ -645,7 +645,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<AbilityScoreImprovement>(NameHelper.ClassFeatures_Barbarian.AbilityScoreImprovement, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<AbilityScoreImprovement>(NameHelper.ClassFeaturesBarbarian.AbilityScoreImprovement, level),
             });
             return level;
         }
@@ -666,8 +666,8 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<ExtraAttack>(NameHelper.ClassFeatures_Barbarian.ExtraAttack, level),
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<FastMovement>(NameHelper.ClassFeatures_Barbarian.FastMovement, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<ExtraAttack>(NameHelper.ClassFeaturesBarbarian.ExtraAttack, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<FastMovement>(NameHelper.ClassFeaturesBarbarian.FastMovement, level),
             });
             return level;
         }
@@ -688,7 +688,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<SubclassFeature>(NameHelper.ClassFeatures_Barbarian.SubclassFeature, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<SubclassFeature>(NameHelper.ClassFeaturesBarbarian.SubclassFeature, level),
             });
             return level;
         }
@@ -709,8 +709,8 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<FeralInstinct>(NameHelper.ClassFeatures_Barbarian.FeralInstinct, level),
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<InstinctivePounce>(NameHelper.ClassFeatures_Barbarian.InstinctivePounce, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<FeralInstinct>(NameHelper.ClassFeaturesBarbarian.FeralInstinct, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<InstinctivePounce>(NameHelper.ClassFeaturesBarbarian.InstinctivePounce, level),
             });
             return level;
         }
@@ -731,7 +731,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<AbilityScoreImprovement>(NameHelper.ClassFeatures_Barbarian.AbilityScoreImprovement, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<AbilityScoreImprovement>(NameHelper.ClassFeaturesBarbarian.AbilityScoreImprovement, level),
             });
             return level;
         }
@@ -752,7 +752,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<BrutalStrike>(NameHelper.ClassFeatures_Barbarian.BrutalStrike, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<BrutalStrike>(NameHelper.ClassFeaturesBarbarian.BrutalStrike, level),
             });
             return level;
         }
@@ -773,7 +773,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<SubclassFeature>(NameHelper.ClassFeatures_Barbarian.SubclassFeature, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<SubclassFeature>(NameHelper.ClassFeaturesBarbarian.SubclassFeature, level),
             });
             return level;
         }
@@ -794,7 +794,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<RelentlessRage>(NameHelper.ClassFeatures_Barbarian.RelentlessRage, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<RelentlessRage>(NameHelper.ClassFeaturesBarbarian.RelentlessRage, level),
             });
             return level;
         }
@@ -815,7 +815,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<AbilityScoreImprovement>(NameHelper.ClassFeatures_Barbarian.AbilityScoreImprovement, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<AbilityScoreImprovement>(NameHelper.ClassFeaturesBarbarian.AbilityScoreImprovement, level),
             });
             return level;
         }
@@ -836,7 +836,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<ImprovedBrutalStrike>(NameHelper.ClassFeatures_Barbarian.ImprovedBrutalStrike, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<ImprovedBrutalStrike>(NameHelper.ClassFeaturesBarbarian.ImprovedBrutalStrike, level),
             });
             return level;
         }
@@ -857,7 +857,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<SubclassFeature>(NameHelper.ClassFeatures_Barbarian.SubclassFeature, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<SubclassFeature>(NameHelper.ClassFeaturesBarbarian.SubclassFeature, level),
             });
             return level;
         }
@@ -878,7 +878,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<PersistentRage>(NameHelper.ClassFeatures_Barbarian.PersistentRage, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<PersistentRage>(NameHelper.ClassFeaturesBarbarian.PersistentRage, level),
             });
             return level;
         }
@@ -899,7 +899,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<AbilityScoreImprovement>(NameHelper.ClassFeatures_Barbarian.AbilityScoreImprovement, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<AbilityScoreImprovement>(NameHelper.ClassFeaturesBarbarian.AbilityScoreImprovement, level),
             });
             return level;
         }
@@ -920,7 +920,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<ImprovedBrutalStrike>(NameHelper.ClassFeatures_Barbarian.ImprovedBrutalStrike, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<ImprovedBrutalStrike>(NameHelper.ClassFeaturesBarbarian.ImprovedBrutalStrike, level),
             });
             return level;
         }
@@ -941,7 +941,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<SubclassFeature>(NameHelper.ClassFeatures_Barbarian.SubclassFeature, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<SubclassFeature>(NameHelper.ClassFeaturesBarbarian.SubclassFeature, level),
             });
             return level;
         }
@@ -962,7 +962,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<EpicBoon>(NameHelper.ClassFeatures_Barbarian.EpicBoon, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<EpicBoon>(NameHelper.ClassFeaturesBarbarian.EpicBoon, level),
             });
             return level;
         }
@@ -983,7 +983,7 @@ namespace DnD.Editor.Initializer
 
             level.ClassFeatures.AddRange(new ClassFeature []
             {
-                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<PrimalChampion>(NameHelper.ClassFeatures_Barbarian.PrimalChampion, level),
+                ScriptableObjectHelper.CreateScriptableObjectAndAddToObject<PrimalChampion>(NameHelper.ClassFeaturesBarbarian.PrimalChampion, level),
             });
             return level;
         }

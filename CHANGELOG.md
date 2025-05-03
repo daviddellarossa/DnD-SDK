@@ -7,25 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Initial project setup
-
-### Changed
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security# Changelog
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
-## [Unreleased]
-
-### Added
 - [TODO] Add features created before this document was created.
 - New Message Logger system with Category Generator
 - Code coverage implementation for testing
@@ -40,6 +21,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Refactored Message Broker with Roslyn
 - Improved localization of strings in Character UI
 - Refactored Save/Load classes for better maintainability
+- Standardized Barbarian class features naming conventions
+- Updated display name and description formatting for class features
 
 ### Added (Technical)
 - Deserialization system for savegames
