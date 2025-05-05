@@ -8,7 +8,7 @@ namespace Management.Scene
         public float cameraHeight = 15f;
         public float cameraDistance = 20f;
         public float angleX = 30f;
-        public float angleY = 45f;
+        public float angleY = 0f;
 
         void Start()
         {
