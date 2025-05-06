@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Management.Scene
@@ -7,7 +8,7 @@ namespace Management.Scene
     {
         [Header("Paraboloid Settings")]
         [Tooltip("Coefficient for the paraboloid equation (y = a * (x² + z²))")]
-        [SerializeField] private float paraboloidCoefficient = 0.5f;
+        [SerializeField] private float paraboloidCoefficient = 0.1f;
         
         [Tooltip("Minimum height of the camera on the paraboloid")]
         [SerializeField] private float minHeight = 2.0f;
@@ -189,23 +190,81 @@ namespace Management.Scene
             // Skip if no input
             if (_moveInput.sqrMagnitude < 0.01f)
                 return;
-                
+
             // Get movement values from the input system
-            float horizontalInput = _moveInput.x;
-            float verticalInput = _moveInput.y;
-            
-            // Calculate movement direction in world space
-            Vector3 direction = new Vector3(horizontalInput, 0, verticalInput).normalized;
-            
+            float horizontalInput = _moveInput.x; // AD keys
+            float verticalInput = _moveInput.y; // WS keys
+
+            // Get camera's forward direction and project it onto XZ plane
+            Vector3 cameraForward = transform.forward;
+            Vector3 projectedForward = Vector3.ProjectOnPlane(cameraForward, Vector3.up).normalized;
+
+            // Get camera's right vector (already on XZ plane since camera only rotates around Y)
+            Vector3 cameraRight = transform.right;
+
+            // Calculate movement direction using camera-relative vectors
+            Vector3 direction = (cameraRight * horizontalInput + projectedForward * verticalInput).normalized;
+
             // Apply sprint multiplier if sprinting
             float currentSpeed = _isSprinting ? centerMoveSpeed * sprintMultiplier : centerMoveSpeed;
+
+            float angle = Vector3.Angle(cameraForward, projectedForward);
+            
+            // Calculate compensation factor based on angle between camera forward and its projection to compensate for inclination
+            float compensationFactor = Mathf.Sin(angle * Mathf.Deg2Rad);
+            
+            // Prevent division by very small numbers
+            if (compensationFactor < 0.01f)
+                compensationFactor = 0.01f;
+
+            var currentSpeedByDeltaTime = currentSpeed * Time.deltaTime;
             
             // Move the center point
-            _centerPoint += direction * (currentSpeed * Time.deltaTime);
-            
+            _centerPoint += new Vector3(direction.x * currentSpeedByDeltaTime / compensationFactor, 0, direction.z * currentSpeedByDeltaTime);
+
             // Update camera position to follow the center point while staying on the paraboloid
             UpdateCameraPosition();
         }
+
+        // private void MoveCenterPoint()
+        // {
+        //     // Skip if no input
+        //     if (_moveInput.sqrMagnitude < 0.01f)
+        //         return;
+        //
+        //     // Get movement values from the input system
+        //     float horizontalInput = _moveInput.x; // AD keys
+        //     float verticalInput = _moveInput.y; // WS keys
+        //
+        //     // Get camera's forward direction and project it onto XZ plane
+        //     Vector3 cameraForward = transform.forward;
+        //     Vector3 projectedForward = Vector3.ProjectOnPlane(cameraForward, Vector3.up).normalized;
+        //
+        //     // Calculate the angle between camera forward and its projection to compensate for inclination
+        //     float angle = Vector3.Angle(cameraForward, projectedForward);
+        //     float compensationFactor = Mathf.Cos(angle * Mathf.Deg2Rad);
+        //
+        //     // Prevent division by very small numbers
+        //     if (compensationFactor < 0.01f)
+        //         compensationFactor = 0.01f;
+        //
+        //     // Get camera's right vector (already on XZ plane since camera only rotates around Y)
+        //     Vector3 cameraRight = transform.right;
+        //
+        //     // Calculate movement direction using camera-relative vectors
+        //     // Apply compensation to vertical movement
+        //     Vector3 direction = (cameraRight * horizontalInput +
+        //                          projectedForward * (verticalInput / compensationFactor)).normalized;
+        //
+        //     // Apply sprint multiplier if sprinting
+        //     float currentSpeed = _isSprinting ? centerMoveSpeed * sprintMultiplier : centerMoveSpeed;
+        //
+        //     // Move the center point
+        //     _centerPoint += direction * (currentSpeed * Time.deltaTime);
+        //
+        //     // Update camera position to follow the center point while staying on the paraboloid
+        //     UpdateCameraPosition();
+        // }
         
         private void RotateOnParaboloid()
         {
