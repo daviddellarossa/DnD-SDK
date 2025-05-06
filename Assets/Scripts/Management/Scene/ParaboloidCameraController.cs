@@ -10,10 +10,20 @@ namespace Management.Scene
         [Tooltip("Coefficient for the paraboloid equation (y = a * (x² + z²))")]
         [SerializeField] private float paraboloidCoefficient = 0.1f;
         
-        [Tooltip("Minimum height of the camera on the paraboloid")]
+        [Tooltip("Height of the paraboloid center (Y coordinate)")]
+        [SerializeField] private float centerHeight = 0.0f;
+        
+        [Header("Camera Settings")]
+        [Tooltip("Initial height of the camera above the paraboloid center")]
+        [Range(0.1f, 50.0f)]
+        [SerializeField] private float initialCameraHeight = 5.0f;
+        
+        [Tooltip("Minimum height of the camera above the paraboloid center")]
+        [Range(0.1f, 10.0f)]
         [SerializeField] private float minHeight = 2.0f;
         
-        [Tooltip("Maximum height of the camera on the paraboloid")]
+        [Tooltip("Maximum height of the camera above the paraboloid center")]
+        [Range(5.0f, 50.0f)]
         [SerializeField] private float maxHeight = 20.0f;
         
         [Header("Movement Settings")]
@@ -26,19 +36,21 @@ namespace Management.Scene
         [Tooltip("Vertical movement speed on the paraboloid")]
         [SerializeField] private float verticalMoveSpeed = 5.0f;
         
+        [Tooltip("Smoothing factor for camera height changes (lower values = smoother)")]
+        [Range(1f, 20f)]
+        [SerializeField] private float heightSmoothingSpeed = 10.0f;
+        
         [Tooltip("Multiplier for center movement speed when holding shift")]
         [SerializeField] private float sprintMultiplier = 2.0f;
         
         [Header("Camera Settings")]
-        [Tooltip("Target for the camera to look at")]
-        [SerializeField] private Transform lookTarget;
         
         // Center point of the paraboloid
-        private Vector3 _centerPoint = Vector3.zero;
+        private Vector3 _centerPoint;
         
         // Camera position relative to center in cylindrical coordinates
-        private float _cameraRadialDistance = 10.0f;
         private float _cameraHeight;
+        private float _targetCameraHeight; // Target height for smooth interpolation
         private float _cameraAngle;
         
         // Input system variables
@@ -57,25 +69,23 @@ namespace Management.Scene
         {
             _inputActions = new InputSystem_Actions();
             
-            // Initialize camera height
-            _cameraHeight = Mathf.Clamp(5.0f, minHeight, maxHeight);
+            // Ensure min/max values are valid
+            minHeight = Mathf.Max(0.1f, minHeight);
+            maxHeight = Mathf.Max(minHeight + 1.0f, maxHeight);
             
-            // Create look target if not assigned
-            if (lookTarget == null)
-            {
-                GameObject targetObj = new GameObject("CameraLookTarget");
-                lookTarget = targetObj.transform;
-                lookTarget.position = _centerPoint;
-            }
+            // Initialize camera height using the configurable parameter
+            _cameraHeight = Mathf.Clamp(initialCameraHeight, minHeight, maxHeight);
+            _targetCameraHeight = _cameraHeight; // Initialize target height
+            
+            // Initialize center point with the specified height
+            _centerPoint = new Vector3(0, centerHeight, 0);
         }
         
         private void Start()
         {
             // Set initial camera position on the paraboloid
+            // (This will also set the camera to look at the center point)
             UpdateCameraPosition();
-            
-            // Set camera to look at the center point
-            transform.LookAt(lookTarget);
         }
         
         private void OnEnable()
@@ -159,16 +169,22 @@ namespace Management.Scene
         {
             float scrollValue = context.ReadValue<Vector2>().y;
             
-            // Update camera height based on scroll
-            _cameraHeight += scrollValue * verticalMoveSpeed * Time.deltaTime * 10f;
-            _cameraHeight = Mathf.Clamp(_cameraHeight, minHeight, maxHeight);
-            
-            // Update camera position to stay on the paraboloid
-            UpdateCameraPosition();
+            // Update target camera height above center based on scroll
+            _targetCameraHeight += scrollValue * verticalMoveSpeed * Time.deltaTime * 10f;
+            _targetCameraHeight = Mathf.Clamp(_targetCameraHeight, minHeight, maxHeight);
         }
         
         private void Update()
         {
+            // Smoothly interpolate camera height towards target height
+            if (!Mathf.Approximately(_cameraHeight, _targetCameraHeight))
+            {
+                _cameraHeight = Mathf.Lerp(_cameraHeight, _targetCameraHeight, Time.deltaTime * heightSmoothingSpeed);
+                
+                // Update camera position if height changed
+                UpdateCameraPosition();
+            }
+            
             // Move center point with WASD
             MoveCenterPoint();
             
@@ -177,12 +193,6 @@ namespace Management.Scene
             {
                 RotateOnParaboloid();
             }
-            
-            // Always update look target to follow center point
-            lookTarget.position = _centerPoint;
-            
-            // Make camera look at the center point
-            transform.LookAt(lookTarget);
         }
         
         private void MoveCenterPoint()
@@ -216,55 +226,15 @@ namespace Management.Scene
             // Prevent division by very small numbers
             if (compensationFactor < 0.01f)
                 compensationFactor = 0.01f;
-
+            compensationFactor = 1f;
             var currentSpeedByDeltaTime = currentSpeed * Time.deltaTime;
             
-            // Move the center point
+            // Move the center point, preserving its Y coordinate (centerHeight)
             _centerPoint += new Vector3(direction.x * currentSpeedByDeltaTime / compensationFactor, 0, direction.z * currentSpeedByDeltaTime);
 
             // Update camera position to follow the center point while staying on the paraboloid
             UpdateCameraPosition();
         }
-
-        // private void MoveCenterPoint()
-        // {
-        //     // Skip if no input
-        //     if (_moveInput.sqrMagnitude < 0.01f)
-        //         return;
-        //
-        //     // Get movement values from the input system
-        //     float horizontalInput = _moveInput.x; // AD keys
-        //     float verticalInput = _moveInput.y; // WS keys
-        //
-        //     // Get camera's forward direction and project it onto XZ plane
-        //     Vector3 cameraForward = transform.forward;
-        //     Vector3 projectedForward = Vector3.ProjectOnPlane(cameraForward, Vector3.up).normalized;
-        //
-        //     // Calculate the angle between camera forward and its projection to compensate for inclination
-        //     float angle = Vector3.Angle(cameraForward, projectedForward);
-        //     float compensationFactor = Mathf.Cos(angle * Mathf.Deg2Rad);
-        //
-        //     // Prevent division by very small numbers
-        //     if (compensationFactor < 0.01f)
-        //         compensationFactor = 0.01f;
-        //
-        //     // Get camera's right vector (already on XZ plane since camera only rotates around Y)
-        //     Vector3 cameraRight = transform.right;
-        //
-        //     // Calculate movement direction using camera-relative vectors
-        //     // Apply compensation to vertical movement
-        //     Vector3 direction = (cameraRight * horizontalInput +
-        //                          projectedForward * (verticalInput / compensationFactor)).normalized;
-        //
-        //     // Apply sprint multiplier if sprinting
-        //     float currentSpeed = _isSprinting ? centerMoveSpeed * sprintMultiplier : centerMoveSpeed;
-        //
-        //     // Move the center point
-        //     _centerPoint += direction * (currentSpeed * Time.deltaTime);
-        //
-        //     // Update camera position to follow the center point while staying on the paraboloid
-        //     UpdateCameraPosition();
-        // }
         
         private void RotateOnParaboloid()
         {
@@ -291,22 +261,31 @@ namespace Management.Scene
             // Update previous mouse position for next frame
             _previousMousePosition = currentMousePosition;
         }
-        
+
         private void UpdateCameraPosition()
         {
-            // Convert cylindrical coordinates to Cartesian coordinates
-            float x = _cameraRadialDistance * Mathf.Cos(_cameraAngle * Mathf.Deg2Rad);
-            float z = _cameraRadialDistance * Mathf.Sin(_cameraAngle * Mathf.Deg2Rad);
+            // Ensure minimum height above the center is maintained
+            // This guarantees the camera is at least minHeight units above the center point
+            float heightAboveCenter = Mathf.Max(_cameraHeight, minHeight);
+        
+            // Using the modified paraboloid equation: (y - centerHeight) = a * (x² + z²)
+            // We can solve for the radius r = sqrt((heightAboveCenter/a))
+            // where r² = x² + z²
+            float radius = Mathf.Sqrt(heightAboveCenter / paraboloidCoefficient);
+        
+            // Convert angle to Cartesian coordinates using the calculated radius
+            float x = radius * Mathf.Cos(_cameraAngle * Mathf.Deg2Rad);
+            float z = radius * Mathf.Sin(_cameraAngle * Mathf.Deg2Rad);
+        
+            // Calculate the absolute height (world space) by adding the height above center to the center's height
+            float absoluteY = _centerPoint.y + heightAboveCenter;
+        
+            // Set camera position relative to ground level (not center point's height)
+            // We use _centerPoint.x and _centerPoint.z, but calculate y independently
+            transform.position = new Vector3(_centerPoint.x + x, absoluteY, _centerPoint.z + z);
             
-            // Calculate height on paraboloid based on radial distance
-            // Formula: y = a * (x^2 + z^2) = a * r^2
-            float paraboloidHeight = paraboloidCoefficient * (_cameraRadialDistance * _cameraRadialDistance);
-            
-            // Ensure minimum height is maintained
-            float y = Mathf.Max(paraboloidHeight, _cameraHeight);
-            
-            // Set camera position relative to center point
-            transform.position = _centerPoint + new Vector3(x, y, z);
+            // Always make the camera look at the center point
+            transform.LookAt(_centerPoint);
         }
     }
 }

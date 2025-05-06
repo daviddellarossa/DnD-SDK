@@ -302,7 +302,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 7
   m_Depth: -1
   m_CullingMask:
@@ -391,13 +391,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paraboloidCoefficient: 0.05
-  minHeight: 2
+  centerHeight: 2
+  initialCameraHeight: 5
+  minHeight: 3
   maxHeight: 20
   centerMoveSpeed: 5
   horizontalMoveSpeed: 20
   verticalMoveSpeed: 5
+  heightSmoothingSpeed: 5
   sprintMultiplier: 2
-  lookTarget: {fileID: 0}
 --- !u!1 &1191899943
 GameObject:
   m_ObjectHideFlags: 0
