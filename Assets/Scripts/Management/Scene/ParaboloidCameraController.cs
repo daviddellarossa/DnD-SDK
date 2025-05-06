@@ -6,6 +6,12 @@ namespace Management.Scene
 {
     public class ParaboloidCameraController : MonoBehaviour
     {
+        private void OnValidate()
+        {
+            // Ensure min/max values are valid
+            minHeight = Mathf.Max(0.1f, minHeight);
+            maxHeight = Mathf.Max(minHeight + 1.0f, maxHeight);
+        }
         [Header("Paraboloid Settings")]
         [Tooltip("Coefficient for the paraboloid equation (y = a * (x² + z²))")]
         [SerializeField] private float paraboloidCoefficient = 0.1f;
@@ -14,6 +20,9 @@ namespace Management.Scene
         [SerializeField] private float centerHeight = 0.0f;
         
         [Header("Camera Settings")]
+        [Tooltip("Camera to be controlled (if null, will use Camera.main)")]
+        [SerializeField] private Camera controlledCamera;
+        
         [Tooltip("Initial height of the camera above the paraboloid center")]
         [Range(0.1f, 50.0f)]
         [SerializeField] private float initialCameraHeight = 5.0f;
@@ -68,6 +77,16 @@ namespace Management.Scene
         private void Awake()
         {
             _inputActions = new InputSystem_Actions();
+            
+            // If no camera is assigned, use Camera.main
+            if (controlledCamera == null)
+            {
+                controlledCamera = Camera.main;
+                if (controlledCamera == null)
+                {
+                    Debug.LogError("No camera assigned and Camera.main not found. ParaboloidCameraController will not function correctly.");
+                }
+            }
             
             // Ensure min/max values are valid
             minHeight = Mathf.Max(0.1f, minHeight);
@@ -197,20 +216,20 @@ namespace Management.Scene
         
         private void MoveCenterPoint()
         {
-            // Skip if no input
-            if (_moveInput.sqrMagnitude < 0.01f)
+            // Skip if no input or no camera
+            if (_moveInput.sqrMagnitude < 0.01f || controlledCamera == null)
                 return;
-
+        
             // Get movement values from the input system
             float horizontalInput = _moveInput.x; // AD keys
             float verticalInput = _moveInput.y; // WS keys
-
+        
             // Get camera's forward direction and project it onto XZ plane
-            Vector3 cameraForward = transform.forward;
+            Vector3 cameraForward = controlledCamera.transform.forward;
             Vector3 projectedForward = Vector3.ProjectOnPlane(cameraForward, Vector3.up).normalized;
-
+        
             // Get camera's right vector (already on XZ plane since camera only rotates around Y)
-            Vector3 cameraRight = transform.right;
+            Vector3 cameraRight = controlledCamera.transform.right;
 
             // Calculate movement direction using camera-relative vectors
             Vector3 direction = (cameraRight * horizontalInput + projectedForward * verticalInput).normalized;
@@ -238,6 +257,10 @@ namespace Management.Scene
         
         private void RotateOnParaboloid()
         {
+            // Skip if no camera
+            if (controlledCamera == null)
+                return;
+                
             // Get current mouse position
             Vector2 currentMousePosition = Mouse.current.position.ReadValue();
             
@@ -264,6 +287,10 @@ namespace Management.Scene
 
         private void UpdateCameraPosition()
         {
+            // Skip if no camera
+            if (controlledCamera == null)
+                return;
+                
             // Ensure minimum height above the center is maintained
             // This guarantees the camera is at least minHeight units above the center point
             float heightAboveCenter = Mathf.Max(_cameraHeight, minHeight);
@@ -282,10 +309,10 @@ namespace Management.Scene
         
             // Set camera position relative to ground level (not center point's height)
             // We use _centerPoint.x and _centerPoint.z, but calculate y independently
-            transform.position = new Vector3(_centerPoint.x + x, absoluteY, _centerPoint.z + z);
+            controlledCamera.transform.position = new Vector3(_centerPoint.x + x, absoluteY, _centerPoint.z + z);
             
             // Always make the camera look at the center point
-            transform.LookAt(_centerPoint);
+            controlledCamera.transform.LookAt(_centerPoint);
         }
     }
 }

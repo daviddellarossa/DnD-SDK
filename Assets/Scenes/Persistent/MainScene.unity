@@ -392,6 +392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paraboloidCoefficient: 0.05
   centerHeight: 2
+  controlledCamera: {fileID: 65040691}
   initialCameraHeight: 5
   minHeight: 3
   maxHeight: 20
