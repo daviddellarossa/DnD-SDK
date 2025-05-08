@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Management.Scene
 {
@@ -15,9 +16,9 @@ namespace Management.Scene
             ValidateHeightLimits();
             
             // Validate inverse coefficient
-            if (inverseParaboloidCoefficient <= 0)
+            if (paraboloidCoefficient <= 0)
             {
-                inverseParaboloidCoefficient = 10f;
+                paraboloidCoefficient = 10f;
                 Debug.LogWarning("Inverse paraboloid coefficient must be greater than zero. Setting to default value.");
             }
         }
@@ -29,8 +30,8 @@ namespace Management.Scene
             maxHeight = Mathf.Max(minHeight + 1.0f, maxHeight);
         }
         [Header("Paraboloid Settings")]
-        [Tooltip("Inverse coefficient (1/a) for the paraboloid equation (y = a * (x² + z²)). Higher values = flatter curve.")]
-        [SerializeField] private float inverseParaboloidCoefficient = 10f;
+        [Tooltip("Coefficient (a) for the paraboloid equation (y = 1/a * (x² + z²)). Higher values = flatter curve.")]
+        [SerializeField] private float paraboloidCoefficient = 10f;
         
         [Tooltip("Height of the paraboloid center (Y coordinate)")]
         [SerializeField] private float centerHeight = 0.0f;
@@ -55,18 +56,15 @@ namespace Management.Scene
         [Tooltip("Movement speed of the center point")]
         [SerializeField] private float centerMoveSpeed = 5.0f;
         
-        [Tooltip("Horizontal movement speed on the paraboloid")]
-        [SerializeField] private float horizontalMoveSpeed = 20.0f;
+        [Tooltip("Horizontal rotation speed on the paraboloid")]
+        [SerializeField] private float horizontalRotationSpeed = 20.0f;
         
         [Tooltip("Vertical movement speed on the paraboloid")]
         [SerializeField] private float verticalMoveSpeed = 5.0f;
         
-        [Tooltip("Smoothing factor for camera height changes (lower values = smoother)")]
-        [Range(1f, 20f)]
-        [SerializeField] private float heightSmoothingSpeed = 10.0f;
-        
         [Tooltip("Multiplier for center movement speed when holding shift")]
         [SerializeField] private float sprintMultiplier = 2.0f;
+        
         
         [Tooltip("Smoothing factor for movement (lower values = smoother)")]
         [Range(1f, 20f)]
@@ -76,6 +74,10 @@ namespace Management.Scene
         [Range(1f, 20f)]
         [SerializeField] private float rotationSmoothFactor = 10.0f;
         
+        [Tooltip("Smoothing factor for camera height changes (lower values = smoother)")]
+        [Range(1f, 20f)]
+        [SerializeField] private float heightSmoothFactor = 10.0f;
+
         [Header("Camera Settings")]
         
         // Center point of the paraboloid
@@ -276,7 +278,7 @@ namespace Management.Scene
             // Smoothly interpolate camera height towards target height
             if (!IsPositionStable(_cameraHeight, _targetCameraHeight))
             {
-                _cameraHeight = Mathf.Lerp(_cameraHeight, _targetCameraHeight, Time.deltaTime * heightSmoothingSpeed);
+                _cameraHeight = Mathf.Lerp(_cameraHeight, _targetCameraHeight, Time.deltaTime * heightSmoothFactor);
                 positionChanged = true;
             }
             
@@ -349,7 +351,7 @@ namespace Management.Scene
             if (mouseDelta.sqrMagnitude > POSITION_EPSILON)
             {
                 // Calculate horizontal movement based on mouse delta
-                float horizontalMovement = mouseDelta.x * horizontalMoveSpeed * Time.deltaTime;
+                float horizontalMovement = mouseDelta.x * horizontalRotationSpeed * Time.deltaTime;
                 
                 // Update target camera angle around the center point
                 _targetCameraAngle += horizontalMovement;
@@ -371,7 +373,7 @@ namespace Management.Scene
         
             // Calculate radius using the formula r = sqrt(heightAboveCenter * inverseCoeff)
             // This gives us the distance from center on the XZ plane
-            float radius = Mathf.Sqrt(heightAboveCenter * inverseParaboloidCoefficient);
+            float radius = Mathf.Sqrt(heightAboveCenter * paraboloidCoefficient);
         
             // Convert polar coordinates to Cartesian coordinates
             // Pre-compute sin and cos values for better performance
