@@ -363,6 +363,61 @@ Transform:
   - {fileID: 1469960867}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1407609546
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1407609548}
+  - component: {fileID: 1407609547}
+  m_Layer: 0
+  m_Name: NavigationDecal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1407609547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407609546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2313b1e3defb4558a151d9abc0cf6af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decalRenderer: {fileID: 0}
+  decalSize: 0.5
+  decalColor: {r: 0, g: 1, b: 0, a: 0.5}
+  rotateDecal: 1
+  rotationSpeed: 30
+  pulseEffect: 1
+  pulseSpeed: 1
+  pulseMin: 0.8
+  pulseMax: 1.2
+  customDecalMaterial: {fileID: 2100000, guid: 62ab3364dd1f2ae4d8a987b56051dd3e, type: 2}
+  useCustomMaterial: 1
+--- !u!4 &1407609548
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407609546}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1469960866
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,6 +579,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 759578612332228878, guid: 75acdac77da810a42ac742c246d5da19, type: 3}
+      propertyPath: navigationDecal
+      value: 
+      objectReference: {fileID: 1407609547}
     - target: {fileID: 2024211820598366029, guid: 75acdac77da810a42ac742c246d5da19, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -580,6 +639,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1407609548}
   - {fileID: 334906770}
   - {fileID: 410087041}
   - {fileID: 1546747810}
