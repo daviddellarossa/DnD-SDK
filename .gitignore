@@ -77,3 +77,6 @@ crashlytics-build.properties
 
 # Packages folder in Unity3D
 /[Aa]ssets/[Pp]ackages/*
+
+# Qodana configuration file
+qodana.yaml

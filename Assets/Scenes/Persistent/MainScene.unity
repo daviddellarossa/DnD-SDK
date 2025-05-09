@@ -390,19 +390,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9e6cdf436c47e0a6330ae268e7f5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inverseParaboloidCoefficient: 10
+  paraboloidCoefficient: 10
   centerHeight: 2
   controlledCamera: {fileID: 65040691}
   initialCameraHeight: 5
   minHeight: 3
   maxHeight: 20
   centerMoveSpeed: 5
-  horizontalMoveSpeed: 20
+  horizontalRotationSpeed: 20
   verticalMoveSpeed: 5
-  heightSmoothingSpeed: 10
   sprintMultiplier: 2
   movementSmoothFactor: 10
   rotationSmoothFactor: 10
+  heightSmoothFactor: 10
 --- !u!1 &1191899943
 GameObject:
   m_ObjectHideFlags: 0
