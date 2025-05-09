@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using DnD.Code.Scripts.Characters;
-using Infrastructure.SaveManager;
+﻿using Infrastructure.SaveManager;
 using Infrastructure.SaveManager.Models;
 using Management.Scene;
 using UnityEngine;
@@ -25,7 +23,7 @@ namespace Management.Levels
                 return;
             }
             
-            var character = playerObject.GetComponent<Character>();
+            var character = playerObject.GetComponent<DnD.Code.Scripts.Characters.CharacterController>();
             
             if (character is null)
             {

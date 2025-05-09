@@ -93,6 +93,7 @@ namespace Management.Scene
         private float _targetCameraAngle; // Target angle for smooth rotation
         
         // Input system variables
+        [SerializeField]
         private InputSystem_Actions _inputActions;
         private InputAction _moveAction;
         private InputAction _sprintAction;
@@ -144,16 +145,16 @@ namespace Management.Scene
         private void OnEnable()
         {
             // Setup input actions
-            _moveAction = _inputActions.Camera.Move;
+            _moveAction = _inputActions.InGame.Move;
             _moveAction.Enable();
             
-            _sprintAction = _inputActions.Camera.Sprint;
+            _sprintAction = _inputActions.InGame.Sprint;
             _sprintAction.Enable();
             
-            _rotateAction = _inputActions.Camera.Rotate;
+            _rotateAction = _inputActions.InGame.Rotate;
             _rotateAction.Enable();
             
-            _scrollAction = _inputActions.Camera.Scroll;
+            _scrollAction = _inputActions.InGame.Scroll;
             _scrollAction.Enable();
             
             // Connect event handlers
