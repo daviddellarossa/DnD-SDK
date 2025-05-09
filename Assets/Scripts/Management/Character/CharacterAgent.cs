@@ -1,12 +1,12 @@
-using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
-using UnityEngine.AI;
 using System.Collections;
+using DnD.Code.Scripts.Characters;
+using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.InputSystem;
 
-namespace DnD.Code.Scripts.Characters
+namespace Management.Character
 {
-    public class CharacterController : MonoBehaviour
+    public class CharacterAgent : MonoBehaviour
     {
         [SerializeField]
         private CharacterStats characterStats;
