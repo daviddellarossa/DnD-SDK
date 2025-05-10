@@ -1,0 +1,35 @@
+name: Run Unity Tests
+
+on:
+  pull_request:
+    branches: [ main, master, develop ] # Or whatever branch(s) you use
+
+jobs:
+  test:
+    name: Run EditMode Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Cache Library
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-${{ runner.os }}-${{ hashFiles('**/*.cs', '**/*.asmdef') }}
+          restore-keys: |
+            Library-${{ runner.os }}-
+
+      - name: Run tests
+        uses: game-ci/unity-test-runner@v4
+        with:
+          unityVersion: 6000.0.41f1 # Replace with your version
+          testMode: EditMode
+
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: TestResults
+          path: artifacts
