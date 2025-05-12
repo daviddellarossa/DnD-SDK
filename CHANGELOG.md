@@ -43,6 +43,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Deserialization system for savegames
 - Deserialization support for CharacterStat from savegames
 - Comprehensive test coverage for save/load operations
+- Added crosshair pointer to setup new location for navigation
+- Added crosshair that keeps the location to reach
 
 ### Changed
 - Refactored Message Broker with Roslyn
