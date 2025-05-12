@@ -524,6 +524,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 759578612332228878, guid: 75acdac77da810a42ac742c246d5da19, type: 3}
+      propertyPath: navigationDecal
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2024211820598366029, guid: 75acdac77da810a42ac742c246d5da19, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

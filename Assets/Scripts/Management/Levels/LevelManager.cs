@@ -23,7 +23,7 @@ namespace Management.Levels
                 return;
             }
             
-            var character = playerObject.GetComponent<DnD.Code.Scripts.Characters.CharacterController>();
+            var character = playerObject.GetComponent<Management.Character.CharacterAgent>();
             
             if (character is null)
             {
