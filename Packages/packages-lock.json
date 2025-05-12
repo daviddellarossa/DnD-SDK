@@ -8,7 +8,7 @@
       "hash": "fe31ad0904abee296b5ea72c6073157accba59e8"
     },
     "com.unity.addressables": {
-      "version": "2.4.3",
+      "version": "2.4.4",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -18,7 +18,7 @@
         "com.unity.modules.jsonserialize": "1.0.0",
         "com.unity.modules.imageconversion": "1.0.0",
         "com.unity.modules.unitywebrequest": "1.0.0",
-        "com.unity.scriptablebuildpipeline": "2.3.2",
+        "com.unity.scriptablebuildpipeline": "2.3.6",
         "com.unity.modules.unitywebrequestassetbundle": "1.0.0"
       },
       "url": "https://packages.unity.com"
@@ -211,7 +211,7 @@
       }
     },
     "com.unity.scriptablebuildpipeline": {
-      "version": "2.3.2",
+      "version": "2.3.6",
       "depth": 2,
       "source": "registry",
       "dependencies": {
