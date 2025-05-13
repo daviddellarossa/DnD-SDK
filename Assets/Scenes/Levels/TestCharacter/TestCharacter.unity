@@ -377,6 +377,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1778642967683134837, guid: 75acdac77da810a42ac742c246d5da19, type: 3}
+      propertyPath: <CharacterStats>k__BackingField.spex
+      value: 
+      objectReference: {fileID: 11400000, guid: 961c0c66ad71d5044914cfe032e67d7d, type: 2}
+    - target: {fileID: 1778642967683134837, guid: 75acdac77da810a42ac742c246d5da19, type: 3}
+      propertyPath: <CharacterStats>k__BackingField.class
+      value: 
+      objectReference: {fileID: 11400000, guid: 238e922aec36cc24a8e0f72b7276d2b5, type: 2}
+    - target: {fileID: 1778642967683134837, guid: 75acdac77da810a42ac742c246d5da19, type: 3}
+      propertyPath: <CharacterStats>k__BackingField.level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1778642967683134837, guid: 75acdac77da810a42ac742c246d5da19, type: 3}
+      propertyPath: <CharacterStats>k__BackingField.subClass
+      value: 
+      objectReference: {fileID: 11400000, guid: 1e0b9c7356a7e064591aaca28e3f4527, type: 2}
+    - target: {fileID: 1778642967683134837, guid: 75acdac77da810a42ac742c246d5da19, type: 3}
+      propertyPath: <CharacterStats>k__BackingField.hitPoints
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1778642967683134837, guid: 75acdac77da810a42ac742c246d5da19, type: 3}
+      propertyPath: <CharacterStats>k__BackingField.background
+      value: 
+      objectReference: {fileID: 11400000, guid: 5206e29d4a7de094b9161aef769030b4, type: 2}
+    - target: {fileID: 1778642967683134837, guid: 75acdac77da810a42ac742c246d5da19, type: 3}
+      propertyPath: <CharacterStats>k__BackingField.characterName
+      value: Daedalus
+      objectReference: {fileID: 0}
     - target: {fileID: 2024211820598366029, guid: 75acdac77da810a42ac742c246d5da19, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3
@@ -630,6 +658,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1778642967683134837, guid: 75acdac77da810a42ac742c246d5da19, type: 3}
+      propertyPath: <CharacterStats>k__BackingField.spex
+      value: 
+      objectReference: {fileID: 11400000, guid: 961c0c66ad71d5044914cfe032e67d7d, type: 2}
+    - target: {fileID: 1778642967683134837, guid: 75acdac77da810a42ac742c246d5da19, type: 3}
+      propertyPath: <CharacterStats>k__BackingField.class
+      value: 
+      objectReference: {fileID: 11400000, guid: 238e922aec36cc24a8e0f72b7276d2b5, type: 2}
+    - target: {fileID: 1778642967683134837, guid: 75acdac77da810a42ac742c246d5da19, type: 3}
+      propertyPath: <CharacterStats>k__BackingField.level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1778642967683134837, guid: 75acdac77da810a42ac742c246d5da19, type: 3}
+      propertyPath: <CharacterStats>k__BackingField.subClass
+      value: 
+      objectReference: {fileID: 11400000, guid: 0fde8234c2da77546ab57209f9f276b1, type: 2}
+    - target: {fileID: 1778642967683134837, guid: 75acdac77da810a42ac742c246d5da19, type: 3}
+      propertyPath: <CharacterStats>k__BackingField.hitPoints
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1778642967683134837, guid: 75acdac77da810a42ac742c246d5da19, type: 3}
+      propertyPath: <CharacterStats>k__BackingField.background
+      value: 
+      objectReference: {fileID: 11400000, guid: 5206e29d4a7de094b9161aef769030b4, type: 2}
+    - target: {fileID: 1778642967683134837, guid: 75acdac77da810a42ac742c246d5da19, type: 3}
+      propertyPath: <CharacterStats>k__BackingField.characterName
+      value: Icarus
+      objectReference: {fileID: 0}
     - target: {fileID: 2024211820598366029, guid: 75acdac77da810a42ac742c246d5da19, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
