@@ -6,11 +6,8 @@ using UnityEngine.InputSystem;
 
 namespace Management.Character
 {
-    public class CharacterAgent : MonoBehaviour
+    public class CompanionAgent : MonoBehaviour
     {
-        [SerializeField]
-        private CharacterStats characterStats;
-
         [SerializeField]
         private InputSystem_Actions inputActions;
 
@@ -25,12 +22,6 @@ namespace Management.Character
 
         private InputAction moveToPointAction;
         private bool isMoving = false;
-
-        public CharacterStats CharacterStats
-        {
-            get => characterStats;
-            set => characterStats = value;
-        }
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
