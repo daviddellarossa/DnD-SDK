@@ -6,7 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.0.1] - 2023-05-31
+### Added
+- Added separate NavMesh surface for Player and Companion
+- Added CompanionAgent class for Companion characters
+- Added CharacterIdentity class containing the CharacterStats
+
+### Changed
+- Extracted CharacterStats from PlayerAgent class
+
+## [0.0.1] - 2025-05-12
 
 ### Added
 - D&D features:
