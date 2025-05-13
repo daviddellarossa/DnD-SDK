@@ -15,6 +15,7 @@ namespace Management.Levels
         }
         void Start()
         {
+            // Find the player object, either by Tag, or by Component (PlayerAgent/CompanionAgent)
             GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 
             if (playerObject is null)
@@ -23,11 +24,11 @@ namespace Management.Levels
                 return;
             }
             
-            var character = playerObject.GetComponent<Management.Character.CharacterAgent>();
+            var characterIdentity = playerObject.GetComponent<Management.Character.CharacterIdentity>();
             
-            if (character is null)
+            if (characterIdentity is null)
             {
-                DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLog(this, nameof(Logger), $"Player not found.", LogType.Error);
+                DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLog(this, nameof(Logger), $"Player identity not found.", LogType.Error);
                 return;
             }
             
@@ -39,7 +40,7 @@ namespace Management.Levels
                 DeeDeeR.MessageBroker.MessageBroker.Instance.Logger.Send_OnLog(this, nameof(Logger), $"Unable to extract characterStats from saveGameData.", LogType.Error);
                 return;
             }
-            character.CharacterStats = characterStats;
+            characterIdentity.CharacterStats = characterStats;
         }
     }
 }

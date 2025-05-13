@@ -398,7 +398,7 @@ MonoBehaviour:
   maxHeight: 20
   centerMoveSpeed: 5
   horizontalRotationSpeed: 20
-  verticalMoveSpeed: 5
+  verticalMoveSpeed: 20
   sprintMultiplier: 2
   movementSmoothFactor: 10
   rotationSmoothFactor: 10
@@ -583,9 +583,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   decalOffset: 1
-  playerTransform: {fileID: 0}
   destinationReachedDistance: 0.5
-  debugMode: 0
 --- !u!4 &1825942567
 Transform:
   m_ObjectHideFlags: 0
